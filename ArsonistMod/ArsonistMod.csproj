@@ -13,6 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="arsonist" />
+    <None Remove="HenryBank.bnk" />
     <None Remove="Modules\Characters\Arsonist.cs~RF6221a098.TMP" />
     <None Remove="myassetbundle" />
   </ItemGroup>
@@ -28,6 +30,8 @@
 	</ItemGroup>
 	
   <ItemGroup>
+    <EmbeddedResource Include="arsonist" />
+    <EmbeddedResource Include="HenryBank.bnk" />
     <EmbeddedResource Include="myassetbundle" />
   </ItemGroup>
 
