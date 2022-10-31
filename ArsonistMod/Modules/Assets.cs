@@ -7,6 +7,7 @@ using System.IO;
 using System.Collections.Generic;
 using RoR2.UI;
 using System;
+using UnityEngine.AddressableAssets;
 
 namespace ArsonistMod.Modules
 {
@@ -23,11 +24,16 @@ namespace ArsonistMod.Modules
         internal static NetworkSoundEventDef swordHitSoundEvent;
         #endregion
 
+        //game effects
+        public static GameObject lemfireBall = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/Fireball.prefab").WaitForCompletion();
+        public static GameObject lemfireBallGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/FireballGhost.prefab").WaitForCompletion();
+        public static GameObject artificerFirebolt = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageFireboltBasic.prefab").WaitForCompletion();
+
         // the assetbundle to load assets from
         internal static AssetBundle mainAssetBundle;
 
         // CHANGE THIS
-        private const string assetbundleName = "arsonist";
+        private const string assetbundleName = "arsonistassetbundle";
         //change this to your project's name if/when you've renamed it
         private const string csProjName = "ArsonistMod";
         
@@ -66,7 +72,8 @@ namespace ArsonistMod.Modules
         internal static void LoadSoundbank()
         {                                                                
             //soundbank currently broke, but this is how you should load yours
-            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.HenryBank.bnk"))
+            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.Arsonist" +
+                $"Bank.bnk"))
             {
                 byte[] array = new byte[manifestResourceStream2.Length];
                 manifestResourceStream2.Read(array, 0, array.Length);

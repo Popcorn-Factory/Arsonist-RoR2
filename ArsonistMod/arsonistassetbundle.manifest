@@ -1,0 +1,223 @@
+ManifestFileVersion: 0
+CRC: 1905626930
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 650ac4d7ddfd1e80ebba292b36b07544
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ece864a23282de7a1adbe1d96daa2965
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 144
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 319
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ArsonistAssets/Animation/maskAimBazooka.mask
+- Assets/ArsonistAssets/Icons/texShotgunIcon.png
+- Assets/ArsonistAssets/VFX/Materials/matAnimeShapes.mat
+- Assets/ArsonistAssets/VFX/Textures/texPunchImpactShadow.png
+- Assets/ArsonistAssets/Materials/matBazookaRocket.mat
+- Assets/ArsonistAssets/Icons/texPrimaryIcon.png
+- Assets/ArsonistAssets/VFX/Textures/texHenrySwing2.png
+- Assets/ArsonistAssets/Icons/texBazookaIcon.png
+- Assets/ArsonistAssets/Icons/texMasteryAchievement.png
+- Assets/ArsonistAssets/Mesh/meshArsonist.mesh
+- Assets/ArsonistAssets/ArsonistDisplay.prefab
+- Assets/ArsonistAssets/VFX/Mesh/meshBoxingGlove.mesh
+- Assets/ArsonistAssets/Materials/matArsonist.mat
+- Assets/ArsonistAssets/VFX/FistBarrageEffect.prefab
+- Assets/ArsonistAssets/Textures/texHenryAlt.png
+- Assets/ArsonistAssets/Icons/texPassiveIcon.png
+- Assets/ArsonistAssets/VFX/Textures/texFire.tga
+- Assets/ArsonistAssets/Animation/clips/Jump.anim
+- Assets/ArsonistAssets/Mesh/meshHenryNeo.mesh
+- Assets/ArsonistAssets/Animation/clips/WalkR.anim
+- Assets/ArsonistAssets/VFX/HenryDustEffect.prefab
+- Assets/ArsonistAssets/Animation/clips/SprintL.anim
+- Assets/ArsonistAssets/Materials/matRebellion.mat
+- Assets/ArsonistAssets/VFX/Materials/matSmoke.mat
+- Assets/ArsonistAssets/VFX/Textures/texSwingEffect.png
+- Assets/ArsonistAssets/Textures/texBoxingGlove.png
+- Assets/ArsonistAssets/Animation/maskAimYaw.mask
+- Assets/ArsonistAssets/Icons/texDanteAchievement.png
+- Assets/ArsonistAssets/Icons/texSecondaryIcon.png
+- Assets/ArsonistAssets/Animation/animHenry.controller
+- Assets/ArsonistAssets/VFX/Materials/matHenrySwing2.mat
+- Assets/ArsonistAssets/Textures/texBazooka.png
+- Assets/ArsonistAssets/VFX/Textures/texRipple.png
+- Assets/ArsonistAssets/VFX/ImpactHenrySlash.prefab
+- Assets/ArsonistAssets/VFX/Mesh/meshSwing.asset
+- Assets/ArsonistAssets/VFX/HenryBazookaMuzzleFlash.prefab
+- Assets/ArsonistAssets/VFX/HenryFistSwingEffect.prefab
+- Assets/ArsonistAssets/Mesh/meshVergil.mesh
+- Assets/ArsonistAssets/VFX/Textures/texFistSwing.png
+- Assets/ArsonistAssets/Animation/clips/LightImpact.anim
+- Assets/ArsonistAssets/Icons/texHenryAchievement.png
+- Assets/ArsonistAssets/Animation/clips/WalkB.anim
+- Assets/ArsonistAssets/Animation/maskGesture.mask
+- Assets/ArsonistAssets/VFX/Materials/matPunchImpact.mat
+- Assets/ArsonistAssets/Mesh/meshHenryAlt.mesh
+- Assets/ArsonistAssets/Textures/texHenryJedi.png
+- Assets/ArsonistAssets/Animation/clips/SprintR.anim
+- Assets/ArsonistAssets/Animation/animHenryMenu.controller
+- Assets/ArsonistAssets/Icons/texVergilAchievement.png
+- Assets/ArsonistAssets/Textures/texShotgun.png
+- Assets/ArsonistAssets/Animation/clips/WalkL.anim
+- Assets/ArsonistAssets/Animation/maskImpact.mask
+- Assets/ArsonistAssets/Animation/clips/Idle.anim
+- Assets/ArsonistAssets/VFX/BombExplosionEffect.prefab
+- Assets/ArsonistAssets/Animation/clips/Slash2.anim
+- Assets/ArsonistAssets/Mesh/meshYamato.mesh
+- Assets/ArsonistAssets/VFX/Textures/texDust.png
+- Assets/ArsonistAssets/VFX/Textures/texHitSpark.png
+- Assets/ArsonistAssets/Materials/matBoxingGlove.mat
+- Assets/ArsonistAssets/Materials/matHenryAlt.mat
+- Assets/ArsonistAssets/Animation/clips/WalkF.anim
+- Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
+- Assets/ArsonistAssets/Materials/matDante.mat
+- Assets/ArsonistAssets/Animation/maskLeftArm.mask
+- Assets/ArsonistAssets/Mesh/MeshHenryGun.mesh
+- Assets/ArsonistAssets/Animation/clips/DescendFast.anim
+- Assets/ArsonistAssets/HenryBazookaRocketGhost.prefab
+- Assets/ArsonistAssets/Icons/texScepterSpecialIcon.png
+- Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
+- Assets/ArsonistAssets/Mesh/meshDante.mesh
+- Assets/ArsonistAssets/VFX/Materials/matTrail.mat
+- Assets/ArsonistAssets/Materials/matHenryJedi.mat
+- Assets/ArsonistAssets/VFX/Materials/matHitSpark.mat
+- Assets/ArsonistAssets/Mesh/meshNeoCoat.mesh
+- Assets/ArsonistAssets/Animation/clips/ShootGun.anim
+- Assets/ArsonistAssets/Animation/clips/SprintF.anim
+- Assets/ArsonistAssets/Mesh/meshHenrySwordAlt.mesh
+- Assets/ArsonistAssets/Textures/texHenry.png
+- Assets/ArsonistAssets/VFX/arsonistCustomUI.prefab
+- Assets/ArsonistAssets/Icons/texBazookaOutIcon.png
+- Assets/ArsonistAssets/Animation/maskAimPitch.mask
+- Assets/ArsonistAssets/Icons/texUziIcon.png
+- Assets/ArsonistAssets/VFX/Textures/white square.png
+- Assets/ArsonistAssets/Materials/matHenryNeo.mat
+- Assets/ArsonistAssets/VFX/Mesh/meshPunchShockwave.mesh
+- Assets/ArsonistAssets/Materials/matRoy.mat
+- Assets/ArsonistAssets/Icons/texBazookaIconScepter.png
+- Assets/ArsonistAssets/Textures/texHenryNeo.png
+- Assets/ArsonistAssets/Icons/texMainSkin.png
+- Assets/ArsonistAssets/Icons/texBoxingGlovesIcon.png
+- Assets/ArsonistAssets/Materials/matVergil.mat
+- Assets/ArsonistAssets/Materials/matHitboxPreview.mat
+- Assets/ArsonistAssets/Animation/clips/IdleIn.anim
+- Assets/ArsonistAssets/VFX/Materials/matSwingShadow.mat
+- Assets/ArsonistAssets/Textures/texHenryJediEmission.png
+- Assets/ArsonistAssets/Mesh/meshDanteCoat.mesh
+- Assets/ArsonistAssets/Animation/clips/RestIdle.anim
+- Assets/ArsonistAssets/Animation/clips/ThrowBomb.anim
+- Assets/ArsonistAssets/Icons/texHenryIcon.png
+- Assets/ArsonistAssets/Icons/texUtilityIcon.png
+- Assets/ArsonistAssets/Animation/clips/Ascend.anim
+- Assets/ArsonistAssets/VFX/Materials/matPunchEffect.mat
+- Assets/ArsonistAssets/VFX/Textures/texPunchImpact.png
+- Assets/ArsonistAssets/mdlArsonist.prefab
+- Assets/ArsonistAssets/Mesh/meshRebellion.mesh
+- Assets/ArsonistAssets/VFX/Materials/matHitSparkPunch.mat
+- Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
+- Assets/ArsonistAssets/Mesh/meshArsonistSword.mesh
+- Assets/ArsonistAssets/VFX/Materials/matEmbers.mat
+- Assets/ArsonistAssets/Animation/clips/AimYaw.anim
+- Assets/ArsonistAssets/HenryBombGhost.prefab
+- Assets/ArsonistAssets/Mesh/meshPistol.mesh
+- Assets/ArsonistAssets/Icons/texStingerIcon.png
+- Assets/ArsonistAssets/Textures/texHenryVergil.png
+- Assets/ArsonistAssets/Mesh/meshUzi.mesh
+- Assets/ArsonistAssets/VFX/Materials/matSlash.mat
+- Assets/ArsonistAssets/Icons/texPistolIcon.png
+- Assets/ArsonistAssets/VFX/Materials/matDust.mat
+- Assets/ArsonistAssets/VFX/Textures/texSmoke.png
+- Assets/ArsonistAssets/VFX/Textures/texEmbers.png
+- Assets/ArsonistAssets/Mesh/meshVergilCoat.mesh
+- Assets/ArsonistAssets/VFX/Textures/texLightning.tif
+- Assets/ArsonistAssets/Animation/clips/RestIdleIn.anim
+- Assets/ArsonistAssets/VFX/Materials/matRipple.mat
+- Assets/ArsonistAssets/Animation/clips/DefaultPose.anim
+- Assets/ArsonistAssets/Materials/matShotgun.mat
+- Assets/ArsonistAssets/Animation/clips/IdleAdditive.anim
+- Assets/ArsonistAssets/Icons/texBazookaFireIcon.png
+- Assets/ArsonistAssets/VFX/Materials/matFire.mat
+- Assets/ArsonistAssets/Icons/texGrandMasteryAchievement.png
+- Assets/ArsonistAssets/Animation/maskBandana.mask
+- Assets/ArsonistAssets/Animation/clips/MenuIdle.anim
+- Assets/ArsonistAssets/Materials/matBazooka.mat
+- Assets/ArsonistAssets/VFX/HenrySwordSwingEffect.prefab
+- Assets/ArsonistAssets/Animation/clips/Descend.anim
+- Assets/ArsonistAssets/Textures/texHenryDante.png
+- Assets/ArsonistAssets/Animation/clips/AimPitch.anim
+- Assets/ArsonistAssets/VFX/Textures/texSlash.png
+- Assets/ArsonistAssets/Icons/texSpecialIcon.png
+- Assets/ArsonistAssets/Textures/texHenryDanteEmission.png
+- Assets/ArsonistAssets/Animation/clips/MenuIdleIn.anim
+- Assets/ArsonistAssets/VFX/ImpactHenryPunch.prefab
+- Assets/ArsonistAssets/Animation/clips/Slash1.anim
+- Assets/ArsonistAssets/VFX/HenryBazookaExplosionEffect.prefab
+- Assets/ArsonistAssets/Animation/clips/Roll.anim
+Dependencies: []

@@ -15,5 +15,14 @@ namespace ArsonistMod.Modules
         internal const float gunDamageCoefficient = 4.2f;
 
         internal const float bombDamageCoefficient = 16f;
+
+        //energy
+        internal static float baseEnergy = 100f;
+        internal static float levelEnergy = 0f;
+        internal static float regenEnergyFraction = 0.025f;
+
+        //firespray
+        internal static float firesprayWeakDamageCoefficient = 1f;
+        internal static float firesprayStrongDamageCoefficient = 3f;
     }
 }

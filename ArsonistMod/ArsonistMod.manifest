@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 2634403442
+CRC: 3588843899
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: arsonist
+      Name: arsonistassetbundle
       Dependencies: {}

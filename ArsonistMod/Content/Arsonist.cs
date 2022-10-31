@@ -5,6 +5,7 @@ using RoR2.Skills;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using ArsonistMod.Content.Controllers;
 
 namespace ArsonistMod.Modules.Survivors
 {
@@ -66,6 +67,7 @@ namespace ArsonistMod.Modules.Survivors
         public override void InitializeCharacter()
         {
             base.InitializeCharacter();
+            bodyPrefab.AddComponent<EnergySystem>();
         }
 
         public override void InitializeUnlockables()
