@@ -27,7 +27,8 @@ namespace ArsonistMod.Modules
         //game effects
         public static GameObject lemfireBall = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/Fireball.prefab").WaitForCompletion();
         public static GameObject lemfireBallGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Lemurian/FireballGhost.prefab").WaitForCompletion();
-        public static GameObject artificerFirebolt = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageFireboltBasic.prefab").WaitForCompletion();
+        public static GameObject artificerFireboltGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageFireboltGhost.prefab").WaitForCompletion();
+        public static GameObject explosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ExplosionVFX.prefab").WaitForCompletion();
 
         // the assetbundle to load assets from
         internal static AssetBundle mainAssetBundle;

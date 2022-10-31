@@ -22,13 +22,15 @@ namespace ArsonistMod.Content.Controllers
         public HGTextMeshProUGUI energyNumber;
 
         //Energy system
-        public float maxEnergy;
-        public float currentEnergy;
-        public float regenEnergy;
-        public float costmultiplierEnergy;
-        public float costflatEnergy;
-        public float energyDecayTimer;
+        public float maxOverheat;
+        public float currentOverheat;
+        public float regenOverheat;
+        public float costmultiplierOverheat;
+        public float costflatOverheat;
+        public float overheatDecayTimer;
         public bool SetActiveTrue;
+        public bool ifOverheatRegenAllowed;
+        public bool ifOverheatMaxed;
 
         //Energy bar glow
         private enum GlowState
@@ -61,14 +63,16 @@ namespace ArsonistMod.Content.Controllers
 
 
             //Energy
-            maxEnergy = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
-            currentEnergy = maxEnergy;
-            regenEnergy = maxEnergy * StaticValues.regenEnergyFraction;
-            costmultiplierEnergy = 1f;
-            costflatEnergy = 0f;
+            maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
+            currentOverheat = 0f;
+            regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction;
+            costmultiplierOverheat = 1f;
+            costflatOverheat = 0f;
+            ifOverheatMaxed = false;
+            ifOverheatRegenAllowed = true;
 
             //UI objects 
-            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("nidusCustomUI"));
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
             CustomUIObject.SetActive(false);
             SetActiveTrue = false;
 
@@ -77,7 +81,7 @@ namespace ArsonistMod.Content.Controllers
             energyMeterGlowRect = CustomUIObject.transform.GetChild(1).GetComponent<RectTransform>();
 
             //setup the UI element for the min/max
-            energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentEnergy} / {maxEnergy}", new Vector2(0, -110), 24f);
+            energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
             
 
             // Start timer on 1f to turn off the timer.
@@ -119,43 +123,69 @@ namespace ArsonistMod.Content.Controllers
             //Energy updates
             if (characterBody)
             {
-                maxEnergy = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
-                regenEnergy = maxEnergy * StaticValues.regenEnergyFraction;
+                maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
+                    + (StaticValues.secondaryskillForceEnergy * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    + (StaticValues.utilityskillForceEnergy * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
+                regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat;
 
-                costmultiplierEnergy = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
-                costflatEnergy = (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
+                costmultiplierOverheat = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
+                costflatOverheat = (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
 
-                if (costmultiplierEnergy > 1f)
+                if (costmultiplierOverheat > 1f)
                 {
-                    costmultiplierEnergy = 1f;
+                    costmultiplierOverheat = 1f;
                 }
             }
 
+            //Energy used
+            if (ifOverheatMaxed)
+            {
+                if (overheatDecayTimer > 5f / characterBody.attackSpeed)
+                {
+                    overheatDecayTimer = 0f;
+                    ifOverheatRegenAllowed = true;
+                    ifOverheatMaxed = false;
+                }
+                else
+                {
+                    currentOverheat = maxOverheat;
+                    ifOverheatRegenAllowed = false;
+                    overheatDecayTimer += Time.fixedDeltaTime;
+                }
+            }
 
             //Energy Currently have
-            currentEnergy += regenEnergy * Time.fixedDeltaTime;
-            
-
-            if (currentEnergy > maxEnergy)
+            if (ifOverheatRegenAllowed)
             {
-                currentEnergy = maxEnergy;
+                currentOverheat -= regenOverheat * Time.fixedDeltaTime;
+            }
+
+            if (currentOverheat > maxOverheat)
+            {
+                currentOverheat = maxOverheat;
+                ifOverheatMaxed = true;
+            }
+
+            if(currentOverheat < 0f)
+            {
+                currentOverheat = 0f;
             }
 
             if (energyNumber)
             {
-                energyNumber.SetText($"{(int)currentEnergy} / {maxEnergy}");
+                energyNumber.SetText($"{(int)currentOverheat} / {maxOverheat}");
             }
 
             if (energyMeter)
             {
                 // 2f because meter is too small probably.
                 // Logarithmically scale.
-                float logVal = Mathf.Log10(((maxEnergy / StaticValues.baseEnergy) * 10f) + 1) * (currentEnergy / maxEnergy);
+                float logVal = Mathf.Log10(((maxOverheat / StaticValues.baseEnergy) * 10f) + 1) * (currentOverheat / maxOverheat);
                 energyMeter.localScale = new Vector3(2.0f * logVal, 0.05f, 1f);
                 energyMeterGlowRect.localScale = new Vector3(2.3f * logVal, 0.1f, 1f);
             }
 
-            //Chat.AddMessage($"{currentEnergy}/{maxEnergy}");
+            //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
         }
 
         public void FixedUpdate()
@@ -217,13 +247,13 @@ namespace ArsonistMod.Content.Controllers
 
         public void SpendEnergy(float Energy)
         {
-            //float energyflatCost = Energy - costflatEnergy;
+            //float energyflatCost = Energy - costflatOverheat;
             //if (energyflatCost < 0f) energyflatCost = 0f;
 
-            //float energyCost = rageEnergyCost * costmultiplierEnergy * energyflatCost;
+            //float energyCost = rageEnergyCost * costmultiplierOverheat * energyflatCost;
             //if (energyCost < 0f) energyCost = 0f;
 
-            currentEnergy -= Energy;
+            currentOverheat += Energy;
 
         }
 

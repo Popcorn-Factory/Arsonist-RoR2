@@ -10,14 +10,19 @@ namespace ArsonistMod.Modules
     {
         internal static GameObject bombPrefab;
         internal static GameObject lemurianFireBall;
+        internal static GameObject artificerFirebolt;
 
         internal static void RegisterProjectiles()
         {
             CreateBomb();
 
             AddProjectile(bombPrefab);
+
             CreateLemurianFireBall();
             AddProjectile(lemurianFireBall);
+
+            CreateArtificerFireBolt();
+            AddProjectile(artificerFirebolt);
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
@@ -48,15 +53,24 @@ namespace ArsonistMod.Modules
         private static void CreateLemurianFireBall()
         {
             lemurianFireBall = PrefabAPI.InstantiateClone(Modules.Assets.lemfireBall, "lemurianFireBall", true);
+            Rigidbody lemurianFireballRigidbody = lemurianFireBall.GetComponent<Rigidbody>();
+            if (!lemurianFireballRigidbody)
+            {
+                lemurianFireballRigidbody = lemurianFireBall.AddComponent<Rigidbody>();
+            }
 
-            ProjectileImpactExplosion checkProjectileExplosion = lemurianFireBall.GetComponent<ProjectileImpactExplosion>();
+            ProjectileImpactExplosion lemurianFireBallexplosion = lemurianFireBall.GetComponent<ProjectileImpactExplosion>();
 
-            ProjectileImpactExplosion lemurianFireBallexplosion = lemurianFireBall.AddComponent<ProjectileImpactExplosion>();
+            if (!lemurianFireBallexplosion)
+            {
+                lemurianFireBallexplosion = lemurianFireBall.AddComponent<ProjectileImpactExplosion>();                
+
+            }
             InitializeImpactExplosion(lemurianFireBallexplosion);
 
             lemurianFireBallexplosion.blastDamageCoefficient = 1f;
             lemurianFireBallexplosion.blastProcCoefficient = 1f;
-            lemurianFireBallexplosion.blastRadius = 5f;
+            lemurianFireBallexplosion.blastRadius = 3f;
             lemurianFireBallexplosion.destroyOnEnemy = true;
             lemurianFireBallexplosion.lifetime = 6f;
             lemurianFireBallexplosion.impactEffect = EntityStates.LemurianMonster.FireFireball.effectPrefab;
@@ -64,14 +78,42 @@ namespace ArsonistMod.Modules
             lemurianFireBallexplosion.lifetimeAfterImpact = 0f;
             lemurianFireBallexplosion.destroyOnWorld = true;
 
-
             ProjectileController lemurianFireBallController = lemurianFireBall.GetComponent<ProjectileController>();
+            lemurianFireBallController.rigidbody = lemurianFireballRigidbody;
             lemurianFireBallController.rigidbody.useGravity = true;
+            lemurianFireBallController.rigidbody.mass = 1f;
+
             if (Assets.lemfireBallGhost != null) lemurianFireBallController.ghostPrefab = Assets.lemfireBallGhost;
             lemurianFireBallController.startSound = "";
+        }
+        private static void CreateArtificerFireBolt()
+        {
+            artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt" );
 
+            ProjectileImpactExplosion artificerFireboltexplosion = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
+            if (!artificerFireboltexplosion)
+            {
+                artificerFireboltexplosion = artificerFirebolt.AddComponent<ProjectileImpactExplosion>();
+            }
 
+            InitializeImpactExplosion(artificerFireboltexplosion);
 
+            artificerFireboltexplosion.blastDamageCoefficient = 1f;
+            artificerFireboltexplosion.blastProcCoefficient = 1f;
+            artificerFireboltexplosion.blastRadius = 6f;
+            artificerFireboltexplosion.destroyOnEnemy = true;
+            artificerFireboltexplosion.lifetime = 6f;
+            artificerFireboltexplosion.impactEffect = Assets.explosionPrefab;
+            artificerFireboltexplosion.timerAfterImpact = false;
+            artificerFireboltexplosion.lifetimeAfterImpact = 0f;
+            artificerFireboltexplosion.destroyOnWorld = true;
+
+            artificerFireboltexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
+
+            ProjectileController artificerFireboltController = artificerFirebolt.GetComponent<ProjectileController>();
+
+            if (Assets.artificerFireboltGhost != null) artificerFireboltController.ghostPrefab = Assets.artificerFireboltGhost;
+            artificerFireboltController.startSound = "";
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)

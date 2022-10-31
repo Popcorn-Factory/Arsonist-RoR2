@@ -96,7 +96,7 @@ namespace ArsonistMod.Modules.Survivors
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_ARSONIST_BODY_PRIMARY_SLASH_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                                                                                       "Weapon",
                                                                                       true));
 

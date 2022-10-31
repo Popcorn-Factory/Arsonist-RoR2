@@ -18,11 +18,14 @@ namespace ArsonistMod.Modules
 
         //energy
         internal static float baseEnergy = 100f;
-        internal static float levelEnergy = 0f;
-        internal static float regenEnergyFraction = 0.025f;
+        internal static float levelEnergy = 5f;
+        internal static float regenOverheatFraction = 0.05f;
+        internal static float secondaryskillForceEnergy = 5f;
+        internal static float utilityskillForceEnergy = 15f;
 
         //firespray
         internal static float firesprayWeakDamageCoefficient = 1f;
         internal static float firesprayStrongDamageCoefficient = 3f;
+        internal static float firesprayEnergyCost = 20f;
     }
 }
