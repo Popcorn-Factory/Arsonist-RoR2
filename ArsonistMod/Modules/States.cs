@@ -2,6 +2,7 @@
 using ArsonistMod.SkillStates.BaseStates;
 using System.Collections.Generic;
 using System;
+using ArsonistMod.SkillStates.Arsonist;
 
 namespace ArsonistMod.Modules
 {
@@ -21,6 +22,7 @@ namespace ArsonistMod.Modules
             
             Modules.Content.AddEntityState(typeof(FireSpray));
             Modules.Content.AddEntityState(typeof(Cleanse));
+            Modules.Content.AddEntityState(typeof(Masochism));
         }
     }
 }
