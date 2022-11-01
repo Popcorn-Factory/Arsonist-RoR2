@@ -21,7 +21,7 @@ namespace ArsonistMod.Modules
         internal static float igniteMovespeedMultiplier = 1.5f;
         internal static float overheatRegenMultiplier = 2f;
         internal static float secondaryCooldownMultiplier = 0.6f;
-        internal static float utilityCooldownMultiplier = 0.25f;
+        internal static float utilityCooldownMultiplier = 0.33f;
         internal static float specialCooldownMultiplier = 0.6f;
 
 
@@ -38,7 +38,7 @@ namespace ArsonistMod.Modules
         internal static float firesprayEnergyCost = 20f;
         //cleanse
         internal static float cleanseDuration = 4f;
-        internal static float cleanseDamageCoefficient = 0.2f;
+        internal static float cleanseDamageCoefficient = 0.5f;
 
         //Masochism
         internal static float masochismBuffDuration = 30f;
