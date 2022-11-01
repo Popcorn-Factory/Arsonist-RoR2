@@ -93,8 +93,8 @@ namespace ArsonistMod.Modules.Survivors
 
             #region Primary
             //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_PRIMARY_SLASH_NAME",
-                                                                                      prefix + "_ARSONIST_BODY_PRIMARY_SLASH_DESCRIPTION",
+            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME",
+                                                                                      prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                                                                                       "Weapon",
@@ -134,31 +134,31 @@ namespace ArsonistMod.Modules.Survivors
             #endregion
 
             #region Utility
-            SkillDef rollSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef cleanseSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_UTILITY_ROLL_DESCRIPTION",
+                skillName = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_NAME",
+                skillNameToken = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_NAME",
+                skillDescriptionToken = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Roll)),
-                activationStateMachineName = "Body",
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Cleanse)),
+                activationStateMachineName = "Slide",
                 baseMaxStock = 1,
-                baseRechargeInterval = 4f,
-                beginSkillCooldownOnSkillEnd = false,
+                baseRechargeInterval = 24f,
+                beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
-                forceSprintDuringState = true,
+                forceSprintDuringState = false,
                 fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = false,
-                mustKeyPress = false,
+                mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1
             });
 
-            Modules.Skills.AddUtilitySkills(bodyPrefab, rollSkillDef);
+            Modules.Skills.AddUtilitySkills(bodyPrefab, cleanseSkillDef);
             #endregion
 
             #region Special

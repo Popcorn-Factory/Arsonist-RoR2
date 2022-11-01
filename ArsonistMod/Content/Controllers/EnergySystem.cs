@@ -31,6 +31,9 @@ namespace ArsonistMod.Content.Controllers
         public bool SetActiveTrue;
         public bool ifOverheatRegenAllowed;
         public bool ifOverheatMaxed;
+        public bool hasOverheatedSecondary;
+        public bool hasOverheatedUtility;
+        public bool hasOverheatedSpecial;
 
         //Energy bar glow
         private enum GlowState
@@ -70,6 +73,9 @@ namespace ArsonistMod.Content.Controllers
             costflatOverheat = 0f;
             ifOverheatMaxed = false;
             ifOverheatRegenAllowed = true;
+            hasOverheatedSecondary = false;
+            hasOverheatedUtility = false;
+            hasOverheatedSpecial = false;
 
             //UI objects 
             CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
@@ -124,8 +130,8 @@ namespace ArsonistMod.Content.Controllers
             if (characterBody)
             {
                 maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
-                    + (StaticValues.secondaryskillForceEnergy * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                    + (StaticValues.utilityskillForceEnergy * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
+                    + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
                 regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat;
 
                 costmultiplierOverheat = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
@@ -140,6 +146,9 @@ namespace ArsonistMod.Content.Controllers
             //Energy used
             if (ifOverheatMaxed)
             {
+                hasOverheatedSecondary = true;
+                hasOverheatedUtility = true;
+                hasOverheatedSpecial = true;
                 if (overheatDecayTimer > 5f / characterBody.attackSpeed)
                 {
                     overheatDecayTimer = 0f;

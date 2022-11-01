@@ -20,6 +20,7 @@ namespace ArsonistMod.Modules
 
             
             Modules.Content.AddEntityState(typeof(FireSpray));
+            Modules.Content.AddEntityState(typeof(Cleanse));
         }
     }
 }

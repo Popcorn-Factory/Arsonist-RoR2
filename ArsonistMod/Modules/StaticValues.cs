@@ -16,16 +16,27 @@ namespace ArsonistMod.Modules
 
         internal const float bombDamageCoefficient = 16f;
 
+        //passive onfire buff
+        internal static float igniteDamageMultiplier = 1.5f;
+        internal static float igniteMovespeedMultiplier = 1.5f;
+        internal static float overheatRegenMultiplier = 2f;
+        internal static float secondaryCooldownMultiplier = 0.6f;
+        internal static float utilityCooldownMultiplier = 0.25f;
+        internal static float specialCooldownMultiplier = 0.6f;
+
         //energy
         internal static float baseEnergy = 100f;
         internal static float levelEnergy = 5f;
         internal static float regenOverheatFraction = 0.05f;
-        internal static float secondaryskillForceEnergy = 5f;
-        internal static float utilityskillForceEnergy = 15f;
+        internal static float backupEnergyGain = 5f;
+        internal static float hardlightEnergyGain = 15f;
 
         //firespray
         internal static float firesprayWeakDamageCoefficient = 1f;
         internal static float firesprayStrongDamageCoefficient = 3f;
         internal static float firesprayEnergyCost = 20f;
+        //cleanse
+        internal static float cleanseDuration = 4f;
+        internal static float cleanseDamageCoefficient = 0.2f;
     }
 }

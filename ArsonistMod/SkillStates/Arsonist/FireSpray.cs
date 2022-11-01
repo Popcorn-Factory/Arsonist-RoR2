@@ -22,8 +22,8 @@ namespace ArsonistMod.SkillStates
         private float strongdamageCoefficient = Modules.StaticValues.firesprayStrongDamageCoefficient;
         private float force = 400f;
         private float strongforce = 1000f;
-        private float speedOverride = 40f;
-        private float strongspeedOverride = 200f;
+        private float speedOverride = 100f;
+        private float strongspeedOverride = 100f;
         private GameObject chargeVfxInstance;
 
         public float Energy = Modules.StaticValues.firesprayEnergyCost;

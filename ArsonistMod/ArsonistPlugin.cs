@@ -79,22 +79,51 @@ namespace ArsonistMod
 
                     if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                     {
+                        EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
+
+                        //passive burn movespeed and damage
                         if (self.HasBuff(RoR2Content.Buffs.AffixRed))
                         {
                             self.damage *= StaticValues.igniteDamageMultiplier;
                             self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
 
-                            EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
                             energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
 
                         }
-                        if (self.HasBuff(RoR2Content.Buffs.OnFire))
+                        else if (self.HasBuff(RoR2Content.Buffs.OnFire))
                         {
                             self.damage *= StaticValues.igniteDamageMultiplier;
                             self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
 
-                            EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
                             energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+                        }
+
+                        //cooldowns depending on being overheated or not
+                        if (self.skillLocator.secondary.cooldownRemaining > 0 && energySystem.hasOverheatedSecondary)
+                        {
+                            self.skillLocator.secondary.cooldownScale *= 1f;
+                        }
+                        else if (self.skillLocator.secondary.cooldownRemaining > 0 && !energySystem.hasOverheatedSecondary)
+                        {
+                            self.skillLocator.secondary.cooldownScale *= StaticValues.secondaryCooldownMultiplier;
+                        }
+
+                        if (self.skillLocator.utility.cooldownRemaining > 0 && energySystem.hasOverheatedUtility)
+                        {
+                            self.skillLocator.utility.cooldownScale *= 1f;
+                        }
+                        else if (self.skillLocator.utility.cooldownRemaining > 0 && !energySystem.hasOverheatedUtility)
+                        {
+                            self.skillLocator.utility.cooldownScale *= StaticValues.utilityCooldownMultiplier;
+                        }
+
+                        if (self.skillLocator.special.cooldownRemaining > 0 && energySystem.hasOverheatedSpecial)
+                        {
+                            self.skillLocator.special.cooldownScale *= 1f;
+                        }
+                        else if (self.skillLocator.special.cooldownRemaining > 0 && !energySystem.hasOverheatedSpecial)
+                        {
+                            self.skillLocator.special.cooldownScale *= StaticValues.specialCooldownMultiplier;
                         }
                     }
                 }
