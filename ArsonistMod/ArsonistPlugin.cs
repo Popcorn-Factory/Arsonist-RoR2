@@ -7,6 +7,7 @@ using System.Security;
 using System.Security.Permissions;
 using ArsonistMod.Modules;
 using ArsonistMod.Content.Controllers;
+using UnityEngine;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -65,6 +66,7 @@ namespace ArsonistMod
         {
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
@@ -99,6 +101,35 @@ namespace ArsonistMod
                     }
                 }
             }
+        }
+
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            if (self) 
+            {
+                if (self.body) 
+                {
+                    if (self.body.HasBuff(Modules.Buffs.masochismBuff)) 
+                    {
+                        //If any of these are true, heal arsonist.
+                        bool dotCheck = damageInfo.dotIndex == DotController.DotIndex.Burn ||
+                                        damageInfo.dotIndex == DotController.DotIndex.Helfire ||
+                                        damageInfo.dotIndex == DotController.DotIndex.StrongerBurn;
+
+                        bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
+
+                        if (dotCheck || damageTypeCheck) 
+                        {
+                            float potentialDamage = damageInfo.damage;
+                            damageInfo.damage = 0f;
+                            damageInfo.rejected = true;
+                            self.Heal(potentialDamage, damageInfo.procChainMask);
+                        }
+                    }
+                }                    
+            }
+
+            orig(self, damageInfo);
         }
     }
 }

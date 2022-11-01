@@ -16,6 +16,10 @@ namespace ArsonistMod.Modules
 
         internal const float bombDamageCoefficient = 16f;
 
+        internal static float igniteDamageMultiplier = 1.5f;
+        internal static float igniteMovespeedMultiplier = 1.5f;
+        internal static float overheatRegenMultiplier = 2f;
+
         //energy
         internal static float baseEnergy = 100f;
         internal static float levelEnergy = 5f;
@@ -27,5 +31,8 @@ namespace ArsonistMod.Modules
         internal static float firesprayWeakDamageCoefficient = 1f;
         internal static float firesprayStrongDamageCoefficient = 3f;
         internal static float firesprayEnergyCost = 20f;
+
+        //Masochism
+        internal static float masochismBuffDuration = 30f;
     }
 }

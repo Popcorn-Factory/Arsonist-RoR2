@@ -168,7 +168,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillNameToken = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_NAME",
                 skillDescriptionToken = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ThrowBomb)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Arsonist.Masochism)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 10f,
