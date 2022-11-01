@@ -5,6 +5,8 @@ using RoR2;
 using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
+using ArsonistMod.Modules;
+using ArsonistMod.Content.Controllers;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -67,14 +69,34 @@ namespace ArsonistMod
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
-            orig(self);
 
-            // a simple stat hook, adds armor after stats are recalculated
-            if (self)
+            if (self.healthComponent)
             {
-                if (self.HasBuff(Modules.Buffs.armorBuff))
+                orig(self);
+
+                if (self)
                 {
-                    self.armor += 300f;
+
+                    if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                    {
+                        if (self.HasBuff(RoR2Content.Buffs.AffixRed))
+                        {
+                            self.damage *= StaticValues.igniteDamageMultiplier;
+                            self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+
+                            EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
+                            energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+
+                        }
+                        if (self.HasBuff(RoR2Content.Buffs.OnFire))
+                        {
+                            self.damage *= StaticValues.igniteDamageMultiplier;
+                            self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+
+                            EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
+                            energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+                        }
+                    }
                 }
             }
         }
