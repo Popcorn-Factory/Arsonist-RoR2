@@ -15,7 +15,7 @@ namespace ArsonistMod.Modules
         {
             Sprite tempIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdSlow80.asset").WaitForCompletion().iconSprite;
             armorBuff = AddNewBuff("ArsonistArmorBuff", RoR2.LegacyResourcesAPI.Load<Sprite>("Textures/BuffIcons/texBuffGenericShield"), Color.white, false, false);
-            masochismBuff = AddNewBuff("Arsonist Masochism Buff", tempIcon, Color.red, false, false);
+            masochismBuff = AddNewBuff("Arsonist Masochism Overheat Buff", tempIcon, Color.red, false, false);
         }
 
         // simple helper method

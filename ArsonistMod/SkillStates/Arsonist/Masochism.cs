@@ -1,4 +1,5 @@
-﻿using EntityStates;
+﻿using ArsonistMod.Content.Controllers;
+using EntityStates;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,14 +14,35 @@ namespace ArsonistMod.SkillStates.Arsonist
         internal static float baseDuration = 0.5f;
         internal float duration;
         internal bool buffGiven;
+        internal EnergySystem energySystem;
 
+        public float Energy = Modules.StaticValues.masochismEnergyCost;
+        private float energyCost;
+        private float energyflatCost;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            energySystem = gameObject.GetComponent<EnergySystem>();
             duration = baseDuration / base.attackSpeedStat;
             buffGiven = false;
-        
+
+            //energy
+            energyflatCost = Energy - energySystem.costflatOverheat;
+            if (energyflatCost < 0f) energyflatCost = 0f;
+
+            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
+            if (energyCost < 0f) energyCost = 0f;
+
+            if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
+            {
+                energySystem.hasOverheatedSpecial = false;
+                energySystem.currentOverheat += Modules.StaticValues.firesprayEnergyCost;
+            }
+            else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
+            {
+                //Nothing
+            }
         }
 
         public override void OnExit()

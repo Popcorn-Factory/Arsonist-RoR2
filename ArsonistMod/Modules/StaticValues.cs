@@ -42,5 +42,6 @@ namespace ArsonistMod.Modules
 
         //Masochism
         internal static float masochismBuffDuration = 30f;
+        internal static float masochismEnergyCost = 40f;
     }
 }

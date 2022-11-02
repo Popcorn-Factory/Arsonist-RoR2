@@ -149,7 +149,7 @@ namespace ArsonistMod.Content.Controllers
                 hasOverheatedSecondary = true;
                 hasOverheatedUtility = true;
                 hasOverheatedSpecial = true;
-                if (overheatDecayTimer > 5f / characterBody.attackSpeed)
+                if (overheatDecayTimer > Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed)
                 {
                     overheatDecayTimer = 0f;
                     ifOverheatRegenAllowed = true;

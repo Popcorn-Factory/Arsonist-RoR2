@@ -8,6 +8,7 @@ using System.Security.Permissions;
 using ArsonistMod.Modules;
 using ArsonistMod.Content.Controllers;
 using UnityEngine;
+using BepInEx.Bootstrap;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -16,6 +17,7 @@ using UnityEngine;
 namespace ArsonistMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
     [R2APISubmoduleDependency(new string[]
@@ -47,6 +49,10 @@ namespace ArsonistMod
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
             Modules.Config.ReadConfig();
+            if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
+            {
+                Modules.Config.SetupRiskOfOptions();
+            }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
@@ -138,21 +144,29 @@ namespace ArsonistMod
             {
                 if (self.body) 
                 {
-                    if (self.body.HasBuff(Modules.Buffs.masochismBuff)) 
+                    //If any of these are true, heal arsonist.
+                    bool dotCheck = damageInfo.dotIndex == DotController.DotIndex.Burn ||
+                                    damageInfo.dotIndex == DotController.DotIndex.Helfire ||
+                                    damageInfo.dotIndex == DotController.DotIndex.StrongerBurn;
+
+                    bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
+                    EnergySystem energySystem = self.GetComponent<EnergySystem>();
+
+                    if ( self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck) ) 
                     {
-                        //If any of these are true, heal arsonist.
-                        bool dotCheck = damageInfo.dotIndex == DotController.DotIndex.Burn ||
-                                        damageInfo.dotIndex == DotController.DotIndex.Helfire ||
-                                        damageInfo.dotIndex == DotController.DotIndex.StrongerBurn;
-
-                        bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
-
-                        if (dotCheck || damageTypeCheck) 
+                        if (energySystem.currentOverheat >= energySystem.maxOverheat)
                         {
                             float potentialDamage = damageInfo.damage;
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
                             self.Heal(potentialDamage, damageInfo.procChainMask);
+                        }
+                        else
+                        {
+                            float potentialDamage = damageInfo.damage;
+                            damageInfo.damage = 0f;
+                            damageInfo.rejected = true;
+                            self.Heal(potentialDamage * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
                         }
                     }
                 }                    
