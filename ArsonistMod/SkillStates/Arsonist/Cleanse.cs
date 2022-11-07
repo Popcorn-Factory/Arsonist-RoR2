@@ -61,7 +61,6 @@ namespace ArsonistMod.SkillStates
                 //self burn
                 InflictDotInfo info = new InflictDotInfo();
                 info.damageMultiplier = characterBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
-                info.damageMultiplier = 1f;
                 info.attackerObject = base.gameObject;
                 info.victimObject = characterBody.gameObject;
                 info.duration = Modules.StaticValues.cleanseDuration;
