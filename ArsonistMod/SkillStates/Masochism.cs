@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
 
-namespace ArsonistMod.SkillStates.Arsonist
+namespace ArsonistMod.SkillStates
 {
     internal class Masochism : BaseSkillState
     {
@@ -24,7 +24,7 @@ namespace ArsonistMod.SkillStates.Arsonist
         {
             base.OnEnter();
             energySystem = gameObject.GetComponent<EnergySystem>();
-            duration = baseDuration / base.attackSpeedStat;
+            duration = baseDuration / attackSpeedStat;
             buffGiven = false;
 
             //energy
@@ -34,12 +34,12 @@ namespace ArsonistMod.SkillStates.Arsonist
             energyCost = energySystem.costmultiplierOverheat * energyflatCost;
             if (energyCost < 0f) energyCost = 0f;
 
-            if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
+            if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 energySystem.hasOverheatedSpecial = false;
                 energySystem.currentOverheat += Modules.StaticValues.firesprayEnergyCost;
             }
-            else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
+            else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {
                 //Nothing
             }
@@ -49,12 +49,12 @@ namespace ArsonistMod.SkillStates.Arsonist
         {
             base.OnExit();
             //I dunno, just in case.
-            if (!buffGiven) 
+            if (!buffGiven)
             {
                 buffGiven = true;
-                if (NetworkServer.active) 
+                if (NetworkServer.active)
                 {
-                    base.characterBody.AddTimedBuff(Modules.Buffs.masochismBuff.buffIndex, Modules.StaticValues.masochismBuffDuration);
+                    characterBody.AddTimedBuff(Modules.Buffs.masochismBuff.buffIndex, Modules.StaticValues.masochismBuffDuration);
                 }
             }
         }
@@ -64,22 +64,22 @@ namespace ArsonistMod.SkillStates.Arsonist
             base.FixedUpdate();
 
             //All states are executed on every client, we can just check to NetworkServer to determine what to do.
-            if (fixedAge > duration * giveBuffFraction) 
+            if (fixedAge > duration * giveBuffFraction)
             {
-                if (!buffGiven) 
+                if (!buffGiven)
                 {
                     buffGiven = true;
                     if (NetworkServer.active)
                     {
-                        base.characterBody.AddTimedBuff(Modules.Buffs.masochismBuff.buffIndex, Modules.StaticValues.masochismBuffDuration);
+                        characterBody.AddTimedBuff(Modules.Buffs.masochismBuff.buffIndex, Modules.StaticValues.masochismBuffDuration);
                     }
                 }
             }
-            if (fixedAge > duration) 
+            if (fixedAge > duration)
             {
-                this.outer.SetNextStateToMain();
+                outer.SetNextStateToMain();
             }
-        
+
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

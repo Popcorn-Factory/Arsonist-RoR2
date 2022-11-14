@@ -30,20 +30,6 @@ namespace ArsonistMod.SkillStates
 
             base.characterBody.SetAimTimer(this.duration);
 
-            ////blastattack
-            //blastAttack = new BlastAttack();
-            //blastAttack.radius = blastRadius;
-            //blastAttack.procCoefficient = 0.1f;
-            //blastAttack.position = base.transform.position;
-            //blastAttack.attacker = base.gameObject;
-            //blastAttack.crit = Util.CheckRoll(base.characterBody.crit, base.characterBody.master);
-            //blastAttack.baseDamage = base.characterBody.damage * 1f;
-            //blastAttack.falloffModel = BlastAttack.FalloffModel.None;
-            //blastAttack.baseForce = 1f;
-            //blastAttack.teamIndex = TeamComponent.GetObjectTeam(blastAttack.attacker);
-            //blastAttack.damageType = DamageType.IgniteOnHit;
-            //blastAttack.attackerFiltering = AttackerFiltering.AlwaysHitSelf;
-
             //energy
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
             {
@@ -138,14 +124,14 @@ namespace ArsonistMod.SkillStates
             base.OnExit();
             //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
-            
+
         }
 
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            
+
             if (base.fixedAge >= this.duration && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();

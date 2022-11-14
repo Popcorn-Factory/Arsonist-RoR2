@@ -2,7 +2,7 @@
 using ArsonistMod.SkillStates.BaseStates;
 using System.Collections.Generic;
 using System;
-using ArsonistMod.SkillStates.Arsonist;
+using ArsonistMod.SkillStates.Arsonist.Secondary;
 
 namespace ArsonistMod.Modules
 {
@@ -11,16 +11,9 @@ namespace ArsonistMod.Modules
         internal static void RegisterStates()
         {
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
-            Modules.Content.AddEntityState(typeof(SlashCombo));
-
-            Modules.Content.AddEntityState(typeof(Shoot));
-
-            Modules.Content.AddEntityState(typeof(Roll));
-
-            Modules.Content.AddEntityState(typeof(ThrowBomb));
-
             
             Modules.Content.AddEntityState(typeof(FireSpray));
+            Modules.Content.AddEntityState(typeof(Flare));
             Modules.Content.AddEntityState(typeof(Cleanse));
             Modules.Content.AddEntityState(typeof(Masochism));
         }

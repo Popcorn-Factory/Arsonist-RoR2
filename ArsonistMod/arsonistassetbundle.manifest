@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1905626930
+CRC: 299433026
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 650ac4d7ddfd1e80ebba292b36b07544
+    Hash: c14582f95726e8e8188da24ab0d3a655
   TypeTreeHash:
     serializedVersion: 2
     Hash: ece864a23282de7a1adbe1d96daa2965
@@ -138,6 +138,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/WalkF.anim
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/ArsonistAssets/Materials/matDante.mat
+- Assets/ArsonistAssets/WeakFlare.prefab
 - Assets/ArsonistAssets/Animation/maskLeftArm.mask
 - Assets/ArsonistAssets/Mesh/MeshHenryGun.mesh
 - Assets/ArsonistAssets/Animation/clips/DescendFast.anim
@@ -181,6 +182,7 @@ Assets:
 - Assets/ArsonistAssets/mdlArsonist.prefab
 - Assets/ArsonistAssets/Mesh/meshRebellion.mesh
 - Assets/ArsonistAssets/VFX/Materials/matHitSparkPunch.mat
+- Assets/ArsonistAssets/StrongFlare.prefab
 - Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
 - Assets/ArsonistAssets/Mesh/meshArsonistSword.mesh
 - Assets/ArsonistAssets/VFX/Materials/matEmbers.mat

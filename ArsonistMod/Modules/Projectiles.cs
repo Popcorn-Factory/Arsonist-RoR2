@@ -1,4 +1,6 @@
-﻿using R2API;
+﻿using ArsonistMod.SkillStates.Arsonist.Secondary;
+using R2API;
+using R2API.Networking;
 using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
@@ -11,18 +13,22 @@ namespace ArsonistMod.Modules
         internal static GameObject bombPrefab;
         internal static GameObject lemurianFireBall;
         internal static GameObject artificerFirebolt;
+        internal static GameObject weakFlare;
+        internal static GameObject strongFlare;
 
         internal static void RegisterProjectiles()
         {
-            CreateBomb();
-
-            AddProjectile(bombPrefab);
-
             CreateLemurianFireBall();
             AddProjectile(lemurianFireBall);
 
             CreateArtificerFireBolt();
             AddProjectile(artificerFirebolt);
+
+            CreateWeakFlare();
+            AddProjectile(weakFlare);
+
+            CreateStrongFlare();
+            AddProjectile(strongFlare);
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
@@ -30,24 +36,67 @@ namespace ArsonistMod.Modules
             Modules.Content.AddProjectilePrefab(projectileToAdd);
         }
 
-        private static void CreateBomb()
+        private static void CreateWeakFlare()
         {
-            bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "ArsonistBombProjectile");
+            weakFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WeakFlare");
+            // Ensure that the child is set in the right position in Unity!!!!
+            Modules.Prefabs.SetupHitbox(weakFlare, weakFlare.transform.GetChild(0), "FlareHitbox");
+            weakFlare.AddComponent<NetworkIdentity>();
+            ProjectileController flareCon = weakFlare.AddComponent<ProjectileController>();
 
-            ProjectileImpactExplosion bombImpactExplosion = bombPrefab.GetComponent<ProjectileImpactExplosion>();
-            InitializeImpactExplosion(bombImpactExplosion);
+            ProjectileDamage flareDamage = weakFlare.AddComponent<ProjectileDamage>();
+            InitializeFlareDamage(flareDamage);
 
-            bombImpactExplosion.blastRadius = 16f;
-            bombImpactExplosion.destroyOnEnemy = true;
-            bombImpactExplosion.lifetime = 12f;
-            bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
-            //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("ArsonistBombExplosion");
-            bombImpactExplosion.timerAfterImpact = true;
-            bombImpactExplosion.lifetimeAfterImpact = 0.1f;
+            ProjectileSimple flareTrajectory = weakFlare.AddComponent<ProjectileSimple>();
+            InitializeFlareTrajectory(flareTrajectory, 50f);
 
-            ProjectileController bombController = bombPrefab.GetComponent<ProjectileController>();
-            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("ArsonistBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("ArsonistBombGhost");
-            bombController.startSound = "";
+            ProjectileOverlapAttack flareoverlapAttack = weakFlare.AddComponent<ProjectileOverlapAttack>();
+            InitializeFlareOverlapAttack(flareoverlapAttack);
+            weakFlare.AddComponent<WeakFlareOnHit>();
+
+            PrefabAPI.RegisterNetworkPrefab(weakFlare);
+        }
+
+        private static void CreateStrongFlare()
+        {
+            strongFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("StrongFlare");
+            // Ensure that the child is set in the right position in Unity!!!!
+            Modules.Prefabs.SetupHitbox(strongFlare, strongFlare.transform.GetChild(0), "FlareHitbox");
+            strongFlare.AddComponent<NetworkIdentity>();
+            ProjectileController flareCon = strongFlare.AddComponent<ProjectileController>();
+
+            ProjectileDamage flareDamage = strongFlare.AddComponent<ProjectileDamage>();
+            InitializeFlareDamage(flareDamage);
+
+            ProjectileSimple flareTrajectory = strongFlare.AddComponent<ProjectileSimple>();
+            InitializeFlareTrajectory(flareTrajectory, 50f);
+
+            ProjectileOverlapAttack flareoverlapAttack = strongFlare.AddComponent<ProjectileOverlapAttack>();
+            InitializeFlareOverlapAttack(flareoverlapAttack);
+            strongFlare.AddComponent<WeakFlareOnHit>();
+
+            PrefabAPI.RegisterNetworkPrefab(strongFlare);
+        }
+
+        internal static void InitializeFlareOverlapAttack(ProjectileOverlapAttack overlap)
+        {
+            overlap.overlapProcCoefficient = 1.0f;
+            overlap.damageCoefficient = 1.0f;
+        }
+
+        internal static void InitializeFlareTrajectory(ProjectileSimple simple, float speed)
+        {
+            simple.lifetime = 5f;
+            simple.desiredForwardSpeed = speed;
+
+        }
+
+        internal static void InitializeFlareDamage(ProjectileDamage damageComponent)
+        {
+            damageComponent.damage = 0f;
+            damageComponent.crit = false;
+            damageComponent.force = 0f;
+            damageComponent.damageType = DamageType.Generic;
         }
 
         private static void CreateLemurianFireBall()
@@ -63,7 +112,7 @@ namespace ArsonistMod.Modules
 
             if (!lemurianFireBallexplosion)
             {
-                lemurianFireBallexplosion = lemurianFireBall.AddComponent<ProjectileImpactExplosion>();                
+                lemurianFireBallexplosion = lemurianFireBall.AddComponent<ProjectileImpactExplosion>();
 
             }
             InitializeImpactExplosion(lemurianFireBallexplosion);
@@ -88,7 +137,7 @@ namespace ArsonistMod.Modules
         }
         private static void CreateArtificerFireBolt()
         {
-            artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt" );
+            artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt");
 
             ProjectileImpactExplosion artificerFireboltexplosion = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
             if (!artificerFireboltexplosion)
@@ -154,6 +203,66 @@ namespace ArsonistMod.Modules
         {
             GameObject newPrefab = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/" + prefabName), newPrefabName);
             return newPrefab;
+        }
+
+        internal class WeakFlareOnHit : MonoBehaviour, IProjectileImpactBehavior
+        {
+            public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
+            {
+                if (impactInfo.collider)
+                {
+                    GameObject collidedObject = impactInfo.collider.gameObject;
+                    CharacterBody body = collidedObject.GetComponent<CharacterBody>();
+                    if (body)
+                    {
+                        if (body.teamComponent)
+                        {
+                            if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
+                                || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
+                            {
+                                if(body.GetBuffCount(Buffs.flareStrongBuff) >= 1)
+                                {
+                                    body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 0);
+                                }
+                                body.SetBuffCount(Buffs.FlareWeakBuff.buffIndex, 5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        internal class StrongFlareOnHit : MonoBehaviour, IProjectileImpactBehavior
+        {
+            public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
+            {
+                if (impactInfo.collider)
+                {
+                    GameObject collidedObject = impactInfo.collider.gameObject;
+                    CharacterBody body = collidedObject.GetComponent<CharacterBody>();
+                    if (body)
+                    {
+                        if (body.teamComponent)
+                        {
+                            if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
+                                || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
+                            {
+                                if (body.GetBuffCount(Buffs.flareStrongBuff) >= 1)
+                                {
+                                    body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 0);
+                                }
+                                body.SetBuffCount(Buffs.FlareWeakBuff.buffIndex, 5);
+
+                                FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
+                                if (!controller)
+                                {
+                                    controller = body.gameObject.AddComponent<FlareEffectController>();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
