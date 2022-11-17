@@ -73,7 +73,7 @@ namespace ArsonistMod.Modules
 
             ProjectileOverlapAttack flareoverlapAttack = strongFlare.AddComponent<ProjectileOverlapAttack>();
             InitializeFlareOverlapAttack(flareoverlapAttack);
-            strongFlare.AddComponent<WeakFlareOnHit>();
+            strongFlare.AddComponent<StrongFlareOnHit>();
 
             PrefabAPI.RegisterNetworkPrefab(strongFlare);
         }
@@ -220,11 +220,17 @@ namespace ArsonistMod.Modules
                             if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
                                 || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
                             {
-                                if(body.GetBuffCount(Buffs.flareStrongBuff) >= 1)
+                                if (body.GetBuffCount(Buffs.flareStrongBuff) >= 1)
                                 {
                                     body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 0);
                                 }
                                 body.SetBuffCount(Buffs.FlareWeakBuff.buffIndex, 5);
+
+                                FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
+                                if (!controller)
+                                {
+                                    body.gameObject.AddComponent<FlareEffectController>();
+                                }
                             }
                         }
                     }
@@ -251,12 +257,12 @@ namespace ArsonistMod.Modules
                                 {
                                     body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 0);
                                 }
-                                body.SetBuffCount(Buffs.FlareWeakBuff.buffIndex, 5);
+                                body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 5);
 
                                 FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
                                 if (!controller)
                                 {
-                                    controller = body.gameObject.AddComponent<FlareEffectController>();
+                                    body.gameObject.AddComponent<FlareEffectController>();
                                 }
                             }
                         }

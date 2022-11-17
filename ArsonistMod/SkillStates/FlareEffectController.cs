@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using R2API.Networking;
+using RoR2;
 using UnityEngine;
 
 namespace ArsonistMod.SkillStates.Arsonist.Secondary
@@ -21,11 +22,43 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
             if (timer > 1f && charbody.HasBuff(Modules.Buffs.flareStrongBuff))
             {
-                FireFlareTick(false);
-            }            
+                if (charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) == 1)
+                {
+                    FireExplosion(false);
+                    EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                    {
+                        origin = charbody.transform.position,
+                        scale = 10f,
+                        rotation = new Quaternion(0, 0, 0, 0)
+                    }, false);
+                    Destroy(this);
+                }
+                else
+                {
+                    charbody.ApplyBuff(Modules.Buffs.flareStrongBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) - 1);
+                    FireFlareTick(false);
+                }
+                timer = 0;
+            }
             if (timer > 1f && charbody.HasBuff(Modules.Buffs.FlareWeakBuff))
             {
-                FireFlareTick(true);
+                if (charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) == 1)
+                {
+                    FireExplosion(true);
+                    EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                    {
+                        origin = charbody.transform.position,
+                        scale = 10f,
+                        rotation = new Quaternion(0,0,0,0)
+                    }, false);
+                    Destroy(this);
+                }
+                else
+                {
+                    charbody.ApplyBuff(Modules.Buffs.FlareWeakBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) - 1);
+                    FireFlareTick(true);
+                }
+                timer = 0;
             }
         }
 
@@ -33,12 +66,37 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         {
             BlastAttack blastAttack;
             blastAttack = new BlastAttack();
-            blastAttack.radius = 0.1f;
+            blastAttack.radius = 1f;
             blastAttack.procCoefficient = 0f;
             blastAttack.position = charbody.transform.position;
             blastAttack.attacker = base.gameObject;
             blastAttack.crit = Util.CheckRoll(0);
-            blastAttack.baseDamage = this.charbody.baseDamage * 1f;
+            if (isWeak)
+            {
+                blastAttack.baseDamage = this.charbody.baseDamage * 0.4f;
+            }
+            else blastAttack.baseDamage = this.charbody.baseDamage * 0.8f;
+            blastAttack.falloffModel = BlastAttack.FalloffModel.None;
+            blastAttack.baseForce = 1f;
+            blastAttack.damageType = DamageType.Generic;
+
+            blastAttack.Fire();
+        }        
+        
+        private void FireExplosion(bool isWeak)
+        {
+            BlastAttack blastAttack;
+            blastAttack = new BlastAttack();
+            blastAttack.radius = 10f;
+            blastAttack.procCoefficient = 0f;
+            blastAttack.position = charbody.transform.position;
+            blastAttack.attacker = base.gameObject;
+            blastAttack.crit = Util.CheckRoll(0);
+            if(isWeak)
+            {
+                blastAttack.baseDamage = this.charbody.baseDamage * 2f;
+            }
+            else blastAttack.baseDamage = this.charbody.baseDamage * 4f;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
