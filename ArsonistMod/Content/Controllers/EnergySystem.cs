@@ -16,6 +16,13 @@ namespace ArsonistMod.Content.Controllers
 
         //UI energyMeter
         public GameObject CustomUIObject;
+        public LineRenderer fullSegment;
+        public LineRenderer segment1;
+        public LineRenderer segment2;
+        public LineRenderer segment3;
+        public Vector3[] segmentList;
+
+        //OLD
         public RectTransform energyMeter;
         public RectTransform energyMeterGlowRect;
         public Image energyMeterGlowBackground;
@@ -57,14 +64,6 @@ namespace ArsonistMod.Content.Controllers
 
         public void Start()
         {
-            //characterBody = gameObject.GetComponent<CharacterBody>();
-            //characterMaster = characterBody.master;
-            //if (!characterMaster.gameObject.GetComponent<NidusMasterController>())
-            //{
-            //    Nidusmastercon = characterMaster.gameObject.AddComponent<NidusMasterController>();
-            //}
-
-
             //Energy
             maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
             currentOverheat = 0f;
@@ -78,13 +77,18 @@ namespace ArsonistMod.Content.Controllers
             hasOverheatedSpecial = false;
 
             //UI objects 
-            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
-            CustomUIObject.SetActive(false);
-            SetActiveTrue = false;
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
 
-            energyMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
-            energyMeterGlowBackground = CustomUIObject.transform.GetChild(1).GetComponent<Image>();
-            energyMeterGlowRect = CustomUIObject.transform.GetChild(1).GetComponent<RectTransform>();
+            //Get the line renderers for all the objects in the overheat gauge
+            segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
+            segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
+            segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
+            segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
+            //Calculate the segments and slap them into an array.
+            CalculateSemiCircle(0.5f, 0.66f);
+            segment1.SetPositions(segmentList);
+            segment2.gameObject.SetActive(false);
+            segment3.gameObject.SetActive(false);
 
             //setup the UI element for the min/max
             energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
@@ -99,6 +103,27 @@ namespace ArsonistMod.Content.Controllers
             targetColor = new Color(1f, 1f, 1f, 1f);
             currentColor = originalColor;
 
+        }
+
+        //Calculate segments
+        //we use percentage to figure out how far we should go for radius. do not go beyond 1 or below 0!
+        private void CalculateSemiCircle(float radius, float percentage) 
+        {
+            float range = percentage * radius * 2f;
+            float incrementX = range / Modules.StaticValues.noOfSegmentsOnOverheatGauge;
+
+            float x = percentage * radius * -1f;
+
+            //assuming a percentage, we want the center to be where x = 0
+            for (int i = 0; i < segmentList.Length; i++) 
+            {
+                //y = sqrt(r^2 - x^2)
+                float y = Mathf.Sqrt(Mathf.Pow(radius, 2) - Mathf.Pow(x, 2));
+
+                //write positions into array.
+                segmentList[i] = new Vector3(x, y, 0f);
+                x += incrementX;
+            }
         }
 
         //Creates the label.
@@ -185,15 +210,6 @@ namespace ArsonistMod.Content.Controllers
                 energyNumber.SetText($"{(int)currentOverheat} / {maxOverheat}");
             }
 
-            if (energyMeter)
-            {
-                // 2f because meter is too small probably.
-                // Logarithmically scale.
-                float logVal = Mathf.Log10(((maxOverheat / StaticValues.baseEnergy) * 10f) + 1) * (currentOverheat / maxOverheat);
-                energyMeter.localScale = new Vector3(2.0f * logVal, 0.05f, 1f);
-                energyMeterGlowRect.localScale = new Vector3(2.3f * logVal, 0.1f, 1f);
-            }
-
             //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
         }
 
@@ -203,54 +219,48 @@ namespace ArsonistMod.Content.Controllers
             {
                 CalculateEnergyStats();
             }
-
-            if (characterBody.hasEffectiveAuthority && !SetActiveTrue)
-            {
-                CustomUIObject.SetActive(true);
-                SetActiveTrue = true;
-            }
         }
 
         public void Update()
         {
-            if (state != GlowState.STOP)
-            {
-                glowStopwatch += Time.deltaTime;
-                float lerpFraction;
-                switch (state)
-                {
-                    // Lerp to target color
-                    case GlowState.FLASH:
+            //if (state != GlowState.STOP)
+            //{
+            //    glowStopwatch += Time.deltaTime;
+            //    float lerpFraction;
+            //    switch (state)
+            //    {
+            //        // Lerp to target color
+            //        case GlowState.FLASH:
 
-                        lerpFraction = glowStopwatch / flashConst;
-                        currentColor = Color.Lerp(originalColor, targetColor, lerpFraction);
+            //            lerpFraction = glowStopwatch / flashConst;
+            //            currentColor = Color.Lerp(originalColor, targetColor, lerpFraction);
 
-                        if (glowStopwatch > flashConst)
-                        {
-                            state = GlowState.DECAY;
-                            glowStopwatch = 0f;
-                        }
-                        break;
+            //            if (glowStopwatch > flashConst)
+            //            {
+            //                state = GlowState.DECAY;
+            //                glowStopwatch = 0f;
+            //            }
+            //            break;
 
-                    //Lerp back to original color;
-                    case GlowState.DECAY:
-                        //Linearlly lerp.
-                        lerpFraction = glowStopwatch / decayConst;
-                        currentColor = Color.Lerp(targetColor, originalColor, lerpFraction);
+            //        //Lerp back to original color;
+            //        case GlowState.DECAY:
+            //            //Linearlly lerp.
+            //            lerpFraction = glowStopwatch / decayConst;
+            //            currentColor = Color.Lerp(targetColor, originalColor, lerpFraction);
 
-                        if (glowStopwatch > decayConst)
-                        {
-                            state = GlowState.STOP;
-                            glowStopwatch = 0f;
-                        }
-                        break;
-                    case GlowState.STOP:
-                        //State does nothing.
-                        break;
-                }
-            }
+            //            if (glowStopwatch > decayConst)
+            //            {
+            //                state = GlowState.STOP;
+            //                glowStopwatch = 0f;
+            //            }
+            //            break;
+            //        case GlowState.STOP:
+            //            //State does nothing.
+            //            break;
+            //    }
+            //}
 
-            energyMeterGlowBackground.color = currentColor;
+            //energyMeterGlowBackground.color = currentColor;
         }
 
 

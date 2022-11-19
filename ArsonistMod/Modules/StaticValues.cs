@@ -24,6 +24,8 @@ namespace ArsonistMod.Modules
         internal static float utilityCooldownMultiplier = 0.33f;
         internal static float specialCooldownMultiplier = 0.6f;
 
+        internal static int noOfSegmentsOnOverheatGauge = 250;
+
 
         //energy
         internal static float baseEnergy = 100f;
