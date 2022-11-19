@@ -16,11 +16,13 @@ namespace ArsonistMod.Content.Controllers
 
         //UI energyMeter
         public GameObject CustomUIObject;
+        public Canvas CustomUIObjectCanvas;
         public LineRenderer fullSegment;
         public LineRenderer segment1;
         public LineRenderer segment2;
         public LineRenderer segment3;
         public Vector3[] segmentList;
+        public Camera mainCamera;
 
         //OLD
         public RectTransform energyMeter;
@@ -76,19 +78,28 @@ namespace ArsonistMod.Content.Controllers
             hasOverheatedUtility = false;
             hasOverheatedSpecial = false;
 
+            mainCamera = Camera.main;
+
             //UI objects 
             CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
 
             //Get the line renderers for all the objects in the overheat gauge
+            //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
+            CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
+            CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+            CustomUIObjectCanvas.worldCamera = mainCamera;
             segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
             segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
             segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
             segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
             //Calculate the segments and slap them into an array.
-            CalculateSemiCircle(0.5f, 0.66f);
+            CalculateSemiCircle(5f, 0.66f);
             segment1.SetPositions(segmentList);
+            segment1.gameObject.SetActive(true);
             segment2.gameObject.SetActive(false);
             segment3.gameObject.SetActive(false);
+            segment2.SetPositions(segmentList);
+            segment3.SetPositions(segmentList);
 
             //setup the UI element for the min/max
             energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
@@ -110,7 +121,7 @@ namespace ArsonistMod.Content.Controllers
         private void CalculateSemiCircle(float radius, float percentage) 
         {
             float range = percentage * radius * 2f;
-            float incrementX = range / Modules.StaticValues.noOfSegmentsOnOverheatGauge;
+            float incrementX = range / (float)Modules.StaticValues.noOfSegmentsOnOverheatGauge;
 
             float x = percentage * radius * -1f;
 
@@ -122,6 +133,7 @@ namespace ArsonistMod.Content.Controllers
 
                 //write positions into array.
                 segmentList[i] = new Vector3(x, y, 0f);
+                Debug.Log($"{i}: {segmentList[i]}");
                 x += incrementX;
             }
         }
@@ -223,6 +235,7 @@ namespace ArsonistMod.Content.Controllers
 
         public void Update()
         {
+            CustomUIObjectCanvas.worldCamera = mainCamera;
             //if (state != GlowState.STOP)
             //{
             //    glowStopwatch += Time.deltaTime;
