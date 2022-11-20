@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace ArsonistMod.Modules
 {
@@ -25,6 +26,7 @@ namespace ArsonistMod.Modules
         internal static float specialCooldownMultiplier = 0.6f;
 
         internal static int noOfSegmentsOnOverheatGauge = 250;
+        internal static Vector3 SegmentedValuesOnGauge = new Vector3(0.5f, 0.25f, 0.25f);
 
 
         //energy

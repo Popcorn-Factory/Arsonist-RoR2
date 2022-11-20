@@ -96,12 +96,38 @@ namespace ArsonistMod.Content.Controllers
             CalculateSemiCircle(6f, 0.85f);
 
             //Determine the partitions from a set of static values.
-            segment1.SetPositions(segmentList);
-            segment1.gameObject.SetActive(true);
-            segment2.gameObject.SetActive(false);
-            segment3.gameObject.SetActive(false);
-            segment2.SetPositions(segmentList);
-            segment3.SetPositions(segmentList);
+            int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge / Modules.StaticValues.SegmentedValuesOnGauge.x);
+            int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge / Modules.StaticValues.SegmentedValuesOnGauge.y);
+            int redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge / Modules.StaticValues.SegmentedValuesOnGauge.z);
+
+            Vector3[] whiteArray = new Vector3[whiteSegment];
+            Vector3[] blueArray = new Vector3[blueSegment];
+            Vector3[] redArray = new Vector3[redSegment];
+
+            for (int i = 0; i < Modules.StaticValues.noOfSegmentsOnOverheatGauge; i++) 
+            {
+                if (i < whiteSegment) 
+                {
+                    whiteArray[i] = segmentList[i];
+                }
+                if (i > whiteSegment && i < whiteSegment + blueSegment) 
+                {
+                    blueArray[i - whiteSegment] = segmentList[i];
+                }
+                if (i > whiteSegment + blueSegment && i < whiteSegment + blueSegment + redSegment)
+                {
+                    redArray[i - whiteSegment - blueSegment] = segmentList[i];
+                }
+            }
+
+            segment1.positionCount = whiteArray.Length;
+            segment1.SetPositions(whiteArray);
+            segment2.positionCount = blueArray.Length;
+            segment2.SetPositions(blueArray);
+            segment3.positionCount = redArray.Length;
+            segment3.SetPositions(redArray);
+            segment1.gameObject.SetActive(false);
+
 
             //setup the UI element for the min/max
             energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
