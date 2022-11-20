@@ -93,7 +93,9 @@ namespace ArsonistMod.Content.Controllers
             segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
             segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
             //Calculate the segments and slap them into an array.
-            CalculateSemiCircle(5f, 0.66f);
+            CalculateSemiCircle(6f, 0.85f);
+
+            //Determine the partitions from a set of static values.
             segment1.SetPositions(segmentList);
             segment1.gameObject.SetActive(true);
             segment2.gameObject.SetActive(false);
