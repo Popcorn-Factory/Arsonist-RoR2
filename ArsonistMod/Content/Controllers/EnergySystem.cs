@@ -235,7 +235,12 @@ namespace ArsonistMod.Content.Controllers
 
         public void Update()
         {
-            CustomUIObjectCanvas.worldCamera = mainCamera;
+            if (!mainCamera) 
+            {
+                mainCamera = Camera.main;
+                CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+                CustomUIObjectCanvas.worldCamera = mainCamera;
+            }
             //if (state != GlowState.STOP)
             //{
             //    glowStopwatch += Time.deltaTime;
