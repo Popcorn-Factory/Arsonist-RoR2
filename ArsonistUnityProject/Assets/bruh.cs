@@ -12,13 +12,13 @@ public class bruh : MonoBehaviour
     {
         segmentList = new Vector3[250];
         CalculateSemiCircle(5f, 0.66f);
-        lineRenderer.SetPositions(segmentList);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        lineRenderer.positionCount = segmentList.Length-1;
+        lineRenderer.SetPositions(segmentList);
     }
 
     private void CalculateSemiCircle(float radius, float percentage) 

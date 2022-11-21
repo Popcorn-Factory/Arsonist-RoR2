@@ -18,11 +18,14 @@ namespace ArsonistMod.Content.Controllers
         public GameObject CustomUIObject;
         public Canvas CustomUIObjectCanvas;
         public LineRenderer fullSegment;
+        public LineRenderer levelSegment;
         public LineRenderer segment1;
         public LineRenderer segment2;
         public LineRenderer segment3;
         public Vector3[] segmentList;
         public Camera mainCamera;
+
+        
 
         //OLD
         public RectTransform energyMeter;
@@ -80,58 +83,8 @@ namespace ArsonistMod.Content.Controllers
 
             mainCamera = Camera.main;
 
-            //UI objects 
-            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
 
-            //Get the line renderers for all the objects in the overheat gauge
-            //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
-            CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
-            CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-            CustomUIObjectCanvas.worldCamera = mainCamera;
-            segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
-            segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
-            segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
-            segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
-            //Calculate the segments and slap them into an array.
-            CalculateSemiCircle(6f, 0.85f);
-
-            //Determine the partitions from a set of static values.
-            int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge / Modules.StaticValues.SegmentedValuesOnGauge.x);
-            int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge / Modules.StaticValues.SegmentedValuesOnGauge.y);
-            int redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge / Modules.StaticValues.SegmentedValuesOnGauge.z);
-
-            Vector3[] whiteArray = new Vector3[whiteSegment];
-            Vector3[] blueArray = new Vector3[blueSegment];
-            Vector3[] redArray = new Vector3[redSegment];
-
-            for (int i = 0; i < Modules.StaticValues.noOfSegmentsOnOverheatGauge; i++) 
-            {
-                if (i < whiteSegment) 
-                {
-                    whiteArray[i] = segmentList[i];
-                }
-                if (i > whiteSegment && i < whiteSegment + blueSegment) 
-                {
-                    blueArray[i - whiteSegment] = segmentList[i];
-                }
-                if (i > whiteSegment + blueSegment && i < whiteSegment + blueSegment + redSegment)
-                {
-                    redArray[i - whiteSegment - blueSegment] = segmentList[i];
-                }
-            }
-
-            segment1.positionCount = whiteArray.Length;
-            segment1.SetPositions(whiteArray);
-            segment2.positionCount = blueArray.Length;
-            segment2.SetPositions(blueArray);
-            segment3.positionCount = redArray.Length;
-            segment3.SetPositions(redArray);
-            segment1.gameObject.SetActive(false);
-
-
-            //setup the UI element for the min/max
-            energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
-            
+            SetupCustomUI();
 
             // Start timer on 1f to turn off the timer.
             state = GlowState.STOP;
@@ -141,6 +94,62 @@ namespace ArsonistMod.Content.Controllers
             originalColor = new Color(1f, 1f, 1f, 0f);
             targetColor = new Color(1f, 1f, 1f, 1f);
             currentColor = originalColor;
+
+        }
+
+        private void SetupCustomUI() 
+        {
+            //UI objects 
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
+
+            //Get the line renderers for all the objects in the overheat gauge
+            //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
+            CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
+            CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+            CustomUIObjectCanvas.worldCamera = mainCamera;
+            segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
+            levelSegment = CustomUIObject.transform.GetChild(0).GetComponent<LineRenderer>();
+            segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
+            segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
+            segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
+            //Calculate the segments and slap them into an array.
+            CalculateSemiCircle(6f, 0.85f);
+
+            //Determine the partitions from a set of static values.
+            int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
+            int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
+            int redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
+
+            Vector3[] whiteArray = new Vector3[whiteSegment];
+            Vector3[] blueArray = new Vector3[blueSegment];
+            Vector3[] redArray = new Vector3[redSegment];
+
+            for (int i = 0; i < Modules.StaticValues.noOfSegmentsOnOverheatGauge; i++)
+            {
+                if (i < whiteSegment)
+                {
+                    whiteArray[i] = segmentList[i];
+                }
+                if (i > whiteSegment && i < whiteSegment + blueSegment)
+                {
+                    blueArray[i - whiteSegment - 1] = segmentList[i];
+                }
+                if (i > whiteSegment + blueSegment && i < whiteSegment + blueSegment + redSegment)
+                {
+                    redArray[i - whiteSegment - blueSegment - 1] = segmentList[i];
+                }
+            }
+
+            segment1.positionCount = whiteArray.Length - 1;
+            segment1.SetPositions(whiteArray);
+            segment2.positionCount = blueArray.Length - 1;
+            segment2.SetPositions(blueArray);
+            segment3.positionCount = redArray.Length - 1;
+            segment3.SetPositions(redArray);
+
+
+            //setup the UI element for the min/max
+            energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
 
         }
 
@@ -268,6 +277,27 @@ namespace ArsonistMod.Content.Controllers
                 mainCamera = Camera.main;
                 CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
                 CustomUIObjectCanvas.worldCamera = mainCamera;
+            }
+
+
+
+            if (ifOverheatMaxed) 
+            {
+                //Do fancy stuff regarding the red section
+            }
+            else 
+            {
+                int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
+                int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
+
+                int maxSegment = whiteSegment + blueSegment;
+
+                int calculatedLastSegment = (int)(maxSegment * (float)(currentOverheat / maxOverheat));
+                Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
+                Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
+
+                levelSegment.positionCount = proposedPositions.Length;
+                levelSegment.SetPositions(proposedPositions);
             }
             //if (state != GlowState.STOP)
             //{
