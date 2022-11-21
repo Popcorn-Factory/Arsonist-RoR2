@@ -15,9 +15,13 @@ namespace ArsonistMod.Modules
         internal static GameObject artificerFirebolt;
         internal static GameObject weakFlare;
         internal static GameObject strongFlare;
+        internal static GameObject zeropointBomb;
 
         internal static void RegisterProjectiles()
         {
+            CreateZeroPointBomb();
+            AddProjectile(zeropointBomb);
+
             CreateLemurianFireBall();
             AddProjectile(lemurianFireBall);
 
@@ -97,6 +101,44 @@ namespace ArsonistMod.Modules
             damageComponent.crit = false;
             damageComponent.force = 0f;
             damageComponent.damageType = DamageType.Generic;
+        }
+
+        private static void CreateZeroPointBomb()
+        {
+            zeropointBomb = CloneProjectilePrefab("CommandoGrenadeProjectile", "zeropointBomb");
+            Rigidbody zeropointBombRigidbody = zeropointBomb.GetComponent<Rigidbody>();
+            if (!zeropointBombRigidbody)
+            {
+                zeropointBombRigidbody = zeropointBomb.AddComponent<Rigidbody>();
+            }
+
+            ProjectileImpactExplosion zeropointBombexplosion = zeropointBomb.GetComponent<ProjectileImpactExplosion>();
+
+            if (!zeropointBombexplosion)
+            {
+                zeropointBombexplosion = zeropointBomb.AddComponent<ProjectileImpactExplosion>();
+
+            }
+            InitializeImpactExplosion(zeropointBombexplosion);
+
+            zeropointBombexplosion.blastDamageCoefficient = 1f;
+            zeropointBombexplosion.blastProcCoefficient = 1f;
+            zeropointBombexplosion.blastRadius = 10f;
+            zeropointBombexplosion.destroyOnEnemy = true;
+            zeropointBombexplosion.lifetime = 6f;
+            zeropointBombexplosion.impactEffect = Assets.bombExplosionEffect;
+            zeropointBombexplosion.timerAfterImpact = true;
+            zeropointBombexplosion.lifetimeAfterImpact = 2f;
+
+            zeropointBombexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
+
+            ProjectileController zeropointBombController = zeropointBomb.GetComponent<ProjectileController>();
+            zeropointBombController.rigidbody = zeropointBombRigidbody;
+            zeropointBombController.rigidbody.useGravity = true;
+            zeropointBombController.rigidbody.mass = 1000f;
+            
+            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("HenryBombGhost") != null) zeropointBombController.ghostPrefab = CreateGhostPrefab("HenryBombGhost");
+            zeropointBombController.startSound = "";
         }
 
         private static void CreateLemurianFireBall()

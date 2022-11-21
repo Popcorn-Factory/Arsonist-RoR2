@@ -14,6 +14,7 @@ namespace ArsonistMod.Modules
             
             Modules.Content.AddEntityState(typeof(FireSpray));
             Modules.Content.AddEntityState(typeof(Flare));
+            Modules.Content.AddEntityState(typeof(ZeroPointPunch));
             Modules.Content.AddEntityState(typeof(Cleanse));
             Modules.Content.AddEntityState(typeof(Masochism));
         }
