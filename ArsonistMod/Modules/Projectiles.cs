@@ -1,8 +1,10 @@
-﻿using ArsonistMod.SkillStates.Arsonist.Secondary;
+﻿using ArsonistMod.Content.Controllers;
+using ArsonistMod.SkillStates.Arsonist.Secondary;
 using R2API;
 using R2API.Networking;
 using RoR2;
 using RoR2.Projectile;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -106,6 +108,10 @@ namespace ArsonistMod.Modules
         private static void CreateZeroPointBomb()
         {
             zeropointBomb = CloneProjectilePrefab("CommandoGrenadeProjectile", "zeropointBomb");
+
+            ProjectileSimple zeropointBombTrajectory = zeropointBomb.GetComponent<ProjectileSimple>();
+            zeropointBombTrajectory.lifetime = 20f;
+
             Rigidbody zeropointBombRigidbody = zeropointBomb.GetComponent<Rigidbody>();
             if (!zeropointBombRigidbody)
             {
@@ -113,6 +119,7 @@ namespace ArsonistMod.Modules
             }
 
             ProjectileImpactExplosion zeropointBombexplosion = zeropointBomb.GetComponent<ProjectileImpactExplosion>();
+
 
             if (!zeropointBombexplosion)
             {
@@ -125,10 +132,10 @@ namespace ArsonistMod.Modules
             zeropointBombexplosion.blastProcCoefficient = 1f;
             zeropointBombexplosion.blastRadius = 10f;
             zeropointBombexplosion.destroyOnEnemy = true;
-            zeropointBombexplosion.lifetime = 6f;
+            zeropointBombexplosion.lifetime = 20f;
             zeropointBombexplosion.impactEffect = Assets.bombExplosionEffect;
             zeropointBombexplosion.timerAfterImpact = true;
-            zeropointBombexplosion.lifetimeAfterImpact = 2f;
+            zeropointBombexplosion.lifetimeAfterImpact = 3f;
 
             zeropointBombexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
 
@@ -137,8 +144,11 @@ namespace ArsonistMod.Modules
             zeropointBombController.rigidbody.useGravity = true;
             zeropointBombController.rigidbody.mass = 1000f;
             
+            
             if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("HenryBombGhost") != null) zeropointBombController.ghostPrefab = CreateGhostPrefab("HenryBombGhost");
             zeropointBombController.startSound = "";
+
+            zeropointBomb.AddComponent<ZeroPointOnWorldHit>();
         }
 
         private static void CreateLemurianFireBall()
@@ -246,6 +256,32 @@ namespace ArsonistMod.Modules
             GameObject newPrefab = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Projectiles/" + prefabName), newPrefabName);
             return newPrefab;
         }
+
+
+        internal class ZeroPointOnWorldHit : MonoBehaviour, IProjectileImpactBehavior
+        {
+            public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
+            {
+                if (impactInfo.collider)
+                {
+                    GameObject collidedObject = impactInfo.collider.gameObject;
+                    CharacterBody body = collidedObject.GetComponent<CharacterBody>();
+
+                    if (!body)
+                    {
+                        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+                        if (rigidbody)
+                        {
+                            rigidbody.useGravity = false;
+                            rigidbody.velocity = Vector3.zero;
+
+                        }
+
+                    }
+                }
+            }
+        }
+
 
         internal class WeakFlareOnHit : MonoBehaviour, IProjectileImpactBehavior
         {
