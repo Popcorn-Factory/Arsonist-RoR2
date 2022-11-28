@@ -25,6 +25,22 @@ namespace ArsonistMod.Content.Controllers
         public Vector3[] segmentList;
         public Camera mainCamera;
 
+        //Energy Bar Overheat State
+        public enum OverheatState 
+        {
+            START,
+            HOLD,
+            END,
+            DORMANT
+        }
+        public OverheatState overheatState;
+        public float fillTimer = 0.2f;
+        public float decayTimer = 1f;
+        public float overheatTimer = 0f;
+        public bool overheatTriggered;
+        public Vector3[] originalRedLength;
+        public int currentStartOfRed = 0;
+
         
 
         //OLD
@@ -80,6 +96,8 @@ namespace ArsonistMod.Content.Controllers
             hasOverheatedSecondary = false;
             hasOverheatedUtility = false;
             hasOverheatedSpecial = false;
+            overheatTriggered = false;
+            currentStartOfRed = 0;
 
             mainCamera = Camera.main;
 
@@ -146,6 +164,7 @@ namespace ArsonistMod.Content.Controllers
             segment2.SetPositions(blueArray);
             segment3.positionCount = redArray.Length - 1;
             segment3.SetPositions(redArray);
+            originalRedLength = redArray;
 
 
             //setup the UI element for the min/max
@@ -170,7 +189,6 @@ namespace ArsonistMod.Content.Controllers
 
                 //write positions into array.
                 segmentList[i] = new Vector3(x, y, 0f);
-                Debug.Log($"{i}: {segmentList[i]}");
                 x += incrementX;
             }
         }
@@ -228,6 +246,7 @@ namespace ArsonistMod.Content.Controllers
                     overheatDecayTimer = 0f;
                     ifOverheatRegenAllowed = true;
                     ifOverheatMaxed = false;
+                    overheatTriggered = false;
                 }
                 else
                 {
@@ -279,19 +298,23 @@ namespace ArsonistMod.Content.Controllers
                 CustomUIObjectCanvas.worldCamera = mainCamera;
             }
 
+            int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
+            int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
 
+            int maxSegment = whiteSegment + blueSegment;
 
             if (ifOverheatMaxed) 
             {
                 //Do fancy stuff regarding the red section
+                if (!overheatTriggered) 
+                {
+                    overheatTriggered = true;
+                    overheatState = OverheatState.START;
+                    currentStartOfRed = 0;
+                }
             }
             else 
             {
-                int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
-                int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
-
-                int maxSegment = whiteSegment + blueSegment;
-
                 int calculatedLastSegment = (int)(maxSegment * (float)(currentOverheat / maxOverheat));
                 Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
                 Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
@@ -299,6 +322,27 @@ namespace ArsonistMod.Content.Controllers
                 levelSegment.positionCount = proposedPositions.Length;
                 levelSegment.SetPositions(proposedPositions);
             }
+
+            switch (overheatState) 
+            {
+                case OverheatState.START:
+                    //Red is increasing to the start of the bar.
+                    overheatTimer += Time.deltaTime;
+                    int fillRate = (int)(maxSegment / fillTimer);
+                    currentStartOfRed += (int)(fillRate * Time.deltaTime);
+
+                    break;
+                case OverheatState.HOLD:
+                    //Red is held at full
+                    break;
+                case OverheatState.END:
+                    //Red is decaying back to the beginning
+                    break;
+                case OverheatState.DORMANT:
+                    //Red stays at the end of the bar.
+                    break;
+            }
+
             //if (state != GlowState.STOP)
             //{
             //    glowStopwatch += Time.deltaTime;
