@@ -317,7 +317,7 @@ namespace ArsonistMod.Content.Controllers
                 }
             }
 
-            int calculatedLastSegment = (int)(maxSegment * (float)(currentOverheat / maxOverheat));
+            int calculatedLastSegment = (int)((float)maxSegment * (float)(currentOverheat / maxOverheat));
             Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
             Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
 
@@ -360,6 +360,7 @@ namespace ArsonistMod.Content.Controllers
                 case OverheatState.END:
                     //Red is decaying back to the beginning
                     overheatTimer += Time.deltaTime;
+
                     float decayRate = (maxSegment / decayTimer);
                     additionalRed -= (decayRate * Time.deltaTime);
 
