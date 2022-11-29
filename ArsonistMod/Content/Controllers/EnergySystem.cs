@@ -36,7 +36,7 @@ namespace ArsonistMod.Content.Controllers
         }
         public OverheatState overheatState;
         public float fillTimer = 0.2f;
-        public float decayTimer = 1f;
+        public float decayTimer = 0.6f;
         public float overheatTimer = 0f;
         public bool overheatTriggered;
         public Vector3[] originalRedLength;
@@ -311,19 +311,18 @@ namespace ArsonistMod.Content.Controllers
                 {
                     overheatTriggered = true;
                     overheatState = OverheatState.START;
+                    overheatTimer = 0f;
                     additionalRed = 0;
                     fillTimer = Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed;
                 }
             }
-            else 
-            {
-                int calculatedLastSegment = (int)(maxSegment * (float)(currentOverheat / maxOverheat));
-                Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
-                Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
 
-                levelSegment.positionCount = proposedPositions.Length;
-                levelSegment.SetPositions(proposedPositions);
-            }
+            int calculatedLastSegment = (int)(maxSegment * (float)(currentOverheat / maxOverheat));
+            Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
+            Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
+
+            levelSegment.positionCount = proposedPositions.Length;
+            levelSegment.SetPositions(proposedPositions);
 
             switch (overheatState) 
             {
@@ -333,9 +332,11 @@ namespace ArsonistMod.Content.Controllers
                     float fillRate = (maxSegment / fillTimer);
                     additionalRed += (fillRate * Time.deltaTime);
 
-                    if(overheatTimer >= fillTimer) 
+                    if(!ifOverheatMaxed || overheatTimer >= fillTimer) 
                     {
                         overheatState = OverheatState.END;
+                        overheatTriggered = false;
+                        overheatTimer = 0f;
                     }
 
                     //add to the red segment, and determine how many segments should be allocated to red.
@@ -343,11 +344,11 @@ namespace ArsonistMod.Content.Controllers
                     if ( firstIndex >= 0 )
                     {
                         //only copy from the start index to the end of the array.
-                        Vector3[] proposedPositions = new Vector3[(int)(additionalRed + redSegment)];
-                        Array.Copy(segmentList, firstIndex, proposedPositions, 0, (int)(additionalRed + redSegment));
+                        Vector3[] redProposedPositions = new Vector3[(int)(additionalRed + redSegment)];
+                        Array.Copy(segmentList, firstIndex, redProposedPositions, 0, (int)(additionalRed + redSegment));
 
                         segment3.positionCount = (int)(additionalRed + redSegment);
-                        segment3.SetPositions(proposedPositions);                        
+                        segment3.SetPositions(redProposedPositions);                        
                     }
                     else 
                     {
@@ -363,17 +364,17 @@ namespace ArsonistMod.Content.Controllers
                     additionalRed -= (decayRate * Time.deltaTime);
 
                     int index = Modules.StaticValues.noOfSegmentsOnOverheatGauge - ((int)additionalRed + redSegment);
-                    if (index >= 0)
+                    if (index >= redSegment)
                     {
                         //only copy from the start index to the end of the array.
-                        Vector3[] proposedPositions = new Vector3[(int)(additionalRed + redSegment)];
-                        Array.Copy(segmentList, index, proposedPositions, 0, (int)(additionalRed + redSegment));
+                        Vector3[] redProposedPositions = new Vector3[(int)(additionalRed + redSegment)];
+                        Array.Copy(segmentList, index, redProposedPositions, 0, (int)(additionalRed + redSegment));
 
                         segment3.positionCount = (int)(additionalRed + redSegment);
-                        segment3.SetPositions(proposedPositions);
+                        segment3.SetPositions(redProposedPositions);
                     }
 
-                    if (overheatTimer >= decayTimer) 
+                    if (overheatTimer >= decayTimer || additionalRed <= 0) 
                     {
                         overheatState = OverheatState.DORMANT;
                         additionalRed = 0;
