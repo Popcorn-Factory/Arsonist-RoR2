@@ -64,6 +64,10 @@ namespace ArsonistMod.Content.Controllers
         public bool hasOverheatedUtility;
         public bool hasOverheatedSpecial;
 
+        //whether base or alt m1 used
+        public bool baseHeatGauge;
+        public string prefix = ArsonistPlugin.DEVELOPER_PREFIX;
+
         //Energy bar glow
         private enum GlowState
         {
@@ -78,6 +82,12 @@ namespace ArsonistMod.Content.Controllers
         private Color originalColor;
         private Color currentColor;
         private GlowState state;
+        private int whiteSegment;
+        private int blueSegment;
+        private int redSegment;
+        private float blueRatio;
+        private float redRatio;
+        public float currentBlueNumber;
 
         public void Awake()
         {
@@ -101,6 +111,7 @@ namespace ArsonistMod.Content.Controllers
             additionalRed = 0;
             overheatState = OverheatState.DORMANT;
             mainCamera = Camera.main;
+            baseHeatGauge = true;
 
 
             SetupCustomUI();
@@ -135,9 +146,20 @@ namespace ArsonistMod.Content.Controllers
             CalculateSemiCircle(6f, 0.85f);
 
             //Determine the partitions from a set of static values.
-            int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
-            int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
-            int redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
+            //also check for the primary 
+            if (baseHeatGauge)
+            {
+                whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
+                blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
+                redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
+
+            }
+            else
+            {
+                whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.x);
+                blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.y);
+                redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.z);
+            }
 
             Vector3[] whiteArray = new Vector3[whiteSegment];
             Vector3[] blueArray = new Vector3[blueSegment];
@@ -222,10 +244,45 @@ namespace ArsonistMod.Content.Controllers
             //Energy updates
             if (characterBody)
             {
-                maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
-                    + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                    + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
-                regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat;
+                if (baseHeatGauge)
+                {
+                    //max heat increases
+                    maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
+                        + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                        + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
+                    //regen increases based off current overheat value
+                    regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * (currentOverheat / (maxOverheat * 0.5f));
+                    if(regenOverheat < characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * 0.5f)
+                    {
+                        regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * 0.5f;
+                    }
+                    //calcing blue and red ratios for base
+                    blueRatio = 0;
+                    redRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                    
+                }
+                else
+                {
+                    //max overheat doesn't increase
+                    maxOverheat = StaticValues.baseEnergy;
+                    //regen remains static
+                    regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat;
+                    //calcing blue and red ratios for alt
+                    blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupEnergyGain / 20f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine)) + (StaticValues.hardlightEnergyGain / 20f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)));
+                    if(blueRatio > StaticValues.maxBlueWhiteSegment)
+                    {
+                        blueRatio = StaticValues.maxBlueWhiteSegment;
+                    }
+                    redRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                    if (redRatio < 0f)
+                    {
+                        redRatio = 0f;
+                    }
+
+                    //this value is used to check for skills that are used when heat is in the blue gauge
+                    currentBlueNumber = blueRatio * maxOverheat;
+                }
+
 
                 costmultiplierOverheat = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
                 costflatOverheat = (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
@@ -292,6 +349,22 @@ namespace ArsonistMod.Content.Controllers
 
         public void Update()
         {
+            //checking which m1 is equipped for different heat passive
+            if(characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            {
+                if (!baseHeatGauge)
+                {
+                    baseHeatGauge = true;
+                }
+            }
+            else
+            {
+                if (baseHeatGauge)
+                {
+                    baseHeatGauge = false;
+                }
+            }
+
             if (!mainCamera) 
             {
                 mainCamera = Camera.main;
@@ -299,10 +372,6 @@ namespace ArsonistMod.Content.Controllers
                 CustomUIObjectCanvas.worldCamera = mainCamera;
             }
 
-            int whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
-            int blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
-            int redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
-            int maxSegment = whiteSegment + blueSegment;
 
             if (ifOverheatMaxed) 
             {
@@ -316,6 +385,11 @@ namespace ArsonistMod.Content.Controllers
                     fillTimer = Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed;
                 }
             }
+
+            whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * redRatio);
+            blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * blueRatio);
+            redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
+            int maxSegment = whiteSegment + blueSegment;
 
             int calculatedLastSegment = (int)((float)maxSegment * (float)(currentOverheat / maxOverheat));
             Vector3[] proposedPositions = new Vector3[calculatedLastSegment];

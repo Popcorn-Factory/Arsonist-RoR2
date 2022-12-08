@@ -102,6 +102,16 @@ namespace ArsonistMod.Modules.Survivors
 
 
             Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
+
+            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_NAME",
+                                                                                      prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
+                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+                                                                                      "Weapon",
+                                                                                      true));
+
+
+            Modules.Skills.AddPrimarySkills(bodyPrefab, altprimarySkillDef);
             #endregion
 
             #region Secondary
