@@ -82,8 +82,8 @@ namespace ArsonistMod.Modules.Survivors
             GameObject model = childLocator.gameObject;
 
             //example of how to create a hitbox
-            //Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
-            //Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
+            Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
+            Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
         }
 
         public override void InitializeSkills()
@@ -110,6 +110,16 @@ namespace ArsonistMod.Modules.Survivors
 
 
             Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
+
+            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_NAME",
+                                                                                      prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
+                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+                                                                                      "Weapon",
+                                                                                      true));
+
+
+            Modules.Skills.AddPrimarySkills(bodyPrefab, altprimarySkillDef);
             #endregion
 
             #region Secondary
@@ -138,7 +148,36 @@ namespace ArsonistMod.Modules.Survivors
                 keywordTokens = new string[] { "KEYWORD_AGILE" }
             });
 
-            Modules.Skills.AddSecondarySkills(bodyPrefab, shootSkillDef);
+            SkillDef punchSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_NAME",
+                skillNameToken = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_NAME",
+                skillDescriptionToken = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointPunch)),
+                activationStateMachineName = "Slide",
+                baseMaxStock = 1,
+                baseRechargeInterval = 4f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE" }
+            });
+
+            Skills.AddSecondarySkills(this.bodyPrefab, new SkillDef[]
+            {
+                shootSkillDef,
+                punchSkillDef,
+            });
             #endregion
 
             #region Utility

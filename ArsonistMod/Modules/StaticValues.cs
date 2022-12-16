@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace ArsonistMod.Modules
 {
@@ -24,6 +25,11 @@ namespace ArsonistMod.Modules
         internal static float utilityCooldownMultiplier = 0.33f;
         internal static float specialCooldownMultiplier = 0.6f;
 
+        internal static int noOfSegmentsOnOverheatGauge = 250;
+        internal static float maxBlueWhiteSegment = 0.9f;
+        internal static Vector3 SegmentedValuesOnGaugeAlt = new Vector3(0.6f, 0.3f, 0.1f);
+        internal static Vector3 SegmentedValuesOnGaugeMain = new Vector3(0.9f, 0f, 0.1f);
+
 
         //energy
         internal static float baseEnergy = 100f;
@@ -36,15 +42,8 @@ namespace ArsonistMod.Modules
         internal static float firesprayWeakDamageCoefficient = 1f;
         internal static float firesprayStrongDamageCoefficient = 3f;
         internal static float firesprayEnergyCost = 20f;
-<<<<<<< Updated upstream
-=======
-        //flare gun
-        internal static float flareGunStrongDamageCoefficient = 4f;
-        internal static float flareGunWeakDamageCoefficient = 2f;
-        
         //zeropointpunch
         internal static float zeropointpounchDamageCoefficient = 4f;
->>>>>>> Stashed changes
         //cleanse
         internal static float cleanseDuration = 4f;
         internal static float cleanseDamageCoefficient = 0.5f;
