@@ -1,4 +1,5 @@
-﻿using R2API.Networking;
+﻿using ArsonistMod.Modules;
+using R2API.Networking;
 using RoR2;
 using UnityEngine;
 
@@ -94,9 +95,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.crit = Util.CheckRoll(0);
             if(isWeak)
             {
-                blastAttack.baseDamage = this.charbody.baseDamage * 2f;
+                blastAttack.baseDamage = this.charbody.baseDamage * StaticValues.flareGunWeakDamageCoefficient;
             }
-            else blastAttack.baseDamage = this.charbody.baseDamage * 4f;
+            else blastAttack.baseDamage = this.charbody.baseDamage * StaticValues.flareGunStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;

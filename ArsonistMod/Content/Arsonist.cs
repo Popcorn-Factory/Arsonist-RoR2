@@ -91,6 +91,14 @@ namespace ArsonistMod.Modules.Survivors
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX;
 
+            #region Passive
+            SkillLocator skillLoc = bodyPrefab.GetComponent<SkillLocator>();
+            skillLoc.passiveSkill.enabled = true;
+            skillLoc.passiveSkill.skillNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_NAME";
+            skillLoc.passiveSkill.skillDescriptionToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_DESCRIPTION";
+            skillLoc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
+            #endregion
+
             #region Primary
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME",

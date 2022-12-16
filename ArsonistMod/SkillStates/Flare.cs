@@ -8,6 +8,7 @@ using static UnityEngine.ParticleSystem.PlaybackState;
 using HG;
 using System.Collections.Generic;
 using System.Linq;
+using ArsonistMod.Modules;
 
 namespace ArsonistMod.SkillStates
 {
@@ -36,7 +37,7 @@ namespace ArsonistMod.SkillStates
                            aimRay.origin,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
-                           4f * this.damageStat,
+                           StaticValues.flareGunStrongDamageCoefficient * this.damageStat,
                            0f,
                            base.RollCrit(),
                            DamageColorIndex.Default,
@@ -50,7 +51,7 @@ namespace ArsonistMod.SkillStates
                            aimRay.origin,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
-                           2f * this.damageStat,
+                           StaticValues.flareGunWeakDamageCoefficient * this.damageStat,
                            0f,
                            base.RollCrit(),
                            DamageColorIndex.Default,

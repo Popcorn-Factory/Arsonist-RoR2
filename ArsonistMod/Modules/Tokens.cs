@@ -16,8 +16,8 @@ namespace ArsonistMod.Modules
             desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
 
-            string outro = "..and so he left, searching for a new identity.";
-            string outroFailure = "..and so he vanished, forever a blank slate.";
+            string outro = "..and so he left, with new bloodlust blazing in his soul.";
+            string outroFailure = "..and so he vanished, mortality burning away from flesh.";
 
             LanguageAPI.Add(prefix + "NAME", "Arsonist");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
@@ -32,28 +32,28 @@ namespace ArsonistMod.Modules
             #endregion
 
             #region Passive
-            LanguageAPI.Add(prefix + "PASSIVE_NAME", "Arsonist passive");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Sample text.");
+            LanguageAPI.Add(prefix + "PASSIVE_NAME", "Pyromania");
+            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Being ignited increases movement speed and damage.");
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Sword");
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Firespray");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", $"Fire a fireball, <style=cIsDamage>igniting enemies</style> exploding for <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Secondary
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Helpers.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * StaticValues.gunDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Flare Gun");
+            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareGunStrongDamageCoefficient}% damage over 5 seconds</style> before exploding dealing <style=cIsDamage>{100f * StaticValues.flareGunStrongDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Utility
-            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_NAME", "Roll");
-            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
+            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_NAME", "Cleanse");
+            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_DESCRIPTION", $"Ignite yourself in a blast of fire, dealing <style=cIsDamage>{100f * StaticValues.cleanseDamageCoefficient}%</style> damage to enemies around you and burning away other status effects.");
             #endregion
 
             #region Special
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Bomb");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"Throw a bomb for <style=cIsDamage>{100f * StaticValues.bombDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Masochism");
+            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", "Damage from being ignited turns into healing over time.");
             #endregion
 
             #region Achievements

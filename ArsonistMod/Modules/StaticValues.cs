@@ -36,6 +36,15 @@ namespace ArsonistMod.Modules
         internal static float firesprayWeakDamageCoefficient = 1f;
         internal static float firesprayStrongDamageCoefficient = 3f;
         internal static float firesprayEnergyCost = 20f;
+<<<<<<< Updated upstream
+=======
+        //flare gun
+        internal static float flareGunStrongDamageCoefficient = 4f;
+        internal static float flareGunWeakDamageCoefficient = 2f;
+        
+        //zeropointpunch
+        internal static float zeropointpounchDamageCoefficient = 4f;
+>>>>>>> Stashed changes
         //cleanse
         internal static float cleanseDuration = 4f;
         internal static float cleanseDamageCoefficient = 0.5f;
