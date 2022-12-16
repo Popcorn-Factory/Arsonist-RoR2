@@ -44,9 +44,13 @@ namespace ArsonistMod.Modules
         internal static float blueDamageMultiplier = 2f;
 
         //firespray
-        internal static float firesprayWeakDamageCoefficient = 1f;
+        internal static float firesprayWeakDamageCoefficient = 1.5f;
         internal static float firesprayStrongDamageCoefficient = 3f;
         internal static float firesprayEnergyCost = 20f;
+        //flaregun
+        internal static float flareWeakDamageCoefficient = 2f;
+        internal static float flareStrongDamageCoefficient = 4f;
+
         //zeropointpunch
         internal static float zeropointpounchDamageCoefficient = 4f;
         //cleanse

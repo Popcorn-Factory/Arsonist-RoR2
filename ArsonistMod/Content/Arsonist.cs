@@ -89,12 +89,12 @@ namespace ArsonistMod.Modules.Survivors
         public override void InitializeSkills()
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
-            string prefix = ArsonistPlugin.DEVELOPER_PREFIX;
+            string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
             #region Primary
             //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME",
-                                                                                      prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_DESCRIPTION",
+            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "PRIMARY_FIRESPRAY_NAME",
+                                                                                      prefix + "PRIMARY_FIRESPRAY_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                                                                                       "Weapon",
@@ -103,8 +103,8 @@ namespace ArsonistMod.Modules.Survivors
 
             Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
 
-            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_NAME",
-                                                                                      prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
+            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
+                                                                                      prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                                                                                       "Weapon",
@@ -117,9 +117,9 @@ namespace ArsonistMod.Modules.Survivors
             #region Secondary
             SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillName = prefix + "SECONDARY_FLAREGUN_NAME",
+                skillNameToken = prefix + "SECONDARY_FLAREGUN_NAME",
+                skillDescriptionToken = prefix + "SECONDARY_FLAREGUN_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Flare)),
                 activationStateMachineName = "Slide",
@@ -142,9 +142,9 @@ namespace ArsonistMod.Modules.Survivors
 
             SkillDef punchSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_DESCRIPTION",
+                skillName = prefix + "SECONDARY_PUNCH_NAME",
+                skillNameToken = prefix + "SECONDARY_PUNCH_NAME",
+                skillDescriptionToken = prefix + "SECONDARY_PUNCH_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointPunch)),
                 activationStateMachineName = "Slide",
@@ -175,9 +175,9 @@ namespace ArsonistMod.Modules.Survivors
             #region Utility
             SkillDef cleanseSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_DESCRIPTION",
+                skillName = prefix + "UTILITY_CLEANSE_NAME",
+                skillNameToken = prefix + "UTILITY_CLEANSE_NAME",
+                skillDescriptionToken = prefix + "UTILITY_CLEANSE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Cleanse)),
                 activationStateMachineName = "Slide",
@@ -203,9 +203,9 @@ namespace ArsonistMod.Modules.Survivors
             #region Special
             SkillDef bombSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_DESCRIPTION",
+                skillName = prefix + "SPECIAL_BOMB_NAME",
+                skillNameToken = prefix + "SPECIAL_BOMB_NAME",
+                skillDescriptionToken = prefix + "SPECIAL_BOMB_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Masochism)),
                 activationStateMachineName = "Slide",

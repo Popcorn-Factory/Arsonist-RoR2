@@ -73,9 +73,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.crit = Util.CheckRoll(0);
             if (isWeak)
             {
-                blastAttack.baseDamage = this.charbody.baseDamage * 0.4f;
+                blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient/5f;
             }
-            else blastAttack.baseDamage = this.charbody.baseDamage * 0.8f;
+            else blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareStrongDamageCoefficient/5f;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
@@ -94,9 +94,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.crit = Util.CheckRoll(0);
             if(isWeak)
             {
-                blastAttack.baseDamage = this.charbody.baseDamage * 2f;
+                blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient;
             }
-            else blastAttack.baseDamage = this.charbody.baseDamage * 4f;
+            else blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
