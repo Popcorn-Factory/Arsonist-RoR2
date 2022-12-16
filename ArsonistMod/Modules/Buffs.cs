@@ -12,6 +12,7 @@ namespace ArsonistMod.Modules
         internal static BuffDef masochismBuff;
         internal static BuffDef flareStrongBuff;
         internal static BuffDef FlareWeakBuff;
+        internal static BuffDef blueBuff;
 
         internal static void RegisterBuffs()
         {
@@ -20,6 +21,7 @@ namespace ArsonistMod.Modules
             masochismBuff = AddNewBuff("Arsonist Masochism Overheat Buff", tempIcon, Color.red, false, false);
             flareStrongBuff = AddNewBuff("Flare Strong Burn", tempIcon, Color.blue, true, true);
             FlareWeakBuff = AddNewBuff("Flare Weak Burn", tempIcon, Color.yellow, true, true);
+            blueBuff = AddNewBuff("Blue Heat Gauge Buff", Assets.blazingBuffIcon, Color.cyan, false, true);
         }
 
         // simple helper method

@@ -30,6 +30,9 @@ namespace ArsonistMod.Modules
         public static GameObject artificerFireboltGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageFireboltGhost.prefab").WaitForCompletion();
         public static GameObject explosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ExplosionVFX.prefab").WaitForCompletion();
 
+        //buffs
+        public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
+
         // the assetbundle to load assets from
         internal static AssetBundle mainAssetBundle;
 

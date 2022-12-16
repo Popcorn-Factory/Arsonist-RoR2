@@ -164,16 +164,26 @@ namespace ArsonistMod.Content.Controllers
 
         private void CharacterBody_OnLevelUp(On.RoR2.CharacterBody.orig_OnLevelUp orig, CharacterBody self)
         {
-            orig.Invoke(self);
+            orig(self);
 
-            SegmentMake();
+            if (self && self.master.inventory)
+            {
+                SegmentMake();
+            }
         }
 
         private void CharacterMaster_OnInventoryChanged(On.RoR2.CharacterMaster.orig_OnInventoryChanged orig, CharacterMaster self)
         {
-            orig.Invoke(self);
+            orig(self);
 
-            SegmentMake();
+            if (self && self.teamIndex == TeamIndex.Player && self.inventory)
+            {
+                GameObject bodyobject = self.GetBodyObject();
+                if (bodyobject != null)
+                {
+                    SegmentMake();
+                }
+            }
         }
 
         public void Start()
@@ -200,6 +210,9 @@ namespace ArsonistMod.Content.Controllers
                 {
                     baseHeatGauge = true;
                 }
+
+                blueRatio = 0;
+                whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
             }
             else
             {
@@ -207,7 +220,22 @@ namespace ArsonistMod.Content.Controllers
                 {
                     baseHeatGauge = false;
                 }
+
+                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                if (blueRatio > StaticValues.maxBlueWhiteSegment)
+                {
+                    blueRatio = StaticValues.maxBlueWhiteSegment;
+                }
+                whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                if (whiteRatio < 0f)
+                {
+                    whiteRatio = 0f;
+                }
             }
+
+            currentBlueNumber = whiteRatio * maxOverheat;
 
 
 
@@ -243,7 +271,6 @@ namespace ArsonistMod.Content.Controllers
             CalculateSemiCircle(6f, 0.85f);
 
             //Determine the partitions from a set of static values.
-            //also check for the primary 
             if (baseHeatGauge)
             {
                 whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
@@ -356,8 +383,6 @@ namespace ArsonistMod.Content.Controllers
                         whiteRatio = 0f;
                     }
 
-                    //this value is used to check for skills that are used when heat is in the blue gauge
-                    currentBlueNumber = blueRatio * maxOverheat;
                 }
 
 
@@ -444,6 +469,41 @@ namespace ArsonistMod.Content.Controllers
                     baseHeatGauge = false;
                 }
             }
+
+            //ui color change
+
+            //blue gauge checks
+            currentBlueNumber = whiteRatio * maxOverheat;
+            if (energyNumber)
+            {
+                if (currentOverheat == maxOverheat)
+                {
+                    energyNumber.color = Color.red;
+                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    {
+                        characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                    }
+                }
+                else if (currentOverheat < currentBlueNumber)
+                {
+                    energyNumber.color = Color.white;
+                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    {
+                        characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                    }
+                }
+                else if (currentOverheat >= currentBlueNumber && currentOverheat < maxOverheat && !baseHeatGauge)
+                {
+                    energyNumber.color = Color.cyan;
+                    if (!characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    {
+                        characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 1);
+                    }
+                }                   
+                
+            }
+
+            
 
             if (!mainCamera) 
             {
@@ -609,6 +669,8 @@ namespace ArsonistMod.Content.Controllers
         public void OnDestroy()
         {
             Destroy(CustomUIObject);
+            On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
+            On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
         }
     }
 }

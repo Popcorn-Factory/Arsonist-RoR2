@@ -33,7 +33,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.strongFlare,
-                           aimRay.origin,
+                           aimRay.origin + aimRay.direction,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
                            4f * this.damageStat,
@@ -47,7 +47,7 @@ namespace ArsonistMod.SkillStates
             else
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.weakFlare,
-                           aimRay.origin,
+                           aimRay.origin + aimRay.direction,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
                            2f * this.damageStat,
