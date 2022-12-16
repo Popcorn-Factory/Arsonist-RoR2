@@ -89,6 +89,12 @@ namespace ArsonistMod
                     {
                         EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
 
+                        //boosts when in blue zone- double damage?
+                        if(energySystem.currentOverheat > energySystem.currentBlueNumber)
+                        {
+                            self.damage *= 2f;
+                        }
+
                         //passive burn movespeed and damage
                         if (self.HasBuff(RoR2Content.Buffs.AffixRed))
                         {

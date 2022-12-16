@@ -324,11 +324,13 @@ namespace ArsonistMod.Content.Controllers
                         + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)
                         + StaticValues.lysateEnergyGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
                     //regen increases based off current overheat value
-                    regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * (currentOverheat / (maxOverheat * 0.5f));
-                    if(regenOverheat < characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * 0.5f)
+                    //halfheat ratio means that at 50% or lower = 1, 100% heat = 2, 
+                    float halfheat = currentOverheat / (maxOverheat / 2f);
+                    if(halfheat < 1f)
                     {
-                        regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * 0.5f;
+                        halfheat = 1f;
                     }
+                    regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * halfheat;
                     //calcing blue and red ratios for base
                     blueRatio = 0;
                     whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
