@@ -298,6 +298,7 @@ namespace ArsonistMod.Modules
                             if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
                                 || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
                             {
+                                Destroy(gameObject);
                                 if (body.GetBuffCount(Buffs.flareStrongBuff) >= 1)
                                 {
                                     body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 0);
@@ -331,6 +332,7 @@ namespace ArsonistMod.Modules
                             if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
                                 || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
                             {
+                                Destroy(gameObject);
                                 if (body.GetBuffCount(Buffs.flareStrongBuff) >= 1)
                                 {
                                     body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 0);
