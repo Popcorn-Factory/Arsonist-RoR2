@@ -63,7 +63,7 @@ namespace ArsonistMod.Modules
         internal static float cleanseDuration = 4f;
         internal static float cleanseHeatReductionMultiplier = 0.5f;
         internal static float cleanseDamageCoefficient = 0.5f;
-        internal static float cleanseBlastRadius = 4f;
+        internal static float cleanseBlastRadius = 10f;
 
         //Masochism
         internal static float masochismBuffDuration = 8f;

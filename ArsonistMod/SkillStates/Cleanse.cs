@@ -48,11 +48,9 @@ namespace ArsonistMod.SkillStates
 
                 //enemy burn
                 ApplyBurn();
+
                 //self burn
-                if (base.isAuthority)
-                {
-                    new BurnNetworkRequest(characterBody.master.netId, characterBody.netId).Send(NetworkDestination.Clients);
-                }
+                new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
                 
 
                 //hop character to avoid fall damage if in air
@@ -93,7 +91,6 @@ namespace ArsonistMod.SkillStates
             Ray aimRay = base.GetAimRay();
             BullseyeSearch search = new BullseyeSearch
             {
-
                 teamMaskFilter = TeamMask.GetEnemyTeams(base.GetTeam()),
                 filterByLoS = false,
                 searchOrigin = base.characterBody.footPosition,
@@ -105,8 +102,6 @@ namespace ArsonistMod.SkillStates
 
             search.RefreshCandidates();
             search.FilterOutGameObject(base.gameObject);
-
-
 
             List<HurtBox> target = search.GetResults().ToList<HurtBox>();
             foreach (HurtBox singularTarget in target)
