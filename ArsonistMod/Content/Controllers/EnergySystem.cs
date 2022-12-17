@@ -42,6 +42,7 @@ namespace ArsonistMod.Content.Controllers
         public bool overheatTriggered;
         public Vector3[] originalRedLength;
         public float additionalRed = 0;
+        public bool enabledUI;
 
         
 
@@ -97,7 +98,7 @@ namespace ArsonistMod.Content.Controllers
             //lets hook it up!
             On.RoR2.CharacterMaster.OnInventoryChanged += CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp += CharacterBody_OnLevelUp;
-
+            enabledUI = false;
         }
 
         //reuse the segment making
@@ -292,6 +293,8 @@ namespace ArsonistMod.Content.Controllers
             //setup the UI element for the min/max
             energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
 
+            CustomUIObject.SetActive(false);
+            energyNumber.gameObject.SetActive(false);
         }
 
         //Calculate segments
@@ -449,6 +452,13 @@ namespace ArsonistMod.Content.Controllers
             if (characterBody.hasEffectiveAuthority)
             {
                 CalculateEnergyStats();
+
+                if (!enabledUI) 
+                {
+                    enabledUI = true;
+                    CustomUIObject.SetActive(true);
+                    energyNumber.gameObject.SetActive(true);
+                }
             }
         }
 
