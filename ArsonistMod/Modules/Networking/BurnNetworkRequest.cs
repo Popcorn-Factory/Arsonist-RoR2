@@ -45,31 +45,25 @@ namespace ArsonistMod.Modules.Networking
         {
             if (NetworkServer.active)
             {
-                if (NetworkServer.active)
-                {
-                    GameObject masterobject = Util.FindNetworkObject(charnetID);
-                    CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
-                    CharacterBody charBody = charMaster.GetBody();
-                    bodyObj = charBody.gameObject;
+                GameObject masterobject = Util.FindNetworkObject(charnetID);
+                CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
+                CharacterBody charBody = charMaster.GetBody();
+                bodyObj = charBody.gameObject;
 
-                    GameObject enemymasterobject = Util.FindNetworkObject(enemynetID);
-                    CharacterMaster enemycharMaster = enemymasterobject.GetComponent<CharacterMaster>();
-                    CharacterBody enemycharBody = enemycharMaster.GetBody();
-                    enemybodyObj = enemycharBody.gameObject;
+                GameObject enemymasterobject = Util.FindNetworkObject(enemynetID);
+                CharacterMaster enemycharMaster = enemymasterobject.GetComponent<CharacterMaster>();
+                CharacterBody enemycharBody = enemycharMaster.GetBody();
+                enemybodyObj = enemycharBody.gameObject;
 
-                    InflictDotInfo info = new InflictDotInfo();
-                    info.damageMultiplier = charBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
-                    info.attackerObject = bodyObj;
-                    info.victimObject = enemybodyObj;
-                    info.duration = Modules.StaticValues.cleanseDuration;
-                    info.dotIndex = DotController.DotIndex.Burn;
+                InflictDotInfo info = new InflictDotInfo();
+                info.damageMultiplier = charBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
+                info.attackerObject = bodyObj;
+                info.victimObject = enemybodyObj;
+                info.duration = Modules.StaticValues.cleanseDuration;
+                info.dotIndex = DotController.DotIndex.Burn;
 
-                    DotController.InflictDot(ref info);
-                }
-
+                DotController.InflictDot(ref info);
             }
-            
-
         }
     }
 }

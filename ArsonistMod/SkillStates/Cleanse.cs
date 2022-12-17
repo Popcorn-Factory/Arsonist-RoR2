@@ -51,7 +51,7 @@ namespace ArsonistMod.SkillStates
                 //self burn
                 if (base.isAuthority)
                 {
-                    new BurnNetworkRequest(characterBody.netId, characterBody.netId).Send(NetworkDestination.Clients);
+                    new BurnNetworkRequest(characterBody.master.netId, characterBody.netId).Send(NetworkDestination.Clients);
                 }
                 
 
@@ -115,7 +115,7 @@ namespace ArsonistMod.SkillStates
                 {
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
-                        new BurnNetworkRequest(characterBody.netId, singularTarget.healthComponent.body.netId).Send(NetworkDestination.Clients);
+                        new BurnNetworkRequest(characterBody.master.netId, singularTarget.healthComponent.body.master.netId).Send(NetworkDestination.Clients);
                         //InflictDotInfo info = new InflictDotInfo();
                         //info.damageMultiplier = characterBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
                         //info.attackerObject = base.gameObject;
