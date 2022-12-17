@@ -9,6 +9,8 @@ using ArsonistMod.Modules;
 using ArsonistMod.Content.Controllers;
 using UnityEngine;
 using BepInEx.Bootstrap;
+using R2API.Networking;
+using ArsonistMod.Modules.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -61,6 +63,9 @@ namespace ArsonistMod
 
             // survivor initialization
             new Arsonist().Initialize();
+
+            //networking
+            NetworkingAPI.RegisterMessageType<BurnNetworkRequest>();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
@@ -160,7 +165,7 @@ namespace ArsonistMod
                     bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
                     EnergySystem energySystem = self.GetComponent<EnergySystem>();
 
-                    if ( self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck) ) 
+                    if (self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck))
                     {
                         if (energySystem.currentOverheat >= energySystem.maxOverheat)
                         {
@@ -175,6 +180,20 @@ namespace ArsonistMod
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
                             self.Heal(potentialDamage * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
+                        }
+                    }
+                    else if (!self.body.HasBuff(Buffs.masochismBuff))
+                    {
+                        if (self.body.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                        {
+                            if (damageInfo.damage > 0f)
+                            {
+                                if(dotCheck || damageTypeCheck)
+                                {
+                                    damageInfo.damage *= StaticValues.igniteDamageReduction;
+                                }
+                            } 
+                            
                         }
                     }
                 }                    

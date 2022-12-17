@@ -48,7 +48,15 @@ namespace ArsonistMod.Modules
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(weakFlare, weakFlare.transform.GetChild(0), "FlareHitbox");
             weakFlare.AddComponent<NetworkIdentity>();
+            
+            Rigidbody flareRigidbody = weakFlare.GetComponent<Rigidbody>();
+            if (!flareRigidbody)
+            {
+                flareRigidbody = weakFlare.AddComponent<Rigidbody>();
+            }
             ProjectileController flareCon = weakFlare.AddComponent<ProjectileController>();
+            flareCon.rigidbody = flareRigidbody;
+            flareRigidbody.useGravity = false;
 
             ProjectileDamage flareDamage = weakFlare.AddComponent<ProjectileDamage>();
             InitializeFlareDamage(flareDamage);
@@ -69,7 +77,14 @@ namespace ArsonistMod.Modules
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(strongFlare, strongFlare.transform.GetChild(0), "FlareHitbox");
             strongFlare.AddComponent<NetworkIdentity>();
+            Rigidbody flareRigidbody = strongFlare.GetComponent<Rigidbody>();
+            if (!flareRigidbody)
+            {
+                flareRigidbody = strongFlare.AddComponent<Rigidbody>();
+            }
             ProjectileController flareCon = strongFlare.AddComponent<ProjectileController>();
+            flareCon.rigidbody = flareRigidbody;            
+            flareRigidbody.useGravity = false;
 
             ProjectileDamage flareDamage = strongFlare.AddComponent<ProjectileDamage>();
             InitializeFlareDamage(flareDamage);
@@ -130,7 +145,7 @@ namespace ArsonistMod.Modules
 
             zeropointBombexplosion.blastDamageCoefficient = 1f;
             zeropointBombexplosion.blastProcCoefficient = 1f;
-            zeropointBombexplosion.blastRadius = 10f;
+            zeropointBombexplosion.blastRadius = StaticValues.zeropointBlastRadius;
             zeropointBombexplosion.destroyOnEnemy = true;
             zeropointBombexplosion.lifetime = 20f;
             zeropointBombexplosion.impactEffect = Assets.bombExplosionEffect;
@@ -171,7 +186,7 @@ namespace ArsonistMod.Modules
 
             lemurianFireBallexplosion.blastDamageCoefficient = 1f;
             lemurianFireBallexplosion.blastProcCoefficient = 1f;
-            lemurianFireBallexplosion.blastRadius = 3f;
+            lemurianFireBallexplosion.blastRadius = StaticValues.firesprayweakBlastRadius;
             lemurianFireBallexplosion.destroyOnEnemy = true;
             lemurianFireBallexplosion.lifetime = 6f;
             lemurianFireBallexplosion.impactEffect = EntityStates.LemurianMonster.FireFireball.effectPrefab;
@@ -196,12 +211,17 @@ namespace ArsonistMod.Modules
             {
                 artificerFireboltexplosion = artificerFirebolt.AddComponent<ProjectileImpactExplosion>();
             }
+            Rigidbody artificerFireboltRigidbody = artificerFirebolt.GetComponent<Rigidbody>();
+            if (!artificerFireboltRigidbody)
+            {
+                artificerFireboltRigidbody = artificerFirebolt.AddComponent<Rigidbody>();
+            }
 
             InitializeImpactExplosion(artificerFireboltexplosion);
 
             artificerFireboltexplosion.blastDamageCoefficient = 1f;
             artificerFireboltexplosion.blastProcCoefficient = 1f;
-            artificerFireboltexplosion.blastRadius = 6f;
+            artificerFireboltexplosion.blastRadius = StaticValues.firesprayBlastRadius;
             artificerFireboltexplosion.destroyOnEnemy = true;
             artificerFireboltexplosion.lifetime = 6f;
             artificerFireboltexplosion.impactEffect = Assets.explosionPrefab;
@@ -212,6 +232,9 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
 
             ProjectileController artificerFireboltController = artificerFirebolt.GetComponent<ProjectileController>();
+            artificerFireboltController.rigidbody = artificerFireboltRigidbody;
+            artificerFireboltController.rigidbody.useGravity = true;
+            artificerFireboltController.rigidbody.mass = 1f;
 
             if (Assets.artificerFireboltGhost != null) artificerFireboltController.ghostPrefab = Assets.artificerFireboltGhost;
             artificerFireboltController.startSound = "";

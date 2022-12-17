@@ -1,4 +1,5 @@
-﻿using R2API.Networking;
+﻿using ArsonistMod.Modules;
+using R2API.Networking;
 using RoR2;
 using UnityEngine;
 
@@ -28,9 +29,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
                     {
                         origin = charbody.transform.position,
-                        scale = 10f,
+                        scale = StaticValues.flareBlastRadius,
                         rotation = new Quaternion(0, 0, 0, 0)
-                    }, false);
+                    }, true);
                     Destroy(this);
                 }
                 else
@@ -48,9 +49,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
                     {
                         origin = charbody.transform.position,
-                        scale = 10f,
+                        scale = StaticValues.flareBlastRadius,
                         rotation = new Quaternion(0,0,0,0)
-                    }, false);
+                    }, true);
                     Destroy(this);
                 }
                 else
@@ -67,6 +68,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             BlastAttack blastAttack;
             blastAttack = new BlastAttack();
             blastAttack.radius = 1f;
+            blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.procCoefficient = 0f;
             blastAttack.position = charbody.transform.position;
             blastAttack.attacker = base.gameObject;
@@ -87,8 +89,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         {
             BlastAttack blastAttack;
             blastAttack = new BlastAttack();
-            blastAttack.radius = 10f;
+            blastAttack.radius = StaticValues.flareBlastRadius;
             blastAttack.procCoefficient = 0f;
+            blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.position = charbody.transform.position;
             blastAttack.attacker = base.gameObject;
             blastAttack.crit = Util.CheckRoll(0);

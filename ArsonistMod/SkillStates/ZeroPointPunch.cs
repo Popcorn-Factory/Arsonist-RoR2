@@ -27,7 +27,7 @@ namespace ArsonistMod.SkillStates
         public static float duration;
         public static float hitExtraDuration = 0.44f;
         public static float minExtraDuration = 0.2f;
-        public static float initialSpeedCoefficient = 4f;
+        public static float initialSpeedCoefficient = 3f;
         public static float SpeedCoefficient;
         public static float finalSpeedCoefficient = 0f;
         public static float bounceForce = 100f;
@@ -71,7 +71,7 @@ namespace ArsonistMod.SkillStates
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
-            energySystem.currentOverheat -= energySystem.maxOverheat / 2;
+            energySystem.currentOverheat -= energySystem.maxOverheat * StaticValues.zeropointHeatReductionMultiplier;
 
             hasHit = false;
             this.aimRayDir = aimRay.direction;
@@ -83,8 +83,8 @@ namespace ArsonistMod.SkillStates
             {
                 num /= base.characterBody.sprintingSpeedMultiplier;
             }
-            float num2 = (num / base.characterBody.baseMoveSpeed - 1f) * 0.67f;
-            SpeedCoefficient = initialSpeedCoefficient * num;
+            float num2 = (num / base.characterBody.baseMoveSpeed - 1f);
+            SpeedCoefficient = initialSpeedCoefficient * num2;
             this.extraDuration = Math.Max(hitExtraDuration / (num2 + 1f), minExtraDuration);
 
 

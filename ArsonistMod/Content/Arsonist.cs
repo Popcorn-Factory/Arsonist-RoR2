@@ -24,13 +24,16 @@ namespace ArsonistMod.Modules.Survivors
             subtitleNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texArsonistIcon"),
-            bodyColor = Color.white,
+            bodyColor = Color.red,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,
-            healthRegen = 1.5f,
+            healthGrowth = 15f,
+            healthRegen = 1f,
+            moveSpeed = 7f,
+            damage = 8f,
             armor = 0f,
 
             jumpCount = 1,
@@ -90,6 +93,13 @@ namespace ArsonistMod.Modules.Survivors
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
+
+            SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            skillloc.passiveSkill.enabled = true;
+            skillloc.passiveSkill.skillNameToken = prefix + "PASSIVE_NAME";
+            skillloc.passiveSkill.skillDescriptionToken = prefix + "PASSIVE_DESCRIPTION";
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon");
+            skillloc.passiveSkill.keywordToken = prefix + "KEYWORD_PASSIVE";
 
             #region Primary
             //Creates a skilldef for a typical primary 
@@ -187,7 +197,7 @@ namespace ArsonistMod.Modules.Survivors
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
+                interruptPriority = EntityStates.InterruptPriority.Vehicle,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = false,
                 mustKeyPress = true,
@@ -219,7 +229,7 @@ namespace ArsonistMod.Modules.Survivors
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
                 mustKeyPress = false,
-                cancelSprintingOnActivation = true,
+                cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1
