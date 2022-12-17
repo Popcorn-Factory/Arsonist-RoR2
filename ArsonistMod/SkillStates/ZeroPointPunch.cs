@@ -28,9 +28,9 @@ namespace ArsonistMod.SkillStates
         public static float hitExtraDuration = 0.44f;
         public static float minExtraDuration = 0.2f;
         public static float initialSpeedCoefficient = 3f;
-        public static float SpeedCoefficient;
+        public float SpeedCoefficient;
         public static float finalSpeedCoefficient = 0f;
-        public static float bounceForce = 100f;
+        public static float bounceForce = 100f; 
         private Vector3 bounceVector;
         private float stopwatch;
         private OverlapAttack detector;
@@ -81,10 +81,11 @@ namespace ArsonistMod.SkillStates
             bool isSprinting = base.characterBody.isSprinting;
             if (isSprinting)
             {
-                num /= base.characterBody.sprintingSpeedMultiplier;
+                num = num / base.characterBody.sprintingSpeedMultiplier;
             }
-            float num2 = (num / base.characterBody.baseMoveSpeed - 1f);
+            float num2 = (float)(num / (base.characterBody.baseMoveSpeed - 1f)); //What the fuck, without the float it casts the result as an int
             SpeedCoefficient = initialSpeedCoefficient * num2;
+
             this.extraDuration = Math.Max(hitExtraDuration / (num2 + 1f), minExtraDuration);
 
 
