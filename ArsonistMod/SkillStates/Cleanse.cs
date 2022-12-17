@@ -34,17 +34,15 @@ namespace ArsonistMod.SkillStates
 
             base.characterBody.SetAimTimer(this.duration);
 
+            //Cleanse regardless of energy.
+            Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
+
             //energy
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
             {
                 //cleanse, remove half of total energy, do blast attack
                 energySystem.currentOverheat -= energySystem.maxOverheat * StaticValues.cleanseHeatReductionMultiplier;
                 energySystem.hasOverheatedUtility = false;
-
-                if (NetworkServer.active)
-                {
-                    Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
-                }
 
                 //enemy burn
                 ApplyBurn();
@@ -72,10 +70,6 @@ namespace ArsonistMod.SkillStates
             {
                 //cleanse, no blast attack
                 //making sure the cooldown is still the longer version
-                if (NetworkServer.active)
-                {
-                    Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
-                }
                 //hop character to avoid fall damage if in air
                 if (!characterBody.characterMotor.isGrounded)
                 {
