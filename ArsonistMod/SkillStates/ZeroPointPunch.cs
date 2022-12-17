@@ -27,7 +27,7 @@ namespace ArsonistMod.SkillStates
         public static float duration;
         public static float hitExtraDuration = 0.44f;
         public static float minExtraDuration = 0.2f;
-        public static float initialSpeedCoefficient = 3f;
+        public static float initialSpeedCoefficient = 5f;
         public float SpeedCoefficient;
         public static float finalSpeedCoefficient = 0f;
         public static float bounceForce = 100f; 
