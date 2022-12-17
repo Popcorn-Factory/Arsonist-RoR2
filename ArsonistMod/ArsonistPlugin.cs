@@ -27,7 +27,8 @@ namespace ArsonistMod
         "PrefabAPI",
         "LanguageAPI",
         "SoundAPI",
-        "UnlockableAPI"
+        "UnlockableAPI",
+        "NetworkingAPI"
     })]
 
     public class ArsonistPlugin : BaseUnityPlugin
