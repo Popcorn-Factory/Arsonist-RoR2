@@ -36,11 +36,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="R2API">
-      <HintPath>..\libs\R2API.dll</HintPath>
-    </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API.Core">
+      <HintPath>..\libs\R2API.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API.Language">
+      <HintPath>..\libs\R2API.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API.Networking">
+      <HintPath>..\libs\R2API.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API.Prefab">
+      <HintPath>..\libs\R2API.Prefab.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API.Sound">
+      <HintPath>..\libs\R2API.Sound.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API.Unlockable">
+      <HintPath>..\libs\R2API.Unlockable.dll</HintPath>
     </Reference>
     <Reference Include="RiskOfOptions">
       <HintPath>..\libs\RiskOfOptions.dll</HintPath>
