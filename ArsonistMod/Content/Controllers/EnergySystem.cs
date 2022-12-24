@@ -36,13 +36,14 @@ namespace ArsonistMod.Content.Controllers
             DORMANT
         }
         public OverheatState overheatState;
-        public float fillTimer = 0.2f;
         public float decayTimer = 0.6f;
         public float overheatTimer = 0f;
         public bool overheatTriggered;
         public Vector3[] originalRedLength;
         public float additionalRed = 0;
         public bool enabledUI;
+
+        public bool isAcceleratedCooling;
 
         
 
@@ -99,6 +100,7 @@ namespace ArsonistMod.Content.Controllers
             On.RoR2.CharacterMaster.OnInventoryChanged += CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp += CharacterBody_OnLevelUp;
             enabledUI = false;
+            isAcceleratedCooling = false;
         }
 
         //reuse the segment making
@@ -405,20 +407,27 @@ namespace ArsonistMod.Content.Controllers
                 hasOverheatedUtility = true;
                 hasOverheatedSpecial = true;
 
+                float coolingRate = 1.0f;
+                if (isAcceleratedCooling) 
+                {
+                    coolingRate = 2.0f;
+                }
+
                 //set current heat to 0 once over!
-                if (overheatDecayTimer > Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed)
+                if (overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed))
                 {
                     currentOverheat = 0f;
                     overheatDecayTimer = 0f;
                     ifOverheatRegenAllowed = true;
                     ifOverheatMaxed = false;
                     overheatTriggered = false;
+                    isAcceleratedCooling = false;
                 }
                 else
                 {
                     currentOverheat = maxOverheat;
                     ifOverheatRegenAllowed = false;
-                    overheatDecayTimer += Time.fixedDeltaTime;
+                    overheatDecayTimer += Time.fixedDeltaTime * coolingRate;
                 }
             }
 
@@ -441,7 +450,14 @@ namespace ArsonistMod.Content.Controllers
 
             if (energyNumber)
             {
-                energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                if (isAcceleratedCooling)
+                {
+                    energyNumber.SetText($"COOLING...!");
+                }
+                else 
+                {
+                    energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                }
             }
 
             //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
@@ -488,7 +504,14 @@ namespace ArsonistMod.Content.Controllers
             {
                 if (currentOverheat == maxOverheat)
                 {
-                    energyNumber.color = Color.red;
+                    if (isAcceleratedCooling) 
+                    {
+                        energyNumber.color = Color.cyan;
+                    }
+                    else
+                    {
+                        energyNumber.color = Color.red;
+                    }
                     if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
@@ -532,7 +555,6 @@ namespace ArsonistMod.Content.Controllers
                     overheatState = OverheatState.START;
                     overheatTimer = 0f;
                     additionalRed = 0;
-                    fillTimer = Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed;
                 }
             }
 
@@ -554,10 +576,19 @@ namespace ArsonistMod.Content.Controllers
                 case OverheatState.START:
                     //Red is increasing to the start of the bar.
                     overheatTimer += Time.deltaTime;
-                    float fillRate = (maxSegment / fillTimer);
-                    additionalRed += (fillRate * Time.deltaTime);
 
-                    if(!ifOverheatMaxed || overheatTimer >= fillTimer) 
+                    float coolingRate = 1.0f;
+                    if (isAcceleratedCooling)
+                    {
+                        coolingRate = 2.0f;
+                    }
+
+                    additionalRed = maxSegment * ( 
+                        overheatDecayTimer / (
+                            (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
+                        ); //to calculate, it's a fraction of the amount of time left.
+
+                    if(!ifOverheatMaxed || overheatTimer >= (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
                     {
                         overheatState = OverheatState.END;
                         overheatTriggered = false;

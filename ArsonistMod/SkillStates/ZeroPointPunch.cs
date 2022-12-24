@@ -71,7 +71,7 @@ namespace ArsonistMod.SkillStates
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
-            energySystem.currentOverheat -= energySystem.maxOverheat * StaticValues.zeropointHeatReductionMultiplier;
+            energySystem.currentOverheat -= energySystem.currentOverheat * StaticValues.zeropointHeatReductionMultiplier;
 
             hasHit = false;
             this.aimRayDir = aimRay.direction;
