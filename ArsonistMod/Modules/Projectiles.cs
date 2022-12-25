@@ -1,4 +1,5 @@
 ﻿using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.ProjectileControllers;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using R2API;
 using R2API.Networking;
@@ -206,10 +207,14 @@ namespace ArsonistMod.Modules
         {
             artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt");
 
-            ProjectileImpactExplosion artificerFireboltexplosion = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
+            StrongFiresprayOnHit artificerFireboltexplosion = artificerFirebolt.GetComponent<StrongFiresprayOnHit>();
             if (!artificerFireboltexplosion)
             {
-                artificerFireboltexplosion = artificerFirebolt.AddComponent<ProjectileImpactExplosion>();
+                if (artificerFirebolt.GetComponent<ProjectileImpactExplosion>()) 
+                {
+                    UnityEngine.Object.Destroy(artificerFirebolt.GetComponent<ProjectileImpactExplosion>());
+                }
+                artificerFireboltexplosion = artificerFirebolt.AddComponent<StrongFiresprayOnHit>();
             }
             Rigidbody artificerFireboltRigidbody = artificerFirebolt.GetComponent<Rigidbody>();
             if (!artificerFireboltRigidbody)
@@ -217,7 +222,7 @@ namespace ArsonistMod.Modules
                 artificerFireboltRigidbody = artificerFirebolt.AddComponent<Rigidbody>();
             }
 
-            InitializeImpactExplosion(artificerFireboltexplosion);
+            InitializeStrongFireSprayOnHit(artificerFireboltexplosion);
 
             artificerFireboltexplosion.blastDamageCoefficient = 1f;
             artificerFireboltexplosion.blastProcCoefficient = 1f;
@@ -228,6 +233,8 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.timerAfterImpact = false;
             artificerFireboltexplosion.lifetimeAfterImpact = 0f;
             artificerFireboltexplosion.destroyOnWorld = true;
+            artificerFireboltexplosion.onWorldCollisionBlastRadius = 5f;
+            artificerFireboltexplosion.onEnemyCollisionBlastRadius = 7f;
 
             artificerFireboltexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
 
@@ -241,6 +248,29 @@ namespace ArsonistMod.Modules
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
+        {
+            projectileImpactExplosion.blastDamageCoefficient = 1f;
+            projectileImpactExplosion.blastProcCoefficient = 1f;
+            projectileImpactExplosion.blastRadius = 1f;
+            projectileImpactExplosion.bonusBlastForce = Vector3.zero;
+            projectileImpactExplosion.childrenCount = 0;
+            projectileImpactExplosion.childrenDamageCoefficient = 0f;
+            projectileImpactExplosion.childrenProjectilePrefab = null;
+            projectileImpactExplosion.destroyOnEnemy = false;
+            projectileImpactExplosion.destroyOnWorld = false;
+            projectileImpactExplosion.falloffModel = RoR2.BlastAttack.FalloffModel.None;
+            projectileImpactExplosion.fireChildren = false;
+            projectileImpactExplosion.impactEffect = null;
+            projectileImpactExplosion.lifetime = 0f;
+            projectileImpactExplosion.lifetimeAfterImpact = 0f;
+            projectileImpactExplosion.lifetimeRandomOffset = 0f;
+            projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
+            projectileImpactExplosion.timerAfterImpact = false;
+
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
+        }
+
+        private static void InitializeStrongFireSprayOnHit(StrongFiresprayOnHit projectileImpactExplosion)
         {
             projectileImpactExplosion.blastDamageCoefficient = 1f;
             projectileImpactExplosion.blastProcCoefficient = 1f;
