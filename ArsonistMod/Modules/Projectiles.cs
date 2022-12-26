@@ -245,6 +245,14 @@ namespace ArsonistMod.Modules
 
             if (Assets.artificerFireboltGhost != null) artificerFireboltController.ghostPrefab = Assets.artificerFireboltGhost;
             artificerFireboltController.startSound = "";
+
+            SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
+
+            if (collider) 
+            {
+                Debug.Log(collider.radius);
+                collider.radius = 1.25f;
+            }
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
