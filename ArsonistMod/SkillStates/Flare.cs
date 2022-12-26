@@ -15,9 +15,12 @@ namespace ArsonistMod.SkillStates
     {
         public EnergySystem energySystem;
 
-        public float baseDuration = 0f;
+        public float baseDuration = 1f;
         public float duration;
 
+        public float Energy = Modules.StaticValues.flareEnergyCost;
+        private float energyCost;
+        private float energyflatCost;
 
 
         public override void OnEnter()
@@ -26,9 +29,16 @@ namespace ArsonistMod.SkillStates
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
             Ray aimRay = base.GetAimRay();
-            duration = baseDuration;
+            duration = baseDuration / attackSpeedStat;
 
             base.characterBody.SetAimTimer(this.duration);
+
+
+            energyflatCost = Energy - energySystem.costflatOverheat;
+            if (energyflatCost < 0f) energyflatCost = 0f;
+
+            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
+            if (energyCost < 0f) energyCost = 0f;
 
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
@@ -42,7 +52,7 @@ namespace ArsonistMod.SkillStates
                            DamageColorIndex.Default,
                            null,
                            80f);
-                energySystem.currentOverheat += 20f;
+                energySystem.currentOverheat += energyCost;
             }
             else
             {

@@ -37,7 +37,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 energySystem.hasOverheatedSpecial = false;
-                energySystem.currentOverheat += Modules.StaticValues.firesprayEnergyCost;
+                energySystem.currentOverheat += energyCost;
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {

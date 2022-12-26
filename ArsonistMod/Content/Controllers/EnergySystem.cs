@@ -410,7 +410,7 @@ namespace ArsonistMod.Content.Controllers
                 float coolingRate = 1.0f;
                 if (isAcceleratedCooling) 
                 {
-                    coolingRate = 2.0f;
+                    coolingRate = 30.0f;
                 }
 
                 //set current heat to 0 once over!

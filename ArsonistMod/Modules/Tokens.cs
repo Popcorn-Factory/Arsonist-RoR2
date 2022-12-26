@@ -37,7 +37,7 @@ namespace ArsonistMod.Modules
                 "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." 
                + Environment.NewLine +
                "<style=cIsUtility>Take half damage from ignition sources</style>. " + Environment.NewLine +
-               "<style=cKeywordName>[Heat Gauge]</style>");
+               "<style=cKeywordName>Heat Gauge</style>");
             #endregion
 
             #region Primary
@@ -73,7 +73,8 @@ namespace ArsonistMod.Modules
             #endregion
 
             #region Keywords
-            LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"All skills increase heat. At max heat, arsonist overheats, weakening their skills. Attack speed increases cooling rate. Which primary chosen alters the heat gauge. ");
+            LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"[ Heat Gauge ] " + Environment.NewLine +
+                $"All skills increase heat. At max heat, arsonist overheats, weakening their skills. Attack speed increases cooling rate. Which primary chosen alters the heat gauge. ");
             #endregion
 
             #region Achievements

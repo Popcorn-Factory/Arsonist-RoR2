@@ -23,7 +23,7 @@ namespace ArsonistMod.SkillStates
         private float force = 400f;
         private float strongforce = 1000f;
         private float speedOverride = 100f;
-        private float strongspeedOverride = 200f;
+        private float strongspeedOverride = 100f;
         private GameObject chargeVfxInstance;
 
         public float Energy = Modules.StaticValues.firesprayEnergyCost;
@@ -57,7 +57,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 FireBolt();
-                energySystem.currentOverheat += Modules.StaticValues.firesprayEnergyCost;
+                energySystem.currentOverheat += energyCost;
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {
