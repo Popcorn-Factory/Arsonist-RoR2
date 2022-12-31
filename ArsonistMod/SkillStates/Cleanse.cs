@@ -35,7 +35,10 @@ namespace ArsonistMod.SkillStates
             base.characterBody.SetAimTimer(this.duration);
 
             //Cleanse regardless of energy.
-            Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
+            if (NetworkServer.active) 
+            {
+                Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
+            }
 
             //energy
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
