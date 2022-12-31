@@ -21,6 +21,7 @@ namespace ArsonistMod.SkillStates
 
         public float baseDuration = 1f;
         public float duration;
+        public bool isStrong;
 
 
 
@@ -31,6 +32,7 @@ namespace ArsonistMod.SkillStates
 
             Ray aimRay = base.GetAimRay();
             duration = baseDuration;
+            isStrong = false;
 
             base.characterBody.SetAimTimer(this.duration);
 
@@ -38,7 +40,6 @@ namespace ArsonistMod.SkillStates
             if (NetworkServer.active) 
             {
                 Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
-                base.characterBody.ApplyBuff(RoR2Content.Buffs.OnFire.buffIndex, 0);
             }
 
             //energy
@@ -51,8 +52,15 @@ namespace ArsonistMod.SkillStates
                 //enemy burn
                 ApplyBurn();
 
-                //self burn
-                new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                if (characterBody.HasBuff(RoR2Content.Buffs.OnFire.buffIndex))
+                {
+                    isStrong = true;
+                }
+                else
+                {
+                    //self burn
+                    new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                }
                 
 
                 //hop character to avoid fall damage if in air
@@ -129,6 +137,11 @@ namespace ArsonistMod.SkillStates
             //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
 
+            if (isStrong)
+            {
+                //self burn
+                new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+            }
         }
 
 

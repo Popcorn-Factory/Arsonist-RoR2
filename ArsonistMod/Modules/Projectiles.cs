@@ -366,11 +366,9 @@ namespace ArsonistMod.Modules
                                 }
                                 body.SetBuffCount(Buffs.FlareWeakBuff.buffIndex, 5);
 
-                                FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
-                                if (!controller)
-                                {
-                                    body.gameObject.AddComponent<FlareEffectController>();
-                                }
+                                FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
+                                flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
+                                
                             }
                         }
                     }
@@ -400,11 +398,8 @@ namespace ArsonistMod.Modules
                                 }
                                 body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 5);
 
-                                FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
-                                if (!controller)
-                                {
-                                    body.gameObject.AddComponent<FlareEffectController>();
-                                }
+                                FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
+                                flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
                             }
                         }
                     }

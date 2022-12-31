@@ -169,13 +169,13 @@ namespace ArsonistMod
                         {
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
-                            self.Heal(0.5f * Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
+                            self.Heal(0.5f * Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, new ProcChainMask(), true);
                         }
                         else
                         {
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
-                            self.Heal(Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
+                            self.Heal(Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, new ProcChainMask(), true);
                         }
                     }
                     else if (!self.body.HasBuff(Buffs.masochismBuff))

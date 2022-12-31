@@ -7,6 +7,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 {
     internal class FlareEffectController : MonoBehaviour
     {
+        public CharacterBody arsonistBody;
         public CharacterBody charbody;
         private GameObject effectObj;
         public float timer;
@@ -19,48 +20,53 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         void FixedUpdate()
         {
-            timer += Time.deltaTime;
 
-            if (timer > 1f && charbody.HasBuff(Modules.Buffs.flareStrongBuff))
+            if (charbody.hasEffectiveAuthority)
             {
-                if (charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) == 1)
+                timer += Time.deltaTime;
+                if (timer > 1f && charbody.HasBuff(Modules.Buffs.flareStrongBuff))
                 {
-                    FireExplosion(false);
-                    EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                    if (charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) == 1)
                     {
-                        origin = charbody.transform.position,
-                        scale = StaticValues.flareBlastRadius,
-                        rotation = new Quaternion(0, 0, 0, 0)
-                    }, true);
-                    Destroy(this);
-                }
-                else
-                {
-                    charbody.ApplyBuff(Modules.Buffs.flareStrongBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) - 1);
-                    FireFlareTick(false);
-                }
-                timer = 0;
-            }
-            if (timer > 1f && charbody.HasBuff(Modules.Buffs.FlareWeakBuff))
-            {
-                if (charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) == 1)
-                {
-                    FireExplosion(true);
-                    EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                        FireExplosion(false);
+                        EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                        {
+                            origin = charbody.transform.position,
+                            scale = StaticValues.flareBlastRadius,
+                            rotation = new Quaternion(0, 0, 0, 0)
+                        }, true);
+                        Destroy(this);
+                    }
+                    else
                     {
-                        origin = charbody.transform.position,
-                        scale = StaticValues.flareBlastRadius,
-                        rotation = new Quaternion(0,0,0,0)
-                    }, true);
-                    Destroy(this);
+                        charbody.ApplyBuff(Modules.Buffs.flareStrongBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) - 1);
+                        FireFlareTick(false);
+                    }
+                    timer = 0;
                 }
-                else
+
+                if (timer > 1f && charbody.HasBuff(Modules.Buffs.FlareWeakBuff))
                 {
-                    charbody.ApplyBuff(Modules.Buffs.FlareWeakBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) - 1);
-                    FireFlareTick(true);
+                    if (charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) == 1)
+                    {
+                        FireExplosion(true);
+                        EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                        {
+                            origin = charbody.transform.position,
+                            scale = StaticValues.flareBlastRadius,
+                            rotation = new Quaternion(0, 0, 0, 0)
+                        }, true);
+                        Destroy(this);
+                    }
+                    else
+                    {
+                        charbody.ApplyBuff(Modules.Buffs.FlareWeakBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) - 1);
+                        FireFlareTick(true);
+                    }
+                    timer = 0;
                 }
-                timer = 0;
             }
+           
         }
 
         private void FireFlareTick(bool isWeak)
@@ -71,13 +77,13 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.procCoefficient = 0f;
             blastAttack.position = charbody.transform.position;
-            blastAttack.attacker = base.gameObject;
+            blastAttack.attacker = arsonistBody.gameObject;
             blastAttack.crit = Util.CheckRoll(0);
             if (isWeak)
             {
-                blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient/5f;
+                blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareWeakDamageCoefficient/5f;
             }
-            else blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareStrongDamageCoefficient/5f;
+            else blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient/5f;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
@@ -93,13 +99,13 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.procCoefficient = 0f;
             blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.position = charbody.transform.position;
-            blastAttack.attacker = base.gameObject;
+            blastAttack.attacker = arsonistBody.gameObject;
             blastAttack.crit = Util.CheckRoll(0);
             if(isWeak)
             {
-                blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient;
+                blastAttack.baseDamage = this.arsonistBody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient;
             }
-            else blastAttack.baseDamage = this.charbody.baseDamage * Modules.StaticValues.flareStrongDamageCoefficient;
+            else blastAttack.baseDamage = this.arsonistBody.baseDamage * Modules.StaticValues.flareStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;

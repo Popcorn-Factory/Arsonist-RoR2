@@ -63,7 +63,7 @@ namespace ArsonistMod.Modules
 
             #region Keywords
             LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"<style=cKeywordName>Heat</style> " + 
-                $"All skills increase heat. At max heat, arsonist overheats, weakening their skills. Attack speed increases cooling rate. Which primary chosen alters the heat gauge. ");
+                $"Skills increase/decrease heat. At max heat, arsonist overheats, weakening their skills and causing longer cooldowns. Attack speed increases cooling rate. Which primary chosen alters the heat gauge. ");
             LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGE", $"<style=cKeywordName>Base Gauge</style> " + 
                 $"Heat gauge increase per level as well as with stock-based items. " +
                 $"Cooling rate also increases at higher %s of heat.");
@@ -71,15 +71,15 @@ namespace ArsonistMod.Modules
                 $"Heat gauge does not increase, instead blue gauge increases per level as well as with stock-based items. " +
                 $"Gain 2x damage while heat is in blue gauge. ");
             LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style> " +
-                $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>.");
+                $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Half damage and speed in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style> " + 
-                $"Costs <style=cIsDamage>{Modules.StaticValues.flareEnergyCost} heat</style>.");
+                $"Costs <style=cIsDamage>{Modules.StaticValues.flareEnergyCost} heat</style>. Half damage in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style> " +
-                $"Cools <style=cIsUtility>half of CURRENT heat</style>.");
+                $"Cools <style=cIsUtility>half of CURRENT heat</style>. Half damage in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_CLEANSEHEAT", $"<style=cKeywordName>Heat</style> " +
-                $"Cools <style=cIsUtility>half of TOTAL heat</style>.");
+                $"Cools <style=cIsUtility>half of TOTAL heat</style>. Accelerates cooling in overheat, however, no ignite.");
             LanguageAPI.Add(prefix + "KEYWORD_MASOCHISMHEAT", $"<style=cKeywordName>Heat</style> " +
-                $"Costs <style=cIsDamage>{Modules.StaticValues.masochismEnergyCost} heat</style>.");
+                $"Costs <style=cIsDamage>{Modules.StaticValues.masochismEnergyCost} heat</style>. Half healing in overheat.");
             #endregion
 
             #region Achievements

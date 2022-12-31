@@ -162,7 +162,7 @@ namespace ArsonistMod.Modules.Survivors
             #endregion
 
             #region Secondary
-            SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef flareSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "SECONDARY_FLAREGUN_NAME",
                 skillNameToken = prefix + "SECONDARY_FLAREGUN_NAME",
@@ -171,7 +171,7 @@ namespace ArsonistMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Flare)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
-                baseRechargeInterval = 1f,
+                baseRechargeInterval = 4f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
@@ -214,7 +214,7 @@ namespace ArsonistMod.Modules.Survivors
 
             Skills.AddSecondarySkills(this.bodyPrefab, new SkillDef[]
             {
-                shootSkillDef,
+                flareSkillDef,
                 punchSkillDef,
             });
             #endregion

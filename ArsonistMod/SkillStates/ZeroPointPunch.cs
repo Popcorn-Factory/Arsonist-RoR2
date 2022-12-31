@@ -66,12 +66,24 @@ namespace ArsonistMod.SkillStates
         protected DamageType damageType = DamageType.IgniteOnHit;
         private BlastAttack blastAttack;
         public bool hasHit;
+        private float damageCoefficient;
 
         public override void OnEnter()
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
-            energySystem.currentOverheat -= energySystem.currentOverheat * StaticValues.zeropointHeatReductionMultiplier;
+
+            if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
+            {
+                //halve current heat
+                energySystem.currentOverheat -= energySystem.currentOverheat * StaticValues.zeropointHeatReductionMultiplier;
+                damageCoefficient = Modules.StaticValues.zeropointpounchDamageCoefficient;
+            }
+            else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
+            {
+                //halve damage
+                damageCoefficient = Modules.StaticValues.zeropointpounchDamageCoefficient * 0.5f;
+            }
 
             hasHit = false;
             this.aimRayDir = aimRay.direction;
@@ -122,7 +134,7 @@ namespace ArsonistMod.SkillStates
             this.attack.attacker = base.gameObject;
             this.attack.inflictor = base.gameObject;
             this.attack.teamIndex = base.GetTeam();
-            this.attack.damage = base.characterBody.damage * 1f;
+            this.attack.damage = base.characterBody.damage;
             this.attack.procCoefficient = this.procCoefficient;
             this.attack.hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FireBarrage.hitEffectPrefab;
             this.attack.forceVector = this.bonusForce;
@@ -155,7 +167,7 @@ namespace ArsonistMod.SkillStates
             blastAttack.position = characterBody.corePosition;
             blastAttack.attacker = base.gameObject;
             blastAttack.crit = Util.CheckRoll(base.characterBody.crit, base.characterBody.master);
-            blastAttack.baseDamage = base.characterBody.damage * Modules.StaticValues.zeropointpounchDamageCoefficient;
+            blastAttack.baseDamage = base.characterBody.damage * damageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = pushForce;
             blastAttack.teamIndex = TeamComponent.GetObjectTeam(blastAttack.attacker);
@@ -169,6 +181,7 @@ namespace ArsonistMod.SkillStates
             //    AkSoundEngine.PostEvent("shootstyedashvoice", this.gameObject);
             //}
             //AkSoundEngine.PostEvent("shootstyedashsfx", this.gameObject);
+
 
         }
 
@@ -292,7 +305,7 @@ namespace ArsonistMod.SkillStates
                     aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
-                    damageStat * StaticValues.zeropointpounchDamageCoefficient, //damage
+                    damageStat * damageCoefficient, //damage
                     pushForce, //force
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Default, //damage color
@@ -356,7 +369,6 @@ namespace ArsonistMod.SkillStates
             if (flag)
             {
 
-                base.PlayCrossfade("FullBody, Override", "ShootStyleKickExit", "Attack.playbackRate", duration, 0.01f);
                 this.stopwatch = duration - this.extraDuration;
                 bool flag2 = base.cameraTargetParams;
                 if (flag2)
