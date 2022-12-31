@@ -167,17 +167,15 @@ namespace ArsonistMod
                     {
                         if (energySystem.currentOverheat >= energySystem.maxOverheat)
                         {
-                            float potentialDamage = damageInfo.damage;
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
-                            self.Heal(potentialDamage, damageInfo.procChainMask);
+                            self.Heal(0.5f * Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
                         }
                         else
                         {
-                            float potentialDamage = damageInfo.damage;
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
-                            self.Heal(potentialDamage * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
+                            self.Heal(Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
                         }
                     }
                     else if (!self.body.HasBuff(Buffs.masochismBuff))

@@ -47,7 +47,7 @@ namespace ArsonistMod.Modules
         //firespray
         internal static float firesprayWeakDamageCoefficient = 1.5f;
         internal static float firesprayStrongDamageCoefficient = 3f;
-        internal static float firesprayEnergyCost = 20f;
+        internal static float firesprayEnergyCost = 8f;
         internal static float firesprayBlastRadius = 5f;
         internal static float firesprayweakBlastRadius = 2.5f;
         //flaregun
@@ -55,6 +55,7 @@ namespace ArsonistMod.Modules
         internal static float flareStrongDamageCoefficient = 4f;
         internal static float flareBlastRadius = 5f;
         internal static float flareEnergyCost = 20f;
+        internal static float flareSpeedCoefficient = 150f;
 
         //zeropointpunch
         internal static float zeropointpounchDamageCoefficient = 4f;
@@ -68,6 +69,7 @@ namespace ArsonistMod.Modules
 
         //Masochism
         internal static float masochismBuffDuration = 8f;
+        internal static float masochismHealCoefficient = 0.05f;
         internal static float masochismEnergyCost = 50f;
     }
 }

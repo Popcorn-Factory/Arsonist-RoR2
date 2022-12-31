@@ -27,7 +27,7 @@ namespace ArsonistMod.Modules
             masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("01 - Masochism", "Masochism Health Multiplier when activated under overheat."),
-                1.5f,
+                1f,
                 new ConfigDescription("Determines how much the damage should be multiplied by before converting to health for Fire damage received.",
                     null,
                     Array.Empty<object>()

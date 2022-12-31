@@ -21,6 +21,7 @@ namespace ArsonistMod.SkillStates
         public float Energy = Modules.StaticValues.flareEnergyCost;
         private float energyCost;
         private float energyflatCost;
+        private float speedOverride = Modules.StaticValues.flareSpeedCoefficient;
 
 
         public override void OnEnter()
@@ -51,7 +52,7 @@ namespace ArsonistMod.SkillStates
                            base.RollCrit(),
                            DamageColorIndex.Default,
                            null,
-                           80f);
+                           speedOverride);
                 energySystem.currentOverheat += energyCost;
             }
             else
@@ -65,7 +66,7 @@ namespace ArsonistMod.SkillStates
                            base.RollCrit(),
                            DamageColorIndex.Default,
                            null,
-                           40f);
+                           speedOverride);
             }
         }
                
