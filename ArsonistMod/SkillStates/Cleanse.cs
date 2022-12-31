@@ -19,7 +19,7 @@ namespace ArsonistMod.SkillStates
     {
         public EnergySystem energySystem;
 
-        public float baseDuration = 0f;
+        public float baseDuration = 1f;
         public float duration;
 
 
@@ -38,6 +38,7 @@ namespace ArsonistMod.SkillStates
             if (NetworkServer.active) 
             {
                 Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
+                base.characterBody.ApplyBuff(RoR2Content.Buffs.OnFire.buffIndex, 0);
             }
 
             //energy
