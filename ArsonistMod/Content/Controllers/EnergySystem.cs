@@ -18,6 +18,7 @@ namespace ArsonistMod.Content.Controllers
 
         //UI energyMeter
         public GameObject CustomUIObject;
+        public GameObject EnergyNumberContainer;
         public Canvas CustomUIObjectCanvas;
         public LineRenderer fullSegment;
         public LineRenderer levelSegment;
@@ -259,7 +260,7 @@ namespace ArsonistMod.Content.Controllers
         {
             //UI objects 
             CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
-
+            EnergyNumberContainer = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
             //Get the line renderers for all the objects in the overheat gauge
             //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
             CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
@@ -293,7 +294,7 @@ namespace ArsonistMod.Content.Controllers
 
 
             //setup the UI element for the min/max
-            energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
+            energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -60f), 24f);
 
             CustomUIObject.SetActive(false);
             energyNumber.gameObject.SetActive(false);
@@ -323,11 +324,24 @@ namespace ArsonistMod.Content.Controllers
         //Creates the label.
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
         {
-            GameObject gameObject = new GameObject(name);
-            gameObject.transform.parent = parent;
-            gameObject.AddComponent<CanvasRenderer>();
-            RectTransform rectTransform = gameObject.AddComponent<RectTransform>();
-            HGTextMeshProUGUI hgtextMeshProUGUI = gameObject.AddComponent<HGTextMeshProUGUI>();
+            GameObject textObj;
+            if (!parent)
+            {
+                EnergyNumberContainer = new GameObject(name);
+                textObj = EnergyNumberContainer;
+                Canvas canvas = textObj.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            }
+            else
+            {
+                textObj = new GameObject(name);
+                textObj.transform.parent = parent;
+
+            }
+
+            textObj.AddComponent<CanvasRenderer>();
+            RectTransform rectTransform = textObj.AddComponent<RectTransform>();
+            HGTextMeshProUGUI hgtextMeshProUGUI = textObj.AddComponent<HGTextMeshProUGUI>();
             hgtextMeshProUGUI.enabled = true;
             hgtextMeshProUGUI.text = text;
             hgtextMeshProUGUI.fontSize = textScale;
