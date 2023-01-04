@@ -10,19 +10,19 @@ namespace ArsonistMod.Modules
             #region Arsonist
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
-            string desc = "Arsonist is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
+            string desc = "Arsonist is heat.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            //desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
+            //desc = desc + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine;
+            //desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
+            //desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
 
             string outro = "..and so he left, with new bloodlust blazing in his soul.";
             string outroFailure = "..and so he vanished, mortality burning away from flesh.";
 
             LanguageAPI.Add(prefix + "NAME", "Arsonist");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
-            LanguageAPI.Add(prefix + "SUBTITLE", "The Chosen One");
-            LanguageAPI.Add(prefix + "LORE", "sample lore");
+            LanguageAPI.Add(prefix + "SUBTITLE", "The Pyromaniac");
+            LanguageAPI.Add(prefix + "LORE", "The lost cinders of the world.");
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
 
@@ -33,27 +33,53 @@ namespace ArsonistMod.Modules
 
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "Pyromania");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Being ignited increases movement speed and damage.");
+            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Firespray");
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", $"Fire a fireball, <style=cIsDamage>igniting enemies</style> exploding for <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "FireSpray: Base Gauge");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.startPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
+            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "FireSpray: Blue Gauge");
+            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.startPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             #endregion
 
             #region Secondary
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Flare Gun");
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareGunStrongDamageCoefficient}% damage over 5 seconds</style> before exploding dealing <style=cIsDamage>{100f * StaticValues.flareGunStrongDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_NAME", "Flare Gun");
+            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.startPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_PUNCH_NAME", "Zero Point Punch");
+            LanguageAPI.Add(prefix + "SECONDARY_PUNCH_DESCRIPTION", Helpers.startPrefix + $"Dash forward, hitting the first enemy and attaching a flare that explodes, dealing <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. " +
+                $" If no enemy was hit, drop the flare on the ground, having a delayed explosion that does <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. ");
             #endregion
 
             #region Utility
             LanguageAPI.Add(prefix + "UTILITY_CLEANSE_NAME", "Cleanse");
-            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_DESCRIPTION", $"Ignite yourself in a blast of fire, dealing <style=cIsDamage>{100f * StaticValues.cleanseDamageCoefficient}%</style> damage to enemies around you and burning away other status effects.");
+            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_DESCRIPTION", Helpers.startPrefix + $"<style=cIsDamage>Ignite</style> yourself in a blast of fire, dealing <style=cIsDamage>{100f * StaticValues.cleanseDamageCoefficient}%</style> to enemies around you and burning away other status effects. ");
             #endregion
 
             #region Special
             LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Masochism");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", "Damage from being ignited turns into healing over time.");
+            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds.");
+            #endregion
+
+            #region Keywords
+            LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"<style=cKeywordName>Heat</style> " + 
+                $"Skills increase/decrease heat. At max heat, arsonist overheats, weakening their skills and causing longer cooldowns. Attack speed increases cooling rate. Which primary chosen alters the heat gauge. ");
+            LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGE", $"<style=cKeywordName>Base Gauge</style> " + 
+                $"Heat gauge increase per level as well as with stock-based items. " +
+                $"Cooling rate also increases at higher %s of heat.");
+            LanguageAPI.Add(prefix + "KEYWORD_BLUEGAUGE", $"<style=cKeywordName>Blue Gauge</style> " + 
+                $"Heat gauge does not increase, instead blue gauge increases per level as well as with stock-based items. " +
+                $"Gain 2x damage while heat is in blue gauge. ");
+            LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style> " +
+                $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Half damage and speed in overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style> " + 
+                $"Costs <style=cIsDamage>{Modules.StaticValues.flareEnergyCost} heat</style>. Half damage in overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style> " +
+                $"Cools <style=cIsUtility>half of CURRENT heat</style>. Half damage in overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_CLEANSEHEAT", $"<style=cKeywordName>Heat</style> " +
+                $"Cools <style=cIsUtility>half of TOTAL heat</style>. Accelerates cooling in overheat, however, no ignite.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASOCHISMHEAT", $"<style=cKeywordName>Heat</style> " +
+                $"Costs <style=cIsDamage>{Modules.StaticValues.masochismEnergyCost} heat</style>. Half healing in overheat.");
             #endregion
 
             #region Achievements

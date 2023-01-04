@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using static ArsonistMod.Content.Controllers.EnergySystem;
+using UnityEngine.UIElements;
 
 namespace ArsonistMod.Content.Controllers
 {
@@ -17,6 +18,7 @@ namespace ArsonistMod.Content.Controllers
 
         //UI energyMeter
         public GameObject CustomUIObject;
+        public GameObject EnergyNumberContainer;
         public Canvas CustomUIObjectCanvas;
         public LineRenderer fullSegment;
         public LineRenderer levelSegment;
@@ -35,19 +37,21 @@ namespace ArsonistMod.Content.Controllers
             DORMANT
         }
         public OverheatState overheatState;
-        public float fillTimer = 0.2f;
         public float decayTimer = 0.6f;
         public float overheatTimer = 0f;
         public bool overheatTriggered;
         public Vector3[] originalRedLength;
         public float additionalRed = 0;
+        public bool enabledUI;
+
+        public bool isAcceleratedCooling;
 
         
 
         //OLD
         public RectTransform energyMeter;
         public RectTransform energyMeterGlowRect;
-        public Image energyMeterGlowBackground;
+        //public Image energyMeterGlowBackground;
         public HGTextMeshProUGUI energyNumber;
 
         //Energy system
@@ -86,80 +90,51 @@ namespace ArsonistMod.Content.Controllers
         private int blueSegment;
         private int redSegment;
         private float blueRatio;
-        private float redRatio;
+        private float whiteRatio;
         public float currentBlueNumber;
 
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
+
+            //lets hook it up!
+            On.RoR2.CharacterMaster.OnInventoryChanged += CharacterMaster_OnInventoryChanged;
+            On.RoR2.CharacterBody.OnLevelUp += CharacterBody_OnLevelUp;
+            enabledUI = false;
+            isAcceleratedCooling = false;
         }
 
-        public void Start()
+        //reuse the segment making
+        public void SegmentMake()
         {
-            //Energy
-            maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
-            currentOverheat = 0f;
-            regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction;
-            costmultiplierOverheat = 1f;
-            costflatOverheat = 0f;
-            ifOverheatMaxed = false;
-            ifOverheatRegenAllowed = true;
-            hasOverheatedSecondary = false;
-            hasOverheatedUtility = false;
-            hasOverheatedSpecial = false;
-            overheatTriggered = false;
-            additionalRed = 0;
-            overheatState = OverheatState.DORMANT;
-            mainCamera = Camera.main;
-            baseHeatGauge = true;
-
-
-            SetupCustomUI();
-
-            // Start timer on 1f to turn off the timer.
-            state = GlowState.STOP;
-            decayConst = 1f;
-            flashConst = 1f;
-            glowStopwatch = 1f;
-            originalColor = new Color(1f, 1f, 1f, 0f);
-            targetColor = new Color(1f, 1f, 1f, 1f);
-            currentColor = originalColor;
-
-        }
-
-        private void SetupCustomUI() 
-        {
-            //UI objects 
-            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
-
-            //Get the line renderers for all the objects in the overheat gauge
-            //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
-            CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
-            CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-            CustomUIObjectCanvas.worldCamera = mainCamera;
-            segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
-            levelSegment = CustomUIObject.transform.GetChild(0).GetComponent<LineRenderer>();
-            segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
-            segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
-            segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
-            //Calculate the segments and slap them into an array.
-            CalculateSemiCircle(6f, 0.85f);
-
-            //Determine the partitions from a set of static values.
-            //also check for the primary 
             if (baseHeatGauge)
             {
-                whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
-                blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
-                redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
-
+                //calcing blue and red ratios for base
+                blueRatio = 0;
+                whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
             }
             else
             {
-                whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.x);
-                blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.y);
-                redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.z);
+                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                if (blueRatio > StaticValues.maxBlueWhiteSegment)
+                {
+                    blueRatio = StaticValues.maxBlueWhiteSegment;
+                }
+                whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                if (whiteRatio < 0f)
+                {
+                    whiteRatio = 0f;
+                }
+
             }
+
+            //updating segments with the ratios
+            whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * whiteRatio);
+            blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * blueRatio);
+            redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
+
 
             Vector3[] whiteArray = new Vector3[whiteSegment];
             Vector3[] blueArray = new Vector3[blueSegment];
@@ -188,11 +163,141 @@ namespace ArsonistMod.Content.Controllers
             segment3.positionCount = redArray.Length - 1;
             segment3.SetPositions(redArray);
             originalRedLength = redArray;
+        }
+
+
+        private void CharacterBody_OnLevelUp(On.RoR2.CharacterBody.orig_OnLevelUp orig, CharacterBody self)
+        {
+            orig(self);
+
+            if (self && self.master.inventory)
+            {
+                SegmentMake();
+            }
+        }
+
+        private void CharacterMaster_OnInventoryChanged(On.RoR2.CharacterMaster.orig_OnInventoryChanged orig, CharacterMaster self)
+        {
+            orig(self);
+
+            if (self && self.teamIndex == TeamIndex.Player && self.inventory)
+            {
+                GameObject bodyobject = self.GetBodyObject();
+                if (bodyobject != null)
+                {
+                    SegmentMake();
+                }
+            }
+        }
+
+        public void Start()
+        {
+            //Energy
+            maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
+            currentOverheat = 0f;
+            regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction;
+            costmultiplierOverheat = 1f;
+            costflatOverheat = 0f;
+            ifOverheatMaxed = false;
+            ifOverheatRegenAllowed = true;
+            hasOverheatedSecondary = false;
+            hasOverheatedUtility = false;
+            hasOverheatedSpecial = false;
+            overheatTriggered = false;
+            additionalRed = 0;
+            overheatState = OverheatState.DORMANT;
+            mainCamera = Camera.main;
+
+            if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            {
+                if (!baseHeatGauge)
+                {
+                    baseHeatGauge = true;
+                }
+
+                blueRatio = 0;
+                whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+            }
+            else
+            {
+                if (baseHeatGauge)
+                {
+                    baseHeatGauge = false;
+                }
+
+                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                if (blueRatio > StaticValues.maxBlueWhiteSegment)
+                {
+                    blueRatio = StaticValues.maxBlueWhiteSegment;
+                }
+                whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                if (whiteRatio < 0f)
+                {
+                    whiteRatio = 0f;
+                }
+            }
+
+            currentBlueNumber = whiteRatio * maxOverheat;
+
+
+
+            SetupCustomUI();
+
+            // Start timer on 1f to turn off the timer.
+            state = GlowState.STOP;
+            decayConst = 1f;
+            flashConst = 1f;
+            glowStopwatch = 1f;
+            originalColor = new Color(1f, 1f, 1f, 0f);
+            targetColor = new Color(1f, 1f, 1f, 1f);
+            currentColor = originalColor;
+
+        }
+
+        private void SetupCustomUI() 
+        {
+            //UI objects 
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
+            EnergyNumberContainer = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
+            //Get the line renderers for all the objects in the overheat gauge
+            //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
+            CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
+            CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+            CustomUIObjectCanvas.worldCamera = mainCamera;
+            segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
+            levelSegment = CustomUIObject.transform.GetChild(0).GetComponent<LineRenderer>();
+            segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
+            segment2 = CustomUIObject.transform.GetChild(2).GetComponent<LineRenderer>();
+            segment3 = CustomUIObject.transform.GetChild(3).GetComponent<LineRenderer>();
+            //Calculate the segments and slap them into an array.
+            CalculateSemiCircle(6f, 0.85f);
+
+            //Determine the partitions from a set of static values.
+            if (baseHeatGauge)
+            {
+                whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.x);
+                blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.y);
+                redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
+
+            }
+            else
+            {
+                whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.x);
+                blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.y);
+                redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeAlt.z);
+            }
+
+
+            SegmentMake();
 
 
             //setup the UI element for the min/max
-            energyNumber = this.CreateLabel(CustomUIObject.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -110), 24f);
+            energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -60f), 24f);
 
+            CustomUIObject.SetActive(false);
+            energyNumber.gameObject.SetActive(false);
         }
 
         //Calculate segments
@@ -219,11 +324,24 @@ namespace ArsonistMod.Content.Controllers
         //Creates the label.
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
         {
-            GameObject gameObject = new GameObject(name);
-            gameObject.transform.parent = parent;
-            gameObject.AddComponent<CanvasRenderer>();
-            RectTransform rectTransform = gameObject.AddComponent<RectTransform>();
-            HGTextMeshProUGUI hgtextMeshProUGUI = gameObject.AddComponent<HGTextMeshProUGUI>();
+            GameObject textObj;
+            if (!parent)
+            {
+                EnergyNumberContainer = new GameObject(name);
+                textObj = EnergyNumberContainer;
+                Canvas canvas = textObj.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            }
+            else
+            {
+                textObj = new GameObject(name);
+                textObj.transform.parent = parent;
+
+            }
+
+            textObj.AddComponent<CanvasRenderer>();
+            RectTransform rectTransform = textObj.AddComponent<RectTransform>();
+            HGTextMeshProUGUI hgtextMeshProUGUI = textObj.AddComponent<HGTextMeshProUGUI>();
             hgtextMeshProUGUI.enabled = true;
             hgtextMeshProUGUI.text = text;
             hgtextMeshProUGUI.fontSize = textScale;
@@ -249,16 +367,19 @@ namespace ArsonistMod.Content.Controllers
                     //max heat increases
                     maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
                         + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                        + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
+                        + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)
+                        + StaticValues.lysateEnergyGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
                     //regen increases based off current overheat value
-                    regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * (currentOverheat / (maxOverheat * 0.5f));
-                    if(regenOverheat < characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * 0.5f)
+                    //halfheat ratio means that at 50% or lower = 1, 100% heat = 2, 
+                    float halfheat = currentOverheat / (maxOverheat / 2f);
+                    if(halfheat < 1f)
                     {
-                        regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * 0.5f;
+                        halfheat = 1f;
                     }
+                    regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat * halfheat;
                     //calcing blue and red ratios for base
                     blueRatio = 0;
-                    redRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                    whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
                     
                 }
                 else
@@ -268,19 +389,19 @@ namespace ArsonistMod.Content.Controllers
                     //regen remains static
                     regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat;
                     //calcing blue and red ratios for alt
-                    blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupEnergyGain / 20f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine)) + (StaticValues.hardlightEnergyGain / 20f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)));
-                    if(blueRatio > StaticValues.maxBlueWhiteSegment)
+                    blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                        + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                        + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                    if (blueRatio > StaticValues.maxBlueWhiteSegment)
                     {
                         blueRatio = StaticValues.maxBlueWhiteSegment;
                     }
-                    redRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
-                    if (redRatio < 0f)
+                    whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
+                    if (whiteRatio < 0f)
                     {
-                        redRatio = 0f;
+                        whiteRatio = 0f;
                     }
 
-                    //this value is used to check for skills that are used when heat is in the blue gauge
-                    currentBlueNumber = blueRatio * maxOverheat;
                 }
 
 
@@ -299,18 +420,28 @@ namespace ArsonistMod.Content.Controllers
                 hasOverheatedSecondary = true;
                 hasOverheatedUtility = true;
                 hasOverheatedSpecial = true;
-                if (overheatDecayTimer > Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed)
+
+                float coolingRate = 1.0f;
+                if (isAcceleratedCooling) 
                 {
+                    coolingRate = 30.0f;
+                }
+
+                //set current heat to 0 once over!
+                if (overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed))
+                {
+                    currentOverheat = 0f;
                     overheatDecayTimer = 0f;
                     ifOverheatRegenAllowed = true;
                     ifOverheatMaxed = false;
                     overheatTriggered = false;
+                    isAcceleratedCooling = false;
                 }
                 else
                 {
                     currentOverheat = maxOverheat;
                     ifOverheatRegenAllowed = false;
-                    overheatDecayTimer += Time.fixedDeltaTime;
+                    overheatDecayTimer += Time.fixedDeltaTime * coolingRate;
                 }
             }
 
@@ -333,7 +464,14 @@ namespace ArsonistMod.Content.Controllers
 
             if (energyNumber)
             {
-                energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                if (isAcceleratedCooling)
+                {
+                    energyNumber.SetText($"COOLING...!");
+                }
+                else 
+                {
+                    energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                }
             }
 
             //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
@@ -344,6 +482,13 @@ namespace ArsonistMod.Content.Controllers
             if (characterBody.hasEffectiveAuthority)
             {
                 CalculateEnergyStats();
+
+                if (!enabledUI) 
+                {
+                    enabledUI = true;
+                    CustomUIObject.SetActive(true);
+                    energyNumber.gameObject.SetActive(true);
+                }
             }
         }
 
@@ -365,6 +510,48 @@ namespace ArsonistMod.Content.Controllers
                 }
             }
 
+            //ui color change
+
+            //blue gauge checks
+            currentBlueNumber = whiteRatio * maxOverheat;
+            if (energyNumber)
+            {
+                if (currentOverheat == maxOverheat)
+                {
+                    if (isAcceleratedCooling) 
+                    {
+                        energyNumber.color = Color.cyan;
+                    }
+                    else
+                    {
+                        energyNumber.color = Color.red;
+                    }
+                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    {
+                        characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                    }
+                }
+                else if (currentOverheat < currentBlueNumber)
+                {
+                    energyNumber.color = Color.white;
+                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    {
+                        characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                    }
+                }
+                else if (currentOverheat >= currentBlueNumber && currentOverheat < maxOverheat && !baseHeatGauge)
+                {
+                    energyNumber.color = Color.cyan;
+                    if (!characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    {
+                        characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 1);
+                    }
+                }                   
+                
+            }
+
+            
+
             if (!mainCamera) 
             {
                 mainCamera = Camera.main;
@@ -382,11 +569,11 @@ namespace ArsonistMod.Content.Controllers
                     overheatState = OverheatState.START;
                     overheatTimer = 0f;
                     additionalRed = 0;
-                    fillTimer = Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed;
                 }
             }
 
-            whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * redRatio);
+            //updating segments with the ratios
+            whiteSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * whiteRatio);
             blueSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * blueRatio);
             redSegment = (int)(Modules.StaticValues.noOfSegmentsOnOverheatGauge * Modules.StaticValues.SegmentedValuesOnGaugeMain.z);
             int maxSegment = whiteSegment + blueSegment;
@@ -403,10 +590,19 @@ namespace ArsonistMod.Content.Controllers
                 case OverheatState.START:
                     //Red is increasing to the start of the bar.
                     overheatTimer += Time.deltaTime;
-                    float fillRate = (maxSegment / fillTimer);
-                    additionalRed += (fillRate * Time.deltaTime);
 
-                    if(!ifOverheatMaxed || overheatTimer >= fillTimer) 
+                    float coolingRate = 1.0f;
+                    if (isAcceleratedCooling)
+                    {
+                        coolingRate = 2.0f;
+                    }
+
+                    additionalRed = maxSegment * ( 
+                        overheatDecayTimer / (
+                            (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
+                        ); //to calculate, it's a fraction of the amount of time left.
+
+                    if(!ifOverheatMaxed || overheatTimer >= (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
                     {
                         overheatState = OverheatState.END;
                         overheatTriggered = false;
@@ -448,7 +644,6 @@ namespace ArsonistMod.Content.Controllers
                         segment3.positionCount = (int)(additionalRed + redSegment);
                         segment3.SetPositions(redProposedPositions);
                     }
-
                     if (overheatTimer >= decayTimer || additionalRed <= 0) 
                     {
                         overheatState = OverheatState.DORMANT;
@@ -529,6 +724,8 @@ namespace ArsonistMod.Content.Controllers
         public void OnDestroy()
         {
             Destroy(CustomUIObject);
+            On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
+            On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
         }
     }
 }

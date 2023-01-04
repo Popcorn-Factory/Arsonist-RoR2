@@ -8,6 +8,10 @@ using static UnityEngine.ParticleSystem.PlaybackState;
 using HG;
 using System.Collections.Generic;
 using System.Linq;
+using ArsonistMod.Modules;
+using R2API.Networking;
+using ArsonistMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace ArsonistMod.SkillStates
 {
@@ -15,8 +19,9 @@ namespace ArsonistMod.SkillStates
     {
         public EnergySystem energySystem;
 
-        public float baseDuration = 0f;
+        public float baseDuration = 1f;
         public float duration;
+        public bool isStrong;
 
 
 
@@ -27,55 +32,64 @@ namespace ArsonistMod.SkillStates
 
             Ray aimRay = base.GetAimRay();
             duration = baseDuration;
+            isStrong = false;
 
             base.characterBody.SetAimTimer(this.duration);
+
+            //Cleanse regardless of energy.
+            if (NetworkServer.active) 
+            {
+                Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
+            }
 
             //energy
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
             {
                 //cleanse, remove half of total energy, do blast attack
-                energySystem.currentOverheat -= energySystem.maxOverheat / 2f;
+                energySystem.currentOverheat -= energySystem.maxOverheat * StaticValues.cleanseHeatReductionMultiplier;
                 energySystem.hasOverheatedUtility = false;
-
-                if (NetworkServer.active)
-                {
-                    Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
-                }
 
                 //enemy burn
                 ApplyBurn();
-                //self burn
-                InflictDotInfo info = new InflictDotInfo();
-                info.damageMultiplier = characterBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
-                info.attackerObject = base.gameObject;
-                info.victimObject = characterBody.gameObject;
-                info.duration = Modules.StaticValues.cleanseDuration;
-                info.dotIndex = DotController.DotIndex.Burn;
-                DotController.InflictDot(ref info);
+
+                if (characterBody.HasBuff(RoR2Content.Buffs.OnFire.buffIndex))
+                {
+                    isStrong = true;
+                }
+                else
+                {
+                    //self burn
+                    new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                }
+                
 
                 //hop character to avoid fall damage if in air
                 if (!characterBody.characterMotor.isGrounded)
                 {
                     base.SmallHop(characterBody.characterMotor, 3f);
                 }
+
+                EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                {
+                    origin = characterBody.transform.position,
+                    scale = StaticValues.cleanseBlastRadius,
+                    rotation = new Quaternion(0, 0, 0, 0)
+                }, false);
 
 
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
             {
-                //cleanse, reduce overheat timer, no blast attack
+                //cleanse, no blast attack
                 //making sure the cooldown is still the longer version
-                float remainingTimer = 5f - energySystem.overheatDecayTimer;
-                energySystem.overheatDecayTimer += remainingTimer - 0.2f;
-                if (NetworkServer.active)
-                {
-                    Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
-                }
                 //hop character to avoid fall damage if in air
                 if (!characterBody.characterMotor.isGrounded)
                 {
                     base.SmallHop(characterBody.characterMotor, 3f);
                 }
+
+                //Accelerate cooling
+                energySystem.isAcceleratedCooling = true;
             }
 
         }
@@ -85,20 +99,17 @@ namespace ArsonistMod.SkillStates
             Ray aimRay = base.GetAimRay();
             BullseyeSearch search = new BullseyeSearch
             {
-
                 teamMaskFilter = TeamMask.GetEnemyTeams(base.GetTeam()),
                 filterByLoS = false,
                 searchOrigin = base.characterBody.footPosition,
                 searchDirection = UnityEngine.Random.onUnitSphere,
                 sortMode = BullseyeSearch.SortMode.Distance,
-                maxDistanceFilter = 4f,
+                maxDistanceFilter = StaticValues.cleanseBlastRadius,
                 maxAngleFilter = 360f
             };
 
             search.RefreshCandidates();
             search.FilterOutGameObject(base.gameObject);
-
-
 
             List<HurtBox> target = search.GetResults().ToList<HurtBox>();
             foreach (HurtBox singularTarget in target)
@@ -107,14 +118,15 @@ namespace ArsonistMod.SkillStates
                 {
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
-                        InflictDotInfo info = new InflictDotInfo();
-                        info.damageMultiplier = characterBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
-                        info.attackerObject = base.gameObject;
-                        info.victimObject = singularTarget.healthComponent.body.gameObject;
-                        info.duration = Modules.StaticValues.cleanseDuration;
-                        info.dotIndex = DotController.DotIndex.Burn;
+                        new BurnNetworkRequest(characterBody.master.netId, singularTarget.healthComponent.body.master.netId).Send(NetworkDestination.Clients);
+                        //InflictDotInfo info = new InflictDotInfo();
+                        //info.damageMultiplier = characterBody.damage * Modules.StaticValues.cleanseDamageCoefficient;
+                        //info.attackerObject = base.gameObject;
+                        //info.victimObject = singularTarget.healthComponent.body.gameObject;
+                        //info.duration = Modules.StaticValues.cleanseDuration;
+                        //info.dotIndex = DotController.DotIndex.Burn;
 
-                        DotController.InflictDot(ref info);
+                        //DotController.InflictDot(ref info);
                     }
                 }
             }
@@ -125,6 +137,11 @@ namespace ArsonistMod.SkillStates
             //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
 
+            if (isStrong)
+            {
+                //self burn
+                new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+            }
         }
 
 
@@ -144,7 +161,7 @@ namespace ArsonistMod.SkillStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Death;
         }
 
     }

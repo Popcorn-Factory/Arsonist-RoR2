@@ -24,13 +24,16 @@ namespace ArsonistMod.Modules.Survivors
             subtitleNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texArsonistIcon"),
-            bodyColor = Color.white,
+            bodyColor = Color.red,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,
-            healthRegen = 1.5f,
+            healthGrowth = 15f,
+            healthRegen = 1f,
+            moveSpeed = 7f,
+            damage = 8f,
             armor = 0f,
 
             jumpCount = 1,
@@ -89,7 +92,14 @@ namespace ArsonistMod.Modules.Survivors
         public override void InitializeSkills()
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
-            string prefix = ArsonistPlugin.DEVELOPER_PREFIX;
+            string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
+
+            SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            skillloc.passiveSkill.enabled = true;
+            skillloc.passiveSkill.skillNameToken = prefix + "PASSIVE_NAME";
+            skillloc.passiveSkill.skillDescriptionToken = prefix + "PASSIVE_DESCRIPTION";
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon");
+            skillloc.passiveSkill.keywordToken = prefix + "KEYWORD_PASSIVE";
 
             #region Passive
             SkillLocator skillLoc = bodyPrefab.GetComponent<SkillLocator>();
@@ -100,39 +110,76 @@ namespace ArsonistMod.Modules.Survivors
             #endregion
 
             #region Primary
-            //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME",
-                                                                                      prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
-                                                                                      "Weapon",
-                                                                                      true));
+
+            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PRIMARY_FIRESPRAY_NAME",
+                skillNameToken = prefix + "PRIMARY_FIRESPRAY_NAME",
+                skillDescriptionToken = prefix + "PRIMARY_FIRESPRAY_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Any,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE" , prefix + "KEYWORD_BASEGAUGE" , prefix + "KEYWORD_FIRESPRAYHEAT" }
+            });
 
 
-            Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
+            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
+                skillNameToken = prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
+                skillDescriptionToken = prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Any,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_BLUEGAUGE", prefix + "KEYWORD_FIRESPRAYHEAT" }
+            });
 
-            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_NAME",
-                                                                                      prefix + "_ARSONIST_BODY_ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
-                                                                                      "Weapon",
-                                                                                      true));
-
-
-            Modules.Skills.AddPrimarySkills(bodyPrefab, altprimarySkillDef);
+            Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]
+            {
+                primarySkillDef,
+                altprimarySkillDef,
+            });
             #endregion
 
             #region Secondary
-            SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef flareSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillName = prefix + "SECONDARY_FLAREGUN_NAME",
+                skillNameToken = prefix + "SECONDARY_FLAREGUN_NAME",
+                skillDescriptionToken = prefix + "SECONDARY_FLAREGUN_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Flare)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
-                baseRechargeInterval = 1f,
+                baseRechargeInterval = 4f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
@@ -145,14 +192,14 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_FLAREHEAT" }
             });
 
             SkillDef punchSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_SECONDARY_PUNCH_DESCRIPTION",
+                skillName = prefix + "SECONDARY_PUNCH_NAME",
+                skillNameToken = prefix + "SECONDARY_PUNCH_NAME",
+                skillDescriptionToken = prefix + "SECONDARY_PUNCH_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointPunch)),
                 activationStateMachineName = "Slide",
@@ -170,12 +217,12 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                keywordTokens = new string[] { "KEYWORD_AGILE" , prefix + "KEYWORD_ZEROPOINTHEAT" }
             });
 
             Skills.AddSecondarySkills(this.bodyPrefab, new SkillDef[]
             {
-                shootSkillDef,
+                flareSkillDef,
                 punchSkillDef,
             });
             #endregion
@@ -183,9 +230,9 @@ namespace ArsonistMod.Modules.Survivors
             #region Utility
             SkillDef cleanseSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_UTILITY_CLEANSE_DESCRIPTION",
+                skillName = prefix + "UTILITY_CLEANSE_NAME",
+                skillNameToken = prefix + "UTILITY_CLEANSE_NAME",
+                skillDescriptionToken = prefix + "UTILITY_CLEANSE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Cleanse)),
                 activationStateMachineName = "Slide",
@@ -195,14 +242,15 @@ namespace ArsonistMod.Modules.Survivors
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
+                interruptPriority = EntityStates.InterruptPriority.Vehicle,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = false,
                 mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_CLEANSEHEAT" }
             });
 
             Modules.Skills.AddUtilitySkills(bodyPrefab, cleanseSkillDef);
@@ -211,9 +259,9 @@ namespace ArsonistMod.Modules.Survivors
             #region Special
             SkillDef bombSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_ARSONIST_BODY_SPECIAL_BOMB_DESCRIPTION",
+                skillName = prefix + "SPECIAL_BOMB_NAME",
+                skillNameToken = prefix + "SPECIAL_BOMB_NAME",
+                skillDescriptionToken = prefix + "SPECIAL_BOMB_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Masochism)),
                 activationStateMachineName = "Slide",
@@ -227,10 +275,11 @@ namespace ArsonistMod.Modules.Survivors
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
                 mustKeyPress = false,
-                cancelSprintingOnActivation = true,
+                cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_MASOCHISMHEAT" }
             });
 
             Modules.Skills.AddSpecialSkills(bodyPrefab, bombSkillDef);

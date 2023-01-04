@@ -8,7 +8,6 @@ using static UnityEngine.ParticleSystem.PlaybackState;
 using HG;
 using System.Collections.Generic;
 using System.Linq;
-using ArsonistMod.Modules;
 
 namespace ArsonistMod.SkillStates
 {
@@ -16,9 +15,13 @@ namespace ArsonistMod.SkillStates
     {
         public EnergySystem energySystem;
 
-        public float baseDuration = 0f;
+        public float baseDuration = 1f;
         public float duration;
 
+        public float Energy = Modules.StaticValues.flareEnergyCost;
+        private float energyCost;
+        private float energyflatCost;
+        private float speedOverride = Modules.StaticValues.flareSpeedCoefficient;
 
 
         public override void OnEnter()
@@ -27,36 +30,43 @@ namespace ArsonistMod.SkillStates
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
             Ray aimRay = base.GetAimRay();
-            duration = baseDuration;
+            duration = baseDuration / attackSpeedStat;
 
             base.characterBody.SetAimTimer(this.duration);
+
+
+            energyflatCost = Energy - energySystem.costflatOverheat;
+            if (energyflatCost < 0f) energyflatCost = 0f;
+
+            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
+            if (energyCost < 0f) energyCost = 0f;
 
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.strongFlare,
-                           aimRay.origin,
+                           aimRay.origin + aimRay.direction,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
-                           StaticValues.flareGunStrongDamageCoefficient * this.damageStat,
+                           1f,
                            0f,
                            base.RollCrit(),
                            DamageColorIndex.Default,
                            null,
-                           80f);
-                energySystem.currentOverheat += 20f;
+                           speedOverride);
+                energySystem.currentOverheat += energyCost;
             }
             else
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.weakFlare,
-                           aimRay.origin,
+                           aimRay.origin + aimRay.direction,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
-                           StaticValues.flareGunWeakDamageCoefficient * this.damageStat,
+                           1f,
                            0f,
                            base.RollCrit(),
                            DamageColorIndex.Default,
                            null,
-                           40f);
+                           speedOverride);
             }
         }
                

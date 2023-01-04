@@ -1,4 +1,5 @@
 ﻿using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.ProjectileControllers;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using R2API;
 using R2API.Networking;
@@ -48,7 +49,15 @@ namespace ArsonistMod.Modules
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(weakFlare, weakFlare.transform.GetChild(0), "FlareHitbox");
             weakFlare.AddComponent<NetworkIdentity>();
+            
+            Rigidbody flareRigidbody = weakFlare.GetComponent<Rigidbody>();
+            if (!flareRigidbody)
+            {
+                flareRigidbody = weakFlare.AddComponent<Rigidbody>();
+            }
             ProjectileController flareCon = weakFlare.AddComponent<ProjectileController>();
+            flareCon.rigidbody = flareRigidbody;
+            flareRigidbody.useGravity = false;
 
             ProjectileDamage flareDamage = weakFlare.AddComponent<ProjectileDamage>();
             InitializeFlareDamage(flareDamage);
@@ -69,7 +78,14 @@ namespace ArsonistMod.Modules
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(strongFlare, strongFlare.transform.GetChild(0), "FlareHitbox");
             strongFlare.AddComponent<NetworkIdentity>();
+            Rigidbody flareRigidbody = strongFlare.GetComponent<Rigidbody>();
+            if (!flareRigidbody)
+            {
+                flareRigidbody = strongFlare.AddComponent<Rigidbody>();
+            }
             ProjectileController flareCon = strongFlare.AddComponent<ProjectileController>();
+            flareCon.rigidbody = flareRigidbody;            
+            flareRigidbody.useGravity = false;
 
             ProjectileDamage flareDamage = strongFlare.AddComponent<ProjectileDamage>();
             InitializeFlareDamage(flareDamage);
@@ -130,7 +146,7 @@ namespace ArsonistMod.Modules
 
             zeropointBombexplosion.blastDamageCoefficient = 1f;
             zeropointBombexplosion.blastProcCoefficient = 1f;
-            zeropointBombexplosion.blastRadius = 10f;
+            zeropointBombexplosion.blastRadius = StaticValues.zeropointBlastRadius;
             zeropointBombexplosion.destroyOnEnemy = true;
             zeropointBombexplosion.lifetime = 20f;
             zeropointBombexplosion.impactEffect = Assets.bombExplosionEffect;
@@ -171,7 +187,7 @@ namespace ArsonistMod.Modules
 
             lemurianFireBallexplosion.blastDamageCoefficient = 1f;
             lemurianFireBallexplosion.blastProcCoefficient = 1f;
-            lemurianFireBallexplosion.blastRadius = 3f;
+            lemurianFireBallexplosion.blastRadius = StaticValues.firesprayweakBlastRadius;
             lemurianFireBallexplosion.destroyOnEnemy = true;
             lemurianFireBallexplosion.lifetime = 6f;
             lemurianFireBallexplosion.impactEffect = EntityStates.LemurianMonster.FireFireball.effectPrefab;
@@ -191,33 +207,78 @@ namespace ArsonistMod.Modules
         {
             artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt");
 
-            ProjectileImpactExplosion artificerFireboltexplosion = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
+            StrongFiresprayOnHit artificerFireboltexplosion = artificerFirebolt.GetComponent<StrongFiresprayOnHit>();
             if (!artificerFireboltexplosion)
             {
-                artificerFireboltexplosion = artificerFirebolt.AddComponent<ProjectileImpactExplosion>();
+                if (artificerFirebolt.GetComponent<ProjectileImpactExplosion>()) 
+                {
+                    UnityEngine.Object.Destroy(artificerFirebolt.GetComponent<ProjectileImpactExplosion>());
+                }
+                artificerFireboltexplosion = artificerFirebolt.AddComponent<StrongFiresprayOnHit>();
+            }
+            Rigidbody artificerFireboltRigidbody = artificerFirebolt.GetComponent<Rigidbody>();
+            if (!artificerFireboltRigidbody)
+            {
+                artificerFireboltRigidbody = artificerFirebolt.AddComponent<Rigidbody>();
             }
 
-            InitializeImpactExplosion(artificerFireboltexplosion);
+            InitializeStrongFireSprayOnHit(artificerFireboltexplosion);
 
             artificerFireboltexplosion.blastDamageCoefficient = 1f;
             artificerFireboltexplosion.blastProcCoefficient = 1f;
-            artificerFireboltexplosion.blastRadius = 6f;
+            artificerFireboltexplosion.blastRadius = StaticValues.firesprayBlastRadius;
             artificerFireboltexplosion.destroyOnEnemy = true;
             artificerFireboltexplosion.lifetime = 6f;
             artificerFireboltexplosion.impactEffect = Assets.explosionPrefab;
             artificerFireboltexplosion.timerAfterImpact = false;
             artificerFireboltexplosion.lifetimeAfterImpact = 0f;
             artificerFireboltexplosion.destroyOnWorld = true;
+            artificerFireboltexplosion.onWorldCollisionBlastRadius = 5f;
+            artificerFireboltexplosion.onEnemyCollisionBlastRadius = 7f;
 
             artificerFireboltexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
 
             ProjectileController artificerFireboltController = artificerFirebolt.GetComponent<ProjectileController>();
+            artificerFireboltController.rigidbody = artificerFireboltRigidbody;
+            artificerFireboltController.rigidbody.useGravity = true;
+            artificerFireboltController.rigidbody.mass = 1f;
 
             if (Assets.artificerFireboltGhost != null) artificerFireboltController.ghostPrefab = Assets.artificerFireboltGhost;
             artificerFireboltController.startSound = "";
+
+            SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
+
+            if (collider) 
+            {
+                Debug.Log(collider.radius);
+                collider.radius = 1.5f;
+            }
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
+        {
+            projectileImpactExplosion.blastDamageCoefficient = 1f;
+            projectileImpactExplosion.blastProcCoefficient = 1f;
+            projectileImpactExplosion.blastRadius = 1f;
+            projectileImpactExplosion.bonusBlastForce = Vector3.zero;
+            projectileImpactExplosion.childrenCount = 0;
+            projectileImpactExplosion.childrenDamageCoefficient = 0f;
+            projectileImpactExplosion.childrenProjectilePrefab = null;
+            projectileImpactExplosion.destroyOnEnemy = false;
+            projectileImpactExplosion.destroyOnWorld = false;
+            projectileImpactExplosion.falloffModel = RoR2.BlastAttack.FalloffModel.None;
+            projectileImpactExplosion.fireChildren = false;
+            projectileImpactExplosion.impactEffect = null;
+            projectileImpactExplosion.lifetime = 0f;
+            projectileImpactExplosion.lifetimeAfterImpact = 0f;
+            projectileImpactExplosion.lifetimeRandomOffset = 0f;
+            projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
+            projectileImpactExplosion.timerAfterImpact = false;
+
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
+        }
+
+        private static void InitializeStrongFireSprayOnHit(StrongFiresprayOnHit projectileImpactExplosion)
         {
             projectileImpactExplosion.blastDamageCoefficient = 1f;
             projectileImpactExplosion.blastProcCoefficient = 1f;
@@ -305,11 +366,9 @@ namespace ArsonistMod.Modules
                                 }
                                 body.SetBuffCount(Buffs.FlareWeakBuff.buffIndex, 5);
 
-                                FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
-                                if (!controller)
-                                {
-                                    body.gameObject.AddComponent<FlareEffectController>();
-                                }
+                                FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
+                                flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
+                                
                             }
                         }
                     }
@@ -339,11 +398,8 @@ namespace ArsonistMod.Modules
                                 }
                                 body.SetBuffCount(Buffs.flareStrongBuff.buffIndex, 5);
 
-                                FlareEffectController controller = body.gameObject.GetComponent<FlareEffectController>();
-                                if (!controller)
-                                {
-                                    body.gameObject.AddComponent<FlareEffectController>();
-                                }
+                                FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
+                                flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
                             }
                         }
                     }

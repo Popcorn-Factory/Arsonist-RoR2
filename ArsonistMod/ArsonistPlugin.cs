@@ -9,6 +9,8 @@ using ArsonistMod.Modules;
 using ArsonistMod.Content.Controllers;
 using UnityEngine;
 using BepInEx.Bootstrap;
+using R2API.Networking;
+using ArsonistMod.Modules.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -17,16 +19,14 @@ using BepInEx.Bootstrap;
 namespace ArsonistMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.prefab", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.language", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
-    [R2APISubmoduleDependency(new string[]
-    {
-        "PrefabAPI",
-        "LanguageAPI",
-        "SoundAPI",
-        "UnlockableAPI"
-    })]
 
     public class ArsonistPlugin : BaseUnityPlugin
     {
@@ -62,6 +62,9 @@ namespace ArsonistMod
             // survivor initialization
             new Arsonist().Initialize();
 
+            //networking
+            NetworkingAPI.RegisterMessageType<BurnNetworkRequest>();
+
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
 
@@ -88,6 +91,14 @@ namespace ArsonistMod
                     if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                     {
                         EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
+
+                        //boosts when in blue zone- double damage?
+                        if (self.HasBuff(Buffs.blueBuff))
+                        {
+                            self.damage *= StaticValues.blueDamageMultiplier;
+
+
+                        }
 
                         //passive burn movespeed and damage
                         if (self.HasBuff(RoR2Content.Buffs.AffixRed))
@@ -152,21 +163,33 @@ namespace ArsonistMod
                     bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
                     EnergySystem energySystem = self.GetComponent<EnergySystem>();
 
-                    if ( self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck) ) 
+                    if (self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck))
                     {
                         if (energySystem.currentOverheat >= energySystem.maxOverheat)
                         {
-                            float potentialDamage = damageInfo.damage;
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
-                            self.Heal(potentialDamage, damageInfo.procChainMask);
+                            self.Heal(0.5f * Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, new ProcChainMask(), true);
                         }
                         else
                         {
-                            float potentialDamage = damageInfo.damage;
                             damageInfo.damage = 0f;
                             damageInfo.rejected = true;
-                            self.Heal(potentialDamage * Modules.Config.masochismHealthMultiplierOnPowered.Value, damageInfo.procChainMask);
+                            self.Heal(Modules.StaticValues.masochismHealCoefficient * self.body.maxHealth * Modules.Config.masochismHealthMultiplierOnPowered.Value, new ProcChainMask(), true);
+                        }
+                    }
+                    else if (!self.body.HasBuff(Buffs.masochismBuff))
+                    {
+                        if (self.body.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                        {
+                            if (damageInfo.damage > 0f)
+                            {
+                                if(dotCheck || damageTypeCheck)
+                                {
+                                    damageInfo.damage *= StaticValues.igniteDamageReduction;
+                                }
+                            } 
+                            
                         }
                     }
                 }                    
