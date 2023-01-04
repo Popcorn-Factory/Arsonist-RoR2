@@ -335,9 +335,7 @@ namespace ArsonistMod.Modules
                         {
                             rigidbody.useGravity = false;
                             rigidbody.velocity = Vector3.zero;
-
                         }
-
                     }
                 }
             }
@@ -368,8 +366,16 @@ namespace ArsonistMod.Modules
 
                                 FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
                                 flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
-                                
                             }
+                        }
+                    }
+                    else
+                    {
+                        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+                        if (rigidbody)
+                        {
+                            rigidbody.useGravity = false;
+                            rigidbody.velocity = Vector3.zero;
                         }
                     }
                 }
@@ -401,6 +407,15 @@ namespace ArsonistMod.Modules
                                 FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
                                 flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
                             }
+                        }
+                    }
+                    else
+                    {
+                        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+                        if (rigidbody)
+                        {
+                            rigidbody.useGravity = false;
+                            rigidbody.velocity = Vector3.zero;
                         }
                     }
                 }
