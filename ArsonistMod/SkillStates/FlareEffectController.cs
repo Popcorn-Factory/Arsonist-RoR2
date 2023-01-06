@@ -9,24 +9,27 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
     {
         public CharacterBody arsonistBody;
         public CharacterBody charbody;
-        private GameObject effectObj;
+        public bool isWeak;
+        private int timesFired;
         public float timer;
 
         void Start()
         {
+            Debug.Log("start");
             timer = 0f;
+            isWeak = false;
             charbody = this.gameObject.GetComponent<CharacterBody>();
         }
 
         void FixedUpdate()
         {
-
             if (charbody.hasEffectiveAuthority)
             {
                 timer += Time.deltaTime;
-                if (timer > 1f && charbody.HasBuff(Modules.Buffs.flareStrongBuff))
+
+                if (timer > 1f && !isWeak)
                 {
-                    if (charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) == 1)
+                    if (timesFired == 5)
                     {
                         FireExplosion(false);
                         EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
@@ -39,15 +42,15 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     }
                     else
                     {
-                        charbody.ApplyBuff(Modules.Buffs.flareStrongBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.flareStrongBuff) - 1);
+                        timesFired++;
                         FireFlareTick(false);
                     }
                     timer = 0;
                 }
 
-                if (timer > 1f && charbody.HasBuff(Modules.Buffs.FlareWeakBuff))
+                if (timer > 1f && isWeak)
                 {
-                    if (charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) == 1)
+                    if (timesFired == 5)
                     {
                         FireExplosion(true);
                         EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
@@ -60,7 +63,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     }
                     else
                     {
-                        charbody.ApplyBuff(Modules.Buffs.FlareWeakBuff.buffIndex, charbody.GetBuffCount(Modules.Buffs.FlareWeakBuff) - 1);
+                        timesFired++;
                         FireFlareTick(true);
                     }
                     timer = 0;
@@ -111,6 +114,11 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.damageType = DamageType.Generic;
 
             blastAttack.Fire();
+        }
+
+        public void SetWeakBool()
+        {
+            isWeak = true;
         }
     }
 }
