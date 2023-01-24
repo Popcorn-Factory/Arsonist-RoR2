@@ -88,6 +88,360 @@
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
+				<Folder Name="Cleanse - Shift" ID="{5651CE33-1D09-4C25-85A6-6B079BAA355B}" ShortID="941186207">
+					<ChildrenList>
+						<Sound Name="4_ Cleanse" ID="{63FF53F8-8102-4036-924F-521443EEF8A4}" ShortID="119323871">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="4_ Cleanse" ID="{8805E9D6-0023-4571-A107-82967134435C}">
+									<Language>SFX</Language>
+									<AudioFile>Cleanse - Shift\4. Cleanse.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1035535129"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="4_ Cleanse" ID="{8805E9D6-0023-4571-A107-82967134435C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Overheat" ID="{E1197DBD-121C-4AF3-9BBE-0E3194744C2A}" ShortID="906357815">
+					<ChildrenList>
+						<Sound Name="1_ Overheat Start" ID="{A0710A11-EB37-4535-BFAE-32AB33DA04C4}" ShortID="371056758">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="1_ Overheat Start" ID="{6396A267-67B4-4E7E-8E4D-A3BC5EE2BA03}">
+									<Language>SFX</Language>
+									<AudioFile>Overheat\1. Overheat Start.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="752389951"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="1_ Overheat Start" ID="{6396A267-67B4-4E7E-8E4D-A3BC5EE2BA03}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="2_ Overheat Duration" ID="{F058DA0F-42B5-4921-80B2-D8A81F43A5DB}" ShortID="520575699">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="2_ Overheat Duration" ID="{D47D92C6-9645-495E-95FB-56AB8C58ABB2}">
+									<Language>SFX</Language>
+									<AudioFile>Overheat\2. Overheat Duration.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1067383454"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="2_ Overheat Duration" ID="{D47D92C6-9645-495E-95FB-56AB8C58ABB2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="3_ Overheat Finish" ID="{490014E8-B801-410A-9661-46E7AAC8C10C}" ShortID="713498411">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="3_ Overheat Finish" ID="{FEC66DD9-C14F-4642-B1B3-C169B8671AE2}">
+									<Language>SFX</Language>
+									<AudioFile>Overheat\3. Overheat Finish.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="20639472"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="3_ Overheat Finish" ID="{FEC66DD9-C14F-4642-B1B3-C169B8671AE2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Primary Fire" ID="{AC006E2C-CFB7-43AC-B3F9-96C6A8E830D4}" ShortID="537913397">
+					<ChildrenList>
+						<Sound Name="1_ Primary Fire" ID="{57205467-723F-42B2-8E23-577178A48BB8}" ShortID="23082582">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="1_ Primary Fire" ID="{FB73C80E-0F69-45CA-AECB-ECD147443C79}">
+									<Language>SFX</Language>
+									<AudioFile>Primary Fire\1. Primary Fire.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="938389516"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="1_ Primary Fire" ID="{FB73C80E-0F69-45CA-AECB-ECD147443C79}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="2_ Primary Fire Overheated" ID="{59C94687-0DFD-4F8A-9210-DF4C14DC5A59}" ShortID="343068606">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="2_ Primary Fire Overheated" ID="{EFDC9983-3DF0-4332-9DAA-28887EA8720C}">
+									<Language>SFX</Language>
+									<AudioFile>Primary Fire\2. Primary Fire Overheated.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640021138"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="2_ Primary Fire Overheated" ID="{EFDC9983-3DF0-4332-9DAA-28887EA8720C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Secondary Fire 1" ID="{C420B481-E373-4364-9522-416609858DED}" ShortID="1049643860">
+					<ChildrenList>
+						<Sound Name="1_ Flare Projectile" ID="{75931BBB-316C-4A31-B257-549E96B69F8F}" ShortID="611976252">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="1_ Flare Projectile" ID="{F5B0E277-B6C9-468F-9006-5BD6B4E00E31}">
+									<Language>SFX</Language>
+									<AudioFile>Secondary Fire 1\1. Flare Projectile.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="87249989"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="1_ Flare Projectile" ID="{F5B0E277-B6C9-468F-9006-5BD6B4E00E31}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="2_ Flare Explosion" ID="{566AA5D3-3279-4A32-B5EE-A9DA40A9BAC1}" ShortID="708610345">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="2_ Flare Explosion" ID="{829E528C-BC0F-4F8C-A5BB-BEE8F27BDA02}">
+									<Language>SFX</Language>
+									<AudioFile>Secondary Fire 1\2. Flare Explosion.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="326243976"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="2_ Flare Explosion" ID="{829E528C-BC0F-4F8C-A5BB-BEE8F27BDA02}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="3_ Flare Projectile Overheat" ID="{4E0DBF73-4050-4763-8713-246F5E7D0A5B}" ShortID="458498993">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="3_ Flare Projectile Overheat" ID="{FD76F7E7-C9BE-4BBB-B60C-32C2B061B4B6}">
+									<Language>SFX</Language>
+									<AudioFile>Secondary Fire 1\3. Flare Projectile Overheat.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="200903336"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="3_ Flare Projectile Overheat" ID="{FD76F7E7-C9BE-4BBB-B60C-32C2B061B4B6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Secondary Fire 2" ID="{E905A19F-13B0-4CF8-B30D-600D17523C2F}" ShortID="1003903922">
+					<ChildrenList>
+						<Sound Name="1_ Flare Punch" ID="{2688C7B5-C634-4DA1-8DF7-FF3C8C4470B8}" ShortID="729458193">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="1_ Flare Punch" ID="{33C13B05-C535-4F50-9B85-A97F754AE5C6}">
+									<Language>SFX</Language>
+									<AudioFile>Secondary Fire 2\1. Flare Punch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="977537761"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="1_ Flare Punch" ID="{33C13B05-C535-4F50-9B85-A97F754AE5C6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="2_ Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" ShortID="633698445">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="2_ Flare Explosion" ID="{39D77D86-551D-456C-A10C-08D3466771A5}">
+									<Language>SFX</Language>
+									<AudioFile>Secondary Fire 2\2. Flare Explosion.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="385415142"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="2_ Flare Explosion" ID="{39D77D86-551D-456C-A10C-08D3466771A5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="3_ Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" ShortID="809991607">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="3_ Flare Punch Contact" ID="{0EDB69C9-09F7-45E0-90D0-6D2EE2E2A525}">
+									<Language>SFX</Language>
+									<AudioFile>Secondary Fire 2\3. Flare Punch Contact.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="567405923"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="3_ Flare Punch Contact" ID="{0EDB69C9-09F7-45E0-90D0-6D2EE2E2A525}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Special - Masochism" ID="{9BBE6842-6A3C-4116-AD7C-E4F4CAF3D4CC}" ShortID="315727803">
+					<ChildrenList>
+						<Sound Name="1_ Masochism Laugh 1" ID="{3E9CBF2B-A872-4BBD-8B2E-C5C4E6B4D431}" ShortID="399113739">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="1_ Masochism Laugh 1" ID="{E107D055-797F-4B09-BE91-AE3C94727799}">
+									<Language>SFX</Language>
+									<AudioFile>Special - Masochism\1. Masochism Laugh 1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="468282416"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="1_ Masochism Laugh 1" ID="{E107D055-797F-4B09-BE91-AE3C94727799}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="2_ Masochism Laugh 2" ID="{A8CAA547-9035-4DBC-B1AA-B055F037594B}" ShortID="768235784">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="2_ Masochism Laugh 2" ID="{814957C3-B412-4B6F-8C00-360D6FBA7A28}">
+									<Language>SFX</Language>
+									<AudioFile>Special - Masochism\2. Masochism Laugh 2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="597793787"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="2_ Masochism Laugh 2" ID="{814957C3-B412-4B6F-8C00-360D6FBA7A28}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="3_ Masochism Laugh 3" ID="{45F18644-F29E-4864-AADA-6FB8D184850C}" ShortID="919274419">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="3_ Masochism Laugh 3" ID="{A4D477EE-1028-4241-810C-E29E1A14274D}">
+									<Language>SFX</Language>
+									<AudioFile>Special - Masochism\3. Masochism Laugh 3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="381718716"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="3_ Masochism Laugh 3" ID="{A4D477EE-1028-4241-810C-E29E1A14274D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
