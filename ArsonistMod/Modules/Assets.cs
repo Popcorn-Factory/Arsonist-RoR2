@@ -40,7 +40,9 @@ namespace ArsonistMod.Modules
         private const string assetbundleName = "arsonistassetbundle";
         //change this to your project's name if/when you've renamed it
         private const string csProjName = "ArsonistMod";
-        
+        private const string soundbankName = "arsonistSoundbank";
+
+
         internal static void Initialize()
         {
             if (assetbundleName == "myassetbundle")
@@ -76,8 +78,7 @@ namespace ArsonistMod.Modules
         internal static void LoadSoundbank()
         {                                                                
             //soundbank currently broke, but this is how you should load yours
-            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.Arsonist" +
-                $"Bank.bnk"))
+            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.{soundbankName}.bnk"))
             {
                 byte[] array = new byte[manifestResourceStream2.Length];
                 manifestResourceStream2.Read(array, 0, array.Length);

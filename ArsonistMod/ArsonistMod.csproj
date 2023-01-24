@@ -16,6 +16,7 @@
     <None Remove="arsonist" />
     <None Remove="arsonistassetbundle" />
     <None Remove="ArsonistBank.bnk" />
+    <None Remove="arsonistSoundbank.bnk" />
     <None Remove="Modules\Characters\Arsonist.cs~RF6221a098.TMP" />
   </ItemGroup>
 
@@ -31,8 +32,8 @@
 	
   <ItemGroup>
     <EmbeddedResource Include="arsonist" />
-    <EmbeddedResource Include="ArsonistBank.bnk" />
     <EmbeddedResource Include="arsonistassetbundle" />
+    <EmbeddedResource Include="arsonistSoundbank.bnk" />
   </ItemGroup>
 
   <ItemGroup>
