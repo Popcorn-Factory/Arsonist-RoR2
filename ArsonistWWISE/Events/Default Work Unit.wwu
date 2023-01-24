@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Arsonist_Primary_Fire" ID="{475376C6-E66A-4968-82FD-0535208DDD54}">
+					<ChildrenList>
+						<Action Name="" ID="{C8D301A0-1C78-4568-94CB-AD88933890CB}" ShortID="948057284">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_0_Primary_Fire" ID="{57205467-723F-42B2-8E23-577178A48BB8}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Fire_Overheated" ID="{4866F7B3-C89F-44D9-AC3D-CA8CCE5F4BE6}">
+					<ChildrenList>
+						<Action Name="" ID="{6BD09BB1-C08F-4A62-8878-039447256BD5}" ShortID="345545838">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_1_Primary_Fire_Overheated" ID="{59C94687-0DFD-4F8A-9210-DF4C14DC5A59}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Masochism" ID="{BB27D427-D5A6-4BC1-A038-996CA4AC49B4}">
+					<ChildrenList>
+						<Action Name="" ID="{968CA12E-42C2-4D68-BD39-1EB3E36E5765}" ShortID="660906222">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_0_Masochism" ID="{D8310B48-C5D9-4876-8E2A-34E00746ED10}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Overheat_Start" ID="{D943BDD5-CBA1-4FB9-A20E-57FB1A32C4D8}">
+					<ChildrenList>
+						<Action Name="" ID="{2EA39DEA-8ECE-48C9-BF13-8CA3424B26F2}" ShortID="89609235">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="1_0_Overheat_Start" ID="{A0710A11-EB37-4535-BFAE-32AB33DA04C4}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Overheat_Duration" ID="{F59E8AC0-B076-4C67-8128-AC3EFF04E522}">
+					<ChildrenList>
+						<Action Name="" ID="{0345C0D6-3E29-449D-9A68-15A80B1C6C26}" ShortID="659781100">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="1_1_Overheat_Duration" ID="{F058DA0F-42B5-4921-80B2-D8A81F43A5DB}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Overheat_Finish" ID="{32460C1F-EDE2-4DC5-8D9F-65CCD6834362}">
+					<ChildrenList>
+						<Action Name="" ID="{A0CC740B-DBFF-4E0A-809B-0E4DA80EC9A7}" ShortID="715142136">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="1_0_Overheat_Start" ID="{A0710A11-EB37-4535-BFAE-32AB33DA04C4}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Cleanse" ID="{358C7765-83B3-4962-9648-EDF5444863A5}">
+					<ChildrenList>
+						<Action Name="" ID="{79C4C411-6983-42B7-A303-963B8968459E}" ShortID="982482613">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="2_0_Cleanse" ID="{63FF53F8-8102-4036-924F-521443EEF8A4}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Secondaryt_Flare_Projectile" ID="{D39286A2-B216-4AC4-B433-218EBBA06261}">
+					<ChildrenList>
+						<Action Name="" ID="{CB5916D1-B796-4BE3-BA47-9EB5BD2CA1D8}" ShortID="774729427">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_0_ Secondary Flare Projectile" ID="{75931BBB-316C-4A31-B257-549E96B69F8F}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Secondary_Flare_Explosion" ID="{83CAADAF-EA15-4179-AC4B-DA101BA659EF}">
+					<ChildrenList>
+						<Action Name="" ID="{3572F8D6-0225-4BD7-BBA8-F9382B78B36D}" ShortID="902391065">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_1_Secondary Flare Explosion" ID="{566AA5D3-3279-4A32-B5EE-A9DA40A9BAC1}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Secondary_Flare_Projectile_Overheat" ID="{FAB4777F-DD42-4EE4-B299-90D7847473B3}">
+					<ChildrenList>
+						<Action Name="" ID="{552B47FA-BB3D-4805-83A4-212DB11396EF}" ShortID="813756562">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_2_Secondary Flare Projectile Overheat" ID="{4E0DBF73-4050-4763-8713-246F5E7D0A5B}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Secondary_Flare_Punch" ID="{F65FB683-D5A2-417E-921E-E81B0A8ACC6E}">
+					<ChildrenList>
+						<Action Name="" ID="{18122ABC-1F53-4834-842D-CDA941EEAB51}" ShortID="529668623">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_0_Secondary Flare Punch" ID="{2688C7B5-C634-4DA1-8DF7-FF3C8C4470B8}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Secondary_Flare_Punch_Explosion" ID="{0134F9B6-5A0E-4F92-B602-47E913AB28A5}">
+					<ChildrenList>
+						<Action Name="" ID="{ACA8BDE7-B5DA-48BE-A39A-CFE2D7D315A8}" ShortID="773916451">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_1_Secondary Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Secondary_Flare_Punch_Contact" ID="{4D59928E-8BDC-46E4-A90E-BA495A931A9E}">
+					<ChildrenList>
+						<Action Name="" ID="{1634F33A-9199-4C39-9755-E0553C63B2A9}" ShortID="551059210">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_2_Secondary Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
