@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\</ProjectRoot>
+		<SourceFilesRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\coding\rimuru-tempest-ror2\RimuruWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3701367528">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2414834810" Language="SFX" Hash="2658492904">
+			<ObjectPath>\SoundBanks\Default Work Unit\rimuruSoundbank</ObjectPath>
+			<ShortName>rimuruSoundbank</ShortName>
+			<Path>rimuruSoundbank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="100371988" Name="Analyse" ObjectPath="\Events\Default Work Unit\Analyse">
+					<IncludedMemoryFiles>
+						<File Id="1001475546" Language="SFX">
+							<ShortName>Analyse.wav</ShortName>
+							<Path>SFX\Analyse_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3379926649" Name="Blink" ObjectPath="\Events\Default Work Unit\Blink">
+					<IncludedMemoryFiles>
+						<File Id="203161346" Language="SFX">
+							<ShortName>Blink.wav</ShortName>
+							<Path>SFX\Blink_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="779278001" Name="Death" ObjectPath="\Events\Default Work Unit\Death">
+					<IncludedMemoryFiles>
+						<File Id="283133327" Language="SFX">
+							<ShortName>Death.wav</ShortName>
+							<Path>SFX\Death_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1183893824" Name="Devour" ObjectPath="\Events\Default Work Unit\Devour">
+					<IncludedMemoryFiles>
+						<File Id="10585353" Language="SFX">
+							<ShortName>Devour.wav</ShortName>
+							<Path>SFX\Devour_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2656882895" Name="Entrance" ObjectPath="\Events\Default Work Unit\Entrance">
+					<IncludedMemoryFiles>
+						<File Id="505624353" Language="SFX">
+							<ShortName>Entrance.wav</ShortName>
+							<Path>SFX\Entrance_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2454616260" Name="Sword" ObjectPath="\Events\Default Work Unit\Sword">
+					<IncludedMemoryFiles>
+						<File Id="76124911" Language="SFX">
+							<ShortName>se_common_swing_05.wav</ShortName>
+							<Path>SFX\se_common_swing_05_10C4C929.wem</Path>
+						</File>
+						<File Id="980180611" Language="SFX">
+							<ShortName>se_common_swing_04.wav</ShortName>
+							<Path>SFX\se_common_swing_04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="186852181" Name="Thunder" ObjectPath="\Events\Default Work Unit\Thunder">
+					<IncludedMemoryFiles>
+						<File Id="347941923" Language="SFX">
+							<ShortName>Electricity.wav</ShortName>
+							<Path>SFX\Electricity_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1422622395" Name="Transform" ObjectPath="\Events\Default Work Unit\Transform">
+					<IncludedMemoryFiles>
+						<File Id="1036054571" Language="SFX">
+							<ShortName>Transform.wav</ShortName>
+							<Path>SFX\Transform_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2654748154" Name="Water" ObjectPath="\Events\Default Work Unit\Water">
+					<IncludedMemoryFiles>
+						<File Id="653688645" Language="SFX">
+							<ShortName>Water.wav</ShortName>
+							<Path>SFX\Water_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
+			</GameParameters>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
