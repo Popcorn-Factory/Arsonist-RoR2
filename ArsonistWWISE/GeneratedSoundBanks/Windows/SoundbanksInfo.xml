@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="1549327979">
+		<SoundBank Id="1110381487" Language="SFX" Hash="1259384155">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -44,15 +44,15 @@
 					<IncludedMemoryFiles>
 						<File Id="1067383454" Language="SFX">
 							<ShortName>Overheat\2. Overheat Duration.wav</ShortName>
-							<Path>SFX\Overheat\2. Overheat Duration_3F75BDB9.wem</Path>
+							<Path>SFX\Overheat\2. Overheat Duration_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3787943995" Name="Arsonist_Overheat_Finish" ObjectPath="\Events\Default Work Unit\Arsonist_Overheat_Finish">
 					<IncludedMemoryFiles>
-						<File Id="752389951" Language="SFX">
-							<ShortName>Overheat\1. Overheat Start.wav</ShortName>
-							<Path>SFX\Overheat\1. Overheat Start_3F75BDB9.wem</Path>
+						<File Id="20639472" Language="SFX">
+							<ShortName>Overheat\3. Overheat Finish.wav</ShortName>
+							<Path>SFX\Overheat\3. Overheat Finish_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -88,6 +88,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3747272580" Name="Arsonist_Secondary_Flare_Projectile" ObjectPath="\Events\Default Work Unit\Arsonist_Secondary_Flare_Projectile">
+					<IncludedMemoryFiles>
+						<File Id="87249989" Language="SFX">
+							<ShortName>Secondary Fire 1\1. Flare Projectile.wav</ShortName>
+							<Path>SFX\Secondary Fire 1\1. Flare Projectile_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1608533803" Name="Arsonist_Secondary_Flare_Projectile_Overheat" ObjectPath="\Events\Default Work Unit\Arsonist_Secondary_Flare_Projectile_Overheat">
 					<IncludedMemoryFiles>
 						<File Id="200903336" Language="SFX">
@@ -117,14 +125,6 @@
 						<File Id="385415142" Language="SFX">
 							<ShortName>Secondary Fire 2\2. Flare Explosion.wav</ShortName>
 							<Path>SFX\Secondary Fire 2\2. Flare Explosion_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4229299378" Name="Arsonist_Secondaryt_Flare_Projectile" ObjectPath="\Events\Default Work Unit\Arsonist_Secondaryt_Flare_Projectile">
-					<IncludedMemoryFiles>
-						<File Id="87249989" Language="SFX">
-							<ShortName>Secondary Fire 1\1. Flare Projectile.wav</ShortName>
-							<Path>SFX\Secondary Fire 1\1. Flare Projectile_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

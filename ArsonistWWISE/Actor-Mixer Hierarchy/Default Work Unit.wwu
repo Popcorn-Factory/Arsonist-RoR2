@@ -128,6 +128,8 @@
 								<Sound Name="1_1_Overheat_Duration" ID="{F058DA0F-42B5-4921-80B2-D8A81F43A5DB}" ShortID="520575699">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>

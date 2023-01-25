@@ -1,5 +1,7 @@
 ﻿using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.Networking;
 using EntityStates;
+using R2API.Networking.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -42,6 +44,11 @@ namespace ArsonistMod.SkillStates
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {
                 //Nothing
+            }
+
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(base.characterBody.netId, 1840962711).Send(R2API.Networking.NetworkDestination.Clients);
             }
         }
 

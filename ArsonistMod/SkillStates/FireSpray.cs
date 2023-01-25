@@ -4,6 +4,8 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace ArsonistMod.SkillStates
 {
@@ -58,10 +60,14 @@ namespace ArsonistMod.SkillStates
             {
                 FireBolt();
                 energySystem.currentOverheat += energyCost;
+
+                new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {
                 FireBall();
+
+                new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
             }
 
         }

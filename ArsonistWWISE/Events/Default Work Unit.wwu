@@ -63,7 +63,7 @@
 						<Action Name="" ID="{A0CC740B-DBFF-4E0A-809B-0E4DA80EC9A7}" ShortID="715142136">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="1_0_Overheat_Start" ID="{A0710A11-EB37-4535-BFAE-32AB33DA04C4}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="1_2_Overheat_Finish" ID="{490014E8-B801-410A-9661-46E7AAC8C10C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -80,7 +80,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_Secondaryt_Flare_Projectile" ID="{D39286A2-B216-4AC4-B433-218EBBA06261}">
+				<Event Name="Arsonist_Secondary_Flare_Projectile" ID="{D39286A2-B216-4AC4-B433-218EBBA06261}">
 					<ChildrenList>
 						<Action Name="" ID="{CB5916D1-B796-4BE3-BA47-9EB5BD2CA1D8}" ShortID="774729427">
 							<ReferenceList>

@@ -8,6 +8,8 @@ using static UnityEngine.ParticleSystem.PlaybackState;
 using HG;
 using System.Collections.Generic;
 using System.Linq;
+using ArsonistMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace ArsonistMod.SkillStates
 {
@@ -40,6 +42,11 @@ namespace ArsonistMod.SkillStates
 
             energyCost = energySystem.costmultiplierOverheat * energyflatCost;
             if (energyCost < 0f) energyCost = 0f;
+
+            if (base.isAuthority)
+            {
+                new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+            }
 
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {

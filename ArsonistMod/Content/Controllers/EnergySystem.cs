@@ -9,6 +9,7 @@ using R2API.Networking;
 using R2API.Networking.Interfaces;
 using static ArsonistMod.Content.Controllers.EnergySystem;
 using UnityEngine.UIElements;
+using ArsonistMod.Modules.Networking;
 
 namespace ArsonistMod.Content.Controllers
 {
@@ -92,6 +93,9 @@ namespace ArsonistMod.Content.Controllers
         private float blueRatio;
         private float whiteRatio;
         public float currentBlueNumber;
+
+        //Sound vars
+        uint tickingSound;
 
         public void Awake()
         {
@@ -436,6 +440,10 @@ namespace ArsonistMod.Content.Controllers
                     ifOverheatMaxed = false;
                     overheatTriggered = false;
                     isAcceleratedCooling = false;
+                    AkSoundEngine.StopPlayingID(tickingSound);
+
+                    //Finish sound.
+                    new PlaySoundNetworkRequest(characterBody.netId, 3787943995).Send(NetworkDestination.Clients);
                 }
                 else
                 {
@@ -455,6 +463,10 @@ namespace ArsonistMod.Content.Controllers
             {
                 currentOverheat = maxOverheat;
                 ifOverheatMaxed = true;
+                //Overheat Start sound
+                new PlaySoundNetworkRequest(characterBody.netId, 3152162514).Send(NetworkDestination.Clients);
+                //Overheat duration sound, not networked.
+                tickingSound = AkSoundEngine.PostEvent(3408252638, characterBody.gameObject);
             }
 
             if(currentOverheat < 0f)

@@ -92,6 +92,11 @@ namespace ArsonistMod.SkillStates
                 energySystem.isAcceleratedCooling = true;
             }
 
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+
         }
 
         public void ApplyBurn()
