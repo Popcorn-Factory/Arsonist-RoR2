@@ -9,6 +9,8 @@ using static UnityEngine.ParticleSystem.PlaybackState;
 using RoR2.Projectile;
 using ArsonistMod.Modules;
 using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace ArsonistMod.SkillStates
 {
@@ -71,6 +73,13 @@ namespace ArsonistMod.SkillStates
         public override void OnEnter()
         {
             base.OnEnter();
+
+            //Play swing sound
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 3580806227).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
@@ -363,6 +372,11 @@ namespace ArsonistMod.SkillStates
                 origin = base.characterBody.corePosition,
                 scale = this.radius,
             }, true);
+            
+            if (base.isAuthority)
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 1597575822).Send(R2API.Networking.NetworkDestination.Clients);
+            }
 
 
             bool flag = !this.hasHopped;

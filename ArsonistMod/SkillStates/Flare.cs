@@ -43,11 +43,6 @@ namespace ArsonistMod.SkillStates
             energyCost = energySystem.costmultiplierOverheat * energyflatCost;
             if (energyCost < 0f) energyCost = 0f;
 
-            if (base.isAuthority)
-            {
-                new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
-            }
-
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.strongFlare,
@@ -61,6 +56,8 @@ namespace ArsonistMod.SkillStates
                            null,
                            speedOverride);
                 energySystem.currentOverheat += energyCost;
+
+                new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
             }
             else
             {
@@ -74,6 +71,9 @@ namespace ArsonistMod.SkillStates
                            DamageColorIndex.Default,
                            null,
                            speedOverride);
+
+
+                new PlaySoundNetworkRequest(base.characterBody.netId, 1608533803).Send(R2API.Networking.NetworkDestination.Clients);
             }
         }
                

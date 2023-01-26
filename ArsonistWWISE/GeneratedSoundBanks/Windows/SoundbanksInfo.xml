@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="1259384155">
+		<SoundBank Id="1110381487" Language="SFX" Hash="1662838081">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -106,9 +106,9 @@
 				</Event>
 				<Event Id="3580806227" Name="Arsonist_Secondary_Flare_Punch" ObjectPath="\Events\Default Work Unit\Arsonist_Secondary_Flare_Punch">
 					<IncludedMemoryFiles>
-						<File Id="977537761" Language="SFX">
-							<ShortName>Secondary Fire 2\1. Flare Punch.wav</ShortName>
-							<Path>SFX\Secondary Fire 2\1. Flare Punch_3F75BDB9.wem</Path>
+						<File Id="767924108" Language="SFX">
+							<ShortName>1. Flare Punch.wav</ShortName>
+							<Path>SFX\1. Flare Punch_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

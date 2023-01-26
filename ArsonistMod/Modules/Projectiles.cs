@@ -1,8 +1,10 @@
 ﻿using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.Networking;
 using ArsonistMod.Modules.ProjectileControllers;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using R2API;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using RoR2.Projectile;
 using System;
@@ -321,6 +323,7 @@ namespace ArsonistMod.Modules
 
         internal class ZeroPointOnWorldHit : MonoBehaviour, IProjectileImpactBehavior
         {
+
             public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
             {
                 if (impactInfo.collider)

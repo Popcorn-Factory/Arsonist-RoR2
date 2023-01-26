@@ -99,7 +99,7 @@ namespace ArsonistMod.Modules
 
             swordHitSoundEvent = CreateNetworkSoundEventDef("ArsonistSwordHit");
 
-            bombExplosionEffect = LoadEffect("BombExplosionEffect", "ArsonistBombExplosion");
+            bombExplosionEffect = LoadEffect("BombExplosionEffect", "Arsonist_Secondary_Flare_Punch_Explosion");
 
             if (bombExplosionEffect)
             {

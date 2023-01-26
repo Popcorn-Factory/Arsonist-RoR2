@@ -29,8 +29,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	597793787	6_1_Masochism Laugh 2	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\2. Masochism Laugh 2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_1_Masochism Laugh 2		101716
 	640021138	3_1_Primary_Fire_Overheated	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Primary Fire\2. Primary Fire Overheated_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_1_Primary_Fire_Overheated		36070
 	752389951	1_0_Overheat_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\1. Overheat Start_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_0_Overheat_Start		128719
+	767924108	5_0_Secondary Flare Punch	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1. Flare Punch_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_0_Secondary Flare Punch		64310
 	938389516	3_0_Primary_Fire	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Primary Fire\1. Primary Fire_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_0_Primary_Fire		34107
-	977537761	5_0_Secondary Flare Punch	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 2\1. Flare Punch_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_0_Secondary Flare Punch		62631
 	1035535129	2_0_Cleanse	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Cleanse - Shift\4. Cleanse_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\2_0_Cleanse		111456
 	1067383454	1_1_Overheat_Duration	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\2. Overheat Duration_9EDFC787.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_1_Overheat_Duration		261045
 

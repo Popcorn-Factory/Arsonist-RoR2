@@ -1,5 +1,7 @@
 ﻿using ArsonistMod.Modules;
+using ArsonistMod.Modules.Networking;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
@@ -114,6 +116,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.damageType = DamageType.Generic;
 
             blastAttack.Fire();
+
+            //Play Sound
+            new PlaySoundNetworkRequest(charbody.netId, 3061346618).Send(NetworkDestination.Clients);
         }
 
         public void SetWeakBool()

@@ -118,7 +118,7 @@
 						<Action Name="" ID="{18122ABC-1F53-4834-842D-CDA941EEAB51}" ShortID="529668623">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_0_Secondary Flare Punch" ID="{2688C7B5-C634-4DA1-8DF7-FF3C8C4470B8}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="5_0_Secondary Flare Punch" ID="{D8DA827A-0CB7-40EA-AB33-CF0655E88108}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
