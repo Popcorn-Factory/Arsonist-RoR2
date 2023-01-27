@@ -46,7 +46,7 @@ namespace ArsonistMod.SkillStates
             animator = GetModelAnimator();
             //this.animator.SetBool("attacking", true);
             GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
-            //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", duration / 2, 0.1f);
+            //PlayCrossfade("Gesture, Override", "LeftArmOut", "Attack.playbackRate", duration / 2, 0.1f);
             //PlayCrossfade("LeftArm, Override", "LeftArmPunch", "Attack.playbackRate", duration/2, 0.1f);
 
             //energy
