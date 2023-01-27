@@ -2063,7 +2063,7 @@ GameObject:
   - component: {fileID: 1209521308}
   - component: {fileID: 7238953315125949139}
   m_Layer: 0
-  m_Name: mdlArsonist
+  m_Name: mdlArsonistOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

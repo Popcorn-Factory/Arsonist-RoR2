@@ -3508,7 +3508,7 @@ GameObject:
   - component: {fileID: 2092642374193370649}
   - component: {fileID: 4562695983988666085}
   m_Layer: 0
-  m_Name: mdlArsonist
+  m_Name: ArsonistDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3549,7 +3549,7 @@ Animator:
   m_GameObject: {fileID: 5802049900963730420}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cabe429d1409b3f4dbe76d9961d59289, type: 2}
-  m_Controller: {fileID: 9100000, guid: 6d3752105a1f97a43b86def7188d4ed9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9f1dc5f0eff64a4489218c41decf2189, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -20,6 +20,7 @@ namespace ArsonistMod.SkillStates
         public float baseDuration = 1f;
         public float duration;
 
+        private string muzzleString = "FlareMuzzle";
         public float Energy = Modules.StaticValues.flareEnergyCost;
         private float energyCost;
         private float energyflatCost;
@@ -36,6 +37,9 @@ namespace ArsonistMod.SkillStates
 
             base.characterBody.SetAimTimer(this.duration);
 
+            //Muzzle Positioning
+            ChildLocator childLoc = GetModelChildLocator();
+            Transform muzzleTransform = childLoc.FindChild(muzzleString);
 
             energyflatCost = Energy - energySystem.costflatOverheat;
             if (energyflatCost < 0f) energyflatCost = 0f;
@@ -46,7 +50,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.strongFlare,
-                           aimRay.origin + aimRay.direction,
+                           muzzleTransform.position + aimRay.direction,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
                            1f,
@@ -62,7 +66,7 @@ namespace ArsonistMod.SkillStates
             else
             {
                 ProjectileManager.instance.FireProjectile(Modules.Projectiles.weakFlare,
-                           aimRay.origin + aimRay.direction,
+                           muzzleTransform.position + aimRay.direction,
                            Util.QuaternionSafeLookRotation(aimRay.direction),
                            base.gameObject,
                            1f,

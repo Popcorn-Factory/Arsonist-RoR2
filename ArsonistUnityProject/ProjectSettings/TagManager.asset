@@ -13,20 +13,20 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - FakeActor
+  - NoCollision
+  - Pickups
+  - World
+  - EntityPrecise
+  - Debris
+  - Projectile
+  - Background
+  - ManualRender
+  - Ragdoll
+  - NoDraw
+  - PrefabBrush
+  - PostProcess
+  - UI, WorldSpace
   - 
   - 
   - 

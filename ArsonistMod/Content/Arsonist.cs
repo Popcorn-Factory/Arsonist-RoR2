@@ -48,11 +48,42 @@ namespace ArsonistMod.Modules.Survivors
                 },
                 new CustomRendererInfo
                 {
-                    childName = "GunModel",
+                    childName = "ArsonistArmor",
+                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
                 },
                 new CustomRendererInfo
                 {
-                    childName = "Model",
+                    childName = "ArsonistBoots",
+                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArsonistCanister",
+                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArsonistChestplate",
+                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArsonistHead",
+                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArsonistWeapon",
+                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "Cylinder",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "PyroRobe",
+                    material = Materials.CreateHopooMaterial("matArsonistCloth"),
                 }
         };
 
@@ -85,8 +116,8 @@ namespace ArsonistMod.Modules.Survivors
             GameObject model = childLocator.gameObject;
 
             //example of how to create a hitbox
-            Transform hitboxTransform = childLocator.FindChild("SwordHitbox");
-            Modules.Prefabs.SetupHitbox(model, hitboxTransform, "Sword");
+            Transform hitboxTransform = childLocator.FindChild("ZeroPointHitbox");
+            Modules.Prefabs.SetupHitbox(model, hitboxTransform, "ZeroPoint");
         }
 
         public override void InitializeSkills()
@@ -98,7 +129,7 @@ namespace ArsonistMod.Modules.Survivors
             skillloc.passiveSkill.enabled = true;
             skillloc.passiveSkill.skillNameToken = prefix + "PASSIVE_NAME";
             skillloc.passiveSkill.skillDescriptionToken = prefix + "PASSIVE_DESCRIPTION";
-            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon");
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
             skillloc.passiveSkill.keywordToken = prefix + "KEYWORD_PASSIVE";
 
             #region Passive
@@ -307,10 +338,17 @@ namespace ArsonistMod.Modules.Survivors
 
             //these are your Mesh Replacements. The order here is based on your CustomRendererInfos from earlier
             //pass in meshes as they are named in your assetbundle
-            //defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRenderers,
-            //    "meshArsonistSword",
-            //    "meshArsonistGun",
-            //    "meshArsonist");
+            defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+                "meshArsonist",
+                "meshArsonistArmor",
+                "meshArsonistBoots",
+                "meshArsonistCanister",
+                "meshArsonistChestplate",
+                "meshArsonistHead",
+                "meshArsonistWeapon",
+                "meshCylinder",
+                "meshPyroRobe"
+                );
 
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
             skins.Add(defaultSkin);

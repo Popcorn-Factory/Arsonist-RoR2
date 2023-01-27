@@ -18,7 +18,8 @@ namespace ArsonistMod.SkillStates
 
         public static GameObject effectPrefab;
 
-        private string muzzleString;
+        private string muzzleString = "GunMuzzle";
+        private Transform muzzlePos;
         private Animator animator;
         private float damageCoefficient = Modules.StaticValues.firesprayWeakDamageCoefficient;
         private float strongdamageCoefficient = Modules.StaticValues.firesprayStrongDamageCoefficient;
@@ -32,10 +33,12 @@ namespace ArsonistMod.SkillStates
         private float energyCost;
         private float energyflatCost;
 
+
         public override void OnEnter()
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
+
 
             Ray aimRay = GetAimRay();
             duration = baseDuration / attackSpeedStat;
@@ -48,6 +51,10 @@ namespace ArsonistMod.SkillStates
             GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
             //PlayCrossfade("Gesture, Override", "LeftArmOut", "Attack.playbackRate", duration / 2, 0.1f);
             //PlayCrossfade("LeftArm, Override", "LeftArmPunch", "Attack.playbackRate", duration/2, 0.1f);
+
+            //Get MuzzlePos
+            ChildLocator childLoc = GetModelChildLocator();
+            muzzlePos = childLoc.FindChild(muzzleString);
 
             //energy
             energyflatCost = Energy - energySystem.costflatOverheat;
@@ -78,7 +85,7 @@ namespace ArsonistMod.SkillStates
             {
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.lemurianFireBall, //prefab
-                    aimRay.origin, //position
+                    muzzlePos.position, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
                     damageStat * damageCoefficient, //damage
@@ -98,7 +105,7 @@ namespace ArsonistMod.SkillStates
             {
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.artificerFirebolt, //prefab
-                    aimRay.origin, //position
+                    muzzlePos.position, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
                     damageStat * strongdamageCoefficient, //damage
