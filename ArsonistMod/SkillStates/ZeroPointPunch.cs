@@ -42,7 +42,7 @@ namespace ArsonistMod.SkillStates
         protected float procCoefficient = 1f;
         protected float pushForce = 500f;
         protected Vector3 bonusForce = new Vector3(10f, 400f, 0f);
-        protected float baseDuration = 1f;
+        protected float baseDuration = 1f;           
         protected float attackStartTime = 0.2f;
         protected float attackEndTime = 0.4f;
         protected float baseEarlyExitTime = 0.4f;

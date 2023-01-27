@@ -364,7 +364,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Flinch
     m_StateMachine: {fileID: 1107354114850630496}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: ed8d6254f0c26bb4a92815e851b204b1, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
