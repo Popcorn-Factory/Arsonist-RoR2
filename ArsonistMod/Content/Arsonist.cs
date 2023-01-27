@@ -43,7 +43,7 @@ namespace ArsonistMod.Modules.Survivors
         {
                 new CustomRendererInfo
                 {
-                    childName = "SwordModel",
+                    childName = "ArsonistBody",
                     material = Materials.CreateHopooMaterial("matArsonist"),
                 },
                 new CustomRendererInfo
