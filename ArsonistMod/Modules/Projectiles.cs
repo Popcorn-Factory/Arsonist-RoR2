@@ -253,7 +253,7 @@ namespace ArsonistMod.Modules
             if (collider) 
             {
                 Debug.Log(collider.radius);
-                collider.radius = 1.25f;
+                collider.radius = 1.0f;
             }
         }
 

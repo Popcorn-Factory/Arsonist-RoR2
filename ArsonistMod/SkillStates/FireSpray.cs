@@ -85,7 +85,7 @@ namespace ArsonistMod.SkillStates
             {
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.lemurianFireBall, //prefab
-                    muzzlePos.position, //position
+                    aimRay.direction, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
                     damageStat * damageCoefficient, //damage
@@ -105,7 +105,7 @@ namespace ArsonistMod.SkillStates
             {
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.artificerFirebolt, //prefab
-                    muzzlePos.position, //position
+                    aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
                     damageStat * strongdamageCoefficient, //damage
