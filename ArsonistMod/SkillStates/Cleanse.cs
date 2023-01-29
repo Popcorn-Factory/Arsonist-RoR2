@@ -95,7 +95,7 @@ namespace ArsonistMod.SkillStates
 
             if (base.isAuthority) 
             {
-                //new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
             }
 
         }
