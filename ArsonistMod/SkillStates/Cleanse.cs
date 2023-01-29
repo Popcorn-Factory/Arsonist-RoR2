@@ -73,7 +73,8 @@ namespace ArsonistMod.SkillStates
                 {
                     origin = characterBody.transform.position,
                     scale = StaticValues.cleanseBlastRadius,
-                    rotation = new Quaternion(0, 0, 0, 0)
+                    rotation = new Quaternion(0, 0, 0, 0),
+                    
                 }, false);
 
 
@@ -94,7 +95,7 @@ namespace ArsonistMod.SkillStates
 
             if (base.isAuthority) 
             {
-                new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
+                //new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
             }
 
         }

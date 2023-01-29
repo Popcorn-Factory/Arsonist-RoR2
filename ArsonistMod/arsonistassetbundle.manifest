@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3088727509
+CRC: 2614079968
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6d1f83789d90b06b7b01525b1503b689
+    Hash: 77c060a360245c567110e743de6c5105
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -135,6 +135,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/VFX/Textures/texHitSpark.png
 - Assets/ArsonistAssets/Materials/Henry/matBoxingGlove.mat
+- Assets/ArsonistAssets/Icons/texAlt1SecondaryIcon.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryAlt.mat
 - Assets/ArsonistAssets/Animation/clips/WalkF.anim
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
@@ -152,6 +153,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleRest.anim
 - Assets/ArsonistAssets/VFX/Materials/matTrail.mat
+- Assets/ArsonistAssets/Icons/texAlt1PrimaryIcon.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryJedi.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkB.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Emote1.anim

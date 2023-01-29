@@ -10,6 +10,7 @@ using R2API.Networking.Interfaces;
 using static ArsonistMod.Content.Controllers.EnergySystem;
 using UnityEngine.UIElements;
 using ArsonistMod.Modules.Networking;
+using RoR2.CharacterAI;
 
 namespace ArsonistMod.Content.Controllers
 {
@@ -93,6 +94,9 @@ namespace ArsonistMod.Content.Controllers
         private float blueRatio;
         private float whiteRatio;
         public float currentBlueNumber;
+
+        //BaseAI check
+        public bool baseAIPresent;
 
         //Sound vars
         uint tickingSound;
@@ -245,7 +249,10 @@ namespace ArsonistMod.Content.Controllers
 
             currentBlueNumber = whiteRatio * maxOverheat;
 
+            CharacterMaster master = characterBody.master;
+            BaseAI baseAI = master.GetComponent<BaseAI>();
 
+            baseAIPresent = baseAI;
 
             SetupCustomUI();
 
@@ -368,11 +375,15 @@ namespace ArsonistMod.Content.Controllers
             {
                 if (baseHeatGauge)
                 {
-                    //max heat increases
-                    maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
-                        + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                        + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)
-                        + StaticValues.lysateEnergyGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                    if (characterBody.master) 
+                    {
+                        //max heat increases
+                        maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
+                            + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                            + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)
+                            + StaticValues.lysateEnergyGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+
+                    }
                     //regen increases based off current overheat value
                     //halfheat ratio means that at 50% or lower = 1, 100% heat = 2, 
                     float halfheat = currentOverheat / (maxOverheat / 2f);
@@ -393,9 +404,13 @@ namespace ArsonistMod.Content.Controllers
                     //regen remains static
                     regenOverheat = characterBody.attackSpeed * StaticValues.regenOverheatFraction * maxOverheat;
                     //calcing blue and red ratios for alt
-                    blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    if (characterBody.master) 
+                    {
+                        blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
                         + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
                         + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                    }
+
                     if (blueRatio > StaticValues.maxBlueWhiteSegment)
                     {
                         blueRatio = StaticValues.maxBlueWhiteSegment;
@@ -408,9 +423,11 @@ namespace ArsonistMod.Content.Controllers
 
                 }
 
-
-                costmultiplierOverheat = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
-                costflatOverheat = (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
+                if (characterBody.master) 
+                {
+                    costmultiplierOverheat = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
+                    costflatOverheat = (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
+                }
 
                 if (costmultiplierOverheat > 1f)
                 {
@@ -495,7 +512,7 @@ namespace ArsonistMod.Content.Controllers
             {
                 CalculateEnergyStats();
 
-                if (!enabledUI) 
+                if (!enabledUI && !baseAIPresent) 
                 {
                     enabledUI = true;
                     CustomUIObject.SetActive(true);
@@ -736,6 +753,7 @@ namespace ArsonistMod.Content.Controllers
         public void OnDestroy()
         {
             Destroy(CustomUIObject);
+            Destroy(EnergyNumberContainer);
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
         }
