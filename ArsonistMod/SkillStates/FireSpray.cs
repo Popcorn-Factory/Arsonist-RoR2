@@ -47,7 +47,7 @@ namespace ArsonistMod.SkillStates
             //this.muzzleString = "LHand";
 
             animator = GetModelAnimator();
-            //this.animator.SetBool("attacking", true);
+            this.animator.SetBool("attacking", true);
             GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
             //PlayCrossfade("Gesture, Override", "LeftArmOut", "Attack.playbackRate", duration / 2, 0.1f);
             //PlayCrossfade("LeftArm, Override", "LeftArmPunch", "Attack.playbackRate", duration/2, 0.1f);
@@ -122,7 +122,7 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            animator.SetBool("false", true);
+            animator.SetBool("attacking", false);
             //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
             if (chargeVfxInstance)

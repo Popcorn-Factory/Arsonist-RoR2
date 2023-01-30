@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2614079968
+CRC: 1500568911
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 77c060a360245c567110e743de6c5105
+    Hash: 64b5aef53ab1b24a98e261358e7abbd6
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -118,6 +118,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texFistSwing.png
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch2.anim
 - Assets/ArsonistAssets/Animation/maskGesture.mask
@@ -131,6 +132,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
 - Assets/ArsonistAssets/VFX/BombExplosionEffect.prefab
 - Assets/ArsonistAssets/Animation/clips/Slash2.anim
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/VFX/Textures/texHitSpark.png
@@ -148,6 +150,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/matArsonistMetal.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M1.anim
 - Assets/ArsonistAssets/Animation/maskLeftArm.mask
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleIn.anim
 - Assets/ArsonistAssets/Animation/clips/DescendFast.anim
 - Assets/ArsonistAssets/HenryBazookaRocketGhost.prefab
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
@@ -181,7 +184,6 @@ Assets:
 - Assets/ArsonistAssets/Textures/ArsonistMetal_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyStart.anim
 - Assets/ArsonistAssets/Animation/clips/ThrowBomb.anim
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
 - Assets/ArsonistAssets/Materials/matArsonistCloth.mat
 - Assets/ArsonistAssets/Icons/texUtilityIcon.png
 - Assets/ArsonistAssets/Animation/clips/Ascend.anim
@@ -220,7 +222,6 @@ Assets:
 - Assets/ArsonistAssets/VFX/HenrySwordSwingEffect.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_OverHeat.anim
 - Assets/ArsonistAssets/Animation/clips/Descend.anim
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Animation/clips/AimPitch.anim
 - Assets/ArsonistAssets/Materials/matArsonist.mat
 - Assets/ArsonistAssets/Textures/Arsonist_diffuse.png
@@ -229,6 +230,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshCylinder.mesh
 - Assets/ArsonistAssets/Animation/clips/MenuIdleIn.anim
 - Assets/ArsonistAssets/VFX/ImpactHenryPunch.prefab
+- Assets/ArsonistAssets/Icons/texMainSkin.png
 - Assets/ArsonistAssets/Animation/clips/Slash1.anim
 - Assets/ArsonistAssets/VFX/HenryBazookaExplosionEffect.prefab
 - Assets/ArsonistAssets/Animation/clips/Roll.anim

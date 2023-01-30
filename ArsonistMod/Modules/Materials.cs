@@ -9,7 +9,7 @@ namespace ArsonistMod.Modules
 
         internal static Shader hotpoo = RoR2.LegacyResourcesAPI.Load<Shader>("Shaders/Deferred/HGStandard");
 
-        public static Material CreateHopooMaterial(string materialName)
+        public static Material CreateHopooMaterial(string materialName, bool noCullEnabled = false)
         {
             Material tempMat = cachedMaterials.Find(mat =>
             {
@@ -27,10 +27,10 @@ namespace ArsonistMod.Modules
                 return new Material(hotpoo);
             }
 
-            return tempMat.SetHopooMaterial();
+            return tempMat.SetHopooMaterial(noCullEnabled);
         }
 
-        public static Material SetHopooMaterial(this Material tempMat)
+        public static Material SetHopooMaterial(this Material tempMat, bool noCullEnabled = false)
         {
             if (cachedMaterials.Contains(tempMat))
                 return tempMat;
@@ -69,7 +69,7 @@ namespace ArsonistMod.Modules
 
             //set this keyword in unity if you want your model to show backfaces
             //in unity, right click the inspector tab and choose Debug
-            if (tempMat.IsKeywordEnabled("NOCULL"))
+            if (tempMat.IsKeywordEnabled("NOCULL") || noCullEnabled)
             {
                 tempMat.SetInt("_Cull", 0);
             }

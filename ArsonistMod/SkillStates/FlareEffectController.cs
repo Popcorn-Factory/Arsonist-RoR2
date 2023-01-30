@@ -17,7 +17,6 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         void Start()
         {
-            Debug.Log("start");
             timer = 0f;
             isWeak = false;
             charbody = this.gameObject.GetComponent<CharacterBody>();

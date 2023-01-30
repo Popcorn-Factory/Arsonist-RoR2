@@ -80,9 +80,9 @@ AvatarMask:
   - m_Path: Armature/ROOT/BASE/pelvis/LoinCloth1/LoinCloth2/LoinCloth3
     m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/Backpack
     m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/Backpack/BackpackThruster.L
@@ -102,7 +102,7 @@ AvatarMask:
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/neck/head
     m_Weight: 1
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.L
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.L/arm1.L
     m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.L/arm1.L/arm2.L
@@ -146,7 +146,7 @@ AvatarMask:
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.L/arm1.L/Shoulder.L
     m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.R
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.R/arm1.R
     m_Weight: 0
   - m_Path: Armature/ROOT/BASE/stomach/chest/spine/shoulder.R/arm1.R/arm2.R
