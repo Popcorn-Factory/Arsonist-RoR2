@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1747307242
+CRC: 2673438276
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f50ba287a09738efaa13385ec258b37e
+    Hash: 5fd1b2aa7854898db0df637e20dc469a
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -86,6 +86,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texHenrySwing2.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleToRest.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyIdle.anim
+- Assets/ArsonistAssets/VFX/flareAttached.prefab
 - Assets/ArsonistAssets/Animation/animArsonistMenu.controller
 - Assets/ArsonistAssets/OldArsonistDisplay.prefab
 - Assets/ArsonistAssets/VFX/Mesh/meshBoxingGlove.mesh
@@ -156,6 +157,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleRest.anim
 - Assets/ArsonistAssets/VFX/Materials/matTrail.mat
+- Assets/ArsonistAssets/VFX/flare.prefab
 - Assets/ArsonistAssets/Icons/texAlt1PrimaryIcon.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryJedi.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkB.anim

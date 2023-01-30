@@ -12,6 +12,9 @@ using BepInEx.Bootstrap;
 using R2API.Networking;
 using ArsonistMod.Modules.Networking;
 using EmotesAPI;
+using R2API;
+using ArsonistMod.SkillStates.Arsonist.Secondary;
+using ArsonistMod.Modules.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -68,6 +71,7 @@ namespace ArsonistMod
             //networking
             NetworkingAPI.RegisterMessageType<BurnNetworkRequest>();
             NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<TakeDamageNetworkRequest>();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
@@ -107,7 +111,7 @@ namespace ArsonistMod
 
                 if (self)
                 {
-
+                    
                     if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                     {
                         EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
@@ -182,6 +186,16 @@ namespace ArsonistMod
 
                     bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
                     EnergySystem energySystem = self.GetComponent<EnergySystem>();
+
+
+                    if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType))
+                    {
+                        FlareEffectControllerStrong flarecon = self.body.gameObject.AddComponent<FlareEffectControllerStrong>();
+                        flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
+                        flarecon.charbody = self.body;
+                    }
+
+
 
                     if (self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck))
                     {

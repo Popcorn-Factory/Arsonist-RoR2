@@ -30,6 +30,10 @@ namespace ArsonistMod.Modules
         public static GameObject artificerFireboltGhost = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageFireboltGhost.prefab").WaitForCompletion();
         public static GameObject explosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ExplosionVFX.prefab").WaitForCompletion();
 
+        //arsonist effects
+        public static GameObject arsonistFlare;
+        public static GameObject arsonistFlareAttached;
+
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
 
@@ -119,7 +123,37 @@ namespace ArsonistMod.Modules
 
             swordSwingEffect = Assets.LoadEffect("ArsonistSwordSwingEffect", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactArsonistSlash");
+
+            //arsonist flare
+            arsonistFlare = CreateOGTracer("flare");
+            arsonistFlareAttached = LoadEffect("flareAttached");
+
+            //Transform child1 = arsonistFlare.transform.GetChild(1);
+            //child1.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("matRipple", false);
+            //Transform child2 = arsonistFlare.transform.GetChild(2);
+            //child2.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("matRipple 2", false);
+            //Transform child3 = arsonistFlare.transform.GetChild(3);
+            //child3.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("star", false);
+
         }
+
+        private static GameObject CreateOGTracer(string ogTracerPrefab)
+        {            
+            GameObject gameobject = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(ogTracerPrefab);
+
+            if (!gameobject.GetComponent<EffectComponent>()) gameobject.AddComponent<EffectComponent>();
+            if (!gameobject.GetComponent<VFXAttributes>()) gameobject.AddComponent<VFXAttributes>();
+            if (!gameobject.GetComponent<NetworkIdentity>()) gameobject.AddComponent<NetworkIdentity>();
+
+            if(!gameobject.GetComponent<Tracer>()) gameobject.AddComponent<Tracer>(); 
+            gameobject.GetComponent<Tracer>().speed = 10f;
+            gameobject.GetComponent<Tracer>().length = 10f;
+
+            AddNewEffectDef(gameobject);
+
+            return gameobject;
+        }
+
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)
         {

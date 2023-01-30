@@ -38,6 +38,9 @@ namespace ArsonistMod.Modules
 
             CreateStrongFlare();
             AddProjectile(strongFlare);
+
+
+
         }
 
         internal static void AddProjectile(GameObject projectileToAdd)
@@ -47,7 +50,7 @@ namespace ArsonistMod.Modules
 
         private static void CreateWeakFlare()
         {
-            weakFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WeakFlare");
+            weakFlare = Modules.Assets.arsonistFlare;
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(weakFlare, weakFlare.transform.GetChild(0), "FlareHitbox");
             weakFlare.AddComponent<NetworkIdentity>();
@@ -71,12 +74,13 @@ namespace ArsonistMod.Modules
             InitializeFlareOverlapAttack(flareoverlapAttack);
             weakFlare.AddComponent<WeakFlareOnHit>();
 
+            
             PrefabAPI.RegisterNetworkPrefab(weakFlare);
         }
 
         private static void CreateStrongFlare()
         {
-            strongFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("StrongFlare");
+            strongFlare = Modules.Assets.arsonistFlare;
             // Ensure that the child is set in the right position in Unity!!!!
             Modules.Prefabs.SetupHitbox(strongFlare, strongFlare.transform.GetChild(0), "FlareHitbox");
             strongFlare.AddComponent<NetworkIdentity>();
@@ -360,8 +364,7 @@ namespace ArsonistMod.Modules
                             if (body.teamComponent.teamIndex == TeamIndex.Neutral || body.teamComponent.teamIndex == TeamIndex.Monster
                                 || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
                             {
-                                FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
-                                flareCon.SetWeakBool();
+                                FlareEffectControllerStrong flareCon = body.gameObject.AddComponent<FlareEffectControllerStrong>();
                                 flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
                             }
                         }
@@ -395,7 +398,7 @@ namespace ArsonistMod.Modules
                                 || body.teamComponent.teamIndex == TeamIndex.Lunar || body.teamComponent.teamIndex == TeamIndex.Void)
                             {
                                 Destroy(gameObject);
-                                FlareEffectController flareCon = body.gameObject.AddComponent<FlareEffectController>();
+                                FlareEffectControllerStrong flareCon = body.gameObject.AddComponent<FlareEffectControllerStrong>();
                                 flareCon.arsonistBody = gameObject.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
                             }
                         }
