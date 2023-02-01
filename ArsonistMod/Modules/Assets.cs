@@ -126,7 +126,7 @@ namespace ArsonistMod.Modules
 
             //arsonist flare
             arsonistFlareAttached = LoadEffect("flareAttached");
-            arsonistFlare = CreateOGTracer("flareShot");
+            //arsonistFlare = LoadEffect("flareShot");
 
             //Transform child1 = arsonistFlare.transform.GetChild(1);
             //child1.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("matRipple", false);

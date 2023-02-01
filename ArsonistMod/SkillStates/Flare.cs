@@ -53,37 +53,6 @@ namespace ArsonistMod.SkillStates
             base.characterBody.SetAimTimer(this.duration);
 
 
-            bulletAttack = new BulletAttack
-            {
-                bulletCount = (uint)(1U),
-                aimVector = aimRay.direction,
-                origin = aimRay.origin,
-                damage = damageStat,
-                damageColorIndex = DamageColorIndex.Count,
-                damageType = DamageType.Generic,
-                falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                maxDistance = 100f,
-                force = 0f,
-                hitMask = LayerIndex.CommonMasks.bullet,
-                minSpread = 0f,
-                maxSpread = 0f,
-                isCrit = base.RollCrit(),
-                owner = base.gameObject,
-                muzzleName = muzzleString,
-                smartCollision = true,
-                procChainMask = default(ProcChainMask),
-                procCoefficient = 0.1f,
-                radius = 1f,
-                sniper = false,
-                stopperMask = LayerIndex.CommonMasks.bullet,
-                weapon = null,
-                tracerEffectPrefab = Modules.Assets.arsonistFlare,
-                spreadPitchScale = 0f,
-                spreadYawScale = 0f,
-                queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
-            };
-
             //Muzzle Positioning
             ChildLocator childLoc = GetModelChildLocator();
             Transform muzzleTransform = childLoc.FindChild(muzzleString);
@@ -112,28 +81,28 @@ namespace ArsonistMod.SkillStates
             }
         }
         
-        public void FireBullet()
-        {
-            base.characterBody.AddSpreadBloom(1f);
-            base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
+        //public void FireBullet()
+        //{
+        //    base.characterBody.AddSpreadBloom(1f);
+        //    base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
-            ChildLocator childLoc = GetModelChildLocator();
-            Transform muzzleTransform = childLoc.FindChild(muzzleString);
+        //    ChildLocator childLoc = GetModelChildLocator();
+        //    Transform muzzleTransform = childLoc.FindChild(muzzleString);
 
-            hasFired = true;
-
-
-            bulletAttack.Fire();
+        //    hasFired = true;
 
 
-            //EffectManager.SpawnEffect(Assets.arsonistFlare, new EffectData
-            //{
-            //    origin = FindModelChild(this.muzzleString).position,
-            //    scale = 1f,
-            //    rotation = Quaternion.LookRotation(aimRay.direction)
+        //    bulletAttack.Fire();
 
-            //}, true);
-        }
+
+        //    //EffectManager.SpawnEffect(Assets.arsonistFlare, new EffectData
+        //    //{
+        //    //    origin = FindModelChild(this.muzzleString).position,
+        //    //    scale = 1f,
+        //    //    rotation = Quaternion.LookRotation(aimRay.direction)
+
+        //    //}, true);
+        //}
 
 
         public override void OnExit()
@@ -144,45 +113,57 @@ namespace ArsonistMod.SkillStates
             
         }
 
-        //public void StrongFlare()
-        //{
-        //    Ray aimRay = GetAimRay();
-        //    if (isAuthority)
-        //    {
-        //        ProjectileManager.instance.FireProjectile(
-        //            Modules.Projectiles.strongFlare, //prefab
-        //            aimRay.direction, //position
-        //            Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
-        //            gameObject, //owner
-        //            damageStat , //damage
-        //            0f, //force
-        //            Util.CheckRoll(critStat, characterBody.master), //crit
-        //            DamageColorIndex.Count, //damage color
-        //            null, //target
-        //            speedOverride); //speed }
+        public void StrongFlare()
+        {
+            Ray aimRay = GetAimRay();
+            if (isAuthority)
+            {
+                base.characterBody.AddSpreadBloom(1f);
+                base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
-        //    }
-        //}
+                DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+                damageTypeComponent.Add(Damage.arsonistStickyDamageType);
 
-        //public void WeakFlare()
-        //{
-        //    Ray aimRay = GetAimRay();
-        //    if (isAuthority)
-        //    {
-        //        ProjectileManager.instance.FireProjectile(
-        //            Modules.Projectiles.weakFlare, //prefab
-        //            aimRay.direction, //position
-        //            Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
-        //            gameObject, //owner
-        //            damageStat, //damage
-        //            0f, //force
-        //            Util.CheckRoll(critStat, characterBody.master), //crit
-        //            DamageColorIndex.Count, //damage color
-        //            null, //target
-        //            speedOverride); //speed }
+                ProjectileManager.instance.FireProjectile(
+                    Modules.Projectiles.strongFlare, //prefab
+                    aimRay.origin, //position
+                    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
+                    gameObject, //owner
+                    damageStat, //damage
+                    0f, //force
+                    Util.CheckRoll(critStat, characterBody.master), //crit
+                    DamageColorIndex.Count, //damage color
+                    null, //target
+                    speedOverride); //speed }
 
-        //    }
-        //}
+            }
+        }
+
+        public void WeakFlare()
+        {
+            Ray aimRay = GetAimRay();
+            if (isAuthority)
+            {
+                base.characterBody.AddSpreadBloom(1f);
+                base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
+
+                DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+                damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
+
+                ProjectileManager.instance.FireProjectile(
+                    Modules.Projectiles.strongFlare, //prefab
+                    aimRay.origin, //position
+                    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
+                    gameObject, //owner
+                    damageStat/2f, //damage
+                    0f, //force
+                    Util.CheckRoll(critStat, characterBody.master), //crit
+                    DamageColorIndex.Count, //damage color
+                    null, //target
+                    speedOverride); //speed }
+
+            }
+        }
 
         public override void FixedUpdate()
         {
@@ -194,14 +175,16 @@ namespace ArsonistMod.SkillStates
 
                 if (isStrong)
                 {
-                    DamageAPI.AddModdedDamageType(bulletAttack, Damage.arsonistStickyDamageType);
+                    //DamageAPI.AddModdedDamageType(bulletAttack, Damage.arsonistStickyDamageType);
+                    StrongFlare();
                 }
                 else if (!isStrong)
                 {
-                    DamageAPI.AddModdedDamageType(bulletAttack, Damage.arsonistWeakStickyDamageType);
+                    WeakFlare();
+                    //DamageAPI.AddModdedDamageType(bulletAttack, Damage.arsonistWeakStickyDamageType);
                 }
                 
-                FireBullet();
+                //FireBullet();
             }
 
             if (base.fixedAge >= this.duration && base.isAuthority)

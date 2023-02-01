@@ -23,8 +23,19 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             charbody = gameObject.GetComponent<CharacterBody>();
 
             Vector3 randVec = new Vector3((float)UnityEngine.Random.Range(-2, 2), (float)UnityEngine.Random.Range(-2, 2), (float)UnityEngine.Random.Range(-2, 2));
-            //effectObj = Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
+            //effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
             effectObj = UnityEngine.Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
+
+
+            //EffectManager.SpawnEffect(effectObj, new EffectData
+            //{
+            //    origin = charbody.corePosition + randVec,
+            //    scale = 1f,
+            //    rotation = Quaternion.LookRotation(charbody.characterDirection.forward),
+
+            //}, true);
+
+
             effectObj.transform.parent = charbody.gameObject.transform;
 
         }
