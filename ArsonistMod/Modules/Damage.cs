@@ -8,10 +8,12 @@ namespace ArsonistMod.Modules
     public static class Damage
     {
         internal static DamageAPI.ModdedDamageType arsonistStickyDamageType;
+        internal static DamageAPI.ModdedDamageType arsonistWeakStickyDamageType;
 
         internal static void SetupModdedDamage()
         {
             arsonistStickyDamageType = DamageAPI.ReserveDamageType();
+            arsonistWeakStickyDamageType = DamageAPI.ReserveDamageType();
         }
     }
 }

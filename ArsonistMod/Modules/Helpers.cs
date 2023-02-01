@@ -6,6 +6,7 @@ namespace ArsonistMod.Modules
     internal static class Helpers
     {
         internal const string startPrefix = "<style=cIsUtility>Agile. Heat. </style>";
+        internal const string heatPrefix = "<style=cIsUtility>Heat. </style>";
 
         internal static string ScepterDescription(string desc)
         {

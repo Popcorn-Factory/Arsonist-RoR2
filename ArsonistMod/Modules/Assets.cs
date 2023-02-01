@@ -31,8 +31,8 @@ namespace ArsonistMod.Modules
         public static GameObject explosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ExplosionVFX.prefab").WaitForCompletion();
 
         //arsonist effects
-        public static GameObject arsonistFlare;
-        public static GameObject arsonistFlareAttached;
+        internal static GameObject arsonistFlare;
+        internal static GameObject arsonistFlareAttached;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -125,8 +125,8 @@ namespace ArsonistMod.Modules
             swordHitImpactEffect = Assets.LoadEffect("ImpactArsonistSlash");
 
             //arsonist flare
-            arsonistFlare = CreateOGTracer("flare");
             arsonistFlareAttached = LoadEffect("flareAttached");
+            arsonistFlare = CreateOGTracer("flareShot");
 
             //Transform child1 = arsonistFlare.transform.GetChild(1);
             //child1.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("matRipple", false);
@@ -146,8 +146,8 @@ namespace ArsonistMod.Modules
             if (!gameobject.GetComponent<NetworkIdentity>()) gameobject.AddComponent<NetworkIdentity>();
 
             if(!gameobject.GetComponent<Tracer>()) gameobject.AddComponent<Tracer>(); 
-            gameobject.GetComponent<Tracer>().speed = 10f;
-            gameobject.GetComponent<Tracer>().length = 10f;
+            gameobject.GetComponent<Tracer>().speed = 100f;
+            gameobject.GetComponent<Tracer>().length = 100f;
 
             AddNewEffectDef(gameobject);
 

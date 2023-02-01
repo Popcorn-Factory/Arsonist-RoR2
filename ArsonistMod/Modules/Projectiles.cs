@@ -48,83 +48,95 @@ namespace ArsonistMod.Modules
             Modules.Content.AddProjectilePrefab(projectileToAdd);
         }
 
-        private static void CreateWeakFlare()
-        {
-            weakFlare = Modules.Assets.arsonistFlare;
-            // Ensure that the child is set in the right position in Unity!!!!
-            Modules.Prefabs.SetupHitbox(weakFlare, weakFlare.transform.GetChild(0), "FlareHitbox");
-            weakFlare.AddComponent<NetworkIdentity>();
-            
-            Rigidbody flareRigidbody = weakFlare.GetComponent<Rigidbody>();
-            if (!flareRigidbody)
-            {
-                flareRigidbody = weakFlare.AddComponent<Rigidbody>();
-            }
-            ProjectileController flareCon = weakFlare.AddComponent<ProjectileController>();
-            flareCon.rigidbody = flareRigidbody;
-            flareRigidbody.useGravity = false;
 
-            ProjectileDamage flareDamage = weakFlare.AddComponent<ProjectileDamage>();
-            InitializeFlareDamage(flareDamage);
 
-            ProjectileSimple flareTrajectory = weakFlare.AddComponent<ProjectileSimple>();
-            InitializeFlareTrajectory(flareTrajectory, 50f);
 
-            ProjectileOverlapAttack flareoverlapAttack = weakFlare.AddComponent<ProjectileOverlapAttack>();
-            InitializeFlareOverlapAttack(flareoverlapAttack);
-            weakFlare.AddComponent<WeakFlareOnHit>();
-
-            
-            PrefabAPI.RegisterNetworkPrefab(weakFlare);
-        }
 
         private static void CreateStrongFlare()
         {
-            strongFlare = Modules.Assets.arsonistFlare;
-            // Ensure that the child is set in the right position in Unity!!!!
-            Modules.Prefabs.SetupHitbox(strongFlare, strongFlare.transform.GetChild(0), "FlareHitbox");
-            strongFlare.AddComponent<NetworkIdentity>();
-            Rigidbody flareRigidbody = strongFlare.GetComponent<Rigidbody>();
-            if (!flareRigidbody)
+            strongFlare = CloneProjectilePrefab("magefirebolt", "strongFlare");
+
+
+            ProjectileDamage strongFlareDamage = strongFlare.GetComponent<ProjectileDamage>();
+
+            if (!strongFlareDamage)
             {
-                flareRigidbody = strongFlare.AddComponent<Rigidbody>();
+                strongFlareDamage = weakFlare.AddComponent<ProjectileDamage>();
+
             }
-            ProjectileController flareCon = strongFlare.AddComponent<ProjectileController>();
-            flareCon.rigidbody = flareRigidbody;            
-            flareRigidbody.useGravity = false;
+            strongFlareDamage.damage = 1f;
+            strongFlareDamage.damageType = DamageType.Generic;
 
-            ProjectileDamage flareDamage = strongFlare.AddComponent<ProjectileDamage>();
-            InitializeFlareDamage(flareDamage);
+            //ProjectileImpactExplosion strongFlareexplosion = strongFlare.GetComponent<ProjectileImpactExplosion>();
 
-            ProjectileSimple flareTrajectory = strongFlare.AddComponent<ProjectileSimple>();
-            InitializeFlareTrajectory(flareTrajectory, 50f);
+            //InitializeImpactExplosion(strongFlareexplosion);
 
-            ProjectileOverlapAttack flareoverlapAttack = strongFlare.AddComponent<ProjectileOverlapAttack>();
-            InitializeFlareOverlapAttack(flareoverlapAttack);
-            strongFlare.AddComponent<StrongFlareOnHit>();
+            //strongFlareexplosion.blastDamageCoefficient = 1f;
+            //strongFlareexplosion.blastProcCoefficient = 1f;
+            //strongFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
+            //strongFlareexplosion.destroyOnEnemy = true;
+            //strongFlareexplosion.lifetime = 5f;
+            //strongFlareexplosion.impactEffect = Assets.explosionPrefab;
+            //strongFlareexplosion.timerAfterImpact = true;
+            //strongFlareexplosion.lifetimeAfterImpact = 3f;
 
+
+            //strongFlare.AddComponent<ZeroPointOnWorldHit>();
+
+            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            damageTypeComponent.Add(Damage.arsonistStickyDamageType);
+
+            ProjectileController strongFlareFireboltController = strongFlare.GetComponent<ProjectileController>();
+
+            strongFlareFireboltController.ghostPrefab = CreateGhostPrefab("flare");
+            strongFlareFireboltController.startSound = "";
+
+            SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
+
+            if (collider)
+            {
+                Debug.Log(collider.radius);
+                collider.radius = 1.0f;
+            }
             PrefabAPI.RegisterNetworkPrefab(strongFlare);
         }
 
-        internal static void InitializeFlareOverlapAttack(ProjectileOverlapAttack overlap)
-        {
-            overlap.overlapProcCoefficient = 1.0f;
-            overlap.damageCoefficient = 1.0f;
-        }
 
-        internal static void InitializeFlareTrajectory(ProjectileSimple simple, float speed)
+        private static void CreateWeakFlare()
         {
-            simple.lifetime = 5f;
-            simple.desiredForwardSpeed = speed;
+            weakFlare = CloneProjectilePrefab("magefirebolt", "weakFlare");
 
-        }
+            ProjectileImpactExplosion weakFlareexplosion = weakFlare.GetComponent<ProjectileImpactExplosion>();
+            
+            InitializeImpactExplosion(weakFlareexplosion);
 
-        internal static void InitializeFlareDamage(ProjectileDamage damageComponent)
-        {
-            damageComponent.damage = 0f;
-            damageComponent.crit = false;
-            damageComponent.force = 0f;
-            damageComponent.damageType = DamageType.Generic;
+            weakFlareexplosion.blastDamageCoefficient = 1f;
+            weakFlareexplosion.blastProcCoefficient = 1f;
+            weakFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
+            weakFlareexplosion.destroyOnEnemy = true;
+            weakFlareexplosion.lifetime = 5f;
+            weakFlareexplosion.impactEffect = Assets.explosionPrefab;
+            weakFlareexplosion.timerAfterImpact = true;
+            weakFlareexplosion.lifetimeAfterImpact = 3f;
+
+            weakFlare.AddComponent<ZeroPointOnWorldHit>();
+
+            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
+
+            ProjectileController weakFlareFireboltController = weakFlare.GetComponent<ProjectileController>();
+
+            weakFlareFireboltController.ghostPrefab = CreateGhostPrefab("flare");
+            weakFlareFireboltController.startSound = "";
+
+            SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
+
+            if (collider)
+            {
+                Debug.Log(collider.radius);
+                collider.radius = 1.0f;
+            }
+            PrefabAPI.RegisterNetworkPrefab(weakFlare);
         }
 
         private static void CreateZeroPointBomb()
@@ -167,10 +179,11 @@ namespace ArsonistMod.Modules
             zeropointBombController.rigidbody.mass = 1000f;
             
             
-            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("HenryBombGhost") != null) zeropointBombController.ghostPrefab = CreateGhostPrefab("HenryBombGhost");
+            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached") != null) zeropointBombController.ghostPrefab = Assets.arsonistFlare;
             zeropointBombController.startSound = "";
 
             zeropointBomb.AddComponent<ZeroPointOnWorldHit>();
+            PrefabAPI.RegisterNetworkPrefab(zeropointBomb);
         }
 
         private static void CreateLemurianFireBall()
@@ -324,6 +337,54 @@ namespace ArsonistMod.Modules
             return newPrefab;
         }
 
+
+        internal class StrongFlareOnWorldHit : MonoBehaviour, IProjectileImpactBehavior
+        {
+
+            public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
+            {
+                if (impactInfo.collider)
+                {
+                    GameObject collidedObject = impactInfo.collider.gameObject;
+
+                    Vector3 pos = impactInfo.estimatedPointOfImpact;
+
+                    CharacterBody body = collidedObject.GetComponent<CharacterBody>();
+                    if (!body)
+                    {
+                        FlareEffectControllerStrongWorld flarecon = collidedObject.AddComponent<FlareEffectControllerStrongWorld>();
+                        flarecon.worldPos = pos;
+                        flarecon.arsonistBody = strongFlare.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
+                        Instantiate(collidedObject, pos, collidedObject.transform.rotation);
+
+                    }
+                }
+            }
+        }
+
+        internal class WeakFlareOnWorldHit : MonoBehaviour, IProjectileImpactBehavior
+        {
+
+            public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
+            {
+                if (impactInfo.collider)
+                {
+                    GameObject collidedObject = impactInfo.collider.gameObject;
+
+                    Vector3 pos = impactInfo.estimatedPointOfImpact;
+
+                    CharacterBody body = collidedObject.GetComponent<CharacterBody>();
+                    if (!body)
+                    {
+                        FlareEffectControllerWeakWorld flarecon = collidedObject.AddComponent<FlareEffectControllerWeakWorld>();
+                        flarecon.worldPos = pos;
+                        flarecon.arsonistBody = strongFlare.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
+                        Instantiate(collidedObject, pos, collidedObject.transform.rotation);
+
+                    }
+                }
+            }
+        }
 
         internal class ZeroPointOnWorldHit : MonoBehaviour, IProjectileImpactBehavior
         {

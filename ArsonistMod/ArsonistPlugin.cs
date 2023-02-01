@@ -194,6 +194,12 @@ namespace ArsonistMod
                         flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
                         flarecon.charbody = self.body;
                     }
+                    else if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistWeakStickyDamageType))
+                    {
+                        FlareEffectControllerWeak flarecon = self.body.gameObject.AddComponent<FlareEffectControllerWeak>();
+                        flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
+                        flarecon.charbody = self.body;
+                    }
 
 
 

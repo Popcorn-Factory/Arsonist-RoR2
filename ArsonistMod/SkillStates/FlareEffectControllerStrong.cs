@@ -3,6 +3,7 @@ using ArsonistMod.Modules.Networking;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
+using System;
 using UnityEngine;
 
 namespace ArsonistMod.SkillStates.Arsonist.Secondary
@@ -21,8 +22,9 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             timesFired = 0;
             charbody = gameObject.GetComponent<CharacterBody>();
 
-            Vector3 randVec = new Vector3((float)Random.Range(-2, 2), (float)Random.Range(-2, 2), (float)Random.Range(-2, 2));
-            effectObj = Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
+            Vector3 randVec = new Vector3((float)UnityEngine.Random.Range(-2, 2), (float)UnityEngine.Random.Range(-2, 2), (float)UnityEngine.Random.Range(-2, 2));
+            //effectObj = Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = UnityEngine.Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
             effectObj.transform.parent = charbody.gameObject.transform;
 
         }
@@ -32,7 +34,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             if (charbody.hasEffectiveAuthority)
             {
 
-                if (timer > 1f)
+                if (timer > Modules.StaticValues.flareInterval)
                 {
                     if (timesFired < Modules.StaticValues.flareTickNum)
                     {
@@ -53,6 +55,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                             rotation = new Quaternion(0, 0, 0, 0)
                         }, true);
                         Destroy(this);
+                        Destroy(effectObj);
                     }
                 }
                 else
@@ -80,7 +83,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.attacker = arsonistBody.gameObject;
             blastAttack.crit = arsonistBody.RollCrit();
             
-            blastAttack.baseDamage = this.arsonistBody.baseDamage * Modules.StaticValues.flareStrongDamageCoefficient;
+            blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;

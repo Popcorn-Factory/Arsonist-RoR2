@@ -37,15 +37,15 @@ namespace ArsonistMod.Modules
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "FireSpray: Base Gauge");
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.startPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
-            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "FireSpray: Blue Gauge");
-            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.startPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Overheat");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
+            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "Overdrive");
+            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             #endregion
 
             #region Secondary
-            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_NAME", "Flare Gun");
-            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.startPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_NAME", "Signal Flare");
+            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.heatPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style>.");
             LanguageAPI.Add(prefix + "SECONDARY_PUNCH_NAME", "Zero Point Punch");
             LanguageAPI.Add(prefix + "SECONDARY_PUNCH_DESCRIPTION", Helpers.startPrefix + $"Dash forward, hitting the first enemy and attaching a flare that explodes, dealing <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. " +
                 $" If no enemy was hit, drop the flare on the ground, having a delayed explosion that does <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. ");
@@ -57,8 +57,8 @@ namespace ArsonistMod.Modules
             #endregion
 
             #region Special
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Masochism");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds.");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_NAME", "Masochism");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds.");
             #endregion
 
             #region Keywords

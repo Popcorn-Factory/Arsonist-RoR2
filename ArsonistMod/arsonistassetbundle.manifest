@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2872284243
+CRC: 4282478218
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8f099e52da0385c17cecffb7f94aed5a
+    Hash: 89c9d5b141dc7b924d043f0cfb0919c3
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -157,7 +157,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleRest.anim
 - Assets/ArsonistAssets/VFX/Materials/matTrail.mat
-- Assets/ArsonistAssets/VFX/flare.prefab
+- Assets/ArsonistAssets/VFX/flareShot.prefab
 - Assets/ArsonistAssets/Icons/texAlt1PrimaryIcon.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryJedi.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkB.anim
