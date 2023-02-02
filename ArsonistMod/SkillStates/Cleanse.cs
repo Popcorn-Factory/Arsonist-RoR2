@@ -30,6 +30,7 @@ namespace ArsonistMod.SkillStates
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
+
             Ray aimRay = base.GetAimRay();
             duration = baseDuration;
             isStrong = false;
@@ -41,6 +42,9 @@ namespace ArsonistMod.SkillStates
             {
                 Util.CleanseBody(base.characterBody, true, false, false, true, true, false);
             }
+
+
+            PlayCrossfade("Gesture, Override", "Cleanse", "Attack.playbackRate", duration, 0.1f);
 
             //energy
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
@@ -140,8 +144,7 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
-            PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
+            PlayAnimation("Gesture, Override", "BufferEmpty");
 
             if (isStrong)
             {
