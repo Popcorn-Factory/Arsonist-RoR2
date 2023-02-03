@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4028914652
+CRC: 4046927563
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6d0a15d9d5864930bde7636223619bbb
+    Hash: cf54e44174908bbcddaf3713a96d79cf
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -104,6 +104,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/SprintL.anim
 - Assets/ArsonistAssets/Materials/Henry/matRebellion.mat
 - Assets/ArsonistAssets/VFX/Materials/matSmoke.mat
+- Assets/ArsonistAssets/VFX/Materials/emissionSphereTex.mat
 - Assets/ArsonistAssets/Mesh/meshArsonistCanister.mesh
 - Assets/ArsonistAssets/VFX/Textures/texSwingEffect.png
 - Assets/ArsonistAssets/Animation/maskAimYaw.mask
@@ -224,6 +225,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/HenrySwordSwingEffect.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_OverHeat.anim
 - Assets/ArsonistAssets/Animation/clips/Descend.anim
+- Assets/ArsonistAssets/VFX/Textures/flareMainEmission.png
 - Assets/ArsonistAssets/Animation/clips/AimPitch.anim
 - Assets/ArsonistAssets/Materials/matArsonist.mat
 - Assets/ArsonistAssets/Textures/Arsonist_diffuse.png
@@ -232,6 +234,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshCylinder.mesh
 - Assets/ArsonistAssets/Animation/clips/MenuIdleIn.anim
 - Assets/ArsonistAssets/VFX/ImpactHenryPunch.prefab
+- Assets/ArsonistAssets/VFX/Textures/flareMainColor.png
 - Assets/ArsonistAssets/Icons/texMainSkin.png
 - Assets/ArsonistAssets/Animation/clips/Slash1.anim
 - Assets/ArsonistAssets/VFX/HenryBazookaExplosionEffect.prefab

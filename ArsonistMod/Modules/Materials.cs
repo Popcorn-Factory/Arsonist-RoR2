@@ -11,6 +11,11 @@ namespace ArsonistMod.Modules
 
         public static Material CreateHopooMaterial(string materialName, bool noCullEnabled = false)
         {
+            return CreateHopooMaterial(materialName, noCullEnabled, 1);
+        }
+
+        public static Material CreateHopooMaterial(string materialName, bool noCullEnabled = false, float emissionVal = 1) 
+        {
             Material tempMat = cachedMaterials.Find(mat =>
             {
                 materialName.Replace(" (Instance)", "");
@@ -27,10 +32,10 @@ namespace ArsonistMod.Modules
                 return new Material(hotpoo);
             }
 
-            return tempMat.SetHopooMaterial(noCullEnabled);
+            return tempMat.SetHopooMaterial(noCullEnabled, emissionVal);
         }
 
-        public static Material SetHopooMaterial(this Material tempMat, bool noCullEnabled = false)
+        public static Material SetHopooMaterial(this Material tempMat, bool noCullEnabled = false, float emissionVal = 1)
         {
             if (cachedMaterials.Contains(tempMat))
                 return tempMat;
@@ -64,7 +69,7 @@ namespace ArsonistMod.Modules
             if (emissionColor != null)
             {
                 tempMat.SetColor("_EmColor", (Color)emissionColor);
-                tempMat.SetFloat("_EmPower", 1);
+                tempMat.SetFloat("_EmPower", emissionVal);
             }
 
             //set this keyword in unity if you want your model to show backfaces
