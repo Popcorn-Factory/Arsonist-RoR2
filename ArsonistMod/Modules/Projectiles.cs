@@ -100,7 +100,8 @@ namespace ArsonistMod.Modules
             strongFlareController.rigidbody.useGravity = false;
 
             GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
-            ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereTex", false, 5);
+            ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
+            ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             strongFlareController.ghostPrefab = ghostPrefab;
 
             strongFlareController.startSound = "";

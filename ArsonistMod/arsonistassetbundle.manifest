@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4046927563
+CRC: 2055804540
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cf54e44174908bbcddaf3713a96d79cf
+    Hash: 48a267c1d65cfc506f8f238430d822ab
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -104,7 +104,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/SprintL.anim
 - Assets/ArsonistAssets/Materials/Henry/matRebellion.mat
 - Assets/ArsonistAssets/VFX/Materials/matSmoke.mat
-- Assets/ArsonistAssets/VFX/Materials/emissionSphereTex.mat
+- Assets/ArsonistAssets/VFX/Materials/emissionSphereMat.mat
 - Assets/ArsonistAssets/Mesh/meshArsonistCanister.mesh
 - Assets/ArsonistAssets/VFX/Textures/texSwingEffect.png
 - Assets/ArsonistAssets/Animation/maskAimYaw.mask
@@ -119,6 +119,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/HenryFistSwingEffect.prefab
 - Assets/ArsonistAssets/VFX/Textures/texFistSwing.png
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
+- Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
@@ -168,6 +169,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/SprintF.anim
 - Assets/ArsonistAssets/VFX/arsonistCustomUI.prefab
 - Assets/ArsonistAssets/Animation/maskAimPitch.mask
+- Assets/ArsonistAssets/Mesh/Torus.mesh
 - Assets/ArsonistAssets/VFX/Textures/white square.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryNeo.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkR.anim
