@@ -54,7 +54,7 @@ namespace ArsonistMod.Modules
 
         private static void CreateStrongFlare()
         {
-            strongFlare = CloneProjectilePrefab("magefirebolt", "strongFlare");
+            strongFlare = CloneProjectilePrefab("LemurianBigFireball", "strongFlare");
             //strongFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareShot");
 
 
@@ -85,12 +85,13 @@ namespace ArsonistMod.Modules
             strongFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
             strongFlareexplosion.destroyOnEnemy = true;
             strongFlareexplosion.lifetime = 5f;
-            strongFlareexplosion.impactEffect = Assets.explosionPrefab;
+            strongFlareexplosion.impactEffect = Assets.elderlemurianexplosionEffect;
             strongFlareexplosion.timerAfterImpact = true;
             strongFlareexplosion.lifetimeAfterImpact = 3f;
 
 
             strongFlare.AddComponent<ZeroPointOnWorldHit>();
+
 
             //DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
             //damageTypeComponent.Add(Damage.arsonistStickyDamageType);
@@ -110,7 +111,7 @@ namespace ArsonistMod.Modules
 
             if (collider)
             {
-                collider.radius = 1.0f;
+                collider.radius = 1.2f;
             }
         }
 
