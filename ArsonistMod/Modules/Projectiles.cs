@@ -100,7 +100,10 @@ namespace ArsonistMod.Modules
             strongFlareController.rigidbody = strongFlareRigidbody;
             strongFlareController.rigidbody.useGravity = false;
 
-            strongFlareController.ghostPrefab = CreateGhostPrefab("flareShot", false);
+            GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
+            ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereTex", false, 5);
+            strongFlareController.ghostPrefab = ghostPrefab;
+
             strongFlareController.startSound = "";
 
             SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();

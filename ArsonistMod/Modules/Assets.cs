@@ -129,11 +129,6 @@ namespace ArsonistMod.Modules
             arsonistFlareAttached = LoadEffect("flareAttached");
             //arsonistFlare = LoadEffect("flareShot");
 
-            //Transform child1 = arsonistFlare.transform.GetChild(1);
-            //child1.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("matRipple", false);
-            //Transform child2 = arsonistFlare.transform.GetChild(2);
-            //child2.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("matRipple 2", false);
-            //Transform child3 = arsonistFlare.transform.GetChild(3);
             //child3.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("star", false);
 
         }

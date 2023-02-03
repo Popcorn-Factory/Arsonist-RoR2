@@ -44,7 +44,7 @@ namespace ArsonistMod.Modules.Survivors
                 new CustomRendererInfo
                 {
                     childName = "ArsonistBody",
-                    material = Materials.CreateHopooMaterial("matArsonist"),
+                    material = Materials.CreateHopooMaterial("matArsonist", false),
                 },
                 new CustomRendererInfo
                 {
@@ -54,22 +54,22 @@ namespace ArsonistMod.Modules.Survivors
                 new CustomRendererInfo
                 {
                     childName = "ArsonistBoots",
-                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                    material = Materials.CreateHopooMaterial("matArsonistMetal", true),
                 },
                 new CustomRendererInfo
                 {
                     childName = "ArsonistCanister",
-                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                    material = Materials.CreateHopooMaterial("matArsonistMetal", true),
                 },
                 new CustomRendererInfo
                 {
                     childName = "ArsonistChestplate",
-                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                    material = Materials.CreateHopooMaterial("matArsonistMetal", true),
                 },
                 new CustomRendererInfo
                 {
                     childName = "ArsonistHead",
-                    material = Materials.CreateHopooMaterial("matArsonistMetal"),
+                    material = Materials.CreateHopooMaterial("matArsonistMetal", true),
                 },
                 new CustomRendererInfo
                 {
