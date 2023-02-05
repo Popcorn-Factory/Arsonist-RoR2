@@ -10,11 +10,9 @@ namespace ArsonistMod.Content.Controllers
         // Use this for initialization
         void Start()
         {
-            //CharacterBody charBody = GetComponent<CharacterBody>();
-            //HurtBoxGroup hurtBoxGroup = charBody.hurtBoxGroup;
-
-            //anim = hurtBoxGroup.gameObject.GetComponent<Animator>();
-
+            //What's your existance for.
+            //To update an overlay.
+            //Oh god.
         }
 
         // Update is called once per frame

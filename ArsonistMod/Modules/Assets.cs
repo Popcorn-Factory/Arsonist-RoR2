@@ -34,6 +34,7 @@ namespace ArsonistMod.Modules
         //arsonist effects
         internal static GameObject arsonistFlare;
         internal static GameObject arsonistFlareAttached;
+        internal static Material arsonistOverheatingMaterial;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -129,8 +130,7 @@ namespace ArsonistMod.Modules
             arsonistFlareAttached = LoadEffect("flareAttached");
             //arsonistFlare = LoadEffect("flareShot");
 
-            //child3.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("star", false);
-
+            arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab)

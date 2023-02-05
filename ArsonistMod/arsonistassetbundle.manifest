@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2055804540
+CRC: 2041133774
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 48a267c1d65cfc506f8f238430d822ab
+    Hash: d9877cc53a4e91eef78ee15dbcfd3840
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -117,7 +117,9 @@ Assets:
 - Assets/ArsonistAssets/VFX/Mesh/meshSwing.asset
 - Assets/ArsonistAssets/VFX/HenryBazookaMuzzleFlash.prefab
 - Assets/ArsonistAssets/VFX/HenryFistSwingEffect.prefab
+- Assets/ArsonistAssets/Shaders/Frensel.shader
 - Assets/ArsonistAssets/VFX/Textures/texFistSwing.png
+- Assets/ArsonistAssets/Shaders/FresnelFlameWobble.shader
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
@@ -181,6 +183,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matVergil.mat
 - Assets/ArsonistAssets/Materials/Henry/matHitboxPreview.mat
 - Assets/ArsonistAssets/Animation/HumanoidArsonist.asset
+- Assets/ArsonistAssets/Materials/OverheatingMaterial.mat
 - Assets/ArsonistAssets/Animation/clips/IdleIn.anim
 - Assets/ArsonistAssets/VFX/Materials/matSwingShadow.mat
 - Assets/ArsonistAssets/Mesh/meshArsonistChestplate.mesh
@@ -217,10 +220,12 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/DefaultPose.anim
 - Assets/ArsonistAssets/Materials/Henry/matShotgun.mat
 - Assets/ArsonistAssets/Animation/clips/IdleAdditive.anim
+- Assets/ArsonistAssets/Shaders/FrenselLit.shader
 - Assets/ArsonistAssets/Animation/mdlArsonistAvatar.asset
 - Assets/ArsonistAssets/VFX/Materials/matFire.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Descend.anim
 - Assets/ArsonistAssets/Animation/maskBandana.mask
+- Assets/ArsonistAssets/Shaders/Flaming.shader
 - Assets/ArsonistAssets/Animation/clips/MenuIdle.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch1.anim
 - Assets/ArsonistAssets/Materials/Henry/matBazooka.mat

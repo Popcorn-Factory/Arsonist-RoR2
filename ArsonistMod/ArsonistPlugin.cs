@@ -86,6 +86,7 @@ namespace ArsonistMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -238,6 +239,38 @@ namespace ArsonistMod
             }
 
             orig(self, damageInfo);
+        }
+
+        private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
+        {
+            orig(self);
+
+            if (self)
+            {
+                if (self.body)
+                {
+                    ArsonistController arsonistController = self.body.GetComponent<ArsonistController>();
+                    if (arsonistController)
+                    {
+                        this.overlayFunction(Modules.Assets.arsonistOverheatingMaterial, (bool)arsonistController, self);
+                    }
+                }
+            }
+        }
+
+        private void overlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
+        {
+            if (model.activeOverlayCount >= CharacterModel.maxOverlays)
+            {
+                return;
+            }
+            if (condition)
+            {
+                Material[] array = model.currentOverlays;
+                int num = model.activeOverlayCount;
+                model.activeOverlayCount = num + 1;
+                array[num] = overlayMaterial;
+            }
         }
     }
 }

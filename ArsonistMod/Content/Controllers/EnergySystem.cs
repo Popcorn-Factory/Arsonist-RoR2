@@ -521,10 +521,22 @@ namespace ArsonistMod.Content.Controllers
             }
         }
 
+        public void SetOverheatMaterialParameters() 
+        {
+            Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, (currentOverheat / 2.0f) / maxOverheat));
+            Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (currentOverheat / maxOverheat) * 50f);
+        }
+
         public void Update()
         {
+            //Update material for overheating tex
+            if (Modules.Assets.arsonistOverheatingMaterial) 
+            {
+                SetOverheatMaterialParameters();
+            }
+
             //checking which m1 is equipped for different heat passive
-            if(characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
             {
                 if (!baseHeatGauge)
                 {

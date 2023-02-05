@@ -102,6 +102,7 @@ namespace ArsonistMod.Modules.Survivors
         {
             base.InitializeCharacter();
             bodyPrefab.AddComponent<EnergySystem>();
+            bodyPrefab.AddComponent<ArsonistController>();
         }
 
         public override void InitializeUnlockables()
