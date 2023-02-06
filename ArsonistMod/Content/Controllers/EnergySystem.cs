@@ -523,8 +523,22 @@ namespace ArsonistMod.Content.Controllers
 
         public void SetOverheatMaterialParameters() 
         {
-            Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, (currentOverheat / 2.0f) / maxOverheat));
-            Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (currentOverheat / maxOverheat) * 50f);
+            if (ifOverheatMaxed)
+            {
+                //Overheat check
+                //overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed)
+                float o = overheatDecayTimer;
+                float h = (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed);
+
+                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, ( ((h - o) / 4.0f) / h ) ));
+                Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (((h - o) / 4.0f) / h) * 25f);
+            }
+            else 
+            {
+                //Default material
+                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, (currentOverheat / 4.0f) / maxOverheat));
+                Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (currentOverheat / maxOverheat) * 25f);
+            }
         }
 
         public void Update()
