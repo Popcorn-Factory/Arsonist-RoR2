@@ -21,8 +21,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             timesFired = 0;
             charbody = gameObject.GetComponent<CharacterBody>();
 
-            Vector3 randVec = new Vector3((float)Random.Range(-2, 2), (float)Random.Range(-2, 2), (float)Random.Range(-2, 2));
-            effectObj = Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(charbody.characterDirection.forward));
             effectObj.transform.parent = charbody.gameObject.transform;
 
         }
@@ -46,7 +45,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     else
                     {
                         FireExplosion();
-                        EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                        EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                         {
                             origin = charbody.transform.position,
                             scale = StaticValues.flareBlastRadius,
