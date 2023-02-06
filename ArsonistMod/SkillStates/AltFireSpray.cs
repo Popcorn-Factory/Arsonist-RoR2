@@ -47,8 +47,7 @@ namespace ArsonistMod.SkillStates
             animator = GetModelAnimator();
             this.animator.SetBool("attacking", true);
             GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
-            //PlayCrossfade("LeftArm, Override", "LeftArmOut", "Attack.playbackRate", duration / 2, 0.1f);
-            //PlayCrossfade("LeftArm, Override", "LeftArmPunch", "Attack.playbackRate", duration/2, 0.1f);
+            PlayCrossfade("Gesture, Override", "FireSpray", "Attack.playbackRate", duration, 0.1f);
 
             //Muzzle
             ChildLocator childLoc = GetModelChildLocator();
@@ -119,8 +118,7 @@ namespace ArsonistMod.SkillStates
         {
             base.OnExit();
             animator.SetBool("attacking", true);
-            //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
-            //PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
+            PlayAnimation("Gesture, Override", "BufferEmpty");
             if (chargeVfxInstance)
             {
                 Destroy(chargeVfxInstance);

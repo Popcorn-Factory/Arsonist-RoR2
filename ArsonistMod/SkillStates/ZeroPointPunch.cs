@@ -282,6 +282,7 @@ namespace ArsonistMod.SkillStates
 
         public override void OnExit()
         {
+            base.OnExit();
             Transform modelTransform = base.GetModelTransform();
             bool flag = modelTransform.gameObject.GetComponent<AimAnimator>();
             if (flag)
@@ -294,14 +295,13 @@ namespace ArsonistMod.SkillStates
             {
                 base.cameraTargetParams.fovOverride = -1f;
             }
-            this.animator.SetBool("attacking", false);
 
             if (!hasHit)
             {
                 DropBomb();
             }
 
-            base.OnExit();
+            this.animator.SetBool("attacking", false);
         }
 
         public void DropBomb()
