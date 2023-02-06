@@ -29,6 +29,7 @@ namespace ArsonistMod.SkillStates
         public float recoil = 1f;
         private bool hasFired;
         private bool isStrong;
+        private Animator animator;
 
 
         private string muzzleString = "FlareMuzzle";
@@ -48,9 +49,14 @@ namespace ArsonistMod.SkillStates
 
             aimRay = base.GetAimRay();
             duration = baseDuration / attackSpeedStat;
-            fireTime = duration/ 3f;
+            fireTime = duration * 0.35f;
 
             base.characterBody.SetAimTimer(this.duration);
+
+            animator = GetModelAnimator();
+            this.animator.SetBool("attacking", true);
+            GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
+            PlayCrossfade("Gesture, Override", "Flare", "Attack.playbackRate", duration, 0.1f);
 
 
             //Muzzle Positioning
@@ -108,9 +114,9 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            //PlayCrossfade("RightArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
-            PlayCrossfade("LeftArm, Override", "BufferEmpty", "Attack.playbackRate", 0.1f, 0.1f);
-            
+            animator.SetBool("attacking", false);
+            PlayAnimation("Gesture, Override", "BufferEmpty");
+
         }
 
         public void StrongFlare()

@@ -23,7 +23,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             charbody = gameObject.GetComponent<CharacterBody>();
 
             //effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
-            effectObj = UnityEngine.Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = UnityEngine.Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(Vector3.forward));
 
 
             //EffectManager.SpawnEffect(effectObj, new EffectData
