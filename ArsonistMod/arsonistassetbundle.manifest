@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2041133774
+CRC: 2190789487
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d9877cc53a4e91eef78ee15dbcfd3840
+    Hash: 2aee088f905d81d6b855a46acfcf2591
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -242,6 +242,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/MenuIdleIn.anim
 - Assets/ArsonistAssets/VFX/ImpactHenryPunch.prefab
 - Assets/ArsonistAssets/VFX/Textures/flareMainColor.png
+- Assets/ArsonistAssets/Mesh/torus2.mesh
 - Assets/ArsonistAssets/Icons/texMainSkin.png
 - Assets/ArsonistAssets/Animation/clips/Slash1.anim
 - Assets/ArsonistAssets/VFX/HenryBazookaExplosionEffect.prefab
