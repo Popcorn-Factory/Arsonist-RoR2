@@ -9667,7 +9667,7 @@ Transform:
   m_GameObject: {fileID: 1251635163544175077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 40, y: 40, z: 40}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 1251635163841895669}
   m_RootOrder: 1
@@ -14464,7 +14464,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 4300000, guid: d8d28548eeb658d4396a338f7df5aa0f, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 8dff7edf36af4da4b80e04636c622b3b, type: 2}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
