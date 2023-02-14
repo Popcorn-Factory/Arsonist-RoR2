@@ -93,43 +93,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature|Emote1' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'pelvis' has translation animation that
-      will be discarded.\n\t'pelvis' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\nClip 'Armature|Emote2' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'pelvis' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\nClip 'Armature|Idle'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|IdleToRest' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|Jump' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      has translation animation that will be discarded.\n\nClip 'Armature|LobbyStart'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'thumb.R'
-      has translation animation that will be discarded.\n\nClip 'Armature|M3' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'shoulder.R' has
-      translation animation that will be discarded.\n\nClip 'Armature|Shader NodetreeAction.003'
-      has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|WalkB' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      has translation animation that will be discarded.\n\t'pelvis' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|WalkF' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      has translation animation that will be discarded.\n\t'pelvis' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'Armature|WalkR' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'pelvis'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
