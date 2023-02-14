@@ -12,6 +12,9 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
 
+        public static ConfigEntry<KeyboardShortcut> emoteSitKey;
+        public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
+
         public static void ReadConfig()
         {
 
@@ -32,6 +35,20 @@ namespace ArsonistMod.Modules
                     null,
                     Array.Empty<object>()
                 )
+            );
+
+            emoteSitKey = ArsonistPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("02 - Emotes", "Emote Sit"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha1),
+                new ConfigDescription("Determines the key to trigger Arsonist to Emote Sit.", null, Array.Empty<object>())
+            );
+
+            emoteStrutKey = ArsonistPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("02 - Emotes", "Emote Sit"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha2),
+                new ConfigDescription("Determines the key to trigger Arsonist to Emote Strut.", null, Array.Empty<object>())
             );
         }
 
@@ -57,6 +74,11 @@ namespace ArsonistMod.Modules
                         increment = 1f
                     }
                 ));
+
+            ModSettingsManager.AddOption(new KeyBindOption(
+                emoteSitKey));
+            ModSettingsManager.AddOption(new KeyBindOption(
+                emoteStrutKey));
         }
 
         // this helper automatically makes config entries for disabling survivors
