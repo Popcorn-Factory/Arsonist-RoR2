@@ -26,6 +26,11 @@ namespace ArsonistMod.SkillStates.EmoteStates
             //Do not exit state automatically.
         }
 
+        public override void Update()
+        {
+            base.Update();
+        }
+
         public override void PlayEmoteAnim()
         {
             base.PlayAnimation("FullBody, Override", "Emote2");
