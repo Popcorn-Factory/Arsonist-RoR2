@@ -33,7 +33,7 @@ namespace ArsonistMod.SkillStates.EmoteStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Skill;
+            return InterruptPriority.Any;
         }
     }
 }

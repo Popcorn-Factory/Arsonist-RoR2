@@ -39,7 +39,7 @@ namespace ArsonistMod.Content.Controllers
                 //We can execute states now.
 
                 //Check for input down.
-/*                if (Modules.Config.emoteSitKey.Value.IsPressed())
+                if (Modules.Config.emoteSitKey.Value.IsPressed())
                 {
                     //Trigger the emote sit key
                     weaponStateMachine.SetNextState(new EmoteSit());
@@ -48,7 +48,7 @@ namespace ArsonistMod.Content.Controllers
                 {
                     //Trigger the emote strut key
                     weaponStateMachine.SetNextState(new EmoteStrut());
-                }*/
+                }
             }
         }
     }
