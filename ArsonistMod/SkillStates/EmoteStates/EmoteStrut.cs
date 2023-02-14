@@ -1,5 +1,6 @@
 ﻿using System;
 using EntityStates;
+using RoR2;
 
 namespace ArsonistMod.SkillStates.EmoteStates
 {
@@ -10,6 +11,7 @@ namespace ArsonistMod.SkillStates.EmoteStates
             base.OnEnter();
 
             //Play the animation instantly, no scaling, nothing.
+            PlayEmoteAnim();
         }
 
         public override void OnExit()

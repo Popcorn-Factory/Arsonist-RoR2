@@ -9,12 +9,14 @@ namespace ArsonistMod.SkillStates.EmoteStates
         {
             base.OnEnter();
             //Play the animation instantly, no scaling, nothing.
-            base.PlayEmoteAnim();
+            PlayEmoteAnim();
         }
 
         public override void OnExit()
         {
             base.OnExit();
+
+            base.PlayAnimation("Fullbody, Override", "BufferEmpty");
         }
 
         public override void FixedUpdate()

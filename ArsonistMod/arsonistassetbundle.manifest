@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3906856458
+CRC: 2931812400
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 16b9bd11a8f198831056b94fa6289b09
+    Hash: 207dcb5306c0299e04793d4feb6d1bfe
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
+    Hash: aec6a312ea63c51139ebf4f5f44a0adb
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -47,6 +47,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b8f9d14d3e0436148a753c35b5f49b4b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
 - Class: 115
@@ -123,7 +125,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
+- Assets/ArsonistAssets/rope.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch2.anim
 - Assets/ArsonistAssets/Animation/maskGesture.mask
@@ -137,7 +139,6 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
 - Assets/ArsonistAssets/VFX/BombExplosionEffect.prefab
 - Assets/ArsonistAssets/Animation/clips/Slash2.anim
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/VFX/Textures/texHitSpark.png
@@ -180,6 +181,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkL.anim
 - Assets/ArsonistAssets/Materials/Henry/matRoy.mat
 - Assets/ArsonistAssets/VFX/arsonistOverheatGauge.prefab
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
 - Assets/ArsonistAssets/Materials/Henry/matVergil.mat
 - Assets/ArsonistAssets/Materials/Henry/matHitboxPreview.mat
 - Assets/ArsonistAssets/Animation/HumanoidArsonist.asset
@@ -189,6 +191,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistChestplate.mesh
 - Assets/ArsonistAssets/Mesh/meshArsonist.mesh
 - Assets/ArsonistAssets/Animation/clips/RestIdle.anim
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyStart.anim
 - Assets/ArsonistAssets/Animation/clips/ThrowBomb.anim
@@ -225,6 +228,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matFire.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Descend.anim
 - Assets/ArsonistAssets/Animation/maskBandana.mask
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Emote1_Hold.anim
 - Assets/ArsonistAssets/Shaders/Flaming.shader
 - Assets/ArsonistAssets/Animation/clips/MenuIdle.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch1.anim

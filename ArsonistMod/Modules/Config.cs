@@ -46,7 +46,7 @@ namespace ArsonistMod.Modules
 
             emoteStrutKey = ArsonistPlugin.instance.Config.Bind<KeyboardShortcut>
             (
-                new ConfigDefinition("02 - Emotes", "Emote Sit"),
+                new ConfigDefinition("02 - Emotes", "Emote Strut"),
                 new KeyboardShortcut(UnityEngine.KeyCode.Alpha2),
                 new ConfigDescription("Determines the key to trigger Arsonist to Emote Strut.", null, Array.Empty<object>())
             );
