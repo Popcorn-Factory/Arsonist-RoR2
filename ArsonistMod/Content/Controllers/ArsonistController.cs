@@ -27,7 +27,16 @@ namespace ArsonistMod.Content.Controllers
             {
                 //We can execute states now.
 
-                
+                //Check for input down.
+                if (Modules.Config.emoteSitKey.Value.IsDown())
+                {
+                    //Trigger the emote sit key
+                }
+                else if (Modules.Config.emoteStrutKey.Value.IsDown())
+                {
+                    //Trigger the emote strut key
+                    
+                }
             }
         }
     }
