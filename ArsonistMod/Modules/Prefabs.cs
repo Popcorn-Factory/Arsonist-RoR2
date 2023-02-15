@@ -24,7 +24,7 @@ namespace ArsonistMod.Modules {
             }
             characterModel.baseRendererInfos = prefab.GetComponentInChildren<CharacterModel>().baseRendererInfos;
 
-            Modules.Assets.ConvertAllRenderersToHopooShader(model);
+            //Modules.Assets.ConvertAllRenderersToHopooShader(model);
 
             return model.gameObject;
         }

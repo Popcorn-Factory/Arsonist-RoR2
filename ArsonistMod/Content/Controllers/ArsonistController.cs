@@ -9,12 +9,18 @@ namespace ArsonistMod.Content.Controllers
         Animator anim;
 
         public ParticleSystem steamParticle;
+        public ParticleSystem fireParticle;
 
         // Use this for initialization
         void Start()
         {
             ChildLocator childLocator = GetComponentInChildren<ChildLocator>();
-            steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
+            if(childLocator != null)
+            {
+                steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
+                fireParticle = childLocator.FindChild("FireParticle").GetComponent<ParticleSystem>();
+                fireParticle.Stop();
+            }
             //What's your existance for.
             //To update an overlay.
             //Oh god.

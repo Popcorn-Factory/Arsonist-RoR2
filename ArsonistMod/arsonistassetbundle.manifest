@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 733487799
+CRC: 4047884501
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 424f90d3c008c568e0ddb0769c6a34c4
+    Hash: 04a35b38945ad25e74a0093cbe783128
   TypeTreeHash:
     serializedVersion: 2
     Hash: aec6a312ea63c51139ebf4f5f44a0adb
@@ -233,6 +233,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/mdlArsonistAvatar.asset
 - Assets/ArsonistAssets/VFX/Materials/matFire.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Descend.anim
+- Assets/ArsonistAssets/VFX/FlameLight.prefab
 - Assets/ArsonistAssets/Animation/maskBandana.mask
 - Assets/ArsonistAssets/Shaders/Flaming.shader
 - Assets/ArsonistAssets/Animation/clips/MenuIdle.anim

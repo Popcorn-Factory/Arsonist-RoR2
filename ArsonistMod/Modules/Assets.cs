@@ -35,7 +35,6 @@ namespace ArsonistMod.Modules
         internal static GameObject arsonistFlare;
         internal static GameObject arsonistFlareAttached;
         internal static GameObject displayFire;
-        internal static GameObject displaySteam;
         internal static Material arsonistOverheatingMaterial;
 
         //buffs

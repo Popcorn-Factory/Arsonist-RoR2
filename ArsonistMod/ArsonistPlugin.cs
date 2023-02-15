@@ -282,13 +282,6 @@ namespace ArsonistMod
             {
                 ChildLocator childLocator = self.gameObject.GetComponent<ChildLocator>();
                 Transform thumb = childLocator.FindChild("DisplayThumb");
-
-                EffectManager.SpawnEffect(Modules.Assets.displayFire, new EffectData
-                {
-                    origin = thumb.position,
-                    scale = 1f,
-                    rotation = self.gameObject.transform.rotation
-                }, false);
             }
         }
     }
