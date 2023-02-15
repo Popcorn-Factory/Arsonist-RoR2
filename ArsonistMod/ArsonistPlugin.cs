@@ -15,6 +15,7 @@ using EmotesAPI;
 using R2API;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using ArsonistMod.Modules.Networking;
+using System;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -87,6 +88,7 @@ namespace ArsonistMod
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            On.RoR2.CharacterModel.Awake += CharacterModel_Awake;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -270,6 +272,23 @@ namespace ArsonistMod
                 int num = model.activeOverlayCount;
                 model.activeOverlayCount = num + 1;
                 array[num] = overlayMaterial;
+            }
+        }
+
+        private void CharacterModel_Awake(On.RoR2.CharacterModel.orig_Awake orig, CharacterModel self)
+        {
+            orig(self);
+            if (self.gameObject.name.Contains("ArsonistDisplay"))
+            {
+                ChildLocator childLocator = self.gameObject.GetComponent<ChildLocator>();
+                Transform thumb = childLocator.FindChild("DisplayThumb");
+
+                EffectManager.SpawnEffect(Modules.Assets.displayFire, new EffectData
+                {
+                    origin = thumb.position,
+                    scale = 1f,
+                    rotation = self.gameObject.transform.rotation
+                }, false);
             }
         }
     }

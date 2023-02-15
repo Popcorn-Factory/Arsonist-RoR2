@@ -30,7 +30,6 @@ namespace ArsonistMod.SkillStates
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
-
             Ray aimRay = base.GetAimRay();
             duration = baseDuration;
             isStrong = false;
@@ -64,6 +63,12 @@ namespace ArsonistMod.SkillStates
                 {
                     //self burn
                     new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                }
+
+                if(characterBody.GetComponent<ArsonistController>())
+                {
+                    ArsonistController arsonistController = characterBody.GetComponent<ArsonistController>();
+                    arsonistController.steamParticle.Play();
                 }
                 
 
