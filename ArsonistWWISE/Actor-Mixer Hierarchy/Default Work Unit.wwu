@@ -630,6 +630,97 @@
 										<ActiveSource Name="1_ Flare Punch" ID="{2E2C3D2A-B400-4A95-9D9E-0B4B2D0FFA12}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="3_2_Primary_Fire_Explosion_OnHit" ID="{DA6F70FA-25BD-4CE7-807F-E04B14A30C11}" ShortID="743564006">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}">
+											<Language>SFX</Language>
+											<AudioFile>3._Explosion_from_projectile_contact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="229350857"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_1_Menu_Ignite_Lighter" ID="{AA32EF09-F86C-4A5B-892D-2066DE79AFD5}" ShortID="606390607">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2__Arsonist_Flip_Lighter" ID="{BC87431D-2AF8-4DB9-B247-961E3ED04E37}">
+											<Language>SFX</Language>
+											<AudioFile>2._Arsonist_Flip_Lighter.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="742456995"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2__Arsonist_Flip_Lighter" ID="{BC87431D-2AF8-4DB9-B247-961E3ED04E37}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_0_Menu_Pull_Out_Lighter" ID="{A1C80BBF-178B-40FB-B4B7-BB869C7A4A3B}" ShortID="548729407">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>28</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="1__Arsonist_Pull_Out_Lighter" ID="{89887C16-63A4-4ABA-8B66-17D5C4370559}">
+											<Language>SFX</Language>
+											<AudioFile>1._Arsonist_Pull_Out_Lighter.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="388517601"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="1__Arsonist_Pull_Out_Lighter" ID="{89887C16-63A4-4ABA-8B66-17D5C4370559}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
@@ -640,72 +731,6 @@
 				<Folder Name="Secondary Fire 1" ID="{C420B481-E373-4364-9522-416609858DED}" ShortID="1049643860"/>
 				<Folder Name="Secondary Fire 2" ID="{E905A19F-13B0-4CF8-B30D-600D17523C2F}" ShortID="1003903922"/>
 				<Folder Name="Special - Masochism" ID="{9BBE6842-6A3C-4116-AD7C-E4F4CAF3D4CC}" ShortID="315727803"/>
-				<Sound Name="3__Explosion_from_projectile_contact" ID="{DA6F70FA-25BD-4CE7-807F-E04B14A30C11}" ShortID="743564006">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}">
-							<Language>SFX</Language>
-							<AudioFile>3._Explosion_from_projectile_contact.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="229350857"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="1__Arsonist_Pull_Out_Lighter" ID="{A1C80BBF-178B-40FB-B4B7-BB869C7A4A3B}" ShortID="548729407">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="1__Arsonist_Pull_Out_Lighter" ID="{89887C16-63A4-4ABA-8B66-17D5C4370559}">
-							<Language>SFX</Language>
-							<AudioFile>1._Arsonist_Pull_Out_Lighter.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="388517601"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="1__Arsonist_Pull_Out_Lighter" ID="{89887C16-63A4-4ABA-8B66-17D5C4370559}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="2__Arsonist_Flip_Lighter" ID="{AA32EF09-F86C-4A5B-892D-2066DE79AFD5}" ShortID="606390607">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="2__Arsonist_Flip_Lighter" ID="{BC87431D-2AF8-4DB9-B247-961E3ED04E37}">
-							<Language>SFX</Language>
-							<AudioFile>2._Arsonist_Flip_Lighter.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="742456995"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="2__Arsonist_Flip_Lighter" ID="{BC87431D-2AF8-4DB9-B247-961E3ED04E37}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
