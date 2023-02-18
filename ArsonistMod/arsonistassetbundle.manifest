@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2868676945
+CRC: 4202988146
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 621b4c7797a6744774aaa0588a802b70
+    Hash: a6343994d238af24249d201c4acd97e1
   TypeTreeHash:
     serializedVersion: 2
     Hash: aec6a312ea63c51139ebf4f5f44a0adb
@@ -153,6 +153,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistWeapon.mesh
 - Assets/ArsonistAssets/Textures/Arsonist_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Ascend.anim
+- Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
 - Assets/ArsonistAssets/Materials/matArsonistMetal.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M1.anim
 - Assets/ArsonistAssets/Animation/maskLeftArm.mask

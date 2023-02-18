@@ -101,6 +101,9 @@ namespace ArsonistMod.Content.Controllers
         //Sound vars
         uint tickingSound;
 
+        //Animator
+        Animator anim;
+
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
@@ -265,6 +268,7 @@ namespace ArsonistMod.Content.Controllers
             targetColor = new Color(1f, 1f, 1f, 1f);
             currentColor = originalColor;
 
+            anim = characterBody.hurtBoxGroup.gameObject.GetComponent<Animator>();
         }
 
         private void SetupCustomUI() 
@@ -541,12 +545,29 @@ namespace ArsonistMod.Content.Controllers
             }
         }
 
+        public void CheckAndSetOverheatingCanister() 
+        {
+            if (ifOverheatMaxed)
+            {
+                anim.SetBool("Overheated", true);
+            }
+            else 
+            {
+                anim.SetBool("Overheated", false);
+            }
+        }
+
         public void Update()
         {
             //Update material for overheating tex
             if (Modules.Assets.arsonistOverheatingMaterial) 
             {
                 SetOverheatMaterialParameters();
+            }
+
+            if (anim) 
+            {
+                CheckAndSetOverheatingCanister();
             }
 
             //checking which m1 is equipped for different heat passive
