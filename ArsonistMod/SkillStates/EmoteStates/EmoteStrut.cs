@@ -17,18 +17,13 @@ namespace ArsonistMod.SkillStates.EmoteStates
         public override void OnExit()
         {
             base.OnExit();
-            base.PlayAnimation("Fullbody, Override", "BufferEmpty");
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             //Do not exit state automatically.
-        }
-
-        public override void Update()
-        {
-            base.Update();
         }
 
         public override void PlayEmoteAnim()

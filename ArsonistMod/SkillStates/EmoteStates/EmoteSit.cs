@@ -1,5 +1,6 @@
 ﻿using System;
 using EntityStates;
+using RoR2;
 
 namespace ArsonistMod.SkillStates.EmoteStates
 {
@@ -16,18 +17,13 @@ namespace ArsonistMod.SkillStates.EmoteStates
         {
             base.OnExit();
 
-            base.PlayAnimation("Fullbody, Override", "BufferEmpty");
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             //Do not exit state automatically.
-        }
-
-        public override void Update()
-        {
-            base.Update();
         }
 
         public override void PlayEmoteAnim()

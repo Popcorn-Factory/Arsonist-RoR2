@@ -1,5 +1,6 @@
 ﻿using System;
 using EntityStates;
+using RoR2;
 
 namespace ArsonistMod.SkillStates.EmoteStates
 {
@@ -22,10 +23,19 @@ namespace ArsonistMod.SkillStates.EmoteStates
         {
             base.Update();
 
-            //Player jumped
-            if (ShouldEndEmoteState())
+            if (base.isAuthority)
             {
-                base.outer.SetNextStateToMain();
+                //We can execute states now.
+
+                //Check for input down.
+                if (Modules.Config.emoteSitKey.Value.IsPressed())
+                {
+                    //Chat.AddMessage("sit");
+                }
+                else if (Modules.Config.emoteStrutKey.Value.IsPressed())
+                {
+                    //Chat.AddMessage("strut");
+                }
             }
         }
         public override void FixedUpdate()
