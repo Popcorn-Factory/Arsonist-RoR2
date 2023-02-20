@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="3356702941">
+		<SoundBank Id="1110381487" Language="SFX" Hash="672907489">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -37,6 +37,22 @@
 						<File Id="597793787" Language="SFX">
 							<ShortName>Special - Masochism\2. Masochism Laugh 2.wav</ShortName>
 							<Path>SFX\Special - Masochism\2. Masochism Laugh 2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="631669626" Name="Arsonist_Menu_Match_Sizzle" ObjectPath="\Events\Default Work Unit\Arsonist_Menu_Match_Sizzle">
+					<IncludedMemoryFiles>
+						<File Id="1063635342" Language="SFX">
+							<ShortName>2._Menu_Arsonist_Match_Loopable_Sizzle.wav</ShortName>
+							<Path>SFX\2._Menu_Arsonist_Match_Loopable_Sizzle_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="428657357" Name="Arsonist_Menu_Match_Strike" ObjectPath="\Events\Default Work Unit\Arsonist_Menu_Match_Strike">
+					<IncludedMemoryFiles>
+						<File Id="169743213" Language="SFX">
+							<ShortName>1._Menu_Arsonist_Match_Strike.wav</ShortName>
+							<Path>SFX\1._Menu_Arsonist_Match_Strike_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -133,22 +149,6 @@
 						<File Id="385415142" Language="SFX">
 							<ShortName>Secondary Fire 2\2. Flare Explosion.wav</ShortName>
 							<Path>SFX\Secondary Fire 2\2. Flare Explosion_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2342805874" Name="Arsonst_Menu_Ignite_Lighter" ObjectPath="\Events\Default Work Unit\Arsonst_Menu_Ignite_Lighter">
-					<IncludedMemoryFiles>
-						<File Id="742456995" Language="SFX">
-							<ShortName>2._Arsonist_Flip_Lighter.wav</ShortName>
-							<Path>SFX\2._Arsonist_Flip_Lighter_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="417360612" Name="Arsonst_Menu_Pull_Out_Lighter" ObjectPath="\Events\Default Work Unit\Arsonst_Menu_Pull_Out_Lighter">
-					<IncludedMemoryFiles>
-						<File Id="388517601" Language="SFX">
-							<ShortName>1._Arsonist_Pull_Out_Lighter.wav</ShortName>
-							<Path>SFX\1._Arsonist_Pull_Out_Lighter_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

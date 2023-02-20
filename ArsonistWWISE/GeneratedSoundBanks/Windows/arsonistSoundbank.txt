@@ -1,12 +1,12 @@
 Event	ID	Name			Wwise Object Path	Notes
-	417360612	Arsonst_Menu_Pull_Out_Lighter			\Default Work Unit\Arsonst_Menu_Pull_Out_Lighter	
+	428657357	Arsonist_Menu_Match_Strike			\Default Work Unit\Arsonist_Menu_Match_Strike	
 	470984906	Arsonist_Primary_Fire			\Default Work Unit\Arsonist_Primary_Fire	
+	631669626	Arsonist_Menu_Match_Sizzle			\Default Work Unit\Arsonist_Menu_Match_Sizzle	
 	1597575822	Arsonist_Secondary_Flare_Punch_Contact			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Contact	
 	1608533803	Arsonist_Secondary_Flare_Projectile_Overheat			\Default Work Unit\Arsonist_Secondary_Flare_Projectile_Overheat	
 	1840962711	Arsonist_Masochism			\Default Work Unit\Arsonist_Masochism	
 	1924783034	Arsonist_Cleanse			\Default Work Unit\Arsonist_Cleanse	
 	2300744954	Arsonist_Primary_Fire_Overheated			\Default Work Unit\Arsonist_Primary_Fire_Overheated	
-	2342805874	Arsonst_Menu_Ignite_Lighter			\Default Work Unit\Arsonst_Menu_Ignite_Lighter	
 	2517450375	Arsonist_Secondary_Flare_Punch_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Explosion	
 	3061346618	Arsonist_Secondary_Flare_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Explosion	
 	3152162514	Arsonist_Overheat_Start			\Default Work Unit\Arsonist_Overheat_Start	
@@ -23,20 +23,20 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20639472	1_2_Overheat_Finish	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\3. Overheat Finish_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_2_Overheat_Finish		70061
 	87249989	4_0_ Secondary Flare Projectile	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 1\1. Flare Projectile_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\4_0_ Secondary Flare Projectile		37812
+	169743213	7_0_Menu_Match_Strike	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1._Menu_Arsonist_Match_Strike_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\7_0_Menu_Match_Strike		72846
 	200903336	4_2_Secondary Flare Projectile Overheat	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 1\3. Flare Projectile Overheat_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\4_2_Secondary Flare Projectile Overheat		40984
 	229350857	3_2_Primary_Fire_Explosion_OnHit	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\3._Explosion_from_projectile_contact_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_2_Primary_Fire_Explosion_OnHit		31216
 	326243976	4_1_Secondary Flare Explosion	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 1\2. Flare Explosion_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\4_1_Secondary Flare Explosion		70748
 	381718716	6_2_Masochism Laugh 3	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\3. Masochism Laugh 3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_2_Masochism Laugh 3		103093
 	385415142	5_1_Secondary Flare Explosion	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 2\2. Flare Explosion_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_1_Secondary Flare Explosion		70748
-	388517601	6_0_Menu_Pull_Out_Lighter	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1._Arsonist_Pull_Out_Lighter_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Menu_Pull_Out_Lighter		23806
 	468282416	6_0_Masochism Laugh 1	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\1. Masochism Laugh 1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_0_Masochism Laugh 1		101633
 	567405923	5_2_Secondary Flare Punch Contact	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 2\3. Flare Punch Contact_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_2_Secondary Flare Punch Contact		37401
 	597793787	6_1_Masochism Laugh 2	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\2. Masochism Laugh 2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_1_Masochism Laugh 2		101716
 	640021138	3_1_Primary_Fire_Overheated	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Primary Fire\2. Primary Fire Overheated_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_1_Primary_Fire_Overheated		36070
-	742456995	6_1_Menu_Ignite_Lighter	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2._Arsonist_Flip_Lighter_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_1_Menu_Ignite_Lighter		11606
 	752389951	1_0_Overheat_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\1. Overheat Start_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_0_Overheat_Start		128719
 	767924108	5_0_Secondary Flare Punch	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1. Flare Punch_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_0_Secondary Flare Punch		64310
 	938389516	3_0_Primary_Fire	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Primary Fire\1. Primary Fire_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_0_Primary_Fire		34107
 	1035535129	2_0_Cleanse	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Cleanse - Shift\4. Cleanse_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\2_0_Cleanse		111456
+	1063635342	7_1_Menu_Match_Sizzle_Loop	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2._Menu_Arsonist_Match_Loopable_Sizzle_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\7_1_Menu_Match_Sizzle_Loop		78526
 	1067383454	1_1_Overheat_Duration	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\2. Overheat Duration_9EDFC787.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_1_Overheat_Duration		261045
 

@@ -146,34 +146,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonst_Menu_Pull_Out_Lighter" ID="{F5F2794A-D5A0-4011-ADD6-B492A878857C}">
-					<ChildrenList>
-						<Action Name="" ID="{0A4F3646-0F1B-4A56-9FD6-3B9D046806FA}" ShortID="325538185">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="6_0_Menu_Pull_Out_Lighter" ID="{A1C80BBF-178B-40FB-B4B7-BB869C7A4A3B}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Arsonst_Menu_Ignite_Lighter" ID="{B848E4A3-9639-4210-95B0-E863CBD50CD5}">
-					<ChildrenList>
-						<Action Name="" ID="{EA8CC028-5D6F-4EEF-93EE-C9E5C6822338}" ShortID="715080524">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="6_1_Menu_Ignite_Lighter" ID="{AA32EF09-F86C-4A5B-892D-2066DE79AFD5}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Arsonist_Primary_Fire_Explosion" ID="{408C3012-CFFE-457E-B2F9-85A581F69460}">
 					<ChildrenList>
 						<Action Name="" ID="{3919E05A-04DD-4C1F-9C0D-1302837C330C}" ShortID="669783688">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="3_2_Primary_Fire_Explosion_OnHit" ID="{DA6F70FA-25BD-4CE7-807F-E04B14A30C11}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Menu_Match_Strike" ID="{1B50A649-6C68-4F7C-8A78-DBC3576D4EBC}">
+					<ChildrenList>
+						<Action Name="" ID="{2570FE70-CA59-4E8D-A965-D83652CBD349}" ShortID="412142943">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="7_0_Menu_Match_Strike" ID="{E418034C-7690-48AB-A409-F3409BC16EAF}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Menu_Match_Sizzle" ID="{CE3F12C8-87CA-4E42-8031-9D83722DB5B3}">
+					<ChildrenList>
+						<Action Name="" ID="{C7709FA4-F63F-45B6-969E-5945285F5446}" ShortID="156538763">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="7_1_Menu_Match_Sizzle_Loop" ID="{E25B3579-6057-42B5-BB7A-87E8405B0A69}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
