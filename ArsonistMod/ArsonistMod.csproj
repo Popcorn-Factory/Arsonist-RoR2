@@ -69,6 +69,12 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Content\Controllers\ArsonistController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="if &quot;$(Username)&quot; == &quot;MyPCUsername(don't dox yourself)&quot; copy &quot;$(TargetPath)&quot; &quot;C:\[PATH_TO_MY_R2MODMAN_PROFILE]\BepInEx\plugins&quot;" />
   </Target>

@@ -280,8 +280,7 @@ namespace ArsonistMod
             orig(self);
             if (self.gameObject.name.Contains("ArsonistDisplay"))
             {
-                ChildLocator childLocator = self.gameObject.GetComponent<ChildLocator>();
-                Transform thumb = childLocator.FindChild("DisplayThumb");
+                MenuController controller = self.gameObject.AddComponent<MenuController>();
             }
         }
     }
