@@ -12,8 +12,11 @@ namespace ArsonistMod.Content.Controllers
         internal float duration;
         internal static float igniteFraction = 0.38f;
         internal static float sizzlingFraction = 0.40f;
+        internal static float flameParticleTrigger = 0.55f;
         internal bool ignited;
         internal bool sizzling;
+        public ParticleSystem fireParticle;
+        public ParticleSystem sparkParticle;
 
         void Start() 
         {
@@ -21,6 +24,12 @@ namespace ArsonistMod.Content.Controllers
             ignited = false;
             sizzling = false;
             duration = 1.7f;
+            ChildLocator childLocator = GetComponentInChildren<ChildLocator>();
+            if (childLocator != null)
+            {
+                fireParticle = childLocator.FindChild("FireParticle").gameObject.GetComponent<ParticleSystem>();
+                sparkParticle = childLocator.FindChild("SparkParticle").gameObject.GetComponent<ParticleSystem>();
+            }
         }
 
         void Update()
@@ -32,6 +41,9 @@ namespace ArsonistMod.Content.Controllers
             {
                 Util.PlaySound("Arsonist_Menu_Match_Strike", this.gameObject);
                 ignited = true;
+                // Play particle effects
+                fireParticle.Play();
+                sparkParticle.Play();
             }
 
             if (stopwatch >= duration * sizzlingFraction && !sizzling) 

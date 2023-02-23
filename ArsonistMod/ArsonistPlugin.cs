@@ -89,7 +89,6 @@ namespace ArsonistMod
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
-            On.RoR2.CharacterModel.Awake += CharacterModel_Awake;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -286,15 +285,6 @@ namespace ArsonistMod
                 int num = model.activeOverlayCount;
                 model.activeOverlayCount = num + 1;
                 array[num] = overlayMaterial;
-            }
-        }
-
-        private void CharacterModel_Awake(On.RoR2.CharacterModel.orig_Awake orig, CharacterModel self)
-        {
-            orig(self);
-            if (self.gameObject.name.Contains("ArsonistDisplay"))
-            {
-                MenuController controller = self.gameObject.AddComponent<MenuController>();
             }
         }
     }
