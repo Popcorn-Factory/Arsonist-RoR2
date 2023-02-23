@@ -34,6 +34,7 @@ namespace ArsonistMod.Modules
         //arsonist effects
         internal static GameObject arsonistFlare;
         internal static GameObject arsonistFlareAttached;
+        internal static GameObject displayFire;
         internal static Material arsonistOverheatingMaterial;
 
         //buffs
@@ -129,6 +130,7 @@ namespace ArsonistMod.Modules
             //arsonist flare
             arsonistFlareAttached = LoadEffect("flareAttached");
             //arsonistFlare = LoadEffect("flareShot");
+            displayFire = LoadEffect("Fire");
 
             arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
         }

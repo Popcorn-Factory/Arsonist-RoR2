@@ -395,7 +395,8 @@ namespace ArsonistMod.Modules
         //            CharacterBody body = collidedObject.GetComponent<CharacterBody>();
         //            if (!body)
         //            {
-        //                FlareEffectControllerWeakWorld flarecon = collidedObject.AddComponent<FlareEffectControllerWeakWorld>();
+        //
+        //                EffectControllerWeakWorld flarecon = collidedObject.AddComponent<FlareEffectControllerWeakWorld>();
         //                flarecon.worldPos = pos;
         //                flarecon.arsonistBody = strongFlare.GetComponent<ProjectileController>().owner.GetComponent<CharacterBody>();
         //                Instantiate(collidedObject, pos, collidedObject.transform.rotation);

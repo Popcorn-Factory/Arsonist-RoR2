@@ -12,9 +12,16 @@ namespace ArsonistMod.Content.Controllers
         EntityStateMachine[] entityStateMachines;
         EntityStateMachine weaponStateMachine;
 
+        public ParticleSystem steamParticle;
+
         // Use this for initialization
         void Start()
         {
+            ChildLocator childLocator = GetComponentInChildren<ChildLocator>();
+            if(childLocator != null)
+            {
+                steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
+            }
             //What's your existance for.
             //To update an overlay.
             //Oh god.
