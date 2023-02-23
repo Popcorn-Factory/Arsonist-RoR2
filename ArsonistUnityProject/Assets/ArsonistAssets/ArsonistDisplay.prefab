@@ -3599,7 +3599,7 @@ MonoBehaviour:
   - name: FlareMuzzle
     transform: {fileID: 4074438908309165570}
   - name: FireParticle
-    transform: {fileID: 0}
+    transform: {fileID: 6158576573694738805}
   - name: SparkParticle
     transform: {fileID: 2778535341532350034}
 --- !u!114 &4562695983988666085
