@@ -287,7 +287,7 @@ namespace ArsonistMod.SkillStates
             bool flag = modelTransform.gameObject.GetComponent<AimAnimator>();
             if (flag)
             {
-                modelTransform.gameObject.GetComponent<AimAnimator>().enabled = false;
+                modelTransform.gameObject.GetComponent<AimAnimator>().enabled = true;
             }
             base.characterMotor.velocity /= 1.75f;
             bool flag2 = base.cameraTargetParams;
