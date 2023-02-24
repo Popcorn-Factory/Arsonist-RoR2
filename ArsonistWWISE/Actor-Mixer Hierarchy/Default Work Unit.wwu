@@ -669,13 +669,14 @@
 										<ActiveSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="7_1_Menu_Match_Sizzle_Loop" ID="{E25B3579-6057-42B5-BB7A-87E8405B0A69}" ShortID="929015116">
+								<Sound Name="7_0_Menu_Match_Strike" ID="{6A050046-6A02-4E6B-8AA2-62D31A51D6A7}" ShortID="500058221">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverrideConversion" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>40</Value>
+												<Value>4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -691,50 +692,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="2__Menu_Arsonist_Match_Loopable_Sizzle" ID="{CB489217-1770-4056-AE97-DFB15E981D21}">
+										<AudioFileSource Name="flarestrikesetup" ID="{4CC8D538-C977-4DC1-B845-1D333EB25B9A}">
 											<Language>SFX</Language>
-											<AudioFile>2._Menu_Arsonist_Match_Loopable_Sizzle.wav</AudioFile>
+											<AudioFile>flarestrikesetup.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="1063635342"/>
+												<MediaID ID="1029976508"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="2__Menu_Arsonist_Match_Loopable_Sizzle" ID="{CB489217-1770-4056-AE97-DFB15E981D21}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="7_0_Menu_Match_Strike" ID="{E418034C-7690-48AB-A409-F3409BC16EAF}" ShortID="562278383">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>13</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="1__Menu_Arsonist_Match_Strike" ID="{D6488DC4-9C93-4E90-B9F8-80A849B879CF}">
-											<Language>SFX</Language>
-											<AudioFile>1._Menu_Arsonist_Match_Strike.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="169743213"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="1__Menu_Arsonist_Match_Strike" ID="{D6488DC4-9C93-4E90-B9F8-80A849B879CF}" Platform="Linked"/>
+										<ActiveSource Name="flarestrikesetup" ID="{4CC8D538-C977-4DC1-B845-1D333EB25B9A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

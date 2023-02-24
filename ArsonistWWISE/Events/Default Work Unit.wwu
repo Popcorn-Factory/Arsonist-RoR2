@@ -162,18 +162,7 @@
 						<Action Name="" ID="{2570FE70-CA59-4E8D-A965-D83652CBD349}" ShortID="412142943">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="7_0_Menu_Match_Strike" ID="{E418034C-7690-48AB-A409-F3409BC16EAF}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Arsonist_Menu_Match_Sizzle" ID="{CE3F12C8-87CA-4E42-8031-9D83722DB5B3}">
-					<ChildrenList>
-						<Action Name="" ID="{C7709FA4-F63F-45B6-969E-5945285F5446}" ShortID="156538763">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="7_1_Menu_Match_Sizzle_Loop" ID="{E25B3579-6057-42B5-BB7A-87E8405B0A69}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="7_0_Menu_Match_Strike" ID="{6A050046-6A02-4E6B-8AA2-62D31A51D6A7}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

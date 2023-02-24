@@ -117,7 +117,7 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            animator.SetBool("attacking", true);
+            animator.SetBool("attacking", false);
             PlayAnimation("Gesture, Override", "BufferEmpty");
             if (chargeVfxInstance)
             {

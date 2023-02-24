@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="672907489">
+		<SoundBank Id="1110381487" Language="SFX" Hash="605538602">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -40,19 +40,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="631669626" Name="Arsonist_Menu_Match_Sizzle" ObjectPath="\Events\Default Work Unit\Arsonist_Menu_Match_Sizzle">
-					<IncludedMemoryFiles>
-						<File Id="1063635342" Language="SFX">
-							<ShortName>2._Menu_Arsonist_Match_Loopable_Sizzle.wav</ShortName>
-							<Path>SFX\2._Menu_Arsonist_Match_Loopable_Sizzle_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="428657357" Name="Arsonist_Menu_Match_Strike" ObjectPath="\Events\Default Work Unit\Arsonist_Menu_Match_Strike">
 					<IncludedMemoryFiles>
-						<File Id="169743213" Language="SFX">
-							<ShortName>1._Menu_Arsonist_Match_Strike.wav</ShortName>
-							<Path>SFX\1._Menu_Arsonist_Match_Strike_3F75BDB9.wem</Path>
+						<File Id="1029976508" Language="SFX">
+							<ShortName>flarestrikesetup.wav</ShortName>
+							<Path>SFX\flarestrikesetup_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

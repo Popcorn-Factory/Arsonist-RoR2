@@ -11,11 +11,10 @@ namespace ArsonistMod.Content.Controllers
         internal float stopwatch;
         internal float duration;
         internal static float igniteFraction = 0.38f;
-        internal static float sizzlingFraction = 0.40f;
         internal static float flameParticleTrigger = 0.55f;
         internal bool ignited;
         internal bool sizzling;
-        public ParticleSystem fireParticle;
+        public ParticleSystem fireParticle; 
         public ParticleSystem sparkParticle;
 
         void Start() 
@@ -44,12 +43,6 @@ namespace ArsonistMod.Content.Controllers
                 // Play particle effects
                 fireParticle.Play();
                 sparkParticle.Play();
-            }
-
-            if (stopwatch >= duration * sizzlingFraction && !sizzling) 
-            {
-                Util.PlaySound("Arsonist_Menu_Match_Sizzle", this.gameObject);
-                sizzling = true;
             }
         }
     }

@@ -168,7 +168,7 @@ namespace ArsonistMod.SkillStates
             this.direction = base.GetAimRay().direction.normalized;
             base.characterDirection.forward = base.characterMotor.velocity.normalized;
 
-            base.GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
+            this.animator.SetFloat("Attack.playbackRate", attackSpeedStat);
 
             blastAttack = new BlastAttack();
             blastAttack.radius = radius;
