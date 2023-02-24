@@ -23,7 +23,7 @@ namespace ArsonistMod.Modules.Survivors
             bodyNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME",
             subtitleNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texArsonistIcon"),
+            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("ArsonistIcon"),
             bodyColor = Color.red,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),

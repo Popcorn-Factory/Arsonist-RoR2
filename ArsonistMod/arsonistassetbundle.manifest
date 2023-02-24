@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3636005492
+CRC: 3359931990
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: db578e8de975bcabfdae661802dc09d8
+    Hash: 6cd00f1e6bd92be392f5d356d1c6fc8a
   TypeTreeHash:
     serializedVersion: 2
     Hash: aec6a312ea63c51139ebf4f5f44a0adb
@@ -139,13 +139,11 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
 - Assets/ArsonistAssets/Animation/maskImpact.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
-- Assets/ArsonistAssets/VFX/Fire.prefab
 - Assets/ArsonistAssets/Animation/clips/Idle.anim
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
 - Assets/ArsonistAssets/VFX/BombExplosionEffect.prefab
 - Assets/ArsonistAssets/Animation/clips/Slash2.anim
 - Assets/ArsonistAssets/Materials/FireMaterial.mat
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/VFX/Textures/texHitSpark.png
@@ -160,7 +158,6 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistWeapon.mesh
 - Assets/ArsonistAssets/Textures/Arsonist_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Ascend.anim
-- Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
 - Assets/ArsonistAssets/Materials/matArsonistMetal.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M1.anim
 - Assets/ArsonistAssets/Animation/maskLeftArm.mask
@@ -217,6 +214,8 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistBoots.mesh
 - Assets/ArsonistAssets/StrongFlare.prefab
 - Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
+- Assets/ArsonistAssets/VFX/Fire.prefab
+- Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Landing.anim
 - Assets/ArsonistAssets/Textures/ArsonistCloth_diffuse.png
 - Assets/ArsonistAssets/Materials/FireAddMaterial.mat
@@ -263,6 +262,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshCylinder.mesh
 - Assets/ArsonistAssets/Animation/clips/MenuIdleIn.anim
 - Assets/ArsonistAssets/VFX/ImpactHenryPunch.prefab
+- Assets/ArsonistAssets/Icons/ArsonistIcon.png
 - Assets/ArsonistAssets/VFX/Textures/flareMainColor.png
 - Assets/ArsonistAssets/Mesh/torus2.mesh
 - Assets/ArsonistAssets/Icons/texMainSkin.png

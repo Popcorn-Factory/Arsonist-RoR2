@@ -7909,37 +7909,6 @@ Transform:
   m_Father: {fileID: 73845429499052245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.84388655, y: 0.9190224, z: -38.514664}
---- !u!1 &5082381159461630577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 3878660129690219039}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 625538376457626645}
-  m_Layer: 0
-  m_Name: ElectricalSparksEffect (Missing Prefab)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &625538376457626645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 3878660129690219039}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5082381159461630577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3881523621072638205}
-  m_Father: {fileID: 6615459134847895886}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5104828247227013806
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,7 +8465,7 @@ Transform:
   - {fileID: 4631634522388215252}
   - {fileID: 5199206202510589733}
   - {fileID: 5805055450136710731}
-  - {fileID: 625538376457626645}
+  - {fileID: 3881523621072638205}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8627,37 +8596,6 @@ MonoBehaviour:
   - {fileID: 5860128330074845907}
   - {fileID: 8904252088503007810}
   - {fileID: 3313527142014045183}
---- !u!1 &6150541824113964883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 3878660129690219039}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3881523621072638205}
-  m_Layer: 0
-  m_Name: Missing Prefab (Dummy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3881523621072638205
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4000012832170722, guid: 96b2ec0239d11fa4b9792311efceb8ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 3878660129690219039}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6150541824113964883}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 625538376457626645}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6208304865880199659
 GameObject:
   m_ObjectHideFlags: 0
@@ -11757,6 +11695,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b2ec0239d11fa4b9792311efceb8ed, type: 3}
+--- !u!4 &3881523621072638205 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000012832170722, guid: 96b2ec0239d11fa4b9792311efceb8ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 3878660129690219039}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4178753790161376426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12143,6 +12087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GunPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150207650090839187, guid: f8bb4be32970b89468b7b761c0326afe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4150207650090839196, guid: f8bb4be32970b89468b7b761c0326afe,
         type: 3}
