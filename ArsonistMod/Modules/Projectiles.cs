@@ -99,6 +99,7 @@ namespace ArsonistMod.Modules
             ProjectileController strongFlareController = strongFlare.GetComponent<ProjectileController>();
             strongFlareController.rigidbody = strongFlareRigidbody;
             strongFlareController.rigidbody.useGravity = false;
+            strongFlareController.procCoefficient = 1f;
 
             GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
             ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
@@ -190,6 +191,7 @@ namespace ArsonistMod.Modules
             zeropointBombController.rigidbody = zeropointBombRigidbody;
             zeropointBombController.rigidbody.useGravity = true;
             zeropointBombController.rigidbody.mass = 1000f;
+            zeropointBombController.procCoefficient = 1f;
             
             
             if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached") != null) zeropointBombController.ghostPrefab = Assets.arsonistFlare;
@@ -231,6 +233,7 @@ namespace ArsonistMod.Modules
             lemurianFireBallController.rigidbody = lemurianFireballRigidbody;
             lemurianFireBallController.rigidbody.useGravity = true;
             lemurianFireBallController.rigidbody.mass = 1f;
+            lemurianFireBallController.procCoefficient = 1f;
 
             if (Assets.lemfireBallGhost != null) lemurianFireBallController.ghostPrefab = Assets.lemfireBallGhost;
             lemurianFireBallController.startSound = "";
@@ -253,6 +256,13 @@ namespace ArsonistMod.Modules
             {
                 artificerFireboltRigidbody = artificerFirebolt.AddComponent<Rigidbody>();
             }
+
+            ProjectileController projectileDamage = artificerFirebolt.GetComponent<ProjectileController>();
+            if (!projectileDamage) 
+            {
+                projectileDamage = artificerFirebolt.AddComponent<ProjectileController>();
+            }
+            projectileDamage.procCoefficient = 1f;
 
             InitializeStrongFireSprayOnHit(artificerFireboltexplosion);
 

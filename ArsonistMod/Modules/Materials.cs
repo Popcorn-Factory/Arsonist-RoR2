@@ -61,6 +61,7 @@ namespace ArsonistMod.Modules
             tempMat.SetTexture("_MainTex", tempMat.GetTexture("_MainTex"));
             tempMat.SetTexture("_EmTex", tempMat.GetTexture("_EmissionMap"));
             tempMat.EnableKeyword("DITHER");
+            tempMat.EnableKeyword("CUTOUT");
 
             if (bumpScale != null)
             {
@@ -78,6 +79,9 @@ namespace ArsonistMod.Modules
             {
                 tempMat.SetInt("_Cull", 0);
             }
+
+            tempMat.SetFloat("_EnableCutout", 1f);
+
             //set this keyword in unity if you've set up your model for limb removal item displays (eg. goat hoof) by setting your model's vertex colors
             if (tempMat.IsKeywordEnabled("LIMBREMOVAL"))
             {
