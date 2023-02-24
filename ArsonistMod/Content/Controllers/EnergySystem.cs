@@ -540,8 +540,8 @@ namespace ArsonistMod.Content.Controllers
             else 
             {
                 //Default material
-                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, (currentOverheat / 4.0f) / maxOverheat));
-                Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (currentOverheat / maxOverheat) * 25f);
+                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, Mathf.Clamp(Mathf.Pow(currentOverheat/maxOverheat, 8), 0, 1) / 4f));
+                Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) * 25f);
             }
         }
 

@@ -11,8 +11,10 @@ namespace ArsonistMod.Content.Controllers
         CharacterBody charBody;
         EntityStateMachine[] entityStateMachines;
         EntityStateMachine weaponStateMachine;
+        EntityStateMachine bodyStateMachine;
 
         public ParticleSystem steamParticle;
+        public ParticleSystem steamDownParticle;
 
         // Use this for initialization
         void Start()
@@ -21,6 +23,7 @@ namespace ArsonistMod.Content.Controllers
             if(childLocator != null)
             {
                 steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
+                steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>();
             }
             //What's your existance for.
             //To update an overlay.
@@ -33,6 +36,10 @@ namespace ArsonistMod.Content.Controllers
                 if (entityStateMachine.customName == "Weapon") 
                 {
                     weaponStateMachine = entityStateMachine;
+                }
+                if (entityStateMachine.customName == "Body") 
+                {
+                    bodyStateMachine = entityStateMachine;
                 }
             }
         }
@@ -49,7 +56,7 @@ namespace ArsonistMod.Content.Controllers
                 if (Modules.Config.emoteSitKey.Value.IsPressed())
                 {
                     //Trigger the emote sit key
-                    weaponStateMachine.SetNextState(new EmoteSit());
+                    bodyStateMachine.SetNextState(new EmoteSit());
                 }
                 else if (Modules.Config.emoteStrutKey.Value.IsPressed())
                 {
