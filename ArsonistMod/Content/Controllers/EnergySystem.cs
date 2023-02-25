@@ -17,6 +17,7 @@ namespace ArsonistMod.Content.Controllers
     public class EnergySystem : MonoBehaviour
     {
         public CharacterBody characterBody;
+        public ArsonistController arsonistController;
 
         //UI energyMeter
         public GameObject CustomUIObject;
@@ -218,6 +219,8 @@ namespace ArsonistMod.Content.Controllers
             additionalRed = 0;
             overheatState = OverheatState.DORMANT;
             mainCamera = Camera.main;
+
+            arsonistController = base.gameObject.GetComponent<ArsonistController>();
 
             if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
             {
@@ -550,10 +553,12 @@ namespace ArsonistMod.Content.Controllers
             if (ifOverheatMaxed)
             {
                 anim.SetBool("Overheated", true);
+                arsonistController.steamDownParticle.Play();
             }
             else 
             {
                 anim.SetBool("Overheated", false);
+                arsonistController.steamDownParticle.Stop();
             }
         }
 
