@@ -129,7 +129,7 @@ namespace ArsonistMod.Modules
 
             //arsonist flare
             arsonistFlareAttached = LoadEffect("flareAttached");
-            //arsonistFlare = LoadEffect("flareShot");
+            arsonistFlare = LoadEffect("flareShot");
             displayFire = LoadEffect("Fire");
 
             arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
@@ -290,4 +290,4 @@ namespace ArsonistMod.Modules
             Modules.Content.AddEffectDef(newEffectDef);
         }
     }
-}
+}   

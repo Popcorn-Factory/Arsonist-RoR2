@@ -112,6 +112,13 @@ namespace ArsonistMod.Content.Controllers
             //lets hook it up!
             On.RoR2.CharacterMaster.OnInventoryChanged += CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp += CharacterBody_OnLevelUp;
+
+
+            if (ArsonistPlugin.photoMode)
+            {
+                On.RoR2.CameraRigController.Update += CameraRigController_Update;
+            }
+
             enabledUI = false;
             isAcceleratedCooling = false;
         }
@@ -177,6 +184,27 @@ namespace ArsonistMod.Content.Controllers
             originalRedLength = redArray;
         }
 
+        private void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, RoR2.CameraRigController self) 
+        {
+            orig(self);
+            //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
+            if (self.hud.combatHealthBarViewer.enabled)
+            {
+                if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority)
+                {
+                    CustomUIObject.SetActive(true);
+                    energyNumber.gameObject.SetActive(true);
+                }
+            }
+            else 
+            {
+                if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority)
+                {
+                    CustomUIObject.SetActive(false);
+                    energyNumber.gameObject.SetActive(false);
+                }
+            }
+        }
 
         private void CharacterBody_OnLevelUp(On.RoR2.CharacterBody.orig_OnLevelUp orig, CharacterBody self)
         {
@@ -808,6 +836,11 @@ namespace ArsonistMod.Content.Controllers
             Destroy(EnergyNumberContainer);
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
+
+            if (ArsonistPlugin.photoMode)
+            {
+                On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+            }
         }
     }
 }

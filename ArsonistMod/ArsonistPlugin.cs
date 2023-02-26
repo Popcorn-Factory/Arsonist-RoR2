@@ -51,6 +51,7 @@ namespace ArsonistMod
         public const string DEVELOPER_PREFIX = "POPCORN";
 
         public static ArsonistPlugin instance;
+        public static bool photoMode = false;
 
         private void Awake()
         {
@@ -62,6 +63,10 @@ namespace ArsonistMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
+            }
+            if (Chainloader.PluginInfos.ContainsKey("com.Dragonyck.PhotoMode")) 
+            {
+                photoMode = true;
             }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
