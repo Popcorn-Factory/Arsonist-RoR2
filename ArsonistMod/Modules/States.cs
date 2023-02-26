@@ -18,8 +18,6 @@ namespace ArsonistMod.Modules
             Modules.Content.AddEntityState(typeof(ZeroPointPunch));
             Modules.Content.AddEntityState(typeof(Cleanse));
             Modules.Content.AddEntityState(typeof(Masochism));
-
-            Modules.Content.AddEntityState(typeof(BaseEmoteState));
             Modules.Content.AddEntityState(typeof(EmoteSit));
             Modules.Content.AddEntityState(typeof(EmoteStrut));
         }

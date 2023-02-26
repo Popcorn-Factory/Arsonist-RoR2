@@ -23,7 +23,7 @@ namespace ArsonistMod.Content.Controllers
             if(childLocator != null)
             {
                 steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
-                steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>()
+                steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>();
             }
             //What's your existance for.
             //To update an overlay.

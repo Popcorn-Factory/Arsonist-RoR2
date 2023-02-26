@@ -4,7 +4,7 @@ using RoR2;
 
 namespace ArsonistMod.SkillStates.EmoteStates
 {
-    public class EmoteStrut: BaseEmoteState
+    public class EmoteStrut: BaseSkillState
     {
         public override void OnEnter()
         {
@@ -24,9 +24,22 @@ namespace ArsonistMod.SkillStates.EmoteStates
         {
             base.FixedUpdate();
             //Do not exit state automatically.
+            if (base.isAuthority)
+            {
+                if (ShouldEndEmoteState())
+                {
+                    base.outer.SetNextStateToMain();
+                }
+            }
         }
 
-        public override void PlayEmoteAnim()
+        public bool ShouldEndEmoteState()
+        {
+            return !isGrounded || inputBank.skill1.down || inputBank.skill2.down || inputBank.skill3.down || inputBank.skill4.down;
+        }
+
+
+        public void PlayEmoteAnim()
         {
             base.PlayAnimation("FullBody, Override", "Emote2");
         }

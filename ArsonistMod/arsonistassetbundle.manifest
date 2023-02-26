@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 116209622
+CRC: 2152443753
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ad20a840065cb00a7665ab76cc08f9d3
+    Hash: 637eead3ed6feaf60a24b262d20a1980
   TypeTreeHash:
     serializedVersion: 2
-    Hash: aec6a312ea63c51139ebf4f5f44a0adb
+    Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -47,8 +47,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: b8f9d14d3e0436148a753c35b5f49b4b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
 - Class: 115
@@ -128,7 +126,6 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
-- Assets/ArsonistAssets/rope.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/VFX/Materials/IgnitionFlameParticle.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch2.anim
@@ -205,6 +202,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/texUtilityIcon.png
 - Assets/ArsonistAssets/Animation/clips/Ascend.anim
 - Assets/ArsonistAssets/VFX/SparkEffect.prefab
+- Assets/ArsonistAssets/Materials/BlackMaterial.mat
 - Assets/ArsonistAssets/VFX/Materials/matPunchEffect.mat
 - Assets/ArsonistAssets/VFX/Textures/texPunchImpact.png
 - Assets/ArsonistAssets/Mesh/meshArsonistHead.mesh

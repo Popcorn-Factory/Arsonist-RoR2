@@ -1,16 +1,19 @@
 ﻿using System;
 using EntityStates;
 using RoR2;
+using UnityEngine;
 
 namespace ArsonistMod.SkillStates.EmoteStates
 {
-    public class EmoteSit : BaseEmoteState
+    public class EmoteSit : BaseSkillState
     {
+        public float stopwatch;
         public override void OnEnter()
         {
             base.OnEnter();
             //Play the animation instantly, no scaling, nothing.
             PlayEmoteAnim();
+            stopwatch = 0f;
         }
 
         public override void OnExit()
@@ -20,13 +23,32 @@ namespace ArsonistMod.SkillStates.EmoteStates
             base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
-        public override void FixedUpdate()
+        public override void Update()
         {
-            base.FixedUpdate();
+            base.Update();
+            stopwatch += Time.deltaTime;
+
+            if (base.isAuthority) 
+            {
+                if (ShouldEndEmoteState())
+                {
+                    base.outer.SetNextStateToMain();
+                }
+            }
             //Do not exit state automatically.
         }
 
-        public override void PlayEmoteAnim()
+        public bool ShouldEndEmoteState()
+        {
+            return !isGrounded || inputBank.skill1.down || inputBank.skill2.down || inputBank.skill3.down || inputBank.skill4.down;
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+        }
+
+        public void PlayEmoteAnim()
         {
             base.PlayAnimation("FullBody, Override", "Emote1");
         }
