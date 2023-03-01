@@ -271,7 +271,7 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.blastRadius = StaticValues.firesprayBlastRadius;
             artificerFireboltexplosion.destroyOnEnemy = true;
             artificerFireboltexplosion.lifetime = 6f;
-            artificerFireboltexplosion.impactEffect = Assets.explosionPrefab;
+            artificerFireboltexplosion.impactEffect = Assets.arsonistFiresprayExplosion;
             artificerFireboltexplosion.timerAfterImpact = false;
             artificerFireboltexplosion.lifetimeAfterImpact = 0f;
             artificerFireboltexplosion.destroyOnWorld = true;
@@ -295,25 +295,25 @@ namespace ArsonistMod.Modules
                 collider.radius = 1.0f;
             }
 
-            ProjectileImpactExplosion projImpact = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
-            GameObject explosionEffect = UnityEngine.Object.Instantiate(projImpact.impactEffect);
-            explosionEffect.name = "new_effect";
-            EffectComponent effect = explosionEffect.GetComponent<EffectComponent>();
-            effect.soundName = "Arsonist_Primary_Fire_Explosion";
+            //ProjectileImpactExplosion projImpact = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
+            //GameObject explosionEffect = UnityEngine.Object.Instantiate(projImpact.impactEffect);
+            //explosionEffect.name = "new_effect";
+            //EffectComponent effect = explosionEffect.GetComponent<EffectComponent>();
+            //effect.soundName = "Arsonist_Primary_Fire_Explosion";
 
-            //Make effectdef
-            EffectDef newEffectDef = new EffectDef();
-            newEffectDef.prefab = explosionEffect;
-            newEffectDef.prefabEffectComponent = explosionEffect.GetComponent<EffectComponent>();
-            newEffectDef.prefabName = explosionEffect.name;
-            newEffectDef.prefabVfxAttributes = explosionEffect.GetComponent<VFXAttributes>();
-            newEffectDef.spawnSoundEventName = "Arsonist_Primary_Fire_Explosion";
+            ////Make effectdef
+            //EffectDef newEffectDef = new EffectDef();
+            //newEffectDef.prefab = explosionEffect;
+            //newEffectDef.prefabEffectComponent = explosionEffect.GetComponent<EffectComponent>();
+            //newEffectDef.prefabName = explosionEffect.name;
+            //newEffectDef.prefabVfxAttributes = explosionEffect.GetComponent<VFXAttributes>();
+            //newEffectDef.spawnSoundEventName = "Arsonist_Primary_Fire_Explosion";
 
-            Modules.Content.AddEffectDef(newEffectDef);
+            //Modules.Content.AddEffectDef(newEffectDef);
 
-            projImpact.impactEffect = explosionEffect;
+            //projImpact.impactEffect = explosionEffect;
 
-            Debug.Log(projImpact.impactEffect);
+            //Debug.Log(projImpact.impactEffect);
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)

@@ -32,6 +32,7 @@ namespace ArsonistMod.Modules
         public static GameObject explosionPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ExplosionVFX.prefab").WaitForCompletion();
 
         //arsonist effects
+        internal static GameObject arsonistFiresprayExplosion;
         internal static GameObject arsonistFlare;
         internal static GameObject arsonistFlareAttached;
         internal static GameObject displayFire;
@@ -131,6 +132,22 @@ namespace ArsonistMod.Modules
             arsonistFlareAttached = LoadEffect("flareAttached");
             arsonistFlare = LoadEffect("flareShot");
             displayFire = LoadEffect("Fire");
+
+            //arsonist firespray explosion
+            arsonistFiresprayExplosion = elderlemurianexplosionEffect;
+            EffectComponent effect = arsonistFiresprayExplosion.GetComponent<EffectComponent>();
+            if (!effect)
+            {
+                effect = arsonistFiresprayExplosion.AddComponent<EffectComponent>();
+            }
+            effect.applyScale = true;
+            effect.effectIndex = EffectIndex.Invalid;
+            effect.parentToReferencedTransform = false;
+            effect.positionAtReferencedTransform = true;
+            effect.soundName = "Arsonist_Primary_Fire_Explosion";
+
+            AddNewEffectDef(arsonistFiresprayExplosion, "Arsonist_Primary_Fire_Explosion");
+
 
             arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
         }
