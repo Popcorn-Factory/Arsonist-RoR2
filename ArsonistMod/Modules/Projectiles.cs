@@ -245,10 +245,6 @@ namespace ArsonistMod.Modules
             StrongFiresprayOnHit artificerFireboltexplosion = artificerFirebolt.GetComponent<StrongFiresprayOnHit>();
             if (!artificerFireboltexplosion)
             {
-                if (artificerFirebolt.GetComponent<ProjectileImpactExplosion>()) 
-                {
-                    UnityEngine.Object.Destroy(artificerFirebolt.GetComponent<ProjectileImpactExplosion>());
-                }
                 artificerFireboltexplosion = artificerFirebolt.AddComponent<StrongFiresprayOnHit>();
             }
             Rigidbody artificerFireboltRigidbody = artificerFirebolt.GetComponent<Rigidbody>();
@@ -271,7 +267,30 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.blastRadius = StaticValues.firesprayBlastRadius;
             artificerFireboltexplosion.destroyOnEnemy = true;
             artificerFireboltexplosion.lifetime = 6f;
+			
             artificerFireboltexplosion.impactEffect = Assets.arsonistFiresprayExplosion;
+
+
+            //Setup impact effect
+            ProjectileImpactExplosion projImpact = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
+            //Effect we want to create from artificer bolt.
+            GameObject explosionEffect = UnityEngine.Object.Instantiate(projImpact.impactEffect);
+            explosionEffect.name = "explosion_effect";
+            EffectComponent effect = explosionEffect.GetComponent<EffectComponent>();
+            effect.soundName = "Arsonist_Primary_Fire_Explosion";
+
+            //Make effectdef
+            EffectDef newEffectDef = new EffectDef();
+            newEffectDef.prefab = explosionEffect;
+            newEffectDef.prefabEffectComponent = explosionEffect.GetComponent<EffectComponent>();
+            newEffectDef.prefabName = explosionEffect.name;
+            newEffectDef.prefabVfxAttributes = explosionEffect.GetComponent<VFXAttributes>();
+            newEffectDef.spawnSoundEventName = "Arsonist_Primary_Fire_Explosion";
+
+            Modules.Content.AddEffectDef(newEffectDef);
+
+
+            artificerFireboltexplosion.impactEffect = explosionEffect;
             artificerFireboltexplosion.timerAfterImpact = false;
             artificerFireboltexplosion.lifetimeAfterImpact = 0f;
             artificerFireboltexplosion.destroyOnWorld = true;
@@ -314,6 +333,14 @@ namespace ArsonistMod.Modules
             //projImpact.impactEffect = explosionEffect;
 
             //Debug.Log(projImpact.impactEffect);
+            UnityEngine.Object.Destroy(projImpact);
+
+            Component[] components = artificerFirebolt.GetComponents<Component>();
+            foreach (Component component in components) 
+            {
+                Debug.Log(component.GetType().ToString());
+            }
+
         }
 
         private static void InitializeImpactExplosion(ProjectileImpactExplosion projectileImpactExplosion)
