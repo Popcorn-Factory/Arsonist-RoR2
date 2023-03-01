@@ -134,7 +134,7 @@ namespace ArsonistMod.Modules
             displayFire = LoadEffect("Fire");
 
             //arsonist firespray explosion
-            arsonistFiresprayExplosion = elderlemurianexplosionEffect;
+            arsonistFiresprayExplosion = PrefabAPI.InstantiateClone(elderlemurianexplosionEffect, "arsonistFireSprayExplosion");
             EffectComponent effect = arsonistFiresprayExplosion.GetComponent<EffectComponent>();
             if (!effect)
             {
