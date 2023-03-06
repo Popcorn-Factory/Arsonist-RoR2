@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2152443753
+CRC: 886578766
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 637eead3ed6feaf60a24b262d20a1980
+    Hash: ef4a4e84ca621b1a0126fdd56d1ee90f
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -126,6 +126,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPHold.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/VFX/Materials/IgnitionFlameParticle.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch2.anim
@@ -222,6 +223,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/AimYaw.anim
 - Assets/ArsonistAssets/HenryBombGhost.prefab
 - Assets/ArsonistAssets/Textures/ArsonistCloth_normal.png
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
 - Assets/ArsonistAssets/VFX/Materials/matSlash.mat
 - Assets/ArsonistAssets/VFX/Materials/matDust.mat
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png
@@ -237,6 +239,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/mdlArsonistAvatar.asset
 - Assets/ArsonistAssets/VFX/Materials/matFire.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Descend.anim
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPHit.anim
 - Assets/ArsonistAssets/VFX/Textures/RoundSoftParticle.tif
 - Assets/ArsonistAssets/VFX/FlameLight.prefab
 - Assets/ArsonistAssets/Animation/maskBandana.mask
@@ -266,5 +269,6 @@ Assets:
 - Assets/ArsonistAssets/Icons/texMainSkin.png
 - Assets/ArsonistAssets/Animation/clips/Slash1.anim
 - Assets/ArsonistAssets/VFX/HenryBazookaExplosionEffect.prefab
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPWhiff.anim
 - Assets/ArsonistAssets/Animation/clips/Roll.anim
 Dependencies: []
