@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using ArsonistMod.SkillStates.EmoteStates;
+using ArsonistMod.SkillStates.ZeroPointBlast;
 
 namespace ArsonistMod.Modules
 {
@@ -15,7 +16,13 @@ namespace ArsonistMod.Modules
             
             Modules.Content.AddEntityState(typeof(FireSpray));
             Modules.Content.AddEntityState(typeof(Flare));
-            Modules.Content.AddEntityState(typeof(ZeroPointPunch));
+            Modules.Content.AddEntityState(typeof(ZeroPointBlastStateless));
+
+            //Zero point states
+            Modules.Content.AddEntityState(typeof(ZeroPointBlastStart));
+            Modules.Content.AddEntityState(typeof(ZeroPointBlastEnd));
+            Modules.Content.AddEntityState(typeof(ZeroPointBlastWhiff));
+
             Modules.Content.AddEntityState(typeof(Cleanse));
             Modules.Content.AddEntityState(typeof(Masochism));
             Modules.Content.AddEntityState(typeof(EmoteSit));

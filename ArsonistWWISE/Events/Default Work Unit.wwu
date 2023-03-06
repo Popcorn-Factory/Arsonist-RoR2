@@ -118,7 +118,7 @@
 						<Action Name="" ID="{18122ABC-1F53-4834-842D-CDA941EEAB51}" ShortID="529668623">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_0_Secondary Flare Punch" ID="{D8DA827A-0CB7-40EA-AB33-CF0655E88108}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="8_0_Secondary Flare Punch" ID="{D8DA827A-0CB7-40EA-AB33-CF0655E88108}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -129,7 +129,7 @@
 						<Action Name="" ID="{ACA8BDE7-B5DA-48BE-A39A-CFE2D7D315A8}" ShortID="773916451">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_1_Secondary Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="8_1_Secondary Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -140,7 +140,7 @@
 						<Action Name="" ID="{1634F33A-9199-4C39-9755-E0553C63B2A9}" ShortID="551059210">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_2_Secondary Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="8_2_Secondary Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -163,6 +163,28 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="7_0_Menu_Match_Strike" ID="{6A050046-6A02-4E6B-8AA2-62D31A51D6A7}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_ZPB_Start" ID="{F8804700-689A-473F-A764-5D531DDF06FD}">
+					<ChildrenList>
+						<Action Name="" ID="{596C9B3D-88E4-4F2D-9699-83303B8EBF50}" ShortID="479953549">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_0_ZPB_Start_Whiff" ID="{D05F9360-BE57-49CB-BCFC-2DFE1DA2E997}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_ZPB_Contact" ID="{9611296A-6658-4AF3-B6B8-6E4878D5D93B}">
+					<ChildrenList>
+						<Action Name="" ID="{C0FF0C99-E555-48A3-A852-662BEC69DC1A}" ShortID="328060862">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_1_ZPB_Contact" ID="{FF79A392-3A28-44F2-91D1-4C284C27C64C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

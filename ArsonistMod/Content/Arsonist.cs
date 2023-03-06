@@ -233,7 +233,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillNameToken = prefix + "SECONDARY_PUNCH_NAME",
                 skillDescriptionToken = prefix + "SECONDARY_PUNCH_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texAlt1SecondaryIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointPunch)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointBlastStateless)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
                 baseRechargeInterval = 4f,

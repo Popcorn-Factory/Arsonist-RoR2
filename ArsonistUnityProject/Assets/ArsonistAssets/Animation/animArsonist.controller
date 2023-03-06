@@ -208,7 +208,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_ZPPHit
+  m_Name: ZPBHit
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -285,7 +285,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_ZPPHold
+  m_Name: ZPBHold
   m_Speed: 0.2
   m_CycleOffset: 0
   m_Transitions:
@@ -364,7 +364,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_ZPPWhiff
+  m_Name: ZPBWhiff
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -4067,9 +4067,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.67391306
+  m_TransitionDuration: 0.03339362
+  m_TransitionOffset: 0.9617332
+  m_ExitTime: 0.9564431
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -4104,8 +4104,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_ZPPStart
-  m_Speed: 1
+  m_Name: ZPBStart
+  m_Speed: 0.83
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2706382174500251074}

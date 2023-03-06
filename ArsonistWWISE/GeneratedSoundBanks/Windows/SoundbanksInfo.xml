@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="605538602">
+		<SoundBank Id="1110381487" Language="SFX" Hash="521215348">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -141,6 +141,22 @@
 						<File Id="385415142" Language="SFX">
 							<ShortName>Secondary Fire 2\2. Flare Explosion.wav</ShortName>
 							<Path>SFX\Secondary Fire 2\2. Flare Explosion_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1486446844" Name="Arsonist_ZPB_Contact" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact">
+					<IncludedMemoryFiles>
+						<File Id="576447885" Language="SFX">
+							<ShortName>3.99_ZPB_contact.wav</ShortName>
+							<Path>SFX\3.99_ZPB_contact_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3585665340" Name="Arsonist_ZPB_Start" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Start">
+					<IncludedMemoryFiles>
+						<File Id="316779847" Language="SFX">
+							<ShortName>ZPB_startup_whiff.wav</ShortName>
+							<Path>SFX\ZPB_startup_whiff_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

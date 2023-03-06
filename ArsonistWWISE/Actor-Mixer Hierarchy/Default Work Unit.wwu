@@ -417,7 +417,7 @@
 										<ActiveSource Name="2_ Flare Explosion" ID="{829E528C-BC0F-4F8C-A5BB-BEE8F27BDA02}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="5_2_Secondary Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" ShortID="809991607">
+								<Sound Name="8_2_Secondary Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" ShortID="809991607">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -446,12 +446,26 @@
 												<MediaID ID="567405923"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="3_99_ZPB_contact" ID="{A089C9C2-50AE-41D5-AF6E-58097894659C}">
+											<Language>SFX</Language>
+											<AudioFile>3.99_ZPB_contact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="576447885"/>
+											</MediaIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="ZPB_startup_whiff" ID="{DD319398-CE03-4634-A5F3-6771E64651AC}">
+											<Language>SFX</Language>
+											<AudioFile>ZPB_startup_whiff.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="316779847"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="3_ Flare Punch Contact" ID="{0EDB69C9-09F7-45E0-90D0-6D2EE2E2A525}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="5_1_Secondary Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" ShortID="633698445">
+								<Sound Name="8_1_Secondary Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" ShortID="633698445">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -588,7 +602,7 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<Sound Name="5_0_Secondary Flare Punch" ID="{D8DA827A-0CB7-40EA-AB33-CF0655E88108}" ShortID="618357540">
+								<Sound Name="8_0_Secondary Flare Punch" ID="{D8DA827A-0CB7-40EA-AB33-CF0655E88108}" ShortID="618357540">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -702,6 +716,75 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="flarestrikesetup" ID="{4CC8D538-C977-4DC1-B845-1D333EB25B9A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="5_0_ZPB_Start_Whiff" ID="{D05F9360-BE57-49CB-BCFC-2DFE1DA2E997}" ShortID="135889983">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ZPB_startup_whiff" ID="{AD42A68D-6D28-4033-A612-0E4DD99BCBA7}">
+											<Language>SFX</Language>
+											<AudioFile>ZPB_startup_whiff.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="316779847"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ZPB_startup_whiff" ID="{AD42A68D-6D28-4033-A612-0E4DD99BCBA7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="5_1_ZPB_Contact" ID="{FF79A392-3A28-44F2-91D1-4C284C27C64C}" ShortID="142046007">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverrideConversion" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="3_99_ZPB_contact" ID="{A8EC1358-2839-4E0A-ADB2-0545B593E175}">
+											<Language>SFX</Language>
+											<AudioFile>3.99_ZPB_contact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="576447885"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="3_99_ZPB_contact" ID="{A8EC1358-2839-4E0A-ADB2-0545B593E175}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
