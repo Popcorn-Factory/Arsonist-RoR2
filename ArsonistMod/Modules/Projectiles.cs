@@ -289,8 +289,6 @@ namespace ArsonistMod.Modules
 
             Modules.Content.AddEffectDef(newEffectDef);
 
-
-            artificerFireboltexplosion.impactEffect = explosionEffect;
             artificerFireboltexplosion.timerAfterImpact = false;
             artificerFireboltexplosion.lifetimeAfterImpact = 0f;
             artificerFireboltexplosion.destroyOnWorld = true;
