@@ -30,6 +30,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         private Vector3 direction; //For detector
         protected float pushForce = 500f;
         protected Vector3 bonusForce = new Vector3(10f, 400f, 0f);
+        protected string hitboxName = "ZeroPoint";
 
         //Hit Pause
         private float hitPauseTimer;
@@ -48,9 +49,9 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         //Roll related
         private Vector3 aimRayDir;
         private Ray aimRay;
-        public static float baseduration = 0.5f;
+        public static float baseduration = 0.7f;
         public static float duration;
-        public static float initialSpeedCoefficient = 5f;
+        public static float initialSpeedCoefficient = 6f;
         public float SpeedCoefficient;
         public static float finalSpeedCoefficient = 1f;
         private float extraDuration;
@@ -130,7 +131,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             if (flag2)
             {
                 hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == hitboxName);
-                hitBoxGroup2 = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == hitboxName2);
+                hitBoxGroup2 = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == hitboxName);
             }
 
 
@@ -165,6 +166,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             base.characterDirection.forward = base.characterMotor.velocity.normalized;
 
             this.animator.SetFloat("Attack.playbackRate", attackSpeedStat);
+            
+            base.PlayCrossfade("FullBody, Override", "ZPBStart", "Attack.playbackRate", duration, 0.1f);
         }
 
         private void RecalculateRollSpeed()
