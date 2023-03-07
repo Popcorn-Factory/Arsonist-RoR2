@@ -8,6 +8,7 @@ using System.Text;
 using UnityEngine;
 using R2API.Networking.Interfaces;
 using RoR2;
+using EntityStates.Treebot.Weapon;
 
 namespace ArsonistMod.SkillStates.ZeroPointBlast
 {
@@ -30,8 +31,16 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         protected float pushForce = 500f;
         protected Vector3 bonusForce = new Vector3(10f, 400f, 0f);
 
+        //Hit Pause
+        private float hitPauseTimer;
+        protected bool inHitPause;
+        private HitStopCachedState hitStopCachedState;
+        private Vector3 storedVelocity;
+        private Vector3 bounceVector;
+
         //Conditionals for attack
         public bool hasHit;
+        public float stopwatch;
 
         //Animator
         public Animator animator;
@@ -45,14 +54,18 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         public float SpeedCoefficient;
         public static float finalSpeedCoefficient = 1f;
         private float extraDuration;
+        private static float startupFrac = 0.2f;
+        private static float freezeFrac = 0.58f;
         public static float hitExtraDuration = 0.44f;
         public static float minExtraDuration = 0.2f;
         private Transform modelTransform;
         private CharacterModel characterModel;
+        private float rollSpeed;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            stopwatch = 0f;
             //Play Start/Whiff sound
             if (base.isAuthority)
             {
@@ -154,6 +167,41 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             this.animator.SetFloat("Attack.playbackRate", attackSpeedStat);
         }
 
+        private void RecalculateRollSpeed()
+        {
+            float num = this.moveSpeedStat;
+            bool isSprinting = base.characterBody.isSprinting;
+            if (isSprinting)
+            {
+                num /= base.characterBody.sprintingSpeedMultiplier;
+            }
+            this.rollSpeed = num * Mathf.Lerp(SpeedCoefficient, finalSpeedCoefficient, base.fixedAge / duration);
+        }
+
+        private void FireAttack()
+        {
+            //Attack should only be out on clientside.
+            if (base.isAuthority)
+            {
+                //List of hits in detector.
+                List<HurtBox> list = new List<HurtBox>();
+                if (this.detector.Fire(list))
+                {
+                    //Send to next state.
+                    this.OnHitEnemyAuthority();
+                }
+            }
+        }
+
+        protected virtual void OnHitEnemyAuthority()
+        {
+            //On hit, send player to End
+            if (base.isAuthority) 
+            {
+                this.outer.SetState(new ZeroPointBlastEnd { });
+            }
+        }
+
         public override void OnExit()
         {
             base.OnExit();
@@ -162,10 +210,34 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            
+            //Increment timer
+            this.stopwatch += Time.fixedDeltaTime;
 
-            //keep rolling
-            //check if hit something,
-            //If hit something, move to zero point Blast end
+            if (this.stopwatch <= duration * startupFrac) 
+            {
+                base.characterDirection.forward = this.direction;
+                base.characterMotor.velocity = Vector3.zero;
+            }
+
+            //Keep Firing and moving during interval 
+            if (this.stopwatch >= duration * startupFrac && this.stopwatch <= duration * freezeFrac) 
+            {
+                //move and fire
+                this.RecalculateRollSpeed();
+                this.FireAttack();
+
+                base.characterDirection.forward = this.direction;
+                base.characterMotor.velocity = Vector3.zero;
+                base.characterMotor.rootMotion += this.direction * this.rollSpeed * Time.fixedDeltaTime;
+            }
+
+            //Whiff if outside the duration.
+            if (stopwatch >= duration * freezeFrac && base.isAuthority) 
+            {
+                this.outer.SetState(new ZeroPointBlastWhiff { });
+            }
+            
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
