@@ -9,6 +9,8 @@ using UnityEngine;
 using R2API.Networking.Interfaces;
 using RoR2;
 using EntityStates.Treebot.Weapon;
+using HG;
+using UnityEngine.Networking;
 
 namespace ArsonistMod.SkillStates.ZeroPointBlast
 {
@@ -31,6 +33,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         protected float pushForce = 500f;
         protected Vector3 bonusForce = new Vector3(10f, 400f, 0f);
         protected string hitboxName = "ZeroPoint";
+        private BlastAttack blastAttack;
+        public float radius = 5f;
 
         //Hit Pause
         private float hitPauseTimer;
@@ -49,14 +53,16 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         //Roll related
         private Vector3 aimRayDir;
         private Ray aimRay;
-        public static float baseduration = 0.7f;
+        public static float baseduration = 0.8f;
         public static float duration;
         public static float initialSpeedCoefficient = 6f;
         public float SpeedCoefficient;
-        public static float finalSpeedCoefficient = 1f;
+        public static float finalSpeedCoefficient = 2f;
         private float extraDuration;
         private static float startupFrac = 0.2f;
         private static float freezeFrac = 0.58f;
+        private static float blastFrac = 0.3f;
+        private bool hasFired = false;
         public static float hitExtraDuration = 0.44f;
         public static float minExtraDuration = 0.2f;
         private Transform modelTransform;
@@ -92,7 +98,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             hasHit = false;
             this.aimRayDir = aimRay.direction;
 
-            duration = baseduration;
+            duration = baseduration / base.attackSpeedStat;
             float num = this.moveSpeedStat;
             bool isSprinting = base.characterBody.isSprinting;
             if (isSprinting)
@@ -113,11 +119,6 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             HitBoxGroup hitBoxGroup = null;
             HitBoxGroup hitBoxGroup2 = null;
             Transform modelTransform = base.GetModelTransform();
-            bool flag = modelTransform.gameObject.GetComponent<AimAnimator>();
-            if (flag)
-            {
-                modelTransform.gameObject.GetComponent<AimAnimator>().enabled = false;
-            }
             this.modelTransform = base.GetModelTransform();
             if (this.modelTransform)
             {
@@ -168,6 +169,19 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             this.animator.SetFloat("Attack.playbackRate", attackSpeedStat);
             
             base.PlayCrossfade("FullBody, Override", "ZPBStart", "Attack.playbackRate", duration, 0.1f);
+            blastAttack = new BlastAttack();
+            blastAttack.radius = radius;
+            blastAttack.procCoefficient = 0.5f;
+            blastAttack.position = characterBody.corePosition;
+            blastAttack.attacker = base.gameObject;
+            blastAttack.crit = Util.CheckRoll(base.characterBody.crit, base.characterBody.master);
+            blastAttack.baseDamage = base.characterBody.damage * damageCoefficient;
+            blastAttack.falloffModel = BlastAttack.FalloffModel.None;
+            blastAttack.baseForce = pushForce;
+            blastAttack.teamIndex = TeamComponent.GetObjectTeam(blastAttack.attacker);
+            blastAttack.damageType = DamageType.Stun1s;
+            blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
+
         }
 
         private void RecalculateRollSpeed()
@@ -178,7 +192,11 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             {
                 num /= base.characterBody.sprintingSpeedMultiplier;
             }
-            this.rollSpeed = num * Mathf.Lerp(SpeedCoefficient, finalSpeedCoefficient, base.fixedAge / duration);
+            if (num >= 10f)
+            {
+                num = Mathf.Log10((num - 9f)) + 10f;
+            }
+            this.rollSpeed = num * Mathf.Lerp(SpeedCoefficient, finalSpeedCoefficient, stopwatch - (duration * blastFrac) / (duration * freezeFrac - duration * blastFrac));
         }
 
         private void FireAttack()
@@ -201,7 +219,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             //On hit, send player to End
             if (base.isAuthority) 
             {
-                this.outer.SetState(new ZeroPointBlastEnd { });
+                base.characterMotor.velocity = Vector3.zero;
+                this.outer.SetState(new ZeroPointBlastEnd { damageCoefficient = damageCoefficient });
             }
         }
 
@@ -223,11 +242,22 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                 base.characterMotor.velocity = Vector3.zero;
             }
 
+            if(this.stopwatch >= duration * blastFrac) 
+            {
+                if (!hasFired) 
+                {
+                    hasFired = true;
+                    blastAttack.position = characterBody.corePosition;
+                    blastAttack.Fire();
+                }
+            }
+
             //Keep Firing and moving during interval 
-            if (this.stopwatch >= duration * startupFrac && this.stopwatch <= duration * freezeFrac) 
+            if (this.stopwatch >= duration * blastFrac && this.stopwatch <= duration * freezeFrac) 
             {
                 //move and fire
                 this.RecalculateRollSpeed();
+                //this.RecalculateDirection();
                 this.FireAttack();
 
                 base.characterDirection.forward = this.direction;
@@ -241,6 +271,19 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                 this.outer.SetState(new ZeroPointBlastWhiff { });
             }
             
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(this.damageCoefficient);
+        }
+
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            this.damageCoefficient = reader.ReadSingle();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

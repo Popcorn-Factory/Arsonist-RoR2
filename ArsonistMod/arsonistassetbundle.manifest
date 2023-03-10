@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2917644539
+CRC: 747871503
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ae4592ff5747ad2e49519f0a46437ed2
+    Hash: 15cc0b162041ed460c7e3f4e8a9d79a0
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -117,6 +117,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Shader NodetreeAction.003.anim
 - Assets/ArsonistAssets/VFX/SparksEffect.prefab
 - Assets/ArsonistAssets/VFX/Mesh/meshSwing.asset
+- Assets/ArsonistAssets/Materials/Gauge.mat
 - Assets/ArsonistAssets/VFX/HenryBazookaMuzzleFlash.prefab
 - Assets/ArsonistAssets/Materials/Steam.mat
 - Assets/ArsonistAssets/VFX/HenryFistSwingEffect.prefab
