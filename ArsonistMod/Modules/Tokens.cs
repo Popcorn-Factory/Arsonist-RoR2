@@ -46,9 +46,9 @@ namespace ArsonistMod.Modules
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_NAME", "Signal Flare");
             LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.heatPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style>.");
-            LanguageAPI.Add(prefix + "SECONDARY_PUNCH_NAME", "Zero Point Punch");
-            LanguageAPI.Add(prefix + "SECONDARY_PUNCH_DESCRIPTION", Helpers.startPrefix + $"Dash forward, hitting the first enemy and attaching a flare that explodes, dealing <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. " +
-                $" If no enemy was hit, drop the flare on the ground, having a delayed explosion that does <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. ");
+            LanguageAPI.Add(prefix + "SECONDARY_PUNCH_NAME", "Zero Point Blast");
+            LanguageAPI.Add(prefix + "SECONDARY_PUNCH_DESCRIPTION", Helpers.startPrefix + $"Propel yourself forwards, colliding into the first enemy and dealing <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style> in a blast around you. " +
+                $" On propulsion, blast enemies behind you for <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. ");
             #endregion
 
             #region Utility

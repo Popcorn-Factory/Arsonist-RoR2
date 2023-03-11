@@ -262,14 +262,12 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                     blastAttack.position = muzzlePos.position;
                     blastAttack.Fire();
                     arsonistController.fireBeam.Play();
-                    EffectData effectData = new EffectData
+
+                    EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                     {
-                        _origin = muzzlePos.position,
-                        scale = 1f,
-                        start = muzzlePos.position,
-                        rotation = Quaternion.identity,
-                    };
-                    EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, effectData, true);
+                        origin = characterBody.corePosition,
+                        scale = 1.5f
+                    }, true);
                 }
             }
 

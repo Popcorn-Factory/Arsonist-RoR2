@@ -64,15 +64,11 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 
             blastAttack.Fire();
 
-            EffectData effectData = new EffectData
+            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
             {
-                _origin = muzzlePos.position,
-                scale = 1f,
-                start = muzzlePos.position,
-                rotation = Quaternion.identity,
-            };
-            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, effectData, true);
-
+                origin = characterBody.corePosition,
+                scale = 3f
+            }, true);
 
             arsonistCon = base.gameObject.GetComponent<ArsonistController>();
             arsonistCon.steamDownParticle.Stop();
