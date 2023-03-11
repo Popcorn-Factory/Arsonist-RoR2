@@ -55,7 +55,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         private Ray aimRay;
         public static float baseduration = 0.8f;
         public static float duration;
-        public static float initialSpeedCoefficient = 6f;
+        public static float initialSpeedCoefficient = 4f;
         public float SpeedCoefficient;
         public static float finalSpeedCoefficient = 2f;
         private float extraDuration;
@@ -98,7 +98,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             hasHit = false;
             this.aimRayDir = aimRay.direction;
 
-            duration = baseduration / base.attackSpeedStat;
+            duration = baseduration;
             float num = this.moveSpeedStat;
             bool isSprinting = base.characterBody.isSprinting;
             if (isSprinting)
@@ -227,6 +227,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         public override void OnExit()
         {
             base.OnExit();
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void FixedUpdate()
@@ -239,7 +240,6 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             if (this.stopwatch <= duration * startupFrac) 
             {
                 base.characterDirection.forward = this.direction;
-                base.characterMotor.velocity = Vector3.zero;
             }
 
             if(this.stopwatch >= duration * blastFrac) 
@@ -257,18 +257,25 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             {
                 //move and fire
                 this.RecalculateRollSpeed();
-                //this.RecalculateDirection();
                 this.FireAttack();
 
                 base.characterDirection.forward = this.direction;
-                base.characterMotor.velocity = Vector3.zero;
-                base.characterMotor.rootMotion += this.direction * this.rollSpeed * Time.fixedDeltaTime;
+                //base.characterMotor.velocity = Vector3.zero;
+                //base.characterMotor.rootMotion += this.direction * this.rollSpeed * Time.fixedDeltaTime;
+                if (base.characterMotor && base.characterDirection)
+                {
+                    Vector3 vector = this.direction * this.rollSpeed;
+                    float d = Mathf.Max(Vector3.Dot(vector, this.direction), 0f);
+                    vector = this.direction * d;
+
+                    base.characterMotor.velocity = vector;
+                }
             }
 
             //Whiff if outside the duration.
             if (stopwatch >= duration * freezeFrac && base.isAuthority) 
             {
-                this.outer.SetState(new ZeroPointBlastWhiff { });
+                this.outer.SetState(new ZeroPointBlastWhiff { damageCoefficient = damageCoefficient });
             }
             
         }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 747871503
+CRC: 1519294160
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 15cc0b162041ed460c7e3f4e8a9d79a0
+    Hash: 7c5668df96db6188915df0ff353fd6c1
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -146,6 +146,7 @@ Assets:
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/VFX/Textures/texHitSpark.png
+- Assets/ArsonistAssets/Animation/maskUpperBody.mask
 - Assets/ArsonistAssets/Materials/Henry/matBoxingGlove.mat
 - Assets/ArsonistAssets/Icons/texAlt1SecondaryIcon.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryAlt.mat

@@ -31,7 +31,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 
             this.animator.SetBool("attacking", true);
             animator.SetFloat("Attack.playbackRate", this.attackSpeedStat);
-            base.PlayCrossfade("FullBody, Override", "ZPBHit", "Attack.playbackRate", duration, 0.02f);
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayCrossfade("UpperBody, Override", "ZPBHit", "Attack.playbackRate", duration, 0.02f);
             base.characterMotor.velocity = Vector3.zero;
 
             blastAttack = new BlastAttack();
@@ -54,6 +55,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         {
             base.OnExit();
             this.animator.SetBool("attacking", false);
+            base.PlayAnimation("UpperBody, Override", "BufferEmpty");
         }
 
         public override void FixedUpdate()
