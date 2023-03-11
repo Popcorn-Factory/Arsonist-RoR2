@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1541733290
+CRC: 1863346759
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 242f034e16d8ca89cfd73c0306393e3e
+    Hash: fed8a28e8168d2ae1a1d06dc9b19638e
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -152,7 +152,6 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matHenryAlt.mat
 - Assets/ArsonistAssets/Animation/clips/WalkF.anim
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
-- Assets/ArsonistAssets/mdlArsonist.prefab
 - Assets/ArsonistAssets/Materials/Henry/matDante.mat
 - Assets/ArsonistAssets/WeakFlare.prefab
 - Assets/ArsonistAssets/Mesh/meshArsonistWeapon.mesh
@@ -237,6 +236,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matRipple.mat
 - Assets/ArsonistAssets/Animation/clips/DefaultPose.anim
 - Assets/ArsonistAssets/Materials/Henry/matShotgun.mat
+- Assets/ArsonistAssets/mdlArsonist.prefab
 - Assets/ArsonistAssets/Animation/clips/IdleAdditive.anim
 - Assets/ArsonistAssets/Shaders/FrenselLit.shader
 - Assets/ArsonistAssets/VFX/Steam.prefab
