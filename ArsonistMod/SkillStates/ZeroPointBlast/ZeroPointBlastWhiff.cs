@@ -1,4 +1,5 @@
-﻿using EntityStates;
+﻿using ArsonistMod.Content.Controllers;
+using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 {
     public class ZeroPointBlastWhiff : BaseSkillState
     {
+        public ArsonistController arsonistCon;
         public float stopwatch;
         public float duration;
         public static float baseDuration = 0.6f;
@@ -54,6 +56,11 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             this.detector.pushAwayForce = 0f;
             this.detector.hitBoxGroup = hitBoxGroup;
             this.detector.isCrit = false;
+
+            arsonistCon = base.gameObject.GetComponent<ArsonistController>();
+            arsonistCon.steamDownParticle.Stop();
+            arsonistCon.fireBeam.Stop();
+
         }
 
         public override void OnExit()

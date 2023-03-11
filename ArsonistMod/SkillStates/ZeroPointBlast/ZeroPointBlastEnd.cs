@@ -1,5 +1,8 @@
-﻿using EntityStates;
+﻿using ArsonistMod.Content.Controllers;
+using ArsonistMod.Modules.Networking;
+using EntityStates;
 using HG;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -11,6 +14,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 {
     public class ZeroPointBlastEnd : BaseSkillState
     {
+        public ArsonistController arsonistCon;
         public float stopwatch;
         public float duration;
         public static float baseDuration = 0.6f;
@@ -20,11 +24,21 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         public float damageCoefficient;
         public float radius = 5f;
         public Animator animator;
+        private string muzzleString = "GunMuzzle";
+        public Transform muzzlePos;
 
         //Final blast.
         public override void OnEnter()
         {
             base.OnEnter();
+
+            //Get MuzzlePos
+            ChildLocator childLoc = GetModelChildLocator();
+            muzzlePos = childLoc.FindChild(muzzleString);
+            if (base.isAuthority)
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 1486446844).Send(R2API.Networking.NetworkDestination.Clients);
+            }
             animator = base.GetModelAnimator();
             stopwatch = 0f;
             duration = baseDuration / base.attackSpeedStat;
@@ -49,6 +63,21 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
 
             blastAttack.Fire();
+
+            EffectData effectData = new EffectData
+            {
+                _origin = muzzlePos.position,
+                scale = 1f,
+                start = muzzlePos.position,
+                rotation = Quaternion.identity,
+            };
+            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, effectData, true);
+
+
+            arsonistCon = base.gameObject.GetComponent<ArsonistController>();
+            arsonistCon.steamDownParticle.Stop();
+            arsonistCon.fireBeam.Stop();
+
         }
 
         public override void OnExit()

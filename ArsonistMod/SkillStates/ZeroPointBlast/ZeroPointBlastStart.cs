@@ -20,7 +20,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 
     public class ZeroPointBlastStart : BaseSkillState
     {
-        //Energy System
+        //Energy System and Controller
+        public ArsonistController arsonistController;
         public EnergySystem energySystem;
 
         //Damage and attack
@@ -35,6 +36,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         protected string hitboxName = "ZeroPoint";
         private BlastAttack blastAttack;
         public float radius = 5f;
+        private Transform muzzlePos;
+        private string muzzleString = "GunMuzzle";
 
         //Hit Pause
         private float hitPauseTimer;
@@ -182,6 +185,15 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             blastAttack.damageType = DamageType.Stun1s;
             blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
 
+            arsonistController = base.gameObject.GetComponent<ArsonistController>();
+            if (arsonistController) 
+            {
+                arsonistController.steamDownParticle.Play();
+            }
+
+            //Get MuzzlePos
+            ChildLocator childLoc = GetModelChildLocator();
+            muzzlePos = childLoc.FindChild(muzzleString);
         }
 
         private void RecalculateRollSpeed()
@@ -247,8 +259,17 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                 if (!hasFired) 
                 {
                     hasFired = true;
-                    blastAttack.position = characterBody.corePosition;
+                    blastAttack.position = muzzlePos.position;
                     blastAttack.Fire();
+                    arsonistController.fireBeam.Play();
+                    EffectData effectData = new EffectData
+                    {
+                        _origin = muzzlePos.position,
+                        scale = 1f,
+                        start = muzzlePos.position,
+                        rotation = Quaternion.identity,
+                    };
+                    EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, effectData, true);
                 }
             }
 

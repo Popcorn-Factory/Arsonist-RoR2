@@ -15,6 +15,7 @@ namespace ArsonistMod.Content.Controllers
 
         public ParticleSystem steamParticle;
         public ParticleSystem steamDownParticle;
+        public ParticleSystem fireBeam;
 
         // Use this for initialization
         void Start()
@@ -24,11 +25,9 @@ namespace ArsonistMod.Content.Controllers
             {
                 steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
                 steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>();
+                fireBeam = childLocator.FindChild("FireBeam").GetComponent<ParticleSystem>();
             }
-            //What's your existance for.
-            //To update an overlay.
-            //Oh god.
-
+            
             charBody = gameObject.GetComponent<CharacterBody>();
             entityStateMachines = gameObject.GetComponents<EntityStateMachine>();
             foreach (EntityStateMachine entityStateMachine in entityStateMachines) 

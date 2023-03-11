@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1519294160
+CRC: 1541733290
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7c5668df96db6188915df0ff353fd6c1
+    Hash: 242f034e16d8ca89cfd73c0306393e3e
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -174,6 +174,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkB.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Emote1.anim
 - Assets/ArsonistAssets/VFX/Materials/matHitSpark.mat
+- Assets/ArsonistAssets/VFX/Beam.prefab
 - Assets/ArsonistAssets/Animation/clips/ShootGun.anim
 - Assets/ArsonistAssets/Animation/clips/SprintF.anim
 - Assets/ArsonistAssets/VFX/arsonistCustomUI.prefab
@@ -226,6 +227,7 @@ Assets:
 - Assets/ArsonistAssets/HenryBombGhost.prefab
 - Assets/ArsonistAssets/Textures/ArsonistCloth_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
+- Assets/ArsonistAssets/Materials/SolGate.mat
 - Assets/ArsonistAssets/VFX/Materials/matSlash.mat
 - Assets/ArsonistAssets/VFX/Materials/matDust.mat
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png
@@ -257,6 +259,8 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/flareMainEmission.png
 - Assets/ArsonistAssets/VFX/Textures/SparkParticle.tif
 - Assets/ArsonistAssets/Animation/clips/AimPitch.anim
+- Assets/ArsonistAssets/VFX/Light.prefab
+- Assets/ArsonistAssets/Textures/noise3blur.png
 - Assets/ArsonistAssets/Materials/FireGlowMaterial.mat
 - Assets/ArsonistAssets/Materials/matArsonist.mat
 - Assets/ArsonistAssets/Textures/Arsonist_diffuse.png
