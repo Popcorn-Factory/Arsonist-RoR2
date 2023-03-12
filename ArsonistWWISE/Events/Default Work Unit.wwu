@@ -151,7 +151,7 @@
 						<Action Name="" ID="{3919E05A-04DD-4C1F-9C0D-1302837C330C}" ShortID="669783688">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="3_2_Primary_Fire_Explosion_OnHit" ID="{DA6F70FA-25BD-4CE7-807F-E04B14A30C11}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="3_2_Primary_Fire_OnHit" ID="{E0710632-CFB0-4452-9A9F-85DCB2F1118A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

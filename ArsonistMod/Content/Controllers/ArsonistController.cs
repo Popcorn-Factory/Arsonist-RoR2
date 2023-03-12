@@ -16,6 +16,7 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem steamParticle;
         public ParticleSystem steamDownParticle;
         public ParticleSystem fireBeam;
+        public ParticleSystem fireBeamForward;
 
         // Use this for initialization
         void Start()
@@ -26,6 +27,7 @@ namespace ArsonistMod.Content.Controllers
                 steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
                 steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>();
                 fireBeam = childLocator.FindChild("FireBeam").GetComponent<ParticleSystem>();
+                fireBeamForward = childLocator.FindChild("FireBeamForwardFiring").GetComponent<ParticleSystem>();
             }
             
             charBody = gameObject.GetComponent<CharacterBody>();

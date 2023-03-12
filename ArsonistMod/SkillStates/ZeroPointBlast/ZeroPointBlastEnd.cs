@@ -19,6 +19,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         public float duration;
         public static float baseDuration = 0.6f;
         public static float earlyExitFrac = 0.48f;
+        public static float unlockVelocity = 0.2f;
         public BlastAttack blastAttack;
         protected float pushForce = 500f;
         public float damageCoefficient;
@@ -41,13 +42,22 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             }
             animator = base.GetModelAnimator();
             stopwatch = 0f;
-            duration = baseDuration / base.attackSpeedStat;
+            duration = baseDuration;
 
             this.animator.SetBool("attacking", true);
-            animator.SetFloat("Attack.playbackRate", this.attackSpeedStat);
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
-            base.PlayCrossfade("UpperBody, Override", "ZPBHit", "Attack.playbackRate", duration, 0.02f);
+            animator.SetFloat("Attack.playbackRate", 1f);
+            if (isGrounded)
+            {
+                base.PlayAnimation("UpperBody, Override", "BufferEmpty");
+                base.PlayCrossfade("FullBody, Override", "ZPBHit", "Attack.playbackRate", duration, 0.02f);
+            }
+            else 
+            {
+                base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                base.PlayCrossfade("UpperBody, Override", "ZPBHit", "Attack.playbackRate", duration, 0.02f);
+            }
             base.characterMotor.velocity = Vector3.zero;
+            base.characterMotor.lastVelocity = Vector3.zero;
 
             blastAttack = new BlastAttack();
             blastAttack.radius = radius;
@@ -72,7 +82,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 
             arsonistCon = base.gameObject.GetComponent<ArsonistController>();
             arsonistCon.steamDownParticle.Stop();
-            arsonistCon.fireBeam.Stop();
+            arsonistCon.fireBeamForward.Play();
 
         }
 
@@ -80,6 +90,8 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         {
             base.OnExit();
             this.animator.SetBool("attacking", false);
+            arsonistCon.fireBeam.Stop();
+            arsonistCon.fireBeamForward.Stop();
             base.PlayAnimation("UpperBody, Override", "BufferEmpty");
         }
 
@@ -87,6 +99,11 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         {
             base.FixedUpdate();
             stopwatch += Time.fixedDeltaTime;
+            if (stopwatch <= duration * unlockVelocity) 
+            {
+                base.characterMotor.velocity = Vector3.zero;
+                base.characterMotor.lastVelocity = Vector3.zero;
+            }
 
             if (stopwatch >= duration)
             {

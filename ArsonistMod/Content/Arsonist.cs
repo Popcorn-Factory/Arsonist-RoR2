@@ -103,6 +103,16 @@ namespace ArsonistMod.Modules.Survivors
             base.InitializeCharacter();
             bodyPrefab.AddComponent<EnergySystem>();
             bodyPrefab.AddComponent<ArsonistController>();
+
+            //Modify the material on the fireblast
+            ChildLocator childLocator = bodyPrefab.GetComponentInChildren<ChildLocator>();
+            Transform fireBlastEffectTransform = childLocator.FindChild("FireBeam");
+            Transform fireBlastFowardTransform = childLocator.FindChild("FireBeamForwardFiring");
+            ParticleSystemRenderer particleSystemRenderer = fireBlastEffectTransform.GetChild(0).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>();
+            ParticleSystemRenderer particleSystemRenderer2 = fireBlastFowardTransform.GetChild(0).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>();
+
+            particleSystemRenderer.material = Assets.emissionRingMatLesser;
+            particleSystemRenderer2.material = Assets.emissionRingMatLesser;
         }
 
         public override void InitializeUnlockables()

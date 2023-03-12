@@ -344,6 +344,16 @@
 												<MediaID ID="87249989"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="3__Explosion_from_projectile_contact (1)" ID="{3F06F2B9-F6F7-4CFE-AC9C-E5B9F47089AF}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>3._Explosion_from_projectile_contact (1).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="587662177"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="1_ Flare Projectile" ID="{F5B0E277-B6C9-468F-9006-5BD6B4E00E31}" Platform="Linked"/>
@@ -649,40 +659,6 @@
 										<ActiveSource Name="1_ Flare Punch" ID="{2E2C3D2A-B400-4A95-9D9E-0B4B2D0FFA12}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="3_2_Primary_Fire_Explosion_OnHit" ID="{DA6F70FA-25BD-4CE7-807F-E04B14A30C11}" ShortID="743564006">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}">
-											<Language>SFX</Language>
-											<AudioFile>3._Explosion_from_projectile_contact.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="229350857"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="3__Explosion_from_projectile_contact" ID="{02208807-D581-4C15-ABCD-EE8F2EDCDF41}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="7_0_Menu_Match_Strike" ID="{6A050046-6A02-4E6B-8AA2-62D31A51D6A7}" ShortID="500058221">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
@@ -785,6 +761,41 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="3_99_ZPB_contact" ID="{A8EC1358-2839-4E0A-ADB2-0545B593E175}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="3_2_Primary_Fire_OnHit" ID="{E0710632-CFB0-4452-9A9F-85DCB2F1118A}" ShortID="24399979">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverrideConversion" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Explosion_from_projectile_contact (1)" ID="{8760F4AA-2392-41BD-B2D8-ED5F5DF62471}">
+											<Language>SFX</Language>
+											<AudioFile>Explosion_from_projectile_contact (1).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1071573893"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Explosion_from_projectile_contact (1)" ID="{8760F4AA-2392-41BD-B2D8-ED5F5DF62471}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

@@ -65,6 +65,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         private static float startupFrac = 0.2f;
         private static float freezeFrac = 0.58f;
         private static float blastFrac = 0.3f;
+        private static float stopFlameFrac = 0.35f;
         private bool hasFired = false;
         public static float hitExtraDuration = 0.44f;
         public static float minExtraDuration = 0.2f;
@@ -194,6 +195,20 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             //Get MuzzlePos
             ChildLocator childLoc = GetModelChildLocator();
             muzzlePos = childLoc.FindChild(muzzleString);
+
+            if (isGrounded) 
+            {
+                base.SmallHop(base.characterMotor, 6f);
+            }
+        }
+
+        private bool CheckLookingTowardsVector(Vector3 dir)
+        {
+            if (Vector3.Dot(base.GetAimRay().direction, dir) > 0.866f)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void RecalculateRollSpeed()

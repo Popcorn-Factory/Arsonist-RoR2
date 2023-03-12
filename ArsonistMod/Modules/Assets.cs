@@ -37,6 +37,8 @@ namespace ArsonistMod.Modules
         internal static GameObject arsonistFlareAttached;
         internal static GameObject displayFire;
         internal static Material arsonistOverheatingMaterial;
+        internal static Material emissionRingMat;
+        internal static Material emissionRingMatLesser;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -150,6 +152,10 @@ namespace ArsonistMod.Modules
 
 
             arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
+
+            emissionRingMat = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
+            emissionRingMatLesser = new Material(emissionRingMat);
+            emissionRingMatLesser.SetFloat("_EmPower", 2f);
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab)

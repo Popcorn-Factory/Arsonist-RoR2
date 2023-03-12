@@ -279,7 +279,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ZPBHit
-  m_Speed: 0.75
+  m_Speed: 0.4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5115847436950303325}
@@ -1312,7 +1312,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ZPBHit
-  m_Speed: 0.5
+  m_Speed: 0.4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5151047843583451505}
