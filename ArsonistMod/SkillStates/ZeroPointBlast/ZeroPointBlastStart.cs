@@ -11,6 +11,7 @@ using RoR2;
 using EntityStates.Treebot.Weapon;
 using HG;
 using UnityEngine.Networking;
+using R2API.Networking;
 
 namespace ArsonistMod.SkillStates.ZeroPointBlast
 {
@@ -199,6 +200,11 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             if (isGrounded) 
             {
                 base.SmallHop(base.characterMotor, 6f);
+            }
+
+            if (base.isAuthority) 
+            {
+                characterBody.ApplyBuff(Modules.Buffs.fallDamageReductionBuff.buffIndex, 1, 3f);
             }
         }
 

@@ -213,7 +213,15 @@ namespace ArsonistMod
                         flarecon.charbody = self.body;
                     }
 
-
+                    DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
+                    DamageType frailtyDamageType = DamageType.FallDamage | DamageType.BypassOneShotProtection;
+                    if (self.body.HasBuff(Modules.Buffs.fallDamageReductionBuff) && (damageInfo.damageType == tempDamageType || damageInfo.damageType == frailtyDamageType )) 
+                    {
+                        if (damageInfo.damage >= 20f) 
+                        {
+                            damageInfo.damage = 20f;
+                        }
+                    }
 
                     if (self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck))
                     {
@@ -244,6 +252,7 @@ namespace ArsonistMod
                             
                         }
                     }
+                    
                 }                    
             }
 
