@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="1813394378">
+		<SoundBank Id="1110381487" Language="SFX" Hash="2945776566">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -76,7 +76,7 @@
 					<IncludedMemoryFiles>
 						<File Id="938389516" Language="SFX">
 							<ShortName>Primary Fire\1. Primary Fire.wav</ShortName>
-							<Path>SFX\Primary Fire\1. Primary Fire_3F75BDB9.wem</Path>
+							<Path>SFX\Primary Fire\1. Primary Fire_F3C8AE6E.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

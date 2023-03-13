@@ -270,6 +270,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="1_ Primary Fire" ID="{FB73C80E-0F69-45CA-AECB-ECD147443C79}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.206404109589041"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.206"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Primary Fire\1. Primary Fire.wav</AudioFile>
 											<MediaIDList>
