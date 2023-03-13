@@ -18,6 +18,7 @@ namespace ArsonistMod.Modules
         internal const float bombDamageCoefficient = 16f;
 
         //passive onfire buff
+        internal static float igniteAttackSpeedMultiplier = 1.25f;
         internal static float igniteDamageReduction = 0.5f;
         internal static float igniteDamageMultiplier = 1.5f;
         internal static float igniteMovespeedMultiplier = 1.5f;

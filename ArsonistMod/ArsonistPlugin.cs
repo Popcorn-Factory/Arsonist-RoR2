@@ -141,6 +141,7 @@ namespace ArsonistMod
                         {
                             self.damage *= StaticValues.igniteDamageMultiplier;
                             self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+                            self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
 
                             energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
 
@@ -149,7 +150,7 @@ namespace ArsonistMod
                         {
                             self.damage *= StaticValues.igniteDamageMultiplier;
                             self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
-
+                            self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
                             energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
                         }
 
