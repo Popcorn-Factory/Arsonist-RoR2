@@ -9,9 +9,13 @@ namespace ArsonistMod.Content.Controllers
     {
         Animator anim;
         CharacterBody charBody;
+        CharacterMotor characterMotor;
         EntityStateMachine[] entityStateMachines;
         EntityStateMachine weaponStateMachine;
         EntityStateMachine bodyStateMachine;
+
+        public float idleStopwatch;
+        public bool isIdle;
 
         public ParticleSystem steamParticle;
         public ParticleSystem steamDownParticle;
@@ -31,7 +35,9 @@ namespace ArsonistMod.Content.Controllers
             }
             
             charBody = gameObject.GetComponent<CharacterBody>();
+            characterMotor = gameObject.GetComponent<CharacterMotor>();
             entityStateMachines = gameObject.GetComponents<EntityStateMachine>();
+
             foreach (EntityStateMachine entityStateMachine in entityStateMachines) 
             {
                 if (entityStateMachine.customName == "Weapon") 
@@ -43,6 +49,11 @@ namespace ArsonistMod.Content.Controllers
                     bodyStateMachine = entityStateMachine;
                 }
             }
+
+            idleStopwatch = 0f;
+            isIdle = false;
+            HurtBoxGroup hurtBoxGroup = charBody.hurtBoxGroup;
+            anim = hurtBoxGroup.gameObject.GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -63,6 +74,26 @@ namespace ArsonistMod.Content.Controllers
                 {
                     //Trigger the emote strut key
                     weaponStateMachine.SetNextState(new EmoteStrut());
+                }
+
+                if (characterMotor.moveDirection.magnitude == 0
+                    && !charBody.inputBank.skill1.down
+                    && !charBody.inputBank.skill2.down
+                    && !charBody.inputBank.skill3.down
+                    && !charBody.inputBank.skill4.down)
+                {
+                    idleStopwatch += Time.deltaTime;
+                    if (idleStopwatch >= 5f && !isIdle)
+                    {
+                        isIdle = true;
+                        anim.SetBool("isIdle", true);
+                    }
+                }
+                else
+                {
+                    idleStopwatch = 0f;
+                    isIdle = false;
+                    anim.SetBool("isIdle", false);
                 }
             }
         }
