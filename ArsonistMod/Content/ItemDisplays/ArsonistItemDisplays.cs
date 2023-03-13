@@ -1985,9 +1985,10 @@ localScale = new Vector3(0.2789F, 0.2789F, 0.2789F),
                             followerPrefab = ItemDisplays.LoadDisplay("DisplayFireballsOnHit"),
                             childName = "GunMuzzle",
                             localPos = new Vector3(0.01744F, 0.00486F, 0.28165F),
-                            localAngles = new Vector3(273.173F, 169.524F, 20.77379F),
-                            localScale = new Vector3(0.0761F, 0.0761F, 0.0761F),
+                            localAngles = new Vector3(277.3176F, 174.9625F, 17.57329F),
+                            localScale = new Vector3(0.11169F, 0.07545F, 0.09659F),
                             limbMask = LimbFlags.None
+
                         }
                     }
                 }
