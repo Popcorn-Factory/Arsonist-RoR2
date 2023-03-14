@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2585351065
+CRC: 3704287393
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 36b6b141fdc836017d97f8077d80ef31
+    Hash: 1b7db81719dceeb0889ffa807a38058d
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -78,6 +78,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ArsonistAssets/Animation/animArsonist.controller
+- Assets/ArsonistAssets/Icons/ZPBBuff.png
 - Assets/ArsonistAssets/VFX/Materials/matAnimeShapes.mat
 - Assets/ArsonistAssets/VFX/Textures/texPunchImpactShadow.png
 - Assets/ArsonistAssets/Materials/Henry/matBazookaRocket.mat
@@ -213,7 +214,9 @@ Assets:
 - Assets/ArsonistAssets/mdlArsonistOld.prefab
 - Assets/ArsonistAssets/HumanoidArsonist.prefab
 - Assets/ArsonistAssets/VFX/Materials/matHitSparkPunch.mat
+- Assets/ArsonistAssets/Icons/masochismBuff.png
 - Assets/ArsonistAssets/Mesh/meshArsonistBoots.mesh
+- Assets/ArsonistAssets/Icons/flareDebuff.png
 - Assets/ArsonistAssets/StrongFlare.prefab
 - Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
 - Assets/ArsonistAssets/VFX/Fire.prefab
@@ -262,6 +265,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/AimPitch.anim
 - Assets/ArsonistAssets/VFX/Light.prefab
 - Assets/ArsonistAssets/Textures/noise3blur.png
+- Assets/ArsonistAssets/Icons/blueGaugeBuff.png
 - Assets/ArsonistAssets/Materials/FireGlowMaterial.mat
 - Assets/ArsonistAssets/Materials/matArsonist.mat
 - Assets/ArsonistAssets/Textures/Arsonist_diffuse.png

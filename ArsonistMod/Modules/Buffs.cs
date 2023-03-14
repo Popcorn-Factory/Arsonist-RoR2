@@ -17,14 +17,17 @@ namespace ArsonistMod.Modules
 
         internal static void RegisterBuffs()
         {
-            Sprite tempIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdSlow80.asset").WaitForCompletion().iconSprite;
-            Sprite shieldSprite = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdHiddenInvincibility.asset").WaitForCompletion().iconSprite;
+            Sprite masochismSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("masochismBuff");
+            Sprite blueGaugeSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("blueGaugeBuff");
+            Sprite flareDebuffSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("flareDebuff");
+            Sprite ZPBBuffSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("ZPBBuff");
+
             armorBuff = AddNewBuff("ArsonistArmorBuff", RoR2.LegacyResourcesAPI.Load<Sprite>("Textures/BuffIcons/texBuffGenericShield"), Color.white, false, false);
-            masochismBuff = AddNewBuff("Arsonist Masochism Overheat Buff", tempIcon, Color.red, false, false);
-            flareStrongBuff = AddNewBuff("Flare Strong Burn", tempIcon, Color.blue, true, true);
-            FlareWeakBuff = AddNewBuff("Flare Weak Burn", tempIcon, Color.yellow, true, true);
-            blueBuff = AddNewBuff("Blue Heat Gauge Buff", Assets.blazingBuffIcon, Color.cyan, false, true);
-            fallDamageReductionBuff = AddNewBuff("Fall Damage Reduction", shieldSprite, Color.yellow, false, true);
+            masochismBuff = AddNewBuff("Arsonist Masochism Overheat Buff", masochismSprite, Color.red, false, false);
+            flareStrongBuff = AddNewBuff("Flare Strong Burn", flareDebuffSprite, Color.blue, true, true);
+            FlareWeakBuff = AddNewBuff("Flare Weak Burn", flareDebuffSprite, Color.yellow, true, true);
+            blueBuff = AddNewBuff("Blue Heat Gauge Buff", blueGaugeSprite, Color.cyan, false, false);
+            fallDamageReductionBuff = AddNewBuff("Fall Damage Reduction", ZPBBuffSprite, Color.yellow, false, false);
         }
 
         // simple helper method
