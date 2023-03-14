@@ -201,7 +201,7 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] {prefix + "KEYWORD_BLUEGAUGE", prefix + "KEYWORD_FIRESPRAYHEAT" }
+                keywordTokens = new string[] {prefix + "KEYWORD_CRITICALGAUGE", prefix + "KEYWORD_FIRESPRAYHEAT" }
             });
 
             Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]

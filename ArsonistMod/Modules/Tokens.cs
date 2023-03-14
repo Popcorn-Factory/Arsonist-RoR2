@@ -40,7 +40,7 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Overheat");
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "Overdrive");
-            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
+            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + Helpers.criticalPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             #endregion
 
             #region Secondary
@@ -58,17 +58,17 @@ namespace ArsonistMod.Modules
 
             #region Special
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_NAME", "Masochism");
-            LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds.");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds. Increases attack speed <style=cIsDamage>{100*StaticValues.igniteAttackSpeedMultiplier}%</style>.");
             #endregion
 
             #region Keywords
             LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"<style=cKeywordName>Heat</style> " + 
-                $"Skills increase/decrease heat. At max heat, arsonist overheats, weakening their skills and causing longer cooldowns. Attack speed increases cooling rate. Which primary chosen alters the heat gauge. ");
+                $"Skills increase/decrease heat. At max heat, arsonist overheats, weakening their skills and causing longer cooldowns. Attack speed increases cooling rate. The selected primary chosen alters the heat gauge. ");
             LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGE", $"<style=cKeywordName>Base Gauge</style> " + 
                 $"Heat gauge increase per level as well as with stock-based items. " +
                 $"Cooling rate also increases at higher %s of heat.");
-            LanguageAPI.Add(prefix + "KEYWORD_BLUEGAUGE", $"<style=cKeywordName>Blue Gauge</style> " + 
-                $"Heat gauge does not increase, instead blue gauge increases per level as well as with stock-based items. " +
+            LanguageAPI.Add(prefix + "KEYWORD_CRITICALGAUGE", $"<style=cKeywordName>Critical Gauge</style> " + 
+                $"Heat gauge does not increase, instead critical gauge increases per level as well as with stock-based items. " +
                 $"Gain 2x damage while heat is in blue gauge. ");
             LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style> " +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Half damage and speed in overheat.");

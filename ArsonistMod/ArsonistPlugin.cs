@@ -132,8 +132,6 @@ namespace ArsonistMod
                         if (self.HasBuff(Buffs.blueBuff))
                         {
                             self.damage *= StaticValues.blueDamageMultiplier;
-
-
                         }
 
                         //passive burn movespeed and damage
@@ -141,7 +139,6 @@ namespace ArsonistMod
                         {
                             self.damage *= StaticValues.igniteDamageMultiplier;
                             self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
-                            self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
 
                             energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
 
@@ -150,8 +147,12 @@ namespace ArsonistMod
                         {
                             self.damage *= StaticValues.igniteDamageMultiplier;
                             self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
-                            self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
                             energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+                        }
+
+                        if (self.HasBuff(Modules.Buffs.masochismBuff)) 
+                        {
+                            self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
                         }
 
                         //cooldowns depending on being overheated or not

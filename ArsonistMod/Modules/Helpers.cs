@@ -7,6 +7,7 @@ namespace ArsonistMod.Modules
     {
         internal const string startPrefix = "<style=cIsUtility>Agile. Heat. </style>";
         internal const string heatPrefix = "<style=cIsUtility>Heat. </style>";
+        internal const string criticalPrefix = "<style=cIsUtility>Critical. </style>";
 
         internal static string ScepterDescription(string desc)
         {
