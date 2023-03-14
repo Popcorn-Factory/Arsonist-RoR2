@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1726488561
+CRC: 2838942563
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 85a26a776c5474702035ff086cca65b1
+    Hash: 7f0d5c48f4c8889969d6aef87dca4bd4
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -136,6 +136,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpact.mat
 - Assets/ArsonistAssets/Animation/clips/SprintR.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M3.anim
+- Assets/ArsonistAssets/Materials/GaugeMaterial.mat
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
 - Assets/ArsonistAssets/Animation/maskImpact.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
