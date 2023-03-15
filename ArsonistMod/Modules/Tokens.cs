@@ -10,19 +10,24 @@ namespace ArsonistMod.Modules
             #region Arsonist
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
-            string desc = "Arsonist is heat.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            //desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
-            //desc = desc + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine;
-            //desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
-            //desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
+            string desc = "The Arsonist is a close-ranked tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory." 
+                + Environment.NewLine + Environment.NewLine
+                + "< ! > Your attacks will be weaker when you're overheating. If you're in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration."
+                + Environment.NewLine + Environment.NewLine
+                + "< ! > Use Cleanse and Masochism together."
+                + Environment.NewLine + Environment.NewLine
+                + "< ! > Zero-Point Blast's distance scales according to movement speed"
+                + Environment.NewLine + Environment.NewLine
+                + "< ! > Items such as Razorwire do not work with Cleanse when Masochism is active. Try finding other means of healing while Cleanse is active if you want to use it in a self-damage build.";
 
-            string outro = "..and so he left, with new bloodlust blazing in his soul.";
-            string outroFailure = "..and so he vanished, mortality burning away from flesh.";
+            string outro = "..and so he left, with new bloodlust set ablaze.";
+            string outroFailure = "..and so he vanished, his only regret: a job left unfinished.";
+            string lore = "A u d i o  r e c o r d i n g  t a k e n  f r o m  p e r s o n a l  r e c o r d i n g  d e v i c e .\r\n\r\nP r i n t i n g  t r a n s c r i p t . . .\r\n\r\nJoining the UES proved to be easy. Especially with their job listings. \r\n\r\nA demolitions expert is not much different from the type of work that I already do. And yes, arson is work. The military had been kind enough to leave the old equipment of the Incendiary Unit lying around for keen eyes like mine to find. It wasn’t difficult learning exactly what they were trying to do with that unit, and it was a damned shame that they shut it down.\r\n\r\nThey were brilliant. They were brilliant, and the UES told them they were psychopaths. I was only able to barely salvage the remnants of what little hadn’t been completely destroyed. Even then, I haven’t gotten much of a chance to test my restorations with the high security of my division.\r\n\r\nI heard from a colleague that there was a job happening. Some sort of rescue mission aboard the UES Safe Travels to an uncharted planet. I’ve heard stories of that place, not so nice ones about the creatures that live there.\r\n\r\nHm.\r\n\r\nMaybe I’ll go. Sounds like I’ll find some very good lab rats.\r\n\r\nE n d  o f  r e c o r d i n g .\r\n\r\n";
 
             LanguageAPI.Add(prefix + "NAME", "Arsonist");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
-            LanguageAPI.Add(prefix + "SUBTITLE", "The Pyromaniac");
-            LanguageAPI.Add(prefix + "LORE", "The lost cinders of the world.");
+            LanguageAPI.Add(prefix + "SUBTITLE", "Manic Incendiary");
+            LanguageAPI.Add(prefix + "LORE", lore);
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
 

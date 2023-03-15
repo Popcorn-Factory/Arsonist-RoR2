@@ -820,7 +820,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -6320,7 +6320,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -11386,7 +11386,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -24134,7 +24134,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -29598,7 +29598,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -40095,7 +40095,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -45412,6 +45412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Steam (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5452317967111715745, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
       propertyPath: m_RootOrder
@@ -45467,6 +45472,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.156006
       objectReference: {fileID: 0}
+    - target: {fileID: 8502896759265215203, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2670d8dcfc4f3f46878d29468b99273, type: 3}
 --- !u!4 &7092346770902608069 stripped
@@ -45486,6 +45496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Steam (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452317967111715745, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
@@ -45542,6 +45557,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 20.207993
       objectReference: {fileID: 0}
+    - target: {fileID: 8502896759265215203, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2670d8dcfc4f3f46878d29468b99273, type: 3}
 --- !u!4 &8062201736280671547 stripped
@@ -45561,6 +45581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Steam
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452317967111715745, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
@@ -45617,6 +45642,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 20.207993
       objectReference: {fileID: 0}
+    - target: {fileID: 8502896759265215203, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2670d8dcfc4f3f46878d29468b99273, type: 3}
 --- !u!4 &4838772337315929683 stripped
@@ -45636,6 +45666,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Steam (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452317967111715745, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
@@ -45690,6 +45725,11 @@ PrefabInstance:
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502896759265215203, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -45862,6 +45902,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Steam (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5452317967111715745, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
       propertyPath: m_RootOrder
@@ -45917,6 +45962,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8502896759265215203, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2670d8dcfc4f3f46878d29468b99273, type: 3}
 --- !u!4 &6526662777147331310 stripped
@@ -45936,6 +45986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Steam (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452317967111715745, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7164865654145893956, guid: c2670d8dcfc4f3f46878d29468b99273,
         type: 3}
@@ -45991,6 +46046,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.156006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502896759265215203, guid: c2670d8dcfc4f3f46878d29468b99273,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2670d8dcfc4f3f46878d29468b99273, type: 3}

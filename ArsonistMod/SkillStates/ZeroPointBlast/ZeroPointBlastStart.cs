@@ -59,9 +59,9 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         private Ray aimRay;
         public static float baseduration = 0.8f;
         public static float duration;
-        public static float initialSpeedCoefficient = 4f;
+        public static float initialSpeedCoefficient = 6f;
         public float SpeedCoefficient;
-        public static float finalSpeedCoefficient = 2f;
+        public static float finalSpeedCoefficient = 4f;
         private float extraDuration;
         private static float startupFrac = 0.2f;
         private static float freezeFrac = 0.58f;
@@ -225,11 +225,13 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             {
                 num /= base.characterBody.sprintingSpeedMultiplier;
             }
-            if (num >= 10f)
+            if (num >= 12f)
             {
-                num = Mathf.Log10((num - 9f)) + 10f;
+                num = Mathf.Log10((num - 11f)) + 12f;
             }
-            this.rollSpeed = num * Mathf.Lerp(SpeedCoefficient, finalSpeedCoefficient, stopwatch - (duration * blastFrac) / (duration * freezeFrac - duration * blastFrac));
+            this.rollSpeed = num * Mathf.Lerp(SpeedCoefficient, finalSpeedCoefficient, (stopwatch - (duration * blastFrac)) / (duration * freezeFrac - duration * blastFrac));
+            Chat.AddMessage($"timestamp: {(stopwatch - (duration * blastFrac)) / (duration * freezeFrac - duration * blastFrac)}");
+            Chat.AddMessage($"rollSpeed: {rollSpeed}, num: {num}");
         }
 
         private void FireAttack()

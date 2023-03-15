@@ -80,10 +80,11 @@ namespace ArsonistMod.Content.Controllers
                     && !charBody.inputBank.skill1.down
                     && !charBody.inputBank.skill2.down
                     && !charBody.inputBank.skill3.down
-                    && !charBody.inputBank.skill4.down)
+                    && !charBody.inputBank.skill4.down
+                    && characterMotor.isGrounded)
                 {
                     idleStopwatch += Time.deltaTime;
-                    if (idleStopwatch >= 5f && !isIdle)
+                    if (idleStopwatch >= 7f && !isIdle)
                     {
                         isIdle = true;
                         anim.SetBool("isIdle", true);
