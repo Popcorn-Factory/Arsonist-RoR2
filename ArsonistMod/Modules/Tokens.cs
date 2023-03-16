@@ -10,7 +10,7 @@ namespace ArsonistMod.Modules
             #region Arsonist
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
-            string desc = "The Arsonist is a close-ranked tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory." 
+            string desc = "The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory." 
                 + Environment.NewLine + Environment.NewLine
                 + "< ! > Your attacks will be weaker when you're overheating. If you're in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration."
                 + Environment.NewLine + Environment.NewLine

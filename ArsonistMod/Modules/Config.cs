@@ -11,6 +11,7 @@ namespace ArsonistMod.Modules
     {
         public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
+        public static ConfigEntry<bool> shouldHaveVoice;
 
         public static ConfigEntry<KeyboardShortcut> emoteSitKey;
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
@@ -50,6 +51,14 @@ namespace ArsonistMod.Modules
                 new KeyboardShortcut(UnityEngine.KeyCode.Alpha2),
                 new ConfigDescription("Determines the key to trigger Arsonist to Emote Strut.", null, Array.Empty<object>())
             );
+
+
+            shouldHaveVoice = ArsonistPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("03 - Voice", "Arsonist can laugh/grunt/snicker."),
+                true,
+                new ConfigDescription("By default, Arsonist can laugh/grunt when Masochism or ZPB is used. When off, no voice will be played.", null, Array.Empty<object>())
+            );
         }
 
         public static void SetupRiskOfOptions() 
@@ -79,6 +88,8 @@ namespace ArsonistMod.Modules
                 emoteSitKey));
             ModSettingsManager.AddOption(new KeyBindOption(
                 emoteStrutKey));
+
+            ModSettingsManager.AddOption(new CheckBoxOption(shouldHaveVoice));
         }
 
         // this helper automatically makes config entries for disabling survivors

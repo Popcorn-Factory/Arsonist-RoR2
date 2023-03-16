@@ -25,7 +25,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_Masochism" ID="{BB27D427-D5A6-4BC1-A038-996CA4AC49B4}">
+				<Event Name="Arsonist_Masochism_Laugh" ID="{BB27D427-D5A6-4BC1-A038-996CA4AC49B4}">
 					<ChildrenList>
 						<Action Name="" ID="{968CA12E-42C2-4D68-BD39-1EB3E36E5765}" ShortID="660906222">
 							<ReferenceList>
@@ -185,6 +185,39 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="5_1_ZPB_Contact" ID="{FF79A392-3A28-44F2-91D1-4C284C27C64C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_ZPB_Start_Laugh" ID="{C5527BBB-65BA-4E34-AC78-271D4DE39FD6}">
+					<ChildrenList>
+						<Action Name="" ID="{DE732193-58D0-43F4-8CB3-8D4B2F0E961D}" ShortID="445181653">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_2_ZPB_Fire_Laugh" ID="{1C0F2F77-AE3C-431B-82E8-BC1F5F14BE20}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_ZPB_Contact_Laugh" ID="{0FB53136-6106-40FD-90BB-B8A1B7A204E2}">
+					<ChildrenList>
+						<Action Name="" ID="{918AD6F6-0CDD-45DC-AFD4-E7594676B2B2}" ShortID="935095471">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_3_ZPB_Contact_Laugh" ID="{30AD7D16-F4D1-445D-ADB5-0025F942DB7C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Masochism" ID="{558167AF-C0C1-48AF-91A1-3FE91ADF5F13}">
+					<ChildrenList>
+						<Action Name="" ID="{D642B8E9-F604-479A-8774-A4AD76618687}" ShortID="651640608">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_1_Masochism_No_Laugh" ID="{650DEF79-DC46-40E9-B537-FD94517C4BE3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

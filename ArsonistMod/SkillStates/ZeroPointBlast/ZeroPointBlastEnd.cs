@@ -38,7 +38,16 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             muzzlePos = childLoc.FindChild(muzzleString);
             if (base.isAuthority)
             {
-                new PlaySoundNetworkRequest(characterBody.netId, 1486446844).Send(R2API.Networking.NetworkDestination.Clients);
+                if (!Modules.Config.shouldHaveVoice.Value)
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, 1486446844).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                else
+                {
+                    //Determine if they have a buff and play a non-laughing version if so.
+                    uint soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)1486446844 : 3858611310; //Nonlaugh : laugh
+                    new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(R2API.Networking.NetworkDestination.Clients);
+                }
             }
             animator = base.GetModelAnimator();
             stopwatch = 0f;

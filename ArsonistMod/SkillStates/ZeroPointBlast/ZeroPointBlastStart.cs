@@ -81,7 +81,17 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             //Play Start/Whiff sound
             if (base.isAuthority)
             {
-                new PlaySoundNetworkRequest(characterBody.netId, 3585665340).Send(R2API.Networking.NetworkDestination.Clients);
+                if (!Modules.Config.shouldHaveVoice.Value)
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, 3585665340).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                else
+                {
+                    //Determine if they have a buff and play a non-laughing version if so.
+                    uint soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? 3585665340 : 289708206; //Nonlaugh : laugh
+                    new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                
             }
 
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
@@ -230,8 +240,6 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                 num = Mathf.Log10((num - 11f)) + 12f;
             }
             this.rollSpeed = num * Mathf.Lerp(SpeedCoefficient, finalSpeedCoefficient, (stopwatch - (duration * blastFrac)) / (duration * freezeFrac - duration * blastFrac));
-            Chat.AddMessage($"timestamp: {(stopwatch - (duration * blastFrac)) / (duration * freezeFrac - duration * blastFrac)}");
-            Chat.AddMessage($"rollSpeed: {rollSpeed}, num: {num}");
         }
 
         private void FireAttack()

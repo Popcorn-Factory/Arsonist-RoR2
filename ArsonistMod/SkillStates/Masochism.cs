@@ -48,7 +48,17 @@ namespace ArsonistMod.SkillStates
 
             if (base.isAuthority) 
             {
-                new PlaySoundNetworkRequest(base.characterBody.netId, 1840962711).Send(R2API.Networking.NetworkDestination.Clients);
+                if (!Modules.Config.shouldHaveVoice.Value)
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, 1840962711).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                else 
+                {
+                    //Determine if they have a buff and play a non-laughing version if so.
+                    bool buffCondition = (characterBody.HasBuff(Modules.Buffs.masochismBuff) || characterBody.HasBuff(Modules.Buffs.fallDamageReductionBuff));
+                    uint soundStr = buffCondition ? 1840962711 : 3831238989; //Nonlaugh : laugh
+                    new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(R2API.Networking.NetworkDestination.Clients);
+                }
             }
         }
 
@@ -91,7 +101,7 @@ namespace ArsonistMod.SkillStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Frozen;
         }
     }
 }
