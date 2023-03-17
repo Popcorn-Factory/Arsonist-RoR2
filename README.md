@@ -33,7 +33,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - 1.0.0 -> Initial release
 
 ## Skills
-<img src="https://cdn.discordapp.com/attachments/1034447458043969546/1085733412482072586/arsonistsheet.png?width=1920&height=1080">
+<img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
 
 ## Other Mods by Popcorn Factory
 <details>
