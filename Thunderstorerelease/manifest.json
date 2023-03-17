@@ -1,0 +1,17 @@
+{
+  "name": "Arsonist_Mod",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/Popcorn-Factory/Arsonist-RoR2",
+  "description": "The Manic Incendiary",
+  "dependencies": [
+    "bbepis-BepInExPack-5.4.1905",
+    "RiskofThunder-HookGenPatcher-1.2.3",
+    "RiskofThunder-R2API_Core-5.0.0",
+    "RiskofThunder-R2API_Prefab-1.0.0",
+    "RiskofThunder-R2API_Language-1.0.0",
+    "RiskofThunder-R2API_Sound-1.0.0",
+    "RiskofThunder-R2API_Networking-1.0.0",
+    "RiskofThunder-R2API_Unlockable-1.0.0",
+    "RiskofThunder-R2API_DamageType-1.0.0"
+  ]
+}

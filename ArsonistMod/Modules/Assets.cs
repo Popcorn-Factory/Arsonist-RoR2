@@ -106,9 +106,6 @@ namespace ArsonistMod.Modules
 
             // feel free to delete everything in here and load in your own assets instead
             // it should work fine even if left as is- even if the assets aren't in the bundle
-
-            swordHitSoundEvent = CreateNetworkSoundEventDef("ArsonistSwordHit");
-
             bombExplosionEffect = LoadEffect("BombExplosionEffect", "Arsonist_Secondary_Flare_Punch_Explosion");
 
             if (bombExplosionEffect)
@@ -126,9 +123,6 @@ namespace ArsonistMod.Modules
                     cycleOffset = 0f
                 };
             }
-
-            swordSwingEffect = Assets.LoadEffect("ArsonistSwordSwingEffect", true);
-            swordHitImpactEffect = Assets.LoadEffect("ImpactArsonistSlash");
 
             //arsonist flare
             arsonistFlareAttached = LoadEffect("flareAttached");

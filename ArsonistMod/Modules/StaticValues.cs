@@ -27,7 +27,7 @@ namespace ArsonistMod.Modules
         internal static float utilityCooldownMultiplier = 0.33f;
         internal static float specialCooldownMultiplier = 0.6f;
 
-        internal static int noOfSegmentsOnOverheatGauge = 200;
+        internal static int noOfSegmentsOnOverheatGauge = 150;
         internal static float maxBlueWhiteSegment = 0.9f;
         internal static Vector3 SegmentedValuesOnGaugeAlt = new Vector3(0.6f, 0.3f, 0.1f);
         internal static Vector3 SegmentedValuesOnGaugeMain = new Vector3(0.9f, 0f, 0.1f);

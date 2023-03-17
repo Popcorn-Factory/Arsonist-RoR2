@@ -14,7 +14,6 @@ using ArsonistMod.Modules.Networking;
 using EmotesAPI;
 using R2API;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
-using ArsonistMod.Modules.Networking;
 using System;
 
 [module: UnverifiableCode]
