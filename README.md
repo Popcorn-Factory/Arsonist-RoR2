@@ -1,7 +1,7 @@
 # Arsonist, The Manic Incendiary
 <div>
     <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
-        <img width="1280" height="720" src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
+        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
     </a>
 </div>
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistpodsmall.gif?raw=true">
