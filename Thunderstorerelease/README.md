@@ -12,6 +12,13 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 Network Compatible! (Unless otherwise found not to be)
 For any issues or bug reports, contact me on the RoR2 Modding discord, or to me directly: @Ethanol 10#6656
 
+## Trailer
+<div>
+    <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
+        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
+    </a>
+</div>
+
 ## Screenshots
 <img src="https://media.discordapp.net/attachments/928130606662049892/1086175951932641340/image.png?width=1280&height=720">
 <img src="https://media.discordapp.net/attachments/928130606662049892/1086175952809246760/image.png?width=1280&height=720">
