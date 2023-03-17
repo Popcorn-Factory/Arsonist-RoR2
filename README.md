@@ -2,7 +2,7 @@
 
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistpodsmall.gif?raw=true">
 
-The Arsonist is a close-ranked tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory.
+The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory.
 
 - Your attacks will be weaker when you’re overheating. If you’re in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration.
 - Use Cleanse and Masochism together.
@@ -25,7 +25,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 </a>
 
 ## Mod Interoperability List:
-- EmoteAPI
+- EmoteAPI / CustomEmotesAPI
+- RiskOfOptions
 - PhotoMode (Disables UI during Photo mode)
 
 # Major release details:
@@ -105,14 +106,18 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 
 ## Known Issues
 - The UI Gauge is affected by the Guilded Coast water for some reason. Purely cosmetic, only affects how the UI is rendered.
+- If someone can tell me how to implement a rope affected by gravity between two fixed objects (gun and the backpack), I'd like some help.
  
 ## Credits
 - Concept, Icons, 2D Art, SFX, Voice talent:
   - Harmonchaos#7179
-  - DragonRoIlZ#1350
+  - <a href="https://twitter.com/DragonRoIlZ">DragonRollZ</a>
+  - <a href="https://twitter.com/AnOddHermit">An Odd HermitVA</a>
 - 3D Modelling, Rigging, Animation:
   - dotflare#7898
 - Programming - Popcorn Factory team:
   - Ethanol 10#6656
   - TeaL#5571
   - BokChoyWithSoy#3842
+- Miscellaneous
+  - Rob - Character template
