@@ -1,6 +1,6 @@
 # Arsonist, The Manic Incendiary
 
-<img src="https://cdn.discordapp.com/attachments/1034447458043969546/1085730416411025469/arsonisticonflickerwithshake.gif">
+<img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistpodsmall.gif?raw=true">
 
 The Arsonist is a close-ranked tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory.
 
