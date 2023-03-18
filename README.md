@@ -16,7 +16,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 - 1.0.1 -> Some bug fixes and balances
     - Slight visual changes
-        - Heat gauge text now vibrates on overheat
+        - Heat gauge text now vibrates on overheat.
+        - Overheat overlay changed dependant on Primary selected.
     - Bug fixes
         - Changed Flinch animation to Additive instead of Override.
         - Changing Priority on moves so Primary is overrided if Secondary is pressed.

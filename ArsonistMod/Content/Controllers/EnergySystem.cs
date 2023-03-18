@@ -255,21 +255,16 @@ namespace ArsonistMod.Content.Controllers
 
             if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
             {
-                if (!baseHeatGauge)
-                {
-                    baseHeatGauge = true;
-                }
+
+                baseHeatGauge = true;
 
                 blueRatio = 0;
                 whiteRatio = StaticValues.maxBlueWhiteSegment - blueRatio;
             }
             else
             {
-                if (baseHeatGauge)
-                {
-                    baseHeatGauge = false;
-                }
-
+                baseHeatGauge = false;
+                
                 blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
                     + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
                     + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
@@ -570,14 +565,23 @@ namespace ArsonistMod.Content.Controllers
                 float h = (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed);
                 float alphaCalc = (((h - o) / 4.0f) / h);
 
-                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc ));
+
+                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.262f, 0f, alphaCalc));
                 Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (((h - o) / 4.0f) / h) * 25f);
             }
             else 
             {
                 float alphaCalc = Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) / 4f;
                 //Default material
-                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc));
+
+                if (baseHeatGauge)
+                {
+                    Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc));
+                }
+                else
+                {
+                    Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(0f, 0.537f, 1f, alphaCalc));
+                }
                 Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) * 25f);
             }
         }
