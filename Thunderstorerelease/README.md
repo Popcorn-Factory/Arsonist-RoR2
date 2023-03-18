@@ -12,6 +12,30 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 Network Compatible! (Unless otherwise found not to be)
 For any issues or bug reports, contact me on the RoR2 Modding discord, or to me directly: @Ethanol 10#6656
 
+## Latest Update
+
+- 1.0.1 -> Changes:
+    - New feature:
+        - Added a suicide button (Default off, turn on and press 9 in game.)
+    - Slight visual/audio changes
+        - Heat gauge text now vibrates on overheat.
+        - Overheat overlay color changed dependant on Primary selected.
+        - Doubled Attenuation range (100 -> 200) on all sounds.
+        - Added some Footstep VFX (Still needs work and some sound too) 
+    - Bug fixes
+        - Changed Flinch animation to Additive instead of Override.
+        - Changing Priority on moves so Primary is overrided if Secondary is pressed.
+        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an NRE.
+        - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component when it didn't need one.
+    - Balance Changes
+        - Health Growth from 15 -> 40 per level
+        - Masochism health percentage reduced from 0.05% -> 0.03% of max health per tick.  
+        - Masochism buff duration reduced from 8 -> 6.5 seconds
+        - Changed Overheat's (Default M1) damage coefficient from 300% -> 350% for non-overheated projectiles.
+        - Changed Overdrive's (Alt M1) damage coefficient from 300% -> 200% for non-overheated projectiles.
+        - Changed Overdrive's (Alt M1) damage coefficient from 150% -> 80% for overheated projectiles.
+        - Changed Overdrive's (Alt M1) base heat cost to fire a projectile from 8 -> 12
+
 ## Trailer
 <div>
     <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
@@ -35,10 +59,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
 - PhotoMode (Disables UI during Photo mode)
-
-# Major release details:
-
-- 1.0.0 -> Initial release
 
 ## Skills
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
@@ -97,7 +117,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <div>
     <a href="https://thunderstore.io/package/BokChoyWithSoy/Bok_Choy_Items/">
         <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086162390783111198/BokChoyWithSoy-Bok_Choy_Items-1.png"><br>
-        <p>Bok Choy Items (BokChoyWithSoy))</p>
+        <p>Bok Choy Items (BokChoyWithSoy)</p>
     </a>
 </div>
 
@@ -107,6 +127,27 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 1.0.1 -> Changes:
+    - New feature:
+        - Added a suicide button (Default off, turn on and press 9 in game.)
+    - Slight visual/audio changes
+        - Heat gauge text now vibrates on overheat.
+        - Overheat overlay color changed dependant on Primary selected.
+        - Doubled Attenuation range (100 -> 200) on all sounds.
+        - Added some Footstep VFX (Still needs work and some sound too) 
+    - Bug fixes
+        - Changed Flinch animation to Additive instead of Override.
+        - Changing Priority on moves so Primary is overrided if Secondary is pressed.
+        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an NRE.
+        - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component when it didn't need one.
+    - Balance Changes
+        - Health Growth from 15 -> 40 per level
+        - Masochism health percentage reduced from 0.05% -> 0.03% of max health per tick.  
+        - Masochism buff duration reduced from 8 -> 6.5 seconds
+        - Changed Overheat's (Default M1) damage coefficient from 300% -> 350% for non-overheated projectiles.
+        - Changed Overdrive's (Alt M1) damage coefficient from 300% -> 200% for non-overheated projectiles.
+        - Changed Overdrive's (Alt M1) damage coefficient from 150% -> 80% for overheated projectiles.
+        - Changed Overdrive's (Alt M1) base heat cost to fire a projectile from 8 -> 12
 - 1.0.0 - Initial Release
  
 </details>
@@ -114,6 +155,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 ## Known Issues
 - The UI Gauge is affected by the Guilded Coast water for some reason. Purely cosmetic, only affects how the UI is rendered.
 - If someone can tell me how to implement a rope affected by gravity between two fixed objects (gun and the backpack), I'd like some help.
+- Odd issues could possibly require a restart or file validation. Please try that and contact me (Ethanol 10) for bugs with a log file.
  
 ## Credits
 - Concept, Icons, 2D Art, SFX, Voice talent:
