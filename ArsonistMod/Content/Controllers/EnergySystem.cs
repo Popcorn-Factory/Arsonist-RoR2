@@ -565,7 +565,6 @@ namespace ArsonistMod.Content.Controllers
                 float h = (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed);
                 float alphaCalc = (((h - o) / 4.0f) / h);
 
-
                 Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.262f, 0f, alphaCalc));
                 Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (((h - o) / 4.0f) / h) * 25f);
             }

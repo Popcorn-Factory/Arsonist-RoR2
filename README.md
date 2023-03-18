@@ -15,14 +15,15 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 ## Latest Update
 
 - 1.0.1 -> Some bug fixes and balances
-    - Slight visual changes
+    - Slight visual/audio changes
         - Heat gauge text now vibrates on overheat.
-        - Overheat overlay changed dependant on Primary selected.
+        - Overheat overlay color changed dependant on Primary selected.
+        - Doubled Attenuation range (100 -> 200) on all sounds.`
     - Bug fixes
         - Changed Flinch animation to Additive instead of Override.
         - Changing Priority on moves so Primary is overrided if Secondary is pressed.
         - Added a suicide button (Default off, turn on and press 9 in game.)
-        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an error.
+        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an NRE.
         - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component when it didn't need one.
     - Balance Changes
         - Health Growth from 15 -> 40 per level
@@ -32,7 +33,6 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Changed Overdrive's (Alt M1) damage coefficient from 300% -> 200% for non-overheated projectiles.
         - Changed Overdrive's (Alt M1) damage coefficient from 150% -> 80% for overheated projectiles.
         - Changed Overdrive's (Alt M1) cost to fire a projectile from 8 -> 12
-        - 
 
 ## Trailer
 <div>

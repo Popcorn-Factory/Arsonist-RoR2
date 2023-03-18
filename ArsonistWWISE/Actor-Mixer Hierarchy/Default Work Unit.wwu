@@ -690,7 +690,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
 										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
@@ -925,6 +925,7 @@
 								</Sound>
 								<Sound Name="6_1_Masochism_No_Laugh" ID="{650DEF79-DC46-40E9-B537-FD94517C4BE3}" ShortID="466107067">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>12</Value>
@@ -932,6 +933,9 @@
 										</Property>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
 										</Reference>
