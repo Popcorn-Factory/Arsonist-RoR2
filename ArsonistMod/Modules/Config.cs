@@ -13,6 +13,7 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
         public static ConfigEntry<bool> shouldHaveVoice;
         public static ConfigEntry<bool> shouldEnableDieKey;
+        public static ConfigEntry<bool> overheatTextShouldVibrate;
 
         public static ConfigEntry<KeyboardShortcut> emoteSitKey;
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
@@ -92,6 +93,12 @@ namespace ArsonistMod.Modules
                     Array.Empty<object>()
                 )
             );
+            overheatTextShouldVibrate = ArsonistPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("00 - General", "Overheat Gauge text can vibrate"),
+                true,
+                new ConfigDescription("Controls whether the Overheat Gauge Text will vibrate slightly when overheat state is reached.", null, Array.Empty<object>())
+            );
             masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("01 - Masochism", "Masochism Health Multiplier when activated under overheat."),
@@ -136,6 +143,7 @@ namespace ArsonistMod.Modules
                 true,
                 new ConfigDescription("By default, Arsonist can laugh/grunt when Masochism or ZPB is used. When off, no voice will be played.", null, Array.Empty<object>())
             );
+
         }
 
         public static void SetupRiskOfOptions() 
@@ -170,6 +178,8 @@ namespace ArsonistMod.Modules
 
             ModSettingsManager.AddOption(new CheckBoxOption(shouldHaveVoice));
             ModSettingsManager.AddOption(new CheckBoxOption(shouldEnableDieKey));
+
+            ModSettingsManager.AddOption(new CheckBoxOption(overheatTextShouldVibrate));
         }
 
         // this helper automatically makes config entries for disabling survivors

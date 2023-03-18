@@ -623,7 +623,7 @@ namespace ArsonistMod.Content.Controllers
                 CheckAndSetOverheatingCanister();
             }
 
-            if (textVibration) 
+            if (textVibration && Modules.Config.overheatTextShouldVibrate.Value) 
             {
                 HandleTextVibration();
             }
