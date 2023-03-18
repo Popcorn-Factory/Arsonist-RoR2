@@ -21,15 +21,15 @@ namespace ArsonistMod.SkillStates
         private string muzzleString = "GunMuzzle";
         private Transform muzzlePos;
         private Animator animator;
-        private float damageCoefficient = Modules.StaticValues.firesprayWeakDamageCoefficient;
-        private float strongdamageCoefficient = Modules.StaticValues.firesprayStrongDamageCoefficient;
+        private float damageCoefficient = Modules.StaticValues.altFiresprayWeakDamageCoefficient;
+        private float strongdamageCoefficient = Modules.StaticValues.altFiresprayStrongDamageCoefficient;
         private float force = 400f;
         private float strongforce = 1000f;
         private float speedOverride = 100f;
         private float strongspeedOverride = 100f;
         private GameObject chargeVfxInstance;
 
-        public float Energy = Modules.StaticValues.firesprayEnergyCost;
+        public float Energy = Modules.StaticValues.altFiresprayEnergyCost;
         private float energyCost;
         private float energyflatCost;
 
@@ -63,7 +63,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 FireBolt();
-                energySystem.currentOverheat += Modules.StaticValues.firesprayEnergyCost;
+                energySystem.currentOverheat += Modules.StaticValues.altFiresprayEnergyCost;
                 new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)

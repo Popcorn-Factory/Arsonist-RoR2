@@ -105,6 +105,9 @@ namespace ArsonistMod.Content.Controllers
         //Animator
         Animator anim;
 
+        //vibration Vars
+        TextVibration textVibration;
+
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
@@ -341,6 +344,7 @@ namespace ArsonistMod.Content.Controllers
 
             //setup the UI element for the min/max
             energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -60f), 24f);
+            textVibration = energyNumber.gameObject.AddComponent<TextVibration>();
 
             CustomUIObject.SetActive(false);
             energyNumber.gameObject.SetActive(false);
@@ -564,14 +568,16 @@ namespace ArsonistMod.Content.Controllers
                 //overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed)
                 float o = overheatDecayTimer;
                 float h = (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed);
+                float alphaCalc = (((h - o) / 4.0f) / h);
 
-                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, ( ((h - o) / 4.0f) / h ) ));
+                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc ));
                 Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", (((h - o) / 4.0f) / h) * 25f);
             }
             else 
             {
+                float alphaCalc = Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) / 4f;
                 //Default material
-                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, Mathf.Clamp(Mathf.Pow(currentOverheat/maxOverheat, 8), 0, 1) / 4f));
+                Modules.Assets.arsonistOverheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc));
                 Modules.Assets.arsonistOverheatingMaterial.SetFloat("_VertexTimeMultiplier", Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) * 25f);
             }
         }
@@ -590,6 +596,20 @@ namespace ArsonistMod.Content.Controllers
             }
         }
 
+        public void HandleTextVibration() 
+        {
+            if (ifOverheatMaxed)
+            {
+                textVibration.vibrating = true;
+                textVibration.intensity = Mathf.Clamp( (1f / (0.03f * textVibration.stopwatch)) , 0, 15f);
+                textVibration.speed = (1f / (0.03f * textVibration.stopwatch));
+            }
+            else 
+            {
+                textVibration.vibrating = false;
+            }
+        }
+
         public void Update()
         {
             //Update material for overheating tex
@@ -601,6 +621,11 @@ namespace ArsonistMod.Content.Controllers
             if (anim) 
             {
                 CheckAndSetOverheatingCanister();
+            }
+
+            if (textVibration) 
+            {
+                HandleTextVibration();
             }
 
             //checking which m1 is equipped for different heat passive

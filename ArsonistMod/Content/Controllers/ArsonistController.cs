@@ -75,7 +75,7 @@ namespace ArsonistMod.Content.Controllers
                     //Trigger the emote strut key
                     weaponStateMachine.SetNextState(new EmoteStrut());
                 }
-                else if (Modules.Config.dieKey.Value.IsPressed()) 
+                else if (Modules.Config.dieKey.Value.IsPressed() && Modules.Config.shouldEnableDieKey.Value) 
                 {
                     charBody.healthComponent.Suicide();
                 }

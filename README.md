@@ -13,14 +13,25 @@ Network Compatible! (Unless otherwise found not to be)
 For any issues or bug reports, contact me on the RoR2 Modding discord, or to me directly: @Ethanol 10#6656
 
 ## Latest Update
+
 - 1.0.1 -> Some bug fixes and balances
-    - Changed Flinch animation to Additive instead of Override.
-    - Changing Priority on moves so Primary is overrided if Secondary is pressed.
-    - Health Growth from 15 -> 40 per level
-    - Added a suicide button
-    - Fixing issue where flare tries to apply damage the already dead body of an enemy causing an error.
-    - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component.
-    - 
+    - Slight visual changes
+        - Heat gauge text now vibrates on overheat
+    - Bug fixes
+        - Changed Flinch animation to Additive instead of Override.
+        - Changing Priority on moves so Primary is overrided if Secondary is pressed.
+        - Added a suicide button (Default off, turn on and press 9 in game.)
+        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an error.
+        - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component when it didn't need one.
+    - Balance Changes
+        - Health Growth from 15 -> 40 per level
+        - Masochism health percentage reduced from 0.05% -> 0.03% of max health.  
+        - Masochism buff duration reduced from 8 -> 6.5 seconds
+        - Changed Overheat's (Default M1) damage coefficient from 300% -> 350% for non-overheated projectiles.
+        - Changed Overdrive's (Alt M1) damage coefficient from 300% -> 200% for non-overheated projectiles.
+        - Changed Overdrive's (Alt M1) damage coefficient from 150% -> 80% for overheated projectiles.
+        - Changed Overdrive's (Alt M1) cost to fire a projectile from 8 -> 12
+        - 
 
 ## Trailer
 <div>

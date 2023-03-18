@@ -45,7 +45,7 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Overheat");
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "Overdrive");
-            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + Helpers.criticalPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
+            LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + Helpers.criticalPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.altFiresprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             #endregion
 
             #region Secondary
@@ -72,11 +72,11 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGE", $"<style=cKeywordName>Base Gauge</style> " + 
                 $"Heat gauge increase per level as well as with stock-based items. " +
                 $"Cooling rate also increases at higher %s of heat.");
-            LanguageAPI.Add(prefix + "KEYWORD_CRITICALGAUGE", $"<style=cKeywordName>Critical Gauge</style> " + 
-                $"Heat gauge does not increase, instead critical gauge increases per level as well as with stock-based items. " +
-                $"Gain 2x damage while heat is in blue gauge. ");
+            LanguageAPI.Add(prefix + "KEYWORD_CRITICALGAUGE", $"<style=cKeywordName>Supercritical Gauge</style> " + 
+                $"Heat gauge does not increase, instead supercritical gauge increases per level as well as with stock-based items. " +
+                $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge. ");
             LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style> " +
-                $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Half damage and speed in overheat.");
+                $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Reduced damage and speed in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style> " + 
                 $"Costs <style=cIsDamage>{Modules.StaticValues.flareEnergyCost} heat</style>. Half damage in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style> " +
