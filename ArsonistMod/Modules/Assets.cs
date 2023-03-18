@@ -106,7 +106,7 @@ namespace ArsonistMod.Modules
 
             // feel free to delete everything in here and load in your own assets instead
             // it should work fine even if left as is- even if the assets aren't in the bundle
-            bombExplosionEffect = LoadEffect("BombExplosionEffect", "Arsonist_Secondary_Flare_Punch_Explosion");
+            bombExplosionEffect = LoadEffect("BombExplosionEffect", "Arsonist_Secondary_Flare_Punch_Explosion", false, false);
 
             if (bombExplosionEffect)
             {
@@ -125,9 +125,9 @@ namespace ArsonistMod.Modules
             }
 
             //arsonist flare
-            arsonistFlareAttached = LoadEffect("flareAttached");
-            arsonistFlare = LoadEffect("flareShot");
-            displayFire = LoadEffect("Fire");
+            arsonistFlareAttached = LoadEffect("flareAttached", "", false, false);
+            arsonistFlare = LoadEffect("flareShot", "", false, false);
+            displayFire = LoadEffect("Fire", "", false, false);
 
             //arsonist firespray explosion
             arsonistFiresprayExplosion = PrefabAPI.InstantiateClone(elderlemurianexplosionEffect, "arsonistFireSprayExplosion");
@@ -253,20 +253,20 @@ namespace ArsonistMod.Modules
 
         private static GameObject LoadEffect(string resourceName)
         {
-            return LoadEffect(resourceName, "", false);
+            return LoadEffect(resourceName, "", false, true);
         }
 
         private static GameObject LoadEffect(string resourceName, string soundName)
         {
-            return LoadEffect(resourceName, soundName, false);
+            return LoadEffect(resourceName, soundName, false, true);
         }
 
         private static GameObject LoadEffect(string resourceName, bool parentToTransform)
         {
-            return LoadEffect(resourceName, "", parentToTransform);
+            return LoadEffect(resourceName, "", parentToTransform, true);
         }
 
-        private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform)
+        private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform, bool addEffectComponent)
         {
             GameObject newEffect = mainAssetBundle.LoadAsset<GameObject>(resourceName);
 
@@ -279,15 +279,17 @@ namespace ArsonistMod.Modules
             newEffect.AddComponent<DestroyOnTimer>().duration = 12;
             newEffect.AddComponent<NetworkIdentity>();
             newEffect.AddComponent<VFXAttributes>().vfxPriority = VFXAttributes.VFXPriority.Always;
-            var effect = newEffect.AddComponent<EffectComponent>();
-            effect.applyScale = false;
-            effect.effectIndex = EffectIndex.Invalid;
-            effect.parentToReferencedTransform = parentToTransform;
-            effect.positionAtReferencedTransform = true;
-            effect.soundName = soundName;
+            if (addEffectComponent) 
+            {
+                var effect = newEffect.AddComponent<EffectComponent>();
+                effect.applyScale = false;
+                effect.effectIndex = EffectIndex.Invalid;
+                effect.parentToReferencedTransform = parentToTransform;
+                effect.positionAtReferencedTransform = true;
+                effect.soundName = soundName;
 
-            AddNewEffectDef(newEffect, soundName);
-
+                AddNewEffectDef(newEffect, soundName);
+            }
             return newEffect;
         }
 

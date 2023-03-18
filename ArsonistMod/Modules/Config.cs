@@ -12,9 +12,11 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
         public static ConfigEntry<bool> shouldHaveVoice;
+        public static ConfigEntry<bool> shouldEnableDieKey;
 
         public static ConfigEntry<KeyboardShortcut> emoteSitKey;
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
+        public static ConfigEntry<KeyboardShortcut> dieKey;
 
         public static void ReadConfig()
         {
@@ -52,6 +54,19 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("Determines the key to trigger Arsonist to Emote Strut.", null, Array.Empty<object>())
             );
 
+            shouldEnableDieKey = ArsonistPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("02 - Emotes", "Enable Die key."),
+                false,
+                new ConfigDescription("Die key is disabled by default. When enabled, it allows you to press the die key to instantly end the run.", null, Array.Empty<object>())
+            );
+
+            dieKey = ArsonistPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("02 - Emotes", "Die"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha9),
+                new ConfigDescription("Determines the key to die.", null, Array.Empty<object>())
+            );
 
             shouldHaveVoice = ArsonistPlugin.instance.Config.Bind<bool>
             (
@@ -88,8 +103,11 @@ namespace ArsonistMod.Modules
                 emoteSitKey));
             ModSettingsManager.AddOption(new KeyBindOption(
                 emoteStrutKey));
+            ModSettingsManager.AddOption(new KeyBindOption(
+                dieKey));
 
             ModSettingsManager.AddOption(new CheckBoxOption(shouldHaveVoice));
+            ModSettingsManager.AddOption(new CheckBoxOption(shouldEnableDieKey));
         }
 
         // this helper automatically makes config entries for disabling survivors

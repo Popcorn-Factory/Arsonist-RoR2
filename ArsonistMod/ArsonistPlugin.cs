@@ -44,7 +44,7 @@ namespace ArsonistMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "1.0.0";
+        public const string MODVERSION = "1.0.1";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";

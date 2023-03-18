@@ -49,6 +49,11 @@ namespace ArsonistMod.Modules.Networking
         {
 
             GameObject masterobject = Util.FindNetworkObject(netID);
+            if (!masterobject) 
+            {
+                //No target to hit.
+                return; 
+            }
             CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
             CharacterBody charBody = charMaster.GetBody();
             bodyObj = charBody.gameObject;

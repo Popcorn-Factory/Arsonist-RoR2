@@ -30,7 +30,7 @@ namespace ArsonistMod.Modules.Survivors
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,
-            healthGrowth = 15f,
+            healthGrowth = 40f,
             healthRegen = 1f,
             moveSpeed = 7f,
             damage = 8f,

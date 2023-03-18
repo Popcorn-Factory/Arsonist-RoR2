@@ -12,6 +12,16 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 Network Compatible! (Unless otherwise found not to be)
 For any issues or bug reports, contact me on the RoR2 Modding discord, or to me directly: @Ethanol 10#6656
 
+## Latest Update
+- 1.0.1 -> Some bug fixes and balances
+    - Changed Flinch animation to Additive instead of Override.
+    - Changing Priority on moves so Primary is overrided if Secondary is pressed.
+    - Health Growth from 15 -> 40 per level
+    - Added a suicide button
+    - Fixing issue where flare tries to apply damage the already dead body of an enemy causing an error.
+    - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component.
+    - 
+
 ## Trailer
 <div>
     <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
