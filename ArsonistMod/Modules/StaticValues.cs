@@ -66,7 +66,7 @@ namespace ArsonistMod.Modules
 
         //Masochism
         internal static float masochismBuffDuration = 6.5f;
-        internal static float masochismHealCoefficient = 0.03f;
+        internal static float masochismHealCoefficient = 0.04f;
         internal static float masochismEnergyCost = 50f;
     }
 }

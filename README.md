@@ -14,28 +14,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 ## Latest Update
 
-- 1.0.1 -> Changes:
-    - New feature:
-        - Added a suicide button (Default off, turn on and press 9 in game.)
-    - Slight visual/audio changes
-        - Heat gauge text now vibrates on overheat.
-        - Overheat overlay color changed dependant on Primary selected.
-        - Doubled Attenuation range (100 -> 200) on all sounds.
-        - Added some Footstep VFX (Still needs work and some sound too) 
-    - Bug fixes
-        - Changed Flinch animation to Additive instead of Override.
-        - Changing Priority on moves so Primary is overrided if Secondary is pressed.
-        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an NRE.
-        - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component when it didn't need one.
-    - Balance Changes
-        - Health Growth from 15 -> 40 per level
-        - Masochism health percentage reduced from 0.05% -> 0.03% of max health per tick.  
-        - Masochism buff duration reduced from 8 -> 6.5 seconds
-        - Changed Overheat's (Default M1) damage coefficient from 300% -> 350% for non-overheated projectiles.
-        - Changed Overdrive's (Alt M1) damage coefficient from 300% -> 200% for non-overheated projectiles.
-        - Changed Overdrive's (Alt M1) damage coefficient from 150% -> 80% for overheated projectiles.
-        - Changed Overdrive's (Alt M1) base heat cost to fire a projectile from 8 -> 12
-
+- 1.0.2 -> Forgot to do one last update:
+    - Swapped animation for Left and Right strafe
+    
 ## Trailer
 <div>
     <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
@@ -127,6 +108,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 1.0.2 -> Forgot to do one last update:
+    - Swapped animation for Left and Right strafe
 - 1.0.1 -> Changes:
     - New feature:
         - Added a suicide button (Default off, turn on and press 9 in game.)
