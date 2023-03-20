@@ -59,6 +59,7 @@ namespace ArsonistMod.Modules.Survivors
             survivorDef.bodyPrefab = bodyPrefab;
             survivorDef.displayPrefab = displayPrefab;
             survivorDef.primaryColor = charColor;
+            survivorDef.cachedName = tokenPrefix;
 
             survivorDef.displayNameToken = tokenPrefix + "NAME";
             survivorDef.descriptionToken = tokenPrefix + "DESCRIPTION";
