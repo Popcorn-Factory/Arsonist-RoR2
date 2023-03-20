@@ -14,8 +14,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 ## Latest Update
 
-- 1.0.2 -> Forgot to do one last update:
-    - Swapped animation for Left and Right strafe
+- 1.0.3 -> Bug Fix
+    - Added value to `cachedName` property to enable Eclipse progress.
     
 ## Trailer
 <div>
@@ -108,6 +108,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 1.0.3 -> Bug Fix
+    - Added value to `cachedName` property to enable Eclipse progress.
 - 1.0.2 -> Forgot to do one last update:
     - Swapped animation for Left and Right strafe
 - 1.0.1 -> Changes:
