@@ -14,8 +14,10 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 ## Latest Update
 
-- 1.0.3 -> Bug Fix
-    - Added value to `cachedName` property to enable Eclipse progress.
+- 1.0.4 -> Small Updates
+    - Added Icon to RiskOfOptions
+    - Removed references to PhotoMode in code since someone decided to change the bloody mod GUID. UI disables when all UI is disabled.
+    - Heat bar UI scales with resolution now
     
 ## Trailer
 <div>
@@ -39,7 +41,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 ## Mod Interoperability List:
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
-- PhotoMode (Disables UI during Photo mode)
 
 ## Skills
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
@@ -108,6 +109,10 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 1.0.4 -> Small Updates
+    - Added Icon to RiskOfOptions
+    - Removed references to PhotoMode in code since someone decided to change the bloody mod GUID. UI disables when all UI is disabled.
+    - Heat bar UI scales with resolution now
 - 1.0.3 -> Bug Fix
     - Added value to `cachedName` property to enable Eclipse progress.
 - 1.0.2 -> Forgot to do one last update:

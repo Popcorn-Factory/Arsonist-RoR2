@@ -101,7 +101,7 @@ namespace ArsonistMod.Modules
             );
             masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("01 - Masochism", "Masochism Health Multiplier when activated under overheat."),
+                new ConfigDefinition("01 - Masochism", "Masochism Health Multiplier"),
                 1f,
                 new ConfigDescription("Determines how much the damage should be multiplied by before converting to health for Fire damage received.",
                     null,
@@ -125,7 +125,7 @@ namespace ArsonistMod.Modules
 
             shouldEnableDieKey = ArsonistPlugin.instance.Config.Bind<bool>
             (
-                new ConfigDefinition("02 - Emotes", "Enable Die key."),
+                new ConfigDefinition("02 - Emotes", "Enable Die key"),
                 false,
                 new ConfigDescription("Die key is disabled by default. When enabled, it allows you to press the die key to instantly end the run.", null, Array.Empty<object>())
             );
@@ -148,6 +148,11 @@ namespace ArsonistMod.Modules
 
         public static void SetupRiskOfOptions() 
         {
+            //Mod Icon 
+            Sprite icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("rooIcon");
+            ModSettingsManager.SetModIcon(icon);
+            ModSettingsManager.SetModDescription("The Manic Incendiary");
+
             ModSettingsManager.AddOption(
                 new StepSliderOption(
                     masochismHealthMultiplierOnPowered,

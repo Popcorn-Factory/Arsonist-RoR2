@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 163469851
+CRC: 2372467065
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 26a6839f5f7a0f90beb035214939a8c4
+    Hash: bc4508d88e4b130cfd32266daa09ab94
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -213,6 +213,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texPunchImpact.png
 - Assets/ArsonistAssets/Mesh/meshArsonistHead.mesh
 - Assets/ArsonistAssets/mdlArsonistOld.prefab
+- Assets/ArsonistAssets/Icons/rooIcon.png
 - Assets/ArsonistAssets/HumanoidArsonist.prefab
 - Assets/ArsonistAssets/VFX/Materials/matHitSparkPunch.mat
 - Assets/ArsonistAssets/Icons/masochismBuff.png

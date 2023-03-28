@@ -115,12 +115,7 @@ namespace ArsonistMod.Content.Controllers
             //lets hook it up!
             On.RoR2.CharacterMaster.OnInventoryChanged += CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp += CharacterBody_OnLevelUp;
-
-
-            if (ArsonistPlugin.photoMode)
-            {
-                On.RoR2.CameraRigController.Update += CameraRigController_Update;
-            }
+            On.RoR2.CameraRigController.Update += CameraRigController_Update;
 
             enabledUI = false;
             isAcceleratedCooling = false;
@@ -191,15 +186,15 @@ namespace ArsonistMod.Content.Controllers
         {
             orig(self);
             //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
-            if (self.hud.combatHealthBarViewer.enabled)
-            {
+            if (self.hud.mainUIPanel.activeInHierarchy)
+            {               
                 if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority)
                 {
                     CustomUIObject.SetActive(true);
                     energyNumber.gameObject.SetActive(true);
                 }
             }
-            else 
+            else                                                
             {
                 if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority)
                 {
@@ -310,6 +305,9 @@ namespace ArsonistMod.Content.Controllers
             CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
             CustomUIObjectCanvas.renderMode = RenderMode.ScreenSpaceCamera;
             CustomUIObjectCanvas.worldCamera = mainCamera;
+            CanvasScaler scaler = CustomUIObject.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
             segmentList = new Vector3[Modules.StaticValues.noOfSegmentsOnOverheatGauge];
             levelSegment = CustomUIObject.transform.GetChild(0).GetComponent<LineRenderer>();
             segment1 = CustomUIObject.transform.GetChild(1).GetComponent<LineRenderer>();
@@ -372,8 +370,8 @@ namespace ArsonistMod.Content.Controllers
             GameObject textObj;
             if (!parent)
             {
-                EnergyNumberContainer = new GameObject(name);
-                textObj = EnergyNumberContainer;
+                GameObject energyNumberContainer = new GameObject(name);
+                textObj = energyNumberContainer;
                 Canvas canvas = textObj.AddComponent<Canvas>();
                 canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             }
@@ -383,6 +381,10 @@ namespace ArsonistMod.Content.Controllers
                 textObj.transform.parent = parent;
 
             }
+            CanvasScaler scaler = parent.gameObject.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Shrink;
+            scaler.referenceResolution = new Vector2(2560f, 1440f);
 
             textObj.AddComponent<CanvasRenderer>();
             RectTransform rectTransform = textObj.AddComponent<RectTransform>();
@@ -864,11 +866,7 @@ namespace ArsonistMod.Content.Controllers
             Destroy(EnergyNumberContainer);
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
-
-            if (ArsonistPlugin.photoMode)
-            {
-                On.RoR2.CameraRigController.Update -= CameraRigController_Update;
-            }
+            On.RoR2.CameraRigController.Update -= CameraRigController_Update;
         }
     }
 }

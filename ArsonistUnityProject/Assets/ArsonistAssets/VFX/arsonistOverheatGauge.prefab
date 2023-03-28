@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6564252793811890569}
   - component: {fileID: 4839539952371021504}
+  - component: {fileID: 9219480604506142100}
   m_Layer: 0
   m_Name: stage3
   m_TagString: Untagged
@@ -381,6 +382,27 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!223 &9219480604506142100
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215302881033975831}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &4379695203997785159
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 493961256847404635}
   - component: {fileID: 6708159257621902221}
+  - component: {fileID: 1385644786692319319}
   m_Layer: 0
   m_Name: stage1
   m_TagString: Untagged
@@ -762,6 +785,27 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!223 &1385644786692319319
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379695203997785159}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &4522883442666964743
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5413986288249220032}
   - component: {fileID: 2568255481367624844}
+  - component: {fileID: 3925794749722367822}
   m_Layer: 0
   m_Name: stage2
   m_TagString: Untagged
@@ -1143,6 +1188,27 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!223 &3925794749722367822
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522883442666964743}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &5106184352726061133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8427665867600137161}
   - component: {fileID: 6015966928039253846}
+  - component: {fileID: 6539317720806871581}
   m_Layer: 0
   m_Name: level
   m_TagString: Untagged
@@ -1275,6 +1342,27 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!223 &6539317720806871581
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5106184352726061133}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &5152563029306567003
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,8 +30,6 @@ namespace ArsonistMod
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
 
-
-    [BepInDependency("com.Dragonyck.PhotoMode", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -44,13 +42,12 @@ namespace ArsonistMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "1.0.3";
+        public const string MODVERSION = "1.0.4";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
 
         public static ArsonistPlugin instance;
-        public static bool photoMode = false;
 
         private void Awake()
         {
@@ -62,10 +59,6 @@ namespace ArsonistMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
-            }
-            if (Chainloader.PluginInfos.ContainsKey("com.Dragonyck.PhotoMode")) 
-            {
-                photoMode = true;
             }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
