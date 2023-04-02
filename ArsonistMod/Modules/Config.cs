@@ -14,6 +14,8 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<bool> shouldHaveVoice;
         public static ConfigEntry<bool> shouldEnableDieKey;
         public static ConfigEntry<bool> overheatTextShouldVibrate;
+        public static ConfigEntry<float> baseGaugeLowerBoundRecharge;
+        public static ConfigEntry<float> baseGaugeUpperBoundRecharge;
 
         public static ConfigEntry<KeyboardShortcut> emoteSitKey;
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
@@ -21,7 +23,7 @@ namespace ArsonistMod.Modules
 
         /*
          
-                 //passive onfire buff
+        //passive onfire buff
         internal static float igniteAttackSpeedMultiplier = 1.25f;
         internal static float igniteDamageReduction = 0.5f;
         internal static float igniteDamageMultiplier = 1.5f;
@@ -144,6 +146,19 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("By default, Arsonist can laugh/grunt when Masochism or ZPB is used. When off, no voice will be played.", null, Array.Empty<object>())
             );
 
+            baseGaugeLowerBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("04 - Gauge", "Base Gauge Lower Bound Cooling"),
+                0.8f,
+                new ConfigDescription("Determines how fast the cooling occurs at 0%. Scales upwards in a parabola.")
+            );
+
+            baseGaugeUpperBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("04 - Gauge", "Base Gauge Upper Bound Cooling"),
+                1.4f,
+                new ConfigDescription("Determines how fast the cooling occurs at 100%. Scales upwards in a parabola.")
+            );
         }
 
         public static void SetupRiskOfOptions() 
@@ -185,6 +200,25 @@ namespace ArsonistMod.Modules
             ModSettingsManager.AddOption(new CheckBoxOption(shouldEnableDieKey));
 
             ModSettingsManager.AddOption(new CheckBoxOption(overheatTextShouldVibrate));
+
+            ModSettingsManager.AddOption(new StepSliderOption(
+                baseGaugeLowerBoundRecharge,
+                new StepSliderConfig 
+                {
+                    min = 0f,
+                    max = 5f,
+                    increment = 0.1f
+                }
+            ));
+            ModSettingsManager.AddOption(new StepSliderOption(
+                baseGaugeUpperBoundRecharge,
+                new StepSliderConfig
+                {
+                    min = 0f,
+                    max = 5f,
+                    increment = 0.1f
+                }
+            ));
         }
 
         // this helper automatically makes config entries for disabling survivors

@@ -41,10 +41,12 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
 
             LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_NAME", "Normal Gauge");
-            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", "Normal Gauge");
+            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", $"Heat gauge increase per level as well as with stock-based items. " +
+                $"Cooling rate also increases at higher level of heat, starting at {Modules.Config.baseGaugeLowerBoundRecharge.Value}x at 0%, up to a maximum cooling rate of {Modules.Config.baseGaugeUpperBoundRecharge}x at 100% heat.");
 
             LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_NAME", "Supercritical Gauge");
-            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", "Supercritical Gauge");
+            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", $"Heat gauge does not increase, instead supercritical gauge increases per level as well as with stock-based items. " +
+                $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge.");
 
             #endregion
 

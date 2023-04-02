@@ -235,30 +235,30 @@ namespace ArsonistMod.Modules.Survivors
             });
 
 
-            SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
-            {
-                skillName = prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
-                skillNameToken = prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
-                skillDescriptionToken = prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texAlt1PrimaryIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
-                activationStateMachineName = "Weapon",
-                baseMaxStock = 1,
-                baseRechargeInterval = 0f,
-                beginSkillCooldownOnSkillEnd = false,
-                canceledFromSprinting = false,
-                forceSprintDuringState = false,
-                fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Any,
-                resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
-                mustKeyPress = false,
-                cancelSprintingOnActivation = true,
-                rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
-                keywordTokens = new string[] {prefix + "KEYWORD_CRITICALGAUGE", prefix + "KEYWORD_FIRESPRAYHEAT" }
-            });
+            //SkillDef altprimarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            //{
+            //    skillName = prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
+            //    skillNameToken = prefix + "ALT_PRIMARY_FIRESPRAY_NAME",
+            //    skillDescriptionToken = prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION",
+            //    skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texAlt1PrimaryIcon"),
+            //    activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+            //    activationStateMachineName = "Weapon",
+            //    baseMaxStock = 1,
+            //    baseRechargeInterval = 0f,
+            //    beginSkillCooldownOnSkillEnd = false,
+            //    canceledFromSprinting = false,
+            //    forceSprintDuringState = false,
+            //    fullRestockOnAssign = true,
+            //    interruptPriority = EntityStates.InterruptPriority.Any,
+            //    resetCooldownTimerOnUse = false,
+            //    isCombatSkill = true,
+            //    mustKeyPress = false,
+            //    cancelSprintingOnActivation = true,
+            //    rechargeStock = 1,
+            //    requiredStock = 1,
+            //    stockToConsume = 1,
+            //    keywordTokens = new string[] {prefix + "KEYWORD_CRITICALGAUGE", prefix + "KEYWORD_FIRESPRAYHEAT" }
+            //});
 
             Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]
             {

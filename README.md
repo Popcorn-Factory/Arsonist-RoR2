@@ -14,9 +14,12 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 ## Latest Update
 
-- 1.0.?
+- 2.0.0
     - Core Skill Changes
         - Gauge Changes are moved to a passive skill slot
+        - Base Gauge:
+            - Cooling rate is affected by the amount of heat in the gauge
+            - Config to modify this rate has been added.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
     

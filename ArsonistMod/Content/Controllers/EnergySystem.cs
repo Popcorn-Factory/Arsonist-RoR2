@@ -49,7 +49,6 @@ namespace ArsonistMod.Content.Controllers
         public bool enabledUI;
 
         public bool isAcceleratedCooling;
-
         
 
         //OLD
@@ -512,7 +511,28 @@ namespace ArsonistMod.Content.Controllers
             //Energy Currently have
             if (ifOverheatRegenAllowed)
             {
-                currentOverheat -= regenOverheat * Time.fixedDeltaTime;
+                //Regen needs to change so that more heat = more cooling rate for base gauge
+                if (passive.isBlueGauge())
+                {
+                    currentOverheat -= regenOverheat * Time.fixedDeltaTime;
+                }
+                else 
+                {
+                    //Cooling rate is determined by level of heat ratio and plugged into a parabola which ranges from lower bound to 
+                    //lowerbound + 1 at maximum if uncapped.
+                    float ratio = (float)currentOverheat / (float)maxOverheat;
+                    float coolingRate = Mathf.Pow(ratio, 4f) + Modules.Config.baseGaugeLowerBoundRecharge.Value;
+                    if (coolingRate >= Modules.Config.baseGaugeUpperBoundRecharge.Value) 
+                    {
+                        coolingRate = Modules.Config.baseGaugeUpperBoundRecharge.Value;
+                    }
+                    if (coolingRate <= Modules.Config.baseGaugeLowerBoundRecharge.Value) 
+                    {
+                        coolingRate = Modules.Config.baseGaugeLowerBoundRecharge.Value;
+                    }
+
+                    currentOverheat -= regenOverheat * coolingRate * Time.fixedDeltaTime;
+                }
             }
 
             if (currentOverheat > maxOverheat)
