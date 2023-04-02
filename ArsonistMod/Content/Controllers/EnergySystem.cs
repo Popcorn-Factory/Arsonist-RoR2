@@ -678,7 +678,7 @@ namespace ArsonistMod.Content.Controllers
             currentBlueNumber = whiteRatio * maxOverheat;
             if (energyNumber)
             {
-                if (currentOverheat == maxOverheat)
+                if (currentOverheat >= maxOverheat)
                 {
                     if (isAcceleratedCooling) 
                     {
@@ -691,6 +691,7 @@ namespace ArsonistMod.Content.Controllers
                     if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                        characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 1);
                     }
                 }
                 else if (currentOverheat < currentBlueNumber)
@@ -699,6 +700,7 @@ namespace ArsonistMod.Content.Controllers
                     if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                        characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 1);
                     }
                 }
                 else if (currentOverheat >= currentBlueNumber && currentOverheat < maxOverheat && !baseHeatGauge)
@@ -707,6 +709,7 @@ namespace ArsonistMod.Content.Controllers
                     if (!characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 1);
+                        characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 0);
                     }
                 }                   
                 

@@ -13,6 +13,7 @@ namespace ArsonistMod.Modules
         internal static BuffDef flareStrongBuff;
         internal static BuffDef FlareWeakBuff;
         internal static BuffDef blueBuff;
+        internal static BuffDef lowerBuff;
         internal static BuffDef fallDamageReductionBuff;
 
         internal static void RegisterBuffs()
@@ -27,6 +28,7 @@ namespace ArsonistMod.Modules
             flareStrongBuff = AddNewBuff("Flare Strong Burn", flareDebuffSprite, Color.blue, true, true);
             FlareWeakBuff = AddNewBuff("Flare Weak Burn", flareDebuffSprite, Color.yellow, true, true);
             blueBuff = AddNewBuff("Blue Heat Gauge Buff", blueGaugeSprite, Color.cyan, false, false);
+            lowerBuff = AddNewBuff("Non-Blue Heat Gauge Debuff", blueGaugeSprite, Color.white, false, false);
             fallDamageReductionBuff = AddNewBuff("Fall Damage Reduction", ZPBBuffSprite, Color.yellow, false, false);
         }
 

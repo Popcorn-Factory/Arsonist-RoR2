@@ -20,6 +20,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Base Gauge:
             - Cooling rate is affected by the amount of heat in the gauge
             - Config to modify this rate has been added.
+        - Supercritical Gauge:
+            - Damage done within the gauge before the blue section has a slight damage penalty.
+            - Damage done within the blue gauge does 2.5x damage.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
     

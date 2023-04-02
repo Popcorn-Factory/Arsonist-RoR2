@@ -125,6 +125,10 @@ namespace ArsonistMod
                         {
                             self.damage *= StaticValues.blueDamageMultiplier;
                         }
+                        if (self.HasBuff(Buffs.lowerBuff))
+                        {
+                            self.damage *= StaticValues.lowerDamageMultiplier;
+                        }
 
                         //passive burn movespeed and damage
                         if (self.HasBuff(RoR2Content.Buffs.AffixRed))
