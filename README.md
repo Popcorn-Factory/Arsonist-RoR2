@@ -14,10 +14,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 ## Latest Update
 
-- 1.0.4 -> Small Updates
-    - Added Icon to RiskOfOptions
-    - Removed references to PhotoMode in code since someone decided to change the bloody mod GUID. UI disables when all UI is disabled.
-    - Heat bar UI scales with resolution now
+- 1.0.?
+    - Core Skill Changes
+        - Gauge Changes are moved to a passive skill slot
+    - Bug Fixes
+        - Added checks to prevent position count from setting count to a negative value
     
 ## Trailer
 <div>

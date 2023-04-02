@@ -17,6 +17,7 @@ namespace ArsonistMod.Content.Controllers
     public class EnergySystem : MonoBehaviour
     {
         public CharacterBody characterBody;
+        public ArsonistPassive passive;
         public ArsonistController arsonistController;
 
         //UI energyMeter
@@ -173,11 +174,12 @@ namespace ArsonistMod.Content.Controllers
                 }
             }
 
-            segment1.positionCount = whiteArray.Length - 1;
+            
+            segment1.positionCount = whiteArray.Length >= 1 ? whiteArray.Length - 1 : whiteArray.Length;
             segment1.SetPositions(whiteArray);
-            segment2.positionCount = blueArray.Length - 1;
+            segment2.positionCount = blueArray.Length >= 1 ? blueArray.Length - 1 : blueArray.Length;
             segment2.SetPositions(blueArray);
-            segment3.positionCount = redArray.Length - 1;
+            segment3.positionCount = redArray.Length >= 1 ? redArray.Length - 1 : redArray.Length;
             segment3.SetPositions(redArray);
             originalRedLength = redArray;
         }
@@ -246,9 +248,10 @@ namespace ArsonistMod.Content.Controllers
             overheatState = OverheatState.DORMANT;
             mainCamera = Camera.main;
 
+            passive = base.gameObject.GetComponent<ArsonistPassive>();
             arsonistController = base.gameObject.GetComponent<ArsonistController>();
 
-            if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            if (!passive.isBlueGauge())
             {
 
                 baseHeatGauge = true;
@@ -634,7 +637,7 @@ namespace ArsonistMod.Content.Controllers
             }
 
             //checking which m1 is equipped for different heat passive
-            if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            if (!passive.isBlueGauge())
             {
                 if (!baseHeatGauge)
                 {

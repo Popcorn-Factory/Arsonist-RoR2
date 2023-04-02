@@ -133,7 +133,8 @@ namespace ArsonistMod.Modules.Survivors
 
         public override void InitializeSkills()
         {
-            Modules.Skills.CreateSkillFamilies(bodyPrefab);
+            ArsonistPassive passive = bodyPrefab.AddComponent<ArsonistPassive>(); 
+            Modules.Skills.CreateSkillFamilies(bodyPrefab, true);
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
             SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
@@ -149,6 +150,61 @@ namespace ArsonistMod.Modules.Survivors
             skillLoc.passiveSkill.skillNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_NAME";
             skillLoc.passiveSkill.skillDescriptionToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_DESCRIPTION";
             skillLoc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
+
+            passive.normalGaugePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PASSIVE_NORMAL_GAUGE_NAME",
+                skillNameToken = prefix + "PASSIVE_NORMAL_GAUGE_NAME",
+                skillDescriptionToken = prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("normalGaugeIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+                activationStateMachineName = "Slide",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1
+            });
+
+            passive.blueGaugePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PASSIVE_BLUE_GAUGE_NAME",
+                skillNameToken = prefix + "PASSIVE_BLUE_GAUGE_NAME",
+                skillDescriptionToken = prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("blueGaugeIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+                activationStateMachineName = "Slide",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1
+            });
+
+            Modules.Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, new SkillDef[]{
+                passive.normalGaugePassive,
+                passive.blueGaugePassive
+            });
+
+
             #endregion
 
             #region Primary
@@ -206,8 +262,7 @@ namespace ArsonistMod.Modules.Survivors
 
             Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]
             {
-                primarySkillDef,
-                altprimarySkillDef,
+                primarySkillDef
             });
             #endregion
 

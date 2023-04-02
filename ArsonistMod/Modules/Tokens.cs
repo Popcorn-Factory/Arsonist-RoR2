@@ -39,6 +39,13 @@ namespace ArsonistMod.Modules
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "Pyromania");
             LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
+
+            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_NAME", "Normal Gauge");
+            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", "Normal Gauge");
+
+            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_NAME", "Supercritical Gauge");
+            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", "Supercritical Gauge");
+
             #endregion
 
             #region Primary
