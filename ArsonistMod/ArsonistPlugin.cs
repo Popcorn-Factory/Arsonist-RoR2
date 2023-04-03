@@ -130,21 +130,23 @@ namespace ArsonistMod
                             self.damage *= StaticValues.lowerDamageMultiplier;
                         }
 
+                        #region Old Passive
                         //passive burn movespeed and damage
-                        if (self.HasBuff(RoR2Content.Buffs.AffixRed))
-                        {
-                            self.damage *= StaticValues.igniteDamageMultiplier;
-                            self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+                        //if (self.HasBuff(RoR2Content.Buffs.AffixRed))
+                        //{
+                        //    self.damage *= StaticValues.igniteDamageMultiplier;
+                        //    self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
 
-                            energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+                        //    energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
 
-                        }
-                        else if (self.HasBuff(RoR2Content.Buffs.OnFire))
-                        {
-                            self.damage *= StaticValues.igniteDamageMultiplier;
-                            self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
-                            energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
-                        }
+                        //}
+                        //else if (self.HasBuff(RoR2Content.Buffs.OnFire))
+                        //{
+                        //    self.damage *= StaticValues.igniteDamageMultiplier;
+                        //    self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+                        //    energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+                        //}
+                        #endregion
 
                         if (self.HasBuff(Modules.Buffs.masochismBuff)) 
                         {
@@ -221,6 +223,40 @@ namespace ArsonistMod
                         }
                     }
 
+                    #region 2.0 Passive
+                    //Receive damage, check if damage is not fire.
+                    if (self.body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                    {
+                        if (!dotCheck) 
+                        {
+                            //Half incoming damage
+                            damageInfo.damage *= Modules.StaticValues.igniteDamageReduction;
+
+                            //Inflict the rest of the damage as a dot.
+                            InflictDotInfo info = new InflictDotInfo();
+                            info.totalDamage = damageInfo.damage;
+                            info.attackerObject = self.body.gameObject;
+                            info.victimObject = self.body.gameObject;
+                            info.duration = Modules.StaticValues.passiveIgniteLength;
+                            info.dotIndex = DotController.DotIndex.Burn;
+
+                            DotController.InflictDot(ref info);
+                        }
+
+                        if (damageInfo.damage > 0f)
+                        {
+                            if (dotCheck || damageTypeCheck)
+                            {
+                                damageInfo.damage *= StaticValues.igniteDamageReduction;
+                            }
+                        }
+
+                    }
+                    #endregion
+
+                    #region Old Passive and Masochism
+                    /* Old Passive/Masochism
+                    
                     if (self.body.HasBuff(Modules.Buffs.masochismBuff) && (dotCheck || damageTypeCheck))
                     {
                         if (energySystem.currentOverheat >= energySystem.maxOverheat)
@@ -249,9 +285,10 @@ namespace ArsonistMod
                             } 
                             
                         }
-                    }
-                    
-                }                    
+                    } 
+                     */
+                    #endregion
+                }
             }
 
             orig(self, damageInfo);

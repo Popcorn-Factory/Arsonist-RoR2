@@ -31,7 +31,7 @@ namespace ArsonistMod.Modules
                 ArsonistPassive passive = targetPrefab.GetComponent<ArsonistPassive>();
                 if (passive)
                 {
-                    passive.passiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
+                    passive.passiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Gauge");
                 }
             }
 

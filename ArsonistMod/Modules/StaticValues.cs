@@ -5,7 +5,10 @@ namespace ArsonistMod.Modules
 {
     internal static class StaticValues
     {
-        //passive onfire buff
+        //passive 2.0
+        internal static float passiveIgniteLength = 5.0f;
+
+        //old passive onfire buff
         internal static float igniteAttackSpeedMultiplier = 1.25f;
         internal static float igniteDamageReduction = 0.5f;
         internal static float igniteDamageMultiplier = 1.5f;
