@@ -49,6 +49,21 @@ namespace ArsonistMod.Modules
         internal static float altFiresprayWeakDamageCoefficient = 0.5f;
         internal static float altFiresprayEnergyCost = 12f;
 
+        //Flamethrower
+        internal static float flamethrowerStrongDamageCoefficient = 0.8f;
+        internal static float flamethrowerWeakDamageCoefficient = 0.8f;
+        internal static float flamethrowerEnergyCost = 3f;
+        internal static float flamethrowerFireChance = 80f;
+        internal static float flamethrowerRange = 25f;
+        internal static float flamethrowerProcCoefficient = 0.3f;
+        internal static float flamethowerRadius = 1f;
+        internal static int flamethrowerBaseTickRate = 5;
+
+        //Alt-flamethrower
+        internal static float altFlamethrowerStrongDamageCoefficient = 0.8f;
+        internal static float altFlamethrowerWeakDamageCoefficient = 0.8f;
+        internal static float altFlamethrowerEnergyCost = 3f;
+
         //flaregun
         internal static float flareWeakDamageCoefficient = 2f;
         internal static float flareStrongDamageCoefficient = 4f;

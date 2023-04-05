@@ -15,6 +15,7 @@ namespace ArsonistMod.Modules
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
             
             Modules.Content.AddEntityState(typeof(FireSpray));
+            Modules.Content.AddEntityState(typeof(Flamethrower));
             Modules.Content.AddEntityState(typeof(Flare));
 
             //Zero point states
