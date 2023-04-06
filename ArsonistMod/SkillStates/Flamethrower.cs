@@ -64,7 +64,7 @@ namespace ArsonistMod.SkillStates
             tickRate = (int)(baseTickRate * base.attackSpeedStat);
             interval = duration / (float)tickRate;
 
-            characterBody.SetAimTimer(duration);
+            characterBody.SetAimTimer(duration * 2f);
 
             bulletAttack = new BulletAttack
             {
@@ -77,7 +77,7 @@ namespace ArsonistMod.SkillStates
                 force = 0f,
                 hitMask = LayerIndex.CommonMasks.bullet,
                 minSpread = 1f,
-                maxSpread = 1f,
+                maxSpread = 4f,
                 isCrit = base.RollCrit(),
                 owner = base.gameObject,
                 muzzleName = muzzleString,
@@ -143,6 +143,12 @@ namespace ArsonistMod.SkillStates
             BulletAttack.defaultHitCallback.Invoke(bulletRef, ref hitInfo);
             if (hitInfo.hitHurtBox)
             {
+                //Check the distance between the enemy and player, then plug into an inverse parabola to determine how high of a proc chance.
+                float ratio = hitInfo.distance / Modules.StaticValues.flamethrowerRange;
+
+                float dist_chance = (-1f * Mathf.Pow(ratio, 0.5f)) + 1f;
+                dist_chance = Mathf.Clamp(dist_chance, 0f, 1f);
+
                 //Attempt to deal Fire
                 float randomNum = UnityEngine.Random.Range(1f, 100f);
                 float luck = characterBody.master.luck;
@@ -150,7 +156,7 @@ namespace ArsonistMod.SkillStates
                 {
                     luck = 1.0f;
                 }
-                if (randomNum * luck >= Modules.StaticValues.flamethrowerFireChance)
+                if (randomNum * luck * dist_chance >= Modules.StaticValues.flamethrowerFireChance)
                 {
                     if (hitInfo.hitHurtBox.healthComponent.body.teamComponent.teamIndex != TeamIndex.Player)
                     {

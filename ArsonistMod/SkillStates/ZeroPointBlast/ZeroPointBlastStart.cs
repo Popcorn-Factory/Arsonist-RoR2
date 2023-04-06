@@ -207,9 +207,13 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             ChildLocator childLoc = GetModelChildLocator();
             muzzlePos = childLoc.FindChild(muzzleString);
 
-            if (isGrounded) 
+            if (isGrounded)
             {
                 base.SmallHop(base.characterMotor, 6f);
+            }
+            else 
+            {
+                base.SmallHop(base.characterMotor, 4f);
             }
 
             if (base.isAuthority) 
