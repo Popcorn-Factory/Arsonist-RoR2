@@ -33,7 +33,6 @@ namespace ArsonistMod.SkillStates
 
 
         private string muzzleString = "FlareMuzzle";
-        public float Energy = Modules.StaticValues.flareEnergyCost;
         private float energyCost;
         private float energyflatCost;
         private float speedOverride = Modules.StaticValues.flareSpeedCoefficient;
@@ -63,15 +62,9 @@ namespace ArsonistMod.SkillStates
             ChildLocator childLoc = GetModelChildLocator();
             Transform muzzleTransform = childLoc.FindChild(muzzleString);
 
-            energyflatCost = Energy - energySystem.costflatOverheat;
-            if (energyflatCost < 0f) energyflatCost = 0f;
-
-            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
-            if (energyCost < 0f) energyCost = 0f;
-
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
-                energySystem.currentOverheat += energyCost;
+                energySystem.currentOverheat -= energySystem.currentOverheat * StaticValues.flareHeatReductionMultiplier;
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
 
