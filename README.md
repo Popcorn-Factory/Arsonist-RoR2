@@ -26,6 +26,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
             - Gauge -> Supercritical Gauge:
                 - Damage done within the gauge before the blue section has a slight damage penalty, dealing 0.9x damage.
                 - Damage done within the blue gauge does 3x damage.
+        - Primary
+            - Dragon's Breath
+                - Fire a constant beam of fire that increases ignite chance the closer you are to an enemy.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
