@@ -88,7 +88,7 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style> " +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Reduced damage and speed in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style> " + 
-                $"Costs <style=cIsDamage>{Modules.StaticValues.flareEnergyCost} heat</style>. Half damage in overheat.");
+                $"Reduces Heat by <style=cIsDamage>{Modules.StaticValues.flareHeatReductionMultiplier}x</style> of current heat accumulated. Half damage in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style> " +
                 $"Cools <style=cIsUtility>half of CURRENT heat</style>. Half damage in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_CLEANSEHEAT", $"<style=cKeywordName>Heat</style> " +

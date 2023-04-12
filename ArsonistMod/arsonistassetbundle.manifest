@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2372467065
+CRC: 2416262796
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bc4508d88e4b130cfd32266daa09ab94
+    Hash: c8fd4b803323847d7d178f005c16be1c
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -137,6 +137,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/SprintR.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M3.anim
 - Assets/ArsonistAssets/Materials/GaugeMaterial.mat
+- Assets/ArsonistAssets/VFX/Flamethrower.prefab
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
 - Assets/ArsonistAssets/Animation/maskImpact.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
@@ -219,12 +220,14 @@ Assets:
 - Assets/ArsonistAssets/Icons/masochismBuff.png
 - Assets/ArsonistAssets/Mesh/meshArsonistBoots.mesh
 - Assets/ArsonistAssets/Icons/flareDebuff.png
+- Assets/ArsonistAssets/Materials/FireMaterial2.mat
 - Assets/ArsonistAssets/StrongFlare.prefab
 - Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
 - Assets/ArsonistAssets/VFX/Fire.prefab
 - Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Landing.anim
 - Assets/ArsonistAssets/Textures/ArsonistCloth_diffuse.png
+- Assets/ArsonistAssets/Textures/flameTex.png
 - Assets/ArsonistAssets/Materials/FireAddMaterial.mat
 - Assets/ArsonistAssets/VFX/Materials/SparkParticle.mat
 - Assets/ArsonistAssets/VFX/Materials/matEmbers.mat
@@ -260,6 +263,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matBazooka.mat
 - Assets/ArsonistAssets/VFX/HenrySwordSwingEffect.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_OverHeat.anim
+- Assets/ArsonistAssets/VFX/FlamethrowerLight.prefab
 - Assets/ArsonistAssets/Animation/clips/Descend.anim
 - Assets/ArsonistAssets/VFX/IgnitionFlame.prefab
 - Assets/ArsonistAssets/VFX/Textures/flareMainEmission.png

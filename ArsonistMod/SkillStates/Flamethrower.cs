@@ -27,7 +27,6 @@ namespace ArsonistMod.SkillStates
         public float flamethrowerRange = Modules.StaticValues.flamethrowerRange;
         public float procCoefficient = Modules.StaticValues.flamethrowerProcCoefficient;
         public float radius = Modules.StaticValues.flamethowerRadius;
-        public static GameObject tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
 
         private string muzzleString = "GunMuzzle";
 
@@ -38,6 +37,7 @@ namespace ArsonistMod.SkillStates
         private float stopwatch = 0f;
         private EnergySystem energySystem;
         private ArsonistPassive passive;
+        private ArsonistController controller;
         private bool isBlue;
         private float energyFlatCost;
 
@@ -50,6 +50,7 @@ namespace ArsonistMod.SkillStates
 
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
+            controller = characterBody.gameObject.GetComponent<ArsonistController>();
             isBlue = passive.isBlueGauge();
 
             //Calculate how much damage/stats whatever using the energy system 
@@ -88,18 +89,19 @@ namespace ArsonistMod.SkillStates
                 sniper = false,
                 stopperMask = LayerIndex.CommonMasks.bullet,
                 weapon = null,
-                tracerEffectPrefab = tracerEffectPrefab,
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
                 hitCallback = laserHitCallback
             };
+
+            controller.flamethrower.Play();
         }
 
         public override void OnExit()
         {
             base.OnExit();
+            controller.flamethrower.Stop();
         }
 
         public override void FixedUpdate()
@@ -132,6 +134,12 @@ namespace ArsonistMod.SkillStates
 
             if (base.fixedAge >= this.duration && base.isAuthority) 
             {
+                if (base.inputBank.skill1.down) 
+                {
+                    this.outer.SetState(new Flamethrower { });
+                    return;
+                }
+                controller.flamethrower.Stop();
                 this.outer.SetNextStateToMain();
                 return;
             }
