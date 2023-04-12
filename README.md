@@ -28,6 +28,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Damage done within the blue gauge does 3x damage.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
+        - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
     
 ## Trailer
 <div>

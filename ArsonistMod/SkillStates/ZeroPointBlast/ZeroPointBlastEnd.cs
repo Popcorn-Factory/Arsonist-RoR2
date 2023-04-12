@@ -140,7 +140,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             {
                 return InterruptPriority.Any;
             }
-            return InterruptPriority.Frozen;
+            return InterruptPriority.PrioritySkill;
         }
     }
 }
