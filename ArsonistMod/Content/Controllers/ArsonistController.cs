@@ -16,12 +16,14 @@ namespace ArsonistMod.Content.Controllers
 
         public float idleStopwatch;
         public bool isIdle;
+        public bool flamethrowerSelected;
 
         public ParticleSystem steamParticle;
         public ParticleSystem steamDownParticle;
         public ParticleSystem fireBeam;
         public ParticleSystem fireBeamForward;
         public ParticleSystem flamethrower;
+        public Transform flamethrowerTransform;
 
         // Use this for initialization
         void Start()
@@ -33,6 +35,7 @@ namespace ArsonistMod.Content.Controllers
                 steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>();
                 fireBeam = childLocator.FindChild("FireBeam").GetComponent<ParticleSystem>();
                 fireBeamForward = childLocator.FindChild("FireBeamForwardFiring").GetComponent<ParticleSystem>();
+                flamethrowerTransform = childLocator.FindChild("Flamethrower");
                 flamethrower = childLocator.FindChild("Flamethrower").GetComponent<ParticleSystem>();
             }
             
@@ -56,6 +59,12 @@ namespace ArsonistMod.Content.Controllers
             isIdle = false;
             HurtBoxGroup hurtBoxGroup = charBody.hurtBoxGroup;
             anim = hurtBoxGroup.gameObject.GetComponent<Animator>();
+
+            //check the current primary equipped.
+            if (charBody.skillLocator.primary.skillNameToken == "POPCORN_ARSONIST_BODY_PRIMARY_FLAMETHROWER_NAME") 
+            {
+                flamethrowerSelected = true;
+            }
         }
 
         // Update is called once per frame
@@ -102,6 +111,13 @@ namespace ArsonistMod.Content.Controllers
                     isIdle = false;
                     anim.SetBool("isIdle", false);
                 }
+            }
+
+            //Check the Aim ray of the characterbody and aim the flamethrower in that direction.
+            if (flamethrowerSelected && flamethrowerTransform) 
+            {
+                Ray ray = charBody.inputBank.GetAimRay();
+                flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
             }
         }
     }

@@ -370,7 +370,7 @@ namespace ArsonistMod.Modules.Survivors
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
-                resetCooldownTimerOnUse = false,
+                resetCooldownTimerOnUse = false,    
                 isCombatSkill = true,
                 mustKeyPress = false,
                 cancelSprintingOnActivation = false, 
