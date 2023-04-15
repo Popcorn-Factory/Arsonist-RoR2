@@ -20,6 +20,7 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<KeyboardShortcut> emoteSitKey;
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
         public static ConfigEntry<KeyboardShortcut> dieKey;
+        public static ConfigEntry<bool> enableOldLoadout;
 
         /*
          
@@ -159,6 +160,13 @@ namespace ArsonistMod.Modules
                 1.4f,
                 new ConfigDescription("Determines how fast the cooling occurs at 100%. Scales upwards in a parabola.")
             );
+
+            enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("05 - Secret", "Enable Old Loadout"),
+                false,
+                new ConfigDescription("Enables some old features of the mod from 1.0. Requires a restart to take effect.")
+            );
         }
 
         public static void SetupRiskOfOptions() 
@@ -219,6 +227,8 @@ namespace ArsonistMod.Modules
                     increment = 0.1f
                 }
             ));
+
+            ModSettingsManager.AddOption(new CheckBoxOption(enableOldLoadout));
         }
 
         // this helper automatically makes config entries for disabling survivors

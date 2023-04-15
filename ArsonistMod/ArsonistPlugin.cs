@@ -54,8 +54,8 @@ namespace ArsonistMod
             instance = this;
 
             Log.Init(Logger);
-            Modules.Assets.Initialize(); // load assets and read config
             Modules.Config.ReadConfig();
+            Modules.Assets.Initialize(); // load assets and read config
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
@@ -197,7 +197,6 @@ namespace ArsonistMod
                                     damageInfo.dotIndex == DotController.DotIndex.StrongerBurn;
 
                     bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
-                    EnergySystem energySystem = self.GetComponent<EnergySystem>();
 
 
                     if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType))
@@ -227,6 +226,16 @@ namespace ArsonistMod
                         {
                             damageInfo.damage = 20f;
                         }
+                    }
+
+                    if (!Modules.Config.enableOldLoadout.Value)
+                    {
+                        //Default to using 2.0 passive.
+                    }
+                    else 
+                    {
+                        // Use either passive depending on what's selected.
+
                     }
 
                     #region 2.0 Passive

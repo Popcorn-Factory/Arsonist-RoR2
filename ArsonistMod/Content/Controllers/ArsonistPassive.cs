@@ -13,6 +13,11 @@ namespace ArsonistMod.Content.Controllers
         public SkillDef blueGaugePassive;
         public GenericSkill passiveSkillSlot;
 
+        //Old passive stuff
+        public SkillDef movespeedOnFirePassive;
+        public SkillDef halfDamagePassive;
+        public GenericSkill secondaryPassiveSkillSlot;
+
         public bool isBlueGauge()
         {
             //Debug.Log($"passiveSkillSlot: {passiveSkillSlot.skillDef.skillNameToken}");
@@ -22,6 +27,16 @@ namespace ArsonistMod.Content.Controllers
             if (blueGaugePassive && this.passiveSkillSlot)
             {
                 return this.passiveSkillSlot.skillDef == blueGaugePassive;
+            }
+
+            return false;
+        }
+
+        public bool isHalfDamagePassive() 
+        {
+            if (secondaryPassiveSkillSlot && this.halfDamagePassive)
+            {
+                return this.secondaryPassiveSkillSlot.skillDef == halfDamagePassive;
             }
 
             return false;
