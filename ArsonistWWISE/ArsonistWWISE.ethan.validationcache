@@ -89,7 +89,7 @@
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Switches\Default Work Unit.wwu" DateLow="1663591639" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\States\Default Work Unit.wwu" DateLow="1663591639" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1663591639" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\SoundBanks\Default Work Unit.wwu" DateLow="1679117360" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\SoundBanks\Default Work Unit.wwu" DateLow="1680048685" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Queries\Factory Queries.wwu" DateLow="1663591639" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Queries\Default Work Unit.wwu" DateLow="1663591639" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Presets\Factory Spatial Audio.wwu" DateLow="1663591639" DateHigh="0"/>
@@ -121,8 +121,8 @@
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Conversion Settings\Default Work Unit.wwu" DateLow="1674524535" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Control Surface Sessions\Default Work Unit.wwu" DateLow="1663591639" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Audio Devices\Default Work Unit.wwu" DateLow="1663591639" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Attenuations\Default Work Unit.wwu" DateLow="1679116782" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Attenuations\Default Work Unit.wwu" DateLow="1680048246" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\ArsonistWWISE.wproj" DateLow="1663591639" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\ArsonistWWISE.ethan.wsettings" DateLow="1679117361" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1679116809" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\ArsonistWWISE.ethan.wsettings" DateLow="1680048685" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1680048241" DateHigh="0"/>
 </ValidationCache>

@@ -5,7 +5,7 @@ using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
-namespace ArsonistMod.SkillStates.Arsonist.Secondary
+namespace ArsonistMod.SkillStates.Unused
 {
     internal class FlareEffectControllerWeakWorld : MonoBehaviour
     {
@@ -23,28 +23,28 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             gameObj = gameObject.GetComponent<GameObject>();
 
 
-            Vector3 randVec = new Vector3((float)Random.Range(-2, 2), (float)Random.Range(-2, 2), (float)Random.Range(-2, 2));
-            effectObj = Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), worldPos, Quaternion.LookRotation(worldPos));
+            Vector3 randVec = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
+            effectObj = Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), worldPos, Quaternion.LookRotation(worldPos));
 
         }
 
         void FixedUpdate()
         {
-            if (timer > Modules.StaticValues.flareInterval)
+            if (timer > StaticValues.flareInterval)
             {
-                if (timesFired < Modules.StaticValues.flareTickNum)
+                if (timesFired < StaticValues.flareTickNum)
                 {
                     timesFired++;
                     timer = 0;
-                    FireExplosion(Modules.StaticValues.flareBlastRadius / 2f);
+                    FireExplosion(StaticValues.flareBlastRadius / 2f);
                     AkSoundEngine.PostEvent(3747272580, gameObj);
                 }
                 else
                 {
-                    FireExplosion(Modules.StaticValues.flareBlastRadius);
+                    FireExplosion(StaticValues.flareBlastRadius);
                     AkSoundEngine.PostEvent(3061346618, gameObj);
 
-                    EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                    EffectManager.SpawnEffect(Assets.explosionPrefab, new EffectData
                     {
                         origin = worldPos,
                         scale = StaticValues.flareBlastRadius,
@@ -72,7 +72,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.attacker = arsonistBody.gameObject;
             blastAttack.crit = arsonistBody.RollCrit();
 
-            blastAttack.baseDamage = this.arsonistBody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient;
+            blastAttack.baseDamage = arsonistBody.baseDamage * StaticValues.flareWeakDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;

@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="3557249781">
+		<SoundBank Id="1110381487" Language="SFX" Hash="3922697024">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -32,6 +32,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1726690184" Name="Arsonist_Masochism_Active" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_Active">
+					<IncludedMemoryFiles>
+						<File Id="415207369" Language="SFX">
+							<ShortName>Redline_sfx_in_FL_studio_12_duration-middle.wav</ShortName>
+							<Path>SFX\Redline_sfx_in_FL_studio_12_duration-middle_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3776032889" Name="Arsonist_Masochism_End" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_End">
+					<IncludedMemoryFiles>
+						<File Id="58543393" Language="SFX">
+							<ShortName>Redline_sfx_in_FL_studio_12_end.wav</ShortName>
+							<Path>SFX\Redline_sfx_in_FL_studio_12_end_C23D15DC.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3831238989" Name="Arsonist_Masochism_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_Laugh">
 					<IncludedMemoryFiles>
 						<File Id="381718716" Language="SFX">
@@ -45,6 +61,14 @@
 						<File Id="597793787" Language="SFX">
 							<ShortName>Special - Masochism\2. Masochism Laugh 2.wav</ShortName>
 							<Path>SFX\Special - Masochism\2. Masochism Laugh 2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="905023386" Name="Arsonist_Masochism_Start" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_Start">
+					<IncludedMemoryFiles>
+						<File Id="734819941" Language="SFX">
+							<ShortName>Redline_sfx_in_FL_studio_12_startup.wav</ShortName>
+							<Path>SFX\Redline_sfx_in_FL_studio_12_startup_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

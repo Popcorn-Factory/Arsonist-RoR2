@@ -1,5 +1,6 @@
 ﻿using ArsonistMod.Modules;
 using ArsonistMod.Modules.Networking;
+using R2API;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
@@ -97,7 +98,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
-
+            blastAttack.AddModdedDamageType(Modules.Damage.arsonistChildExplosionDamageType);
             blastAttack.Fire();
 
             //Play Sound

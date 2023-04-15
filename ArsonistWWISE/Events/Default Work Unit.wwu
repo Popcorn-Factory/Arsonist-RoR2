@@ -223,6 +223,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Masochism_Start" ID="{D66E2781-7AAB-46AC-87ED-C9473CF0A090}">
+					<ChildrenList>
+						<Action Name="" ID="{FA98B758-0990-411D-8174-AEEE0F3AA9D8}" ShortID="884557436">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_3_Masochism_No_Laugh_Start" ID="{7F0B612C-9F4D-4611-BFF1-C062C09D80A4}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Masochism_Active" ID="{5B7D919F-BC4D-416B-9C07-3D91B7CF82E2}">
+					<ChildrenList>
+						<Action Name="" ID="{3E5A9F26-ABFE-4715-8809-C45D7DB54D94}" ShortID="375870134">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_4_Masochism_No_Laugh_Active" ID="{5CE49A85-13C7-4E25-9D33-BC82107C25E9}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Masochism_End" ID="{12CC4015-ACDF-4FE9-8640-F4CA49EB23F4}">
+					<ChildrenList>
+						<Action Name="" ID="{0DEFA7A7-F189-46DF-A5C1-EB01B5494F5B}" ShortID="168230845">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_2_Masochism_No_Laugh_End" ID="{232EFFEE-FBF0-400C-8D1C-F6CC7A35CBA3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

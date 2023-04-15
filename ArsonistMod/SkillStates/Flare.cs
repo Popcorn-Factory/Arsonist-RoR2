@@ -114,6 +114,7 @@ namespace ArsonistMod.SkillStates
 
         public void StrongFlare()
         {
+            //Strong flare chains more flares.
             Ray aimRay = GetAimRay();
             if (isAuthority)
             {
@@ -140,6 +141,7 @@ namespace ArsonistMod.SkillStates
 
         public void WeakFlare()
         {
+            //Weak flare is old strong flare.
             Ray aimRay = GetAimRay();
             if (isAuthority)
             {
@@ -154,7 +156,7 @@ namespace ArsonistMod.SkillStates
                     aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
-                    damageStat/2f, //damage
+                    damageStat, //damage
                     0f, //force
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Count, //damage color

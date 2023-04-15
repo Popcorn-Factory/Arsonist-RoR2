@@ -1,5 +1,6 @@
 ﻿using ArsonistMod.Modules;
 using ArsonistMod.Modules.Networking;
+using R2API;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 namespace ArsonistMod.SkillStates.Arsonist.Secondary
 {
-    internal class FlareEffectControllerWeak : MonoBehaviour
+    internal class FlareEffectControllerStrongChild : MonoBehaviour
     {
         public CharacterBody arsonistBody;
         public CharacterBody charbody;
@@ -61,7 +62,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                         EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                         {
                             origin = charbody.transform.position,
-                            scale = StaticValues.flareBlastRadius,
+                            scale = StaticValues.flareBlastRadiusChild,
                             rotation = new Quaternion(0, 0, 0, 0)
                         }, true);
                         Destroy(this);
@@ -81,23 +82,22 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         }
 
-
+        
         private void FireExplosion()
         {
             BlastAttack blastAttack;
             blastAttack = new BlastAttack();
-            blastAttack.radius = StaticValues.flareBlastRadius;
+            blastAttack.radius = StaticValues.flareBlastRadiusChild;
             blastAttack.procCoefficient = 1f;
             blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.position = charbody.transform.position;
             blastAttack.attacker = arsonistBody.gameObject;
             blastAttack.crit = arsonistBody.RollCrit();
-
-            blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient;
+            
+            blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongChildDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
-
             blastAttack.Fire();
 
             //Play Sound

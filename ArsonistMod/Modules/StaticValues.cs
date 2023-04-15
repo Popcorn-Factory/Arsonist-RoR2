@@ -67,11 +67,13 @@ namespace ArsonistMod.Modules
         //flaregun
         internal static float flareWeakDamageCoefficient = 2f;
         internal static float flareStrongDamageCoefficient = 4f;
-        internal static float flareBlastRadius = 5f;
+        internal static float flareBlastRadius = 6f;
         internal static float flareHeatReductionMultiplier = 0.3f;
         internal static float flareSpeedCoefficient = 200f;
         internal static int flareTickNum = 5;
         internal static float flareInterval = 0.5f;
+        internal static float flareStrongChildDamageCoefficient = 2f;
+        internal static float flareBlastRadiusChild = 3f;
 
         //zeropointpunch
         internal static float zeropointpounchDamageCoefficient = 4f;

@@ -212,6 +212,12 @@ namespace ArsonistMod
                         flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
                         flarecon.charbody = self.body;
                     }
+                    else if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistChildExplosionDamageType)) 
+                    {
+                        FlareEffectControllerStrongChild flarecon = self.body.gameObject.AddComponent<FlareEffectControllerStrongChild>();
+                        flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
+                        flarecon.charbody = self.body;
+                    }
 
                     DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
                     DamageType frailtyDamageType = DamageType.FallDamage | DamageType.BypassOneShotProtection;

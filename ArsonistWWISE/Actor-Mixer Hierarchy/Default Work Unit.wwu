@@ -802,7 +802,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>13</Value>
+												<Value>15</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -895,7 +895,7 @@
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>15</Value>
+												<Value>16</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1060,6 +1060,115 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="6_3_Masochism_No_Laugh_Start" ID="{7F0B612C-9F4D-4611-BFF1-C062C09D80A4}" ShortID="256454858">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Redline_sfx_in_FL_studio_12_startup" ID="{35A3CDAA-D645-445E-B8FA-1E5670FB7477}">
+											<Language>SFX</Language>
+											<AudioFile>Redline_sfx_in_FL_studio_12_startup.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="734819941"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Redline_sfx_in_FL_studio_12_startup" ID="{35A3CDAA-D645-445E-B8FA-1E5670FB7477}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_2_Masochism_No_Laugh_End" ID="{232EFFEE-FBF0-400C-8D1C-F6CC7A35CBA3}" ShortID="453092209">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Redline_sfx_in_FL_studio_12_end" ID="{6D10081E-AAB9-462A-BFA9-5A9297970D6B}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="8.67986114993943"/>
+												<Property Name="LoopEnd" Type="Real64" Value="12.1009297052154"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="8.608"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Redline_sfx_in_FL_studio_12_end.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="58543393"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Redline_sfx_in_FL_studio_12_end" ID="{6D10081E-AAB9-462A-BFA9-5A9297970D6B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_4_Masochism_No_Laugh_Active" ID="{5CE49A85-13C7-4E25-9D33-BC82107C25E9}" ShortID="792050857">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Redline_sfx_in_FL_studio_12_duration-middle" ID="{90023240-546D-49E8-B012-1A77CC7F4F16}">
+											<Language>SFX</Language>
+											<AudioFile>Redline_sfx_in_FL_studio_12_duration-middle.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="415207369"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Redline_sfx_in_FL_studio_12_duration-middle" ID="{90023240-546D-49E8-B012-1A77CC7F4F16}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
