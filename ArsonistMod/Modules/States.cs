@@ -24,6 +24,7 @@ namespace ArsonistMod.Modules
             Modules.Content.AddEntityState(typeof(ZeroPointBlastWhiff));
 
             Modules.Content.AddEntityState(typeof(Cleanse));
+            Modules.Content.AddEntityState(typeof(NeoMasochism));
             Modules.Content.AddEntityState(typeof(Masochism));
             Modules.Content.AddEntityState(typeof(EmoteSit));
             Modules.Content.AddEntityState(typeof(EmoteStrut));

@@ -109,8 +109,7 @@ namespace ArsonistMod.Content.Controllers
         TextVibration textVibration;
 
         //Masochism monitoring
-        public float heatChanged;
-        public int masoStacks;
+        public MasochismController masoCon;
 
         public void Awake()
         {
@@ -235,10 +234,6 @@ namespace ArsonistMod.Content.Controllers
 
         public void Start()
         {
-            //Masochism
-            heatChanged = 0f;
-            masoStacks = 0;
-
             //Energy
             maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
             currentOverheat = 0f;
@@ -303,6 +298,14 @@ namespace ArsonistMod.Content.Controllers
             currentColor = originalColor;
 
             anim = characterBody.hurtBoxGroup.gameObject.GetComponent<Animator>();
+
+            //Check if we have masochism selected and run the right logic.
+            if (characterBody.skillLocator.special.skillNameToken == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_NAME") 
+            {
+                //Add the component.
+                masoCon = gameObject.AddComponent<MasochismController>();
+                //This should be destroyed with the body I guess.
+            }
         }
 
         private void SetupCustomUI() 
@@ -575,34 +578,7 @@ namespace ArsonistMod.Content.Controllers
             //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
         }
 
-        public void Masochism() 
-        {
-            //Ensure Stacks never exceed 10.
-            //Calculate if we need to add to stacks.
-            if (heatChanged > Modules.Config.masochismHeatChangedThreshold.Value) 
-            {
-                masoStacks++;
-                heatChanged -= Modules.Config.masochismHeatChangedThreshold.Value;
-            }
 
-            if (masoStacks > Modules.Config.masochismMaximumStack.Value) 
-            {
-                masoStacks = Modules.Config.masochismMaximumStack.Value;
-            }
-
-            if (masoStacks >= Modules.Config.masochismMinimumRequiredToActivate.Value)
-            {
-                //I dunno change the skill locator or something.
-            }
-            else 
-            {
-                //Do the opposite I guess.
-            }
-
-            //Apply the maso Stacks as buffs in a stack with no duration 
-            characterBody.ApplyBuff(Modules.Buffs.newMasochismBuff.buffIndex, masoStacks, -1);
-
-        }
 
         public void FixedUpdate()
         {
@@ -616,9 +592,6 @@ namespace ArsonistMod.Content.Controllers
                     CustomUIObject.SetActive(true);
                     energyNumber.gameObject.SetActive(true);
                 }
-
-                //Calculate Masochism Buff application.
-                Masochism();
             }
         }
 
@@ -913,7 +886,10 @@ namespace ArsonistMod.Content.Controllers
             }
 
             //Add to masochism monitoring
-            heatChanged += Energy;
+            if (masoCon) 
+            {
+                masoCon.heatChanged += Energy;
+            }
         }
 
         public void LowerHeat(float Energy)
@@ -925,7 +901,10 @@ namespace ArsonistMod.Content.Controllers
             }
 
             //Add to masochism monitoring
-            heatChanged += Energy;
+            if (masoCon)
+            {
+                masoCon.heatChanged += Energy;
+            }
         }
 
         public void TriggerGlow(float newDecayTimer, float newFlashTimer, Color newStartingColor)
