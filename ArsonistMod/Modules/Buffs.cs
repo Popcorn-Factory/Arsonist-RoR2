@@ -10,6 +10,7 @@ namespace ArsonistMod.Modules
         // armor buff gained during roll
         internal static BuffDef armorBuff;
         internal static BuffDef masochismBuff;
+        internal static BuffDef newMasochismBuff;
         internal static BuffDef flareStrongBuff;
         internal static BuffDef FlareWeakBuff;
         internal static BuffDef blueBuff;
@@ -25,6 +26,7 @@ namespace ArsonistMod.Modules
 
             armorBuff = AddNewBuff("ArsonistArmorBuff", RoR2.LegacyResourcesAPI.Load<Sprite>("Textures/BuffIcons/texBuffGenericShield"), Color.white, false, false);
             masochismBuff = AddNewBuff("Arsonist Masochism Overheat Buff", masochismSprite, Color.red, false, false);
+            newMasochismBuff = AddNewBuff("Arsonist Masochism Buff", masochismSprite, Color.red, true, false);
             flareStrongBuff = AddNewBuff("Flare Strong Burn", flareDebuffSprite, Color.blue, true, true);
             FlareWeakBuff = AddNewBuff("Flare Weak Burn", flareDebuffSprite, Color.yellow, true, true);
             blueBuff = AddNewBuff("Blue Heat Gauge Buff", blueGaugeSprite, Color.cyan, false, false);

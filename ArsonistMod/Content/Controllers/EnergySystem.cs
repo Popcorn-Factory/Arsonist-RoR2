@@ -108,6 +108,10 @@ namespace ArsonistMod.Content.Controllers
         //vibration Vars
         TextVibration textVibration;
 
+        //Masochism monitoring
+        public float heatChanged;
+        public int masoStacks;
+
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
@@ -231,6 +235,10 @@ namespace ArsonistMod.Content.Controllers
 
         public void Start()
         {
+            //Masochism
+            heatChanged = 0f;
+            masoStacks = 0;
+
             //Energy
             maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy);
             currentOverheat = 0f;
@@ -514,7 +522,8 @@ namespace ArsonistMod.Content.Controllers
                 //Regen needs to change so that more heat = more cooling rate for base gauge
                 if (passive.isBlueGauge())
                 {
-                    currentOverheat -= regenOverheat * Time.fixedDeltaTime;
+                    LowerHeat(regenOverheat * Time.fixedDeltaTime);
+                    //currentOverheat -= regenOverheat * Time.fixedDeltaTime;
                 }
                 else 
                 {
@@ -531,7 +540,8 @@ namespace ArsonistMod.Content.Controllers
                         coolingRate = Modules.Config.baseGaugeLowerBoundRecharge.Value;
                     }
 
-                    currentOverheat -= regenOverheat * coolingRate * Time.fixedDeltaTime;
+                    LowerHeat(regenOverheat * coolingRate * Time.fixedDeltaTime);
+                    //currentOverheat -= regenOverheat * coolingRate * Time.fixedDeltaTime;
                 }
             }
 
@@ -565,6 +575,35 @@ namespace ArsonistMod.Content.Controllers
             //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
         }
 
+        public void Masochism() 
+        {
+            //Ensure Stacks never exceed 10.
+            //Calculate if we need to add to stacks.
+            if (heatChanged > Modules.Config.masochismHeatChangedThreshold.Value) 
+            {
+                masoStacks++;
+                heatChanged -= Modules.Config.masochismHeatChangedThreshold.Value;
+            }
+
+            if (masoStacks > Modules.Config.masochismMaximumStack.Value) 
+            {
+                masoStacks = Modules.Config.masochismMaximumStack.Value;
+            }
+
+            if (masoStacks >= Modules.Config.masochismMinimumRequiredToActivate.Value)
+            {
+                //I dunno change the skill locator or something.
+            }
+            else 
+            {
+                //Do the opposite I guess.
+            }
+
+            //Apply the maso Stacks as buffs in a stack with no duration 
+            characterBody.ApplyBuff(Modules.Buffs.newMasochismBuff.buffIndex, masoStacks, -1);
+
+        }
+
         public void FixedUpdate()
         {
             if (characterBody.hasEffectiveAuthority)
@@ -577,6 +616,9 @@ namespace ArsonistMod.Content.Controllers
                     CustomUIObject.SetActive(true);
                     energyNumber.gameObject.SetActive(true);
                 }
+
+                //Calculate Masochism Buff application.
+                Masochism();
             }
         }
 
@@ -862,17 +904,28 @@ namespace ArsonistMod.Content.Controllers
             //energyMeterGlowBackground.color = currentColor;
         }
 
-
-        public void SpendEnergy(float Energy)
+        public void AddHeat(float Energy) 
         {
-            //float energyflatCost = Energy - costflatOverheat;
-            //if (energyflatCost < 0f) energyflatCost = 0f;
-
-            //float energyCost = rageEnergyCost * costmultiplierOverheat * energyflatCost;
-            //if (energyCost < 0f) energyCost = 0f;
-
             currentOverheat += Energy;
+            if (currentOverheat > maxOverheat) 
+            {
+                currentOverheat = maxOverheat;
+            }
 
+            //Add to masochism monitoring
+            heatChanged += Energy;
+        }
+
+        public void LowerHeat(float Energy)
+        {
+            currentOverheat -= Energy;
+            if (currentOverheat < 0f) 
+            {
+                currentOverheat = 0f;
+            }
+
+            //Add to masochism monitoring
+            heatChanged += Energy;
         }
 
         public void TriggerGlow(float newDecayTimer, float newFlashTimer, Color newStartingColor)

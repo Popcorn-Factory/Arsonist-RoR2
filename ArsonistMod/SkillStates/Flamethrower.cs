@@ -116,7 +116,7 @@ namespace ArsonistMod.SkillStates
                 if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
                 {
                     //Increment energy and Damage stuff
-                    energySystem.currentOverheat += energyCost;
+                    energySystem.AddHeat(energyCost);
                     coeff = isBlue ? altStrongCoefficient : strongCoefficient;
                 }
                 else if (energySystem.currentOverheat >= energySystem.maxOverheat && isAuthority)

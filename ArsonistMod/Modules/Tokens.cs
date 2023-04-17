@@ -76,6 +76,9 @@ namespace ArsonistMod.Modules
             #region Special
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_NAME", "Masochism");
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds. Increases attack speed <style=cIsDamage>{100*StaticValues.igniteAttackSpeedMultiplier}%</style>.");
+
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_NAME", "Masochism");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION", "Enter an Overheated state which does something lmao.");
             #endregion
 
             #region Keywords

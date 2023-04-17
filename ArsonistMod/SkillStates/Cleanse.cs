@@ -49,7 +49,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
             {
                 //cleanse, remove half of total energy, do blast attack
-                energySystem.currentOverheat -= energySystem.maxOverheat * StaticValues.cleanseHeatReductionMultiplier;
+                energySystem.LowerHeat(energySystem.maxOverheat * StaticValues.cleanseHeatReductionMultiplier);
                 energySystem.hasOverheatedUtility = false;
 
                 //enemy burn

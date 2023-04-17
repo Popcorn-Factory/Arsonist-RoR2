@@ -9,6 +9,9 @@ namespace ArsonistMod.Modules
 {
     public static class Config
     {
+        public static ConfigEntry<float> masochismHeatChangedThreshold;
+        public static ConfigEntry<int> masochismMinimumRequiredToActivate;
+        public static ConfigEntry<int> masochismMaximumStack;
         public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
         public static ConfigEntry<bool> shouldHaveVoice;
@@ -104,13 +107,44 @@ namespace ArsonistMod.Modules
             );
             masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("01 - Masochism", "Masochism Health Multiplier"),
+                new ConfigDefinition("01 - Masochism", "Health Multiplier"),
                 1f,
                 new ConfigDescription("Determines how much the damage should be multiplied by before converting to health for Fire damage received.",
                     null,
                     Array.Empty<object>()
                 )
             );
+
+            masochismHeatChangedThreshold = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("01 - Masochism", "Anticipation Heat Changed Requirement"),
+                100f,
+                new ConfigDescription("Determines how much heat needs to built up/reduced to acquire a stack of Anticipation.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+
+            masochismMinimumRequiredToActivate = ArsonistPlugin.instance.Config.Bind<int>
+            (
+                new ConfigDefinition("01 - Masochism", "Minimum required to activate"),
+                5,
+                new ConfigDescription("Determines the minimum required amount of stacks to be allowed to activate Masochism.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+
+            masochismMaximumStack = ArsonistPlugin.instance.Config.Bind<int>
+            (
+                new ConfigDefinition("01 - Masochism", "Maximum Anticipation"),
+                10,
+                new ConfigDescription("Determines how many stacks of Anticipation can be built up at one time.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+
 
             emoteSitKey = ArsonistPlugin.instance.Config.Bind<KeyboardShortcut>
             (
@@ -176,16 +210,28 @@ namespace ArsonistMod.Modules
             ModSettingsManager.SetModIcon(icon);
             ModSettingsManager.SetModDescription("The Manic Incendiary");
 
+            //ModSettingsManager.AddOption(
+            //    new StepSliderOption(
+            //        masochismHealthMultiplierOnPowered,
+            //        new StepSliderConfig
+            //        {
+            //            min = 1f,
+            //            max = 15f,
+            //            increment = 0.25f
+            //        }
+            //    ));
+
             ModSettingsManager.AddOption(
                 new StepSliderOption(
-                    masochismHealthMultiplierOnPowered,
+                    masochismHeatChangedThreshold,
                     new StepSliderConfig
                     {
                         min = 1f,
-                        max = 15f,
-                        increment = 0.25f
+                        max = 1000f,
+                        increment = 1f
                     }
                 ));
+
             ModSettingsManager.AddOption(
                 new StepSliderOption(
                     timeBeforeHeatGaugeDecays,
@@ -196,6 +242,27 @@ namespace ArsonistMod.Modules
                         increment = 1f
                     }
                 ));
+
+            ModSettingsManager.AddOption(
+                new IntSliderOption (
+                    masochismMaximumStack,
+                    new IntSliderConfig {
+                        min = 1,
+                        max = 100
+                    }
+                    )
+                );
+
+            ModSettingsManager.AddOption(
+                new IntSliderOption(
+                    masochismMinimumRequiredToActivate,
+                    new IntSliderConfig
+                    {
+                        min = 1,
+                        max = 100
+                    }
+                    )
+                );
 
             ModSettingsManager.AddOption(new KeyBindOption(
                 emoteSitKey));

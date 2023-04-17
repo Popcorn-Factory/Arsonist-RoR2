@@ -70,7 +70,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 FireBolt();
-                energySystem.currentOverheat += energyCost;
+                energySystem.AddHeat(energyCost);
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
             }
