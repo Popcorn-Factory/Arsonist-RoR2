@@ -11,10 +11,11 @@ namespace ArsonistMod.SkillStates
 {
     internal class NeoMasochism : BaseSkillState
     {
-
+        public MasochismController maso;
         public override void OnEnter()
         {
             base.OnEnter();
+            maso = gameObject.GetComponent<MasochismController>();
         }
 
         public override void OnExit()
@@ -25,6 +26,10 @@ namespace ArsonistMod.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            if (maso) 
+            {
+                maso.ActivateMaso();
+            }
             base.outer.SetNextStateToMain();
         }
 

@@ -447,7 +447,7 @@ namespace ArsonistMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.NeoMasochism)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
-                baseRechargeInterval = 12f,
+                baseRechargeInterval = 0f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
@@ -457,7 +457,7 @@ namespace ArsonistMod.Modules.Survivors
                 isCombatSkill = true,
                 mustKeyPress = false,
                 cancelSprintingOnActivation = false,
-                rechargeStock = 1,
+                rechargeStock = 0,
                 requiredStock = 1,
                 stockToConsume = 1,
                 keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_MASOCHISMHEAT" }
