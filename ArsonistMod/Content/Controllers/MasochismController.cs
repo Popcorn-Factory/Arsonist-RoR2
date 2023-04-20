@@ -24,6 +24,7 @@ namespace ArsonistMod.Content.Controllers
         public bool masochismActive;
 
         //Actual Masochism Attacks
+        public float damageOverTimeStopwatch;
         public BlastAttack damageOverTimeSphere;
         public BlastAttack finalBlastAttack;
 
@@ -41,13 +42,35 @@ namespace ArsonistMod.Content.Controllers
             //Short Range Blast attack
             damageOverTimeSphere = new BlastAttack
             {
-
+                attacker = this.gameObject,
+                inflictor = null,
+                teamIndex = TeamIndex.Player,
+                radius = Modules.StaticValues.masochismPulseRadius,
+                falloffModel = BlastAttack.FalloffModel.None,
+                baseDamage = characterBody.damage * Modules.StaticValues.masochismPulseCoefficient,
+                baseForce = 0f,
+                bonusForce = Vector3.up,
+                damageType = DamageType.IgniteOnHit,
+                damageColorIndex = DamageColorIndex.Default,
+                canRejectForce = false,
+                procCoefficient = 0.4f
             };
             
             //Final blast
             finalBlastAttack = new BlastAttack 
             {
-                
+                attacker = this.gameObject,
+                inflictor = null,
+                teamIndex = TeamIndex.Player,
+                radius = Modules.StaticValues.masochismPulseRadius,
+                falloffModel = BlastAttack.FalloffModel.None,
+                baseDamage = characterBody.damage * Modules.StaticValues.masochismPulseCoefficient,
+                baseForce = 0f,
+                bonusForce = Vector3.up,
+                damageType = DamageType.IgniteOnHit,
+                damageColorIndex = DamageColorIndex.Default,
+                canRejectForce = false,
+                procCoefficient = 1f
             };
         }
 
@@ -59,16 +82,39 @@ namespace ArsonistMod.Content.Controllers
                 DetermineMasoActivateable();
 
 
-                if (masochismActive) 
+                if (masochismActive)
                 {
-                    RunMasochismLoop();   
+                    RunMasochismLoop();
+                }
+                else 
+                {
+                    DisableMasochism();            
                 }
             }
         
         }
 
+        public void DisableMasochism() 
+        {
+            // UN apply buff.
+        }
+
         public void RunMasochismLoop() 
         {
+            //Apply buff
+            characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
+
+            damageOverTimeStopwatch += Time.fixedDeltaTime;
+
+            if (damageOverTimeStopwatch >= Modules.StaticValues.masochismBasePulseTimer * characterBody.attackSpeed) 
+            {
+                damageOverTimeSphere.position = gameObject.transform.position;
+                damageOverTimeSphere.crit = characterBody.RollCrit();
+
+                damageOverTimeSphere.Fire();
+                damageOverTimeStopwatch = 0f;
+            }
+
             // Radiate Heat
             // increase damage for a set amount of time
             // Arsonist will heal from damage dealt

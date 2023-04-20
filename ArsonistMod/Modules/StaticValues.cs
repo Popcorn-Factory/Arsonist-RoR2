@@ -89,5 +89,8 @@ namespace ArsonistMod.Modules
         internal static float masochismBuffDuration = 6.5f;
         internal static float masochismHealCoefficient = 0.04f;
         internal static float masochismEnergyCost = 50f;
+        internal static float masochismBasePulseTimer = 0.6f;
+        internal static float masochismPulseRadius = 8f;
+        internal static float masochismPulseCoefficient = 0.5f;
     }
 }
