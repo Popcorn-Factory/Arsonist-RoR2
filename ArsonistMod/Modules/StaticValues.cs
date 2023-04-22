@@ -94,5 +94,6 @@ namespace ArsonistMod.Modules
         internal static float masochismBasePulseTimer = 0.6f;
         internal static float masochismPulseRadius = 8f;
         internal static float masochismPulseCoefficient = 0.5f;
+        internal static float masochismDamageBoost = 3f;
     }
 }

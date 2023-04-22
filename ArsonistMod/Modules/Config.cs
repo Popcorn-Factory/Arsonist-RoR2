@@ -13,6 +13,8 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<int> masochismMinimumRequiredToActivate;
         public static ConfigEntry<int> masochismMaximumStack;
         public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
+        public static ConfigEntry<float> masochismActiveMultipliedActive;
+
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
         public static ConfigEntry<bool> shouldHaveVoice;
         public static ConfigEntry<bool> shouldEnableDieKey;
@@ -140,6 +142,16 @@ namespace ArsonistMod.Modules
                 new ConfigDefinition("01 - Masochism", "Maximum Anticipation"),
                 10,
                 new ConfigDescription("Determines how many stacks of Anticipation can be built up at one time.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+            
+            masochismActiveMultipliedActive = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("01 - Masochism", "Heal multiplication from damage during activation."),
+                1.0f,
+                new ConfigDescription("Determines how much should be healed from damage dealt during Masochism Active state.",
                     null,
                     Array.Empty<object>()
                 )
@@ -296,6 +308,17 @@ namespace ArsonistMod.Modules
             ));
 
             ModSettingsManager.AddOption(new CheckBoxOption(enableOldLoadout));
+
+            ModSettingsManager.AddOption(new StepSliderOption(
+                masochismActiveMultipliedActive,
+                new StepSliderConfig
+                {
+                    min = 0.01f,
+                    max = 10f,
+                    increment = 0.01f
+                }
+            ));
+
         }
 
         // this helper automatically makes config entries for disabling survivors

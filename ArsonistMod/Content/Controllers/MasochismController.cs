@@ -1,4 +1,6 @@
-﻿using R2API.Networking;
+﻿using ArsonistMod.Modules;
+using MonoMod.RuntimeDetour;
+using R2API.Networking;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -38,6 +40,7 @@ namespace ArsonistMod.Content.Controllers
             energySystem = GetComponent<EnergySystem>();
             characterBody = GetComponent<CharacterBody>();
             skillLoc = characterBody.skillLocator;
+            Hook();
 
             //Short Range Blast attack
             damageOverTimeSphere = new BlastAttack
@@ -73,6 +76,54 @@ namespace ArsonistMod.Content.Controllers
                 procCoefficient = 1f
             };
         }
+
+        public void Hook() 
+        {
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+        }
+
+        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
+        {
+            if (self) 
+            {
+                if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME" && self.HasBuff(Modules.Buffs.masochismActiveBuff))
+                {
+                    // increase damage for a set amount of time
+                    self.damage *= StaticValues.masochismDamageBoost;
+                }
+            }
+        }
+
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            if (self)
+            {
+                if (self.body)
+                {
+                    #region Neo-masochism
+
+                    // Arsonist will heal from damage dealt
+                    CharacterBody attackerCharacterBody = damageInfo.attacker.GetComponent<CharacterBody>();
+                    if (attackerCharacterBody)
+                    {
+                        if (attackerCharacterBody.HasBuff(Modules.Buffs.masochismActiveBuff) && attackerCharacterBody.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                        {
+                            attackerCharacterBody.healthComponent.Heal(damageInfo.damage * Modules.Config.masochismActiveMultipliedActive.Value, new ProcChainMask(), true);
+                        }
+                    }
+                    #endregion
+                }
+            }
+        }
+
+        public void Unhook() 
+        {
+            On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
+            On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
+        }
+
+
 
         public void FixedUpdate() 
         {
@@ -115,9 +166,10 @@ namespace ArsonistMod.Content.Controllers
                 damageOverTimeStopwatch = 0f;
             }
 
-            // Radiate Heat
-            // increase damage for a set amount of time
-            // Arsonist will heal from damage dealt
+            // Radiate Heat DONE
+            // increase damage for a set amount of time DONE
+            // Arsonist will heal from damage dealt DONE
+
             // Self inflict damage 
             // Accumulate heat over time
             // Heat raised must be raised by 15%.
@@ -184,5 +236,9 @@ namespace ArsonistMod.Content.Controllers
             characterBody.ApplyBuff(Modules.Buffs.newMasochismBuff.buffIndex, masoStacks, -1);
         }
 
+        public void OnDestroy() 
+        {
+            Unhook();
+        }
     }
 }

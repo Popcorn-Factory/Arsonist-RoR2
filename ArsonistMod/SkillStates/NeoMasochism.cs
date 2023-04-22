@@ -12,10 +12,14 @@ namespace ArsonistMod.SkillStates
     internal class NeoMasochism : BaseSkillState
     {
         public MasochismController maso;
+        public float stopwatch;
+        public static float baseActivationTime = 0.4f;
+        public static float baseDuration = 1f;
         public override void OnEnter()
         {
             base.OnEnter();
             maso = gameObject.GetComponent<MasochismController>();
+            
         }
 
         public override void OnExit()

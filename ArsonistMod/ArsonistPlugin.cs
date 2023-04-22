@@ -265,9 +265,9 @@ namespace ArsonistMod
                                 damageInfo.damage *= StaticValues.igniteDamageReduction;
                             }
                         }
-
                     }
                     #endregion
+
 
                     #region Old Passive and Masochism
                     /* Old Passive/Masochism
