@@ -882,10 +882,6 @@ namespace ArsonistMod.Content.Controllers
         public void AddHeat(float Energy) 
         {
             currentOverheat += Energy;
-            if (currentOverheat > maxOverheat) 
-            {
-                currentOverheat = maxOverheat;
-            }
 
             //Add to masochism monitoring
             if (masoCon) 

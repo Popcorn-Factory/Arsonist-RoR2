@@ -17,6 +17,7 @@ namespace ArsonistMod.Modules
         internal static BuffDef lowerBuff;
         internal static BuffDef fallDamageReductionBuff;
         internal static BuffDef masochismActiveBuff;
+        internal static BuffDef masochismDeactivatedDebuff;
 
         internal static void RegisterBuffs()
         {
@@ -25,6 +26,7 @@ namespace ArsonistMod.Modules
             Sprite flareDebuffSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("flareDebuff");
             Sprite ZPBBuffSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("ZPBBuff");
 
+            masochismDeactivatedDebuff = AddNewBuff("Arsonist Masochism Debuff", masochismSprite, Color.grey, false, true);
             masochismActiveBuff = AddNewBuff("Arsonist Masochism Active", masochismSprite, Color.magenta, false, false);
             armorBuff = AddNewBuff("ArsonistArmorBuff", RoR2.LegacyResourcesAPI.Load<Sprite>("Textures/BuffIcons/texBuffGenericShield"), Color.white, false, false);
             masochismBuff = AddNewBuff("Arsonist Masochism Overheat Buff", masochismSprite, Color.red, false, false);

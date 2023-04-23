@@ -91,12 +91,29 @@ namespace ArsonistMod.Content.Controllers
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
-            if (self) 
+
+            if (self.healthComponent)
             {
-                if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME" && self.HasBuff(Modules.Buffs.masochismActiveBuff))
+                orig(self);
+
+                if (self)
                 {
-                    // increase damage for a set amount of time
-                    self.damage *= StaticValues.masochismDamageBoost;
+                    if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                    {
+                        // increase damage for a set amount of time
+                        if (self.HasBuff(Modules.Buffs.masochismActiveBuff))
+                        {
+                            self.damage *= StaticValues.masochismDamageBoost;
+                        }
+
+                        //Debuff arsonist in EX overheat
+                        if (self.HasBuff(Modules.Buffs.masochismDeactivatedDebuff))
+                        {
+                            self.damage *= StaticValues.masochismDamagePenalty;
+                            self.moveSpeed *= StaticValues.masochismMoveSpeedPenalty;
+                        }
+                    }
+
                 }
             }
         }
@@ -110,17 +127,23 @@ namespace ArsonistMod.Content.Controllers
                     #region Neo-masochism
 
                     // Arsonist will heal from damage dealt
-                    CharacterBody attackerCharacterBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                    if (attackerCharacterBody)
+                    if (damageInfo.attacker) 
                     {
-                        if (attackerCharacterBody.HasBuff(Modules.Buffs.masochismActiveBuff) && attackerCharacterBody.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                        CharacterBody attackerCharacterBody = damageInfo.attacker.GetComponent<CharacterBody>();
+                        if (attackerCharacterBody)
                         {
-                            attackerCharacterBody.healthComponent.Heal(damageInfo.damage * Modules.Config.masochismActiveMultipliedActive.Value, new ProcChainMask(), true);
+                            bool damageTypeCheck = damageInfo.damageType == (DamageType.Generic | DamageType.AOE | DamageType.DoT);
+                            if (attackerCharacterBody.HasBuff(Modules.Buffs.masochismActiveBuff) && attackerCharacterBody.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME" && !damageTypeCheck)
+                            {
+                                attackerCharacterBody.healthComponent.Heal(damageInfo.damage * Modules.Config.masochismActiveMultipliedActive.Value, new ProcChainMask(), true);
+                            }
                         }
                     }
                     #endregion
                 }
             }
+
+            orig(self, damageInfo);
         }
 
         public void Unhook() 
@@ -153,7 +176,14 @@ namespace ArsonistMod.Content.Controllers
 
         public void DisableMasochism() 
         {
-            // UN apply buff.
+            if (characterBody.hasEffectiveAuthority) 
+            {
+                //Remove the buff if they're not overheated.
+                if (!energySystem.ifOverheatMaxed) 
+                {
+                    characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 0, -1);
+                }
+            }
         }
 
         public void RunMasochismLoop()
@@ -192,10 +222,11 @@ namespace ArsonistMod.Content.Controllers
                     force = Vector3.zero,
                     rejected = false,
                     procChainMask = new ProcChainMask(),
-                    damageType = DamageType.Generic,
+                    damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT,
                     damageColorIndex = DamageColorIndex.Bleed,
                     canRejectForce = false
                 });
+                selfDamageStopwatch = 0f;
             }
 
             // Accumulate heat over time
@@ -211,10 +242,24 @@ namespace ArsonistMod.Content.Controllers
         public void TriggerMasochismAndEXOverheat() 
         {
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
-            // Exhaust all maso stocks
+            finalBlastAttack.position = gameObject.transform.position;
+            finalBlastAttack.crit = characterBody.RollCrit();
+            finalBlastAttack.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismFinalBlastCoefficient * Modules.StaticValues.masochismDamageMultiplierPerStack * masoStacks;
+            finalBlastAttack.damageType = DamageType.IgniteOnHit;
+
+            finalBlastAttack.Fire();
+
+            masoStacks = 0;
+            heatChanged = 0;
+
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
+            energySystem.AddHeat(energySystem.maxOverheat * 2f);
+            characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
+            characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
+
 
             masochismActive = false;
+            stopwatch = 0f;
             damageOverTimeStopwatch = 0f;
             energySystem.lowerBound = 0f;
             energySystem.ifOverheatRegenAllowed = true;
@@ -241,13 +286,8 @@ namespace ArsonistMod.Content.Controllers
         {
             // Heat raised must be raised by 15%.
             masochismActive = true;
-            energySystem.lowerBound = 15f;
+            energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
-        }
-
-        public void MasochismActiveLoop() 
-        {
-        
         }
 
         public void MasochismBuffApplication()
