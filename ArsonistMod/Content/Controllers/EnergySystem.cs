@@ -70,6 +70,7 @@ namespace ArsonistMod.Content.Controllers
         public bool hasOverheatedSecondary;
         public bool hasOverheatedUtility;
         public bool hasOverheatedSpecial;
+        public float lowerBound;
 
         //whether base or alt m1 used
         public bool baseHeatGauge;
@@ -247,6 +248,7 @@ namespace ArsonistMod.Content.Controllers
             hasOverheatedSpecial = false;
             overheatTriggered = false;
             additionalRed = 0;
+            lowerBound = 0f;
             overheatState = OverheatState.DORMANT;
             mainCamera = Camera.main;
 
@@ -558,9 +560,9 @@ namespace ArsonistMod.Content.Controllers
                 tickingSound = AkSoundEngine.PostEvent(3408252638, characterBody.gameObject);
             }
 
-            if(currentOverheat < 0f)
+            if (currentOverheat < lowerBound)
             {
-                currentOverheat = 0f;
+                currentOverheat = lowerBound;
             }
 
             if (energyNumber)
@@ -895,9 +897,9 @@ namespace ArsonistMod.Content.Controllers
         public void LowerHeat(float Energy)
         {
             currentOverheat -= Energy;
-            if (currentOverheat < 0f) 
+            if (currentOverheat < lowerBound) 
             {
-                currentOverheat = 0f;
+                currentOverheat = lowerBound;
             }
 
             //Add to masochism monitoring

@@ -14,8 +14,11 @@ namespace ArsonistMod.Content.Controllers
         //energy system
         public EnergySystem energySystem;
 
-        //CharacterBody
+        //CharacterBody 
         public CharacterBody characterBody;
+
+        //HealthComponent
+        public HealthComponent healthComponent;
 
         //Skill Loc
         public SkillLocator skillLoc;
@@ -27,8 +30,10 @@ namespace ArsonistMod.Content.Controllers
 
         //Actual Masochism Attacks
         public float damageOverTimeStopwatch;
+        public float selfDamageStopwatch;
         public BlastAttack damageOverTimeSphere;
         public BlastAttack finalBlastAttack;
+        public float stopwatch;
 
         public void Awake()
         {
@@ -39,6 +44,7 @@ namespace ArsonistMod.Content.Controllers
         {
             energySystem = GetComponent<EnergySystem>();
             characterBody = GetComponent<CharacterBody>();
+            healthComponent = characterBody.healthComponent;
             skillLoc = characterBody.skillLocator;
             Hook();
 
@@ -150,17 +156,20 @@ namespace ArsonistMod.Content.Controllers
             // UN apply buff.
         }
 
-        public void RunMasochismLoop() 
+        public void RunMasochismLoop()
         {
             //Apply buff
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
 
             damageOverTimeStopwatch += Time.fixedDeltaTime;
+            selfDamageStopwatch += Time.fixedDeltaTime;
+            stopwatch += Time.fixedDeltaTime;
 
-            if (damageOverTimeStopwatch >= Modules.StaticValues.masochismBasePulseTimer * characterBody.attackSpeed) 
+            if (damageOverTimeStopwatch >= Modules.StaticValues.masochismBasePulseTimer * characterBody.attackSpeed)
             {
                 damageOverTimeSphere.position = gameObject.transform.position;
                 damageOverTimeSphere.crit = characterBody.RollCrit();
+                damageOverTimeSphere.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismPulseCoefficient;
 
                 damageOverTimeSphere.Fire();
                 damageOverTimeStopwatch = 0f;
@@ -171,15 +180,45 @@ namespace ArsonistMod.Content.Controllers
             // Arsonist will heal from damage dealt DONE
 
             // Self inflict damage 
+            if (selfDamageStopwatch >= Modules.StaticValues.masochismBasePulseSelfDamageTimer) 
+            {
+                healthComponent.TakeDamage(new DamageInfo
+                {
+                    damage = healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage,
+                    crit = false,
+                    inflictor = null,
+                    attacker = this.gameObject,
+                    position = gameObject.transform.position,
+                    force = Vector3.zero,
+                    rejected = false,
+                    procChainMask = new ProcChainMask(),
+                    damageType = DamageType.Generic,
+                    damageColorIndex = DamageColorIndex.Bleed,
+                    canRejectForce = false
+                });
+            }
+
             // Accumulate heat over time
-            // Heat raised must be raised by 15%.
+            energySystem.AddHeat(energySystem.maxOverheat * Modules.StaticValues.masochismEnergyIncreaseOverTimePercentage * Time.fixedDeltaTime);
+
+
+            if (stopwatch >= (float)masoStacks) 
+            {
+                TriggerMasochismAndEXOverheat();
+            }
         }
 
-        public void TriggerFinalMsaochismAndReset() 
+        public void TriggerMasochismAndEXOverheat() 
         {
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             // Exhaust all maso stocks
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
+
+            masochismActive = false;
+            damageOverTimeStopwatch = 0f;
+            energySystem.lowerBound = 0f;
+            energySystem.ifOverheatRegenAllowed = true;
+
         }
 
         public void DetermineMasoActivateable() 
@@ -200,7 +239,10 @@ namespace ArsonistMod.Content.Controllers
 
         public void ActivateMaso() 
         {
+            // Heat raised must be raised by 15%.
             masochismActive = true;
+            energySystem.lowerBound = 15f;
+            energySystem.ifOverheatRegenAllowed = false;
         }
 
         public void MasochismActiveLoop() 
