@@ -1,6 +1,8 @@
 ﻿using ArsonistMod.Modules;
+using ArsonistMod.Modules.Networking;
 using MonoMod.RuntimeDetour;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -28,12 +30,17 @@ namespace ArsonistMod.Content.Controllers
         public int masoStacks;
         public bool masochismActive;
 
+        //Temp: Masochism range Indicator.
+        public GameObject masochismRangeIndicator;
+
         //Actual Masochism Attacks
         public float damageOverTimeStopwatch;
         public float selfDamageStopwatch;
         public BlastAttack damageOverTimeSphere;
         public BlastAttack finalBlastAttack;
         public float stopwatch;
+
+        public uint masochismActiveLoop;
 
         public void Awake()
         {
@@ -46,6 +53,11 @@ namespace ArsonistMod.Content.Controllers
             characterBody = GetComponent<CharacterBody>();
             healthComponent = characterBody.healthComponent;
             skillLoc = characterBody.skillLocator;
+
+            masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
+
+            masochismRangeIndicator.SetActive(false);
+
             Hook();
 
             //Short Range Blast attack
@@ -174,10 +186,23 @@ namespace ArsonistMod.Content.Controllers
         
         }
 
+        public void Update() 
+        {
+            //update the indicator if active
+            if (masochismActive) 
+            {
+                masochismRangeIndicator.transform.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius;
+                masochismRangeIndicator.transform.position = this.gameObject.transform.position;
+            }
+            
+        }
+
         public void DisableMasochism() 
         {
             if (characterBody.hasEffectiveAuthority) 
             {
+
+                masochismRangeIndicator.SetActive(false);
                 //Remove the buff if they're not overheated.
                 if (!energySystem.ifOverheatMaxed) 
                 {
@@ -190,6 +215,7 @@ namespace ArsonistMod.Content.Controllers
         {
             //Apply buff
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
+            masochismRangeIndicator.SetActive(true);
 
             damageOverTimeStopwatch += Time.fixedDeltaTime;
             selfDamageStopwatch += Time.fixedDeltaTime;
@@ -233,7 +259,7 @@ namespace ArsonistMod.Content.Controllers
             energySystem.AddHeat(energySystem.maxOverheat * Modules.StaticValues.masochismEnergyIncreaseOverTimePercentage * Time.fixedDeltaTime);
 
 
-            if (stopwatch >= (float)masoStacks) 
+            if (stopwatch >= (float)masoStacks || energySystem.ifOverheatMaxed) 
             {
                 TriggerMasochismAndEXOverheat();
             }
@@ -241,6 +267,9 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat() 
         {
+            AkSoundEngine.StopPlayingID(masochismActiveLoop);
+            new PlaySoundNetworkRequest(characterBody.netId, 3776032889).Send(NetworkDestination.Clients);
+
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             finalBlastAttack.position = gameObject.transform.position;
             finalBlastAttack.crit = characterBody.RollCrit();
@@ -288,6 +317,10 @@ namespace ArsonistMod.Content.Controllers
             masochismActive = true;
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
+            //Start Masochism Sound
+            new PlaySoundNetworkRequest(characterBody.netId, 905023386).Send(NetworkDestination.Clients);
+
+            masochismActiveLoop = AkSoundEngine.PostEvent(1726690184, characterBody.gameObject);
         }
 
         public void MasochismBuffApplication()

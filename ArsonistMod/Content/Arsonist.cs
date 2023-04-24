@@ -33,7 +33,7 @@ namespace ArsonistMod.Modules.Survivors
             healthGrowth = 40f,
             healthRegen = 1f,
             moveSpeed = 7f,
-            damage = 8f,
+            damage = 12f,
             armor = 0f,
 
             jumpCount = 1,

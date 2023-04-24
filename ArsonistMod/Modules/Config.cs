@@ -27,6 +27,8 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<KeyboardShortcut> dieKey;
         public static ConfigEntry<bool> enableOldLoadout;
 
+        public static ConfigEntry<float> passiveHealthPercentageTriggerIgnite;
+
         /*
          
         //passive onfire buff
@@ -207,9 +209,16 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("Determines how fast the cooling occurs at 100%. Scales upwards in a parabola.")
             );
 
+            passiveHealthPercentageTriggerIgnite = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("05 - Passive", "Percentage health lost before triggering ignite"),
+                0.3f,
+                new ConfigDescription("Percentage of health required to be inflicted before passive is triggered. If 0, it will always trigger.")
+            );
+
             enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
             (
-                new ConfigDefinition("05 - Secret", "Enable Old Loadout"),
+                new ConfigDefinition("06 - Secret", "Enable Old Loadout"),
                 false,
                 new ConfigDescription("Enables some old features of the mod from 1.0. Requires a restart to take effect.")
             );
@@ -319,6 +328,15 @@ namespace ArsonistMod.Modules
                 }
             ));
 
+            ModSettingsManager.AddOption(new StepSliderOption(
+                passiveHealthPercentageTriggerIgnite,
+                new StepSliderConfig
+                {
+                    min = 0.00f,
+                    max = 1f,
+                    increment = 0.01f
+                }
+            ));
         }
 
         // this helper automatically makes config entries for disabling survivors

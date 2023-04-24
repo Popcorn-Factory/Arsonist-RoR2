@@ -62,7 +62,7 @@ namespace ArsonistMod.SkillStates
                 else
                 {
                     //self burn
-                    new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                    //new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
                 }
 
                 if(characterBody.GetComponent<ArsonistController>())
@@ -104,6 +104,8 @@ namespace ArsonistMod.SkillStates
 
             if (base.isAuthority) 
             {
+                characterBody.ApplyBuff(Modules.Buffs.cleanseSpeedBoost.buffIndex, 1, duration * 2.5f);
+                
                 new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
             }
 

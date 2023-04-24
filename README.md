@@ -15,6 +15,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 ## Latest Update
 
 - 2.0.0
+    - Stat Changes
+        - Increased Base damage stat from 8 -> 12
     - Core Skill Changes
         - Passive
             - Arsonist now converts 50% of total damage received as fire damage over time
@@ -36,6 +38,16 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Due to the destructive nature of this upgrade, the cooldown has been increased.
             - Zero Point Blast
                 - Increased the volume of the SFX played on start.
+        - Utility
+            - Cleanse:
+                - Does not self burn anymore.
+        - Special
+            - Masochism
+                - Builds up Anticipation stacks while not activated.
+                - Now activates a state which radiates heat around Arsonist, dealing ignite damage to enemies in a small radius around you.
+                - Increases heat and deals self damage over time during the duration of the move
+                - Activatable when required stack amount is reached.
+                - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
