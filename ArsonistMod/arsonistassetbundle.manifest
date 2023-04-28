@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2149778258
+CRC: 1227955983
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7a9d161d1e28a8aeab85470848c92323
+    Hash: 898fdcd6fa27f0b8b92bd7df2660c200
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -267,6 +267,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/Descend.anim
 - Assets/ArsonistAssets/VFX/IgnitionFlame.prefab
 - Assets/ArsonistAssets/VFX/Textures/flareMainEmission.png
+- Assets/ArsonistAssets/VFX/flareCollision.prefab
 - Assets/ArsonistAssets/VFX/Textures/SparkParticle.tif
 - Assets/ArsonistAssets/Animation/clips/AimPitch.anim
 - Assets/ArsonistAssets/VFX/Light.prefab

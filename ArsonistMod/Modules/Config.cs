@@ -29,6 +29,8 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<float> passiveHealthPercentageTriggerIgnite;
 
+        public static ConfigEntry<int> flareSalvoAmount;
+
         /*
          
         //passive onfire buff
@@ -216,9 +218,19 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("Percentage of health required to be inflicted before passive is triggered. If 0, it will always trigger.")
             );
 
+            flareSalvoAmount = ArsonistPlugin.instance.Config.Bind<int>
+            (
+                new ConfigDefinition("06 - Flare", "Number of Salvos on explosion."),
+                4,
+                new ConfigDescription("Determines how many salvos are fired from one projectile after lifetime expires.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+
             enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
             (
-                new ConfigDefinition("06 - Secret", "Enable Old Loadout"),
+                new ConfigDefinition("07 - Secret", "Enable Old Loadout"),
                 false,
                 new ConfigDescription("Enables some old features of the mod from 1.0. Requires a restart to take effect.")
             );
@@ -337,6 +349,14 @@ namespace ArsonistMod.Modules
                     increment = 0.01f
                 }
             ));
+
+            ModSettingsManager.AddOption(new IntSliderOption(
+                flareSalvoAmount,
+                new IntSliderConfig 
+                {
+                    min = 0,
+                    max = 100,
+                }));
         }
 
         // this helper automatically makes config entries for disabling survivors

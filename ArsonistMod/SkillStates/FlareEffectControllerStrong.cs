@@ -4,6 +4,7 @@ using R2API;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
+using RoR2.Projectile;
 using System;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         public GameObject effectObj;
         private int timesFired;
         private float timer;
+        private bool hasFired;
 
         void Start()
         {
@@ -58,6 +60,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     }
                     else
                     {
+                        hasFired = true;
                         FireExplosion();
                         EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                         {
@@ -98,14 +101,62 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
-            blastAttack.AddModdedDamageType(Modules.Damage.arsonistChildExplosionDamageType);
             blastAttack.Fire();
 
             //Play Sound
             new PlaySoundNetworkRequest(charbody.netId, 3061346618).Send(NetworkDestination.Clients);
+
+
+            FireSalvos();
         }
+
+        private void FireSalvos() 
+        {
+            //On hit, we want to spawn x amount more bombs up to 10 based on attackspeed
+            
+            if (arsonistBody && arsonistBody.hasEffectiveAuthority)
+            {
+                int childAmount = Modules.Config.flareSalvoAmount.Value;
+
+                Vector3 pointOfImpact = charbody.transform.position;
+                float increment = (Mathf.PI * 2f) / (float)childAmount;
+                float currentInc = 0f;
+
+                //Determine the angle at which it should shoot each child projectile.
+                for (int i = 0; i < childAmount; i++)
+                {
+                    //we want to aim for a radius around the bomb.
+                    // x = rcos(theta)
+                    // y = rsin(theta)
+                    float x = Modules.StaticValues.flareSalvoRadius * Mathf.Cos(currentInc);
+                    float z = Modules.StaticValues.flareSalvoRadius * Mathf.Sin(currentInc);
+                    float y = Modules.StaticValues.flareSalvoRadius;
+
+                    Vector3 dir = new Vector3(x, y, z).normalized;
+                    FireProjectileSalvo(dir, new Vector3(pointOfImpact.x + x / 9.0f, pointOfImpact.y, pointOfImpact.z + z / 9.0f));
+                    currentInc += increment;
+                }
+            }
+        }
+
+        public void FireProjectileSalvo(Vector3 direction, Vector3 origin)
+        {
+            ProjectileManager.instance.FireProjectile(Modules.Projectiles.flareChildPrefab,
+                new Vector3(origin.x, origin.y + 2f, origin.z),
+                Util.QuaternionSafeLookRotation(direction),
+                arsonistBody.gameObject,
+                Modules.StaticValues.flareStrongChildDamageCoefficient * arsonistBody.damage,
+                UnityEngine.Random.Range(1000f, 4000f),
+                arsonistBody.RollCrit(),
+                DamageColorIndex.Default,
+                null,
+                UnityEngine.Random.Range(15f, 25f));
+        }
+
         private void OnDestroy()
         {
+
+            if (!hasFired) { FireExplosion(); }
             Destroy(effectObj);
         }
     }

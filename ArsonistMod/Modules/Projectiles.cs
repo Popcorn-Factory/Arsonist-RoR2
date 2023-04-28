@@ -21,6 +21,7 @@ namespace ArsonistMod.Modules
         internal static GameObject weakFlare;
         internal static GameObject strongFlare;
         internal static GameObject zeropointBomb;
+        internal static GameObject flareChildPrefab;
 
         internal static void RegisterProjectiles()
         {
@@ -39,7 +40,8 @@ namespace ArsonistMod.Modules
             CreateStrongFlare();
             AddProjectile(strongFlare);
 
-
+            CreateFlareChildPrefab();
+            AddProjectile(flareChildPrefab);
 
         }
 
@@ -49,7 +51,36 @@ namespace ArsonistMod.Modules
         }
 
 
+        private static void CreateFlareChildPrefab()
+        {
+            flareChildPrefab = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareCollision");
+            flareChildPrefab.AddComponent<NetworkIdentity>();
 
+            ProjectileController projectileController = flareChildPrefab.AddComponent<ProjectileController>();
+            projectileController.procCoefficient = 1f;
+
+            ProjectileDamage projectileDamage = flareChildPrefab.AddComponent<ProjectileDamage>();
+            projectileDamage.damage = 10f;
+            projectileDamage.crit = false;
+            projectileDamage.force = 1000f;
+            projectileDamage.damageType = DamageType.Generic;
+
+            ProjectileImpactExplosion projectileExplosion = flareChildPrefab.AddComponent<ProjectileImpactExplosion>();
+            projectileExplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
+            projectileExplosion.blastRadius = Modules.StaticValues.flareBlastRadius;
+            projectileExplosion.blastDamageCoefficient = 1f;
+            projectileExplosion.falloffModel = BlastAttack.FalloffModel.None;
+            projectileExplosion.destroyOnEnemy = false;
+            projectileExplosion.destroyOnWorld = true;
+            projectileExplosion.lifetimeAfterImpact = 2f;
+            projectileExplosion.lifetime = 5f;
+
+            ProjectileSimple projectileSimple = flareChildPrefab.AddComponent<ProjectileSimple>();
+            projectileSimple.lifetime = 10f;
+            projectileSimple.desiredForwardSpeed = 30f;
+
+            PrefabAPI.RegisterNetworkPrefab(flareChildPrefab);
+        }
 
 
         private static void CreateStrongFlare()
@@ -333,11 +364,11 @@ namespace ArsonistMod.Modules
             //Debug.Log(projImpact.impactEffect);
             UnityEngine.Object.Destroy(projImpact);
 
-            Component[] components = artificerFirebolt.GetComponents<Component>();
-            foreach (Component component in components) 
-            {
-                Debug.Log(component.GetType().ToString());
-            }
+            //Component[] components = artificerFirebolt.GetComponents<Component>();
+            //foreach (Component component in components) 
+            //{
+            //    Debug.Log(component.GetType().ToString());
+            //}
 
         }
 
