@@ -69,6 +69,8 @@ namespace ArsonistMod.SkillStates
                 {
                     ArsonistController arsonistController = characterBody.GetComponent<ArsonistController>();
                     arsonistController.steamParticle.Play();
+                    arsonistController.ringFireActive = true;
+                    arsonistController.ringFire.Play();
                 }
                 
 

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1227955983
+CRC: 524145732
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 898fdcd6fa27f0b8b92bd7df2660c200
+    Hash: 4bc7c05e190469607a84e8f355c8b0da
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -112,6 +112,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/maskAimYaw.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Jump.anim
 - Assets/ArsonistAssets/Icons/texSecondaryIcon.png
+- Assets/ArsonistAssets/VFX/ringFlame.prefab
 - Assets/ArsonistAssets/VFX/Materials/matHenrySwing2.mat
 - Assets/ArsonistAssets/VFX/Textures/texRipple.png
 - Assets/ArsonistAssets/VFX/ImpactHenrySlash.prefab

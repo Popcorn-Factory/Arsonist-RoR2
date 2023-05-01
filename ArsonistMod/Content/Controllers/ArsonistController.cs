@@ -23,7 +23,10 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem fireBeam;
         public ParticleSystem fireBeamForward;
         public ParticleSystem flamethrower;
+        public ParticleSystem ringFire;
         public Transform flamethrowerTransform;
+
+        public bool ringFireActive;
 
         // Use this for initialization
         void Start()
@@ -37,6 +40,7 @@ namespace ArsonistMod.Content.Controllers
                 fireBeamForward = childLocator.FindChild("FireBeamForwardFiring").GetComponent<ParticleSystem>();
                 flamethrowerTransform = childLocator.FindChild("Flamethrower");
                 flamethrower = childLocator.FindChild("Flamethrower").GetComponent<ParticleSystem>();
+                ringFire = childLocator.FindChild("RingFlame").GetComponent<ParticleSystem>();
             }
             
             charBody = gameObject.GetComponent<CharacterBody>();
@@ -118,6 +122,20 @@ namespace ArsonistMod.Content.Controllers
             {
                 Ray ray = charBody.inputBank.GetAimRay();
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+            }
+
+            if (ringFireActive && Modules.Config.cleanseRingFireEffectEnabled.Value) 
+            {
+                if (!charBody.HasBuff(Modules.Buffs.cleanseSpeedBoost)) 
+                {
+                    ringFireActive = false;
+                    ringFire.Stop();
+                }
+            }
+            else if (!Modules.Config.cleanseRingFireEffectEnabled.Value) 
+            {
+                ringFireActive = false;
+                ringFire.Stop();
             }
         }
     }

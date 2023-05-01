@@ -31,6 +31,8 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<int> flareSalvoAmount;
 
+        public static ConfigEntry<bool> cleanseRingFireEffectEnabled;
+
         /*
          
         //passive onfire buff
@@ -221,16 +223,23 @@ namespace ArsonistMod.Modules
             flareSalvoAmount = ArsonistPlugin.instance.Config.Bind<int>
             (
                 new ConfigDefinition("06 - Flare", "Number of Salvos on explosion."),
-                4,
+                5,
                 new ConfigDescription("Determines how many salvos are fired from one projectile after lifetime expires.",
                     null,
                     Array.Empty<object>()
                 )
             );
 
+            cleanseRingFireEffectEnabled = ArsonistPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("07 - Cleanse", "Ring Fire effect enabled"),
+                true,
+                new ConfigDescription("Determines whether the ring of fire should play when cleanses is activated.", null, Array.Empty<object>())
+            );
+
             enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
             (
-                new ConfigDefinition("07 - Secret", "Enable Old Loadout"),
+                new ConfigDefinition("08 - Secret", "Enable Old Loadout"),
                 false,
                 new ConfigDescription("Enables some old features of the mod from 1.0. Requires a restart to take effect.")
             );
@@ -357,6 +366,8 @@ namespace ArsonistMod.Modules
                     min = 0,
                     max = 100,
                 }));
+
+            ModSettingsManager.AddOption(new CheckBoxOption(cleanseRingFireEffectEnabled));
         }
 
         // this helper automatically makes config entries for disabling survivors
