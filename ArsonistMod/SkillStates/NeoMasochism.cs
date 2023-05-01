@@ -41,7 +41,7 @@ namespace ArsonistMod.SkillStates
                 }
                 else
                 {
-                    maso.TriggerMasochismAndEXOverheat();
+                    maso.TriggerMasochismAndEXOverheat(false);
                 }
 
                 base.outer.SetNextStateToMain();

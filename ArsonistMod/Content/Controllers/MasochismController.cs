@@ -259,13 +259,18 @@ namespace ArsonistMod.Content.Controllers
             energySystem.AddHeat(energySystem.maxOverheat * Modules.StaticValues.masochismEnergyIncreaseOverTimePercentage * Time.fixedDeltaTime);
 
 
-            if (stopwatch >= (float)masoStacks || energySystem.ifOverheatMaxed) 
+            if (stopwatch >= (float)masoStacks)
             {
-                TriggerMasochismAndEXOverheat();
+                TriggerMasochismAndEXOverheat(false);
+            }
+
+            if (energySystem.ifOverheatMaxed) 
+            {
+                TriggerMasochismAndEXOverheat(true);
             }
         }
 
-        public void TriggerMasochismAndEXOverheat() 
+        public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, 3776032889).Send(NetworkDestination.Clients);
@@ -283,9 +288,11 @@ namespace ArsonistMod.Content.Controllers
 
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
-            characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
-            characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
-
+            if (applyDebuff) 
+            {
+                characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
+                characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
+            }
 
             masochismActive = false;
             stopwatch = 0f;
