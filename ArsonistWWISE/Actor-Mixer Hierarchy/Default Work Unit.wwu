@@ -1169,16 +1169,202 @@
 										<ActiveSource Name="Redline_sfx_in_FL_studio_12_duration-middle" ID="{90023240-546D-49E8-B012-1A77CC7F4F16}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="9_1_Flamethrower_Active" ID="{30E7718A-AE29-4CBE-86F5-4C39A3E772B7}" ShortID="844087774">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Flamethrower_primary_neoarsonist_ongoing" ID="{D744702D-65FD-4DDF-9B13-6CF2BF7C3639}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="1.58279858625749"/>
+												<Property Name="TrimEnd" Type="Real64" Value="9.46906163502054"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Flamethrower_primary_neoarsonist_ongoing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="681712450"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Flamethrower_primary_neoarsonist_ongoing" ID="{D744702D-65FD-4DDF-9B13-6CF2BF7C3639}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="9_0_Flamethrower_Start" ID="{6D36585C-0534-4F4E-9DDB-398248114E63}" ShortID="3094191">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Flamethrower_primary_neoarsonist_start" ID="{E3F7C22B-8B32-4293-9EB5-DE8545D94B2D}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.173138454011742"/>
+												<Property Name="TrimEnd" Type="Real64" Value="2.36622553816047"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Flamethrower_primary_neoarsonist_start.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="509496315"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Flamethrower_primary_neoarsonist_start" ID="{E3F7C22B-8B32-4293-9EB5-DE8545D94B2D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_5_Masochism_Laugh_Active" ID="{B3775885-2FA2-484A-AC53-378A3A67D1BE}" ShortID="14165480">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Redline_try_again_2_duration" ID="{1251D187-DA55-475E-B5D2-25F9752D5B60}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="2.33504752585966"/>
+												<Property Name="TrimEnd" Type="Real64" Value="14.0456646631255"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Redline_try_again_2_duration.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="624049047"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Redline_try_again_2_duration" ID="{1251D187-DA55-475E-B5D2-25F9752D5B60}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_7_Masochism_Laugh_Start" ID="{DD80F2ED-3AD0-4DCE-9124-6578271C6C1C}" ShortID="197398512">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Redline_try_again_2_startup" ID="{00289EAB-9181-4A8B-A3BA-D5A5D5B24EAB}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.155117362260219"/>
+												<Property Name="TrimEnd" Type="Real64" Value="6.12065487838971"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Redline_try_again_2_startup.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="783563173"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Redline_try_again_2_startup" ID="{00289EAB-9181-4A8B-A3BA-D5A5D5B24EAB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_6_Masochism_Laugh_End" ID="{2D9568DD-D0AC-47B1-9930-4A968CC878AE}" ShortID="8692924">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Redline_try_again_2_end" ID="{DFBA926E-30BD-4E27-9CEB-AD93E391274B}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="12.6658638523903"/>
+												<Property Name="TrimEnd" Type="Real64" Value="16.0622966172771"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Redline_try_again_2_end.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="848999776"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Redline_try_again_2_end" ID="{DFBA926E-30BD-4E27-9CEB-AD93E391274B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
-				<Folder Name="Cleanse - Shift" ID="{5651CE33-1D09-4C25-85A6-6B079BAA355B}" ShortID="941186207"/>
-				<Folder Name="Overheat" ID="{E1197DBD-121C-4AF3-9BBE-0E3194744C2A}" ShortID="906357815"/>
-				<Folder Name="Primary Fire" ID="{AC006E2C-CFB7-43AC-B3F9-96C6A8E830D4}" ShortID="537913397"/>
-				<Folder Name="Secondary Fire 1" ID="{C420B481-E373-4364-9522-416609858DED}" ShortID="1049643860"/>
-				<Folder Name="Secondary Fire 2" ID="{E905A19F-13B0-4CF8-B30D-600D17523C2F}" ShortID="1003903922"/>
-				<Folder Name="Special - Masochism" ID="{9BBE6842-6A3C-4116-AD7C-E4F4CAF3D4CC}" ShortID="315727803"/>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

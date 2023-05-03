@@ -273,7 +273,7 @@ namespace ArsonistMod.Content.Controllers
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
-            new PlaySoundNetworkRequest(characterBody.netId, 3776032889).Send(NetworkDestination.Clients);
+            new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
 
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             finalBlastAttack.position = gameObject.transform.position;
@@ -288,11 +288,13 @@ namespace ArsonistMod.Content.Controllers
 
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
-            if (applyDebuff) 
+            if (applyDebuff)
             {
                 characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
-                characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
             }
+
+
+            characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
 
             masochismActive = false;
             stopwatch = 0f;
@@ -324,10 +326,8 @@ namespace ArsonistMod.Content.Controllers
             masochismActive = true;
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
-            //Start Masochism Sound
-            new PlaySoundNetworkRequest(characterBody.netId, 905023386).Send(NetworkDestination.Clients);
 
-            masochismActiveLoop = AkSoundEngine.PostEvent(1726690184, characterBody.gameObject);
+            masochismActiveLoop = AkSoundEngine.PostEvent(3082119886, characterBody.gameObject);
         }
 
         public void MasochismBuffApplication()

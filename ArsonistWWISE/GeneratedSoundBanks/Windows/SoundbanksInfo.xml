@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="3922697024">
+		<SoundBank Id="1110381487" Language="SFX" Hash="328356182">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -24,27 +24,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="587096102" Name="Arsonist_Flamethrower_Active" ObjectPath="\Events\Default Work Unit\Arsonist_Flamethrower_Active">
+					<IncludedMemoryFiles>
+						<File Id="681712450" Language="SFX">
+							<ShortName>Flamethrower_primary_neoarsonist_ongoing.wav</ShortName>
+							<Path>SFX\Flamethrower_primary_neoarsonist_ongoing_D361D2BE.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="934132236" Name="Arsonist_Flamethrower_Start" ObjectPath="\Events\Default Work Unit\Arsonist_Flamethrower_Start">
+					<IncludedMemoryFiles>
+						<File Id="509496315" Language="SFX">
+							<ShortName>Flamethrower_primary_neoarsonist_start.wav</ShortName>
+							<Path>SFX\Flamethrower_primary_neoarsonist_start_A9BD9F40.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1840962711" Name="Arsonist_Masochism" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism">
 					<IncludedMemoryFiles>
 						<File Id="965841612" Language="SFX">
 							<ShortName>4._Masochism_with_no_Laugh.wav</ShortName>
 							<Path>SFX\4._Masochism_with_no_Laugh_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1726690184" Name="Arsonist_Masochism_Active" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_Active">
-					<IncludedMemoryFiles>
-						<File Id="415207369" Language="SFX">
-							<ShortName>Redline_sfx_in_FL_studio_12_duration-middle.wav</ShortName>
-							<Path>SFX\Redline_sfx_in_FL_studio_12_duration-middle_9EDFC787.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3776032889" Name="Arsonist_Masochism_End" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_End">
-					<IncludedMemoryFiles>
-						<File Id="58543393" Language="SFX">
-							<ShortName>Redline_sfx_in_FL_studio_12_end.wav</ShortName>
-							<Path>SFX\Redline_sfx_in_FL_studio_12_end_C23D15DC.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -64,19 +64,59 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="905023386" Name="Arsonist_Masochism_Start" ObjectPath="\Events\Default Work Unit\Arsonist_Masochism_Start">
-					<IncludedMemoryFiles>
-						<File Id="734819941" Language="SFX">
-							<ShortName>Redline_sfx_in_FL_studio_12_startup.wav</ShortName>
-							<Path>SFX\Redline_sfx_in_FL_studio_12_startup_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="428657357" Name="Arsonist_Menu_Match_Strike" ObjectPath="\Events\Default Work Unit\Arsonist_Menu_Match_Strike">
 					<IncludedMemoryFiles>
 						<File Id="1029976508" Language="SFX">
 							<ShortName>flarestrikesetup.wav</ShortName>
 							<Path>SFX\flarestrikesetup_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3082119886" Name="Arsonist_Neomasochism_Active_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Active_Laugh">
+					<IncludedMemoryFiles>
+						<File Id="624049047" Language="SFX">
+							<ShortName>Redline_try_again_2_duration.wav</ShortName>
+							<Path>SFX\Redline_try_again_2_duration_8FD51286.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3420833548" Name="Arsonist_Neomasochism_Active_No_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Active_No_Laugh">
+					<IncludedMemoryFiles>
+						<File Id="415207369" Language="SFX">
+							<ShortName>Redline_sfx_in_FL_studio_12_duration-middle.wav</ShortName>
+							<Path>SFX\Redline_sfx_in_FL_studio_12_duration-middle_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3765159379" Name="Arsonist_Neomasochism_End_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_End_Laugh">
+					<IncludedMemoryFiles>
+						<File Id="848999776" Language="SFX">
+							<ShortName>Redline_try_again_2_end.wav</ShortName>
+							<Path>SFX\Redline_try_again_2_end_8C3193D7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1409583187" Name="Arsonist_Neomasochism_End_No_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_End_No_Laugh">
+					<IncludedMemoryFiles>
+						<File Id="58543393" Language="SFX">
+							<ShortName>Redline_sfx_in_FL_studio_12_end.wav</ShortName>
+							<Path>SFX\Redline_sfx_in_FL_studio_12_end_C23D15DC.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1305067912" Name="Arsonist_Neomasochism_Start_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Start_Laugh">
+					<IncludedMemoryFiles>
+						<File Id="783563173" Language="SFX">
+							<ShortName>Redline_try_again_2_startup.wav</ShortName>
+							<Path>SFX\Redline_try_again_2_startup_6C9C7A94.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="955478894" Name="Arsonist_Neomasochism_Start_No_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Start_No_Laugh">
+					<IncludedMemoryFiles>
+						<File Id="734819941" Language="SFX">
+							<ShortName>Redline_sfx_in_FL_studio_12_startup.wav</ShortName>
+							<Path>SFX\Redline_sfx_in_FL_studio_12_startup_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

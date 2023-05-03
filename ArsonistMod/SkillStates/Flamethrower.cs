@@ -1,6 +1,7 @@
 ﻿using ArsonistMod.Content.Controllers;
 using ArsonistMod.Modules.Networking;
 using EntityStates;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,19 @@ namespace ArsonistMod.SkillStates
             };
 
             controller.flamethrower.Play();
+
+            if (controller) 
+            {
+                if (!controller.playingFlamethrower) 
+                {
+                    controller.playingFlamethrower = true;
+                    if (base.isAuthority) 
+                    {
+                        new PlaySoundNetworkRequest(characterBody.netId, 934132236).Send(R2API.Networking.NetworkDestination.Clients);
+                        controller.flamethrowerPlayingID = AkSoundEngine.PostEvent(587096102, characterBody.gameObject);
+                    }
+                }
+            }
         }
 
         public override void OnExit()

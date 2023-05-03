@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 524145732
+CRC: 2894123701
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4bc7c05e190469607a84e8f355c8b0da
+    Hash: 8eb7048d4a5927b6d0eb777159982c1b
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -146,6 +146,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
 - Assets/ArsonistAssets/VFX/BombExplosionEffect.prefab
 - Assets/ArsonistAssets/Animation/clips/Slash2.anim
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Sprint.anim
 - Assets/ArsonistAssets/Materials/FireMaterial.mat
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png

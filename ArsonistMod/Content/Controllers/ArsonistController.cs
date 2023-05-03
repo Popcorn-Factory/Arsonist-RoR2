@@ -28,6 +28,9 @@ namespace ArsonistMod.Content.Controllers
 
         public bool ringFireActive;
 
+        public bool playingFlamethrower;
+        public uint flamethrowerPlayingID;
+
         // Use this for initialization
         void Start()
         {
@@ -122,6 +125,12 @@ namespace ArsonistMod.Content.Controllers
             {
                 Ray ray = charBody.inputBank.GetAimRay();
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+
+                if (!charBody.inputBank.skill1.down) 
+                {
+                    playingFlamethrower = false;
+                    AkSoundEngine.StopPlayingID(flamethrowerPlayingID);
+                }
             }
 
             if (ringFireActive && Modules.Config.cleanseRingFireEffectEnabled.Value) 
