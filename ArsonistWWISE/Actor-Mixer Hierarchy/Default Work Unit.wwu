@@ -247,164 +247,13 @@
 										<ActiveSource Name="4_ Cleanse" ID="{8805E9D6-0023-4571-A107-82967134435C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="3_0_Primary_Fire" ID="{57205467-723F-42B2-8E23-577178A48BB8}" ShortID="23082582">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="1_ Primary Fire" ID="{FB73C80E-0F69-45CA-AECB-ECD147443C79}">
-											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0.206404109589041"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.206"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>Primary Fire\1. Primary Fire.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="938389516"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="1_ Primary Fire" ID="{FB73C80E-0F69-45CA-AECB-ECD147443C79}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="3_1_Primary_Fire_Overheated" ID="{59C94687-0DFD-4F8A-9210-DF4C14DC5A59}" ShortID="343068606">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>8</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="2_ Primary Fire Overheated" ID="{EFDC9983-3DF0-4332-9DAA-28887EA8720C}">
-											<Language>SFX</Language>
-											<AudioFile>Primary Fire\2. Primary Fire Overheated.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="640021138"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="2_ Primary Fire Overheated" ID="{EFDC9983-3DF0-4332-9DAA-28887EA8720C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="4_0_ Secondary Flare Projectile" ID="{75931BBB-316C-4A31-B257-549E96B69F8F}" ShortID="611976252">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="1_ Flare Projectile" ID="{F5B0E277-B6C9-468F-9006-5BD6B4E00E31}">
-											<Language>SFX</Language>
-											<AudioFile>Secondary Fire 1\1. Flare Projectile.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="87249989"/>
-											</MediaIDList>
-										</AudioFileSource>
-										<AudioFileSource Name="3__Explosion_from_projectile_contact (1)" ID="{3F06F2B9-F6F7-4CFE-AC9C-E5B9F47089AF}">
-											<PropertyList>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>3._Explosion_from_projectile_contact (1).wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="587662177"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="1_ Flare Projectile" ID="{F5B0E277-B6C9-468F-9006-5BD6B4E00E31}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="4_2_Secondary Flare Projectile Overheat" ID="{4E0DBF73-4050-4763-8713-246F5E7D0A5B}" ShortID="458498993">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>8</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="3_ Flare Projectile Overheat" ID="{FD76F7E7-C9BE-4BBB-B60C-32C2B061B4B6}">
-											<Language>SFX</Language>
-											<AudioFile>Secondary Fire 1\3. Flare Projectile Overheat.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="200903336"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="3_ Flare Projectile Overheat" ID="{FD76F7E7-C9BE-4BBB-B60C-32C2B061B4B6}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="4_1_Secondary Flare Explosion" ID="{566AA5D3-3279-4A32-B5EE-A9DA40A9BAC1}" ShortID="708610345">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>8</Value>
+												<Value>10</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -705,6 +554,13 @@
 											<AudioFile>flarestrikesetup.wav</AudioFile>
 											<MediaIDList>
 												<MediaID ID="1029976508"/>
+											</MediaIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="Demo" ID="{1308EB48-AD8F-4E9A-87BF-EBB4C36F4E58}">
+											<Language>SFX</Language>
+											<AudioFile>Demo.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="22167033"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
@@ -1211,6 +1067,8 @@
 								</Sound>
 								<Sound Name="9_0_Flamethrower_Start" ID="{6D36585C-0534-4F4E-9DDB-398248114E63}" ShortID="3094191">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>8</Value>
@@ -1218,6 +1076,9 @@
 										</Property>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
 										</Reference>
@@ -1322,7 +1183,7 @@
 										<ActiveSource Name="Redline_try_again_2_startup" ID="{00289EAB-9181-4A8B-A3BA-D5A5D5B24EAB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="6_6_Masochism_Laugh_End" ID="{2D9568DD-D0AC-47B1-9930-4A968CC878AE}" ShortID="8692924">
+								<Sound Name="9_2_Flamethrower_End" ID="{D5BE5141-839C-4259-877F-7572FC2A842D}" ShortID="543262714">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -1344,21 +1205,288 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Redline_try_again_2_end" ID="{DFBA926E-30BD-4E27-9CEB-AD93E391274B}">
+										<AudioFileSource Name="4_ End" ID="{05D0CF5A-47F8-488D-B4A5-79086353CEC7}">
 											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimBegin" Type="Real64" Value="12.6658638523903"/>
-												<Property Name="TrimEnd" Type="Real64" Value="16.0622966172771"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.724840452697595"/>
 											</PropertyList>
 											<Language>SFX</Language>
-											<AudioFile>Redline_try_again_2_end.wav</AudioFile>
+											<AudioFile>4. End.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="848999776"/>
+												<MediaID ID="892859622"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Redline_try_again_2_end" ID="{DFBA926E-30BD-4E27-9CEB-AD93E391274B}" Platform="Linked"/>
+										<ActiveSource Name="4_ End" ID="{05D0CF5A-47F8-488D-B4A5-79086353CEC7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="3_3_Primary_Fire_Travel" ID="{34A86635-2FAE-4D29-BFC5-19E80A158D21}" ShortID="150447019">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="3_ Travel" ID="{926A0BD0-5693-46C9-A3F0-0EB5B69431F6}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.3515015015015"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>3. Travel.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="463410225"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="3_ Travel" ID="{926A0BD0-5693-46C9-A3F0-0EB5B69431F6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="3_0_Primary_Fire" ID="{DBD91922-CA7D-4677-BE1F-12C7193FC553}" ShortID="959632261">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="1_ Flameshot" ID="{F088E92C-A555-4C05-AE8A-0A58A1C32CE6}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.23462462462462"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>1. Flameshot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="722334489"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="1_ Flameshot" ID="{F088E92C-A555-4C05-AE8A-0A58A1C32CE6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="3_1_Primary_Fire_Overheated" ID="{27589A02-3946-4414-A184-2FC74459618A}" ShortID="37854791">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_ Overheat" ID="{ED791D2D-3907-401D-AA38-B5ED0C0654AC}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.14364909126814"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2. Overheat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="330746847"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_ Overheat" ID="{ED791D2D-3907-401D-AA38-B5ED0C0654AC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="4_0_ Secondary Flare Projectile" ID="{145774E4-8769-441A-9477-A734848B6675}" ShortID="333502364">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="1_ Normal" ID="{38E9D926-5971-4C33-8398-BD9CD8A48A3F}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.984539641682499"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>1. Normal.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="939381225"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="1_ Normal" ID="{38E9D926-5971-4C33-8398-BD9CD8A48A3F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="4_2_Secondary Flare Projectile Overheat" ID="{9E36B1B4-07D1-4C56-AD93-9F8B93569090}" ShortID="91999024">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_ Overheat" ID="{25B7EB7E-22D6-48DA-BDC5-BA2590E42B58}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.970270951223332"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2. Overheat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="5203180"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_ Overheat" ID="{25B7EB7E-22D6-48DA-BDC5-BA2590E42B58}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="4_3_Secondary_Flare_Projectile_Trail" ID="{F2BBD03F-1BFA-4BCD-8418-1F43EEC19D11}" ShortID="491618218">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="3_ Flare Travel" ID="{58AD7D5F-1846-4E25-9177-BCB3DAA343D6}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.24693741360408"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>3. Flare Travel.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="870223078"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="3_ Flare Travel" ID="{58AD7D5F-1846-4E25-9177-BCB3DAA343D6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_6_Masochism_Laugh_End" ID="{ED399DFC-6A21-4680-A23F-2032D44BC5C4}" ShortID="390381045">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_ End" ID="{62A572B5-EE45-4023-8F91-9DB8EE9E06B7}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="3.5483544769259"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>2. End.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="342015722"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_ End" ID="{62A572B5-EE45-4023-8F91-9DB8EE9E06B7}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

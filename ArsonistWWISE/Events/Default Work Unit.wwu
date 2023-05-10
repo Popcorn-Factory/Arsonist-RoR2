@@ -8,7 +8,7 @@
 						<Action Name="" ID="{C8D301A0-1C78-4568-94CB-AD88933890CB}" ShortID="948057284">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="3_0_Primary_Fire" ID="{57205467-723F-42B2-8E23-577178A48BB8}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="3_0_Primary_Fire" ID="{DBD91922-CA7D-4677-BE1F-12C7193FC553}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -19,7 +19,7 @@
 						<Action Name="" ID="{6BD09BB1-C08F-4A62-8878-039447256BD5}" ShortID="345545838">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="3_1_Primary_Fire_Overheated" ID="{59C94687-0DFD-4F8A-9210-DF4C14DC5A59}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="3_1_Primary_Fire_Overheated" ID="{27589A02-3946-4414-A184-2FC74459618A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -85,7 +85,7 @@
 						<Action Name="" ID="{CB5916D1-B796-4BE3-BA47-9EB5BD2CA1D8}" ShortID="774729427">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="4_0_ Secondary Flare Projectile" ID="{75931BBB-316C-4A31-B257-549E96B69F8F}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="4_0_ Secondary Flare Projectile" ID="{145774E4-8769-441A-9477-A734848B6675}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -107,7 +107,7 @@
 						<Action Name="" ID="{552B47FA-BB3D-4805-83A4-212DB11396EF}" ShortID="813756562">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="4_2_Secondary Flare Projectile Overheat" ID="{4E0DBF73-4050-4763-8713-246F5E7D0A5B}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="4_2_Secondary Flare Projectile Overheat" ID="{9E36B1B4-07D1-4C56-AD93-9F8B93569090}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -272,7 +272,7 @@
 						<Action Name="" ID="{818DDB24-0C05-443B-B4C9-5FD251A19818}" ShortID="972534447">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_6_Masochism_Laugh_End" ID="{2D9568DD-D0AC-47B1-9930-4A968CC878AE}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="6_6_Masochism_Laugh_End" ID="{ED399DFC-6A21-4680-A23F-2032D44BC5C4}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -306,6 +306,28 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="9_1_Flamethrower_Active" ID="{30E7718A-AE29-4CBE-86F5-4C39A3E772B7}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_End" ID="{1F266569-BB3B-47AC-9ECE-1897A1F5F840}">
+					<ChildrenList>
+						<Action Name="" ID="{7F7B9269-6862-4FBA-8E80-89406567CD94}" ShortID="25015535">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_2_Flamethrower_End" ID="{D5BE5141-839C-4259-877F-7572FC2A842D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Fire_Travel" ID="{09C0528A-F933-4B88-8B6E-8126414F9673}">
+					<ChildrenList>
+						<Action Name="" ID="{345177ED-7B24-4EA2-84F6-8B07462DF979}" ShortID="128199237">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_3_Primary_Fire_Travel" ID="{34A86635-2FAE-4D29-BFC5-19E80A158D21}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
