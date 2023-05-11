@@ -6,7 +6,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	934132236	Arsonist_Flamethrower_Start			\Default Work Unit\Arsonist_Flamethrower_Start	
 	955478894	Arsonist_Neomasochism_Start_No_Laugh			\Default Work Unit\Arsonist_Neomasochism_Start_No_Laugh	
 	1305067912	Arsonist_Neomasochism_Start_Laugh			\Default Work Unit\Arsonist_Neomasochism_Start_Laugh	
-	1409583187	Arsonist_Neomasochism_End_No_Laugh			\Default Work Unit\Arsonist_Neomasochism_End_No_Laugh	
 	1486446844	Arsonist_ZPB_Contact			\Default Work Unit\Arsonist_ZPB_Contact	
 	1555324237	Arsonist_Primary_Fire_Travel			\Default Work Unit\Arsonist_Primary_Fire_Travel	
 	1597575822	Arsonist_Secondary_Flare_Punch_Contact			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Contact	
@@ -16,16 +15,15 @@ Event	ID	Name			Wwise Object Path	Notes
 	2300744954	Arsonist_Primary_Fire_Overheated			\Default Work Unit\Arsonist_Primary_Fire_Overheated	
 	2517450375	Arsonist_Secondary_Flare_Punch_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Explosion	
 	3061346618	Arsonist_Secondary_Flare_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Explosion	
-	3082119886	Arsonist_Neomasochism_Active_Laugh			\Default Work Unit\Arsonist_Neomasochism_Active_Laugh	
 	3152162514	Arsonist_Overheat_Start			\Default Work Unit\Arsonist_Overheat_Start	
 	3408252638	Arsonist_Overheat_Duration			\Default Work Unit\Arsonist_Overheat_Duration	
-	3420833548	Arsonist_Neomasochism_Active_No_Laugh			\Default Work Unit\Arsonist_Neomasochism_Active_No_Laugh	
 	3580806227	Arsonist_Secondary_Flare_Punch			\Default Work Unit\Arsonist_Secondary_Flare_Punch	
 	3585665340	Arsonist_ZPB_Start			\Default Work Unit\Arsonist_ZPB_Start	
 	3747272580	Arsonist_Secondary_Flare_Projectile			\Default Work Unit\Arsonist_Secondary_Flare_Projectile	
 	3765159379	Arsonist_Neomasochism_End_Laugh			\Default Work Unit\Arsonist_Neomasochism_End_Laugh	
 	3787943995	Arsonist_Overheat_Finish			\Default Work Unit\Arsonist_Overheat_Finish	
 	3831238989	Arsonist_Masochism_Laugh			\Default Work Unit\Arsonist_Masochism_Laugh	
+	3833223580	Arsonist_Neomasochism_Active			\Default Work Unit\Arsonist_Neomasochism_Active	
 	3858611310	Arsonist_ZPB_Contact_Laugh			\Default Work Unit\Arsonist_ZPB_Contact_Laugh	
 	3899586782	Arsonist_Primary_Fire_Explosion			\Default Work Unit\Arsonist_Primary_Fire_Explosion	
 	4168901551	Arsonist_Flamethrower_End			\Default Work Unit\Arsonist_Flamethrower_End	
@@ -37,31 +35,32 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	5203180	4_2_Secondary Flare Projectile Overheat	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2. Overheat_F29C73DD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\4_2_Secondary Flare Projectile Overheat		15190
 	20639472	1_2_Overheat_Finish	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\3. Overheat Finish_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_2_Overheat_Finish		70061
-	58543393	6_2_Masochism_No_Laugh_End	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Redline_sfx_in_FL_studio_12_end_C23D15DC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_2_Masochism_No_Laugh_End		90474
 	131595151	2__ZPBstartupwithLaughv2	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2._ZPBstartupwithLaughv2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_2_ZPB_Fire_Laugh\2__ZPBstartupwithLaughv2		74494
 	196715173	1__ZPBstartupwithLaughv1	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1._ZPBstartupwithLaughv1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_2_ZPB_Fire_Laugh\1__ZPBstartupwithLaughv1		71614
+	204044814	6_3_Masochism_No_Laugh_Start_01	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.5._Start_with_and_without_laughter_1657EBE9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_8_Masochism_Laugh_Start\6_3_Masochism_No_Laugh_Start_01		105105
+	214059166	6_5_Masochism_Laugh_Active	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.75._Middle-duration_only_42665A39.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_5_Masochism_Laugh_Active		258146
 	316779847	5_0_ZPB_Start_Whiff	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\ZPB_startup_whiff_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_0_ZPB_Start_Whiff		55588
 	326243976	4_1_Secondary Flare Explosion	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 1\2. Flare Explosion_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\4_1_Secondary Flare Explosion		70748
 	330746847	3_1_Primary_Fire_Overheated	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2. Overheat_C90AE3BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_1_Primary_Fire_Overheated		17722
 	342015722	6_6_Masochism_Laugh_End	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2. End_7C925059.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_6_Masochism_Laugh_End		58497
+	374438844	6_3_Masochism_No_Laugh_Start_03	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.5._Start_with_and_without_laughter_F85EC596.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_8_Masochism_Laugh_Start\6_3_Masochism_No_Laugh_Start_03		119014
 	381718716	6_2_Masochism Laugh 3	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\3. Masochism Laugh 3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_2_Masochism Laugh 3		103093
 	385415142	8_1_Secondary Flare Explosion	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 2\2. Flare Explosion_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\8_1_Secondary Flare Explosion		70748
-	415207369	6_4_Masochism_No_Laugh_Active	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Redline_sfx_in_FL_studio_12_duration-middle_9EDFC787.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_4_Masochism_No_Laugh_Active		195546
 	463410225	3_3_Primary_Fire_Travel	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\3. Travel_ACA6432D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_3_Primary_Fire_Travel		42250
 	468282416	6_0_Masochism Laugh 1	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\1. Masochism Laugh 1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_0_Masochism Laugh 1		101633
 	509496315	9_0_Flamethrower_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Flamethrower_primary_neoarsonist_start_69C5C269.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\9_0_Flamethrower_Start		30686
 	567405923	8_2_Secondary Flare Punch Contact	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Secondary Fire 2\3. Flare Punch Contact_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\8_2_Secondary Flare Punch Contact		37401
 	576447885	5_1_ZPB_Contact	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\3.99_ZPB_contact_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_1_ZPB_Contact		25584
 	597793787	6_1_Masochism Laugh 2	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Special - Masochism\2. Masochism Laugh 2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_0_Masochism\6_1_Masochism Laugh 2		101716
-	624049047	6_5_Masochism_Laugh_Active	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Redline_try_again_2_duration_175085F7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_5_Masochism_Laugh_Active		180969
+	659057600	6_7_Masochism_Laugh_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.5._Start_with_laughs_only_507C7B2E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_8_Masochism_Laugh_Start\6_7_Masochism_Laugh_Start		111653
 	681712450	9_1_Flamethrower_Active	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Flamethrower_primary_neoarsonist_ongoing_30EDDD6A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\9_1_Flamethrower_Active		107701
 	720175040	6_ZPBcontactv3	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\6.ZPBcontactv3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_3_ZPB_Contact_Laugh\6_ZPBcontactv3		77907
 	722334489	3_0_Primary_Fire	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1. Flameshot_38283DCE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\3_0_Primary_Fire		17506
-	734819941	6_3_Masochism_No_Laugh_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Redline_sfx_in_FL_studio_12_startup_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_3_Masochism_No_Laugh_Start		65308
 	752389951	1_0_Overheat_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\1. Overheat Start_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\1_0_Overheat_Start		128719
 	767924108	8_0_Secondary Flare Punch	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1. Flare Punch_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\8_0_Secondary Flare Punch		64310
-	783563173	6_7_Masochism_Laugh_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Redline_try_again_2_startup_288ACD71.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_7_Masochism_Laugh_Start		113595
+	847565046	6_3_Masochism_No_Laugh_Start	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.5._Start_with_and_without_laughter_4EC6CE57.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_3_Masochism_No_Laugh_Start		84977
 	892859622	9_2_Flamethrower_End	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\4. End_EBED85BE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\9_2_Flamethrower_End		10980
+	893652532	6_3_Masochism_No_Laugh_Start_02	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.5._Start_with_and_without_laughter_E3096BF3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_8_Masochism_Laugh_Start\6_3_Masochism_No_Laugh_Start_02		102765
 	911934334	5_ZPBcontactv2	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\5.ZPBcontactv2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\5_3_ZPB_Contact_Laugh\5_ZPBcontactv2		83768
 	939381225	4_0_ Secondary Flare Projectile	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1. Normal_39D58A5D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\4_0_ Secondary Flare Projectile		14686
 	965841612	6_1_Masochism_No_Laugh	C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\4._Masochism_with_no_Laugh_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\6_1_Masochism_No_Laugh		102042

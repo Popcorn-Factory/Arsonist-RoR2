@@ -24,8 +24,17 @@ namespace ArsonistMod.SkillStates
             maso = gameObject.GetComponent<MasochismController>();
             duration = baseDuration;
 
+            if (!Modules.Config.shouldHaveVoice.Value)
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 955478894).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+            else
+            {
+                //Determine if they have a buff and play a non-laughing version if so.
+                uint soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1305067912; //Nonlaugh : laugh
+                new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(NetworkDestination.Clients);
+            }
 
-            new PlaySoundNetworkRequest(characterBody.netId, 1305067912).Send(NetworkDestination.Clients);
         }
 
         public override void OnExit()

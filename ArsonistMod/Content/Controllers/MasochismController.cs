@@ -327,7 +327,7 @@ namespace ArsonistMod.Content.Controllers
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
 
-            masochismActiveLoop = AkSoundEngine.PostEvent(3082119886, characterBody.gameObject);
+            masochismActiveLoop = AkSoundEngine.PostEvent(3833223580, characterBody.gameObject);
         }
 
         public void MasochismBuffApplication()
