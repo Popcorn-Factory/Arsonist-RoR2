@@ -6,6 +6,7 @@ using R2API;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
+using RoR2.Audio;
 using RoR2.Projectile;
 using System;
 using UnityEngine;
@@ -58,7 +59,7 @@ namespace ArsonistMod.Modules
 
             ProjectileController projectileController = flareChildPrefab.AddComponent<ProjectileController>();
             projectileController.procCoefficient = 1f;
-            projectileController.flightSoundLoop = new RoR2.Audio.LoopSoundDef();
+            projectileController.flightSoundLoop = ScriptableObject.CreateInstance<LoopSoundDef>();
             projectileController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile_Travel";
             projectileController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
             projectileController.shouldPlaySounds = true;
@@ -71,6 +72,7 @@ namespace ArsonistMod.Modules
 
             ProjectileImpactExplosion projectileExplosion = flareChildPrefab.AddComponent<ProjectileImpactExplosion>();
             projectileExplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
+            projectileExplosion.impactEffect = Assets.elderlemurianexplosionEffect;
             projectileExplosion.blastRadius = Modules.StaticValues.flareBlastRadius;
             projectileExplosion.blastDamageCoefficient = 1f;
             projectileExplosion.falloffModel = BlastAttack.FalloffModel.None;
@@ -78,8 +80,27 @@ namespace ArsonistMod.Modules
             projectileExplosion.destroyOnWorld = true;
             projectileExplosion.lifetimeAfterImpact = 2f;
             projectileExplosion.lifetime = 5f;
-            projectileExplosion.lifetimeExpiredSound = new NetworkSoundEventDef();
-            projectileExplosion.lifetimeExpiredSound.eventName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            NetworkSoundEventDef soundEvent = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            soundEvent.akId = 3061346618;
+            soundEvent.eventName = "Arsonist_Secondary_Flare_Explosion";
+            Modules.Content.AddNetworkSoundEventDef(soundEvent);
+
+            projectileExplosion.lifetimeExpiredSound = soundEvent;
+
+            GameObject explosionEffect = projectileExplosion.impactEffect;
+            explosionEffect.name = "explosion_effect_strong_child";
+            EffectComponent effect = explosionEffect.GetComponent<EffectComponent>();
+            effect.soundName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            EffectDef newEffectDef = new EffectDef();
+            newEffectDef.prefab = explosionEffect;
+            newEffectDef.prefabEffectComponent = explosionEffect.GetComponent<EffectComponent>();
+            newEffectDef.prefabName = explosionEffect.name;
+            newEffectDef.prefabVfxAttributes = explosionEffect.GetComponent<VFXAttributes>();
+            newEffectDef.spawnSoundEventName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            projectileExplosion.impactEffect = explosionEffect;
 
             ProjectileSimple projectileSimple = flareChildPrefab.AddComponent<ProjectileSimple>();
             projectileSimple.lifetime = 10f;
@@ -122,9 +143,34 @@ namespace ArsonistMod.Modules
             strongFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
             strongFlareexplosion.destroyOnEnemy = true;
             strongFlareexplosion.lifetime = 5f;
+            strongFlareexplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
             strongFlareexplosion.impactEffect = Assets.elderlemurianexplosionEffect;
             strongFlareexplosion.timerAfterImpact = true;
             strongFlareexplosion.lifetimeAfterImpact = 3f;
+
+            NetworkSoundEventDef soundEvent = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            soundEvent.akId = 3061346618;
+            soundEvent.eventName = "Arsonist_Secondary_Flare_Explosion";
+            Modules.Content.AddNetworkSoundEventDef(soundEvent);
+
+            strongFlareexplosion.lifetimeExpiredSound = soundEvent;
+
+            GameObject explosionEffect = strongFlareexplosion.impactEffect;
+            explosionEffect.name = "explosion_effect_flare_strong";
+            EffectComponent effect = explosionEffect.GetComponent<EffectComponent>();
+            effect.soundName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            //Make effectdef
+            EffectDef newEffectDef = new EffectDef();
+            newEffectDef.prefab = explosionEffect;
+            newEffectDef.prefabEffectComponent = explosionEffect.GetComponent<EffectComponent>();
+            newEffectDef.prefabName = explosionEffect.name;
+            newEffectDef.prefabVfxAttributes = explosionEffect.GetComponent<VFXAttributes>();
+            newEffectDef.spawnSoundEventName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            Modules.Content.AddEffectDef(newEffectDef);
+
+            strongFlareexplosion.impactEffect = explosionEffect;
 
 
             strongFlare.AddComponent<ZeroPointOnWorldHit>();
@@ -137,7 +183,7 @@ namespace ArsonistMod.Modules
             strongFlareController.rigidbody = strongFlareRigidbody;
             strongFlareController.rigidbody.useGravity = false;
             strongFlareController.procCoefficient = 1f;
-            strongFlareController.flightSoundLoop = new RoR2.Audio.LoopSoundDef();
+            strongFlareController.flightSoundLoop = ScriptableObject.CreateInstance<LoopSoundDef>();
             strongFlareController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile_Travel";
             strongFlareController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
 
@@ -341,7 +387,7 @@ namespace ArsonistMod.Modules
             artificerFireboltController.rigidbody = artificerFireboltRigidbody;
             artificerFireboltController.rigidbody.useGravity = true;
             artificerFireboltController.rigidbody.mass = 1f;
-            artificerFireboltController.flightSoundLoop = new RoR2.Audio.LoopSoundDef();
+            artificerFireboltController.flightSoundLoop = ScriptableObject.CreateInstance<LoopSoundDef>();
             artificerFireboltController.flightSoundLoop.startSoundName = "Arsonist_Primary_Fire_Travel";
             artificerFireboltController.flightSoundLoop.stopSoundName = "Arsonist_Primary_Fire_Travel_Stop";
             artificerFireboltController.shouldPlaySounds = true;

@@ -59,7 +59,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                         new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum).Send(NetworkDestination.Clients);
 
 
-                        new PlaySoundNetworkRequest(charbody.masterObjectId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(charbody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
                     }
                     else
                     {
@@ -107,7 +107,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.Fire();
 
             //Play Sound
-            new PlaySoundNetworkRequest(charbody.netId, 4054143681).Send(NetworkDestination.Clients);
+            AkSoundEngine.PostEvent("Arsonist_Secondary_Flare_Explosion_New", gameObject);
 
 
             FireSalvos();
