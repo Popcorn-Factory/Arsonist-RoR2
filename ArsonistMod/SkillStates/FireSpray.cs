@@ -81,8 +81,6 @@ namespace ArsonistMod.SkillStates
                 new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
             }
 
-            new PlaySoundNetworkRequest(base.characterBody.netId, 1555324237).Send(R2API.Networking.NetworkDestination.Clients);
-
         }
         public void FireBall()
         {

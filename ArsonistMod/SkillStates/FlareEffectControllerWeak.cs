@@ -15,6 +15,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         public GameObject effectObj;
         private int timesFired;
         private float timer;
+        public uint burningSound;
 
         void Start()
         {
@@ -37,6 +38,8 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
             effectObj.transform.parent = charbody.gameObject.transform;
 
+            Util.PlaySound("Arsonist_Secondary_Flare_Projectile_Impact", gameObject);
+            burningSound = Util.PlaySound("Arsonist_Secondary_Flare_Projectile_Burning", gameObject);
         }
 
         void FixedUpdate()
@@ -105,6 +108,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         }
         private void OnDestroy()
         {
+            AkSoundEngine.StopPlayingID(burningSound);
             Destroy(effectObj);
         }
     }

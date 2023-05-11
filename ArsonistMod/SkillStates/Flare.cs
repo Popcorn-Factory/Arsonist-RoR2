@@ -74,7 +74,7 @@ namespace ArsonistMod.SkillStates
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {
-                new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(base.characterBody.netId, 1608533803).Send(R2API.Networking.NetworkDestination.Clients);
                 isStrong = false;
 
             }

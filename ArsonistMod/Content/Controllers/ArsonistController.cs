@@ -4,6 +4,7 @@ using R2API.Networking.Interfaces;
 using RoR2;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ArsonistMod.Content.Controllers
 {
@@ -32,6 +33,9 @@ namespace ArsonistMod.Content.Controllers
 
         public bool playingFlamethrower;
         public uint flamethrowerPlayingID;
+
+        //FootstepStuff
+        public FootstepHandler footstepHandler;
 
         // Use this for initialization
         void Start()
@@ -128,7 +132,7 @@ namespace ArsonistMod.Content.Controllers
                 Ray ray = charBody.inputBank.GetAimRay();
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
 
-                if (!charBody.inputBank.skill1.down) 
+                if (!charBody.inputBank.skill1.down && playingFlamethrower) 
                 {
                     playingFlamethrower = false;
                     AkSoundEngine.StopPlayingID(flamethrowerPlayingID);
@@ -139,7 +143,7 @@ namespace ArsonistMod.Content.Controllers
             if (ringFireActive && Modules.Config.cleanseRingFireEffectEnabled.Value) 
             {
                 if (!charBody.HasBuff(Modules.Buffs.cleanseSpeedBoost)) 
-                {
+                { 
                     ringFireActive = false;
                     ringFire.Stop();
                 }

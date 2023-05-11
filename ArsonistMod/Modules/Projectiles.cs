@@ -58,6 +58,10 @@ namespace ArsonistMod.Modules
 
             ProjectileController projectileController = flareChildPrefab.AddComponent<ProjectileController>();
             projectileController.procCoefficient = 1f;
+            projectileController.flightSoundLoop = new RoR2.Audio.LoopSoundDef();
+            projectileController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile_Travel";
+            projectileController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
+            projectileController.shouldPlaySounds = true;
 
             ProjectileDamage projectileDamage = flareChildPrefab.AddComponent<ProjectileDamage>();
             projectileDamage.damage = 10f;
@@ -74,6 +78,8 @@ namespace ArsonistMod.Modules
             projectileExplosion.destroyOnWorld = true;
             projectileExplosion.lifetimeAfterImpact = 2f;
             projectileExplosion.lifetime = 5f;
+            projectileExplosion.lifetimeExpiredSound = new NetworkSoundEventDef();
+            projectileExplosion.lifetimeExpiredSound.eventName = "Arsonist_Secondary_Flare_Explosion_New";
 
             ProjectileSimple projectileSimple = flareChildPrefab.AddComponent<ProjectileSimple>();
             projectileSimple.lifetime = 10f;
@@ -131,6 +137,9 @@ namespace ArsonistMod.Modules
             strongFlareController.rigidbody = strongFlareRigidbody;
             strongFlareController.rigidbody.useGravity = false;
             strongFlareController.procCoefficient = 1f;
+            strongFlareController.flightSoundLoop = new RoR2.Audio.LoopSoundDef();
+            strongFlareController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile_Travel";
+            strongFlareController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
 
             GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
             ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
@@ -332,6 +341,10 @@ namespace ArsonistMod.Modules
             artificerFireboltController.rigidbody = artificerFireboltRigidbody;
             artificerFireboltController.rigidbody.useGravity = true;
             artificerFireboltController.rigidbody.mass = 1f;
+            artificerFireboltController.flightSoundLoop = new RoR2.Audio.LoopSoundDef();
+            artificerFireboltController.flightSoundLoop.startSoundName = "Arsonist_Primary_Fire_Travel";
+            artificerFireboltController.flightSoundLoop.stopSoundName = "Arsonist_Primary_Fire_Travel_Stop";
+            artificerFireboltController.shouldPlaySounds = true;
 
             if (Assets.artificerFireboltGhost != null) artificerFireboltController.ghostPrefab = Assets.artificerFireboltGhost;
             artificerFireboltController.startSound = "";
