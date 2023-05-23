@@ -392,7 +392,9 @@ namespace ArsonistMod.Modules
             artificerFireboltController.flightSoundLoop.stopSoundName = "Arsonist_Primary_Fire_Travel_Stop";
             artificerFireboltController.shouldPlaySounds = true;
 
-            if (Assets.artificerFireboltGhost != null) artificerFireboltController.ghostPrefab = Modules.Assets.artificerFireboltGhost;
+
+
+            artificerFireboltController.ghostPrefab = Modules.Assets.fireballGhost;
             artificerFireboltController.startSound = "";
 
             SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();

@@ -39,7 +39,7 @@ Material:
     - _Opacity: 1
     - _StepThreshold: 0.1
     - _TimeMultiplier: 2
-    - _Vertexoffset: 0.1
+    - _Vertexoffset: 0.2
     - _node_507: 0
     - _node_924: 0
     m_Colors:

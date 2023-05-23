@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using RoR2.UI;
 using System;
 using UnityEngine.AddressableAssets;
+using RoR2.Projectile;
 
 namespace ArsonistMod.Modules
 {
@@ -147,6 +148,8 @@ namespace ArsonistMod.Modules
 
             AddNewEffectDef(arsonistFiresprayExplosion, "Arsonist_Primary_Fire_Explosion");
 
+            fireballGhost = LoadEffect("FireballProjectile", "", false, false);
+            fireballGhost.AddComponent<ProjectileGhostController>();
 
             arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
 
