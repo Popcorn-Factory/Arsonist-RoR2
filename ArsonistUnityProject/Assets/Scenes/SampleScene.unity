@@ -96810,6 +96810,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
         type: 3}
+      propertyPath: ShapeModule.angle
+      value: 20.643621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.18496823
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.ctime1
       value: 9252
       objectReference: {fileID: 0}
@@ -96841,6 +96856,31 @@ PrefabInstance:
     - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0.49444085
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548119327841940834, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.33488846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922832515868882371, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922832515868882371, guid: 8c1ec6b5e55c644a3a2207b8129f0cf7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

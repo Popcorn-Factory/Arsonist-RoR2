@@ -40,6 +40,8 @@ namespace ArsonistMod.Modules
         internal static Material emissionRingMat;
         internal static Material emissionRingMatLesser;
 
+        internal static GameObject fireballGhost;
+
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
 
