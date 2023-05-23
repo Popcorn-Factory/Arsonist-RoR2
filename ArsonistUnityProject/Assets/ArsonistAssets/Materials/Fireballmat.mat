@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: masochism
-  m_Shader: {fileID: 4800000, guid: 10b2bb5a7d1e34fe19f18e0d8f10ca39, type: 3}
+  m_Name: Fireballmat
+  m_Shader: {fileID: 4800000, guid: 1c5590e979b0c41fa85553bb19581712, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,7 +19,15 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ColourTexture:
+        m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TextureInput:
+        m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VertexOffsetTex:
         m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -28,9 +36,9 @@ Material:
     - _LightingMultiplier: 1
     - _MaxSmoothstep: 1
     - _MinSmoothstep: 0
-    - _Opacity: 0
-    - _StepThreshold: 0.3
-    - _TimeMultiplier: 1.5
+    - _Opacity: 1
+    - _StepThreshold: 0.1
+    - _TimeMultiplier: 2
     - _Vertexoffset: 0.1
     - _node_507: 0
     - _node_924: 0
