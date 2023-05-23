@@ -2700,6 +2700,50 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="1_ ZPB without laughs (start + travel _ contact)" ID="{ECC10409-EE46-49B4-95B2-B2D427AA567E}" ShortID="715063148">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="1_ ZPB without laughs (start + travel _ contact)" ID="{430817F7-75BB-4D48-912F-09A44E4253BC}">
+											<Language>SFX</Language>
+											<AudioFile>1. ZPB without laughs (start + travel _ contact).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="605701829"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="1_ ZPB without laughs (start + travel _ contact)" ID="{430817F7-75BB-4D48-912F-09A44E4253BC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="2_ ZPB with efforts + laughs (start + travel _ contact)" ID="{87D1F318-B639-4DC1-BA9D-91072C4D9915}" ShortID="106819649">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="2_ ZPB with efforts + laughs (start + travel _ contact)" ID="{8E1B38FB-A36C-4D98-8045-F4F022B4C45A}">
+											<Language>SFX</Language>
+											<AudioFile>2. ZPB with efforts + laughs (start + travel _ contact).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="280569789"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="2_ ZPB with efforts + laughs (start + travel _ contact)" ID="{8E1B38FB-A36C-4D98-8045-F4F022B4C45A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
