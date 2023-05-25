@@ -321,7 +321,7 @@ namespace ArsonistMod.Modules
             lemurianFireBallController.rigidbody.mass = 1f;
             lemurianFireBallController.procCoefficient = 1f;
 
-            if (Assets.lemfireBallGhost != null) lemurianFireBallController.ghostPrefab = Assets.lemfireBallGhost;
+            lemurianFireBallController.ghostPrefab = Modules.Assets.fireballWeakGhost;
             lemurianFireBallController.startSound = "";
         }
         private static void CreateArtificerFireBolt()
@@ -394,7 +394,7 @@ namespace ArsonistMod.Modules
 
 
 
-            artificerFireboltController.ghostPrefab = Modules.Assets.fireballGhost;
+            artificerFireboltController.ghostPrefab = Modules.Assets.fireballStrongGhost;
             artificerFireboltController.startSound = "";
 
             SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();

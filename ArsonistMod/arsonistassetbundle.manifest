@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1464932265
+CRC: 2733094704
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a7665ee1350fcab3f413ad1cf4702b5c
+    Hash: 414d171fea003bcd14ec1cefe856d962
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -89,6 +89,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyIdle.anim
 - Assets/ArsonistAssets/VFX/flareAttached.prefab
 - Assets/ArsonistAssets/Animation/animArsonistMenu.controller
+- Assets/ArsonistAssets/VFX/FireballWeakProjectile.prefab
 - Assets/ArsonistAssets/OldArsonistDisplay.prefab
 - Assets/ArsonistAssets/VFX/Mesh/meshBoxingGlove.mesh
 - Assets/ArsonistAssets/Materials/Henry/matArsonistOld.mat
@@ -150,7 +151,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/Slash2.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Sprint.anim
 - Assets/ArsonistAssets/Materials/FireMaterial.mat
-- Assets/ArsonistAssets/VFX/FireballProjectile.prefab
+- Assets/ArsonistAssets/VFX/FireballStrongProjectile.prefab
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/Shaders/FresnelLitToon.shader

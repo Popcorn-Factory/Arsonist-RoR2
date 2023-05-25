@@ -41,7 +41,8 @@ namespace ArsonistMod.Modules
         internal static Material emissionRingMat;
         internal static Material emissionRingMatLesser;
 
-        internal static GameObject fireballGhost;
+        internal static GameObject fireballStrongGhost;
+        internal static GameObject fireballWeakGhost;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -148,8 +149,11 @@ namespace ArsonistMod.Modules
 
             AddNewEffectDef(arsonistFiresprayExplosion, "Arsonist_Primary_Fire_Explosion");
 
-            fireballGhost = LoadEffect("FireballProjectile", "", false, false);
-            fireballGhost.AddComponent<ProjectileGhostController>();
+            fireballStrongGhost = LoadEffect("FireballStrongProjectile", "", false, false);
+            fireballStrongGhost.AddComponent<ProjectileGhostController>();
+
+            fireballWeakGhost = LoadEffect("FireballWeakProjectile", "", false, false);
+            fireballWeakGhost.AddComponent<ProjectileGhostController>();
 
             arsonistOverheatingMaterial = Assets.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
 
