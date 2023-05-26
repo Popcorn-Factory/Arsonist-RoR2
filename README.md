@@ -38,7 +38,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Changed projectile effect on both normal and overheat projectiles.
         - Secondary
             - Flare: Changes
-                - Flare now chains another explosion to enemies hit within the first Flare's explosion
+                - Flare now chains another explosion to enemies hit within the first Flare's explosion.
+                - After the DoT effect, the afflicted enemies explode sending a number of salvos upwards.
                 - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
                 - Due to the destructive nature of this upgrade, the cooldown has been increased.
             - Zero Point Blast

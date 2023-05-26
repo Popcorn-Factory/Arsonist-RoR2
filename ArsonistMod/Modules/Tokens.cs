@@ -52,7 +52,7 @@ namespace ArsonistMod.Modules
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Overheat");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_NAME", "Fireball");
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "Overdrive");
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + Helpers.criticalPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.altFiresprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
@@ -62,7 +62,8 @@ namespace ArsonistMod.Modules
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_NAME", "Signal Flare");
-            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.heatPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.heatPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style" +
+                $", launching {Modules.Config.flareSalvoAmount.Value} flare(s) that deal <style=cIsDamage>{100f * StaticValues.flareStrongChildDamageCoefficient}% damage</style>.");
             LanguageAPI.Add(prefix + "SECONDARY_PUNCH_NAME", "Zero Point Blast");
             LanguageAPI.Add(prefix + "SECONDARY_PUNCH_DESCRIPTION", Helpers.startPrefix + $"Propel yourself forwards, colliding into the first enemy and dealing <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style> in a blast around you. " +
                 $" On propulsion, blast enemies behind you for <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. ");
@@ -70,7 +71,7 @@ namespace ArsonistMod.Modules
 
             #region Utility
             LanguageAPI.Add(prefix + "UTILITY_CLEANSE_NAME", "Cleanse");
-            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_DESCRIPTION", Helpers.startPrefix + $"<style=cIsDamage>Ignite</style> yourself in a blast of fire, dealing <style=cIsDamage>{100f * StaticValues.cleanseDamageCoefficient}%</style> to enemies around you and burning away other status effects. ");
+            LanguageAPI.Add(prefix + "UTILITY_CLEANSE_DESCRIPTION", Helpers.startPrefix + $"<style=cIsDamage>Ignite</style> the area around you, dealing <style=cIsDamage>{100f * StaticValues.cleanseDamageCoefficient}%</style> to enemies around you and burning away other status effects. Grants a small boost of speed. ");
             #endregion
 
             #region Special
@@ -78,7 +79,9 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds. Increases attack speed <style=cIsDamage>{100*StaticValues.igniteAttackSpeedMultiplier}%</style>.");
 
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_NAME", "Masochism");
-            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION", "Enter an Overheated state which does something lmao.");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION", $"Once enough stacks are accumulated, activate to deal <style=cIsDamage>{100f * Modules.StaticValues.masochismPulseCoefficient}% damage</style>" +
+                $" per tick around you while your overheat gauge increases over time. Each stack is equivalent to 1 second of uptime. This state is forcibly exited when the amount of seconds elapsed is greater " +
+                $"than the number of stacks accumulated, or if the gauge accumulates too much heat. Exiting the state creates a massive explosion that deals <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style>, further multiplied by the number of stacks accumulated.");
             #endregion
 
             #region Keywords
