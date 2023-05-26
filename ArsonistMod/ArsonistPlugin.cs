@@ -42,7 +42,7 @@ namespace ArsonistMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "1.0.4";
+        public const string MODVERSION = "2.0.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -156,6 +156,14 @@ namespace ArsonistMod
                         if (self.HasBuff(Modules.Buffs.masochismBuff)) 
                         {
                             self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
+                        }
+
+                        if (self.HasBuff(Modules.Buffs.overheatDebuff)) 
+                        {
+                            if (!(self.HasBuff(Modules.Buffs.masochismDeactivatedDebuff) || self.HasBuff(Modules.Buffs.masochismDeactivatedNonDebuff))) 
+                            {
+                                self.attackSpeed *= StaticValues.overheatAttackSpeedDebuff;
+                            }
                         }
 
                         //cooldowns depending on being overheated or not

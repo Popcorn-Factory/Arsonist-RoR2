@@ -499,8 +499,9 @@ namespace ArsonistMod.Content.Controllers
                     coolingRate = 30.0f;
                 }
 
-                //set current heat to 0 once over!
-                if (overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed))
+                //set current heat to 0 once over
+                float attackspeedcheck = characterBody.attackSpeed > 1f ? characterBody.attackSpeed : 1f;
+                if (overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / attackspeedcheck))
                 {
                     currentOverheat = 0f;
                     overheatDecayTimer = 0f;
@@ -509,6 +510,7 @@ namespace ArsonistMod.Content.Controllers
                     overheatTriggered = false;
                     isAcceleratedCooling = false;
                     AkSoundEngine.StopPlayingID(tickingSound);
+                    characterBody.ApplyBuff(Modules.Buffs.overheatDebuff.buffIndex, 0, -1);
 
                     //Finish sound.
                     new PlaySoundNetworkRequest(characterBody.netId, 3787943995).Send(NetworkDestination.Clients);
@@ -554,6 +556,7 @@ namespace ArsonistMod.Content.Controllers
             {
                 currentOverheat = maxOverheat;
                 ifOverheatMaxed = true;
+                characterBody.ApplyBuff(Modules.Buffs.overheatDebuff.buffIndex, 1, -1);
                 //Overheat Start sound
                 new PlaySoundNetworkRequest(characterBody.netId, 3152162514).Send(NetworkDestination.Clients);
                 //Overheat duration sound, not networked.
@@ -762,7 +765,7 @@ namespace ArsonistMod.Content.Controllers
 
             int calculatedLastSegment = (int)((float)maxSegment * (float)(currentOverheat / maxOverheat));
             Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
-            Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
+            Array.Copy(segmentList, proposedPositions, calculatedLastSegment); //Something is fishy here.
 
             levelSegment.positionCount = proposedPositions.Length;
             levelSegment.SetPositions(proposedPositions);
@@ -779,12 +782,14 @@ namespace ArsonistMod.Content.Controllers
                         coolingRate = 2.0f;
                     }
 
+                    float attackspeedcheck = characterBody.attackSpeed > 1f ? characterBody.attackSpeed : 1f;
+
                     additionalRed = maxSegment * ( 
                         overheatDecayTimer / (
-                            (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
+                            (Modules.Config.timeBeforeHeatGaugeDecays.Value / attackspeedcheck) ) 
                         ); //to calculate, it's a fraction of the amount of time left.
 
-                    if(!ifOverheatMaxed || overheatTimer >= (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
+                    if (!ifOverheatMaxed || overheatTimer >= (Modules.Config.timeBeforeHeatGaugeDecays.Value / attackspeedcheck) ) 
                     {
                         overheatState = OverheatState.END;
                         overheatTriggered = false;

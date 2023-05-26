@@ -207,6 +207,7 @@ namespace ArsonistMod.Content.Controllers
                 if (!energySystem.ifOverheatMaxed) 
                 {
                     characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 0, -1);
+                    characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedNonDebuff.buffIndex, 0, -1);
                 }
             }
         }
@@ -291,6 +292,10 @@ namespace ArsonistMod.Content.Controllers
             if (applyDebuff)
             {
                 characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
+            }
+            else 
+            {
+                characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedNonDebuff.buffIndex, 1, -1);
             }
 
 

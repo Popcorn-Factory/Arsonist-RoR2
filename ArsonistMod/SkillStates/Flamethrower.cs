@@ -96,7 +96,14 @@ namespace ArsonistMod.SkillStates
                 hitCallback = laserHitCallback
             };
 
-            controller.flamethrower.Play();
+            if (energySystem.ifOverheatMaxed)
+            {
+                controller.weakFlamethrower.Play();
+            }
+            else 
+            {
+                controller.flamethrower.Play();
+            }
 
             if (controller) 
             {
@@ -116,6 +123,7 @@ namespace ArsonistMod.SkillStates
         {
             base.OnExit();
             controller.flamethrower.Stop();
+            controller.weakFlamethrower.Stop();
         }
 
         public override void FixedUpdate()
@@ -127,6 +135,7 @@ namespace ArsonistMod.SkillStates
             if (stopwatch >= interval && base.isAuthority) 
             {
                 float coeff = strongCoefficient;
+                float range = flamethrowerRange;
                 if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
                 {
                     //Increment energy and Damage stuff
@@ -137,11 +146,13 @@ namespace ArsonistMod.SkillStates
                 {
                     //Set damage stuff
                     coeff = isBlue ? altWeakCoefficient : weakCoefficient;
+                    range = flamethrowerRange * 0.66f;
                 }
                 Ray aimRay = base.GetAimRay();
                 bulletAttack.aimVector = aimRay.direction;
                 bulletAttack.origin = aimRay.origin;
                 bulletAttack.damage = coeff * this.damageStat;
+                bulletAttack.maxDistance = range;
                 bulletAttack.Fire();
                 stopwatch = 0f;
             }
@@ -154,6 +165,7 @@ namespace ArsonistMod.SkillStates
                     return;
                 }
                 controller.flamethrower.Stop();
+                controller.weakFlamethrower.Stop();
                 this.outer.SetNextStateToMain();
                 return;
             }

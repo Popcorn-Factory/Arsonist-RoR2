@@ -24,6 +24,13 @@ namespace ArsonistMod.SkillStates
             maso = gameObject.GetComponent<MasochismController>();
             duration = baseDuration;
 
+            if (maso && maso.masochismActive && base.isAuthority) 
+            {
+                maso.TriggerMasochismAndEXOverheat(false);
+                base.outer.SetNextStateToMain();
+                return;
+            }
+
             if (!Modules.Config.shouldHaveVoice.Value)
             {
                 new PlaySoundNetworkRequest(characterBody.netId, 955478894).Send(R2API.Networking.NetworkDestination.Clients);
@@ -52,10 +59,6 @@ namespace ArsonistMod.SkillStates
                 {
                     //Start Masochism Sound
                     maso.ActivateMaso();
-                }
-                else
-                {
-                    maso.TriggerMasochismAndEXOverheat(false);
                 }
 
                 base.outer.SetNextStateToMain();

@@ -17,6 +17,7 @@ namespace ArsonistMod.Modules
         internal static float secondaryCooldownMultiplier = 0.6f;
         internal static float utilityCooldownMultiplier = 0.33f;
         internal static float specialCooldownMultiplier = 0.6f;
+        internal static float overheatAttackSpeedDebuff = 0.5f;
 
         internal static int noOfSegmentsOnOverheatGauge = 200;
         internal static float maxBlueWhiteSegment = 0.9f;
@@ -52,7 +53,7 @@ namespace ArsonistMod.Modules
         //Flamethrower
         internal static float flamethrowerStrongDamageCoefficient = 0.9f;
         internal static float flamethrowerWeakDamageCoefficient = 0.6f;
-        internal static float flamethrowerEnergyCost = 3f;
+        internal static float flamethrowerEnergyCost = 6f;
         internal static float flamethrowerFireChance = 10f; // number generated higher than this number guarantees fire damage. between 1-100
         internal static float flamethrowerRange = 25f;
         internal static float flamethrowerProcCoefficient = 0.5f;

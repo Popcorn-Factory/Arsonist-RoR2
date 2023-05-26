@@ -26,8 +26,10 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem fireBeam;
         public ParticleSystem fireBeamForward;
         public ParticleSystem flamethrower;
+        public ParticleSystem weakFlamethrower;
         public ParticleSystem ringFire;
         public Transform flamethrowerTransform;
+        public Transform weakFlamethrowerTransform;
 
         public bool ringFireActive;
 
@@ -48,6 +50,8 @@ namespace ArsonistMod.Content.Controllers
                 fireBeam = childLocator.FindChild("FireBeam").GetComponent<ParticleSystem>();
                 fireBeamForward = childLocator.FindChild("FireBeamForwardFiring").GetComponent<ParticleSystem>();
                 flamethrowerTransform = childLocator.FindChild("Flamethrower");
+                weakFlamethrowerTransform = childLocator.FindChild("FlamethrowerWeak");
+                weakFlamethrower = childLocator.FindChild("FlamethrowerWeak").GetComponent<ParticleSystem>();
                 flamethrower = childLocator.FindChild("Flamethrower").GetComponent<ParticleSystem>();
                 ringFire = childLocator.FindChild("RingFlame").GetComponent<ParticleSystem>();
             }
@@ -131,6 +135,7 @@ namespace ArsonistMod.Content.Controllers
             {
                 Ray ray = charBody.inputBank.GetAimRay();
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+                weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
 
                 if (!charBody.inputBank.skill1.down && playingFlamethrower) 
                 {

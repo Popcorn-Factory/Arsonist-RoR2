@@ -19,9 +19,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Increased Base damage stat from 8 -> 12
     - Core Skill Changes
         - Passive
-            - Arsonist now converts 50% of total damage received as fire damage over time
+            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more damage.
             - Arsonist has resistance to fire damage from all sources
         - Gauge Changes are moved to a passive skill slot
+            - All Gauges:
+                - Overheat now debuffs attack speed. (50% attack speed debuff)
             - Gauge -> Base Gauge:
                 - Cooling rate is affected by the amount of heat in the gauge
                 - Config to modify this rate has been added.
@@ -31,6 +33,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Primary
             - NEW PRIMARY: Dragon's Breath
                 - Fire a constant beam of fire that increases ignite chance the closer you are to an enemy.
+            - Overheat -> Fireball:
+                - Changed name to reflect the skill instead of the gauge type.
+                - Changed projectile effect on both normal and overheat projectiles.
         - Secondary
             - Flare: Changes
                 - Flare now chains another explosion to enemies hit within the first Flare's explosion
@@ -41,6 +46,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Utility
             - Cleanse:
                 - Does not self burn anymore.
+                - Added speed boost on activation
+                - Added fire effect that emits off Arsonist for the duration of the move.
         - Special
             - Masochism
                 - Builds up Anticipation stacks while not activated.
@@ -48,6 +55,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Increases heat and deals self damage over time during the duration of the move
                 - Activatable when required stack amount is reached.
                 - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
+                - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
