@@ -215,7 +215,15 @@ namespace ArsonistMod.Content.Controllers
 
             if (self && self.master.inventory)
             {
-                SegmentMake();
+                try
+                {
+                    SegmentMake();
+                }
+                catch (IndexOutOfRangeException e) 
+                {
+                    Debug.Log("OH FUCK");
+                    Debug.Log(e);
+                }
             }
         }
 
@@ -228,7 +236,15 @@ namespace ArsonistMod.Content.Controllers
                 GameObject bodyobject = self.GetBodyObject();
                 if (bodyobject != null)
                 {
-                    SegmentMake();
+                    try
+                    {
+                        SegmentMake();
+                    }
+                    catch (IndexOutOfRangeException e)
+                    {
+                        Debug.Log("OH FUCK");
+                        Debug.Log(e);
+                    }
                 }
             }
         }
