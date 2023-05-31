@@ -28,6 +28,7 @@ namespace ArsonistMod.SkillStates
         public float flamethrowerRange = Modules.StaticValues.flamethrowerRange;
         public float procCoefficient = Modules.StaticValues.flamethrowerProcCoefficient;
         public float radius = Modules.StaticValues.flamethowerRadius;
+        public static float spreadBloomValue = 10f;
 
         private string muzzleString = "GunMuzzle";
 
@@ -154,6 +155,7 @@ namespace ArsonistMod.SkillStates
                 bulletAttack.damage = coeff * this.damageStat;
                 bulletAttack.maxDistance = range;
                 bulletAttack.Fire();
+                base.characterBody.AddSpreadBloom(spreadBloomValue);
                 stopwatch = 0f;
             }
 

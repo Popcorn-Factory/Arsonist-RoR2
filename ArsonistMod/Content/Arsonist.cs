@@ -26,7 +26,7 @@ namespace ArsonistMod.Modules.Survivors
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("ArsonistIcon"),
             bodyColor = Color.red,
 
-            crosshair = Modules.Assets.LoadCrosshair("Standard"),
+            crosshair = Modules.Assets.fireballCrosshair,
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,

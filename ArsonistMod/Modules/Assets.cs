@@ -9,6 +9,7 @@ using RoR2.UI;
 using System;
 using UnityEngine.AddressableAssets;
 using RoR2.Projectile;
+using UnityEngine.UI;
 
 namespace ArsonistMod.Modules
 {
@@ -43,6 +44,10 @@ namespace ArsonistMod.Modules
 
         internal static GameObject fireballStrongGhost;
         internal static GameObject fireballWeakGhost;
+
+        //Crosshair
+        internal static GameObject fireballCrosshair;
+        internal static GameObject flamethrowerCrosshair;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -160,6 +165,30 @@ namespace ArsonistMod.Modules
             emissionRingMat = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             emissionRingMatLesser = new Material(emissionRingMat);
             emissionRingMatLesser.SetFloat("_EmPower", 2f);
+
+            //Create the damn reticle
+            fireballCrosshair = PrefabAPI.InstantiateClone(Modules.Assets.LoadCrosshair("Standard"), "ArsonistFireballCrosshair");
+            //Change the bottom section reticle to the drop off sprite
+            Transform bottomSection = fireballCrosshair.transform.GetChild(3);
+            Image bottomSectionImage = bottomSection.gameObject.GetComponent<Image>();
+            Sprite bottomImageSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("FireballReticle");
+            bottomSectionImage.sprite = bottomImageSprite;
+            bottomSectionImage.overrideSprite = bottomImageSprite;
+            //Return the rotation back to normal.
+            bottomSection.GetComponent<RectTransform>().localEulerAngles = new Vector3(0f, 0f, 0f);
+            bottomSection.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+            CrosshairController fireballCrosshairController = fireballCrosshair.GetComponent<CrosshairController>();
+            fireballCrosshairController.spriteSpreadPositions[3].zeroPosition = new Vector3(0f, -30f, 0f);
+            fireballCrosshairController.spriteSpreadPositions[3].onePosition = new Vector3(0f, -30f, 0f);
+
+            //Structured like this:
+            /*
+             Main obj (CrosshairController) (HudElement) (RawImage) (CanvasRenderer) (RectTransform)
+                Images of each segment (Image component) (CanvasRenderer) (RectTransform)
+             */
+
+            //The Raw image of the parent object just contains the center dot.
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab)
