@@ -167,6 +167,13 @@ namespace ArsonistMod.Modules
             emissionRingMatLesser.SetFloat("_EmPower", 2f);
 
             //Create the damn reticle
+            //Structured like this:
+            /*
+             Main obj (CrosshairController) (HudElement) (RawImage) (CanvasRenderer) (RectTransform)
+                Images of each segment (Image component) (CanvasRenderer) (RectTransform)
+             */
+
+            //The Raw image of the parent object just contains the center dot.
             fireballCrosshair = PrefabAPI.InstantiateClone(Modules.Assets.LoadCrosshair("Standard"), "ArsonistFireballCrosshair");
             //Change the bottom section reticle to the drop off sprite
             Transform bottomSection = fireballCrosshair.transform.GetChild(3);
@@ -179,16 +186,59 @@ namespace ArsonistMod.Modules
             bottomSection.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
             CrosshairController fireballCrosshairController = fireballCrosshair.GetComponent<CrosshairController>();
+            fireballCrosshairController.spriteSpreadPositions[0].zeroPosition = new Vector3(15f, 0f, 0f);
+            fireballCrosshairController.spriteSpreadPositions[0].onePosition = new Vector3(30f, 0f, 0f);
+
+            fireballCrosshairController.spriteSpreadPositions[1].zeroPosition = new Vector3(-15f, 0f, 0f);
+            fireballCrosshairController.spriteSpreadPositions[1].onePosition = new Vector3(-30f, 0f, 0f);
+
+            fireballCrosshairController.spriteSpreadPositions[2].zeroPosition = new Vector3(0f, 15f, 0f);
+            fireballCrosshairController.spriteSpreadPositions[2].onePosition = new Vector3(0f, 30f, 0f);
+
             fireballCrosshairController.spriteSpreadPositions[3].zeroPosition = new Vector3(0f, -30f, 0f);
             fireballCrosshairController.spriteSpreadPositions[3].onePosition = new Vector3(0f, -30f, 0f);
+            fireballCrosshairController.maxSpreadAngle = 1f;
 
-            //Structured like this:
-            /*
-             Main obj (CrosshairController) (HudElement) (RawImage) (CanvasRenderer) (RectTransform)
-                Images of each segment (Image component) (CanvasRenderer) (RectTransform)
-             */
 
-            //The Raw image of the parent object just contains the center dot.
+            flamethrowerCrosshair = PrefabAPI.InstantiateClone(Modules.Assets.LoadCrosshair("Standard"), "ArsonistFlamethrowerCrosshair");
+            //Delete the last two elements as we only need L and R
+            GameObject.Destroy(flamethrowerCrosshair.transform.GetChild(3).gameObject);
+            GameObject.Destroy(flamethrowerCrosshair.transform.GetChild(2).gameObject);
+
+            Transform rightSection = flamethrowerCrosshair.transform.GetChild(0);
+            Image rightSectionImage = rightSection.gameObject.GetComponent<Image>();
+            Sprite rightImageSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("FlamethrowerReticle");
+            rightSectionImage.sprite = rightImageSprite;
+            rightSectionImage.overrideSprite = rightImageSprite;
+            rightSection.GetComponent<RectTransform>().localEulerAngles = new Vector3(0f, 0f, 180f);
+            rightSection.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
+
+            Transform leftSection = flamethrowerCrosshair.transform.GetChild(1);
+            Image leftSectionImage = leftSection.gameObject.GetComponent<Image>();
+            leftSectionImage.sprite = rightImageSprite;
+            leftSectionImage.overrideSprite = rightImageSprite;
+            leftSectionImage.GetComponent<RectTransform>().localEulerAngles = Vector3.zero;
+            leftSectionImage.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
+
+            CrosshairController flamethowerCrosshairController = flamethrowerCrosshair.GetComponent<CrosshairController>();
+
+            CrosshairController.SpritePosition[] flamethrowerSpritePosition = new CrosshairController.SpritePosition[2];
+            flamethrowerSpritePosition[0] = new CrosshairController.SpritePosition
+            {
+                target = rightSection.GetComponent<RectTransform>(),
+                zeroPosition = new Vector3(30f, 0f, 0f),
+                onePosition = new Vector3(60f, 0f, 0f)
+            };
+            flamethrowerSpritePosition[1] = new CrosshairController.SpritePosition
+            {
+                target = leftSection.GetComponent<RectTransform>(),
+                zeroPosition = new Vector3(-30f, 0f, 0f),
+                onePosition = new Vector3(-60f, 0f, 0f)
+            };
+
+            flamethowerCrosshairController.spriteSpreadPositions = flamethrowerSpritePosition;
+            flamethowerCrosshairController.maxSpreadAngle = 1f;
+
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab)

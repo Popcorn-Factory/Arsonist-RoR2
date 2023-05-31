@@ -351,7 +351,7 @@ namespace ArsonistMod.Content.Controllers
 
 
             //setup the UI element for the min/max
-            energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -60f), 24f);
+            energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0f, 110f), 24f);
             textVibration = energyNumber.gameObject.AddComponent<TextVibration>();
 
             CustomUIObject.SetActive(false);
@@ -360,7 +360,7 @@ namespace ArsonistMod.Content.Controllers
 
         //Calculate segments
         //we use percentage to figure out how far we should go for radius. do not go beyond 1 or below 0!
-        private void CalculateSemiCircle(float radius, float percentage) 
+        private void CalculateSemiCircle(float radius, float percentage)  
         {
             float range = percentage * radius * 2f;
             float incrementX = range / (float)Modules.StaticValues.noOfSegmentsOnOverheatGauge;

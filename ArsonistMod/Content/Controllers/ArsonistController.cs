@@ -82,6 +82,9 @@ namespace ArsonistMod.Content.Controllers
             {
                 flamethrowerSelected = true;
             }
+
+            charBody._defaultCrosshairPrefab = flamethrowerSelected ? Modules.Assets.flamethrowerCrosshair : Modules.Assets.fireballCrosshair;
+
         }
 
         // Update is called once per frame
