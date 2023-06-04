@@ -191,7 +191,9 @@ namespace ArsonistMod.Content.Controllers
             //update the indicator if active
             if (masochismActive) 
             {
-                masochismRangeIndicator.transform.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius;
+
+                float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
+                masochismRangeIndicator.transform.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius * radMultiplier;
                 masochismRangeIndicator.transform.position = this.gameObject.transform.position;
             }
             
@@ -227,6 +229,8 @@ namespace ArsonistMod.Content.Controllers
                 damageOverTimeSphere.position = gameObject.transform.position;
                 damageOverTimeSphere.crit = characterBody.RollCrit();
                 damageOverTimeSphere.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismPulseCoefficient;
+                float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
+                damageOverTimeSphere.radius = Modules.StaticValues.masochismPulseRadius * radMultiplier;
 
                 damageOverTimeSphere.Fire();
                 damageOverTimeStopwatch = 0f;
@@ -280,6 +284,8 @@ namespace ArsonistMod.Content.Controllers
             finalBlastAttack.position = gameObject.transform.position;
             finalBlastAttack.crit = characterBody.RollCrit();
             finalBlastAttack.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismFinalBlastCoefficient * Modules.StaticValues.masochismDamageMultiplierPerStack * masoStacks;
+            float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
+            finalBlastAttack.radius = Modules.StaticValues.masochismPulseRadius * radMultiplier;
             finalBlastAttack.damageType = DamageType.IgniteOnHit;
 
             finalBlastAttack.Fire();
