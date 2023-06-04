@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="2068799935">
+		<SoundBank Id="1110381487" Language="SFX" Hash="3690019273">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -36,7 +36,7 @@
 					<IncludedMemoryFiles>
 						<File Id="892859622" Language="SFX">
 							<ShortName>4. End.wav</ShortName>
-							<Path>SFX\4. End_EBED85BE.wem</Path>
+							<Path>SFX\4. End_5EC5AE84.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -45,130 +45,6 @@
 						<File Id="509496315" Language="SFX">
 							<ShortName>Flamethrower_primary_neoarsonist_start.wav</ShortName>
 							<Path>SFX\Flamethrower_primary_neoarsonist_start_69C5C269.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1725265858" Name="Arsonist_Footstep_Grass" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Grass">
-					<IncludedMemoryFiles>
-						<File Id="156085908" Language="SFX">
-							<ShortName>1. Grass.wav</ShortName>
-							<Path>SFX\1. Grass_F769ED50.wem</Path>
-						</File>
-						<File Id="270437500" Language="SFX">
-							<ShortName>1. Grass.wav</ShortName>
-							<Path>SFX\1. Grass_A3580834.wem</Path>
-						</File>
-						<File Id="898931451" Language="SFX">
-							<ShortName>1. Grass.wav</ShortName>
-							<Path>SFX\1. Grass_511EFF13.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="76036109" Name="Arsonist_Footstep_Grass_Jump" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Grass_Jump">
-					<IncludedMemoryFiles>
-						<File Id="764279516" Language="SFX">
-							<ShortName>1. Grass.wav</ShortName>
-							<Path>SFX\1. Grass_9F7B163D.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1290015749" Name="Arsonist_Footstep_Metal" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Metal">
-					<IncludedMemoryFiles>
-						<File Id="55431788" Language="SFX">
-							<ShortName>3. Metal.wav</ShortName>
-							<Path>SFX\3. Metal_47C1DD54.wem</Path>
-						</File>
-						<File Id="199722079" Language="SFX">
-							<ShortName>3. Metal.wav</ShortName>
-							<Path>SFX\3. Metal_7CFD5AE6.wem</Path>
-						</File>
-						<File Id="290435072" Language="SFX">
-							<ShortName>3. Metal.wav</ShortName>
-							<Path>SFX\3. Metal_A08F2626.wem</Path>
-						</File>
-						<File Id="653952056" Language="SFX">
-							<ShortName>3. Metal.wav</ShortName>
-							<Path>SFX\3. Metal_F26A7C50.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="606624036" Name="Arsonist_Footstep_Metal_Jump" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Metal_Jump">
-					<IncludedMemoryFiles>
-						<File Id="518963337" Language="SFX">
-							<ShortName>3. Metal.wav</ShortName>
-							<Path>SFX\3. Metal_BD2B9B26.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2380703018" Name="Arsonist_Footstep_Sand" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Sand">
-					<IncludedMemoryFiles>
-						<File Id="14451084" Language="SFX">
-							<ShortName>4. Sand.wav</ShortName>
-							<Path>SFX\4. Sand_847D6877.wem</Path>
-						</File>
-						<File Id="980977371" Language="SFX">
-							<ShortName>4. Sand.wav</ShortName>
-							<Path>SFX\4. Sand_A6502B48.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2326904085" Name="Arsonist_Footstep_Sand_Jump" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Sand_Jump">
-					<IncludedMemoryFiles>
-						<File Id="930142918" Language="SFX">
-							<ShortName>4. Sand.wav</ShortName>
-							<Path>SFX\4. Sand_33B75F6B.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1815599075" Name="Arsonist_Footstep_Stone" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Stone">
-					<IncludedMemoryFiles>
-						<File Id="393781856" Language="SFX">
-							<ShortName>2. Stone.wav</ShortName>
-							<Path>SFX\2. Stone_A368A911.wem</Path>
-						</File>
-						<File Id="410153460" Language="SFX">
-							<ShortName>2. Stone.wav</ShortName>
-							<Path>SFX\2. Stone_B1AF606F.wem</Path>
-						</File>
-						<File Id="593362604" Language="SFX">
-							<ShortName>2. Stone.wav</ShortName>
-							<Path>SFX\2. Stone_883A7E08.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2012235054" Name="Arsonist_Footstep_Stone_Jump" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Stone_Jump">
-					<IncludedMemoryFiles>
-						<File Id="631514101" Language="SFX">
-							<ShortName>2. Stone.wav</ShortName>
-							<Path>SFX\2. Stone_AF09CC54.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="763242809" Name="Arsonist_Footstep_Water" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Water">
-					<IncludedMemoryFiles>
-						<File Id="272484481" Language="SFX">
-							<ShortName>5. Water.wav</ShortName>
-							<Path>SFX\5. Water_643978E6.wem</Path>
-						</File>
-						<File Id="280874574" Language="SFX">
-							<ShortName>5. Water.wav</ShortName>
-							<Path>SFX\5. Water_A87C3576.wem</Path>
-						</File>
-						<File Id="361341889" Language="SFX">
-							<ShortName>5. Water.wav</ShortName>
-							<Path>SFX\5. Water_25141486.wem</Path>
-						</File>
-						<File Id="377576291" Language="SFX">
-							<ShortName>5. Water.wav</ShortName>
-							<Path>SFX\5. Water_4DE66B21.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1708740936" Name="Arsonist_Footstep_Water_Jump" ObjectPath="\Events\Default Work Unit\Arsonist_Footstep_Water_Jump">
-					<IncludedMemoryFiles>
-						<File Id="379356202" Language="SFX">
-							<ShortName>5. Water.wav</ShortName>
-							<Path>SFX\5. Water_3661FB60.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -208,7 +84,7 @@
 					<IncludedMemoryFiles>
 						<File Id="214059166" Language="SFX">
 							<ShortName>1.75._Middle-duration_only.wav</ShortName>
-							<Path>SFX\1.75._Middle-duration_only_42665A39.wem</Path>
+							<Path>SFX\1.75._Middle-duration_only_CB5CBF46.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -216,7 +92,7 @@
 					<IncludedMemoryFiles>
 						<File Id="342015722" Language="SFX">
 							<ShortName>2. End.wav</ShortName>
-							<Path>SFX\2. End_7C925059.wem</Path>
+							<Path>SFX\2. End_3BEF361A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -224,19 +100,19 @@
 					<IncludedMemoryFiles>
 						<File Id="204044814" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_1657EBE9.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_D50F4A06.wem</Path>
 						</File>
 						<File Id="374438844" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_F85EC596.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_74792ADF.wem</Path>
 						</File>
 						<File Id="659057600" Language="SFX">
 							<ShortName>1.5._Start_with_laughs_only.wav</ShortName>
-							<Path>SFX\1.5._Start_with_laughs_only_507C7B2E.wem</Path>
+							<Path>SFX\1.5._Start_with_laughs_only_6B280739.wem</Path>
 						</File>
 						<File Id="893652532" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_E3096BF3.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_89F73482.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -244,7 +120,7 @@
 					<IncludedMemoryFiles>
 						<File Id="847565046" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_4EC6CE57.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_A7009BAA.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -276,7 +152,7 @@
 					<IncludedMemoryFiles>
 						<File Id="722334489" Language="SFX">
 							<ShortName>1. Flameshot.wav</ShortName>
-							<Path>SFX\1. Flameshot_38283DCE.wem</Path>
+							<Path>SFX\1. Flameshot_3EE5195A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -292,7 +168,7 @@
 					<IncludedMemoryFiles>
 						<File Id="330746847" Language="SFX">
 							<ShortName>2. Overheat.wav</ShortName>
-							<Path>SFX\2. Overheat_C90AE3BA.wem</Path>
+							<Path>SFX\2. Overheat_83C5A974.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -300,7 +176,7 @@
 					<IncludedMemoryFiles>
 						<File Id="463410225" Language="SFX">
 							<ShortName>3. Travel.wav</ShortName>
-							<Path>SFX\3. Travel_ACA6432D.wem</Path>
+							<Path>SFX\3. Travel_DC05460A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -309,7 +185,7 @@
 					<IncludedMemoryFiles>
 						<File Id="481400103" Language="SFX">
 							<ShortName>4. Tick of Damage.wav</ShortName>
-							<Path>SFX\4. Tick of Damage_E531A9A6.wem</Path>
+							<Path>SFX\4. Tick of Damage_2A27F91A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -317,7 +193,7 @@
 					<IncludedMemoryFiles>
 						<File Id="326243976" Language="SFX">
 							<ShortName>Secondary Fire 1\2. Flare Explosion.wav</ShortName>
-							<Path>SFX\Secondary Fire 1\2. Flare Explosion_23C3355D.wem</Path>
+							<Path>SFX\Secondary Fire 1\2. Flare Explosion_E773F9DA.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -325,7 +201,7 @@
 					<IncludedMemoryFiles>
 						<File Id="919705144" Language="SFX">
 							<ShortName>5. Explosion.wav</ShortName>
-							<Path>SFX\5. Explosion_13218E21.wem</Path>
+							<Path>SFX\5. Explosion_9980B267.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -333,7 +209,7 @@
 					<IncludedMemoryFiles>
 						<File Id="939381225" Language="SFX">
 							<ShortName>1. Normal.wav</ShortName>
-							<Path>SFX\1. Normal_39D58A5D.wem</Path>
+							<Path>SFX\1. Normal_8A17649E.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -341,7 +217,7 @@
 					<IncludedMemoryFiles>
 						<File Id="103453405" Language="SFX">
 							<ShortName>6. Flare Burning on Target.wav</ShortName>
-							<Path>SFX\6. Flare Burning on Target_74E0F079.wem</Path>
+							<Path>SFX\6. Flare Burning on Target_D3AA72D2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -349,7 +225,7 @@
 					<IncludedMemoryFiles>
 						<File Id="1070261069" Language="SFX">
 							<ShortName>7. Initial Contact.wav</ShortName>
-							<Path>SFX\7. Initial Contact_BEFEEE97.wem</Path>
+							<Path>SFX\7. Initial Contact_D23093A4.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -357,7 +233,7 @@
 					<IncludedMemoryFiles>
 						<File Id="5203180" Language="SFX">
 							<ShortName>2. Overheat.wav</ShortName>
-							<Path>SFX\2. Overheat_F29C73DD.wem</Path>
+							<Path>SFX\2. Overheat_35812231.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -365,7 +241,7 @@
 					<IncludedMemoryFiles>
 						<File Id="870223078" Language="SFX">
 							<ShortName>3. Flare Travel.wav</ShortName>
-							<Path>SFX\3. Flare Travel_D83E9159.wem</Path>
+							<Path>SFX\3. Flare Travel_68DDB27D.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -400,10 +276,26 @@
 							<ShortName>3.99_ZPB_contact.wav</ShortName>
 							<Path>SFX\3.99_ZPB_contact_3F75BDB9.wem</Path>
 						</File>
+						<File Id="605701829" Language="SFX">
+							<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\1. ZPB without laughs (start + travel _ contact)_1819F335.wem</Path>
+						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3858611310" Name="Arsonist_ZPB_Contact_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact_Laugh">
 					<IncludedMemoryFiles>
+						<File Id="280569789" Language="SFX">
+							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_9BF5CF55.wem</Path>
+						</File>
+						<File Id="394623607" Language="SFX">
+							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_D4499C59.wem</Path>
+						</File>
+						<File Id="633370709" Language="SFX">
+							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_B51049F3.wem</Path>
+						</File>
 						<File Id="720175040" Language="SFX">
 							<ShortName>6.ZPBcontactv3.wav</ShortName>
 							<Path>SFX\6.ZPBcontactv3_3F75BDB9.wem</Path>
@@ -424,6 +316,10 @@
 							<ShortName>ZPB_startup_whiff.wav</ShortName>
 							<Path>SFX\ZPB_startup_whiff_3F75BDB9.wem</Path>
 						</File>
+						<File Id="569545744" Language="SFX">
+							<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\1. ZPB without laughs (start + travel _ contact)_E229F998.wem</Path>
+						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="289708206" Name="Arsonist_ZPB_Start_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Start_Laugh">
@@ -432,13 +328,25 @@
 							<ShortName>2._ZPBstartupwithLaughv2.wav</ShortName>
 							<Path>SFX\2._ZPBstartupwithLaughv2_3F75BDB9.wem</Path>
 						</File>
+						<File Id="173432434" Language="SFX">
+							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_CACFE0FB.wem</Path>
+						</File>
 						<File Id="196715173" Language="SFX">
 							<ShortName>1._ZPBstartupwithLaughv1.wav</ShortName>
 							<Path>SFX\1._ZPBstartupwithLaughv1_3F75BDB9.wem</Path>
 						</File>
+						<File Id="980818142" Language="SFX">
+							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_9C99EE5E.wem</Path>
+						</File>
 						<File Id="1038082577" Language="SFX">
 							<ShortName>3.ZPBstartupwithLaughv3.wav</ShortName>
 							<Path>SFX\3.ZPBstartupwithLaughv3_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1062392174" Language="SFX">
+							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_BFC55E90.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
