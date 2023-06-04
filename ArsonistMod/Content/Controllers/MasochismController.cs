@@ -54,7 +54,7 @@ namespace ArsonistMod.Content.Controllers
             healthComponent = characterBody.healthComponent;
             skillLoc = characterBody.skillLocator;
 
-            masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(EntityStates.Huntress.ArrowRain.areaIndicatorPrefab);
+            masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.masoSphereIndicator);
 
             masochismRangeIndicator.SetActive(false);
 

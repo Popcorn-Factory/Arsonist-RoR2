@@ -49,6 +49,9 @@ namespace ArsonistMod.Modules
         internal static GameObject fireballCrosshair;
         internal static GameObject flamethrowerCrosshair;
 
+        //MasoSphere
+        internal static GameObject masoSphereIndicator;
+
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
 
@@ -64,12 +67,6 @@ namespace ArsonistMod.Modules
 
         internal static void Initialize()
         {
-            if (assetbundleName == "myassetbundle")
-            {
-                Log.Error("AssetBundle name hasn't been changed. not loading any assets to avoid conflicts");
-                return;
-            }
-
             LoadAssetBundle();
             LoadSoundbank();
             PopulateAssets();
@@ -239,6 +236,9 @@ namespace ArsonistMod.Modules
             flamethowerCrosshairController.spriteSpreadPositions = flamethrowerSpritePosition;
             flamethowerCrosshairController.maxSpreadAngle = 1f;
 
+
+            //Masochism Sphere
+            masoSphereIndicator = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Masosphere");
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab)

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1111006901
+CRC: 4083550954
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fb168b55e303838348e903152a636af4
+    Hash: 0a23411ce375b97b9acc82dfb89d2d57
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -128,6 +128,7 @@ Assets:
 - Assets/ArsonistAssets/Shaders/Frensel.shader
 - Assets/ArsonistAssets/VFX/Textures/texFistSwing.png
 - Assets/ArsonistAssets/Shaders/FresnelFlameWobble.shader
+- Assets/ArsonistAssets/Shaders/masochismWaveShaderv2.shader
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
@@ -161,6 +162,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/texAlt1SecondaryIcon.png
 - Assets/ArsonistAssets/VFX/Materials/ringMat.mat
 - Assets/ArsonistAssets/Materials/Henry/matHenryAlt.mat
+- Assets/ArsonistAssets/Textures/firenoise.png
 - Assets/ArsonistAssets/Animation/clips/WalkF.anim
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/ArsonistAssets/Materials/Henry/matDante.mat
@@ -193,6 +195,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/Torus.mesh
 - Assets/ArsonistAssets/VFX/Textures/white square.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryNeo.mat
+- Assets/ArsonistAssets/VFX/Masosphere.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkR.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_diffuse.png
 - Assets/ArsonistAssets/VFX/Mesh/meshPunchShockwave.mesh
@@ -232,6 +235,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/flareDebuff.png
 - Assets/ArsonistAssets/Materials/FireMaterial2.mat
 - Assets/ArsonistAssets/StrongFlare.prefab
+- Assets/ArsonistAssets/Textures/firenoiseTransparent.png
 - Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
 - Assets/ArsonistAssets/VFX/Fire.prefab
 - Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
