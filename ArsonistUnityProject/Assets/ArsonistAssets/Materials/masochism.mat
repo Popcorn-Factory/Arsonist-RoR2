@@ -19,23 +19,31 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _TextureInput:
+    - _OneMinusTexture:
         m_Texture: {fileID: 2800000, guid: 770769568ac7b4b46bab4e7b5fe0259f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureInput:
+        m_Texture: {fileID: 2800000, guid: f2aee5fafb274e649b1070cbbe01b7bb, type: 3}
+        m_Scale: {x: 0.5, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_4549:
+        m_Texture: {fileID: 2800000, guid: 3a5a96df060a5cf4a9cc0c59e13486b7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _DepthDistance: 1.8
-    - _FrenelMultiplier: 3.73
+    - _DepthDistance: 0.4
+    - _FrenelMultiplier: 0.38
     - _LightingMultiplier: 1.13
-    - _LowerLerpOpacity: 0.102
+    - _LowerLerpOpacity: 1
     - _MaxSmoothstep: 1
     - _MinSmoothstep: 0
     - _Opacity: 0.166
-    - _PosterizeSteps: 5
+    - _PosterizeSteps: 7
     - _Power: 1.35
-    - _StepThreshold: 1
-    - _TimeMultiplier: 0.4
+    - _StepThreshold: 0.2
+    - _TimeMultiplier: 0.5
     - _UpperLerpOpacity: 1
     - _Vertexoffset: 0.01
     - _node_2837: 0.273

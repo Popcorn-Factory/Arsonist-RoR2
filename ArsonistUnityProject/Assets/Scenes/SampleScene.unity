@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -799,6 +799,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: arsonistOverheatGauge
       objectReference: {fileID: 0}
+    - target: {fileID: 5152563029306567006, guid: 5b3937f834afe4a4c977a5ef2d00a3e6,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5152563029306567007, guid: 5b3937f834afe4a4c977a5ef2d00a3e6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1008,7 +1013,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 100
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1031,7 +1036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037211333}
   m_LocalRotation: {x: -0.08634552, y: 0.13911004, z: -0.012162636, w: -0.9864304}
-  m_LocalPosition: {x: 2.1905518, y: 2.9910128, z: -6.9727106}
+  m_LocalPosition: {x: 3.66, y: 3.13, z: -6.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42695,7 +42700,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000055879347, y: 0.4547411, z: 0.00000002980231}
+  m_ConnectedAnchor: {x: -0.000000052154057, y: 0.4547411, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -53169,7 +53174,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000014901156, y: 0.4337464, z: 0.00000023841848}
+  m_ConnectedAnchor: {x: -0.000000014901156, y: 0.4337464, z: 0.00000023841847}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
