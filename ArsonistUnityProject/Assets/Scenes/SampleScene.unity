@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1035,8 +1035,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037211333}
-  m_LocalRotation: {x: -0.08634552, y: 0.13911004, z: -0.012162636, w: -0.9864304}
-  m_LocalPosition: {x: 3.66, y: 3.13, z: -6.53}
+  m_LocalRotation: {x: -0.0061850282, y: 0.9938069, z: -0.07648419, w: -0.08037345}
+  m_LocalPosition: {x: 1.5822799, y: 2.459325, z: 6.2299633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42306,6 +42306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Masosphere
       objectReference: {fileID: 0}
+    - target: {fileID: 3468623163882386841, guid: b27b67a858777934e8c564399b912d70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3468623163882386843, guid: b27b67a858777934e8c564399b912d70,
         type: 3}
       propertyPath: m_CastShadows
@@ -42700,7 +42705,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000052154057, y: 0.4547411, z: 0}
+  m_ConnectedAnchor: {x: -0.000000055879347, y: 0.4547411, z: 0.00000002980231}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -53174,7 +53179,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000014901156, y: 0.4337464, z: 0.00000023841847}
+  m_ConnectedAnchor: {x: -0.000000014901156, y: 0.4337464, z: 0.00000023841848}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
