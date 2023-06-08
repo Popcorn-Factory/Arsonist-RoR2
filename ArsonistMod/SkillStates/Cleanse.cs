@@ -157,8 +157,8 @@ namespace ArsonistMod.SkillStates
 
             if (isStrong)
             {
-                //self burn
-                new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                //self burn NO LONGER NEEDED.
+                //new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
             }
         }
 
