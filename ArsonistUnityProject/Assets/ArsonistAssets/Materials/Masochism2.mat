@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Masochism2
-  m_Shader: {fileID: 4800000, guid: 378706068a4c3432a930a9662376c5b3, type: 3}
+  m_Shader: {fileID: 4800000, guid: 10b2bb5a7d1e34fe19f18e0d8f10ca39, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,6 +21,10 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColourTexture:
+        m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5fb7986dd6d0a8e4093ba82369dd6a4d, type: 3}
+        m_Texture: {fileID: 2800000, guid: f2aee5fafb274e649b1070cbbe01b7bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex2:
@@ -55,27 +59,45 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _OneMinusTexture:
+        m_Texture: {fileID: 2800000, guid: 770769568ac7b4b46bab4e7b5fe0259f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureInput:
+        m_Texture: {fileID: 2800000, guid: f2aee5fafb274e649b1070cbbe01b7bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VertexOffsetTex:
+        m_Texture: {fileID: 2800000, guid: bec67970a65e7284bb2c617657e228ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Bias: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _DepthDistance: 4.7
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _FrenelMultiplier: 0.79
     - _FresnelExponent: 10
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _LightingMultiplier: 1
+    - _LowerLerpOpacity: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Opacity: 1
     - _OutlineExtend: 0
     - _Parallax: 0.02
+    - _PosterizeSteps: 91.2
     - _Power: 1
-    - _RimAmount: 0.749
+    - _RimAmount: 0.585
     - _RimThreshold: 1
     - _Scale: 1
     - _SmoothnessTextureChannel: 0
@@ -83,10 +105,14 @@ Material:
     - _Speed: 0
     - _SpeedTex: 12.1
     - _SrcBlend: 1
+    - _StepThreshold: 90.88
+    - _TimeMultiplier: 1
     - _UVSec: 0
+    - _UpperLerpOpacity: 0
     - _VertexFrequency: 0
     - _VertexTimeMultiplier: 0
     - _VertexWobble: 0
+    - _Vertexoffset: 0.011
     - _WobbleDecay: 1
     - _ZWrite: 1
     m_Colors:
@@ -97,5 +123,6 @@ Material:
     - _FresnelColor: {r: 1, g: 0.4444623, b: 0, a: 1}
     - _RimColor: {r: 1, g: 0.38475227, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 0.8163534, b: 0, a: 1}
+    - _TextureColor: {r: 1, g: 0.5681818, b: 0, a: 1}
     - _TintColor: {r: 1, g: 0.4989723, b: 0, a: 1}
     - _node_5891: {r: 0.8584906, g: 0.6743885, b: 0.4494927, a: 1}

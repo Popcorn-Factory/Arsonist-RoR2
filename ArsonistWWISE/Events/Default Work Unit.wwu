@@ -474,6 +474,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Neomasochism_Pulse" ID="{EE92D7B6-DEAB-4155-B6EC-CE124005E788}">
+					<ChildrenList>
+						<Action Name="" ID="{B9F64BA3-8C02-4DC9-ACE3-28A54FEB29AB}" ShortID="869210193">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_10_Masochism_Pulse" ID="{AEB30574-EAD0-4FF1-9422-A3B822FE30C3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Neomasochism_Duration_No_Pulse" ID="{C36BA8C1-1076-41CC-A7B0-AA60BB3C7BC4}">
+					<ChildrenList>
+						<Action Name="" ID="{12CC2338-D865-4D1B-B9BF-FAD69EDA5B05}" ShortID="878328530">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_9_Masochism_Duration_No_Pulse" ID="{219D9540-04F8-44E8-BCE2-7370B3415EDF}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

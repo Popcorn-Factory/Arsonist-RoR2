@@ -1551,6 +1551,20 @@
 												<MediaID ID="847565046"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="3_5_Pulses_for_Middle_Duration" ID="{7EC69803-F81E-48D7-8C36-25DA11044EEC}">
+											<Language>SFX</Language>
+											<AudioFile>3.5_Pulses_for_Middle_Duration.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="804194796"/>
+											</MediaIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="3_0_Middle_Duration_without_Pulses" ID="{C24454FD-165A-46E1-8CFE-A40B06670801}">
+											<Language>SFX</Language>
+											<AudioFile>3.0_Middle_Duration_without_Pulses.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="762198113"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="1_5__Start_with_and_without_laughter" ID="{C59388EC-71CE-4E1D-A695-41F44B43AAAB}" Platform="Linked"/>
@@ -2092,6 +2106,80 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="6_10_Masochism_Pulse" ID="{AEB30574-EAD0-4FF1-9422-A3B822FE30C3}" ShortID="660167808">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="3_5_Pulses_for_Middle_Duration" ID="{38DD4952-E484-4882-A291-5267699F3EE0}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="14.066982516961"/>
+												<Property Name="TrimEnd" Type="Real64" Value="15.8429684601113"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>3.5_Pulses_for_Middle_Duration.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="410776642"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="3_5_Pulses_for_Middle_Duration" ID="{38DD4952-E484-4882-A291-5267699F3EE0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="6_9_Masochism_Duration_No_Pulse" ID="{219D9540-04F8-44E8-BCE2-7370B3415EDF}" ShortID="1067396146">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>18</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="3_0_Middle_Duration_without_Pulses" ID="{C0CA08E6-5634-4570-B830-6E0968E5F520}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.784675324675328"/>
+												<Property Name="TrimEnd" Type="Real64" Value="15.3572170686456"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>3.0_Middle_Duration_without_Pulses.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="701290957"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="3_0_Middle_Duration_without_Pulses" ID="{C0CA08E6-5634-4570-B830-6E0968E5F520}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>

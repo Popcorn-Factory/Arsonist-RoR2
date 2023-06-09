@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="3690019273">
+		<SoundBank Id="1110381487" Language="SFX" Hash="19540953">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -88,11 +88,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1419365914" Name="Arsonist_Neomasochism_Duration_No_Pulse" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Duration_No_Pulse">
+					<IncludedMemoryFiles>
+						<File Id="701290957" Language="SFX">
+							<ShortName>3.0_Middle_Duration_without_Pulses.wav</ShortName>
+							<Path>SFX\3.0_Middle_Duration_without_Pulses_7DF9AB6F.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3765159379" Name="Arsonist_Neomasochism_End_Laugh" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_End_Laugh">
 					<IncludedMemoryFiles>
 						<File Id="342015722" Language="SFX">
 							<ShortName>2. End.wav</ShortName>
 							<Path>SFX\2. End_3BEF361A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1578712289" Name="Arsonist_Neomasochism_Pulse" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Pulse">
+					<IncludedMemoryFiles>
+						<File Id="410776642" Language="SFX">
+							<ShortName>3.5_Pulses_for_Middle_Duration.wav</ShortName>
+							<Path>SFX\3.5_Pulses_for_Middle_Duration_A6D9A338.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -278,7 +294,7 @@
 						</File>
 						<File Id="605701829" Language="SFX">
 							<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\1. ZPB without laughs (start + travel _ contact)_1819F335.wem</Path>
+							<Path>SFX\1. ZPB without laughs (start + travel _ contact)_C448099D.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -286,15 +302,15 @@
 					<IncludedMemoryFiles>
 						<File Id="280569789" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_9BF5CF55.wem</Path>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_0672C19F.wem</Path>
 						</File>
 						<File Id="394623607" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_D4499C59.wem</Path>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_3E52820E.wem</Path>
 						</File>
 						<File Id="633370709" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_B51049F3.wem</Path>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_7A702340.wem</Path>
 						</File>
 						<File Id="720175040" Language="SFX">
 							<ShortName>6.ZPBcontactv3.wav</ShortName>
@@ -318,7 +334,7 @@
 						</File>
 						<File Id="569545744" Language="SFX">
 							<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\1. ZPB without laughs (start + travel _ contact)_E229F998.wem</Path>
+							<Path>SFX\1. ZPB without laughs (start + travel _ contact)_5A121D30.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -330,7 +346,7 @@
 						</File>
 						<File Id="173432434" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_CACFE0FB.wem</Path>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_2CBBB858.wem</Path>
 						</File>
 						<File Id="196715173" Language="SFX">
 							<ShortName>1._ZPBstartupwithLaughv1.wav</ShortName>
@@ -338,7 +354,7 @@
 						</File>
 						<File Id="980818142" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_9C99EE5E.wem</Path>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_203B157F.wem</Path>
 						</File>
 						<File Id="1038082577" Language="SFX">
 							<ShortName>3.ZPBstartupwithLaughv3.wav</ShortName>
@@ -346,7 +362,7 @@
 						</File>
 						<File Id="1062392174" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
-							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_BFC55E90.wem</Path>
+							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_52985496.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
