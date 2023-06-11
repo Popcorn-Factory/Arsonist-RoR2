@@ -115,9 +115,8 @@ Shader "Shader Forge/masochismWaveShader2" {
                 float _DepthDistance_var = UNITY_ACCESS_INSTANCED_PROP( Props, _DepthDistance );
                 float node_5977 = smoothstep( 0.0, 1.0, (objPos.a-saturate((sceneZ-partZ)/_DepthDistance_var)) );
                 float node_1884 = (node_9992+node_5977);
-                float node_2142 = saturate((node_1884*_OneMinusTexture_var.r));
                 float node_6523 = 50.0;
-                return fixed4(finalColor,floor((node_2142*node_1884) * node_6523) / (node_6523 - 1));
+                return fixed4(finalColor,floor((saturate((node_1884*_OneMinusTexture_var.r))*node_1884) * node_6523) / (node_6523 - 1));
             }
             ENDCG
         }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4083550954
+CRC: 295150042
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0a23411ce375b97b9acc82dfb89d2d57
+    Hash: 02c1fdb17ea7801ba60d45a829c2bace
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -176,6 +176,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleIn.anim
 - Assets/ArsonistAssets/Icons/FireballReticle.png
 - Assets/ArsonistAssets/VFX/Materials/Spark2Particle.mat
+- Assets/ArsonistAssets/Shaders/HeatHaze.shader
 - Assets/ArsonistAssets/Animation/clips/DescendFast.anim
 - Assets/ArsonistAssets/HenryBazookaRocketGhost.prefab
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
@@ -241,6 +242,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Landing.anim
 - Assets/ArsonistAssets/Textures/ArsonistCloth_diffuse.png
+- Assets/ArsonistAssets/Materials/HeatHaze.mat
 - Assets/ArsonistAssets/Textures/flameTex.png
 - Assets/ArsonistAssets/Materials/FireAddMaterial.mat
 - Assets/ArsonistAssets/VFX/Materials/SparkParticle.mat
