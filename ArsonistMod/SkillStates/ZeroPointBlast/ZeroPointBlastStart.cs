@@ -201,6 +201,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             if (arsonistController) 
             {
                 arsonistController.steamDownParticle.Play();
+                arsonistController.hasZPBedRecently = true;
             }
 
             //Get MuzzlePos

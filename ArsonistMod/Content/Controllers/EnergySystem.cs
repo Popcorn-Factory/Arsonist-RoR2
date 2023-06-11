@@ -916,6 +916,7 @@ namespace ArsonistMod.Content.Controllers
             currentOverheat -= Energy;
             if (currentOverheat < lowerBound) 
             {
+                
                 currentOverheat = lowerBound;
             }
 

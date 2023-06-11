@@ -29,9 +29,12 @@ namespace ArsonistMod.Content.Controllers
         public float heatChanged;
         public int masoStacks;
         public bool masochismActive;
+        public bool forceReset = false;
 
         //Temp: Masochism range Indicator.
         public GameObject masochismRangeIndicator;
+        public ParticleSystem masochismEffect;
+        public Transform pulseEffect; 
 
         //Actual Masochism Attacks
         public float damageOverTimeStopwatch;
@@ -41,6 +44,10 @@ namespace ArsonistMod.Content.Controllers
         public float stopwatch;
 
         public uint masochismActiveLoop;
+
+        public bool masoRecentlyActivated;
+        public float masoRadiusStopwatch = 0f;
+        public static float masoRadiusRampUpTime = 0.8f;
 
         public void Awake()
         {
@@ -55,6 +62,8 @@ namespace ArsonistMod.Content.Controllers
             skillLoc = characterBody.skillLocator;
 
             masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.masoSphereIndicator);
+            masochismEffect = masochismRangeIndicator.GetComponent<ParticleSystem>();
+            pulseEffect = masochismRangeIndicator.transform.GetChild(0);
 
             masochismRangeIndicator.SetActive(false);
 
@@ -172,6 +181,7 @@ namespace ArsonistMod.Content.Controllers
             {
                 MasochismBuffApplication();
                 DetermineMasoActivateable();
+                Chat.AddMessage($"Masostacks:{masoStacks} heatChanged:{heatChanged}");
 
 
                 if (masochismActive)
@@ -191,10 +201,24 @@ namespace ArsonistMod.Content.Controllers
             //update the indicator if active
             if (masochismActive) 
             {
+                //Slowly ramp up size for the first second.
+                float rampMultiplier = 1f;
+                if (masoRecentlyActivated) 
+                {
+                    masoRadiusStopwatch += Time.deltaTime;
+                    rampMultiplier = Mathf.Clamp01(Mathf.Lerp(0f, 1f, masoRadiusStopwatch / masoRadiusRampUpTime));
+                    if (masoRadiusStopwatch >= masoRadiusRampUpTime) 
+                    {
+                        rampMultiplier = 1f;
+                        masoRecentlyActivated = false;
+                        masoRadiusStopwatch = 0f;
+                    }
+                }
 
                 float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
-                masochismRangeIndicator.transform.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius * radMultiplier;
+                masochismRangeIndicator.transform.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius * radMultiplier * rampMultiplier;
                 masochismRangeIndicator.transform.position = this.gameObject.transform.position;
+                pulseEffect.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius * radMultiplier * rampMultiplier;
             }
             
         }
@@ -224,8 +248,10 @@ namespace ArsonistMod.Content.Controllers
             selfDamageStopwatch += Time.fixedDeltaTime;
             stopwatch += Time.fixedDeltaTime;
 
-            if (damageOverTimeStopwatch >= Modules.StaticValues.masochismBasePulseTimer * characterBody.attackSpeed)
+            if (damageOverTimeStopwatch >= Modules.StaticValues.masochismBasePulseTimer)
             {
+                new PlaySoundNetworkRequest(characterBody.netId, 1578712289).Send(NetworkDestination.Clients);
+
                 damageOverTimeSphere.position = gameObject.transform.position;
                 damageOverTimeSphere.crit = characterBody.RollCrit();
                 damageOverTimeSphere.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismPulseCoefficient;
@@ -291,7 +317,8 @@ namespace ArsonistMod.Content.Controllers
             finalBlastAttack.Fire();
 
             masoStacks = 0;
-            heatChanged = 0;
+            heatChanged = 0f;
+            forceReset = true;
 
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
@@ -338,7 +365,7 @@ namespace ArsonistMod.Content.Controllers
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
 
-            masochismActiveLoop = AkSoundEngine.PostEvent(3833223580, characterBody.gameObject);
+            masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
         }
 
         public void MasochismBuffApplication()
@@ -363,6 +390,12 @@ namespace ArsonistMod.Content.Controllers
             else
             {
                 //Do the opposite I guess.
+            }
+            if (forceReset) 
+            {
+                forceReset = false;
+                masoStacks = 0;
+                heatChanged = 0f;
             }
 
             //Apply the maso Stacks as buffs in a stack with no duration 

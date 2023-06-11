@@ -39,6 +39,8 @@ namespace ArsonistMod.Content.Controllers
         //FootstepStuff
         public FootstepHandler footstepHandler;
 
+        public bool hasZPBedRecently;
+
         // Use this for initialization
         void Start()
         {
@@ -90,6 +92,12 @@ namespace ArsonistMod.Content.Controllers
         // Update is called once per frame
         void Update()
         {
+            if (characterMotor.isGrounded && hasZPBedRecently) 
+            {
+                //Turn off the damn whiffing sound if they're touching the ground.
+                new PlaySoundNetworkRequest(charBody.netId, 1135082308).Send(R2API.Networking.NetworkDestination.Clients);
+                hasZPBedRecently = false;
+            }
             //Check here for authority and also executing emote states
             if (charBody.hasEffectiveAuthority)
             {

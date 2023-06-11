@@ -93,7 +93,7 @@ namespace ArsonistMod.Modules
         internal static float masochismEnergyCost = 50f;
 
         // neo masochism
-        internal static float masochismBasePulseTimer = 0.6f;
+        internal static float masochismBasePulseTimer = 0.9f;
         internal static float masochismActiveLowerBoundHeat = 0.15f;
         internal static float masochismBasePulseSelfDamageTimer = 0.6f;
         internal static float masochismSelfDamage = 0.1f;

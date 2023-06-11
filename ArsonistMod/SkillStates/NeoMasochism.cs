@@ -24,6 +24,14 @@ namespace ArsonistMod.SkillStates
             maso = gameObject.GetComponent<MasochismController>();
             duration = baseDuration;
 
+            if (maso)
+            {
+                if (maso)
+                {
+                    maso.masoRecentlyActivated = true;
+                }
+            }
+
             if (maso && maso.masochismActive && base.isAuthority) 
             {
                 maso.TriggerMasochismAndEXOverheat(false);

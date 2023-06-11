@@ -496,6 +496,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Stop_ZPB_Fluff" ID="{E4532897-6134-4207-B079-3263A09A8836}">
+					<ChildrenList>
+						<Action Name="" ID="{69287E88-ACC4-43C4-A2CF-04B40AE1DEBF}" ShortID="689039343">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_0_ZPB_Start_Whiff_New" ID="{9CC56885-D613-46C3-8719-A77BA7690BBB}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D9CFF99E-C8B5-4946-87C3-6CDCFF9B9A87}" ShortID="860914793">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_ZPB_Laugh_new_01" ID="{50D71696-A5EA-46B9-AAD7-7F4C9BCB1CBD}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8ABFC8E8-EA3B-49C5-92B4-A0E2647A5BB9}" ShortID="411645966">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_ZPB_Laugh_new_02" ID="{87D1F318-B639-4DC1-BA9D-91072C4D9915}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BD7644D0-1508-4431-A95A-733C17F55C43}" ShortID="1021489219">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_ZPB_Laugh_new_03" ID="{55F8DB6C-95EC-4737-96EA-A56D4C36B739}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

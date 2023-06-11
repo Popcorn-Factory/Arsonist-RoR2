@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="19540953">
+		<SoundBank Id="1110381487" Language="SFX" Hash="2934290564">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -92,7 +92,7 @@
 					<IncludedMemoryFiles>
 						<File Id="701290957" Language="SFX">
 							<ShortName>3.0_Middle_Duration_without_Pulses.wav</ShortName>
-							<Path>SFX\3.0_Middle_Duration_without_Pulses_7DF9AB6F.wem</Path>
+							<Path>SFX\3.0_Middle_Duration_without_Pulses_10540A97.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -108,7 +108,7 @@
 					<IncludedMemoryFiles>
 						<File Id="410776642" Language="SFX">
 							<ShortName>3.5_Pulses_for_Middle_Duration.wav</ShortName>
-							<Path>SFX\3.5_Pulses_for_Middle_Duration_A6D9A338.wem</Path>
+							<Path>SFX\3.5_Pulses_for_Middle_Duration_DC1FD6FB.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -286,6 +286,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1135082308" Name="Arsonist_Stop_ZPB_Fluff" ObjectPath="\Events\Default Work Unit\Arsonist_Stop_ZPB_Fluff"/>
 				<Event Id="1486446844" Name="Arsonist_ZPB_Contact" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact">
 					<IncludedMemoryFiles>
 						<File Id="576447885" Language="SFX">
