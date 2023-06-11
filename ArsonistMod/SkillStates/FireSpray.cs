@@ -45,6 +45,7 @@ namespace ArsonistMod.SkillStates
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
             isBlue = passive.isBlueGauge();
+            characterBody.isSprinting = false;
 
             Ray aimRay = GetAimRay();
             duration = baseDuration / attackSpeedStat;

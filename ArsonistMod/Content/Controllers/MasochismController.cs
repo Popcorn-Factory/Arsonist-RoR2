@@ -181,7 +181,7 @@ namespace ArsonistMod.Content.Controllers
             {
                 MasochismBuffApplication();
                 DetermineMasoActivateable();
-                Chat.AddMessage($"Masostacks:{masoStacks} heatChanged:{heatChanged}");
+                //Chat.AddMessage($"Masostacks:{masoStacks} heatChanged:{heatChanged}");
 
 
                 if (masochismActive)

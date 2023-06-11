@@ -54,6 +54,7 @@ namespace ArsonistMod.SkillStates
             passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
             controller = characterBody.gameObject.GetComponent<ArsonistController>();
             isBlue = passive.isBlueGauge();
+            characterBody.isSprinting = false;
 
             //Calculate how much damage/stats whatever using the energy system 
             //energy
