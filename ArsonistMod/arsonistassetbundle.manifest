@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3728813845
+CRC: 1095504942
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2e62553a175d59bf1baae38bbd59ee32
+    Hash: ff8d46f14ac8523e5db6a5a08a4490c4
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -104,6 +104,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch3.anim
 - Assets/ArsonistAssets/Materials/masochism.mat
 - Assets/ArsonistAssets/Animation/clips/WalkR.anim
+- Assets/ArsonistAssets/Icons/arsonistInferno.png
 - Assets/ArsonistAssets/VFX/HenryDustEffect.prefab
 - Assets/ArsonistAssets/Animation/clips/SprintL.anim
 - Assets/ArsonistAssets/Materials/Henry/matRebellion.mat
@@ -143,8 +144,10 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M3.anim
 - Assets/ArsonistAssets/Materials/GaugeMaterial.mat
 - Assets/ArsonistAssets/VFX/Flamethrower.prefab
+- Assets/ArsonistAssets/Icons/arsonistFlamethrower.png
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
 - Assets/ArsonistAssets/Animation/maskImpact.mask
+- Assets/ArsonistAssets/Icons/arsonistGrandmastery.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
 - Assets/ArsonistAssets/Animation/clips/Idle.anim
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
@@ -167,6 +170,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/ArsonistAssets/Materials/Henry/matDante.mat
 - Assets/ArsonistAssets/WeakFlare.prefab
+- Assets/ArsonistAssets/Icons/arsonistNormalGauge.png
 - Assets/ArsonistAssets/Mesh/meshArsonistWeapon.mesh
 - Assets/ArsonistAssets/Textures/Arsonist_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Ascend.anim
@@ -212,6 +216,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matSwingShadow.mat
 - Assets/ArsonistAssets/Mesh/meshArsonistChestplate.mesh
 - Assets/ArsonistAssets/Mesh/meshArsonist.mesh
+- Assets/ArsonistAssets/Icons/arsonistBlueGauge.png
 - Assets/ArsonistAssets/Animation/clips/RestIdle.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_normal.png
@@ -252,6 +257,7 @@ Assets:
 - Assets/ArsonistAssets/Textures/ArsonistCloth_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
 - Assets/ArsonistAssets/Materials/SolGate.mat
+- Assets/ArsonistAssets/Icons/arsonistMastery.png
 - Assets/ArsonistAssets/VFX/Materials/matSlash.mat
 - Assets/ArsonistAssets/VFX/Materials/matDust.mat
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png

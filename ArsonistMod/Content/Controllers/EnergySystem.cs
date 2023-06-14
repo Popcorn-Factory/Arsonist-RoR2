@@ -913,17 +913,19 @@ namespace ArsonistMod.Content.Controllers
 
         public void LowerHeat(float Energy)
         {
+            float priorHeatLevel = currentOverheat;
+            float realHeatGained = Energy;
             currentOverheat -= Energy;
             if (currentOverheat < lowerBound) 
             {
-                
+                realHeatGained = Energy - Mathf.Abs(currentOverheat);
                 currentOverheat = lowerBound;
             }
 
             //Add to masochism monitoring
             if (masoCon)
             {
-                masoCon.heatChanged += Energy;
+                masoCon.heatChanged += realHeatGained;
             }
         }
 
