@@ -82,7 +82,7 @@ Material:
     - _DepthDistance: 4.7
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Duration: 0.9
+    - _Duration: 1.2
     - _Durationthreshold: 0.4
     - _FrenelMultiplier: 0.79
     - _FresnelExponent: 10

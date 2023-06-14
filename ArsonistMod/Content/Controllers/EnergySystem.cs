@@ -913,12 +913,11 @@ namespace ArsonistMod.Content.Controllers
 
         public void LowerHeat(float Energy)
         {
-            float priorHeatLevel = currentOverheat;
             float realHeatGained = Energy;
             currentOverheat -= Energy;
             if (currentOverheat < lowerBound) 
             {
-                realHeatGained = Energy - Mathf.Abs(currentOverheat);
+                realHeatGained = Energy - Mathf.Abs(lowerBound - currentOverheat);
                 currentOverheat = lowerBound;
             }
 
