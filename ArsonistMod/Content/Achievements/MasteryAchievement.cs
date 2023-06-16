@@ -1,19 +1,75 @@
 ﻿using RoR2;
 using System;
 using UnityEngine;
+using static ArsonistMod.Modules.Unlockables;
 
 namespace ArsonistMod.Modules.Achievements
 {
-    internal class MasteryAchievement : BaseMasteryUnlockable
+    [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT",
+    ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_REWARD_ID", null, null)]
+    internal class MasteryAchievement : ModdedUnlockable
     {
-        public override string AchievementTokenPrefix => ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERY";
-        //the name of the sprite in your bundle
-        public override string AchievementSpriteName => "texMasteryAchievement";
-        //the token of your character's unlock achievement if you have one
-        public override string PrerequisiteUnlockableIdentifier => ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_UNLOCKABLE_REWARD_ID";
+        public override string AchievementIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_ID";
 
-        public override string RequiredCharacterBody => "ArsonistBody";
-        //difficulty coeff 3 is monsoon. 3.5 is typhoon for grandmastery skins
-        public override float RequiredDifficultyCoefficient => 3;
+        public override string UnlockableIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_REWARD_ID";
+
+        public override string AchievementNameToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_UNLOCKABLE_NAME";
+
+        public override string UnlockableNameToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_UNLOCKABLE_NAME";
+
+        public override string AchievementDescToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_DESC";
+
+        public override Sprite Sprite => Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery");
+        public override Func<string> GetHowToUnlock { get; } = (() => Language.GetStringFormatted("UNLOCK_VIA_ACHIEVEMENT_FORMAT", new object[]
+                            {
+                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_NAME"),
+                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_DESC")
+                            }));
+        public override Func<string> GetUnlocked { get; } = (() => Language.GetStringFormatted("UNLOCKED_FORMAT", new object[]
+                            {
+                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_NAME"),
+                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_DESC")
+                            }));
+
+        public override string PrerequisiteUnlockableIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_UNLOCKABLE_REWARD_ID";
+        public override BodyIndex LookUpRequiredBodyIndex()
+        {
+            return BodyCatalog.FindBodyIndex(Modules.Survivors.Arsonist.instance.fullBodyName);
+        }
+
+        public void ClearCheck(Run run, RunReport runReport)
+        {
+            if (run is null) return;
+            if (runReport is null) return;
+
+            if (!runReport.gameEnding) return;
+
+            if (runReport.gameEnding.isWin)
+            {
+                DifficultyDef difficultyDef = DifficultyCatalog.GetDifficultyDef(runReport.ruleBook.FindDifficulty());
+
+                if (difficultyDef != null && difficultyDef.countsAsHardMode)
+                {
+                    if (base.meetsBodyRequirement)
+                    {
+                        base.Grant();
+                    }
+                }
+            }
+        }
+
+        public override void OnInstall()
+        {
+            base.OnInstall();
+
+            Run.onClientGameOverGlobal += this.ClearCheck;
+        }
+
+        public override void OnUninstall()
+        {
+            base.OnUninstall();
+
+            Run.onClientGameOverGlobal -= this.ClearCheck;
+        }
     }
 }

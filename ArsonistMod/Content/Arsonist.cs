@@ -118,7 +118,7 @@ namespace ArsonistMod.Modules.Survivors
         public override void InitializeUnlockables()
         {
             //uncomment this when you have a mastery skin. when you do, make sure you have an icon too
-            //masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>();
+            masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>(true);
         }
 
         public override void InitializeHitboxes()
@@ -356,7 +356,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "SECONDARY_PUNCH_NAME",
                 skillNameToken = prefix + "SECONDARY_PUNCH_NAME",
                 skillDescriptionToken = prefix + "SECONDARY_PUNCH_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texAlt1SecondaryIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistZPBIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointBlast.ZeroPointBlastStart)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -482,9 +482,23 @@ namespace ArsonistMod.Modules.Survivors
 
             #region DefaultSkin
             //this creates a SkinDef with all default fields
+            Material matArsonist = Modules.Materials.CreateHopooMaterial("matArsonist", false);
+            Material matArsonistMetal = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            Material matArsonistCloth = Modules.Materials.CreateHopooMaterial("matArsonistCloth", true);
+            CharacterModel.RendererInfo[] arsonistRendererInfos = SkinRendererInfos(defaultRendererinfos, new Material[] {
+                matArsonist,
+                matArsonistMetal,
+                matArsonistMetal,
+                matArsonistMetal,
+                matArsonistMetal,
+                matArsonistMetal,
+                matArsonistMetal,
+                null,
+                matArsonistCloth
+            });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(ARSONIST_PREFIX + "DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-                defaultRendererinfos,
+                arsonistRendererInfos,
                 model);
 
             //these are your Mesh Replacements. The order here is based on your CustomRendererInfos from earlier
@@ -501,49 +515,103 @@ namespace ArsonistMod.Modules.Survivors
                 "meshPyroRobe"
                 );
 
+            defaultSkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonist", false);
+            defaultSkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            //defaultSkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt", false);
+            defaultSkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistCloth", true);
+
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
             skins.Add(defaultSkin);
             #endregion
-            
+
             //uncomment this when you have a mastery skin
             #region MasterySkin
-            /*
+
+            Material matNeoArsonistMetal = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            Material matNeoArsonistCloth = Modules.Materials.CreateHopooMaterial("matNeoArsonistCloth", true);
+            CharacterModel.RendererInfo[] neoArsonistRendererInfos = SkinRendererInfos(defaultRendererinfos, new Material[] {
+                matNeoArsonistMetal,
+                matNeoArsonistMetal,
+                matNeoArsonistMetal,
+                matNeoArsonistMetal,
+                matNeoArsonistMetal,
+                matNeoArsonistMetal,
+                matNeoArsonistMetal,
+                null,
+                matNeoArsonistCloth
+            });
             //creating a new skindef as we did before
             SkinDef masterySkin = Modules.Skins.CreateSkinDef(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
-                defaultRendererinfos,
+                Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery"),
+                neoArsonistRendererInfos,
                 model,
                 masterySkinUnlockableDef);
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
             masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
-                "meshArsonistSwordAlt",
-                null,//no gun mesh replacement. use same gun mesh
-                "meshArsonistAlt");
+                "NeoArsonist",
+                "NeoArsonistArmor",//no gun mesh replacement. use same gun mesh
+                "NeoArsonistBoots",
+                "NeoArsonistCanister",
+                "NeoArsonistChestplate",
+                "NeoArsonistHead",
+                "NeoArsonistWeapon",
+                "meshCylinder",
+                "NeoPyroRobe");
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
-            masterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
-            masterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
-            masterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
+            masterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            masterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            masterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            masterySkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            masterySkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            masterySkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            masterySkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            //masterySkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
+            masterySkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistCloth", true);
 
             //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
-            masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
-            {
-                new SkinDef.GameObjectActivation
-                {
-                    gameObject = childLocator.FindChildGameObject("GunModel"),
-                    shouldActivate = false,
-                }
-            };
+            //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
+            //{
+            //    new SkinDef.GameObjectActivation
+            //    {
+            //        gameObject = childLocator.FindChildGameObject("GunModel"),
+            //        shouldActivate = false,
+            //    }
+            //};
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
             skins.Add(masterySkin);
-            */
             #endregion
 
             skinController.skins = skins.ToArray();
+        }
+
+        private static CharacterModel.RendererInfo[] SkinRendererInfos(CharacterModel.RendererInfo[] defaultRenderers, Material[] materials)
+        {
+
+            CharacterModel.RendererInfo[] newRendererInfos = new CharacterModel.RendererInfo[defaultRenderers.Length];
+            defaultRenderers.CopyTo(newRendererInfos, 0);
+
+            newRendererInfos[0].defaultMaterial = materials[0];
+            newRendererInfos[1].defaultMaterial = materials[1];
+            newRendererInfos[2].defaultMaterial = materials[2];
+            newRendererInfos[3].defaultMaterial = materials[3];
+            newRendererInfos[4].defaultMaterial = materials[4];
+            newRendererInfos[5].defaultMaterial = materials[5];
+            newRendererInfos[6].defaultMaterial = materials[6];
+            newRendererInfos[7].defaultMaterial = materials[7];
+            newRendererInfos[8].defaultMaterial = materials[8];
+
+
+            return newRendererInfos;
         }
     }
 }
