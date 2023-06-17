@@ -77,7 +77,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                 }
                 else
                 {
-                    timer += Time.deltaTime;
+                    timer += Time.fixedDeltaTime;
                 }
 
             }

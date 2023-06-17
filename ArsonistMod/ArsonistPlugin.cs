@@ -15,6 +15,7 @@ using EmotesAPI;
 using R2API;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using System;
+using R2API.Networking.Interfaces;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -71,14 +72,20 @@ namespace ArsonistMod
             new Arsonist().Initialize();
 
             //networking
-            NetworkingAPI.RegisterMessageType<BurnNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<TakeDamageNetworkRequest>();
+            NetworkRequestSetup();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
 
             Hook();
+        }
+
+        private void NetworkRequestSetup() 
+        {
+            NetworkingAPI.RegisterMessageType<BurnNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<TakeDamageNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<AttachFlareNetworkRequest>();
         }
 
         private void Hook()
@@ -214,21 +221,15 @@ namespace ArsonistMod
 
                     if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType))
                     {
-                        FlareEffectControllerStrong flarecon = self.body.gameObject.AddComponent<FlareEffectControllerStrong>();
-                        flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                        flarecon.charbody = self.body;
+                        new AttachFlareNetworkRequest(self.body.netId, damageInfo.attacker.GetComponent<CharacterBody>().netId, AttachFlareNetworkRequest.FlareType.STRONG).Send(NetworkDestination.Clients);
                     }
                     else if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistWeakStickyDamageType))
                     {
-                        FlareEffectControllerWeak flarecon = self.body.gameObject.AddComponent<FlareEffectControllerWeak>();
-                        flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                        flarecon.charbody = self.body;
+                        new AttachFlareNetworkRequest(self.body.netId, damageInfo.attacker.GetComponent<CharacterBody>().netId, AttachFlareNetworkRequest.FlareType.WEAK).Send(NetworkDestination.Clients);
                     }
                     else if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistChildExplosionDamageType)) 
                     {
-                        FlareEffectControllerStrongChild flarecon = self.body.gameObject.AddComponent<FlareEffectControllerStrongChild>();
-                        flarecon.arsonistBody = damageInfo.attacker.GetComponent<CharacterBody>();
-                        flarecon.charbody = self.body;
+                        new AttachFlareNetworkRequest(self.body.netId, damageInfo.attacker.GetComponent<CharacterBody>().netId, AttachFlareNetworkRequest.FlareType.CHILD_STRONG).Send(NetworkDestination.Clients);
                     }
 
                     DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
