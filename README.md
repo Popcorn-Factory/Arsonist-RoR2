@@ -5,7 +5,6 @@
 The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory.
 
 - Your attacks will be weaker when you’re overheating. If you’re in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration.
-- Use Cleanse and Masochism together.
 - Zero-Point Blast’s distance correlates to movement speed.
 - Items such as Razorwire do not work with Cleanse when Masochism is active. Try finding other means of healing while Cleanse is active if you want to use it in a self-damage build.
 
@@ -15,6 +14,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 ## Latest Update
 
 - 2.0.0
+    - New Content:
+        - New Mastery Skin!
+        - New Primary! Read below for more info!
     - Stat Changes
         - Increased Base damage stat from 8 -> 12
     - Core Skill Changes
@@ -54,12 +56,14 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Builds up Anticipation stacks while not activated.
                 - Now activates a state which radiates heat around Arsonist, dealing ignite damage to enemies in a small radius around you.
                 - Increases heat and deals self damage over time during the duration of the move
+                - Minimum Heat is raised for the duration of the move.
                 - Activatable when required stack amount is reached.
                 - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
                 - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
+        - Added some mitigations on UI to prevent hooks from breaking
     
 ## Trailer
 <div>
