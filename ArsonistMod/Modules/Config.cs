@@ -24,6 +24,7 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<KeyboardShortcut> emoteSitKey;
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
+        public static ConfigEntry<KeyboardShortcut> emoteLobbyKey;
         public static ConfigEntry<KeyboardShortcut> dieKey;
         public static ConfigEntry<bool> enableOldLoadout;
 
@@ -178,6 +179,13 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("Determines the key to trigger Arsonist to Emote Strut.", null, Array.Empty<object>())
             );
 
+            emoteLobbyKey = ArsonistPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("02 - Emotes", "Emote Match"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha3),
+                new ConfigDescription("Determines the key to trigger Arsonist to strike a match", null, Array.Empty<object>())
+            );
+
             shouldEnableDieKey = ArsonistPlugin.instance.Config.Bind<bool>
             (
                 new ConfigDefinition("02 - Emotes", "Enable Die key"),
@@ -310,6 +318,8 @@ namespace ArsonistMod.Modules
                 emoteSitKey));
             ModSettingsManager.AddOption(new KeyBindOption(
                 emoteStrutKey));
+            ModSettingsManager.AddOption(new KeyBindOption(
+                emoteLobbyKey));
             ModSettingsManager.AddOption(new KeyBindOption(
                 dieKey));
 

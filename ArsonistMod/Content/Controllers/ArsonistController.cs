@@ -28,6 +28,8 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem flamethrower;
         public ParticleSystem weakFlamethrower;
         public ParticleSystem ringFire;
+        public ParticleSystem sparkParticle;
+        public ParticleSystem fingerFireParticle;
         public Transform flamethrowerTransform;
         public Transform weakFlamethrowerTransform;
 
@@ -56,6 +58,8 @@ namespace ArsonistMod.Content.Controllers
                 weakFlamethrower = childLocator.FindChild("FlamethrowerWeak").GetComponent<ParticleSystem>();
                 flamethrower = childLocator.FindChild("Flamethrower").GetComponent<ParticleSystem>();
                 ringFire = childLocator.FindChild("RingFlame").GetComponent<ParticleSystem>();
+                sparkParticle = childLocator.FindChild("SparkEffect").GetComponent<ParticleSystem>();
+                fingerFireParticle = childLocator.FindChild("FireThumbParticle").GetComponent<ParticleSystem>();
             }
             
             charBody = gameObject.GetComponent<CharacterBody>();
@@ -112,9 +116,15 @@ namespace ArsonistMod.Content.Controllers
                 else if (Modules.Config.emoteStrutKey.Value.IsPressed())
                 {
                     //Trigger the emote strut key
+                    bodyStateMachine.SetNextStateToMain();
                     weaponStateMachine.SetNextState(new EmoteStrut());
                 }
-                else if (Modules.Config.dieKey.Value.IsPressed() && Modules.Config.shouldEnableDieKey.Value) 
+                else if (Modules.Config.emoteLobbyKey.Value.IsPressed()) 
+                {
+                    //Trigger the emote lobby
+                    bodyStateMachine.SetNextState(new EmoteLobby());
+                }
+                else if (Modules.Config.dieKey.Value.IsPressed() && Modules.Config.shouldEnableDieKey.Value)
                 {
                     charBody.healthComponent.Suicide();
                 }

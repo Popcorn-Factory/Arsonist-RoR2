@@ -72,7 +72,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SkillStates\EmoteStates\" />
     <Compile Update="Content\Controllers\ArsonistController.cs">
       <SubType>Code</SubType>
     </Compile>

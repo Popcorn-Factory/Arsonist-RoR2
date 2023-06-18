@@ -60,8 +60,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Activatable when required stack amount is reached.
                 - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
                 - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
+        - Other:
+            - Added an animation for the run cycle, rather than a sped up version of the walk cycle.
+            - Added the Lobby animation as an emote. Default key to activate is 3. You can change the activation in the options.
     - Bug Fixes
-        - Added checks to prevent position count from setting count to a negative value
+        - Added checks to prevent position count from setting count to a negative value.
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
         - Added some mitigations on UI to prevent hooks from breaking
     

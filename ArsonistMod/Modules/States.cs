@@ -28,6 +28,7 @@ namespace ArsonistMod.Modules
             Modules.Content.AddEntityState(typeof(Masochism));
             Modules.Content.AddEntityState(typeof(EmoteSit));
             Modules.Content.AddEntityState(typeof(EmoteStrut));
+            Modules.Content.AddEntityState(typeof(EmoteLobby));
         }
     }
 }
