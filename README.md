@@ -35,17 +35,21 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Primary
             - NEW PRIMARY: Dragon's Breath
                 - Fire a constant beam of fire that increases ignite chance the closer you are to an enemy.
+                - Attack Speed increases rate of tick.
             - Overheat -> Fireball:
                 - Changed name to reflect the skill instead of the gauge type.
-                - Changed projectile effect on both normal and overheat projectiles.
+                - Changed projectile VFX effect on both normal and overheat projectiles.
+                - Changed the SFX to be more impactful.
         - Secondary
             - Flare: Changes
                 - Flare now chains another explosion to enemies hit within the first Flare's explosion.
                 - After the DoT effect, the afflicted enemies explode sending a number of salvos upwards.
                 - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
                 - Due to the destructive nature of this upgrade, the cooldown has been increased.
+                - Changed the SFX to contain a sizzling and a proper explosion.
             - Zero Point Blast
                 - Increased the volume of the SFX played on start.
+                - Slightly changed the VFX.
         - Utility
             - Cleanse:
                 - Does not self burn anymore.
