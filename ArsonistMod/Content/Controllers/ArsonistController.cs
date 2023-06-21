@@ -43,7 +43,16 @@ namespace ArsonistMod.Content.Controllers
 
         public bool hasZPBedRecently;
 
+        //Camera rig
+        public CameraRigController cameraRigController;
+
         // Use this for initialization
+
+        void Awake() 
+        {
+            Hooks();
+        }
+
         void Start()
         {
             ChildLocator childLocator = GetComponentInChildren<ChildLocator>();
@@ -93,8 +102,24 @@ namespace ArsonistMod.Content.Controllers
 
         }
 
+        public void Hooks() 
+        {
+            On.RoR2.CameraRigController.OnEnable += CameraRigController_OnEnable;
+        }
+
+        public void Unhook() 
+        {
+            On.RoR2.CameraRigController.OnEnable -= CameraRigController_OnEnable;
+        }
+
+        void CameraRigController_OnEnable(On.RoR2.CameraRigController.orig_OnEnable orig, CameraRigController self)
+        {
+            orig(self);
+            cameraRigController = self;
+        }
+
         // Update is called once per frame
-        void Update()
+        public void Update()
         {
             if (characterMotor.isGrounded && hasZPBedRecently) 
             {
@@ -179,6 +204,11 @@ namespace ArsonistMod.Content.Controllers
                 ringFireActive = false;
                 ringFire.Stop();
             }
+        }
+
+        public void OnDestroy() 
+        {
+            Unhook();
         }
     }
 }

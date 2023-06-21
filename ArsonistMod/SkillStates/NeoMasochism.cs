@@ -3,6 +3,7 @@ using ArsonistMod.Modules.Networking;
 using EntityStates;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,15 +15,31 @@ namespace ArsonistMod.SkillStates
     internal class NeoMasochism : BaseSkillState
     {
         public MasochismController maso;
+        public ArsonistController arsonistCon;
         public float stopwatch;
         public static float baseActivationTime = 0.33f;
         public static float baseDuration = 6f;
         public float duration;
+        public float originalFOV;
+        public float targetFOV;
+        public float originalLerpTime;
+        public static float tempLerpTime = 0.25f;
+        public float multiplier = 2f;
+
         public override void OnEnter()
         {
             base.OnEnter();
             maso = gameObject.GetComponent<MasochismController>();
+            arsonistCon = gameObject.GetComponent<ArsonistController>();
             duration = baseDuration;
+
+            if (arsonistCon.cameraRigController) 
+            {
+                originalFOV = arsonistCon.cameraRigController.baseFov;
+                targetFOV = originalFOV * multiplier;
+                originalLerpTime = arsonistCon.cameraRigController.lerpCameraTime;
+                arsonistCon.cameraRigController.lerpCameraTime = tempLerpTime;
+            }
 
             if (maso)
             {
@@ -55,14 +72,38 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+            if (arsonistCon.cameraRigController)
+            {
+                arsonistCon.cameraRigController.baseFov = originalFOV;
+                arsonistCon.cameraRigController.lerpCameraTime = originalLerpTime;
+            }
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            if (base.isAuthority)
+            {
+                if (arsonistCon && arsonistCon.cameraRigController)
+                {
+                    arsonistCon.cameraRigController.baseFov = Mathf.Lerp(originalFOV, targetFOV, stopwatch / (duration * baseActivationTime));
+                }
+            }
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             stopwatch += Time.fixedDeltaTime;
+            
             if (stopwatch >= duration * baseActivationTime && base.isAuthority) 
             {
+                if (arsonistCon && arsonistCon.cameraRigController) 
+                {
+                    arsonistCon.cameraRigController.baseFov = originalFOV;
+                    arsonistCon.cameraRigController.lerpCameraTime = originalLerpTime;
+                }
+
                 if (maso && !maso.masochismActive)
                 {
                     //Start Masochism Sound
