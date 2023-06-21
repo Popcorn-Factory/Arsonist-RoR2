@@ -17,8 +17,8 @@ namespace ArsonistMod.SkillStates
         public MasochismController maso;
         public ArsonistController arsonistCon;
         public float stopwatch;
-        public static float baseActivationTime = 0.33f;
-        public static float baseDuration = 6f;
+        public static float baseActivationTime = 0.47f;
+        public static float baseDuration = 5.02f;
         public float duration;
         public float originalFOV;
         public float targetFOV;
