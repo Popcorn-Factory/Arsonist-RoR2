@@ -114,7 +114,7 @@ Material:
     - _VertexFrequency: 0
     - _VertexTimeMultiplier: 0
     - _VertexWobble: 0
-    - _Vertexoffset: 0.115
+    - _Vertexoffset: 0.2
     - _WobbleDecay: 1
     - _ZWrite: 1
     m_Colors:
