@@ -105,6 +105,7 @@ namespace ArsonistMod.Modules
         internal static float masochismFinalBlastRadius = 12f;
         internal static float masochismDamageMultiplierPerStack = 1.5f;
         internal static float masochismMaxMultipliedRange = 3f;
+        internal static float masochismFOVHoldPosition = 1.5f;
 
         internal static float masochismMoveSpeedPenalty = 0.7f;
         internal static float masochismDamagePenalty = 0.7f;
