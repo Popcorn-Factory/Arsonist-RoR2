@@ -25,6 +25,9 @@ namespace ArsonistMod.Content.Controllers
         //Skill Loc
         public SkillLocator skillLoc;
 
+        //Arsonist Controller
+        public ArsonistController arsonistCon;
+
         //Masochism monitoring
         public float heatChanged;
         public int masoStacks;
@@ -48,6 +51,8 @@ namespace ArsonistMod.Content.Controllers
         public bool masoRecentlyActivated;
         public float masoRadiusStopwatch = 0f;
         public static float masoRadiusRampUpTime = 0.8f;
+        public float baseFOV;
+        public float targetFOV;
 
         public void Awake()
         {
@@ -102,6 +107,8 @@ namespace ArsonistMod.Content.Controllers
                 canRejectForce = false,
                 procCoefficient = 1f
             };
+
+            arsonistCon = gameObject.GetComponent<ArsonistController>();
         }
 
         public void Hook() 
@@ -240,6 +247,13 @@ namespace ArsonistMod.Content.Controllers
 
         public void RunMasochismLoop()
         {
+            if (arsonistCon)
+            {
+                if (arsonistCon.cameraRigController)
+                {
+                    arsonistCon.cameraRigController.baseFov = targetFOV;
+                }
+            }
             //Apply buff
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
             masochismRangeIndicator.SetActive(true);
@@ -303,6 +317,14 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
+            if (arsonistCon)
+            {
+                if (arsonistCon.cameraRigController)
+                {
+                    arsonistCon.cameraRigController.baseFov = baseFOV;
+                }
+            }
+
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
 
@@ -364,8 +386,19 @@ namespace ArsonistMod.Content.Controllers
             masochismActive = true;
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
+            
 
             masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
+
+            if (arsonistCon) 
+            {
+                if (arsonistCon.cameraRigController) 
+                {
+                    baseFOV = arsonistCon.cameraRigController.baseFov;
+                    targetFOV = baseFOV * Modules.StaticValues.masochismFOVHoldPosition;
+                    arsonistCon.cameraRigController.baseFov = targetFOV;
+                }
+            }
         }
 
         public void MasochismBuffApplication()

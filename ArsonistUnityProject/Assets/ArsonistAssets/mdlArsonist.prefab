@@ -46246,6 +46246,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: ringFlame
       objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.placementMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.m_UseMeshColors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0.84213895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.m_MeshSpawn.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.m_MeshSpawn.spread
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183086642040, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.m_SkinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 3861710652449054600}
     - target: {fileID: 4809960183086642043, guid: 1528746204a3b7142bf2fe586e3f9f78,
         type: 3}
       propertyPath: m_RootOrder
@@ -46301,10 +46341,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4809960183562325752, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183562325754, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183562325754, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809960183562325754, guid: 1528746204a3b7142bf2fe586e3f9f78,
+        type: 3}
+      propertyPath: ShapeModule.m_SkinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 3861710652449054600}
     - target: {fileID: 5074483937861821513, guid: 1528746204a3b7142bf2fe586e3f9f78,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8362402436566631814, guid: 1528746204a3b7142bf2fe586e3f9f78,
         type: 3}
