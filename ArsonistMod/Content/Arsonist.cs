@@ -137,15 +137,15 @@ namespace ArsonistMod.Modules.Survivors
             Modules.Skills.CreateSkillFamilies(bodyPrefab, true);
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
-            if (!Modules.Config.enableOldLoadout.Value)
-            {
-                SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
-                skillloc.passiveSkill.enabled = true;
-                skillloc.passiveSkill.skillNameToken = prefix + "PASSIVE_NAME";
-                skillloc.passiveSkill.skillDescriptionToken = prefix + "PASSIVE_DESCRIPTION";
-                skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
-                skillloc.passiveSkill.keywordToken = prefix + "KEYWORD_PASSIVE";
-            }
+            //if (!Modules.Config.enableOldLoadout.Value)
+            //{
+            //    SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            //    skillloc.passiveSkill.enabled = true;
+            //    skillloc.passiveSkill.skillNameToken = prefix + "PASSIVE_NAME";
+            //    skillloc.passiveSkill.skillDescriptionToken = prefix + "PASSIVE_DESCRIPTION";
+            //    skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
+            //    skillloc.passiveSkill.keywordToken = prefix + "KEYWORD_PASSIVE";
+            //}
 
             #region Passive
             SkillLocator skillLoc = bodyPrefab.GetComponent<SkillLocator>();
@@ -207,60 +207,60 @@ namespace ArsonistMod.Modules.Survivors
                 passive.blueGaugePassive
             });
 
-            if (Modules.Config.enableOldLoadout.Value) 
-            {
-                passive.movespeedOnFirePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
-                {
-                    skillName = prefix + "SECRET_PASSIVE_MOVESPEED_ON_FIRE_NAME",
-                    skillNameToken = prefix + "SECRET_PASSIVE_MOVESPEED_ON_FIRE_NAME",
-                    skillDescriptionToken = prefix + "SECRET_PASSIVE_MOVESPEED_ON_FIRE_DESCRIPTION",
-                    skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon"),
-                    activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
-                    activationStateMachineName = "Slide",
-                    baseMaxStock = 1,
-                    baseRechargeInterval = 0f,
-                    beginSkillCooldownOnSkillEnd = false,
-                    canceledFromSprinting = false,
-                    forceSprintDuringState = false,
-                    fullRestockOnAssign = true,
-                    interruptPriority = EntityStates.InterruptPriority.Skill,
-                    resetCooldownTimerOnUse = false,
-                    isCombatSkill = true,
-                    mustKeyPress = true,
-                    cancelSprintingOnActivation = false,
-                    rechargeStock = 1,
-                    requiredStock = 1,
-                    stockToConsume = 1
-                });
-                passive.halfDamagePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
-                {
-                    skillName = prefix + "PASSIVE_HALF_DAMAGE_NAME",
-                    skillNameToken = prefix + "PASSIVE_HALF_DAMAGE_NAME",
-                    skillDescriptionToken = prefix + "PASSIVE_HALF_DAMAGE_DESCRIPTION",
-                    skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon"),
-                    activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
-                    activationStateMachineName = "Slide",
-                    baseMaxStock = 1,
-                    baseRechargeInterval = 0f,
-                    beginSkillCooldownOnSkillEnd = false,
-                    canceledFromSprinting = false,
-                    forceSprintDuringState = false,
-                    fullRestockOnAssign = true,
-                    interruptPriority = EntityStates.InterruptPriority.Skill,
-                    resetCooldownTimerOnUse = false,
-                    isCombatSkill = true,
-                    mustKeyPress = true,
-                    cancelSprintingOnActivation = false,
-                    rechargeStock = 1,
-                    requiredStock = 1,
-                    stockToConsume = 1
-                });
+            //if (Modules.Config.enableOldLoadout.Value) 
+            //{
+            //    passive.movespeedOnFirePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            //    {
+            //        skillName = prefix + "SECRET_PASSIVE_MOVESPEED_ON_FIRE_NAME",
+            //        skillNameToken = prefix + "SECRET_PASSIVE_MOVESPEED_ON_FIRE_NAME",
+            //        skillDescriptionToken = prefix + "SECRET_PASSIVE_MOVESPEED_ON_FIRE_DESCRIPTION",
+            //        skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon"),
+            //        activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+            //        activationStateMachineName = "Slide",
+            //        baseMaxStock = 1,
+            //        baseRechargeInterval = 0f,
+            //        beginSkillCooldownOnSkillEnd = false,
+            //        canceledFromSprinting = false,
+            //        forceSprintDuringState = false,
+            //        fullRestockOnAssign = true,
+            //        interruptPriority = EntityStates.InterruptPriority.Skill,
+            //        resetCooldownTimerOnUse = false,
+            //        isCombatSkill = true,
+            //        mustKeyPress = true,
+            //        cancelSprintingOnActivation = false,
+            //        rechargeStock = 1,
+            //        requiredStock = 1,
+            //        stockToConsume = 1
+            //    });
+            //    passive.halfDamagePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            //    {
+            //        skillName = prefix + "PASSIVE_HALF_DAMAGE_NAME",
+            //        skillNameToken = prefix + "PASSIVE_HALF_DAMAGE_NAME",
+            //        skillDescriptionToken = prefix + "PASSIVE_HALF_DAMAGE_DESCRIPTION",
+            //        skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon"),
+            //        activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
+            //        activationStateMachineName = "Slide",
+            //        baseMaxStock = 1,
+            //        baseRechargeInterval = 0f,
+            //        beginSkillCooldownOnSkillEnd = false,
+            //        canceledFromSprinting = false,
+            //        forceSprintDuringState = false,
+            //        fullRestockOnAssign = true,
+            //        interruptPriority = EntityStates.InterruptPriority.Skill,
+            //        resetCooldownTimerOnUse = false,
+            //        isCombatSkill = true,
+            //        mustKeyPress = true,
+            //        cancelSprintingOnActivation = false,
+            //        rechargeStock = 1,
+            //        requiredStock = 1,
+            //        stockToConsume = 1
+            //    });
 
-                Modules.Skills.AddPassiveSkills(passive.secondaryPassiveSkillSlot.skillFamily, new SkillDef[] {
-                    passive.movespeedOnFirePassive,
-                    passive.halfDamagePassive
-                });
-            }
+            //    Modules.Skills.AddPassiveSkills(passive.secondaryPassiveSkillSlot.skillFamily, new SkillDef[] {
+            //        passive.movespeedOnFirePassive,
+            //        passive.halfDamagePassive
+            //    });
+            //}
 
 
             #endregion

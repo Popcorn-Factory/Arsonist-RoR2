@@ -28,6 +28,7 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem flamethrower;
         public ParticleSystem weakFlamethrower;
         public ParticleSystem ringFire;
+        public ParticleSystem trailFire;
         public ParticleSystem sparkParticle;
         public ParticleSystem fingerFireParticle;
         public Transform flamethrowerTransform;
@@ -67,6 +68,7 @@ namespace ArsonistMod.Content.Controllers
                 weakFlamethrower = childLocator.FindChild("FlamethrowerWeak").GetComponent<ParticleSystem>();
                 flamethrower = childLocator.FindChild("Flamethrower").GetComponent<ParticleSystem>();
                 ringFire = childLocator.FindChild("RingFlame").GetComponent<ParticleSystem>();
+                trailFire = childLocator.FindChild("TrailFlame").GetComponent<ParticleSystem>();
                 sparkParticle = childLocator.FindChild("SparkEffect").GetComponent<ParticleSystem>();
                 fingerFireParticle = childLocator.FindChild("FireThumbParticle").GetComponent<ParticleSystem>();
             }
@@ -196,12 +198,14 @@ namespace ArsonistMod.Content.Controllers
                 if (!charBody.HasBuff(Modules.Buffs.cleanseSpeedBoost)) 
                 { 
                     ringFireActive = false;
+                    trailFire.Stop();
                     ringFire.Stop();
                 }
             }
             else if (!Modules.Config.cleanseRingFireEffectEnabled.Value) 
             {
                 ringFireActive = false;
+                trailFire.Stop();
                 ringFire.Stop();
             }
         }

@@ -26,7 +26,7 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<KeyboardShortcut> emoteStrutKey;
         public static ConfigEntry<KeyboardShortcut> emoteLobbyKey;
         public static ConfigEntry<KeyboardShortcut> dieKey;
-        public static ConfigEntry<bool> enableOldLoadout;
+        //public static ConfigEntry<bool> enableOldLoadout;
 
         public static ConfigEntry<float> passiveHealthPercentageTriggerIgnite;
 
@@ -245,12 +245,12 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("Determines whether the ring of fire should play when cleanses is activated.", null, Array.Empty<object>())
             );
 
-            enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
-            (
-                new ConfigDefinition("08 - Secret", "Enable Old Loadout"),
-                false,
-                new ConfigDescription("Enables some old features of the mod from 1.0. Requires a restart to take effect.")
-            );
+            //enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
+            //(
+            //    new ConfigDefinition("08 - Secret", "Enable Old Loadout"),
+            //    false,
+            //    new ConfigDescription("Enables some old features of the mod from 1.0. Requires a restart to take effect.")
+            //);
         }
 
         public static void SetupRiskOfOptions() 
@@ -347,7 +347,7 @@ namespace ArsonistMod.Modules
                 }
             ));
 
-            ModSettingsManager.AddOption(new CheckBoxOption(enableOldLoadout));
+            //ModSettingsManager.AddOption(new CheckBoxOption(enableOldLoadout));
 
             ModSettingsManager.AddOption(new StepSliderOption(
                 masochismActiveMultipliedActive,

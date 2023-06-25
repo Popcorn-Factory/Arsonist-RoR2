@@ -33,10 +33,10 @@ namespace ArsonistMod.Modules
                 {
                     passive.passiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Gauge");
                 }
-                if (Modules.Config.enableOldLoadout.Value) 
-                {
-                    passive.secondaryPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
-                }
+                //if (Modules.Config.enableOldLoadout.Value) 
+                //{
+                //    passive.secondaryPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
+                //}
             }
 
             skillLocator.primary = CreateGenericSkillWithSkillFamily(targetPrefab, "Primary");

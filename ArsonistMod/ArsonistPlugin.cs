@@ -242,15 +242,15 @@ namespace ArsonistMod
                         }
                     }
 
-                    if (!Modules.Config.enableOldLoadout.Value)
-                    {
-                        //Default to using 2.0 passive.
-                    }
-                    else 
-                    {
-                        // Use either passive depending on what's selected.
+                    //if (!Modules.Config.enableOldLoadout.Value)
+                    //{
+                    //    //Default to using 2.0 passive.
+                    //}
+                    //else 
+                    //{
+                    //    // Use either passive depending on what's selected.
 
-                    }
+                    //}
 
                     #region 2.0 Passive
                     //Receive damage, check if damage is not fire.
