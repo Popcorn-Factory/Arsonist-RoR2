@@ -7,8 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
-using static ArsonistMod.Content.Controllers.EnergySystem;
-using UnityEngine.UIElements;
 using ArsonistMod.Modules.Networking;
 using RoR2.CharacterAI;
 
@@ -193,7 +191,7 @@ namespace ArsonistMod.Content.Controllers
             //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
             if (self.hud.mainUIPanel.activeInHierarchy)
             {               
-                if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority)
+                if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority && !baseAIPresent)
                 {
                     CustomUIObject.SetActive(true);
                     energyNumber.gameObject.SetActive(true);
@@ -303,6 +301,14 @@ namespace ArsonistMod.Content.Controllers
             BaseAI baseAI = master.GetComponent<BaseAI>();
 
             baseAIPresent = baseAI;
+
+            //For some reason on goboo's first spawn the master is just not there. However subsequent spawns work.
+            // Disable the UI in this event.
+            //Besides, there should never be a UI element related to a non-existant master on screen if the attached master/charbody does not exist.
+            if (!master) 
+            {
+                baseAIPresent = true; // Disable UI Just in case.
+            }
 
             SetupCustomUI();
 
