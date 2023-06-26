@@ -438,6 +438,7 @@ namespace ArsonistMod.Content.Controllers
         public void OnDestroy() 
         {
             Unhook();
+            Destroy(masochismRangeIndicator);
         }
     }
 }
