@@ -540,6 +540,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Idle_Taunt" ID="{1B2366BF-615D-4D9A-A03C-DEAD25DAE589}">
+					<ChildrenList>
+						<Action Name="" ID="{0874948E-7E59-44FA-AC14-40A04AEE78C9}" ShortID="317979957">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="10_0_Idle_Arsonist" ID="{2EDD3C54-CC20-4F02-9A8A-2BA707A73A36}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Idle_Taunt_Firebug" ID="{173D9D9F-C2CE-4329-BBB8-938F0C1BA845}">
+					<ChildrenList>
+						<Action Name="" ID="{AD7830BE-E32A-4745-B0F3-77320C612167}" ShortID="770779825">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="10_1_Idle_Arsonist_Firebug" ID="{C72E67DA-74D3-4400-9662-B0EA53FAFF94}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
