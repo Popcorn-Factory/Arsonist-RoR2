@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="2934290564">
+		<SoundBank Id="1110381487" Language="SFX" Hash="745449793">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -45,6 +45,38 @@
 						<File Id="509496315" Language="SFX">
 							<ShortName>Flamethrower_primary_neoarsonist_start.wav</ShortName>
 							<Path>SFX\Flamethrower_primary_neoarsonist_start_69C5C269.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1362851720" Name="Arsonist_Idle_Taunt" ObjectPath="\Events\Default Work Unit\Arsonist_Idle_Taunt">
+					<IncludedMemoryFiles>
+						<File Id="646534066" Language="SFX">
+							<ShortName>Arsonist_Idle_1.wav</ShortName>
+							<Path>SFX\Arsonist_Idle_1_3F75BDB9.wem</Path>
+						</File>
+						<File Id="829433386" Language="SFX">
+							<ShortName>Arsonist_Idle_3.wav</ShortName>
+							<Path>SFX\Arsonist_Idle_3_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1027889982" Language="SFX">
+							<ShortName>Arsonist_Idle_2.wav</ShortName>
+							<Path>SFX\Arsonist_Idle_2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="137978395" Name="Arsonist_Idle_Taunt_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_Idle_Taunt_Firebug">
+					<IncludedMemoryFiles>
+						<File Id="366655931" Language="SFX">
+							<ShortName>Idle_Moth_2.wav</ShortName>
+							<Path>SFX\Idle_Moth_2_3F75BDB9.wem</Path>
+						</File>
+						<File Id="702088368" Language="SFX">
+							<ShortName>Idle_Moth_3.wav</ShortName>
+							<Path>SFX\Idle_Moth_3_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1015006091" Language="SFX">
+							<ShortName>Idle_Moth_1.wav</ShortName>
+							<Path>SFX\Idle_Moth_1_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

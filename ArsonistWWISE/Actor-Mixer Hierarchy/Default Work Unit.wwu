@@ -2398,6 +2398,50 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="Firebug_Special_Startup__Laughs" ID="{D4EA6B64-1DD2-416E-A917-B15038C7E711}" ShortID="750383401">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Firebug_Special_Startup__Laughs" ID="{CEE636AA-E05E-4903-8B93-DF7FAC5181FB}">
+											<Language>SFX</Language>
+											<AudioFile>Firebug_Special_Startup__Laughs.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="141649103"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Firebug_Special_Startup__Laughs" ID="{CEE636AA-E05E-4903-8B93-DF7FAC5181FB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Firebug_ZPB_startup_and_contact" ID="{6F8B6A47-7271-4D24-A322-40673BB7D8C1}" ShortID="925357592">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{C736E600-D682-4F44-BFFE-ACDA14326AAD}">
+											<Language>SFX</Language>
+											<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="306623627"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{C736E600-D682-4F44-BFFE-ACDA14326AAD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
