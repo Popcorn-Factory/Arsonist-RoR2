@@ -10,6 +10,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	934132236	Arsonist_Flamethrower_Start			\Default Work Unit\Arsonist_Flamethrower_Start	
 	955478894	Arsonist_Neomasochism_Start_No_Laugh			\Default Work Unit\Arsonist_Neomasochism_Start_No_Laugh	
 	1135082308	Arsonist_Stop_ZPB_Fluff			\Default Work Unit\Arsonist_Stop_ZPB_Fluff	
+	1155150252	Arsonist_Idle_Stop			\Default Work Unit\Arsonist_Idle_Stop	
 	1305067912	Arsonist_Neomasochism_Start_Laugh			\Default Work Unit\Arsonist_Neomasochism_Start_Laugh	
 	1362851720	Arsonist_Idle_Taunt			\Default Work Unit\Arsonist_Idle_Taunt	
 	1419365914	Arsonist_Neomasochism_Duration_No_Pulse			\Default Work Unit\Arsonist_Neomasochism_Duration_No_Pulse	

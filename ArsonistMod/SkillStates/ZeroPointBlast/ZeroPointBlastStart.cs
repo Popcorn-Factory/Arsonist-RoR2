@@ -87,8 +87,19 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                 }
                 else
                 {
-                    //Determine if they have a buff and play a non-laughing version if so.
-                    uint soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? 3585665340 : 289708206; //Nonlaugh : laugh
+                    uint soundStr;
+                    
+                    //Firebug SFX check
+                    if (base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex)
+                    {
+                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? 3585665340 : 3167811629; //Nonlaugh : laugh
+                    }
+                    else 
+                    {
+                        //Determine if they have a buff and play a non-laughing version if so.
+                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? 3585665340 : 289708206; //Nonlaugh : laugh
+                    }
+
                     new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(R2API.Networking.NetworkDestination.Clients);
                 }
                 

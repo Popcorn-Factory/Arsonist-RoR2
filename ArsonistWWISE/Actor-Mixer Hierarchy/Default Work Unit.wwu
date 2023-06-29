@@ -2277,6 +2277,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Arsonist_Idle_3" ID="{F38619D7-4ED3-4C55-A46F-720DDD91D9BE}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Arsonist_Idle_3.wav</AudioFile>
 													<MediaIDList>

@@ -17,6 +17,8 @@ namespace ArsonistMod.Modules.Survivors
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => ARSONIST_PREFIX;
 
+        public static int FirebugSkinIndex = 1;
+
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
             bodyName = "ArsonistBody",

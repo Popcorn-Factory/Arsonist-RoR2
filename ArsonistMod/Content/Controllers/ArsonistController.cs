@@ -18,7 +18,9 @@ namespace ArsonistMod.Content.Controllers
         EntityStateMachine bodyStateMachine;
 
         public float idleStopwatch;
+        public float idleIntervalStopwatch;
         public bool isIdle;
+        public bool justEnteredIdle;
         public bool flamethrowerSelected;
 
         public ParticleSystem steamParticle;
@@ -146,7 +148,7 @@ namespace ArsonistMod.Content.Controllers
                     bodyStateMachine.SetNextStateToMain();
                     weaponStateMachine.SetNextState(new EmoteStrut());
                 }
-                else if (Modules.Config.emoteLobbyKey.Value.IsPressed()) 
+                else if (Modules.Config.emoteLobbyKey.Value.IsPressed())
                 {
                     //Trigger the emote lobby
                     bodyStateMachine.SetNextState(new EmoteLobby());
@@ -167,14 +169,33 @@ namespace ArsonistMod.Content.Controllers
                     if (idleStopwatch >= 7f && !isIdle)
                     {
                         isIdle = true;
+                        justEnteredIdle = true;
                         anim.SetBool("isIdle", true);
                     }
                 }
                 else
                 {
                     idleStopwatch = 0f;
+                    idleIntervalStopwatch = 0f;
+                    justEnteredIdle = false;
                     isIdle = false;
                     anim.SetBool("isIdle", false);
+                }
+
+                //Logic to handle Playing idle sounds, wait 30s between each successive play.
+                if (isIdle) 
+                {
+                    idleIntervalStopwatch += Time.deltaTime;
+                    if (idleIntervalStopwatch >= 25f || (justEnteredIdle && idleIntervalStopwatch >= 8f) ) 
+                    {
+                        justEnteredIdle = false;
+                        idleIntervalStopwatch = 0f;
+                        if (charBody)
+                        {
+                            uint soundStr = (charBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex) ? (uint)137978395 : (uint)1362851720;
+                            new PlaySoundNetworkRequest(charBody.netId, soundStr).Send(R2API.Networking.NetworkDestination.Clients);
+                        }
+                    }
                 }
             }
 
