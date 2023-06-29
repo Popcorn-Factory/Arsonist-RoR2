@@ -89,7 +89,7 @@
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Switches\Default Work Unit.wwu" DateLow="1675341638" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\States\Default Work Unit.wwu" DateLow="1675341638" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1675341638" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\SoundBanks\Default Work Unit.wwu" DateLow="1686528988" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\SoundBanks\Default Work Unit.wwu" DateLow="1688047202" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Queries\Factory Queries.wwu" DateLow="1675341638" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Queries\Default Work Unit.wwu" DateLow="1675341638" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Presets\Factory Spatial Audio.wwu" DateLow="1675341638" DateHigh="0"/>
@@ -102,7 +102,7 @@
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1675341637" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Game Parameters\Factory Motion.wwu" DateLow="1675341637" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Game Parameters\Default Work Unit.wwu" DateLow="1675341637" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Events\Default Work Unit.wwu" DateLow="1686528988" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Events\Default Work Unit.wwu" DateLow="1688047202" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Effects\Factory Reflect.wwu" DateLow="1675341637" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Effects\Factory McDSP Effects.wwu" DateLow="1675341637" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Effects\Factory Mastering Suite.wwu" DateLow="1675341637" DateHigh="0"/>
@@ -123,6 +123,6 @@
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Audio Devices\Default Work Unit.wwu" DateLow="1675341637" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Attenuations\Default Work Unit.wwu" DateLow="1684248411" DateHigh="0"/>
 	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\ArsonistWWISE.wproj" DateLow="1675341637" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\ArsonistWWISE.ethan.wsettings" DateLow="1686528988" DateHigh="0"/>
-	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1686528988" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\ArsonistWWISE.ethan.wsettings" DateLow="1688047202" DateHigh="0"/>
+	<ValidationCacheItem File="C:\coding\Arsonist-RoR2\ArsonistWWISE\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1688047202" DateHigh="0"/>
 </ValidationCache>

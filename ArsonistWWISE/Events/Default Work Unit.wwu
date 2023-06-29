@@ -538,6 +538,36 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{B158501C-EBAF-4179-837F-4011660C61B6}" ShortID="411417735">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Firebug_ZPB_startup_and_contact" ID="{6F8B6A47-7271-4D24-A322-40673BB7D8C1}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E54BBCE7-2A71-493A-9E8F-CD38B2424C6C}" ShortID="705273941">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Firebug_ZPB_startup_and_contact_01" ID="{A680D9D5-2B9A-4AE1-AE0F-5C08D69BDB2F}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{2B7D83CC-3F3A-4AB3-86BA-7AB55AF15D4F}" ShortID="1018577246">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Firebug_ZPB_startup_and_contact_02" ID="{BCC25000-066C-4693-8257-8E064C20DA81}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Arsonist_Idle_Taunt" ID="{1B2366BF-615D-4D9A-A03C-DEAD25DAE589}">
@@ -557,6 +587,79 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="10_1_Idle_Arsonist_Firebug" ID="{C72E67DA-74D3-4400-9662-B0EA53FAFF94}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_ZPB_Start_Laugh_Firebug" ID="{CA0FB5F9-C710-4D78-90A6-4222AC4872E9}">
+					<ChildrenList>
+						<Action Name="" ID="{9E7B4CDB-B8A0-47BF-B5AB-A42D40EF0FE9}" ShortID="358391165">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{6789970A-C51F-471B-B7F6-4B648B1E5839}" ShortID="391047446">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_1_ZPB_Contact" ID="{036EC803-F7C0-441A-A8A1-DCF1D8568391}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{FF3A7F56-0090-4634-8713-15FBDFED17DF}" ShortID="380982588">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_ZPB_Contact_Laugh_Firebug" ID="{D27E7229-51E1-4DC1-B989-BB1D6F35A13E}">
+					<ChildrenList>
+						<Action Name="" ID="{CB31DBD8-3AE2-4C6E-85FF-703DCD149DFD}" ShortID="575728103">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_0_ZPB_Start_Whiff" ID="{80355690-4BC3-4BFB-A22A-36CB42F64752}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1DDC7718-6770-417D-8585-69AFF8D70D3E}" ShortID="426872668">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D9C1B41E-DF16-41AA-AAC3-49EE520C4534}" ShortID="145011178">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Neomasochism_Start_Laugh_Firebug" ID="{7AD7B87C-5401-4EB5-946B-2D636E0200E8}">
+					<ChildrenList>
+						<Action Name="" ID="{7A8E53E5-9B32-4686-AF25-9A09DD69B03D}" ShortID="94093897">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_9_Masochism_Laugh_Start_Firebug" ID="{F7B739B5-2A53-47A2-B084-4E09CFE66DE0}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

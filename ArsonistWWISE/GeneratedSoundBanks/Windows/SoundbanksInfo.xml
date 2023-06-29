@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="745449793">
+		<SoundBank Id="1110381487" Language="SFX" Hash="1977504295">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -161,6 +161,22 @@
 						<File Id="893652532" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
 							<Path>SFX\1.5._Start_with_and_without_laughter_89F73482.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1845947419" Name="Arsonist_Neomasochism_Start_Laugh_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Start_Laugh_Firebug">
+					<IncludedMemoryFiles>
+						<File Id="74321214" Language="SFX">
+							<ShortName>Firebug_Special_Startup__Laughs.wav</ShortName>
+							<Path>SFX\Firebug_Special_Startup__Laughs_AAC01927.wem</Path>
+						</File>
+						<File Id="141649103" Language="SFX">
+							<ShortName>Firebug_Special_Startup__Laughs.wav</ShortName>
+							<Path>SFX\Firebug_Special_Startup__Laughs_A89FD99A.wem</Path>
+						</File>
+						<File Id="516263577" Language="SFX">
+							<ShortName>Firebug_Special_Startup__Laughs.wav</ShortName>
+							<Path>SFX\Firebug_Special_Startup__Laughs_2A53C7B4.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -359,6 +375,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="896468461" Name="Arsonist_ZPB_Contact_Laugh_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact_Laugh_Firebug">
+					<IncludedMemoryFiles>
+						<File Id="119849778" Language="SFX">
+							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_startup_and_contact_ADFF7608.wem</Path>
+						</File>
+						<File Id="306623627" Language="SFX">
+							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_startup_and_contact_CA302A03.wem</Path>
+						</File>
+						<File Id="554505743" Language="SFX">
+							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_startup_and_contact_9E7BC71A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3585665340" Name="Arsonist_ZPB_Start" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Start">
 					<IncludedMemoryFiles>
 						<File Id="316779847" Language="SFX">
@@ -396,6 +428,22 @@
 						<File Id="1062392174" Language="SFX">
 							<ShortName>2. ZPB with efforts + laughs (start + travel _ contact).wav</ShortName>
 							<Path>SFX\2. ZPB with efforts + laughs (start + travel _ contact)_52985496.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3167811629" Name="Arsonist_ZPB_Start_Laugh_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Start_Laugh_Firebug">
+					<IncludedMemoryFiles>
+						<File Id="82754940" Language="SFX">
+							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_startup_and_contact_63D64D4F.wem</Path>
+						</File>
+						<File Id="403129759" Language="SFX">
+							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_startup_and_contact_9A763212.wem</Path>
+						</File>
+						<File Id="576555835" Language="SFX">
+							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_startup_and_contact_3F8D946B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
