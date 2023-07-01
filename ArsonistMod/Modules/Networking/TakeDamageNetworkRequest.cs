@@ -14,6 +14,7 @@ namespace ArsonistMod.Modules.Networking
         NetworkInstanceId netID;
         NetworkInstanceId attackernetID;
         float health;
+        bool burn;
 
         //Don't network these.
         GameObject bodyObj;
@@ -24,11 +25,12 @@ namespace ArsonistMod.Modules.Networking
 
         }
 
-        public TakeDamageNetworkRequest(NetworkInstanceId netID, NetworkInstanceId attackernetID, float health)
+        public TakeDamageNetworkRequest(NetworkInstanceId netID, NetworkInstanceId attackernetID, float health, bool burn)
         {
             this.netID = netID;
             this.attackernetID= attackernetID;
             this.health = health;
+            this.burn = burn;
         }
 
         public void Deserialize(NetworkReader reader)
@@ -36,6 +38,7 @@ namespace ArsonistMod.Modules.Networking
             netID = reader.ReadNetworkId();
             attackernetID = reader.ReadNetworkId();
             health = reader.ReadSingle();
+            burn = reader.ReadBoolean();
         }
 
         public void Serialize(NetworkWriter writer)
@@ -43,6 +46,7 @@ namespace ArsonistMod.Modules.Networking
             writer.Write(netID);
             writer.Write(attackernetID);
             writer.Write(health);
+            writer.Write(burn);
         }
 
         public void OnReceived()
@@ -79,11 +83,13 @@ namespace ArsonistMod.Modules.Networking
                 damageInfo.damageType = DamageType.Generic;
                 damageInfo.procCoefficient = 0.2f;
                 damageInfo.procChainMask = default(ProcChainMask);
+
+                if (burn) 
+                {
+                    damageInfo.damageType = DamageType.IgniteOnHit;
+                }
                 charBody.healthComponent.TakeDamage(damageInfo);
             }
-
-            
-
         }
     }
 }

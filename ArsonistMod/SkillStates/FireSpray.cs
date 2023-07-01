@@ -83,7 +83,7 @@ namespace ArsonistMod.SkillStates
                 new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
             }
             base.characterBody.AddSpreadBloom(spreadBloomValue);
-        }
+        }    
         public void FireBall()
         {
             Ray aimRay = GetAimRay();

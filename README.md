@@ -47,6 +47,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
                 - Due to the destructive nature of this upgrade, the cooldown has been increased.
                 - Changed the SFX to contain a sizzling and a proper explosion.
+                - Should inflict ignite damage during the ticks and the final explosion. This is affected by ignition tank.
             - Zero Point Blast
                 - Increased the volume of the SFX played on start.
                 - Slightly changed the VFX.
@@ -54,6 +55,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
             - Cleanse:
                 - Does not self burn anymore.
                 - Added speed boost on activation
+                - Should now apply Ignite correctly. Should be affected by Ignition tank.
                 - Added fire effect that emits off Arsonist for the duration of the move.
         - Special
             - Masochism
