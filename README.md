@@ -47,7 +47,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
                 - Due to the destructive nature of this upgrade, the cooldown has been increased.
                 - Changed the SFX to contain a sizzling and a proper explosion.
-                - Should inflict ignite damage during the ticks and the final explosion. This is affected by ignition tank.
+                - Should inflict ignite on the final explosion. This is affected by ignition tank.
             - Zero Point Blast
                 - Increased the volume of the SFX played on start.
                 - Slightly changed the VFX.
@@ -68,7 +68,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
         - Other:
             - Added an animation for the run cycle, rather than a sped up version of the walk cycle.
-            - Added the Lobby animation as an emote. Default key to activate is 3. You can change the activation in the options.
+            - Added the Lobby animation as an emote. Default key to activate is num 3. You can change the activation in the options.
     - Bug Fixes
         - Added checks to prevent position count from setting count to a negative value.
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
