@@ -51,8 +51,12 @@ namespace ArsonistMod.Content.Controllers
         public bool masoRecentlyActivated;
         public float masoRadiusStopwatch = 0f;
         public static float masoRadiusRampUpTime = 0.8f;
-        public float baseFOV;
+
+        private CameraTargetParams.CameraParamsOverrideHandle handle;
+        public CameraTargetParams cameraTargetParams;
+
         public float targetFOV;
+        public float baseFOV;
 
         public void Awake()
         {
@@ -63,6 +67,7 @@ namespace ArsonistMod.Content.Controllers
         {
             energySystem = GetComponent<EnergySystem>();
             characterBody = GetComponent<CharacterBody>();
+            cameraTargetParams = GetComponent<CameraTargetParams>();
             healthComponent = characterBody.healthComponent;
             skillLoc = characterBody.skillLocator;
 
@@ -247,13 +252,8 @@ namespace ArsonistMod.Content.Controllers
 
         public void RunMasochismLoop()
         {
-            if (arsonistCon)
-            {
-                if (arsonistCon.cameraRigController)
-                {
-                    arsonistCon.cameraRigController.baseFov = targetFOV;
-                }
-            }
+            
+
             //Apply buff
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
             masochismRangeIndicator.SetActive(true);
@@ -317,13 +317,7 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
-            if (arsonistCon)
-            {
-                if (arsonistCon.cameraRigController)
-                {
-                    arsonistCon.cameraRigController.baseFov = baseFOV;
-                }
-            }
+            cameraTargetParams.RemoveParamsOverride(handle);
 
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
@@ -390,15 +384,19 @@ namespace ArsonistMod.Content.Controllers
 
             masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
 
-            if (arsonistCon) 
+            //Set FOV to a multiplier amount for the duration of Maso
+            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+            cameraParamsData.fov = arsonistCon.cameraRigController.baseFov * Modules.StaticValues.masochismFOVHoldPosition;
+
+            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
             {
-                if (arsonistCon.cameraRigController) 
-                {
-                    baseFOV = arsonistCon.cameraRigController.baseFov;
-                    targetFOV = baseFOV * Modules.StaticValues.masochismFOVHoldPosition;
-                    arsonistCon.cameraRigController.baseFov = targetFOV;
-                }
-            }
+                cameraParamsData = cameraParamsData,
+                priority = 0,
+
+            };
+
+
+            handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
         }
 
         public void MasochismBuffApplication()

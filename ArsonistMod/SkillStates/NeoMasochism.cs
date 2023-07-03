@@ -26,6 +26,8 @@ namespace ArsonistMod.SkillStates
         public static float tempLerpTime = 0.25f;
         public float multiplier = 2f;
 
+        private CameraTargetParams.CameraParamsOverrideHandle handle;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -37,9 +39,19 @@ namespace ArsonistMod.SkillStates
             {
                 originalFOV = arsonistCon.cameraRigController.baseFov;
                 targetFOV = originalFOV * multiplier;
-                originalLerpTime = arsonistCon.cameraRigController.lerpCameraTime;
-                arsonistCon.cameraRigController.lerpCameraTime = tempLerpTime;
             }
+            CameraTargetParams ctp = base.cameraTargetParams;
+            CharacterCameraParamsData characterCameraParamsData = ctp.currentCameraParamsData;
+            characterCameraParamsData.fov = targetFOV;
+
+            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+            {
+                cameraParamsData = characterCameraParamsData,
+                priority = 0,
+
+            };
+
+            handle = ctp.AddParamsOverride(request, baseDuration * baseActivationTime);
 
             if (maso)
             {
@@ -82,25 +94,10 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            if (arsonistCon.cameraRigController)
-            {
-                arsonistCon.cameraRigController.baseFov = originalFOV;
-                arsonistCon.cameraRigController.lerpCameraTime = originalLerpTime;
-            }
+            base.cameraTargetParams.RemoveParamsOverride(handle);
         }
 
-        public override void Update()
-        {
-            base.Update();
-            if (base.isAuthority)
-            {
-                if (arsonistCon && arsonistCon.cameraRigController)
-                {
-                    arsonistCon.cameraRigController.baseFov = Mathf.Lerp(originalFOV, targetFOV, stopwatch / (duration * baseActivationTime));
-                }
-            }
-        }
-
+        
         public override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -108,12 +105,6 @@ namespace ArsonistMod.SkillStates
             
             if (stopwatch >= duration * baseActivationTime && base.isAuthority) 
             {
-                if (arsonistCon && arsonistCon.cameraRigController) 
-                {
-                    arsonistCon.cameraRigController.baseFov = originalFOV;
-                    arsonistCon.cameraRigController.lerpCameraTime = originalLerpTime;
-                }
-
                 if (maso && !maso.masochismActive)
                 {
                     //Start Masochism Sound
