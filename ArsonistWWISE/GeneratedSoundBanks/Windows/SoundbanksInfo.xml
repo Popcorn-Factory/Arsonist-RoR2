@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="2589084170">
+		<SoundBank Id="1110381487" Language="SFX" Hash="1592051079">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -167,17 +167,17 @@
 				</Event>
 				<Event Id="1845947419" Name="Arsonist_Neomasochism_Start_Laugh_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_Neomasochism_Start_Laugh_Firebug">
 					<IncludedMemoryFiles>
-						<File Id="74321214" Language="SFX">
-							<ShortName>Firebug_Special_Startup__Laughs.wav</ShortName>
-							<Path>SFX\Firebug_Special_Startup__Laughs_AAC01927.wem</Path>
+						<File Id="9281638" Language="SFX">
+							<ShortName>Firebug_R-Special_with_Laugh_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_A0697B7D.wem</Path>
 						</File>
-						<File Id="141649103" Language="SFX">
-							<ShortName>Firebug_Special_Startup__Laughs.wav</ShortName>
-							<Path>SFX\Firebug_Special_Startup__Laughs_A89FD99A.wem</Path>
+						<File Id="653710267" Language="SFX">
+							<ShortName>Firebug_R-Special_with_Laugh_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_FD5A990A.wem</Path>
 						</File>
-						<File Id="516263577" Language="SFX">
-							<ShortName>Firebug_Special_Startup__Laughs.wav</ShortName>
-							<Path>SFX\Firebug_Special_Startup__Laughs_2A53C7B4.wem</Path>
+						<File Id="978958091" Language="SFX">
+							<ShortName>Firebug_R-Special_with_Laugh_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_2CECADF9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -378,17 +378,17 @@
 				</Event>
 				<Event Id="896468461" Name="Arsonist_ZPB_Contact_Laugh_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact_Laugh_Firebug">
 					<IncludedMemoryFiles>
-						<File Id="119849778" Language="SFX">
-							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_startup_and_contact_ADFF7608.wem</Path>
+						<File Id="200228033" Language="SFX">
+							<ShortName>Firebug_ZPB_start__contact_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_start__contact_TRUE_9F646B36.wem</Path>
 						</File>
-						<File Id="306623627" Language="SFX">
-							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_startup_and_contact_CA302A03.wem</Path>
+						<File Id="660367895" Language="SFX">
+							<ShortName>Firebug_ZPB_start__contact_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_start__contact_TRUE_85A71261.wem</Path>
 						</File>
-						<File Id="554505743" Language="SFX">
-							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_startup_and_contact_9E7BC71A.wem</Path>
+						<File Id="1028167492" Language="SFX">
+							<ShortName>Firebug_ZPB_start__contact_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_start__contact_TRUE_BDD50CBE.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -434,17 +434,17 @@
 				</Event>
 				<Event Id="3167811629" Name="Arsonist_ZPB_Start_Laugh_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Start_Laugh_Firebug">
 					<IncludedMemoryFiles>
-						<File Id="82754940" Language="SFX">
-							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_startup_and_contact_63D64D4F.wem</Path>
+						<File Id="165501368" Language="SFX">
+							<ShortName>Firebug_ZPB_start__contact_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_start__contact_TRUE_5B2A0252.wem</Path>
 						</File>
-						<File Id="403129759" Language="SFX">
-							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_startup_and_contact_9A763212.wem</Path>
+						<File Id="496560153" Language="SFX">
+							<ShortName>Firebug_ZPB_start__contact_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_start__contact_TRUE_ABD0AB42.wem</Path>
 						</File>
-						<File Id="576555835" Language="SFX">
-							<ShortName>Firebug_ZPB_startup_and_contact.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_startup_and_contact_3F8D946B.wem</Path>
+						<File Id="963067177" Language="SFX">
+							<ShortName>Firebug_ZPB_start__contact_TRUE.wav</ShortName>
+							<Path>SFX\Firebug_ZPB_start__contact_TRUE_FEEF9069.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

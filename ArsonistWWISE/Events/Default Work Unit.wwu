@@ -524,7 +524,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Firebug_ZPB_startup_and_contact" ID="{6F8B6A47-7271-4D24-A322-40673BB7D8C1}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="Firebug_ZPB_start__contact_TRUE" ID="{A71D310A-53FC-4D8A-9F29-74A498418E0B}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -534,7 +534,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Firebug_ZPB_startup_and_contact_01" ID="{A680D9D5-2B9A-4AE1-AE0F-5C08D69BDB2F}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="Firebug_ZPB_start__contact_TRUE_01" ID="{8384CD8B-3C90-4D53-85B5-F9735337DE58}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -544,7 +544,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Firebug_ZPB_startup_and_contact_02" ID="{BCC25000-066C-4693-8257-8E064C20DA81}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="Firebug_ZPB_start__contact_TRUE_02" ID="{2117C4E8-DEE8-4B04-907E-133D533FCDC9}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -577,7 +577,7 @@
 						<Action Name="" ID="{FF3A7F56-0090-4634-8713-15FBDFED17DF}" ShortID="380982588">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -601,14 +601,14 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 						<Action Name="" ID="{D9C1B41E-DF16-41AA-AAC3-49EE520C4534}" ShortID="145011178">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

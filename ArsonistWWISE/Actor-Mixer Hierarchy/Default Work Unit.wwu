@@ -2415,83 +2415,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Firebug_Special_Startup__Laughs" ID="{D4EA6B64-1DD2-416E-A917-B15038C7E711}" ShortID="750383401">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>8</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_Special_Startup__Laughs" ID="{CEE636AA-E05E-4903-8B93-DF7FAC5181FB}">
-													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="5.07968127490041"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Special_Startup__Laughs.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="74321214"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Special_Startup__Laughs" ID="{CEE636AA-E05E-4903-8B93-DF7FAC5181FB}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_Special_Startup__Laughs_01" ID="{85082EF9-31C6-48B8-86F4-C79066EF0CFB}" ShortID="611231867">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>8</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_Special_Startup__Laughs" ID="{B38D88D3-96A7-4500-AA80-9D270BAE0C44}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="7.88830342847486"/>
-														<Property Name="TrimEnd" Type="Real64" Value="13.2443857377428"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Special_Startup__Laughs.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="516263577"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Special_Startup__Laughs" ID="{B38D88D3-96A7-4500-AA80-9D270BAE0C44}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_Special_Startup__Laughs_02" ID="{897C1478-89C3-42E8-A21B-1CEF4DCD0020}" ShortID="375837066">
+										<Sound Name="Firebug_R-Special_with_Laugh_TRUE" ID="{76D5AE61-478A-4BAC-93AD-56C3407F9808}" ShortID="499478718">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -2500,39 +2424,6 @@
 														<Value>8</Value>
 													</ValueList>
 												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_Special_Startup__Laughs" ID="{62BCB7AF-4B68-4B85-A7F7-F26938B82B35}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="15.9876286295249"/>
-														<Property Name="TrimEnd" Type="Real64" Value="21.5139442231076"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Special_Startup__Laughs.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="141649103"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Special_Startup__Laughs" ID="{62BCB7AF-4B68-4B85-A7F7-F26938B82B35}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_R-Special_with_Laugh_TRUE" ID="{76D5AE61-478A-4BAC-93AD-56C3407F9808}" ShortID="499478718">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Attenuation">
@@ -2547,6 +2438,89 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{18350838-418A-4256-A6C5-5474EE3E7445}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="5.92876254003549"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Firebug_R-Special_with_Laugh_TRUE.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="978958091"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{18350838-418A-4256-A6C5-5474EE3E7445}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Firebug_R-Special_with_Laugh_TRUE_01" ID="{ACB0A43A-BB27-4D5B-94A5-D0F03D586AD0}" ShortID="675720740">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{B72851E3-1BFA-4BD5-A902-FB0879974D82}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="7.92548045415067"/>
+														<Property Name="TrimEnd" Type="Real64" Value="13.9881741178962"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Firebug_R-Special_with_Laugh_TRUE.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="9281638"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{B72851E3-1BFA-4BD5-A902-FB0879974D82}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Firebug_R-Special_with_Laugh_TRUE_02" ID="{C308FEDE-2BCD-4DC8-92FD-C95E866A70E8}" ShortID="45879991">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{A5D62677-2372-4035-A497-C411FAAED1A2}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="15.8632357018308"/>
+														<Property Name="TrimEnd" Type="Real64" Value="22.6034071838852"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Firebug_R-Special_with_Laugh_TRUE.wav</AudioFile>
 													<MediaIDList>
@@ -2555,12 +2529,12 @@
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{18350838-418A-4256-A6C5-5474EE3E7445}" Platform="Linked"/>
+												<ActiveSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{A5D62677-2372-4035-A497-C411FAAED1A2}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" ShortID="415278206">
+								<RandomSequenceContainer Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" ShortID="415278206">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
@@ -2570,13 +2544,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Firebug_ZPB_startup_and_contact" ID="{6F8B6A47-7271-4D24-A322-40673BB7D8C1}" ShortID="925357592">
+										<Sound Name="Firebug_ZPB_start__contact_TRUE" ID="{586BA412-3027-47AB-A7F9-C44194DA37F6}" ShortID="945905279">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>5</Value>
+														<Value>6</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2592,29 +2566,30 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{C736E600-D682-4F44-BFFE-ACDA14326AAD}">
+												<AudioFileSource Name="Firebug_ZPB_start__contact_TRUE" ID="{6042C2B9-AA89-41A6-92D2-CD04CDEAB222}">
 													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="3.48940998967684"/>
+														<Property Name="TrimBegin" Type="Real64" Value="5.51940569250164"/>
+														<Property Name="TrimEnd" Type="Real64" Value="9.46613252126436"/>
 													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
+													<AudioFile>Firebug_ZPB_start__contact_TRUE.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="82754940"/>
+														<MediaID ID="496560153"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{C736E600-D682-4F44-BFFE-ACDA14326AAD}" Platform="Linked"/>
+												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{6042C2B9-AA89-41A6-92D2-CD04CDEAB222}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Firebug_ZPB_startup_and_contact_01" ID="{A680D9D5-2B9A-4AE1-AE0F-5C08D69BDB2F}" ShortID="358276946">
+										<Sound Name="Firebug_ZPB_start__contact_TRUE_01" ID="{70B49DA3-C35E-4A2C-BDCB-81AD80E89106}" ShortID="226565625">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>5</Value>
+														<Value>6</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2630,29 +2605,30 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{63DC5200-6705-4E49-B829-6220D93947F2}">
+												<AudioFileSource Name="Firebug_ZPB_start__contact_TRUE" ID="{222569D6-183A-4B54-9D3C-F0CE58389F8E}">
 													<PropertyList>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="10.5974673760555"/>
-														<Property Name="TrimEnd" Type="Real64" Value="15.2500140289579"/>
+														<Property Name="TrimBegin" Type="Real64" Value="16.3210488152782"/>
+														<Property Name="TrimEnd" Type="Real64" Value="19.3603684586675"/>
 													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
+													<AudioFile>Firebug_ZPB_start__contact_TRUE.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="403129759"/>
+														<MediaID ID="165501368"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{63DC5200-6705-4E49-B829-6220D93947F2}" Platform="Linked"/>
+												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{222569D6-183A-4B54-9D3C-F0CE58389F8E}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Firebug_ZPB_startup_and_contact_02" ID="{BCC25000-066C-4693-8257-8E064C20DA81}" ShortID="344978808">
+										<Sound Name="Firebug_ZPB_start__contact_TRUE_02" ID="{E303A531-7BE7-4200-A50D-633E5276FEE9}" ShortID="438201121">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>5</Value>
+														<Value>6</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2668,26 +2644,26 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{AD48F39D-15F6-4027-83E9-ACE75EE3FBD2}">
+												<AudioFileSource Name="Firebug_ZPB_start__contact_TRUE" ID="{84957765-DACC-4E13-8FFF-CACA07B535CA}">
 													<PropertyList>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="21.51194"/>
-														<Property Name="TrimEnd" Type="Real64" Value="25.5209835525383"/>
+														<Property Name="TrimBegin" Type="Real64" Value="27.0238476402234"/>
+														<Property Name="TrimEnd" Type="Real64" Value="29.7127877039272"/>
 													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
+													<AudioFile>Firebug_ZPB_start__contact_TRUE.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="576555835"/>
+														<MediaID ID="963067177"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{AD48F39D-15F6-4027-83E9-ACE75EE3FBD2}" Platform="Linked"/>
+												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{84957765-DACC-4E13-8FFF-CACA07B535CA}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" ShortID="495022487">
+								<RandomSequenceContainer Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" ShortID="495022487">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 									</PropertyList>
@@ -2703,124 +2679,15 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Firebug_ZPB_startup_and_contact" ID="{A20ECDD6-D1FB-4CBA-A497-7FE7EF229E0D}" ShortID="918929758">
+										<Sound Name="Firebug_ZPB_start__contact_TRUE" ID="{A71D310A-53FC-4D8A-9F29-74A498418E0B}" ShortID="649038556">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>5</Value>
+														<Value>6</Value>
 													</ValueList>
 												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{9AD57C99-ABE4-4D47-9F0D-DA47BB1290BE}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="5.69383090379009"/>
-														<Property Name="TrimEnd" Type="Real64" Value="9.78939348370928"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="306623627"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{9AD57C99-ABE4-4D47-9F0D-DA47BB1290BE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_startup_and_contact_01" ID="{ED223267-7814-411B-BDDE-DE9C44F4DF6B}" ShortID="443657149">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>5</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{BDC25249-86FB-4C6D-A967-5DB7091D4E46}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="16.2724249450227"/>
-														<Property Name="TrimEnd" Type="Real64" Value="20.0908191221148"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="554505743"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{BDC25249-86FB-4C6D-A967-5DB7091D4E46}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_startup_and_contact_02" ID="{375F07AE-7B76-408A-A596-EB774B53FBA7}" ShortID="119827077">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>5</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_startup_and_contact" ID="{4903E8E6-8224-435C-BF6C-B2892230F1DD}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="26.9896031876689"/>
-														<Property Name="TrimEnd" Type="Real64" Value="30.992776299979"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_startup_and_contact.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="119849778"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_startup_and_contact" ID="{4903E8E6-8224-435C-BF6C-B2892230F1DD}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_start__contact_TRUE" ID="{A71D310A-53FC-4D8A-9F29-74A498418E0B}" ShortID="649038556">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Attenuation">
@@ -2835,6 +2702,88 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Firebug_ZPB_start__contact_TRUE" ID="{AC6D5198-E033-4A48-8B76-AF0F08F191EA}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="3.73974911529391"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Firebug_ZPB_start__contact_TRUE.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="660367895"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{AC6D5198-E033-4A48-8B76-AF0F08F191EA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Firebug_ZPB_start__contact_TRUE_01" ID="{8384CD8B-3C90-4D53-85B5-F9735337DE58}" ShortID="677077041">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Firebug_ZPB_start__contact_TRUE" ID="{77833011-4BD3-4838-8BD6-0C16A4AC78A6}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="10.6832706587798"/>
+														<Property Name="TrimEnd" Type="Real64" Value="14.6843991770113"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Firebug_ZPB_start__contact_TRUE.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1028167492"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{77833011-4BD3-4838-8BD6-0C16A4AC78A6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Firebug_ZPB_start__contact_TRUE_02" ID="{2117C4E8-DEE8-4B04-907E-133D533FCDC9}" ShortID="504447295">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Firebug_ZPB_start__contact_TRUE" ID="{88FF913F-EEF5-4AD7-9E8A-8EBB71B43BB1}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="21.4331007861007"/>
+														<Property Name="TrimEnd" Type="Real64" Value="25.0084706585485"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Firebug_ZPB_start__contact_TRUE.wav</AudioFile>
 													<MediaIDList>
@@ -2843,7 +2792,7 @@
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{AC6D5198-E033-4A48-8B76-AF0F08F191EA}" Platform="Linked"/>
+												<ActiveSource Name="Firebug_ZPB_start__contact_TRUE" ID="{88FF913F-EEF5-4AD7-9E8A-8EBB71B43BB1}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
