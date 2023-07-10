@@ -33,6 +33,7 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem trailFire;
         public ParticleSystem sparkParticle;
         public ParticleSystem fingerFireParticle;
+        public ParticleSystem cleanseBlast;
         public Transform flamethrowerTransform;
         public Transform weakFlamethrowerTransform;
 
@@ -73,6 +74,7 @@ namespace ArsonistMod.Content.Controllers
                 trailFire = childLocator.FindChild("TrailFlame").GetComponent<ParticleSystem>();
                 sparkParticle = childLocator.FindChild("SparkEffect").GetComponent<ParticleSystem>();
                 fingerFireParticle = childLocator.FindChild("FireThumbParticle").GetComponent<ParticleSystem>();
+                cleanseBlast = childLocator.FindChild("CleanseBlast").GetComponent<ParticleSystem>();
             }
             
             charBody = gameObject.GetComponent<CharacterBody>();

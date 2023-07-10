@@ -79,12 +79,12 @@ Material:
     - _Bias: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DepthDistance: 4.7
+    - _DepthDistance: 7.1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Duration: 1.2
     - _Durationthreshold: 0.4
-    - _FrenelMultiplier: 0.79
+    - _FrenelMultiplier: 1.39
     - _FresnelExponent: 10
     - _GlossMapScale: 1
     - _Glossiness: 0
@@ -108,13 +108,13 @@ Material:
     - _SpeedTex: 12.1
     - _SrcBlend: 1
     - _StepThreshold: 90.88
-    - _TimeMultiplier: 1
+    - _TimeMultiplier: 1.5
     - _UVSec: 0
     - _UpperLerpOpacity: 0
     - _VertexFrequency: 0
     - _VertexTimeMultiplier: 0
     - _VertexWobble: 0
-    - _Vertexoffset: 0.2
+    - _Vertexoffset: 0.251
     - _WobbleDecay: 1
     - _ZWrite: 1
     m_Colors:

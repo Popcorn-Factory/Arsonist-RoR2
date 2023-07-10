@@ -34,7 +34,7 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _DepthDistance: 0.4
-    - _FrenelMultiplier: 0.38
+    - _FrenelMultiplier: 0.27
     - _LightingMultiplier: 1.13
     - _LowerLerpOpacity: 1
     - _MaxSmoothstep: 1

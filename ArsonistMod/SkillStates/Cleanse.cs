@@ -17,6 +17,7 @@ namespace ArsonistMod.SkillStates
 {
     public class Cleanse : BaseSkillState
     {
+        public ArsonistController arsonistController;
         public EnergySystem energySystem;
 
         public float baseDuration = 1f;
@@ -29,6 +30,7 @@ namespace ArsonistMod.SkillStates
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
+            arsonistController = characterBody.gameObject.GetComponent<ArsonistController>();
 
             Ray aimRay = base.GetAimRay();
             duration = baseDuration;
@@ -110,6 +112,11 @@ namespace ArsonistMod.SkillStates
                 characterBody.ApplyBuff(Modules.Buffs.cleanseSpeedBoost.buffIndex, 1, duration * 2.5f);
                 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+
+            if (arsonistController) 
+            {
+                arsonistController.cleanseBlast.Play();
             }
 
         }
