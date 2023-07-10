@@ -57,6 +57,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Added speed boost on activation
                 - Should now apply Ignite correctly. Should be affected by Ignition tank.
                 - Added fire effect that emits off Arsonist for the duration of the move.
+                - Added VFX for Cleanse Blast.
         - Special
             - Masochism
                 - Builds up Anticipation stacks while not activated.
