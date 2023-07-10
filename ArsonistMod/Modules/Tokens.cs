@@ -38,7 +38,7 @@ namespace ArsonistMod.Modules
 
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "Pyromania");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Arsonist will convert 50% of total damage received as fire damage over time; Arsonist also has resistance to fire damage from all sources.");
+            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Arsonist will convert 50% of total damage received as fire damage over time. Arsonist also has resistance to fire damage from all sources.");
             //LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
 
             LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_NAME", "Normal Gauge");
@@ -85,31 +85,31 @@ namespace ArsonistMod.Modules
             #endregion
 
             #region Keywords
-            LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"<style=cKeywordName>Heat</style> " + 
+            LanguageAPI.Add(prefix + "KEYWORD_PASSIVE", $"<style=cKeywordName>Heat</style>" + 
                 $"Skills increase/decrease heat. At max heat, arsonist overheats, weakening their skills and causing longer cooldowns. Attack speed increases cooling rate. The selected primary chosen alters the heat gauge. ");
-            LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGE", $"<style=cKeywordName>Base Gauge</style> " + 
+            LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGE", $"<style=cKeywordName>Base Gauge</style>" + 
                 $"Heat gauge increase per level as well as with stock-based items. " +
                 $"Cooling rate also increases at higher %s of heat.");
-            LanguageAPI.Add(prefix + "KEYWORD_CRITICALGAUGE", $"<style=cKeywordName>Supercritical Gauge</style> " + 
+            LanguageAPI.Add(prefix + "KEYWORD_CRITICALGAUGE", $"<style=cKeywordName>Supercritical Gauge</style>" + 
                 $"Heat gauge does not increase, instead supercritical gauge increases per level as well as with stock-based items. " +
                 $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge. ");
-            LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style> " +
+            LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style>" +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Reduced damage and speed in overheat.");
-            LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style> " + 
+            LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style>" + 
                 $"Reduces Heat by <style=cIsDamage>{Modules.StaticValues.flareHeatReductionMultiplier}x</style> of current heat accumulated. Half damage in overheat.");
-            LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style> " +
+            LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style>" +
                 $"Cools <style=cIsUtility>half of CURRENT heat</style>. Half damage in overheat.");
-            LanguageAPI.Add(prefix + "KEYWORD_CLEANSEHEAT", $"<style=cKeywordName>Heat</style> " +
+            LanguageAPI.Add(prefix + "KEYWORD_CLEANSEHEAT", $"<style=cKeywordName>Heat</style>" +
                 $"Cools <style=cIsUtility>half of TOTAL heat</style>. Accelerates cooling in overheat, however, no ignite.");
-            LanguageAPI.Add(prefix + "KEYWORD_MASOCHISMHEAT", $"<style=cKeywordName>Heat</style> " +
+            LanguageAPI.Add(prefix + "KEYWORD_MASOCHISMHEAT", $"<style=cKeywordName>Heat</style>" +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.masochismEnergyCost} heat</style>. Half healing in overheat.");
 
-            LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION", $"[ Anticipation ]\n{Modules.Helpers.ImportantDesc("Anticipation Stacks")} are granted from heating and cooling down.");
-            LanguageAPI.Add(prefix + "KEYWORD_MASO_LIFESTEAL", $"[ Lifesteal ]\nArsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismActiveMultipliedActive.Value}") }% of his damage dealt while Masochism is active.");
-            LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE", $"[ Detonate ]\nArsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
-            LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"[ Overheat: Masochism]\nIf Arsonist exits Masochism due to too much heat buildup, EX Overheat is applied. Cancelling, or otherwise letting the move run it's course applies Overheat.");
-            LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT", $"[ Overheat ]\nArsonist's Attack speed is reduced by {Modules.StaticValues.overheatAttackSpeedDebuff * 100f}% while cooling down");
-            LanguageAPI.Add(prefix + "KEYWORD_MASO_EX_OVERHEAT", $"[ EX Overheat ]\nArsonist's Move Speed and Damage is reduced to {Modules.StaticValues.masochismMoveSpeedPenalty * 100f}% while cooling down");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION", $"<style=cKeywordName>Anticipation</style>{Modules.Helpers.ImportantDesc("Anticipation Stacks")} are granted from heating and cooling down.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_LIFESTEAL", $"<style=cKeywordName>Lifesteal</style>Arsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismActiveMultipliedActive.Value}") }% of his damage dealt while Masochism is active.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE", $"<style=cKeywordName>Detonate</style>Arsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
+            LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"<style=cKeywordName>Overheat: Masochism</style>If Arsonist exits Masochism due to too much heat buildup, EX Overheat is applied. Cancelling, or otherwise letting the move run it's course applies Overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT", $"<style=cKeywordName>Overheat</style>Arsonist's Attack speed is reduced by {Modules.StaticValues.overheatAttackSpeedDebuff * 100f}% while cooling down");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_EX_OVERHEAT", $"<style=cKeywordName>EX Overheat</style>Arsonist's Move Speed and Damage is reduced to {Modules.StaticValues.masochismMoveSpeedPenalty * 100f}% while cooling down");
             #endregion
 
             #region Achievements
