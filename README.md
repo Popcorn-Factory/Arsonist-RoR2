@@ -207,7 +207,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - Concept, Icons, 2D Art, SFX, Voice talent:
   - Harmonchaos#7179
   - <a href="https://twitter.com/DragonRoIlZ">DragonRollZ</a>
-  - <a href="https://twitter.com/AnOddHermit">An Odd HermitVA</a>
+  - <a href="https://twitter.com/AnOddHermit">An Odd HermitVA</a> -> Arsonist VA
+  - <a href="https://twitter.com/Alycoris">Alycoris</a> -> Firebug VA
 - 3D Modelling, Rigging, Animation:
   - dotflare#7898
 - Programming - Popcorn Factory team:
