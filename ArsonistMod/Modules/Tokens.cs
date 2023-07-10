@@ -79,9 +79,9 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds. Increases attack speed <style=cIsDamage>{100*StaticValues.igniteAttackSpeedMultiplier}%</style>.");
 
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_NAME", "Masochism");
-            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION", $"Once enough stacks are accumulated, activate to deal <style=cIsDamage>{100f * Modules.StaticValues.masochismPulseCoefficient}% damage</style>" +
-                $" per tick around you while your overheat gauge increases over time. Each stack is equivalent to 1 second of uptime. This state is forcibly exited when the amount of seconds elapsed is greater " +
-                $"than the number of stacks accumulated, or if the gauge accumulates too much heat. Exiting the state creates a massive explosion that deals <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style>, further multiplied by the number of stacks accumulated.");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION", $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, " +
+                $"activating damages self periodically in exchange for {Modules.Helpers.Healing("Lifesteal")} from damage to others. " +
+                $"After a short time, Arsonist will <style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");
             #endregion
 
             #region Keywords
@@ -103,6 +103,13 @@ namespace ArsonistMod.Modules
                 $"Cools <style=cIsUtility>half of TOTAL heat</style>. Accelerates cooling in overheat, however, no ignite.");
             LanguageAPI.Add(prefix + "KEYWORD_MASOCHISMHEAT", $"<style=cKeywordName>Heat</style> " +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.masochismEnergyCost} heat</style>. Half healing in overheat.");
+
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION", $"[ Anticipation ]\n{Modules.Helpers.ImportantDesc("Anticipation Stacks")} are granted from heating and cooling down.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_LIFESTEAL", $"[ Lifesteal ]\nArsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismActiveMultipliedActive.Value}") }% of his damage dealt while Masochism is active.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE", $"[ Detonate ]\nArsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
+            LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"[ Overheat: Masochism]\nIf Arsonist exits Masochism due to too much heat buildup, EX Overheat is applied. Cancelling, or otherwise letting the move run it's course applies Overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT", $"[ Overheat ]\nArsonist's Attack speed is reduced by {Modules.StaticValues.overheatAttackSpeedDebuff * 100f}% while cooling down");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_EX_OVERHEAT", $"[ EX Overheat ]\nArsonist's Move Speed and Damage is reduced to {Modules.StaticValues.masochismMoveSpeedPenalty * 100f}% while cooling down");
             #endregion
 
             #region Achievements

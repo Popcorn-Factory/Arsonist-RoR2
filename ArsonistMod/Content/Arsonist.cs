@@ -462,7 +462,13 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 0,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_MASOCHISMHEAT" }
+                keywordTokens = new string[] {
+                    prefix + "KEYWORD_MASO_ANTICIPATION", 
+                    prefix + "KEYWORD_MASO_LIFESTEAL", 
+                    prefix + "KEYWORD_MASO_DETONATE", 
+                    prefix + "KEYWORD_OVERHEAT_MASO",
+                    prefix + "KEYWORD_OVERHEAT",
+                    prefix + "KEYWORD_MASO_EX_OVERHEAT"}
             });
 
             //Modules.Skills.AddSpecialSkills(bodyPrefab, masochistSkillDef);
