@@ -466,9 +466,7 @@ namespace ArsonistMod.Modules.Survivors
                     prefix + "KEYWORD_MASO_ANTICIPATION", 
                     prefix + "KEYWORD_MASO_LIFESTEAL", 
                     prefix + "KEYWORD_MASO_DETONATE", 
-                    prefix + "KEYWORD_OVERHEAT_MASO",
-                    prefix + "KEYWORD_OVERHEAT",
-                    prefix + "KEYWORD_MASO_EX_OVERHEAT"}
+                    prefix + "KEYWORD_OVERHEAT_MASO"}
             });
 
             //Modules.Skills.AddSpecialSkills(bodyPrefab, masochistSkillDef);
