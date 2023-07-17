@@ -33,6 +33,7 @@ namespace ArsonistMod
 
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.TeamMoonstorm.Starstorm2", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
 
@@ -48,6 +49,8 @@ namespace ArsonistMod
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
 
+        public static bool starstormAvailable = false;
+        public static bool infernoAvailable = false;
         public static ArsonistPlugin instance;
 
         private void Awake()
@@ -60,6 +63,10 @@ namespace ArsonistMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
+            }
+            if (Chainloader.PluginInfos.ContainsKey("com.TeamMoonstorm.Starstorm2")) 
+            {
+                starstormAvailable = true;
             }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
