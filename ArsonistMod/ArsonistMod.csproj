@@ -69,6 +69,9 @@
     <Reference Include="RiskOfOptions">
       <HintPath>..\libs\RiskOfOptions.dll</HintPath>
     </Reference>
+    <Reference Include="Starstorm2">
+      <HintPath>..\libs\Starstorm2.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
