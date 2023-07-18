@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 852745585
+CRC: 3754789598
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 692497c932db0ecdc9c8a12dc8c88bdb
+    Hash: 23e94e15673da399b6f90ac2ef8a3890
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -304,6 +304,7 @@ Assets:
 - Assets/ArsonistAssets/Textures/ArsonistCloth_mask.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_OverHeat.anim
 - Assets/ArsonistAssets/VFX/FlamethrowerLight.prefab
+- Assets/ArsonistAssets/Icons/ArsonistIconUnlock.png
 - Assets/ArsonistAssets/Animation/clips/Descend.anim
 - Assets/ArsonistAssets/Icons/FlamethrowerReticle.png
 - Assets/ArsonistAssets/VFX/IgnitionFlame.prefab

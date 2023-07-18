@@ -6,7 +6,7 @@ using static ArsonistMod.Modules.Unlockables;
 namespace ArsonistMod.Modules.Achievements
 {
     [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT",
-    ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_REWARD_ID", null, null)]
+    ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_REWARD_ID", ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT", null)]
     internal class MasteryAchievement : ModdedUnlockable
     {
         public override string AchievementIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERYUNLOCKABLE_ACHIEVEMENT_ID";

@@ -6,7 +6,7 @@ using static ArsonistMod.Modules.Unlockables;
 namespace ArsonistMod.Modules.Achievements
 {
     [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT",
-    ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_REWARD_ID", null, null)]
+    ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_REWARD_ID", ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT", null)]
     internal class ArsonistEclipse5Achievement : ModdedUnlockable
     {
         public override string AchievementIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_ID";
@@ -19,7 +19,7 @@ namespace ArsonistMod.Modules.Achievements
 
         public override string AchievementDescToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_DESC";
 
-        public override Sprite Sprite => Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery");
+        public override Sprite Sprite => Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistGrandmastery");
         public override Func<string> GetHowToUnlock { get; } = (() => Language.GetStringFormatted("UNLOCK_VIA_ACHIEVEMENT_FORMAT", new object[]
                             {
                                 Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_NAME"),

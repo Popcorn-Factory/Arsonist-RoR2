@@ -132,7 +132,7 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "FLAMETHROWERUNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Pyromaniac");
 
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ARSONISTUNLOCKABLE_ACHIEVEMENT_NAME", "Embers");
-            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ARSONISTUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "Kill a boss with ignite damage");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ARSONISTUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "Kill a boss while it is ignited.");
             LanguageAPI.Add(prefix + "ARSONISTUNLOCKABLE_UNLOCKABLE_NAME", "Embers");
             #endregion
             #endregion
