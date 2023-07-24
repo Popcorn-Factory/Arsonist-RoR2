@@ -35,7 +35,9 @@ namespace ArsonistMod.Modules
 
             #region Skins
             LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Default");
-            LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Arsonist: Neo");
+            LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Suit");
+            LanguageAPI.Add(prefix + "GRANDMASTERY_SKIN_NAME", "Firebug");
+            LanguageAPI.Add(prefix + "SURVIVAL_SKIN_NAME", "Pigskin");
             #endregion
 
             #region Passive
@@ -120,12 +122,12 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Mastery");
 
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ECLIPSE5UNLOCKABLE_ACHIEVEMENT_NAME", "Arsonist: Grandmastery");
-            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ECLIPSE5UNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "As Arsonist, beat the game on Eclipse 5, OR beat the game on Typhoon (Starstorm 2 mod Required).");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ECLIPSE5UNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "As Arsonist, beat the game on Eclipse 5 or higher, OR beat the game on Typhoon (Starstorm 2 mod Required).");
             LanguageAPI.Add(prefix + "ECLIPSE5UNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Grandmastery");
 
-            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ECLIPSE8UNLOCKABLE_ACHIEVEMENT_NAME", "Arsonist: Grander-mastery??");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ECLIPSE8UNLOCKABLE_ACHIEVEMENT_NAME", "Arsonist: Survival");
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ECLIPSE8UNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "As Arsonist, beat the game on Eclipse 8, OR beat the game on Inferno (Inferno mod Required).");
-            LanguageAPI.Add(prefix + "ECLIPSE8UNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Grander-mastery??");
+            LanguageAPI.Add(prefix + "ECLIPSE8UNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Survival");
 
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_NAME", "Arsonist: Pyromaniac");
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "As Arsonist, do ???.");
