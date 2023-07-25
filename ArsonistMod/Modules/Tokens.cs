@@ -35,9 +35,9 @@ namespace ArsonistMod.Modules
 
             #region Skins
             LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Default");
-            LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Suit");
+            LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Yuppie");
             LanguageAPI.Add(prefix + "GRANDMASTERY_SKIN_NAME", "Firebug");
-            LanguageAPI.Add(prefix + "SURVIVAL_SKIN_NAME", "Pigskin");
+            LanguageAPI.Add(prefix + "SURVIVAL_SKIN_NAME", "Anarchist");
             #endregion
 
             #region Passive
