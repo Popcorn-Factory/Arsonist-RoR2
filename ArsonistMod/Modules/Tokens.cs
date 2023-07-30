@@ -130,11 +130,11 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "ECLIPSE8UNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Survival");
 
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_NAME", "Arsonist: Pyromaniac");
-            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "As Arsonist, do ???.");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "As Arsonist, beat a stage without overheating.");
             LanguageAPI.Add(prefix + "FLAMETHROWERUNLOCKABLE_UNLOCKABLE_NAME", "Arsonist: Pyromaniac");
 
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ARSONISTUNLOCKABLE_ACHIEVEMENT_NAME", "Embers");
-            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ARSONISTUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "Kill a boss while it is ignited.");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ARSONISTUNLOCKABLE_ACHIEVEMENT_DESCRIPTION", "Kill a teleporter boss while it is ignited.");
             LanguageAPI.Add(prefix + "ARSONISTUNLOCKABLE_UNLOCKABLE_NAME", "Embers");
             #endregion
             #endregion
