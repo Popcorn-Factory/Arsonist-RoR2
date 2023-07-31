@@ -56,13 +56,13 @@ namespace ArsonistMod.Modules.Achievements
 
                 bool eclipseDifficultyCheck = (difficultyDef.nameToken == "ECLIPSE_8_NAME");
 
-                bool typhoonCheck = false;
+                bool infernoCheck = false;
                 if (ArsonistPlugin.infernoAvailable) 
                 {
-                    typhoonCheck = InfernoCheckFunc(runReport);
+                    infernoCheck = InfernoCheckFunc(runReport);
                 }
 
-                bool difficultyCheck = eclipseDifficultyCheck || typhoonCheck;
+                bool difficultyCheck = eclipseDifficultyCheck || infernoCheck;
 
                 if (difficultyDef != null && difficultyCheck)
                 {

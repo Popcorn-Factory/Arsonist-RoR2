@@ -101,6 +101,7 @@ namespace ArsonistMod.Modules.Survivors
         private static UnlockableDef pigSkinUnlockableDef;
         private static UnlockableDef masterySkinUnlockableDef;
         private static UnlockableDef firebugSkinUnlockableDef;
+        private static UnlockableDef flamethrowerUnlockableDef;
         private static UnlockableDef arsonistUnlockable; 
 
         public override void InitializeCharacter()
@@ -127,6 +128,7 @@ namespace ArsonistMod.Modules.Survivors
             firebugSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse5Achievement>(true);
             arsonistUnlockable = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistUnlockable>(true);
             pigSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse8Achievement>(true);
+            flamethrowerUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistFlamethrowerUnlockable>(true);
         }
 
         public override void InitializeHitboxes()
@@ -330,6 +332,12 @@ namespace ArsonistMod.Modules.Survivors
             {
                 primarySkillDef,
                 flamethrower
+            });
+
+            Skills.AddUnlockablesToFamily(this.bodyPrefab.GetComponent<SkillLocator>().primary.skillFamily, new UnlockableDef[] 
+            { 
+                null, 
+                flamethrowerUnlockableDef 
             });
             #endregion
 
@@ -558,7 +566,7 @@ namespace ArsonistMod.Modules.Survivors
                 matNeoArsonistCloth
             });
             //creating a new skindef as we did before
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERY_SKIN_NAME",
+            SkinDef grandmasterySkin = Modules.Skins.CreateSkinDef(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_GRANDMASTERY_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistGrandmastery"),
                 neoArsonistRendererInfos,
                 model,
@@ -566,7 +574,7 @@ namespace ArsonistMod.Modules.Survivors
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
-            masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+            grandmasterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
                 "NeoArsonist",
                 "NeoArsonistArmor",//no gun mesh replacement. use same gun mesh
                 "NeoArsonistBoots",
@@ -579,15 +587,15 @@ namespace ArsonistMod.Modules.Survivors
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
-            masterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            masterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            masterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            masterySkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            masterySkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            masterySkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            masterySkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
             //masterySkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
-            masterySkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistCloth", true);
+            grandmasterySkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistCloth", true);
 
             //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
             //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
@@ -600,7 +608,7 @@ namespace ArsonistMod.Modules.Survivors
             //};
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
-            skins.Add(masterySkin);
+            skins.Add(grandmasterySkin);
             #endregion
 
             skinController.skins = skins.ToArray();
