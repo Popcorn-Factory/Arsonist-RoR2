@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3754789598
+CRC: 1224108749
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 23e94e15673da399b6f90ac2ef8a3890
+    Hash: 332dfe7768868442dd53e567047605f5
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -122,6 +122,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texRipple.png
 - Assets/ArsonistAssets/VFX/ImpactHenrySlash.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Shader NodetreeAction.003.anim
+- Assets/ArsonistAssets/Textures/FlareRing.png
 - Assets/ArsonistAssets/Mesh/NeoArsonistBoots.mesh
 - Assets/ArsonistAssets/VFX/SparksEffect.prefab
 - Assets/ArsonistAssets/VFX/Mesh/meshSwing.asset
@@ -137,6 +138,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/LightImpact.anim
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
+- Assets/ArsonistAssets/Textures/FlareStar.png
 - Assets/ArsonistAssets/Mesh/NeoArsonistHead.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPHold.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
@@ -151,9 +153,11 @@ Assets:
 - Assets/ArsonistAssets/Materials/GaugeMaterial.mat
 - Assets/ArsonistAssets/VFX/Flamethrower.prefab
 - Assets/ArsonistAssets/Icons/arsonistFlamethrower.png
+- Assets/ArsonistAssets/VFX/flareShot.prefab
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
 - Assets/ArsonistAssets/Animation/maskImpact.mask
 - Assets/ArsonistAssets/Icons/arsonistGrandmastery.png
+- Assets/ArsonistAssets/Materials/FlareRing.mat
 - Assets/ArsonistAssets/Mesh/NeoArsonistArmor.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
 - Assets/ArsonistAssets/Animation/clips/Idle.anim
@@ -194,7 +198,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleRest.anim
 - Assets/ArsonistAssets/VFX/Materials/matTrail.mat
-- Assets/ArsonistAssets/VFX/flareShot.prefab
+- Assets/ArsonistAssets/VFX/flareShotOld.prefab
 - Assets/ArsonistAssets/Icons/texAlt1PrimaryIcon.png
 - Assets/ArsonistAssets/Materials/Henry/matHenryJedi.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkB.anim
@@ -264,10 +268,12 @@ Assets:
 - Assets/ArsonistAssets/Materials/HeatHaze.mat
 - Assets/ArsonistAssets/Textures/flameTex.png
 - Assets/ArsonistAssets/Materials/FireAddMaterial.mat
+- Assets/ArsonistAssets/Materials/FlareRing 1.mat
 - Assets/ArsonistAssets/VFX/Materials/SparkParticle.mat
 - Assets/ArsonistAssets/VFX/Materials/matEmbers.mat
 - Assets/ArsonistAssets/Textures/NeoArsonistCloth_normal.png
 - Assets/ArsonistAssets/Animation/clips/AimYaw.anim
+- Assets/ArsonistAssets/VFX/flareCollision.prefab
 - Assets/ArsonistAssets/HenryBombGhost.prefab
 - Assets/ArsonistAssets/Textures/ArsonistCloth_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
@@ -285,6 +291,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matShotgun.mat
 - Assets/ArsonistAssets/mdlArsonist.prefab
 - Assets/ArsonistAssets/Animation/clips/IdleAdditive.anim
+- Assets/ArsonistAssets/Materials/Star2.mat
 - Assets/ArsonistAssets/Shaders/FrenselLit.shader
 - Assets/ArsonistAssets/VFX/Steam.prefab
 - Assets/ArsonistAssets/Animation/mdlArsonistAvatar.asset
@@ -309,7 +316,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/FlamethrowerReticle.png
 - Assets/ArsonistAssets/VFX/IgnitionFlame.prefab
 - Assets/ArsonistAssets/VFX/Textures/flareMainEmission.png
-- Assets/ArsonistAssets/VFX/flareCollision.prefab
+- Assets/ArsonistAssets/VFX/flareCollisionOld.prefab
 - Assets/ArsonistAssets/VFX/Textures/SparkParticle.tif
 - Assets/ArsonistAssets/Animation/clips/AimPitch.anim
 - Assets/ArsonistAssets/VFX/Light.prefab

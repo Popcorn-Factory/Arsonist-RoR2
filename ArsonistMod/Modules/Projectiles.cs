@@ -188,8 +188,8 @@ namespace ArsonistMod.Modules
             strongFlareController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
 
             GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
-            ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
-            ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
+            //ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
+            //ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             strongFlareController.ghostPrefab = ghostPrefab;
 
             strongFlareController.startSound = "";
