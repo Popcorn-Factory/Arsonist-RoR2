@@ -1048,8 +1048,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.6026579
-          value: 0.60326165
+          time: 0.5686003
+          value: 0.86052483
           inSlope: 0.12165675
           outSlope: 0.12165675
           tangentMode: 0
@@ -1057,7 +1057,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.2143598
         - serializedVersion: 3
-          time: 0.6098633
+          time: 0.70274353
           value: 0
           inSlope: 1
           outSlope: 1
@@ -1362,7 +1362,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 1
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1371,7 +1371,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
