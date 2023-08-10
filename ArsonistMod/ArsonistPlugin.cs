@@ -230,6 +230,8 @@ namespace ArsonistMod
 
                     bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
 
+                    //Debug.Log($"{DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType)} {DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistWeakStickyDamageType)} {DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistChildExplosionDamageType)}");
+
 
                     if (DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType))
                     {
