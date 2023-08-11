@@ -98,6 +98,7 @@ namespace ArsonistMod
             NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
             NetworkingAPI.RegisterMessageType<TakeDamageNetworkRequest>();
             NetworkingAPI.RegisterMessageType<AttachFlareNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<FlamethrowerDotNetworkRequest>();
         }
 
         private void Hook()

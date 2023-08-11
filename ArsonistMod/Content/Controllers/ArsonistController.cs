@@ -208,7 +208,7 @@ namespace ArsonistMod.Content.Controllers
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                 weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
 
-                if (!charBody.inputBank.skill1.down && playingFlamethrower) 
+                if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority) 
                 {
                     playingFlamethrower = false;
                     AkSoundEngine.StopPlayingID(flamethrowerPlayingID);

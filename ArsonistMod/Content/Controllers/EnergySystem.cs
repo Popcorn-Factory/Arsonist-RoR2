@@ -688,12 +688,12 @@ namespace ArsonistMod.Content.Controllers
         public void Update()
         {
             //Update material for overheating tex
-            if (Modules.Assets.arsonistOverheatingMaterial) 
+            if (Modules.Assets.arsonistOverheatingMaterial && characterBody.hasEffectiveAuthority) 
             {
                 SetOverheatMaterialParameters();
             }
 
-            if (anim) 
+            if (anim && characterBody.hasEffectiveAuthority) 
             {
                 CheckAndSetOverheatingCanister();
             }

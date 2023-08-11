@@ -197,14 +197,20 @@ namespace ArsonistMod.SkillStates
                 {
                     if (hitInfo.hitHurtBox.healthComponent.body.teamComponent.teamIndex != TeamIndex.Player)
                     {
-                        InflictDotInfo info = new InflictDotInfo();
-                        info.attackerObject = characterBody.gameObject;
-                        info.victimObject = hitInfo.hitHurtBox.healthComponent.body.gameObject;
-                        info.duration = 5.0f;
-                        info.damageMultiplier = 1.0f;
-                        info.dotIndex = DotController.DotIndex.Burn;
-                        RoR2.StrengthenBurnUtils.CheckDotForUpgrade(characterBody.inventory, ref info);
-                        DotController.InflictDot(ref info);
+                        //InflictDotInfo info = new InflictDotInfo();
+                        //info.attackerObject = characterBody.gameObject;
+                        //info.victimObject = hitInfo.hitHurtBox.healthComponent.body.gameObject;
+                        //info.duration = 5.0f;
+                        //info.damageMultiplier = 1.0f;
+                        //info.dotIndex = DotController.DotIndex.Burn;
+                        //RoR2.StrengthenBurnUtils.CheckDotForUpgrade(characterBody.inventory, ref info);
+                        //DotController.InflictDot(ref info);
+
+                        new FlamethrowerDotNetworkRequest(
+                            characterBody.master.netId, 
+                            hitInfo.hitHurtBox.healthComponent.body.master.netId, 
+                            5f)
+                            .Send(R2API.Networking.NetworkDestination.Clients);
                         return true;
                     }
                 }
