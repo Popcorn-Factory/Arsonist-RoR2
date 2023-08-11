@@ -283,21 +283,22 @@ namespace ArsonistMod.Content.Controllers
             // Self inflict damage 
             if (selfDamageStopwatch >= Modules.StaticValues.masochismBasePulseSelfDamageTimer) 
             {
-                healthComponent.TakeDamage(new DamageInfo
-                {
-                    damage = healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage,
-                    crit = false,
-                    inflictor = null,
-                    attacker = this.gameObject,
-                    position = gameObject.transform.position,
-                    force = Vector3.zero,
-                    rejected = false,
-                    procChainMask = new ProcChainMask(),
-                    damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT,
-                    damageColorIndex = DamageColorIndex.Bleed,
-                    canRejectForce = false
-                });
-                selfDamageStopwatch = 0f;
+                new TakeDamageNetworkRequest(characterBody.master.netId, characterBody.master.netId, healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage, false, true, false).Send(NetworkDestination.Clients);
+                //healthComponent.TakeDamage(new DamageInfo
+                //{
+                //    damage = healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage,
+                //    crit = false,
+                //    inflictor = null,
+                //    attacker = this.gameObject,
+                //    position = gameObject.transform.position,
+                //    force = Vector3.zero,
+                //    rejected = false,
+                //    procChainMask = new ProcChainMask(),
+                //    damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT,
+                //    damageColorIndex = DamageColorIndex.Bleed,
+                //    canRejectForce = false
+                //});
+                //selfDamageStopwatch = 0f;
             }
 
             // Accumulate heat over time
@@ -317,7 +318,10 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
-            cameraTargetParams.RemoveParamsOverride(handle);
+            if (characterBody.hasEffectiveAuthority) 
+            {
+                cameraTargetParams.RemoveParamsOverride(handle);
+            }
 
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
@@ -385,18 +389,21 @@ namespace ArsonistMod.Content.Controllers
             masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
 
             //Set FOV to a multiplier amount for the duration of Maso
-            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-            cameraParamsData.fov = arsonistCon.cameraRigController.baseFov * Modules.StaticValues.masochismFOVHoldPosition;
 
-            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+
+
+            if (characterBody.hasEffectiveAuthority) 
             {
-                cameraParamsData = cameraParamsData,
-                priority = 0,
+                CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                cameraParamsData.fov = arsonistCon.cameraRigController.baseFov * Modules.StaticValues.masochismFOVHoldPosition;
 
-            };
-
-
-            handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
+                CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+                {
+                    cameraParamsData = cameraParamsData,
+                    priority = 0,
+                };
+                handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
+            }
         }
 
         public void MasochismBuffApplication()

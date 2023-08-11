@@ -35,7 +35,7 @@ namespace ArsonistMod.SkillStates
             arsonistCon = gameObject.GetComponent<ArsonistController>();
             duration = baseDuration;
 
-            if (arsonistCon.cameraRigController) 
+            if (arsonistCon.cameraRigController)
             {
                 originalFOV = arsonistCon.cameraRigController.baseFov;
                 targetFOV = originalFOV * multiplier;
@@ -51,7 +51,11 @@ namespace ArsonistMod.SkillStates
 
             };
 
-            handle = ctp.AddParamsOverride(request, baseDuration * baseActivationTime);
+            if (base.isAuthority) 
+            {
+                handle = ctp.AddParamsOverride(request, baseDuration * baseActivationTime);
+
+            }
 
             if (maso)
             {
