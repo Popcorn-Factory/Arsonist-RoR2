@@ -298,7 +298,7 @@ namespace ArsonistMod.Content.Controllers
                 //    damageColorIndex = DamageColorIndex.Bleed,
                 //    canRejectForce = false
                 //});
-                //selfDamageStopwatch = 0f;
+                selfDamageStopwatch = 0f;
             }
 
             // Accumulate heat over time
