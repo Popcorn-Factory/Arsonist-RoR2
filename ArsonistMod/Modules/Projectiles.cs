@@ -184,7 +184,7 @@ namespace ArsonistMod.Modules
             strongFlareController.rigidbody.useGravity = false;
             strongFlareController.procCoefficient = 1f;
             strongFlareController.flightSoundLoop = ScriptableObject.CreateInstance<LoopSoundDef>();
-            strongFlareController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile _Travel";
+            strongFlareController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile_Travel";
             strongFlareController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
 
             GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
