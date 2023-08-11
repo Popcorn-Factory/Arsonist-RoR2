@@ -106,7 +106,6 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             else
             {
                 Destroy(effectObj);
-                Destroy(this);
             }
 
         }
