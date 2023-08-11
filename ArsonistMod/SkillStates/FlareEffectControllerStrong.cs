@@ -7,6 +7,7 @@ using RoR2;
 using RoR2.Projectile;
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace ArsonistMod.SkillStates.Arsonist.Secondary
 {
@@ -49,7 +50,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         {
             if (charbody) 
             {
-                if (arsonistBody.hasEffectiveAuthority)
+                if (NetworkServer.active)
                 {
                     if (timer > Modules.StaticValues.flareInterval)
                     {
@@ -138,7 +139,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         {
             //On hit, we want to spawn x amount more bombs up to 10 based on attackspeed
             
-            if (arsonistBody && arsonistBody.hasEffectiveAuthority)
+            if (NetworkServer.active)
             {
                 int childAmount = Modules.Config.flareSalvoAmount.Value;
 
