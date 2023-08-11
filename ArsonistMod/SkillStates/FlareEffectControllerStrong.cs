@@ -49,16 +49,12 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         {
             if (charbody) 
             {
-                Chat.AddMessage("CharBody Check");
                 if (arsonistBody.hasEffectiveAuthority)
                 {
-                    Chat.AddMessage("arsonistbody Check");
                     if (timer > Modules.StaticValues.flareInterval)
                     {
-                        Chat.AddMessage("Flare interval Check");
                         if (timesFired < Modules.StaticValues.flareTickNum)
                         {
-                            Chat.AddMessage("flare tick Check");
                             timesFired++;
                             timer = 0;
                             new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum, true).Send(NetworkDestination.Clients);
@@ -68,7 +64,6 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                         }
                         else
                         {
-                            Chat.AddMessage("exit Check");
                             hasFired = true;
                             FireExplosion();
                             EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
@@ -184,7 +179,6 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         private void OnDestroy()
         {
-            Chat.AddMessage("destroy Check");
             AkSoundEngine.StopPlayingID(burningSound);
             if (!hasFired && charbody.hasEffectiveAuthority) { FireExplosion(); }
             Destroy(effectObj);
