@@ -22,6 +22,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1840962711	Arsonist_Masochism			\Default Work Unit\Arsonist_Masochism	
 	1845947419	Arsonist_Neomasochism_Start_Laugh_Firebug			\Default Work Unit\Arsonist_Neomasochism_Start_Laugh_Firebug	
 	1924783034	Arsonist_Cleanse			\Default Work Unit\Arsonist_Cleanse	
+	2176930590	Arsonist_Stop_All_Sounds			\Default Work Unit\Arsonist_Stop_All_Sounds	
 	2300744954	Arsonist_Primary_Fire_Overheated			\Default Work Unit\Arsonist_Primary_Fire_Overheated	
 	2517450375	Arsonist_Secondary_Flare_Punch_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Explosion	
 	2615494976	Arsonist_Primary_Fire_Travel_Stop			\Default Work Unit\Arsonist_Primary_Fire_Travel_Stop	

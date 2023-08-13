@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="3454236267">
+		<SoundBank Id="1110381487" Language="SFX" Hash="2034327854">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -335,6 +335,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2176930590" Name="Arsonist_Stop_All_Sounds" ObjectPath="\Events\Default Work Unit\Arsonist_Stop_All_Sounds"/>
 				<Event Id="1135082308" Name="Arsonist_Stop_ZPB_Fluff" ObjectPath="\Events\Default Work Unit\Arsonist_Stop_ZPB_Fluff"/>
 				<Event Id="1486446844" Name="Arsonist_ZPB_Contact" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact">
 					<IncludedMemoryFiles>
