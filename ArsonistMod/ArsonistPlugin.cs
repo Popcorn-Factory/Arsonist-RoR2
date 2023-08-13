@@ -99,6 +99,7 @@ namespace ArsonistMod
             NetworkingAPI.RegisterMessageType<TakeDamageNetworkRequest>();
             NetworkingAPI.RegisterMessageType<AttachFlareNetworkRequest>();
             NetworkingAPI.RegisterMessageType<FlamethrowerDotNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<ToggleMasochismEffectNetworkRequest>();
         }
 
         private void Hook()
