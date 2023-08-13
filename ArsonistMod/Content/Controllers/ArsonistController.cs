@@ -108,6 +108,21 @@ namespace ArsonistMod.Content.Controllers
 
         }
 
+        public void StopAllParticleEffects() 
+        {
+            steamParticle.Stop();
+            steamDownParticle.Stop();
+            fireBeam.Stop();
+            fireBeamForward.Stop();
+            weakFlamethrower.Stop();
+            flamethrower.Stop();
+            ringFire.Stop();
+            trailFire.Stop();
+            sparkParticle.Stop();
+            fingerFireParticle.Stop();
+            cleanseBlast.Stop();
+        }
+
         public void Hooks() 
         {
             On.RoR2.CameraRigController.Update += CameraRigController_Update;

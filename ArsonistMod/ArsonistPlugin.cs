@@ -108,12 +108,28 @@ namespace ArsonistMod
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
-
+            On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
         }
+
+        private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
+        {
+            orig(self);
+            // A lot of issues with effects and all. Let's get rid of all of the stuff when this character dies.
+            if (self.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+            {
+                Util.PlaySound("Arsonist_Stop_All_Sounds", self.gameObject);
+                ArsonistController arsonistCon = self.GetComponent<ArsonistController>();
+                if (arsonistCon) 
+                {
+                    arsonistCon.StopAllParticleEffects();
+                }
+            }
+        }
+
         private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
         {
             orig();

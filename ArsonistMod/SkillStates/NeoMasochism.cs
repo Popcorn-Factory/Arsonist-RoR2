@@ -72,27 +72,29 @@ namespace ArsonistMod.SkillStates
                 return;
             }
 
-            if (!Modules.Config.shouldHaveVoice.Value)
+            if (base.isAuthority) 
             {
-                new PlaySoundNetworkRequest(characterBody.netId, 955478894).Send(R2API.Networking.NetworkDestination.Clients);
-            }
-            else
-            {
-                uint soundStr;
-                if (base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex)
+                if (!Modules.Config.shouldHaveVoice.Value)
                 {
-                    soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1845947419; //Nonlaugh : laugh
+                    new PlaySoundNetworkRequest(characterBody.netId, 955478894).Send(R2API.Networking.NetworkDestination.Clients);
                 }
-                else 
+                else
                 {
-                    //Determine if they have a buff and play a non-laughing version if so.
-                    soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1305067912; //Nonlaugh : laugh
+                    uint soundStr;
+                    if (base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex)
+                    {
+                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1845947419; //Nonlaugh : laugh
+                    }
+                    else
+                    {
+                        //Determine if they have a buff and play a non-laughing version if so.
+                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1305067912; //Nonlaugh : laugh
+                    }
+
+
+                    new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(NetworkDestination.Clients);
                 }
-
-
-                new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(NetworkDestination.Clients);
             }
-
         }
 
         public override void OnExit()
