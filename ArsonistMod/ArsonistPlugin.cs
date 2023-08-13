@@ -100,6 +100,7 @@ namespace ArsonistMod
             NetworkingAPI.RegisterMessageType<AttachFlareNetworkRequest>();
             NetworkingAPI.RegisterMessageType<FlamethrowerDotNetworkRequest>();
             NetworkingAPI.RegisterMessageType<ToggleMasochismEffectNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<KillAllEffectsNetworkRequest>();
         }
 
         private void Hook()
@@ -122,12 +123,10 @@ namespace ArsonistMod
             // A lot of issues with effects and all. Let's get rid of all of the stuff when this character dies.
             if (self.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
             {
-                Util.PlaySound("Arsonist_Stop_All_Sounds", self.gameObject);
-                ArsonistController arsonistCon = self.GetComponent<ArsonistController>();
-                if (arsonistCon) 
-                {
-                    arsonistCon.StopAllParticleEffects();
-                }
+                //Stop all sounds, Stop all Particle effects and stop masochism sphere.
+                new PlaySoundNetworkRequest(self.netId, (uint)2176930590).Send(NetworkDestination.Clients);
+                new KillAllEffectsNetworkRequest(self.netId).Send(NetworkDestination.Clients);
+                new ToggleMasochismEffectNetworkRequest(self.netId, false).Send(NetworkDestination.Clients);
             }
         }
 

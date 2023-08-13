@@ -76,6 +76,7 @@ namespace ArsonistMod.Content.Controllers
             pulseEffect = masochismRangeIndicator.transform.GetChild(0);
 
             masochismRangeIndicator.SetActive(false);
+            new ToggleMasochismEffectNetworkRequest(characterBody.netId, false).Send(NetworkDestination.Clients);
 
             Hook();
 
@@ -211,7 +212,7 @@ namespace ArsonistMod.Content.Controllers
         public void Update()
         {
             //update the indicator if active
-            if (masochismActive)
+            if (masochismActive || !characterBody.hasEffectiveAuthority)
             {
                 //Slowly ramp up size for the first second.
                 float rampMultiplier = 1f;
