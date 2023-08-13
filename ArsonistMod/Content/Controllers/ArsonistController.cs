@@ -110,18 +110,21 @@ namespace ArsonistMod.Content.Controllers
 
         public void Hooks() 
         {
-            On.RoR2.CameraRigController.OnEnable += CameraRigController_OnEnable;
+            On.RoR2.CameraRigController.Update += CameraRigController_Update;
         }
 
         public void Unhook() 
         {
-            On.RoR2.CameraRigController.OnEnable -= CameraRigController_OnEnable;
+            On.RoR2.CameraRigController.Update -= CameraRigController_Update;
         }
 
-        void CameraRigController_OnEnable(On.RoR2.CameraRigController.orig_OnEnable orig, CameraRigController self)
+        void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, CameraRigController self)
         {
             orig(self);
-            cameraRigController = self;
+            if (!cameraRigController) 
+            {
+                cameraRigController = self;
+            }
         }
 
         // Update is called once per frame
