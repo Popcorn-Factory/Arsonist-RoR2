@@ -21,7 +21,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Increased Base damage stat from 8 -> 12
     - Core Skill Changes
         - Passive
-            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more damage.
+            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more of your total health.
             - Arsonist has resistance to fire damage from all sources
         - Gauge Changes are moved to a passive skill slot
             - All Gauges:
@@ -48,6 +48,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Due to the destructive nature of this upgrade, the cooldown has been increased.
                 - Changed the SFX to contain a sizzling and a proper explosion.
                 - Should inflict ignite on the final explosion. This is affected by ignition tank.
+                - Upgraded VFX 
             - Zero Point Blast
                 - Increased the volume of the SFX played on start.
                 - Slightly changed the VFX.
@@ -74,6 +75,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Added checks to prevent position count from setting count to a negative value.
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
         - Added some mitigations on UI to prevent hooks from breaking
+        - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended.
     
 ## Trailer
 <div>
@@ -211,9 +213,9 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
   - <a href="https://twitter.com/Alycoris">Alycoris</a> -> Firebug VA
 - 3D Modelling, Rigging, Animation:
   - dotflare#7898
-- Programming - Popcorn Factory team:
-  - Ethanol 10#6656
-  - TeaL#5571
-  - BokChoyWithSoy#3842
+- Programming - Popcorn Factory team (Contact on Discord):
+  - ethanol10
+  - teal5571
+  - bokchoywithsoy
 - Miscellaneous
   - Rob - Character template
