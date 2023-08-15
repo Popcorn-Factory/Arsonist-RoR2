@@ -7,6 +7,7 @@ using RoR2;
 using RoR2.Projectile;
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace ArsonistMod.SkillStates.Arsonist.Secondary
 {
@@ -47,24 +48,50 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         void FixedUpdate()
         {
-            if (charbody.hasEffectiveAuthority)
+            if (charbody) 
             {
-
-                if (timer > Modules.StaticValues.flareInterval)
+                if (NetworkServer.active)
                 {
-                    if (timesFired < Modules.StaticValues.flareTickNum)
+                    if (timer > Modules.StaticValues.flareInterval)
                     {
-                        timesFired++;
-                        timer = 0;
-                        new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum, true).Send(NetworkDestination.Clients);
+                        if (timesFired < Modules.StaticValues.flareTickNum)
+                        {
+                            timesFired++;
+                            timer = 0;
+                            new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum, true).Send(NetworkDestination.Clients);
 
 
-                        new PlaySoundNetworkRequest(charbody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                            new PlaySoundNetworkRequest(charbody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                        }
+                        else
+                        {
+                            hasFired = true;
+                            FireExplosion();
+                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            {
+                                origin = charbody.transform.position,
+                                scale = StaticValues.flareBlastRadius,
+                                rotation = new Quaternion(0, 0, 0, 0)
+                            }, true);
+                            Destroy(this);
+                            Destroy(effectObj);
+                        }
                     }
                     else
                     {
-                        hasFired = true;
-                        FireExplosion();
+                        timer += Time.fixedDeltaTime;
+                    }
+
+                }
+                else
+                {
+                    //Keep track of timing and despawn whenever it runs out.
+                    if (timer > Modules.StaticValues.flareInterval * Modules.StaticValues.flareTickNum)
+                    {
+                        timer += Time.fixedDeltaTime;
+                    }
+                    else 
+                    {
                         EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                         {
                             origin = charbody.transform.position,
@@ -75,13 +102,8 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                         Destroy(effectObj);
                     }
                 }
-                else
-                {
-                    timer += Time.fixedDeltaTime;
-                }
-
             }
-            else if (!charbody)
+            else
             {
                 Destroy(effectObj);
             }
@@ -117,7 +139,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         {
             //On hit, we want to spawn x amount more bombs up to 10 based on attackspeed
             
-            if (arsonistBody && arsonistBody.hasEffectiveAuthority)
+            if (NetworkServer.active)
             {
                 int childAmount = Modules.Config.flareSalvoAmount.Value;
 
@@ -159,7 +181,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         private void OnDestroy()
         {
             AkSoundEngine.StopPlayingID(burningSound);
-            if (!hasFired) { FireExplosion(); }
+            if (!hasFired && charbody.hasEffectiveAuthority) { FireExplosion(); }
             Destroy(effectObj);
         }
     }

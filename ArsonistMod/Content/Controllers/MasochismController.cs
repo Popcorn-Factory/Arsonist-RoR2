@@ -37,7 +37,7 @@ namespace ArsonistMod.Content.Controllers
         //Temp: Masochism range Indicator.
         public GameObject masochismRangeIndicator;
         public ParticleSystem masochismEffect;
-        public Transform pulseEffect; 
+        public Transform pulseEffect;
 
         //Actual Masochism Attacks
         public float damageOverTimeStopwatch;
@@ -76,6 +76,7 @@ namespace ArsonistMod.Content.Controllers
             pulseEffect = masochismRangeIndicator.transform.GetChild(0);
 
             masochismRangeIndicator.SetActive(false);
+            new ToggleMasochismEffectNetworkRequest(characterBody.netId, false).Send(NetworkDestination.Clients);
 
             Hook();
 
@@ -95,9 +96,9 @@ namespace ArsonistMod.Content.Controllers
                 canRejectForce = false,
                 procCoefficient = 0.4f
             };
-            
+
             //Final blast
-            finalBlastAttack = new BlastAttack 
+            finalBlastAttack = new BlastAttack
             {
                 attacker = this.gameObject,
                 inflictor = null,
@@ -116,7 +117,7 @@ namespace ArsonistMod.Content.Controllers
             arsonistCon = gameObject.GetComponent<ArsonistController>();
         }
 
-        public void Hook() 
+        public void Hook()
         {
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
@@ -160,7 +161,7 @@ namespace ArsonistMod.Content.Controllers
                     #region Neo-masochism
 
                     // Arsonist will heal from damage dealt
-                    if (damageInfo.attacker) 
+                    if (damageInfo.attacker)
                     {
                         CharacterBody attackerCharacterBody = damageInfo.attacker.GetComponent<CharacterBody>();
                         if (attackerCharacterBody)
@@ -179,7 +180,7 @@ namespace ArsonistMod.Content.Controllers
             orig(self, damageInfo);
         }
 
-        public void Unhook() 
+        public void Unhook()
         {
             On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
             On.RoR2.CharacterBody.RecalculateStats -= CharacterBody_RecalculateStats;
@@ -187,9 +188,9 @@ namespace ArsonistMod.Content.Controllers
 
 
 
-        public void FixedUpdate() 
+        public void FixedUpdate()
         {
-            if (characterBody.hasEffectiveAuthority) 
+            if (characterBody.hasEffectiveAuthority)
             {
                 MasochismBuffApplication();
                 DetermineMasoActivateable();
@@ -200,26 +201,26 @@ namespace ArsonistMod.Content.Controllers
                 {
                     RunMasochismLoop();
                 }
-                else 
+                else
                 {
-                    DisableMasochism();            
+                    DisableMasochism();
                 }
             }
-        
+
         }
 
-        public void Update() 
+        public void Update()
         {
             //update the indicator if active
-            if (masochismActive) 
+            if (masochismActive || !characterBody.hasEffectiveAuthority)
             {
                 //Slowly ramp up size for the first second.
                 float rampMultiplier = 1f;
-                if (masoRecentlyActivated) 
+                if (masoRecentlyActivated)
                 {
                     masoRadiusStopwatch += Time.deltaTime;
                     rampMultiplier = Mathf.Clamp01(Mathf.Lerp(0f, 1f, masoRadiusStopwatch / masoRadiusRampUpTime));
-                    if (masoRadiusStopwatch >= masoRadiusRampUpTime) 
+                    if (masoRadiusStopwatch >= masoRadiusRampUpTime)
                     {
                         rampMultiplier = 1f;
                         masoRecentlyActivated = false;
@@ -232,7 +233,15 @@ namespace ArsonistMod.Content.Controllers
                 masochismRangeIndicator.transform.position = this.gameObject.transform.position;
                 pulseEffect.localScale = Vector3.one * Modules.StaticValues.masochismPulseRadius * radMultiplier * rampMultiplier;
             }
-            
+
+        }
+
+        public void ToggleMasochismRangeIndicator(bool value) 
+        {
+            if (masochismRangeIndicator) 
+            {
+                masochismRangeIndicator.SetActive(value);
+            }
         }
 
         public void DisableMasochism() 
@@ -241,6 +250,7 @@ namespace ArsonistMod.Content.Controllers
             {
 
                 masochismRangeIndicator.SetActive(false);
+                new ToggleMasochismEffectNetworkRequest(characterBody.netId, false).Send(NetworkDestination.Clients);
                 //Remove the buff if they're not overheated.
                 if (!energySystem.ifOverheatMaxed) 
                 {
@@ -257,6 +267,7 @@ namespace ArsonistMod.Content.Controllers
             //Apply buff
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
             masochismRangeIndicator.SetActive(true);
+            new ToggleMasochismEffectNetworkRequest(characterBody.netId, true).Send(NetworkDestination.Clients);
 
             damageOverTimeStopwatch += Time.fixedDeltaTime;
             selfDamageStopwatch += Time.fixedDeltaTime;
@@ -283,20 +294,21 @@ namespace ArsonistMod.Content.Controllers
             // Self inflict damage 
             if (selfDamageStopwatch >= Modules.StaticValues.masochismBasePulseSelfDamageTimer) 
             {
-                healthComponent.TakeDamage(new DamageInfo
-                {
-                    damage = healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage,
-                    crit = false,
-                    inflictor = null,
-                    attacker = this.gameObject,
-                    position = gameObject.transform.position,
-                    force = Vector3.zero,
-                    rejected = false,
-                    procChainMask = new ProcChainMask(),
-                    damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT,
-                    damageColorIndex = DamageColorIndex.Bleed,
-                    canRejectForce = false
-                });
+                new TakeDamageNetworkRequest(characterBody.master.netId, characterBody.master.netId, healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage, false, true, false).Send(NetworkDestination.Clients);
+                //healthComponent.TakeDamage(new DamageInfo
+                //{
+                //    damage = healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage,
+                //    crit = false,
+                //    inflictor = null,
+                //    attacker = this.gameObject,
+                //    position = gameObject.transform.position,
+                //    force = Vector3.zero,
+                //    rejected = false,
+                //    procChainMask = new ProcChainMask(),
+                //    damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT,
+                //    damageColorIndex = DamageColorIndex.Bleed,
+                //    canRejectForce = false
+                //});
                 selfDamageStopwatch = 0f;
             }
 
@@ -317,7 +329,10 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
-            cameraTargetParams.RemoveParamsOverride(handle);
+            if (characterBody.hasEffectiveAuthority) 
+            {
+                cameraTargetParams.RemoveParamsOverride(handle);
+            }
 
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
@@ -385,18 +400,21 @@ namespace ArsonistMod.Content.Controllers
             masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
 
             //Set FOV to a multiplier amount for the duration of Maso
-            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-            cameraParamsData.fov = arsonistCon.cameraRigController.baseFov * Modules.StaticValues.masochismFOVHoldPosition;
 
-            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+
+
+            if (characterBody.hasEffectiveAuthority) 
             {
-                cameraParamsData = cameraParamsData,
-                priority = 0,
+                CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                cameraParamsData.fov = arsonistCon.cameraRigController.baseFov * Modules.StaticValues.masochismFOVHoldPosition;
 
-            };
-
-
-            handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
+                CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+                {
+                    cameraParamsData = cameraParamsData,
+                    priority = 0,
+                };
+                handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
+            }
         }
 
         public void MasochismBuffApplication()

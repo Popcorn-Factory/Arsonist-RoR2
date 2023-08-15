@@ -44,23 +44,50 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         void FixedUpdate()
         {
-            if (charbody.hasEffectiveAuthority)
+            if (charbody)
             {
-
-                if (timer > Modules.StaticValues.flareInterval)
+                if (arsonistBody.hasEffectiveAuthority)
                 {
-                    if (timesFired < Modules.StaticValues.flareTickNum)
+
+                    if (timer > Modules.StaticValues.flareInterval)
                     {
-                        timesFired++;
-                        timer = 0;
-                        new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum, true).Send(NetworkDestination.Clients);
+                        if (timesFired < Modules.StaticValues.flareTickNum)
+                        {
+                            timesFired++;
+                            timer = 0;
+                            new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum, true).Send(NetworkDestination.Clients);
 
 
-                        new PlaySoundNetworkRequest(charbody.masterObjectId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                            new PlaySoundNetworkRequest(charbody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                        }
+                        else
+                        {
+                            FireExplosion();
+                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            {
+                                origin = charbody.transform.position,
+                                scale = StaticValues.flareBlastRadius,
+                                rotation = new Quaternion(0, 0, 0, 0)
+                            }, true);
+                            Destroy(this);
+                            Destroy(effectObj);
+                        }
                     }
                     else
                     {
-                        FireExplosion();
+                        timer += Time.fixedDeltaTime;
+                    }
+
+                }
+                else
+                {
+                    //Keep track of timing and despawn whenever it runs out.
+                    if (timer > Modules.StaticValues.flareInterval * Modules.StaticValues.flareTickNum)
+                    {
+                        timer += Time.fixedDeltaTime;
+                    }
+                    else
+                    {
                         EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                         {
                             origin = charbody.transform.position,
@@ -71,17 +98,12 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                         Destroy(effectObj);
                     }
                 }
-                else
-                {
-                    timer += Time.deltaTime;
-                }
-
             }
-            else if (!charbody)
+            else
             {
                 Destroy(effectObj);
+                Destroy(this);
             }
-
         }
 
 

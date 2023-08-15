@@ -108,20 +108,38 @@ namespace ArsonistMod.Content.Controllers
 
         }
 
+        public void StopAllParticleEffects() 
+        {
+            steamParticle.Stop();
+            steamDownParticle.Stop();
+            fireBeam.Stop();
+            fireBeamForward.Stop();
+            weakFlamethrower.Stop();
+            flamethrower.Stop();
+            ringFire.Stop();
+            trailFire.Stop();
+            sparkParticle.Stop();
+            fingerFireParticle.Stop();
+            cleanseBlast.Stop();
+        }
+
         public void Hooks() 
         {
-            On.RoR2.CameraRigController.OnEnable += CameraRigController_OnEnable;
+            On.RoR2.CameraRigController.Update += CameraRigController_Update;
         }
 
         public void Unhook() 
         {
-            On.RoR2.CameraRigController.OnEnable -= CameraRigController_OnEnable;
+            On.RoR2.CameraRigController.Update -= CameraRigController_Update;
         }
 
-        void CameraRigController_OnEnable(On.RoR2.CameraRigController.orig_OnEnable orig, CameraRigController self)
+        void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, CameraRigController self)
         {
             orig(self);
-            cameraRigController = self;
+            if (!cameraRigController) 
+            {
+                cameraRigController = self;
+            }
         }
 
         // Update is called once per frame
@@ -208,7 +226,7 @@ namespace ArsonistMod.Content.Controllers
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                 weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
 
-                if (!charBody.inputBank.skill1.down && playingFlamethrower) 
+                if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority) 
                 {
                     playingFlamethrower = false;
                     AkSoundEngine.StopPlayingID(flamethrowerPlayingID);

@@ -78,8 +78,17 @@ namespace ArsonistMod.SkillStates
                 isStrong = false;
 
             }
+
+            //This is so fucking stupid fuck fuck fucking goddamn it fuck
+            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            damageTypeComponent.Add(Damage.arsonistStickyDamageType);
+
+            DamageAPI.ModdedDamageTypeHolderComponent weakDamageTypeComponent = Projectiles.weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            weakDamageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
+
+
         }
-        
+
         //public void FireBullet()
         //{
         //    base.characterBody.AddSpreadBloom(1f);
@@ -121,9 +130,6 @@ namespace ArsonistMod.SkillStates
                 base.characterBody.AddSpreadBloom(1f);
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
-                DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-                damageTypeComponent.Add(Damage.arsonistStickyDamageType);
-
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.strongFlare, //prefab
                     aimRay.origin, //position
@@ -148,11 +154,8 @@ namespace ArsonistMod.SkillStates
                 base.characterBody.AddSpreadBloom(1f);
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
-                DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-                damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
-
                 ProjectileManager.instance.FireProjectile(
-                    Modules.Projectiles.strongFlare, //prefab
+                    Modules.Projectiles.weakFlare, //prefab
                     aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner

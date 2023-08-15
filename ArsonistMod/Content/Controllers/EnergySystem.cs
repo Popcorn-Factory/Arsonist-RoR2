@@ -110,6 +110,9 @@ namespace ArsonistMod.Content.Controllers
         //Masochism monitoring
         public MasochismController masoCon;
 
+        //Overheated?
+        public bool hasOverheatedThisStage = false;
+
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
@@ -121,6 +124,7 @@ namespace ArsonistMod.Content.Controllers
 
             enabledUI = false;
             isAcceleratedCooling = false;
+            hasOverheatedThisStage = false;
         }
 
         //reuse the segment making
@@ -578,6 +582,7 @@ namespace ArsonistMod.Content.Controllers
             {
                 currentOverheat = maxOverheat;
                 ifOverheatMaxed = true;
+                hasOverheatedThisStage = true;
                 characterBody.ApplyBuff(Modules.Buffs.overheatDebuff.buffIndex, 1, -1);
                 //Overheat Start sound
                 new PlaySoundNetworkRequest(characterBody.netId, 3152162514).Send(NetworkDestination.Clients);
@@ -683,12 +688,12 @@ namespace ArsonistMod.Content.Controllers
         public void Update()
         {
             //Update material for overheating tex
-            if (Modules.Assets.arsonistOverheatingMaterial) 
+            if (Modules.Assets.arsonistOverheatingMaterial && characterBody.hasEffectiveAuthority) 
             {
                 SetOverheatMaterialParameters();
             }
 
-            if (anim) 
+            if (anim && characterBody.hasEffectiveAuthority) 
             {
                 CheckAndSetOverheatingCanister();
             }

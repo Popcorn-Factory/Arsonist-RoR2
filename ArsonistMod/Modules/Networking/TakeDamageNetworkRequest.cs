@@ -15,6 +15,8 @@ namespace ArsonistMod.Modules.Networking
         NetworkInstanceId attackernetID;
         float health;
         bool burn;
+        bool selfMasoDmg;
+        bool crit;
 
         //Don't network these.
         GameObject bodyObj;
@@ -28,9 +30,31 @@ namespace ArsonistMod.Modules.Networking
         public TakeDamageNetworkRequest(NetworkInstanceId netID, NetworkInstanceId attackernetID, float health, bool burn)
         {
             this.netID = netID;
-            this.attackernetID= attackernetID;
+            this.attackernetID = attackernetID;
             this.health = health;
             this.burn = burn;
+            this.selfMasoDmg = false;
+            this.crit = true;
+        }
+
+        public TakeDamageNetworkRequest(NetworkInstanceId netID, NetworkInstanceId attackernetID, float health, bool burn, bool selfMasoDmg)
+        {
+            this.netID = netID;
+            this.attackernetID = attackernetID;
+            this.health = health;
+            this.burn = burn;
+            this.selfMasoDmg = selfMasoDmg;
+            this.crit = true;
+        }
+
+        public TakeDamageNetworkRequest(NetworkInstanceId netID, NetworkInstanceId attackernetID, float health, bool burn, bool selfMasoDmg, bool crit)
+        {
+            this.netID = netID;
+            this.attackernetID = attackernetID;
+            this.health = health;
+            this.burn = burn;
+            this.selfMasoDmg = selfMasoDmg;
+            this.crit = crit;
         }
 
         public void Deserialize(NetworkReader reader)
@@ -39,6 +63,8 @@ namespace ArsonistMod.Modules.Networking
             attackernetID = reader.ReadNetworkId();
             health = reader.ReadSingle();
             burn = reader.ReadBoolean();
+            selfMasoDmg = reader.ReadBoolean();
+            crit = reader.ReadBoolean();
         }
 
         public void Serialize(NetworkWriter writer)
@@ -47,6 +73,8 @@ namespace ArsonistMod.Modules.Networking
             writer.Write(attackernetID);
             writer.Write(health);
             writer.Write(burn);
+            writer.Write(selfMasoDmg);
+            writer.Write(crit);
         }
 
         public void OnReceived()
@@ -77,7 +105,7 @@ namespace ArsonistMod.Modules.Networking
                 damageInfo.position = charBody.transform.position;
                 damageInfo.force = Vector3.zero;
                 damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
-                damageInfo.crit = attackercharBody.RollCrit();
+                damageInfo.crit = crit ? attackercharBody.RollCrit() : false;
                 damageInfo.attacker = null;
                 damageInfo.inflictor = null;
                 damageInfo.damageType = DamageType.Generic;
@@ -87,6 +115,10 @@ namespace ArsonistMod.Modules.Networking
                 if (burn) 
                 {
                     damageInfo.damageType = DamageType.IgniteOnHit;
+                }
+                if (selfMasoDmg) 
+                {
+                    damageInfo.damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT;
                 }
                 charBody.healthComponent.TakeDamage(damageInfo);
             }

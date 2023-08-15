@@ -35,8 +35,8 @@ namespace ArsonistMod.Modules
             CreateArtificerFireBolt();
             AddProjectile(artificerFirebolt);
 
-            //CreateWeakFlare();
-            //AddProjectile(weakFlare);
+            CreateWeakFlare();
+            AddProjectile(weakFlare);
 
             CreateStrongFlare();
             AddProjectile(strongFlare);
@@ -188,8 +188,8 @@ namespace ArsonistMod.Modules
             strongFlareController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
 
             GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
-            ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
-            ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
+            //ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
+            //ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             strongFlareController.ghostPrefab = ghostPrefab;
 
             strongFlareController.startSound = "";
@@ -203,41 +203,97 @@ namespace ArsonistMod.Modules
         }
 
 
-        //private static void CreateWeakFlare()
-        //{
-        //    weakFlare = CloneProjectilePrefab("magefirebolt", "weakFlare");
+        private static void CreateWeakFlare()
+        {
+            weakFlare = CloneProjectilePrefab("LemurianBigFireball", "weakFlare");
+            //weakFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareShot");
 
-        //    ProjectileImpactExplosion weakFlareexplosion = weakFlare.GetComponent<ProjectileImpactExplosion>();
-            
-        //    InitializeImpactExplosion(weakFlareexplosion);
 
-        //    weakFlareexplosion.blastDamageCoefficient = 1f;
-        //    weakFlareexplosion.blastProcCoefficient = 1f;
-        //    weakFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
-        //    weakFlareexplosion.destroyOnEnemy = true;
-        //    weakFlareexplosion.lifetime = 5f;
-        //    weakFlareexplosion.impactEffect = Assets.explosionPrefab;
-        //    weakFlareexplosion.timerAfterImpact = true;
-        //    weakFlareexplosion.lifetimeAfterImpact = 3f;
+            //ProjectileDamage weakFlareDamage = weakFlare.GetComponent<ProjectileDamage>();
 
-        //    weakFlare.AddComponent<WeakFlareOnWorldHit>();
+            //if (!weakFlareDamage)
+            //{
+            //    weakFlareDamage = weakFlare.AddComponent<ProjectileDamage>();
 
-        //    DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-        //    damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
+            //}
+            //weakFlareDamage.damage = 1f;
+            //weakFlareDamage.damageType = DamageType.Generic;
+            Rigidbody weakFlareRigidbody = weakFlare.GetComponent<Rigidbody>();
+            if (!weakFlareRigidbody)
+            {
+                weakFlareRigidbody = weakFlare.AddComponent<Rigidbody>();
+            }
+            ProjectileImpactExplosion weakFlareexplosion = weakFlare.GetComponent<ProjectileImpactExplosion>();
+            if (!weakFlareexplosion)
+            {
+                weakFlareexplosion = weakFlare.AddComponent<ProjectileImpactExplosion>();
+            }
 
-        //    ProjectileController weakFlareFireboltController = weakFlare.GetComponent<ProjectileController>();
+            InitializeImpactExplosion(weakFlareexplosion);
 
-        //    weakFlareFireboltController.ghostPrefab = CreateGhostPrefab("flareShot", false);
-        //    weakFlareFireboltController.startSound = "";
+            weakFlareexplosion.blastDamageCoefficient = 1f;
+            weakFlareexplosion.blastProcCoefficient = 1f;
+            weakFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
+            weakFlareexplosion.destroyOnEnemy = true;
+            weakFlareexplosion.lifetime = 5f;
+            weakFlareexplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
+            weakFlareexplosion.impactEffect = Assets.elderlemurianexplosionEffect;
+            weakFlareexplosion.timerAfterImpact = true;
+            weakFlareexplosion.lifetimeAfterImpact = 3f;
 
-        //    SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
+            NetworkSoundEventDef soundEvent = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
+            soundEvent.akId = 3061346618;
+            soundEvent.eventName = "Arsonist_Secondary_Flare_Explosion";
+            Modules.Content.AddNetworkSoundEventDef(soundEvent);
 
-        //    if (collider)
-        //    {
-        //        collider.radius = 1.0f;
-        //    }
-        //    PrefabAPI.RegisterNetworkPrefab(weakFlare);
-        //}
+            weakFlareexplosion.lifetimeExpiredSound = soundEvent;
+
+            GameObject explosionEffect = weakFlareexplosion.impactEffect;
+            explosionEffect.name = "explosion_effect_flare_strong";
+            EffectComponent effect = explosionEffect.GetComponent<EffectComponent>();
+            effect.soundName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            //Make effectdef
+            EffectDef newEffectDef = new EffectDef();
+            newEffectDef.prefab = explosionEffect;
+            newEffectDef.prefabEffectComponent = explosionEffect.GetComponent<EffectComponent>();
+            newEffectDef.prefabName = explosionEffect.name;
+            newEffectDef.prefabVfxAttributes = explosionEffect.GetComponent<VFXAttributes>();
+            newEffectDef.spawnSoundEventName = "Arsonist_Secondary_Flare_Explosion_New";
+
+            Modules.Content.AddEffectDef(newEffectDef);
+
+            weakFlareexplosion.impactEffect = explosionEffect;
+
+
+            weakFlare.AddComponent<ZeroPointOnWorldHit>();
+
+
+            ProjectileController weakFlareController = weakFlare.GetComponent<ProjectileController>();
+            weakFlareController.rigidbody = weakFlareRigidbody;
+            weakFlareController.rigidbody.useGravity = false;
+            weakFlareController.procCoefficient = 1f;
+            weakFlareController.flightSoundLoop = ScriptableObject.CreateInstance<LoopSoundDef>();
+            weakFlareController.flightSoundLoop.startSoundName = "Arsonist_Secondary_Flare_Projectile_Travel";
+            weakFlareController.flightSoundLoop.stopSoundName = "Arsonist_Secondary_Flare_Projectile_Travel_Stop";
+
+            GameObject ghostPrefab = CreateGhostPrefab("flareShot", false);
+            //ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
+            //ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
+            weakFlareController.ghostPrefab = ghostPrefab;
+
+            weakFlareController.startSound = "";
+
+            SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
+
+            if (collider)
+            {
+                collider.radius = 1.2f;
+            }
+
+            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
+        }
 
         private static void CreateZeroPointBomb()
         {
@@ -570,6 +626,7 @@ namespace ArsonistMod.Modules
                         {
                             rigidbody.useGravity = false;
                             rigidbody.velocity = Vector3.zero;
+                            rigidbody.angularVelocity = Vector3.zero;
                         }
                     }
                 }
