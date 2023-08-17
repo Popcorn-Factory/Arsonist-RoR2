@@ -455,6 +455,7 @@ namespace ArsonistMod.Content.Controllers
         {
             Unhook();
             Destroy(masochismRangeIndicator);
+            new PlaySoundNetworkRequest(characterBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
         }
     }
 }

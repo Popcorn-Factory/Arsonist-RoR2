@@ -1,5 +1,6 @@
 ﻿using ArsonistMod.Modules.Networking;
 using ArsonistMod.SkillStates.EmoteStates;
+using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
 using System.Collections;
@@ -254,6 +255,8 @@ namespace ArsonistMod.Content.Controllers
         public void OnDestroy() 
         {
             Unhook();
+
+            new PlaySoundNetworkRequest(charBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
         }
     }
 }

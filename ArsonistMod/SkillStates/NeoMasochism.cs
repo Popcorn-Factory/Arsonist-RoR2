@@ -24,7 +24,7 @@ namespace ArsonistMod.SkillStates
         public float targetFOV;
         public float originalLerpTime;
         public static float tempLerpTime = 0.25f;
-        public float multiplier = 2f;
+        public float multiplier = 1.1f;
 
         private CameraTargetParams.CameraParamsOverrideHandle handle;
 

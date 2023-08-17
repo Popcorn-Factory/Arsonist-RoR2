@@ -957,6 +957,9 @@ namespace ArsonistMod.Content.Controllers
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
             On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+
+            new PlaySoundNetworkRequest(characterBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
+            AkSoundEngine.StopPlayingID(tickingSound);
         }
     }
 }
