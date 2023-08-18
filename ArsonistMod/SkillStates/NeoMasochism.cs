@@ -51,7 +51,7 @@ namespace ArsonistMod.SkillStates
 
             };
 
-            if (base.isAuthority) 
+            if (base.isAuthority && Modules.Config.ToggleMasochismFOVWarp.Value) 
             {
                 handle = ctp.AddParamsOverride(request, baseDuration * baseActivationTime);
 

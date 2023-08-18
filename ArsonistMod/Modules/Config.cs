@@ -34,6 +34,8 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<bool> cleanseRingFireEffectEnabled;
 
+        public static ConfigEntry<bool> ToggleMasochismFOVWarp;
+
         /*
          
         //passive onfire buff
@@ -159,6 +161,16 @@ namespace ArsonistMod.Modules
                 new ConfigDefinition("01 - Masochism", "Heal multiplication from damage during activation."),
                 0.1f,
                 new ConfigDescription("Determines how much should be healed from damage dealt during Masochism Active state.",
+                    null,
+                    Array.Empty<object>()
+                )
+            );
+
+            ToggleMasochismFOVWarp = ArsonistPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("01 - Masochism", "FOV can warp during Masochism"),
+                true,
+                new ConfigDescription("Determines if the FOV can change during the duration and startup of Masochism.",
                     null,
                     Array.Empty<object>()
                 )
@@ -378,6 +390,7 @@ namespace ArsonistMod.Modules
                 }));
 
             ModSettingsManager.AddOption(new CheckBoxOption(cleanseRingFireEffectEnabled));
+            ModSettingsManager.AddOption(new CheckBoxOption(ToggleMasochismFOVWarp));
         }
 
         // this helper automatically makes config entries for disabling survivors

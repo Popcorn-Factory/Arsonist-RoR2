@@ -329,7 +329,7 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
-            if (characterBody.hasEffectiveAuthority) 
+            if (characterBody.hasEffectiveAuthority && Modules.Config.ToggleMasochismFOVWarp.Value) 
             {
                 cameraTargetParams.RemoveParamsOverride(handle);
             }
@@ -403,7 +403,7 @@ namespace ArsonistMod.Content.Controllers
 
 
 
-            if (characterBody.hasEffectiveAuthority) 
+            if (characterBody.hasEffectiveAuthority && Modules.Config.ToggleMasochismFOVWarp.Value) 
             {
                 CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
                 cameraParamsData.fov = arsonistCon.cameraRigController.baseFov * Modules.StaticValues.masochismFOVHoldPosition;
