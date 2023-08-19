@@ -51,8 +51,8 @@ namespace ArsonistMod.Modules
         internal static float altFiresprayEnergyCost = 12f;
 
         //Flamethrower
-        internal static float flamethrowerStrongDamageCoefficient = 0.8f;
-        internal static float flamethrowerWeakDamageCoefficient = 0.6f;
+        internal static float flamethrowerStrongDamageCoefficient = 0.7f;
+        internal static float flamethrowerWeakDamageCoefficient = 0.65f;
         internal static float flamethrowerEnergyCost = 5f;
         internal static float flamethrowerFireChance = 10f; // number generated higher than this number guarantees fire damage. between 1-100
         internal static float flamethrowerRange = 25f;
@@ -68,7 +68,8 @@ namespace ArsonistMod.Modules
         //flaregun
         internal static float flareWeakDamageCoefficient = 2f;
         internal static float flareStrongDamageCoefficient = 4f;
-        internal static float flareBlastRadius = 4f;
+        internal static float flareBlastUntouched = 4f;
+        internal static float flareBlastRadius = 3f;
         internal static float flareHeatReductionMultiplier = 0.3f;
         internal static float flareSpeedCoefficient = 200f;
         internal static int flareTickNum = 5;
@@ -99,9 +100,9 @@ namespace ArsonistMod.Modules
         internal static float masochismSelfDamage = 0.03f;
         internal static float masochismEnergyIncreaseOverTimePercentage = 0.08f;
         internal static float masochismPulseRadius = 10f;
-        internal static float masochismPulseCoefficient = 0.5f;
-        internal static float masochismDamageBoost = 3f;
-        internal static float masochismFinalBlastCoefficient = 2f;
+        internal static float masochismPulseCoefficient = 0.4f;
+        internal static float masochismDamageBoost = 1.5f;
+        internal static float masochismFinalBlastCoefficient = 1.5f;
         internal static float masochismFinalBlastRadius = 12f;
         internal static float masochismDamageMultiplierPerStack = 1.5f;
         internal static float masochismMaxMultipliedRange = 3f;

@@ -17,14 +17,15 @@ namespace ArsonistMod.SkillStates
         public MasochismController maso;
         public ArsonistController arsonistCon;
         public float stopwatch;
-        public static float baseActivationTime = 0.47f;
-        public static float baseDuration = 5.02f;
+        public static float baseActivationTime = 0.16f;
+        public static float baseDuration = 3.1f;
         public float duration;
         public float originalFOV;
         public float targetFOV;
         public float originalLerpTime;
         public static float tempLerpTime = 0.25f;
         public float multiplier = 1.1f;
+        public EnergySystem energySystem;
 
         private CameraTargetParams.CameraParamsOverrideHandle handle;
 
@@ -33,7 +34,13 @@ namespace ArsonistMod.SkillStates
             base.OnEnter();
             maso = gameObject.GetComponent<MasochismController>();
             arsonistCon = gameObject.GetComponent<ArsonistController>();
+            energySystem = gameObject.GetComponent<EnergySystem>();
             duration = baseDuration;
+
+            if (energySystem) 
+            {
+                energySystem.SetCurrentHeatToLowerBound();
+            }
 
             if (arsonistCon.cameraRigController)
             {

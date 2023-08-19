@@ -159,7 +159,7 @@ namespace ArsonistMod.Modules
             masochismActiveMultipliedActive = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("01 - Masochism", "Heal multiplication from damage during activation."),
-                0.1f,
+                0.03f,
                 new ConfigDescription("Determines how much should be healed from damage dealt during Masochism Active state.",
                     null,
                     Array.Empty<object>()
@@ -222,14 +222,14 @@ namespace ArsonistMod.Modules
             baseGaugeLowerBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("04 - Gauge", "Base Gauge Lower Bound Cooling"),
-                0.8f,
+                0.7f,
                 new ConfigDescription("Determines how fast the cooling occurs at 0%. Scales upwards in a parabola.")
             );
 
             baseGaugeUpperBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("04 - Gauge", "Base Gauge Upper Bound Cooling"),
-                1.4f,
+                1.2f,
                 new ConfigDescription("Determines how fast the cooling occurs at 100%. Scales upwards in a parabola.")
             );
 

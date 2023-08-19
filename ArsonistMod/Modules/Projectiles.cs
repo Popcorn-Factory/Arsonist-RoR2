@@ -140,7 +140,7 @@ namespace ArsonistMod.Modules
 
             strongFlareexplosion.blastDamageCoefficient = 1f;
             strongFlareexplosion.blastProcCoefficient = 1f;
-            strongFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
+            strongFlareexplosion.blastRadius = StaticValues.flareBlastUntouched;
             strongFlareexplosion.destroyOnEnemy = true;
             strongFlareexplosion.lifetime = 5f;
             strongFlareexplosion.explosionEffect = Assets.elderlemurianexplosionEffect;

@@ -1541,8 +1541,9 @@
 									<ChildrenList>
 										<AudioFileSource Name="1_5__Start_with_and_without_laughter" ID="{C59388EC-71CE-4E1D-A695-41F44B43AAAB}">
 											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0"/>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.252135247723098"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="1.92253126388862"/>
 												<Property Name="TrimEnd" Type="Real64" Value="5.02631965298632"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -1607,8 +1608,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="1_5__Start_with_laughs_only" ID="{367492D5-49C5-4EFC-9CF9-8604A71BB6C3}">
 													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.219822788184008"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.116945789326742"/>
+														<Property Name="TrimBegin" Type="Real64" Value="2.00508871518395"/>
 														<Property Name="TrimEnd" Type="Real64" Value="6.59281887329508"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -1646,8 +1648,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="1_5__Start_with_and_without_laughter" ID="{AB6B3884-77C7-480F-9553-BBDB0721F1E7}">
 													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.1810775210119"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="25.5182382382382"/>
+														<Property Name="TrimBegin" Type="Real64" Value="27.5983540319538"/>
 														<Property Name="TrimEnd" Type="Real64" Value="32.4225234758568"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -1685,8 +1688,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="1_5__Start_with_and_without_laughter" ID="{54398A3E-970E-4015-BCE7-8D4BC0F0CAB2}">
 													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.160114245960756"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="16.9569245435912"/>
+														<Property Name="TrimBegin" Type="Real64" Value="19.0315276112846"/>
 														<Property Name="TrimEnd" Type="Real64" Value="23.1431641164975"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -1724,8 +1728,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="1_5__Start_with_and_without_laughter" ID="{8651E5C6-FD26-45A1-BBBC-B55188B53AE2}">
 													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.273879750530504"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="7.89850231183564"/>
+														<Property Name="TrimBegin" Type="Real64" Value="9.88245032691092"/>
 														<Property Name="TrimEnd" Type="Real64" Value="14.0295076028409"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -2194,7 +2199,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
 										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
@@ -2297,6 +2302,7 @@
 								<RandomSequenceContainer Name="10_1_Idle_Arsonist_Firebug" ID="{C72E67DA-74D3-4400-9662-B0EA53FAFF94}" ShortID="900032571">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
@@ -2439,8 +2445,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{18350838-418A-4256-A6C5-5474EE3E7445}">
 													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.183577879770777"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="1.93776650869154"/>
 														<Property Name="TrimEnd" Type="Real64" Value="5.92876254003549"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -2478,8 +2485,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{B72851E3-1BFA-4BD5-A902-FB0879974D82}">
 													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.183577879770777"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="7.92548045415067"/>
+														<Property Name="TrimBegin" Type="Real64" Value="9.94483713162922"/>
 														<Property Name="TrimEnd" Type="Real64" Value="13.9881741178962"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -2517,8 +2525,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="Firebug_R-Special_with_Laugh_TRUE" ID="{A5D62677-2372-4035-A497-C411FAAED1A2}">
 													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.203975421967531"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="15.8632357018308"/>
+														<Property Name="TrimBegin" Type="Real64" Value="17.9586195820427"/>
 														<Property Name="TrimEnd" Type="Real64" Value="22.6034071838852"/>
 													</PropertyList>
 													<Language>SFX</Language>

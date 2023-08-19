@@ -556,7 +556,6 @@ namespace ArsonistMod.Content.Controllers
                 if (passive.isBlueGauge())
                 {
                     LowerHeat(regenOverheat * Time.fixedDeltaTime);
-                    //currentOverheat -= regenOverheat * Time.fixedDeltaTime;
                 }
                 else 
                 {
@@ -574,7 +573,6 @@ namespace ArsonistMod.Content.Controllers
                     }
 
                     LowerHeat(regenOverheat * coolingRate * Time.fixedDeltaTime);
-                    //currentOverheat -= regenOverheat * coolingRate * Time.fixedDeltaTime;
                 }
             }
 
@@ -937,6 +935,12 @@ namespace ArsonistMod.Content.Controllers
             {
                 masoCon.heatChanged += realHeatGained;
             }
+        }
+
+        public void SetCurrentHeatToLowerBound() 
+        {
+            // Clear out heat but do not add to heat changed.
+            currentOverheat = lowerBound;
         }
 
         public void TriggerGlow(float newDecayTimer, float newFlashTimer, Color newStartingColor)
