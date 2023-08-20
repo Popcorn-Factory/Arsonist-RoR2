@@ -15,8 +15,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
 
 - 2.0.0
     - New Content:
-        - New Mastery Skin!
+        - Two new skins!
+            - Mastery - Yuppie
+            - Grandmastery - Firebug
         - New Primary! Read below for more info!
+        - Achievements for each new item
     - Stat Changes
         - Increased Base damage stat from 8 -> 12
     - Core Skill Changes

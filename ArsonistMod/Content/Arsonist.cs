@@ -17,8 +17,8 @@ namespace ArsonistMod.Modules.Survivors
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => ARSONIST_PREFIX;
 
-        public static int FirebugSkinIndex = 1;
-
+        public static int FirebugSkinIndex = 2;
+         
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
             bodyName = "ArsonistBody",
@@ -549,7 +549,67 @@ namespace ArsonistMod.Modules.Survivors
             skins.Add(defaultSkin);
             #endregion
 
-            //uncomment this when you have a mastery skin
+            #region Suit Skin
+
+            Material matSuitSkin = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+            Material matSuitSkinMetal = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            CharacterModel.RendererInfo[] suitArsonistRendererInfos = SkinRendererInfos(defaultRendererinfos, new Material[] {
+                matSuitSkin,
+                matSuitSkin,
+                matSuitSkinMetal,
+                matSuitSkinMetal,
+                matSuitSkinMetal,
+                matSuitSkinMetal,
+                matSuitSkinMetal,
+                null,
+                matSuitSkin
+            });
+            //creating a new skindef as we did before
+            SkinDef masterySkin = Modules.Skins.CreateSkinDef(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERY_SKIN_NAME",
+                Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery"),
+                suitArsonistRendererInfos,
+                model,
+                masterySkinUnlockableDef);
+
+            //adding the mesh replacements as above. 
+            //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
+            masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+                "SuitArsonist",
+                "SuitArsonist", //no armour mesh replacement. use same armour mesh
+                "SuitArsonistBoots",
+                "SuitArsonistCanister",
+                "SuitArsonistGloves",
+                "SuitArsonistHead",
+                "SuitArsonistWeapon",
+                "meshCylinder",
+                "SuitPyroRobe");
+
+            //masterySkin has a new set of RendererInfos (based on default rendererinfos)
+            //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
+            masterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+            masterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+            masterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            //masterySkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
+            masterySkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+
+            //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
+            //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
+            //{
+            //    new SkinDef.GameObjectActivation
+            //    {
+            //        gameObject = childLocator.FindChildGameObject("GunModel"),
+            //        shouldActivate = false,
+            //    }
+            //};
+            //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
+
+            skins.Add(masterySkin);
+            #endregion
+
             #region FirebugSkin
 
             Material matNeoArsonistMetal = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
@@ -620,15 +680,20 @@ namespace ArsonistMod.Modules.Survivors
             CharacterModel.RendererInfo[] newRendererInfos = new CharacterModel.RendererInfo[defaultRenderers.Length];
             defaultRenderers.CopyTo(newRendererInfos, 0);
 
-            newRendererInfos[0].defaultMaterial = materials[0];
-            newRendererInfos[1].defaultMaterial = materials[1];
-            newRendererInfos[2].defaultMaterial = materials[2];
-            newRendererInfos[3].defaultMaterial = materials[3];
-            newRendererInfos[4].defaultMaterial = materials[4];
-            newRendererInfos[5].defaultMaterial = materials[5];
-            newRendererInfos[6].defaultMaterial = materials[6];
-            newRendererInfos[7].defaultMaterial = materials[7];
-            newRendererInfos[8].defaultMaterial = materials[8];
+            for (int i = 0; i < materials.Length; i++) 
+            {
+                newRendererInfos[i].defaultMaterial = materials[i];
+            }
+
+            //newRendererInfos[0].defaultMaterial = materials[0];
+            //newRendererInfos[1].defaultMaterial = materials[1];
+            //newRendererInfos[2].defaultMaterial = materials[2];
+            //newRendererInfos[3].defaultMaterial = materials[3];
+            //newRendererInfos[4].defaultMaterial = materials[4];
+            //newRendererInfos[5].defaultMaterial = materials[5];
+            //newRendererInfos[6].defaultMaterial = materials[6];
+            //newRendererInfos[7].defaultMaterial = materials[7];
+            //newRendererInfos[8].defaultMaterial = materials[8];
 
 
             return newRendererInfos;

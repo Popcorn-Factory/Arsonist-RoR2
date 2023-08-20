@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3303087545
+CRC: 3006781526
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 79e885d91d0ebb6d38dc624e5cfc63a4
+    Hash: b60454c4375b9e9f17fbb7cbbefedee4
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -96,6 +96,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matArsonistOld.mat
 - Assets/ArsonistAssets/VFX/FistBarrageEffect.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Idle.anim
+- Assets/ArsonistAssets/Mesh/SuitArsonistBoots.mesh
 - Assets/ArsonistAssets/VFX/Textures/TXT_FIRE_01.png
 - Assets/ArsonistAssets/ArsonistDisplay.prefab
 - Assets/ArsonistAssets/Icons/texPassiveIcon.png
@@ -112,6 +113,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matSmoke.mat
 - Assets/ArsonistAssets/VFX/Materials/emissionSphereMat.mat
 - Assets/ArsonistAssets/Textures/NeoArsonistMetal_diffuse.png
+- Assets/ArsonistAssets/Mesh/SuitArsonist.mesh
 - Assets/ArsonistAssets/Mesh/meshArsonistCanister.mesh
 - Assets/ArsonistAssets/VFX/Textures/texSwingEffect.png
 - Assets/ArsonistAssets/Animation/maskAimYaw.mask
@@ -144,6 +146,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/Materials/matNeoArsonistMetal.mat
 - Assets/ArsonistAssets/VFX/Materials/IgnitionFlameParticle.mat
+- Assets/ArsonistAssets/Mesh/SuitArsonistHead.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch2.anim
 - Assets/ArsonistAssets/Animation/maskGesture.mask
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpact.mat
@@ -152,6 +155,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M3.anim
 - Assets/ArsonistAssets/Materials/GaugeMaterial.mat
 - Assets/ArsonistAssets/VFX/Flamethrower.prefab
+- Assets/ArsonistAssets/Textures/ArsonistSkinSuit_diffuse.png
 - Assets/ArsonistAssets/Icons/arsonistFlamethrower.png
 - Assets/ArsonistAssets/VFX/flareShot.prefab
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
@@ -159,6 +163,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/arsonistGrandmastery.png
 - Assets/ArsonistAssets/Materials/FlareRing.mat
 - Assets/ArsonistAssets/Mesh/NeoArsonistArmor.mesh
+- Assets/ArsonistAssets/Mesh/SuitPyroRobe.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
 - Assets/ArsonistAssets/Animation/clips/Idle.anim
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
@@ -167,6 +172,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Sprint.anim
 - Assets/ArsonistAssets/Materials/FireMaterial.mat
 - Assets/ArsonistAssets/VFX/FireballStrongProjectile.prefab
+- Assets/ArsonistAssets/Mesh/SuitArsonistWeapon.mesh
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/Shaders/FresnelLitToon.shader
@@ -176,8 +182,10 @@ Assets:
 - Assets/ArsonistAssets/Icons/texAlt1SecondaryIcon.png
 - Assets/ArsonistAssets/VFX/Materials/ringMat.mat
 - Assets/ArsonistAssets/Materials/Henry/matHenryAlt.mat
+- Assets/ArsonistAssets/Materials/matSuitArsonistMetal.mat
 - Assets/ArsonistAssets/Textures/firenoise.png
 - Assets/ArsonistAssets/Animation/clips/WalkF.anim
+- Assets/ArsonistAssets/Materials/matSuitArsonist.mat
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/ArsonistAssets/Materials/Henry/matDante.mat
 - Assets/ArsonistAssets/WeakFlare.prefab
@@ -207,6 +215,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Beam.prefab
 - Assets/ArsonistAssets/Animation/clips/ShootGun.anim
 - Assets/ArsonistAssets/Animation/clips/SprintF.anim
+- Assets/ArsonistAssets/Mesh/SuitArsonistCanister.mesh
 - Assets/ArsonistAssets/VFX/arsonistCustomUI.prefab
 - Assets/ArsonistAssets/Animation/maskAimPitch.mask
 - Assets/ArsonistAssets/Mesh/Torus.mesh
@@ -233,6 +242,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonist.mesh
 - Assets/ArsonistAssets/Icons/arsonistBlueGauge.png
 - Assets/ArsonistAssets/Animation/clips/RestIdle.anim
+- Assets/ArsonistAssets/Mesh/SuitArsonistGloves.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetal_normal.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyStart.anim
@@ -279,6 +289,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
 - Assets/ArsonistAssets/Materials/SolGate.mat
 - Assets/ArsonistAssets/Icons/arsonistMastery.png
+- Assets/ArsonistAssets/Textures/ArsonistMetalSkinSuit_diffuse.png
 - Assets/ArsonistAssets/VFX/Materials/matSlash.mat
 - Assets/ArsonistAssets/VFX/Materials/matDust.mat
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png
@@ -309,6 +320,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matBazooka.mat
 - Assets/ArsonistAssets/VFX/HenrySwordSwingEffect.prefab
 - Assets/ArsonistAssets/Textures/ArsonistCloth_mask.png
+- Assets/ArsonistAssets/Textures/ArsonistMetalSkinSuit_emission.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_OverHeat.anim
 - Assets/ArsonistAssets/VFX/FlamethrowerLight.prefab
 - Assets/ArsonistAssets/Icons/ArsonistIconUnlock.png
