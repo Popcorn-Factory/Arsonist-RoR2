@@ -159,7 +159,7 @@ namespace ArsonistMod.Modules
             masochismActiveMultipliedActive = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("01 - Masochism", "Heal multiplication from damage during activation."),
-                0.03f,
+                0.2f,
                 new ConfigDescription("Determines how much should be healed from damage dealt during Masochism Active state.",
                     null,
                     Array.Empty<object>()
