@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="2416670315">
+		<SoundBank Id="1110381487" Language="SFX" Hash="3766920199">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -149,19 +149,19 @@
 					<IncludedMemoryFiles>
 						<File Id="204044814" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_A05A77CF.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_4A89CC44.wem</Path>
 						</File>
 						<File Id="374438844" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_AF5F0B40.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_EBEFC517.wem</Path>
 						</File>
 						<File Id="659057600" Language="SFX">
 							<ShortName>1.5._Start_with_laughs_only.wav</ShortName>
-							<Path>SFX\1.5._Start_with_laughs_only_0AEDA757.wem</Path>
+							<Path>SFX\1.5._Start_with_laughs_only_7DF5D942.wem</Path>
 						</File>
 						<File Id="893652532" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_6C90824E.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_54537409.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -169,15 +169,15 @@
 					<IncludedMemoryFiles>
 						<File Id="9281638" Language="SFX">
 							<ShortName>Firebug_R-Special_with_Laugh_TRUE.wav</ShortName>
-							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_9F667389.wem</Path>
+							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_700BFD90.wem</Path>
 						</File>
 						<File Id="653710267" Language="SFX">
 							<ShortName>Firebug_R-Special_with_Laugh_TRUE.wav</ShortName>
-							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_4245775B.wem</Path>
+							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_F402358D.wem</Path>
 						</File>
 						<File Id="978958091" Language="SFX">
 							<ShortName>Firebug_R-Special_with_Laugh_TRUE.wav</ShortName>
-							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_A866908E.wem</Path>
+							<Path>SFX\Firebug_R-Special_with_Laugh_TRUE_D61109A3.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -185,7 +185,7 @@
 					<IncludedMemoryFiles>
 						<File Id="847565046" Language="SFX">
 							<ShortName>1.5._Start_with_and_without_laughter.wav</ShortName>
-							<Path>SFX\1.5._Start_with_and_without_laughter_9E1FE38D.wem</Path>
+							<Path>SFX\1.5._Start_with_and_without_laughter_D308EC19.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -231,9 +231,9 @@
 				</Event>
 				<Event Id="2300744954" Name="Arsonist_Primary_Fire_Overheated" ObjectPath="\Events\Default Work Unit\Arsonist_Primary_Fire_Overheated">
 					<IncludedMemoryFiles>
-						<File Id="330746847" Language="SFX">
-							<ShortName>2. Overheat.wav</ShortName>
-							<Path>SFX\2. Overheat_83C5A974.wem</Path>
+						<File Id="978651393" Language="SFX">
+							<ShortName>2._Overheat.wav</ShortName>
+							<Path>SFX\2._Overheat_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

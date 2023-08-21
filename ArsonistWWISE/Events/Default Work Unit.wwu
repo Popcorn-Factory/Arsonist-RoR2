@@ -19,7 +19,7 @@
 						<Action Name="" ID="{6BD09BB1-C08F-4A62-8878-039447256BD5}" ShortID="345545838">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="3_1_Primary_Fire_Overheated" ID="{27589A02-3946-4414-A184-2FC74459618A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="3_1_Primary_Fire_Overheated" ID="{B9803702-DFA6-4E1C-9DC1-4566162C9E4E}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
