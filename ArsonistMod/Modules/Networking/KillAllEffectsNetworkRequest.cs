@@ -14,25 +14,29 @@ namespace ArsonistMod.Modules.Networking
     {
         //Network these ones.
         NetworkInstanceId charnetID;
+        bool killMaso;
 
         public KillAllEffectsNetworkRequest()
         {
 
         }
 
-        public KillAllEffectsNetworkRequest(NetworkInstanceId charnetID)
+        public KillAllEffectsNetworkRequest(NetworkInstanceId charnetID, bool killMaso)
         {
             this.charnetID = charnetID;
+            this.killMaso = killMaso;
         }
 
         public void Deserialize(NetworkReader reader)
         {
             charnetID = reader.ReadNetworkId();
+            killMaso = reader.ReadBoolean();
         }
 
         public void Serialize(NetworkWriter writer)
         {
             writer.Write(charnetID);
+            writer.Write(killMaso);
         }
 
         public void OnReceived()
@@ -45,6 +49,15 @@ namespace ArsonistMod.Modules.Networking
                 if (controller) 
                 {
                     controller.StopAllParticleEffects();
+                }
+
+                MasochismController masoCon = body.GetComponent<MasochismController>();
+                if (masoCon && body.hasEffectiveAuthority && killMaso) 
+                {
+                    if (masoCon.masochismActive) 
+                    {
+                        masoCon.TriggerMasochismAndEXOverheat(false);
+                    }
                 }
             }
         }

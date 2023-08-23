@@ -67,14 +67,7 @@ namespace ArsonistMod.SkillStates
                     //new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
                 }
 
-                if(characterBody.GetComponent<ArsonistController>())
-                {
-                    ArsonistController arsonistController = characterBody.GetComponent<ArsonistController>();
-                    arsonistController.steamParticle.Play();
-                    arsonistController.ringFireActive = true;
-                    arsonistController.trailFire.Play();
-                    arsonistController.ringFire.Play();
-                }
+                new PlayCleanseBlastNetworkRequest(characterBody.netId, true).Send(NetworkDestination.Clients);
                 
 
                 //hop character to avoid fall damage if in air
@@ -92,6 +85,7 @@ namespace ArsonistMod.SkillStates
                 }, false);
 
 
+                characterBody.ApplyBuff(Modules.Buffs.cleanseSpeedBoost.buffIndex, 1, duration * 2.5f);
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
             {
@@ -102,23 +96,15 @@ namespace ArsonistMod.SkillStates
                 {
                     base.SmallHop(characterBody.characterMotor, 3f);
                 }
-
+                new PlayCleanseBlastNetworkRequest(characterBody.netId, false).Send(NetworkDestination.Clients);
                 //Accelerate cooling
                 energySystem.isAcceleratedCooling = true;
             }
 
             if (base.isAuthority) 
-            {
-                characterBody.ApplyBuff(Modules.Buffs.cleanseSpeedBoost.buffIndex, 1, duration * 2.5f);
-                
+            {   
                 new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
             }
-
-            if (arsonistController) 
-            {
-                arsonistController.cleanseBlast.Play();
-            }
-
         }
 
         public void ApplyBurn()

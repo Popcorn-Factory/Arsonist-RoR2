@@ -221,13 +221,13 @@ namespace ArsonistMod.Content.Controllers
             }
 
             //Check the Aim ray of the characterbody and aim the flamethrower in that direction.
-            if (flamethrowerSelected && flamethrowerTransform) 
+            if (flamethrowerSelected && flamethrowerTransform)
             {
                 Ray ray = charBody.inputBank.GetAimRay();
                 flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                 weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
 
-                if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority) 
+                if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority)
                 {
                     playingFlamethrower = false;
                     AkSoundEngine.StopPlayingID(flamethrowerPlayingID);
@@ -235,16 +235,16 @@ namespace ArsonistMod.Content.Controllers
                 }
             }
 
-            if (ringFireActive && Modules.Config.cleanseRingFireEffectEnabled.Value) 
+            if (ringFireActive && Modules.Config.cleanseRingFireEffectEnabled.Value)
             {
-                if (!charBody.HasBuff(Modules.Buffs.cleanseSpeedBoost)) 
-                { 
+                if (!charBody.HasBuff(Modules.Buffs.cleanseSpeedBoost))
+                {
                     ringFireActive = false;
                     trailFire.Stop();
                     ringFire.Stop();
                 }
             }
-            else if (!Modules.Config.cleanseRingFireEffectEnabled.Value) 
+            else if (!Modules.Config.cleanseRingFireEffectEnabled.Value)
             {
                 ringFireActive = false;
                 trailFire.Stop();

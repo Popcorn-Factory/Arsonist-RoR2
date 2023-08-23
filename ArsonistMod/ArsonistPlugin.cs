@@ -101,6 +101,7 @@ namespace ArsonistMod
             NetworkingAPI.RegisterMessageType<FlamethrowerDotNetworkRequest>();
             NetworkingAPI.RegisterMessageType<ToggleMasochismEffectNetworkRequest>();
             NetworkingAPI.RegisterMessageType<KillAllEffectsNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<PlayCleanseBlastNetworkRequest>();
         }
 
         private void Hook()
@@ -125,7 +126,7 @@ namespace ArsonistMod
             {
                 //Stop all sounds, Stop all Particle effects and stop masochism sphere.
                 new PlaySoundNetworkRequest(self.netId, (uint)2176930590).Send(NetworkDestination.Clients);
-                new KillAllEffectsNetworkRequest(self.netId).Send(NetworkDestination.Clients);
+                new KillAllEffectsNetworkRequest(self.netId, true).Send(NetworkDestination.Clients);
                 new ToggleMasochismEffectNetworkRequest(self.netId, false).Send(NetworkDestination.Clients);
             }
         }
