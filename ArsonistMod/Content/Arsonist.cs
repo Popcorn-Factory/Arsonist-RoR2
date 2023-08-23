@@ -351,7 +351,7 @@ namespace ArsonistMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Flare)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
-                baseRechargeInterval = 16f,
+                baseRechargeInterval = 14f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,

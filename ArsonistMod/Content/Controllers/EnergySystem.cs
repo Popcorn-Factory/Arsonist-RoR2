@@ -601,7 +601,14 @@ namespace ArsonistMod.Content.Controllers
                 }
                 else 
                 {
-                    energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                    if (characterBody.HasBuff(Modules.Buffs.masochismDeactivatedDebuff))
+                    {
+                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT: EX!" : $"{(int)currentOverheat} / {maxOverheat}");
+                    }
+                    else 
+                    {
+                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                    }
                 }
             }
 
