@@ -603,7 +603,7 @@ namespace ArsonistMod.Content.Controllers
                 {
                     if (characterBody.HasBuff(Modules.Buffs.masochismDeactivatedDebuff))
                     {
-                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT: EX!" : $"{(int)currentOverheat} / {maxOverheat}");
+                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT:EX!" : $"{(int)currentOverheat} / {maxOverheat}");
                     }
                     else 
                     {
@@ -796,8 +796,12 @@ namespace ArsonistMod.Content.Controllers
             int maxSegment = whiteSegment + blueSegment;
 
             int calculatedLastSegment = (int)((float)maxSegment * (float)(currentOverheat / maxOverheat));
+            if (calculatedLastSegment >= maxSegment) 
+            {
+                calculatedLastSegment = maxSegment;
+            }
             Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
-            Array.Copy(segmentList, proposedPositions, calculatedLastSegment); //Something is fishy here.
+            Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
 
             levelSegment.positionCount = proposedPositions.Length;
             levelSegment.SetPositions(proposedPositions);

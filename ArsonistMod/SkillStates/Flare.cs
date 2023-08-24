@@ -65,6 +65,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 energySystem.LowerHeat(energySystem.currentOverheat * StaticValues.flareHeatReductionMultiplier);
+                energySystem.hasOverheatedSecondary = false;
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
 
