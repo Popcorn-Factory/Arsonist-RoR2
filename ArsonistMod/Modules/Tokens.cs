@@ -42,7 +42,7 @@ namespace ArsonistMod.Modules
 
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "Pyromania");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Arsonist will convert 50% of total damage received as fire damage over time. Arsonist also has resistance to fire damage from all sources.");
+            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Arsonist will convert 50% of total damage received as fire damage over time (Does not affect Fall Damage unless Frailty is active). Arsonist also has resistance to fire damage from all sources.");
             //LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
 
             LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_NAME", "Normal Gauge");

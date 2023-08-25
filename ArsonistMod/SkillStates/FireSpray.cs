@@ -24,7 +24,7 @@ namespace ArsonistMod.SkillStates
         private float damageCoefficient = Modules.StaticValues.firesprayWeakDamageCoefficient;
         private float altDamageCoefficient = Modules.StaticValues.altFiresprayWeakDamageCoefficient;
         private float strongdamageCoefficient = Modules.StaticValues.firesprayStrongDamageCoefficient;
-        private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayWeakDamageCoefficient;
+        private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayStrongDamageCoefficient;
         public static float spreadBloomValue = 10f;
         private float force = 400f;
         private float strongforce = 1000f;
