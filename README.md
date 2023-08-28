@@ -6,10 +6,11 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 
 - Your attacks will be weaker when you’re overheating. If you’re in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration.
 - Zero-Point Blast’s distance correlates to movement speed.
-- Items such as Razorwire do not work with Cleanse when Masochism is active. Try finding other means of healing while Cleanse is active if you want to use it in a self-damage build.
+- Cleanse can be used to negate the fire damage received by Arsonist's passive.
+- Dragon's Fury's fire proc chance scales with your distance to the enemy, close the gap to deal more damage.
 
 Network Compatible! (Unless otherwise found not to be)
-For any issues or bug reports, contact me on the RoR2 Modding discord, or to me directly: @Ethanol 10#6656
+For any issues or bug reports, contact me on the RoR2 Modding discord (This preferrably, ping me.), or to me directly, also on discord: ethanol10
 
 ## Latest Update
 
@@ -61,7 +62,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
                 - Added speed boost on activation
                 - Should now apply Ignite correctly. Should be affected by Ignition tank.
                 - Added fire effect that emits off Arsonist for the duration of the move.
-                - Added VFX for Cleanse Blast.
+                - Added VFX for Cleanse Blast when not overheated.
         - Special
             - Masochism
                 - Builds up Anticipation stacks while not activated.
@@ -78,14 +79,24 @@ For any issues or bug reports, contact me on the RoR2 Modding discord, or to me 
         - Added checks to prevent position count from setting count to a negative value.
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
         - Added some mitigations on UI to prevent hooks from breaking
-        - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended.
+        - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended or when the player has died.
     
 ## Trailer
+<details open>
+<summary>v2.0 Trailer</summary>
+    <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
+        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
+    </a>
+</details>
+
+<details>
+<summary>v1.0 Trailer</summary>
 <div>
     <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
         <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
     </a>
 </div>
+</details>
 
 ## Screenshots
 <img src="https://media.discordapp.net/attachments/928130606662049892/1086175951932641340/image.png?width=1280&height=720">
@@ -104,6 +115,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - RiskOfOptions
 
 ## Skills
+#CHANGE LATER
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
 
 ## Other Mods by Popcorn Factory
@@ -207,6 +219,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - The UI Gauge is affected by the Guilded Coast water for some reason. Purely cosmetic, only affects how the UI is rendered.
 - If someone can tell me how to implement a rope affected by gravity between two fixed objects (gun and the backpack), I'd like some help.
 - Odd issues could possibly require a restart or file validation. Please try that and contact me (Ethanol 10) for bugs with a log file.
+- Some options do not do anything (I think), If it doesn't do anything immediately consider reverting that option to avoid unintended effects.
+    (One such option is the enableOldLoadout toggle, though I do believe this is disabled.)
  
 ## Credits
 - Concept, Icons, 2D Art, SFX, Voice talent:

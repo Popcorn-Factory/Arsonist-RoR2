@@ -127,7 +127,7 @@ namespace ArsonistMod.Modules.Survivors
             masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>(true);
             firebugSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse5Achievement>(true);
             arsonistUnlockable = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistUnlockable>(true);
-            pigSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse8Achievement>(true);
+            //pigSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse8Achievement>(true);
             flamethrowerUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistFlamethrowerUnlockable>(true);
         }
 
