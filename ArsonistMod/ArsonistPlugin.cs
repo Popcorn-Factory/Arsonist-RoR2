@@ -288,7 +288,7 @@ namespace ArsonistMod
                     //Receive damage, check if damage is not fire.
                     if (self.body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                     {
-                        if (damageInfo.damage > self.fullHealth * Modules.Config.passiveHealthPercentageTriggerIgnite.Value && (damageInfo.damageType == frailtyDamageType)) 
+                        if (damageInfo.damage > self.fullHealth * Modules.Config.passiveHealthPercentageTriggerIgnite.Value && (damageInfo.damageType != tempDamageType)) 
                         {
                             if (!dotCheck)
                             {
