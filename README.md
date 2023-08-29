@@ -25,7 +25,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
         - Increased Base damage stat from 8 -> 12
     - Core Skill Changes
         - Passive
-            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more of your total health.
+            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more of your total health (Does not apply to Fall Damage unless you are playing with Frailty enabled).
             - Arsonist has resistance to fire damage from all sources
         - Gauge Changes are moved to a passive skill slot
             - All Gauges:
@@ -69,13 +69,14 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
                 - Now activates a state which radiates heat around Arsonist, dealing ignite damage to enemies in a small radius around you.
                 - Increases heat and deals self damage over time during the duration of the move
                 - Minimum Heat is raised for the duration of the move.
-                - Activatable when required stack amount is reached.
+                - Activatable when required stack amount is reached (Modifiable in Config).
                 - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
                 - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
         - Other:
             - Added an animation for the run cycle, rather than a sped up version of the walk cycle.
             - Added the Lobby animation as an emote. Default key to activate is num 3. You can change the activation in the options.
     - Bug Fixes
+        - Fixing Goobo from adding another UI element to the player's screen.
         - Added checks to prevent position count from setting count to a negative value.
         - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
         - Added some mitigations on UI to prevent hooks from breaking
