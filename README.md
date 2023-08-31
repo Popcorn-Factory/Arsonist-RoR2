@@ -83,12 +83,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
         - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended or when the player has died.
     
 ## Trailer
-<details open>
-<summary>v2.0 Trailer</summary>
+<div>
     <a href="https://www.youtube.com/watch?v=Aez62FNzMTg">
         <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
-    </a>
-</details>
+    </a>    
+</div>
 
 <details>
 <summary>v1.0 Trailer</summary>
@@ -100,9 +99,17 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 </details>
 
 ## Screenshots
+<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146436804682207242/image.png?width=1280&height=720">
+<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146442780139344033/image.png?width=1280&height=720">
+<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146439985797538034/image.png?width=1280&height=720">
+<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146442040800976948/image.png?width=1280&height=720">
+
+<details>
+<summary>v1.0 Screenshots</summary>
 <img src="https://media.discordapp.net/attachments/928130606662049892/1086175951932641340/image.png?width=1280&height=720">
 <img src="https://media.discordapp.net/attachments/928130606662049892/1086175952809246760/image.png?width=1280&height=720">
 <img src="https://media.discordapp.net/attachments/928130606662049892/1086175953551630357/image.png?width=1280&height=720">
+</details>
 
 ## Support me on Ko-fi! 
 There's no need for payment for mods, but a coffee would be nice once in awhile!
