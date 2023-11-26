@@ -62,6 +62,8 @@ namespace ArsonistMod.Modules.Networking
                 info.duration = Modules.StaticValues.cleanseDuration;
                 info.dotIndex = DotController.DotIndex.Burn;
 
+                RoR2.StrengthenBurnUtils.CheckDotForUpgrade(charMaster.inventory, ref info);
+
                 DotController.InflictDot(ref info);
             }
         }

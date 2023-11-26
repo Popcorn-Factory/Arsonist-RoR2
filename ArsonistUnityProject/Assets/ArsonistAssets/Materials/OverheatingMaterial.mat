@@ -67,19 +67,19 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineExtend: 0.03
+    - _OutlineExtend: 0.01
     - _Parallax: 0.02
     - _Power: 1
     - _Scale: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 100
-    - _SpeedTex: 94.8
+    - _SpeedTex: 100
     - _SrcBlend: 1
     - _UVSec: 0
-    - _VertexFrequency: 5.6
-    - _VertexTimeMultiplier: 0
-    - _VertexWobble: 0.02
+    - _VertexFrequency: 6.2
+    - _VertexTimeMultiplier: 100
+    - _VertexWobble: 0.01
     - _WobbleDecay: 1
     - _ZWrite: 1
     m_Colors:

@@ -33,7 +33,6 @@ namespace ArsonistMod.SkillStates
 
 
         private string muzzleString = "FlareMuzzle";
-        public float Energy = Modules.StaticValues.flareEnergyCost;
         private float energyCost;
         private float energyflatCost;
         private float speedOverride = Modules.StaticValues.flareSpeedCoefficient;
@@ -63,15 +62,10 @@ namespace ArsonistMod.SkillStates
             ChildLocator childLoc = GetModelChildLocator();
             Transform muzzleTransform = childLoc.FindChild(muzzleString);
 
-            energyflatCost = Energy - energySystem.costflatOverheat;
-            if (energyflatCost < 0f) energyflatCost = 0f;
-
-            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
-            if (energyCost < 0f) energyCost = 0f;
-
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
-                energySystem.currentOverheat += energyCost;
+                energySystem.LowerHeat(energySystem.currentOverheat * StaticValues.flareHeatReductionMultiplier);
+                energySystem.hasOverheatedSecondary = false;
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
 
@@ -81,12 +75,21 @@ namespace ArsonistMod.SkillStates
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
             {
-                new PlaySoundNetworkRequest(base.characterBody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(base.characterBody.netId, 1608533803).Send(R2API.Networking.NetworkDestination.Clients);
                 isStrong = false;
 
             }
+
+            //This is so fucking stupid fuck fuck fucking goddamn it fuck
+            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            damageTypeComponent.Add(Damage.arsonistStickyDamageType);
+
+            DamageAPI.ModdedDamageTypeHolderComponent weakDamageTypeComponent = Projectiles.weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+            weakDamageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
+
+
         }
-        
+
         //public void FireBullet()
         //{
         //    base.characterBody.AddSpreadBloom(1f);
@@ -121,14 +124,12 @@ namespace ArsonistMod.SkillStates
 
         public void StrongFlare()
         {
+            //Strong flare chains more flares.
             Ray aimRay = GetAimRay();
             if (isAuthority)
             {
                 base.characterBody.AddSpreadBloom(1f);
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
-
-                DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-                damageTypeComponent.Add(Damage.arsonistStickyDamageType);
 
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.strongFlare, //prefab
@@ -147,21 +148,19 @@ namespace ArsonistMod.SkillStates
 
         public void WeakFlare()
         {
+            //Weak flare is old strong flare.
             Ray aimRay = GetAimRay();
             if (isAuthority)
             {
                 base.characterBody.AddSpreadBloom(1f);
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
-                DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-                damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
-
                 ProjectileManager.instance.FireProjectile(
-                    Modules.Projectiles.strongFlare, //prefab
+                    Modules.Projectiles.weakFlare, //prefab
                     aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
-                    damageStat/2f, //damage
+                    damageStat, //damage
                     0f, //force
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Count, //damage color
@@ -205,7 +204,7 @@ namespace ArsonistMod.SkillStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Pain;
         }
 
     }

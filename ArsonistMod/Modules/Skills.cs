@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using ArsonistMod;
 using UnityEngine;
+using ArsonistMod.Content.Controllers;
 
 namespace ArsonistMod.Modules
 {
@@ -12,7 +13,7 @@ namespace ArsonistMod.Modules
     internal static class Skills
     {
         #region genericskills
-        public static void CreateSkillFamilies(GameObject targetPrefab, bool destroyExisting = true)
+        public static void CreateSkillFamilies(GameObject targetPrefab, bool passiveEnabled, bool destroyExisting = true)
         {
             if (destroyExisting)
             {
@@ -23,6 +24,20 @@ namespace ArsonistMod.Modules
             }
 
             SkillLocator skillLocator = targetPrefab.GetComponent<SkillLocator>();
+
+            // Add the passive if it's enabled. MAKE SURE THE CONTROLLER IS ADDED BEFOREHAND.
+            if (passiveEnabled)
+            {
+                ArsonistPassive passive = targetPrefab.GetComponent<ArsonistPassive>();
+                if (passive)
+                {
+                    passive.passiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Gauge");
+                }
+                //if (Modules.Config.enableOldLoadout.Value) 
+                //{
+                //    passive.secondaryPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
+                //}
+            }
 
             skillLocator.primary = CreateGenericSkillWithSkillFamily(targetPrefab, "Primary");
             skillLocator.secondary = CreateGenericSkillWithSkillFamily(targetPrefab, "Secondary");
@@ -85,6 +100,11 @@ namespace ArsonistMod.Modules
         public static void AddSpecialSkills(GameObject targetPrefab, params SkillDef[] skillDefs)
         {
             AddSkillsToFamily(targetPrefab.GetComponent<SkillLocator>().special.skillFamily, skillDefs);
+        }
+
+        public static void AddPassiveSkills(SkillFamily passiveSkillFamily, params SkillDef[] skillDefs)
+        {
+            AddSkillsToFamily(passiveSkillFamily, skillDefs);
         }
 
         /// <summary>

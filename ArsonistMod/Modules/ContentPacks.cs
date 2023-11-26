@@ -58,6 +58,7 @@ namespace ArsonistMod.Modules
 
             contentPack.networkSoundEventDefs.Add(networkSoundEventDefs.ToArray());
 
+            contentPack.unlockableDefs.Add(Modules.Unlockables.unlockableDefs.ToArray());
             args.ReportProgress(1f);
             yield break;
         }

@@ -3,6 +3,7 @@ using ArsonistMod.Modules.Networking;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
+using System;
 using UnityEngine;
 
 namespace ArsonistMod.SkillStates.Arsonist.Secondary
@@ -14,6 +15,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         public GameObject effectObj;
         private int timesFired;
         private float timer;
+        public uint burningSound;
 
         void Start()
         {
@@ -21,30 +23,71 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             timesFired = 0;
             charbody = gameObject.GetComponent<CharacterBody>();
 
-            effectObj = Object.Instantiate<GameObject>(Assets.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(charbody.characterDirection.forward));
+            //effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(Vector3.forward));
+
+
+            //EffectManager.SpawnEffect(effectObj, new EffectData
+            //{
+            //    origin = charbody.corePosition + randVec,
+            //    scale = 1f,
+            //    rotation = Quaternion.LookRotation(charbody.characterDirection.forward),
+
+            //}, true);
+
+
             effectObj.transform.parent = charbody.gameObject.transform;
 
+            Util.PlaySound("Arsonist_Secondary_Flare_Projectile_Impact", gameObject);
+            burningSound = Util.PlaySound("Arsonist_Secondary_Flare_Projectile_Burning", gameObject);
         }
 
         void FixedUpdate()
         {
-            if (charbody.hasEffectiveAuthority)
+            if (charbody)
             {
-
-                if (timer > Modules.StaticValues.flareInterval)
+                if (arsonistBody.hasEffectiveAuthority)
                 {
-                    if (timesFired < Modules.StaticValues.flareTickNum)
+
+                    if (timer > Modules.StaticValues.flareInterval)
                     {
-                        timesFired++;
-                        timer = 0;
-                        new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareWeakDamageCoefficient / StaticValues.flareTickNum).Send(NetworkDestination.Clients);
+                        if (timesFired < Modules.StaticValues.flareTickNum)
+                        {
+                            timesFired++;
+                            timer = 0;
+                            new TakeDamageNetworkRequest(charbody.masterObjectId, arsonistBody.masterObjectId, arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient / StaticValues.flareTickNum, true).Send(NetworkDestination.Clients);
 
 
-                        new PlaySoundNetworkRequest(charbody.masterObjectId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                            new PlaySoundNetworkRequest(charbody.netId, 3747272580).Send(R2API.Networking.NetworkDestination.Clients);
+                        }
+                        else
+                        {
+                            FireExplosion();
+                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            {
+                                origin = charbody.transform.position,
+                                scale = StaticValues.flareBlastRadius,
+                                rotation = new Quaternion(0, 0, 0, 0)
+                            }, true);
+                            Destroy(this);
+                            Destroy(effectObj);
+                        }
                     }
                     else
                     {
-                        FireExplosion();
+                        timer += Time.fixedDeltaTime;
+                    }
+
+                }
+                else
+                {
+                    //Keep track of timing and despawn whenever it runs out.
+                    if (timer > Modules.StaticValues.flareInterval * Modules.StaticValues.flareTickNum)
+                    {
+                        timer += Time.fixedDeltaTime;
+                    }
+                    else
+                    {
                         EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
                         {
                             origin = charbody.transform.position,
@@ -52,22 +95,18 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                             rotation = new Quaternion(0, 0, 0, 0)
                         }, true);
                         Destroy(this);
+                        Destroy(effectObj);
                     }
                 }
-                else
-                {
-                    timer += Time.deltaTime;
-                }
-
             }
-            else if (!charbody)
+            else
             {
                 Destroy(effectObj);
+                Destroy(this);
             }
-
         }
 
-        
+
         private void FireExplosion()
         {
             BlastAttack blastAttack;
@@ -78,8 +117,8 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.position = charbody.transform.position;
             blastAttack.attacker = arsonistBody.gameObject;
             blastAttack.crit = arsonistBody.RollCrit();
-            
-            blastAttack.baseDamage = this.arsonistBody.baseDamage * Modules.StaticValues.flareWeakDamageCoefficient;
+
+            blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
             blastAttack.damageType = DamageType.Generic;
@@ -91,6 +130,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
         }
         private void OnDestroy()
         {
+            AkSoundEngine.StopPlayingID(burningSound);
             Destroy(effectObj);
         }
     }

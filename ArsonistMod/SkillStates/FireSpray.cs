@@ -22,12 +22,17 @@ namespace ArsonistMod.SkillStates
         private Transform muzzlePos;
         private Animator animator;
         private float damageCoefficient = Modules.StaticValues.firesprayWeakDamageCoefficient;
+        private float altDamageCoefficient = Modules.StaticValues.altFiresprayWeakDamageCoefficient;
         private float strongdamageCoefficient = Modules.StaticValues.firesprayStrongDamageCoefficient;
+        private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayStrongDamageCoefficient;
+        public static float spreadBloomValue = 10f;
         private float force = 400f;
         private float strongforce = 1000f;
         private float speedOverride = 100f;
         private float strongspeedOverride = 100f;
         private GameObject chargeVfxInstance;
+        private ArsonistPassive passive;
+        private bool isBlue;
 
         public float Energy = Modules.StaticValues.firesprayEnergyCost;
         private float energyCost;
@@ -38,7 +43,9 @@ namespace ArsonistMod.SkillStates
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
-
+            passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
+            isBlue = passive.isBlueGauge();
+            characterBody.isSprinting = false;
 
             Ray aimRay = GetAimRay();
             duration = baseDuration / attackSpeedStat;
@@ -65,7 +72,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 FireBolt();
-                energySystem.currentOverheat += energyCost;
+                energySystem.AddHeat(energyCost);
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
             }
@@ -75,11 +82,12 @@ namespace ArsonistMod.SkillStates
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
             }
-
-        }
+            base.characterBody.AddSpreadBloom(spreadBloomValue);
+        }    
         public void FireBall()
         {
             Ray aimRay = GetAimRay();
+            float coeff = isBlue ? altDamageCoefficient : damageCoefficient;
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
@@ -87,7 +95,7 @@ namespace ArsonistMod.SkillStates
                     aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
-                    damageStat * damageCoefficient, //damage
+                    damageStat * coeff, //damage
                     force, //force
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Default, //damage color
@@ -100,6 +108,7 @@ namespace ArsonistMod.SkillStates
         public void FireBolt()
         {
             Ray aimRay = GetAimRay();
+            float coeff = isBlue ? altStrongDamageCoefficient : strongdamageCoefficient;
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
@@ -107,10 +116,10 @@ namespace ArsonistMod.SkillStates
                     aimRay.origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
-                    damageStat * strongdamageCoefficient, //damage
+                    damageStat * coeff, //damage
                     strongforce, //force
                     Util.CheckRoll(critStat, characterBody.master), //crit
-                    DamageColorIndex.WeakPoint, //damage color
+                    DamageColorIndex.Default, //damage color
                     null, //target
                     strongspeedOverride); //speed }
 
@@ -151,7 +160,7 @@ namespace ArsonistMod.SkillStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Skill;
+            return InterruptPriority.PrioritySkill;
         }
 
     }

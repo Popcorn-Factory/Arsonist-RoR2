@@ -17,6 +17,7 @@ namespace ArsonistMod.SkillStates
 {
     public class Cleanse : BaseSkillState
     {
+        public ArsonistController arsonistController;
         public EnergySystem energySystem;
 
         public float baseDuration = 1f;
@@ -29,6 +30,7 @@ namespace ArsonistMod.SkillStates
         {
             base.OnEnter();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
+            arsonistController = characterBody.gameObject.GetComponent<ArsonistController>();
 
             Ray aimRay = base.GetAimRay();
             duration = baseDuration;
@@ -49,7 +51,7 @@ namespace ArsonistMod.SkillStates
             if (energySystem.currentOverheat < energySystem.maxOverheat && base.isAuthority)
             {
                 //cleanse, remove half of total energy, do blast attack
-                energySystem.currentOverheat -= energySystem.maxOverheat * StaticValues.cleanseHeatReductionMultiplier;
+                energySystem.LowerHeat(energySystem.maxOverheat * StaticValues.cleanseHeatReductionMultiplier);
                 energySystem.hasOverheatedUtility = false;
 
                 //enemy burn
@@ -62,14 +64,10 @@ namespace ArsonistMod.SkillStates
                 else
                 {
                     //self burn
-                    new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                    //new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
                 }
 
-                if(characterBody.GetComponent<ArsonistController>())
-                {
-                    ArsonistController arsonistController = characterBody.GetComponent<ArsonistController>();
-                    arsonistController.steamParticle.Play();
-                }
+                new PlayCleanseBlastNetworkRequest(characterBody.netId, true).Send(NetworkDestination.Clients);
                 
 
                 //hop character to avoid fall damage if in air
@@ -87,6 +85,7 @@ namespace ArsonistMod.SkillStates
                 }, false);
 
 
+                characterBody.ApplyBuff(Modules.Buffs.cleanseSpeedBoost.buffIndex, 1, duration * 2.5f);
             }
             else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
             {
@@ -97,16 +96,15 @@ namespace ArsonistMod.SkillStates
                 {
                     base.SmallHop(characterBody.characterMotor, 3f);
                 }
-
+                new PlayCleanseBlastNetworkRequest(characterBody.netId, false).Send(NetworkDestination.Clients);
                 //Accelerate cooling
                 energySystem.isAcceleratedCooling = true;
             }
 
             if (base.isAuthority) 
-            {
+            {   
                 new PlaySoundNetworkRequest(base.characterBody.netId, 1924783034).Send(R2API.Networking.NetworkDestination.Clients);
             }
-
         }
 
         public void ApplyBurn()
@@ -153,8 +151,8 @@ namespace ArsonistMod.SkillStates
 
             if (isStrong)
             {
-                //self burn
-                new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
+                //self burn NO LONGER NEEDED.
+                //new BurnNetworkRequest(characterBody.master.netId, characterBody.master.netId).Send(NetworkDestination.Clients);
             }
         }
 

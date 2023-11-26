@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fireballmat
+  m_Shader: {fileID: 4800000, guid: 1c5590e979b0c41fa85553bb19581712, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColourTexture:
+        m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureInput:
+        m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VertexOffsetTex:
+        m_Texture: {fileID: 2800000, guid: 9337cc1a2c6d9244bb19033e87030afc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Cutoff: 0.5
+    - _LightingMultiplier: 1
+    - _MaxSmoothstep: 1
+    - _MinSmoothstep: 0
+    - _Opacity: 1
+    - _StepThreshold: 0.1
+    - _TimeMultiplier: 2
+    - _Vertexoffset: 0.174
+    - _node_507: 0
+    - _node_924: 0
+    m_Colors:
+    - _TextureColor: {r: 1, g: 0.5681818, b: 0, a: 1}

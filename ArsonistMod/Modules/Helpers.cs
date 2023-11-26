@@ -14,6 +14,21 @@ namespace ArsonistMod.Modules
             return "\n<color=#d299ff>SCEPTER: " + desc + "</color>";
         }
 
+        internal static string ImportantDesc(string desc) 
+        {
+            return $"<color=#FF9402>{desc}</color>";
+        }
+
+        internal static string Healing(string desc)
+        {
+            return $"<color=#9FFF02>{desc}</color>";
+        }
+
+        internal static string Downside(string desc)
+        {
+            return $"<color=#E40000>{desc}</color>";
+        }
+
         public static T[] Append<T>(ref T[] array, List<T> list)
         {
             var orig = array.Length;

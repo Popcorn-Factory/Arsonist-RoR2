@@ -7,8 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
-using static ArsonistMod.Content.Controllers.EnergySystem;
-using UnityEngine.UIElements;
 using ArsonistMod.Modules.Networking;
 using RoR2.CharacterAI;
 
@@ -17,6 +15,7 @@ namespace ArsonistMod.Content.Controllers
     public class EnergySystem : MonoBehaviour
     {
         public CharacterBody characterBody;
+        public ArsonistPassive passive;
         public ArsonistController arsonistController;
 
         //UI energyMeter
@@ -48,7 +47,6 @@ namespace ArsonistMod.Content.Controllers
         public bool enabledUI;
 
         public bool isAcceleratedCooling;
-
         
 
         //OLD
@@ -70,6 +68,7 @@ namespace ArsonistMod.Content.Controllers
         public bool hasOverheatedSecondary;
         public bool hasOverheatedUtility;
         public bool hasOverheatedSpecial;
+        public float lowerBound;
 
         //whether base or alt m1 used
         public bool baseHeatGauge;
@@ -108,6 +107,12 @@ namespace ArsonistMod.Content.Controllers
         //vibration Vars
         TextVibration textVibration;
 
+        //Masochism monitoring
+        public MasochismController masoCon;
+
+        //Overheated?
+        public bool hasOverheatedThisStage = false;
+
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
@@ -119,6 +124,7 @@ namespace ArsonistMod.Content.Controllers
 
             enabledUI = false;
             isAcceleratedCooling = false;
+            hasOverheatedThisStage = false;
         }
 
         //reuse the segment making
@@ -173,11 +179,12 @@ namespace ArsonistMod.Content.Controllers
                 }
             }
 
-            segment1.positionCount = whiteArray.Length - 1;
+            
+            segment1.positionCount = whiteArray.Length >= 1 ? whiteArray.Length - 1 : whiteArray.Length;
             segment1.SetPositions(whiteArray);
-            segment2.positionCount = blueArray.Length - 1;
+            segment2.positionCount = blueArray.Length >= 1 ? blueArray.Length - 1 : blueArray.Length;
             segment2.SetPositions(blueArray);
-            segment3.positionCount = redArray.Length - 1;
+            segment3.positionCount = redArray.Length >= 1 ? redArray.Length - 1 : redArray.Length;
             segment3.SetPositions(redArray);
             originalRedLength = redArray;
         }
@@ -188,7 +195,7 @@ namespace ArsonistMod.Content.Controllers
             //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
             if (self.hud.mainUIPanel.activeInHierarchy)
             {               
-                if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority)
+                if (CustomUIObject && energyNumber && characterBody.hasEffectiveAuthority && !baseAIPresent)
                 {
                     CustomUIObject.SetActive(true);
                     energyNumber.gameObject.SetActive(true);
@@ -210,7 +217,15 @@ namespace ArsonistMod.Content.Controllers
 
             if (self && self.master.inventory)
             {
-                SegmentMake();
+                try
+                {
+                    SegmentMake();
+                }
+                catch (IndexOutOfRangeException e) 
+                {
+                    Debug.Log("OH FUCK");
+                    Debug.Log(e);
+                }
             }
         }
 
@@ -223,7 +238,15 @@ namespace ArsonistMod.Content.Controllers
                 GameObject bodyobject = self.GetBodyObject();
                 if (bodyobject != null)
                 {
-                    SegmentMake();
+                    try
+                    {
+                        SegmentMake();
+                    }
+                    catch (IndexOutOfRangeException e)
+                    {
+                        Debug.Log("OH FUCK");
+                        Debug.Log(e);
+                    }
                 }
             }
         }
@@ -243,12 +266,14 @@ namespace ArsonistMod.Content.Controllers
             hasOverheatedSpecial = false;
             overheatTriggered = false;
             additionalRed = 0;
+            lowerBound = 0f;
             overheatState = OverheatState.DORMANT;
             mainCamera = Camera.main;
 
+            passive = base.gameObject.GetComponent<ArsonistPassive>();
             arsonistController = base.gameObject.GetComponent<ArsonistController>();
 
-            if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            if (!passive.isBlueGauge())
             {
 
                 baseHeatGauge = true;
@@ -281,6 +306,14 @@ namespace ArsonistMod.Content.Controllers
 
             baseAIPresent = baseAI;
 
+            //For some reason on goboo's first spawn the master is just not there. However subsequent spawns work.
+            // Disable the UI in this event.
+            //Besides, there should never be a UI element related to a non-existant master on screen if the attached master/charbody does not exist.
+            if (!master) 
+            {
+                baseAIPresent = true; // Disable UI Just in case.
+            }
+
             SetupCustomUI();
 
             // Start timer on 1f to turn off the timer.
@@ -293,6 +326,14 @@ namespace ArsonistMod.Content.Controllers
             currentColor = originalColor;
 
             anim = characterBody.hurtBoxGroup.gameObject.GetComponent<Animator>();
+
+            //Check if we have masochism selected and run the right logic.
+            if (characterBody.skillLocator.special.skillNameToken == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_NAME") 
+            {
+                //Add the component.
+                masoCon = gameObject.AddComponent<MasochismController>();
+                //This should be destroyed with the body I guess.
+            }
         }
 
         private void SetupCustomUI() 
@@ -336,7 +377,7 @@ namespace ArsonistMod.Content.Controllers
 
 
             //setup the UI element for the min/max
-            energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0, -60f), 24f);
+            energyNumber = this.CreateLabel(EnergyNumberContainer.transform, "energyNumber", $"{(int)currentOverheat} / {maxOverheat}", new Vector2(0f, 110f), 24f);
             textVibration = energyNumber.gameObject.AddComponent<TextVibration>();
 
             CustomUIObject.SetActive(false);
@@ -345,7 +386,7 @@ namespace ArsonistMod.Content.Controllers
 
         //Calculate segments
         //we use percentage to figure out how far we should go for radius. do not go beyond 1 or below 0!
-        private void CalculateSemiCircle(float radius, float percentage) 
+        private void CalculateSemiCircle(float radius, float percentage)  
         {
             float range = percentage * radius * 2f;
             float incrementX = range / (float)Modules.StaticValues.noOfSegmentsOnOverheatGauge;
@@ -484,8 +525,9 @@ namespace ArsonistMod.Content.Controllers
                     coolingRate = 30.0f;
                 }
 
-                //set current heat to 0 once over!
-                if (overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed))
+                //set current heat to 0 once over
+                float attackspeedcheck = characterBody.attackSpeed > 1f ? characterBody.attackSpeed : 1f;
+                if (overheatDecayTimer > (Modules.Config.timeBeforeHeatGaugeDecays.Value / attackspeedcheck))
                 {
                     currentOverheat = 0f;
                     overheatDecayTimer = 0f;
@@ -494,6 +536,7 @@ namespace ArsonistMod.Content.Controllers
                     overheatTriggered = false;
                     isAcceleratedCooling = false;
                     AkSoundEngine.StopPlayingID(tickingSound);
+                    characterBody.ApplyBuff(Modules.Buffs.overheatDebuff.buffIndex, 0, -1);
 
                     //Finish sound.
                     new PlaySoundNetworkRequest(characterBody.netId, 3787943995).Send(NetworkDestination.Clients);
@@ -509,22 +552,45 @@ namespace ArsonistMod.Content.Controllers
             //Energy Currently have
             if (ifOverheatRegenAllowed)
             {
-                currentOverheat -= regenOverheat * Time.fixedDeltaTime;
+                //Regen needs to change so that more heat = more cooling rate for base gauge
+                if (passive.isBlueGauge())
+                {
+                    LowerHeat(regenOverheat * Time.fixedDeltaTime);
+                }
+                else 
+                {
+                    //Cooling rate is determined by level of heat ratio and plugged into a parabola which ranges from lower bound to 
+                    //lowerbound + 1 at maximum if uncapped.
+                    float ratio = (float)currentOverheat / (float)maxOverheat;
+                    float coolingRate = Mathf.Pow(ratio, 4f) + Modules.Config.baseGaugeLowerBoundRecharge.Value;
+                    if (coolingRate >= Modules.Config.baseGaugeUpperBoundRecharge.Value) 
+                    {
+                        coolingRate = Modules.Config.baseGaugeUpperBoundRecharge.Value;
+                    }
+                    if (coolingRate <= Modules.Config.baseGaugeLowerBoundRecharge.Value) 
+                    {
+                        coolingRate = Modules.Config.baseGaugeLowerBoundRecharge.Value;
+                    }
+
+                    LowerHeat(regenOverheat * coolingRate * Time.fixedDeltaTime);
+                }
             }
 
             if (currentOverheat > maxOverheat)
             {
                 currentOverheat = maxOverheat;
                 ifOverheatMaxed = true;
+                hasOverheatedThisStage = true;
+                characterBody.ApplyBuff(Modules.Buffs.overheatDebuff.buffIndex, 1, -1);
                 //Overheat Start sound
                 new PlaySoundNetworkRequest(characterBody.netId, 3152162514).Send(NetworkDestination.Clients);
                 //Overheat duration sound, not networked.
                 tickingSound = AkSoundEngine.PostEvent(3408252638, characterBody.gameObject);
             }
 
-            if(currentOverheat < 0f)
+            if (currentOverheat < lowerBound)
             {
-                currentOverheat = 0f;
+                currentOverheat = lowerBound;
             }
 
             if (energyNumber)
@@ -535,12 +601,21 @@ namespace ArsonistMod.Content.Controllers
                 }
                 else 
                 {
-                    energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                    if (characterBody.HasBuff(Modules.Buffs.masochismDeactivatedDebuff))
+                    {
+                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT:EX!" : $"{(int)currentOverheat} / {maxOverheat}");
+                    }
+                    else 
+                    {
+                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                    }
                 }
             }
 
             //Chat.AddMessage($"{currentOverheat}/{maxOverheat}");
         }
+
+
 
         public void FixedUpdate()
         {
@@ -618,12 +693,12 @@ namespace ArsonistMod.Content.Controllers
         public void Update()
         {
             //Update material for overheating tex
-            if (Modules.Assets.arsonistOverheatingMaterial) 
+            if (Modules.Assets.arsonistOverheatingMaterial && characterBody.hasEffectiveAuthority) 
             {
                 SetOverheatMaterialParameters();
             }
 
-            if (anim) 
+            if (anim && characterBody.hasEffectiveAuthority) 
             {
                 CheckAndSetOverheatingCanister();
             }
@@ -634,7 +709,7 @@ namespace ArsonistMod.Content.Controllers
             }
 
             //checking which m1 is equipped for different heat passive
-            if (characterBody.skillLocator.primary.skillNameToken == prefix + "_ARSONIST_BODY_PRIMARY_FIRESPRAY_NAME")
+            if (!passive.isBlueGauge())
             {
                 if (!baseHeatGauge)
                 {
@@ -655,7 +730,7 @@ namespace ArsonistMod.Content.Controllers
             currentBlueNumber = whiteRatio * maxOverheat;
             if (energyNumber)
             {
-                if (currentOverheat == maxOverheat)
+                if (currentOverheat >= maxOverheat)
                 {
                     if (isAcceleratedCooling) 
                     {
@@ -668,6 +743,7 @@ namespace ArsonistMod.Content.Controllers
                     if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                        characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 1);
                     }
                 }
                 else if (currentOverheat < currentBlueNumber)
@@ -676,6 +752,7 @@ namespace ArsonistMod.Content.Controllers
                     if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
+                        characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 1);
                     }
                 }
                 else if (currentOverheat >= currentBlueNumber && currentOverheat < maxOverheat && !baseHeatGauge)
@@ -684,6 +761,7 @@ namespace ArsonistMod.Content.Controllers
                     if (!characterBody.HasBuff(Buffs.blueBuff.buffIndex))
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 1);
+                        characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 0);
                     }
                 }                   
                 
@@ -718,6 +796,10 @@ namespace ArsonistMod.Content.Controllers
             int maxSegment = whiteSegment + blueSegment;
 
             int calculatedLastSegment = (int)((float)maxSegment * (float)(currentOverheat / maxOverheat));
+            if (calculatedLastSegment >= maxSegment) 
+            {
+                calculatedLastSegment = maxSegment;
+            }
             Vector3[] proposedPositions = new Vector3[calculatedLastSegment];
             Array.Copy(segmentList, proposedPositions, calculatedLastSegment);
 
@@ -736,12 +818,14 @@ namespace ArsonistMod.Content.Controllers
                         coolingRate = 2.0f;
                     }
 
+                    float attackspeedcheck = characterBody.attackSpeed > 1f ? characterBody.attackSpeed : 1f;
+
                     additionalRed = maxSegment * ( 
                         overheatDecayTimer / (
-                            (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
+                            (Modules.Config.timeBeforeHeatGaugeDecays.Value / attackspeedcheck) ) 
                         ); //to calculate, it's a fraction of the amount of time left.
 
-                    if(!ifOverheatMaxed || overheatTimer >= (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed) ) 
+                    if (!ifOverheatMaxed || overheatTimer >= (Modules.Config.timeBeforeHeatGaugeDecays.Value / attackspeedcheck) ) 
                     {
                         overheatState = OverheatState.END;
                         overheatTriggered = false;
@@ -836,17 +920,38 @@ namespace ArsonistMod.Content.Controllers
             //energyMeterGlowBackground.color = currentColor;
         }
 
-
-        public void SpendEnergy(float Energy)
+        public void AddHeat(float Energy) 
         {
-            //float energyflatCost = Energy - costflatOverheat;
-            //if (energyflatCost < 0f) energyflatCost = 0f;
-
-            //float energyCost = rageEnergyCost * costmultiplierOverheat * energyflatCost;
-            //if (energyCost < 0f) energyCost = 0f;
-
             currentOverheat += Energy;
 
+            //Add to masochism monitoring
+            if (masoCon) 
+            {
+                masoCon.heatChanged += Energy;
+            }
+        }
+
+        public void LowerHeat(float Energy)
+        {
+            float realHeatGained = Energy;
+            currentOverheat -= Energy;
+            if (currentOverheat < lowerBound) 
+            {
+                realHeatGained = Energy - Mathf.Abs(lowerBound - currentOverheat);
+                currentOverheat = lowerBound;
+            }
+
+            //Add to masochism monitoring
+            if (masoCon)
+            {
+                masoCon.heatChanged += realHeatGained;
+            }
+        }
+
+        public void SetCurrentHeatToLowerBound() 
+        {
+            // Clear out heat but do not add to heat changed.
+            currentOverheat = lowerBound;
         }
 
         public void TriggerGlow(float newDecayTimer, float newFlashTimer, Color newStartingColor)
@@ -867,6 +972,9 @@ namespace ArsonistMod.Content.Controllers
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
             On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+
+            new PlaySoundNetworkRequest(characterBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
+            AkSoundEngine.StopPlayingID(tickingSound);
         }
     }
 }
