@@ -124,8 +124,9 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 
 ## Skills
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet2.png?raw=true">
+
 <details>
-<summary>v1.0 Skills</sumarry>
+<summary>v1.0 Skills</summary>
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
 </details>
 
