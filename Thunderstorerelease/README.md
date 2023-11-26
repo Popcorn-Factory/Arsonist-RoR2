@@ -194,6 +194,73 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.0.0
+    - New Content:
+        - Two new skins!
+            - Mastery - Yuppie
+            - Grandmastery - Firebug
+        - New Primary! Read below for more info!
+        - Achievements for each new item
+    - Stat Changes
+        - Increased Base damage stat from 8 -> 12
+    - Core Skill Changes
+        - Passive
+            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more of your total health (Does not apply to Fall Damage unless you are playing with Frailty enabled).
+            - Arsonist has resistance to fire damage from all sources
+        - Gauge Changes are moved to a passive skill slot
+            - All Gauges:
+                - Overheat now debuffs attack speed. (50% attack speed debuff)
+            - Gauge -> Base Gauge:
+                - Cooling rate is affected by the amount of heat in the gauge
+                - Config to modify this rate has been added.
+            - Gauge -> Supercritical Gauge:
+                - Damage done within the gauge before the blue section has a slight damage penalty, dealing 0.9x damage.
+                - Damage done within the blue gauge does 3x damage.
+        - Primary
+            - NEW PRIMARY: Dragon's Breath
+                - Fire a constant beam of fire that increases ignite chance the closer you are to an enemy.
+                - Attack Speed increases rate of tick.
+            - Overheat -> Fireball:
+                - Changed name to reflect the skill instead of the gauge type.
+                - Changed projectile VFX effect on both normal and overheat projectiles.
+                - Changed the SFX to be more impactful.
+        - Secondary
+            - Flare: Changes
+                - Flare now chains another explosion to enemies hit within the first Flare's explosion.
+                - After the DoT effect, the afflicted enemies explode sending a number of salvos upwards.
+                - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
+                - Due to the destructive nature of this upgrade, the cooldown has been increased.
+                - Changed the SFX to contain a sizzling and a proper explosion.
+                - Should inflict ignite on the final explosion. This is affected by ignition tank.
+                - Upgraded VFX 
+            - Zero Point Blast
+                - Increased the volume of the SFX played on start.
+                - Slightly changed the VFX.
+        - Utility
+            - Cleanse:
+                - Does not self burn anymore.
+                - Added speed boost on activation
+                - Should now apply Ignite correctly. Should be affected by Ignition tank.
+                - Added fire effect that emits off Arsonist for the duration of the move.
+                - Added VFX for Cleanse Blast when not overheated.
+        - Special
+            - Masochism
+                - Builds up Anticipation stacks while not activated.
+                - Now activates a state which radiates heat around Arsonist, dealing ignite damage to enemies in a small radius around you.
+                - Increases heat and deals self damage over time during the duration of the move
+                - Minimum Heat is raised for the duration of the move.
+                - Activatable when required stack amount is reached (Modifiable in Config).
+                - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
+                - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
+        - Other:
+            - Added an animation for the run cycle, rather than a sped up version of the walk cycle.
+            - Added the Lobby animation as an emote. Default key to activate is num 3. You can change the activation in the options.
+    - Bug Fixes
+        - Fixing Goobo from adding another UI element to the player's screen.
+        - Added checks to prevent position count from setting count to a negative value.
+        - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
+        - Added some mitigations on UI to prevent hooks from breaking
+        - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended or when the player has died.
 - 1.0.4 -> Small Updates
     - Added Icon to RiskOfOptions
     - Removed references to PhotoMode in code since someone decided to change the bloody mod GUID. UI disables when all UI is disabled.
