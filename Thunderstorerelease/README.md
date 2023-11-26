@@ -85,7 +85,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Trailer
 <div>
     <a href="https://www.youtube.com/watch?v=y8EZUXso7Lc">
-        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnailfirebug.png?raw=true">
+        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/v2.0/Thunderstorerelease/arsonistthumbnailfirebug.png?raw=true">
     </a>    
 </div>
 
