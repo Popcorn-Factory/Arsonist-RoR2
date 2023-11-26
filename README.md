@@ -85,7 +85,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Trailer
 <div>
     <a href="https://www.youtube.com/watch?v=y8EZUXso7Lc">
-        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnail.png?raw=true">
+        <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistthumbnailfirebug.png?raw=true">
     </a>    
 </div>
 
@@ -123,8 +123,11 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - RiskOfOptions
 
 ## Skills
-#CHANGE LATER
+<img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/v2.0/Thunderstorerelease/arsonistsheet2.png?raw=true">
+<details>
+<summary>v1.0 Skills</sumarry>
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
+</details>
 
 ## Other Mods by Popcorn Factory
 <details>
@@ -226,7 +229,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 ## Known Issues
 - The UI Gauge is affected by the Guilded Coast water for some reason. Purely cosmetic, only affects how the UI is rendered.
 - If someone can tell me how to implement a rope affected by gravity between two fixed objects (gun and the backpack), I'd like some help.
-- Odd issues could possibly require a restart or file validation. Please try that and contact me (Ethanol 10) for bugs with a log file.
+- Odd issues could possibly require a restart or file validation. Please try that and contact me (ethanol10) for bugs with a log file.
 - Some options do not do anything (I think), If it doesn't do anything immediately consider reverting that option to avoid unintended effects.
     (One such option is the enableOldLoadout toggle, though I do believe this is disabled.)
  
