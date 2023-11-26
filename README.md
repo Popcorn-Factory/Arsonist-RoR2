@@ -123,7 +123,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - RiskOfOptions
 
 ## Skills
-<img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/v2.0/Thunderstorerelease/arsonistsheet2.png?raw=true">
+<img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet2.png?raw=true">
 <details>
 <summary>v1.0 Skills</sumarry>
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet.png?raw=true">
