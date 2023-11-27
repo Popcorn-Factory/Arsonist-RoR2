@@ -14,6 +14,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
+- 2.0.1
+    - Fixing some Null Reference Exceptions...
+
 - 2.0.0
     - New Content:
         - Two new skins!
@@ -194,6 +197,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.0.1
+    - Fixing some NullReferenceExceptions...
 - 2.0.0
     - New Content:
         - Two new skins!
