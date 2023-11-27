@@ -55,6 +55,11 @@ namespace ArsonistMod.Modules.Networking
                 bodyObj = charBody.gameObject;
 
                 GameObject enemymasterobject = Util.FindNetworkObject(enemynetID);
+                if (!enemymasterobject) 
+                {
+                    //Nothing to burn
+                    return;
+                }
                 CharacterMaster enemycharMaster = enemymasterobject.GetComponent<CharacterMaster>();
                 CharacterBody enemycharBody = enemycharMaster.GetBody();
                 enemybodyObj = enemycharBody.gameObject;

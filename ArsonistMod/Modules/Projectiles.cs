@@ -408,7 +408,7 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.blastProcCoefficient = 1f;
             artificerFireboltexplosion.blastRadius = StaticValues.firesprayBlastRadius;
             artificerFireboltexplosion.destroyOnEnemy = true;
-            artificerFireboltexplosion.lifetime = 6f;
+            artificerFireboltexplosion.lifetime = 8f;
 			
             artificerFireboltexplosion.impactEffect = Assets.arsonistFiresprayExplosion;
 

@@ -43,6 +43,10 @@ namespace ArsonistMod.Modules.Networking
         public void OnReceived()
         {
             GameObject bodyObj = Util.FindNetworkObject(charnetID);
+            if (!bodyObj) 
+            {
+                return;
+            }
             AkSoundEngine.PostEvent(soundNum, bodyObj);
         }
     }

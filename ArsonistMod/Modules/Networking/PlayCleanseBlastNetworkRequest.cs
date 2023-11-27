@@ -41,6 +41,11 @@ namespace ArsonistMod.Modules.Networking
         public void OnReceived()
         {
             GameObject bodyObj = Util.FindNetworkObject(charnetID);
+            if (!bodyObj) 
+            {
+                return;
+            }
+
             CharacterBody body = bodyObj.GetComponent<CharacterBody>();
             if (body) 
             {
