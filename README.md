@@ -14,11 +14,17 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.0.2
-    - Flamethrower unlock was bugged, Should be fixed now.
-        - Was me being stupid. Sorry about that. Feel free to unlock it using Cheat Unlocks.
-    - MORE NULL REFERENCE ERROR FIXES
-        - Fixed NRE returned from hitting Dragon's Fury on an object with a character body but with no master.
+- 2.0.3
+    - Buffing Dragon's Fury:
+        - 70% -> 80% damage coefficient
+        - Base Tick Rate 4 -> 6 per second
+        - Range 25 -> 30 units
+        - Energy Cost 5 -> 3
+        - Reduced Fire Chance (10% -> 9% chance per hit.)
+        - Increased Flamethrower radius 1 -> 1.5
+        - Changed Stopper mask, should stop at nothing to burn enemies.
+    - Bug fixes:
+        - Fixed Overheat locking Arsonist to a higher cooldown even though the overheat state has ended.
 
 - 2.0.0
     - New Content:
@@ -203,7 +209,10 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <summary>Click to expand previous patch notes:</summary>
 
 - 2.0.2
+    - Flamethrower unlock was bugged, Should be fixed now.
+        - Was me being stupid. Sorry about that. Feel free to unlock it using Cheat Unlocks.
     - MORE NULL REFERENCE ERROR FIXES
+        - Fixed NRE returned from hitting Dragon's Fury on an object with a character body but with no master.
 - 2.0.1
     - Fixing some NullReferenceExceptions...
 - 2.0.0

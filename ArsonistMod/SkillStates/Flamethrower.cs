@@ -90,7 +90,7 @@ namespace ArsonistMod.SkillStates
                 procCoefficient = procCoefficient,
                 radius = radius,
                 sniper = false,
-                stopperMask = LayerIndex.CommonMasks.bullet,
+                stopperMask = LayerIndex.noCollision.mask,
                 weapon = null,
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
