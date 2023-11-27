@@ -53,7 +53,11 @@ namespace ArsonistMod.Modules.Achievements
             orig(self);
             if (!body) 
             {
-                body = self;
+                //Get player controlled Arsonist. There should only be one.
+                if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME" && self.hasEffectiveAuthority) 
+                {
+                    body = self;
+                }
             }
         }
 

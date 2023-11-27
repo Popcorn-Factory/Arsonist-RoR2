@@ -14,8 +14,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.0.1
-    - Fixing some Null Reference Exceptions...
+- 2.0.2
+    - Flamethrower unlock was bugged, Should be fixed now.
+        - Was me being stupid. Sorry about that. Feel free to unlock it using Cheat Unlocks.
+    - MORE NULL REFERENCE ERROR FIXES
+        - Fixed NRE returned from hitting Dragon's Fury on an object with a character body but with no master.
 
 - 2.0.0
     - New Content:
@@ -124,6 +127,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 ## Mod Interoperability List:
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
+- Starstorm2 (Allows unlocking certain unlocks)
+- HIFU Inferno (Allows unlocking certain unlocks)
 
 ## Skills
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet2.png?raw=true">
@@ -197,6 +202,8 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.0.2
+    - MORE NULL REFERENCE ERROR FIXES
 - 2.0.1
     - Fixing some NullReferenceExceptions...
 - 2.0.0

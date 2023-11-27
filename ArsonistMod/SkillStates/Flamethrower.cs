@@ -95,7 +95,7 @@ namespace ArsonistMod.SkillStates
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitCallback = laserHitCallback
+                hitCallback = flamethrowerFlameChanceHitCallback
             };
 
             if (energySystem.ifOverheatMaxed)
@@ -174,7 +174,7 @@ namespace ArsonistMod.SkillStates
             }
         }
 
-        public bool laserHitCallback(BulletAttack bulletRef, ref BulletHit hitInfo)
+        public bool flamethrowerFlameChanceHitCallback(BulletAttack bulletRef, ref BulletHit hitInfo)
         {
             //Default damage
             BulletAttack.defaultHitCallback.Invoke(bulletRef, ref hitInfo);
@@ -206,11 +206,14 @@ namespace ArsonistMod.SkillStates
                         //RoR2.StrengthenBurnUtils.CheckDotForUpgrade(characterBody.inventory, ref info);
                         //DotController.InflictDot(ref info);
 
-                        new FlamethrowerDotNetworkRequest(
-                            characterBody.master.netId, 
-                            hitInfo.hitHurtBox.healthComponent.body.master.netId, 
+                        if (hitInfo.hitHurtBox.healthComponent.body.master) 
+                        {
+                            new FlamethrowerDotNetworkRequest(
+                            characterBody.master.netId,
+                            hitInfo.hitHurtBox.healthComponent.body.master.netId,
                             5f)
                             .Send(R2API.Networking.NetworkDestination.Clients);
+                        }
                         return true;
                     }
                 }
