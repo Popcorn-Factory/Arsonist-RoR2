@@ -15,6 +15,10 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Update
 
 - 2.0.3
+    - Tweaking Supercritical Gauge:
+        - 3x -> 2.5x damage buff in blue portion of the gauge
+        - 0.9x -> 0.7x damage debuff in white portion of the gauge
+        - Modified the description to indicate the downside.
     - Buffing Dragon's Fury:
         - 70% -> 80% damage coefficient
         - Base Tick Rate 4 -> 6 per second

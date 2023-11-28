@@ -141,6 +141,7 @@ namespace ArsonistMod.Content.Controllers
                 blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
                     + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
                     + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+
                 if (blueRatio > StaticValues.maxBlueWhiteSegment)
                 {
                     blueRatio = StaticValues.maxBlueWhiteSegment;

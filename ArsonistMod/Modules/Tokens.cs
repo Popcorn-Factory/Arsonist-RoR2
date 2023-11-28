@@ -54,7 +54,8 @@ namespace ArsonistMod.Modules
 
             LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_NAME", "Supercritical Gauge");
             LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", $"Heat gauge does not increase, instead supercritical gauge increases per level as well as with stock-based items. " +
-                $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge.");
+                $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge. " +
+                $"{Modules.StaticValues.lowerDamageMultiplier}x damage while heat is in the white portion of the gauge.");
 
             #endregion
 

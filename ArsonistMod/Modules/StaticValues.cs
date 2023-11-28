@@ -35,8 +35,12 @@ namespace ArsonistMod.Modules
         internal static float backupBlueGain = 0.1f;
         internal static float hardlightBlueGain = 0.3f;
         internal static float lysateBlueGain = 0.2f;
-        internal static float blueDamageMultiplier = 3f;
-        internal static float lowerDamageMultiplier = 0.9f;
+        internal static float secondaryBlueGain = 0.05f;
+        internal static float utilityBlueGain = 0.1f;
+        internal static float specialBlueGain = 0.075f;
+
+        internal static float blueDamageMultiplier = 2.5f;
+        internal static float lowerDamageMultiplier = 0.7f;
 
         //firespray
         internal static float firesprayWeakDamageCoefficient = 1.2f;
