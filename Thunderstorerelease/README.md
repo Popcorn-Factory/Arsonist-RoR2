@@ -18,15 +18,29 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
     - Tweaking Supercritical Gauge:
         - 3x -> 2.5x damage buff in blue portion of the gauge
         - 0.9x -> 0.7x damage debuff in white portion of the gauge
+        - Reduced the maximum amount of blue that can be built up from stock items from 90% -> 75% of available heat.
         - Modified the description to indicate the downside.
-    - Buffing Dragon's Fury:
-        - 70% -> 80% damage coefficient
-        - Base Tick Rate 4 -> 6 per second
-        - Range 25 -> 30 units
-        - Energy Cost 5 -> 3
-        - Reduced Fire Chance (10% -> 9% chance per hit.)
-        - Increased Flamethrower radius 1 -> 1.5
-        - Changed Stopper mask, should stop at nothing to burn enemies.
+        - Starting segments for white and blue portions have been changed
+            - White: 60% -> 70% of gauge
+            - Blue: 30% -> 20% of gauge
+    - Tweaking Dragon's Fury:
+        - Normal damage coefficient 70% -> 80%
+        - Overheating in Dragon's Fury damage coefficient 65% -> 60%
+        - Base Tick Rate 4 -> 6 per second, should be register a hit more often than not. 
+        - Range 25 -> 50 units
+            - Yeah ok, an IRL one reaches up to 50-100m, but let's start here and work our way up if it's still too short.
+        - Overheated Range 16.5 -> 33 units
+        - Heat Cost 5 -> 4
+            - Heat build up is now independant of tick, so firing off 12 ticks should instead consume 8 heat instead of 48 units.
+        - Reduced Fire Chance, 90% -> 70% chance per tick to inflict ignite when right up in their face. (If hitting all ticks in a given attack, 0.001% -> 0.00729% chance of not burning.
+            - Needless to say, it's pretty a damn low chance that you'll not burn the enemy *at least once* after blasting them in the face with this attack.)
+        - Increased Flamethrower radius 1 -> 1.5, should be easier to hit enemies with the flamethrower.
+        - Changed Stopper mask to allow the flamethrower to pierce anything, should stop at nothing to burn enemies. 
+            - This technically means you can burn right through the world and hit an enemy behind the world you just fired through. A necessary sacrifice.
+        - Scaling for distance to burn targets has been buffed (TLDR; burning an enemy has a higher chance at a further distance.)
+            - Furthest distance (at 50 units away from target) 0% -> 13% chance to burn
+            - Closest distance for max burn chance changed from 0 units to 10 units.
+            - 
     - Bug fixes:
         - Fixed Overheat locking Arsonist to a higher cooldown even though the overheat state has ended.
 

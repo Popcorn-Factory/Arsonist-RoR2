@@ -141,7 +141,7 @@ namespace ArsonistMod.SkillStates
                 if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
                 {
                     //Increment energy and Damage stuff
-                    energySystem.AddHeat(energyCost);
+                    energySystem.AddHeat(energyCost / (float)tickRate);
                     coeff = isBlue ? altStrongCoefficient : strongCoefficient;
                 }
                 else if (energySystem.currentOverheat >= energySystem.maxOverheat && isAuthority)
@@ -181,9 +181,10 @@ namespace ArsonistMod.SkillStates
             if (hitInfo.hitHurtBox)
             {
                 //Check the distance between the enemy and player, then plug into an inverse parabola to determine how high of a proc chance.
+                //Clamped so we always get a clean 0-1 value.
                 float ratio = hitInfo.distance / Modules.StaticValues.flamethrowerRange;
 
-                float dist_chance = (-1f * Mathf.Pow(ratio, 0.5f)) + 1f;
+                float dist_chance = (-1f * Mathf.Pow(ratio, 0.8f)) + 1.2f;
                 dist_chance = Mathf.Clamp(dist_chance, 0f, 1f);
 
                 //Attempt to deal Fire

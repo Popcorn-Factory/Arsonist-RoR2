@@ -18944,7 +18944,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 33
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -23865,7 +23865,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 33
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -34123,7 +34123,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000004470347, y: 0.43374643, z: 0.00000023841848}
+  m_ConnectedAnchor: {x: 0.00000004470347, y: 0.43374643, z: 0.00000023841847}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -44226,7 +44226,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000055879347, y: 0.4547411, z: 0.00000002980231}
+  m_ConnectedAnchor: {x: -0.000000052154057, y: 0.4547411, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
