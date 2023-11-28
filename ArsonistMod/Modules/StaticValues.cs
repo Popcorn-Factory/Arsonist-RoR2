@@ -20,8 +20,8 @@ namespace ArsonistMod.Modules
         internal static float overheatAttackSpeedDebuff = 0.5f;
 
         internal static int noOfSegmentsOnOverheatGauge = 200;
-        internal static float maxBlueWhiteSegment = 0.75f;
-        internal static Vector3 SegmentedValuesOnGaugeAlt = new Vector3(0.7f, 0.2f, 0.1f);
+        internal static float maxBlueWhiteSegment = 0.9f;
+        internal static Vector3 SegmentedValuesOnGaugeAlt = new Vector3(0.65f, 0.25f, 0.1f);
         internal static Vector3 SegmentedValuesOnGaugeMain = new Vector3(0.9f, 0f, 0.1f);
 
 
@@ -54,15 +54,15 @@ namespace ArsonistMod.Modules
         internal static float altFiresprayWeakDamageCoefficient = 0.9f;
         internal static float altFiresprayEnergyCost = 12f;
 
-        //Flamethrower
-        internal static float flamethrowerStrongDamageCoefficient = 0.8f;
+        //Flamethrowerz
+        internal static float flamethrowerStrongDamageCoefficient = 0.9f;
         internal static float flamethrowerWeakDamageCoefficient = 0.60f;
-        internal static float flamethrowerEnergyCost = 4f;
+        internal static float flamethrowerEnergyCost = 6f;
         internal static float flamethrowerFireChance = 30f; // number generated higher than this number guarantees fire damage. between 1-100
-        internal static float flamethrowerRange = 50f;
+        internal static float flamethrowerRange = 35f;
         internal static float flamethrowerProcCoefficient = 0.5f;
-        internal static float flamethowerRadius = 1.5f;
-        internal static int flamethrowerBaseTickRate = 3; //per half sec
+        internal static float flamethowerRadius = 1.25f;
+        internal static int flamethrowerBaseTickRate = 2; //per half sec
 
         //Alt-flamethrower
         internal static float altFlamethrowerStrongDamageCoefficient = 1f;

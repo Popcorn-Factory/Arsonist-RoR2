@@ -538,9 +538,9 @@ namespace ArsonistMod.Content.Controllers
                     isAcceleratedCooling = false;
 
                     //Unset overheated skills when cooldown is completed.
-                    hasOverheatedSecondary = false;
-                    hasOverheatedUtility = false;
-                    hasOverheatedSpecial = false;
+                    //hasOverheatedSecondary = false;
+                    //hasOverheatedUtility = false;
+                    //hasOverheatedSpecial = false;
 
                     AkSoundEngine.StopPlayingID(tickingSound);
                     characterBody.ApplyBuff(Modules.Buffs.overheatDebuff.buffIndex, 0, -1);

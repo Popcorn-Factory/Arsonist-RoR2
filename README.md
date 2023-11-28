@@ -21,28 +21,22 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
         - Reduced the maximum amount of blue that can be built up from stock items from 90% -> 75% of available heat.
         - Modified the description to indicate the downside.
         - Starting segments for white and blue portions have been changed
-            - White: 60% -> 70% of gauge
-            - Blue: 30% -> 20% of gauge
+            - White: 60% -> 65% of gauge
+            - Blue: 30% -> 25% of gauge
     - Tweaking Dragon's Fury:
-        - Normal damage coefficient 70% -> 80%
+        - Normal damage coefficient 70% -> 90%
         - Overheating in Dragon's Fury damage coefficient 65% -> 60%
-        - Base Tick Rate 4 -> 6 per second, should be register a hit more often than not. 
-        - Range 25 -> 50 units
-            - Yeah ok, an IRL one reaches up to 50-100m, but let's start here and work our way up if it's still too short.
-        - Overheated Range 16.5 -> 33 units
-        - Heat Cost 5 -> 4
-            - Heat build up is now independant of tick, so firing off 12 ticks should instead consume 8 heat instead of 48 units.
+        - Range 25 -> 35 units
+        - Overheated Range 16.5 -> 19.8 units
+        - Heat Cost 5 -> 6
+            - Heat build up is now independant of tick. So this needed to be increased.
         - Reduced Fire Chance, 90% -> 70% chance per tick to inflict ignite when right up in their face. (If hitting all ticks in a given attack, 0.001% -> 0.00729% chance of not burning.
             - Needless to say, it's pretty a damn low chance that you'll not burn the enemy *at least once* after blasting them in the face with this attack.)
-        - Increased Flamethrower radius 1 -> 1.5, should be easier to hit enemies with the flamethrower.
-        - Changed Stopper mask to allow the flamethrower to pierce anything, should stop at nothing to burn enemies. 
-            - This technically means you can burn right through the world and hit an enemy behind the world you just fired through. A necessary sacrifice.
+        - Increased Flamethrower radius 1 -> 1.25, should be easier to hit enemies with the flamethrower.
+        - Turned on smart collision for bullet attacks. Should hit enemies better.
         - Scaling for distance to burn targets has been buffed (TLDR; burning an enemy has a higher chance at a further distance.)
             - Furthest distance (at 50 units away from target) 0% -> 13% chance to burn
             - Closest distance for max burn chance changed from 0 units to 10 units.
-            - 
-    - Bug fixes:
-        - Fixed Overheat locking Arsonist to a higher cooldown even though the overheat state has ended.
 
 - 2.0.0
     - New Content:
