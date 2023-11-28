@@ -27,7 +27,7 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
         - Normal damage coefficient 70% -> 90%
         - Overheating in Dragon's Fury damage coefficient 65% -> 60%
         - Range 25 -> 35 units
-        - Overheated Range 16.5 -> 19.8 units
+        - Overheated Range 16.5 -> 23.1 units
         - Heat Cost 5 -> 6
             - Heat build up is now independant of tick. So this needed to be increased.
         - Reduced Fire Chance, 90% -> 70% chance per tick to inflict ignite when right up in their face. (If hitting all ticks in a given attack, 0.001% -> 0.00729% chance of not burning.
