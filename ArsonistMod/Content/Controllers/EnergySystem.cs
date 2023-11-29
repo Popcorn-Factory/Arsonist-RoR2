@@ -747,7 +747,7 @@ namespace ArsonistMod.Content.Controllers
                     {
                         energyNumber.color = Color.red;
                     }
-                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex) && characterBody.hasEffectiveAuthority)
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
                         characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 1);
@@ -756,7 +756,7 @@ namespace ArsonistMod.Content.Controllers
                 else if (currentOverheat < currentBlueNumber)
                 {
                     energyNumber.color = Color.white;
-                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    if (characterBody.HasBuff(Buffs.blueBuff.buffIndex) && characterBody.hasEffectiveAuthority)
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 0);
                         characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 1);
@@ -765,7 +765,7 @@ namespace ArsonistMod.Content.Controllers
                 else if (currentOverheat >= currentBlueNumber && currentOverheat < maxOverheat && !baseHeatGauge)
                 {
                     energyNumber.color = Color.cyan;
-                    if (!characterBody.HasBuff(Buffs.blueBuff.buffIndex))
+                    if (!characterBody.HasBuff(Buffs.blueBuff.buffIndex) && characterBody.hasEffectiveAuthority)
                     {
                         characterBody.ApplyBuff(Buffs.blueBuff.buffIndex, 1);
                         characterBody.ApplyBuff(Buffs.lowerBuff.buffIndex, 0);
