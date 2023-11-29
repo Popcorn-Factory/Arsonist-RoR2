@@ -14,29 +14,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.0.3
-    - Tweaking Supercritical Gauge:
-        - 3x -> 2.5x damage buff in blue portion of the gauge
-        - 0.9x -> 0.7x damage debuff in white portion of the gauge
-        - Reduced the maximum amount of blue that can be built up from stock items from 90% -> 75% of available heat.
-        - Modified the description to indicate the downside.
-        - Starting segments for white and blue portions have been changed
-            - White: 60% -> 65% of gauge
-            - Blue: 30% -> 25% of gauge
-    - Tweaking Dragon's Fury:
-        - Normal damage coefficient 70% -> 90%
-        - Overheating in Dragon's Fury damage coefficient 65% -> 60%
-        - Range 25 -> 35 units
-        - Overheated Range 16.5 -> 23.1 units
-        - Heat Cost 5 -> 6
-            - Heat build up is now independant of tick. So this needed to be increased.
-        - Reduced Fire Chance, 90% -> 70% chance per tick to inflict ignite when right up in their face. (If hitting all ticks in a given attack, 0.001% -> 0.00729% chance of not burning.
-            - Needless to say, it's pretty a damn low chance that you'll not burn the enemy *at least once* after blasting them in the face with this attack.)
-        - Increased Flamethrower radius 1 -> 1.25, should be easier to hit enemies with the flamethrower.
-        - Turned on smart collision for bullet attacks. Should hit enemies better.
-        - Scaling for distance to burn targets has been buffed (TLDR; burning an enemy has a higher chance at a further distance.)
-            - Furthest distance (at 50 units away from target) 0% -> 13% chance to burn
-            - Closest distance for max burn chance changed from 0 units to 10 units.
+- 2.0.4
+    - Supercritical Gauge was not setting damage correctly for clients, this should be fixed now.
 
 - 2.0.0
     - New Content:
@@ -220,6 +199,29 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.0.3
+    - Tweaking Supercritical Gauge:
+        - 3x -> 2.5x damage buff in blue portion of the gauge
+        - 0.9x -> 0.7x damage debuff in white portion of the gauge
+        - Reduced the maximum amount of blue that can be built up from stock items from 90% -> 75% of available heat.
+        - Modified the description to indicate the downside.
+        - Starting segments for white and blue portions have been changed
+            - White: 60% -> 65% of gauge
+            - Blue: 30% -> 25% of gauge
+    - Tweaking Dragon's Fury:
+        - Normal damage coefficient 70% -> 90%
+        - Overheating in Dragon's Fury damage coefficient 65% -> 60%
+        - Range 25 -> 35 units
+        - Overheated Range 16.5 -> 23.1 units
+        - Heat Cost 5 -> 6
+            - Heat build up is now independant of tick. So this needed to be increased.
+        - Reduced Fire Chance, 90% -> 70% chance per tick to inflict ignite when right up in their face. (If hitting all ticks in a given attack, 0.001% -> 0.00729% chance of not burning.
+            - Needless to say, it's pretty a damn low chance that you'll not burn the enemy *at least once* after blasting them in the face with this attack.)
+        - Increased Flamethrower radius 1 -> 1.25, should be easier to hit enemies with the flamethrower.
+        - Turned on smart collision for bullet attacks. Should hit enemies better.
+        - Scaling for distance to burn targets has been buffed (TLDR; burning an enemy has a higher chance at a further distance.)
+            - Furthest distance (at 50 units away from target) 0% -> 13% chance to burn
+            - Closest distance for max burn chance changed from 0 units to 10 units.
 - 2.0.2
     - Flamethrower unlock was bugged, Should be fixed now.
         - Was me being stupid. Sorry about that. Feel free to unlock it using Cheat Unlocks.
