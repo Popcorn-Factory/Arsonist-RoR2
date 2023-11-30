@@ -80,6 +80,16 @@ namespace ArsonistMod.SkillStates
 
             }
 
+            if (isAuthority && Modules.Config.shouldHaveVoice.Value) 
+            {
+                float randomNum = UnityEngine.Random.Range(1, 101);
+                if (Modules.Config.flareVoicelineChance.Value >= randomNum && Modules.Config.flareVoicelineChance.Value != 0 && base.characterBody.skinIndex != Modules.Survivors.Arsonist.FirebugSkinIndex) 
+                {
+                    // Calculate chance, send network request for flare noise.
+                    new PlaySoundNetworkRequest(base.characterBody.netId, 2767633755).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+            }
+
             //This is so fucking stupid fuck fuck fucking goddamn it fuck
             DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
             damageTypeComponent.Add(Damage.arsonistStickyDamageType);

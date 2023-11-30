@@ -106,7 +106,7 @@
 				<Property Name="MonitoringManager\GameObjectFilter\x64_GameObjectFilters" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\FirstVisible_10_1" Type="string" Value="{4C96B38B-3DB4-40C7-91C9-665510E38993}"/>
 				<Property Name="ProjectExplorer\FirstVisible_11_1" Type="string" Value="{23EC2DE3-3ED8-4B82-AC99-92E25F2E4C6B}"/>
-				<Property Name="ProjectExplorer\FirstVisible_1_1" Type="string" Value="{DBD91922-CA7D-4677-BE1F-12C7193FC553}"/>
+				<Property Name="ProjectExplorer\FirstVisible_1_1" Type="string" Value="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
 				<Property Name="ProjectExplorer\FirstVisible_3_1" Type="string" Value="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}"/>
 				<Property Name="ProjectExplorer\FirstVisible_4_1" Type="string" Value="{CB6175F1-6080-4A23-92EF-0807E304D0C1}"/>
 				<Property Name="ProjectExplorer\FirstVisible_6_1" Type="string" Value="{C98E673F-A24C-48A8-960F-10565FFE70A0}"/>
@@ -124,7 +124,7 @@
 				<Property Name="ProjectExplorer\x64_Expanded_1_1" Type="string" Value="QYkKzzgwj0m57gWppK02RQ=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_20_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_21_1" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="T6SQKIZU/0G0d8u3J5ibtqx2TFkbUuZCoaGHhqHpm913Lw8cPK4bQ4LovB9fFL4g2mcux9N0AESWYrDqU/r/lAPIbgPA9xpEqKHc8dhWg5EWfa0w0fRdRK21ACX5Qtt8sQp+oB90WUWZ5tCOeNR36nHr9gIlfYRGlqvNrmzltgrw5ojSrvWoRpRLNlBSovEttTm391MqokewhE4Jz+Zt4EgLMdjZxXZIjio04AdG7RCQVjWAw0v7S6IqNstC9kdSuwCRShU7O06oyxWcRnsew1Q83S4gzAJPmoorpwenOjY="/>
+				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="T6SQKIZU/0G0d8u3J5ibtqx2TFkbUuZCoaGHhqHpm913Lw8cPK4bQ4LovB9fFL4g2mcux9N0AESWYrDqU/r/lAPIbgPA9xpEqKHc8dhWg5EWfa0w0fRdRK21ACX5Qtt8sQp+oB90WUWZ5tCOeNR36rR8MaFefdlFkvMssvvrWrhx6/YCJX2ERparza5s5bYK8OaI0q71qEaUSzZQUqLxLbU5t/dTKqJHsIROCc/mbeBICzHY2cV2SI4qNOAHRu0QkFY1gMNL+0uiKjbLQvZHUrsAkUoVOztOqMsVnEZ7HsNUPN0uIMwCT5qKK6cHpzo2"/>
 				<Property Name="ProjectExplorer\x64_Expanded_3_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_5_1" Type="string" Value=""/>

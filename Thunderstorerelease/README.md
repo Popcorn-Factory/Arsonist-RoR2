@@ -14,9 +14,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.0.4
-    - Supercritical Gauge was not setting damage correctly for clients, this should be fixed now.
-
+- 2.1.0
+    - Added a voiceline that plays by chance (chance is configurable) on Signal Flare. (Only applicable to Arsonist and Yuppie skins, not Firebug.)
+    - Added "Better AI". Should make Umbras actually a challenge, and goobos actually do something.
 - 2.0.0
     - New Content:
         - Two new skins!
@@ -199,6 +199,11 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.1.0
+    - Added a voiceline that plays by chance (chance is configurable) on Signal Flare. (Only applicable to Arsonist and Yuppie skins, not Firebug.)
+    - Added "Better AI". Should make Umbras actually a challenge, and goobos actually do something.
+- 2.0.4
+    - Supercritical Gauge was not setting damage correctly for clients, this should be fixed now.
 - 2.0.3
     - Tweaking Supercritical Gauge:
         - 3x -> 2.5x damage buff in blue portion of the gauge

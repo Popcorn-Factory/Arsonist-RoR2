@@ -31,6 +31,7 @@
 						<ObjectRef Name="Arsonist_Primary_Fire" ID="{475376C6-E66A-4968-82FD-0535208DDD54}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Flamethrower_Start" ID="{9CF3C0B9-D289-49EF-9BE5-5C84C9353458}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Explosion_New" ID="{4073D7BB-A073-4A16-A5B1-F71D629560D6}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Arsonist_Secondary_Flare_Voiceline" ID="{7F504387-35D2-4A34-A8EA-9A66D6316436}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Projectile" ID="{D39286A2-B216-4AC4-B433-218EBBA06261}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_ZPB_Contact" ID="{9611296A-6658-4AF3-B6B8-6E4878D5D93B}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Primary_Fire_Travel" ID="{09C0528A-F933-4B88-8B6E-8126414F9673}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>

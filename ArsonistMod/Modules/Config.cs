@@ -36,6 +36,8 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<bool> ToggleMasochismFOVWarp;
 
+        public static ConfigEntry<int> flareVoicelineChance;
+
         /*
          
         //passive onfire buff
@@ -249,6 +251,12 @@ namespace ArsonistMod.Modules
                     Array.Empty<object>()
                 )
             );
+            flareVoicelineChance = ArsonistPlugin.instance.Config.Bind<int>
+            (
+                new ConfigDefinition("06 - Flare", "Shout Fireball! chance"),
+                1,
+                new ConfigDescription("Determines the chance Arsonist shouts Fireball!. If voice is disabled, this will not play. If set to 0, this will not play.", null, Array.Empty<object>())
+            );
 
             cleanseRingFireEffectEnabled = ArsonistPlugin.instance.Config.Bind<bool>
             (
@@ -388,6 +396,15 @@ namespace ArsonistMod.Modules
                     min = 0,
                     max = 100,
                 }));
+
+            ModSettingsManager.AddOption(new IntSliderOption(
+                flareVoicelineChance,
+                new IntSliderConfig 
+                {
+                    min = 0,
+                    max = 100,
+                }
+            ));
 
             ModSettingsManager.AddOption(new CheckBoxOption(cleanseRingFireEffectEnabled));
             ModSettingsManager.AddOption(new CheckBoxOption(ToggleMasochismFOVWarp));
