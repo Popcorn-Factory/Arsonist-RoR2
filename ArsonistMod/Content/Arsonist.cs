@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ArsonistMod.Content.Controllers;
+using R2API;
+using RoR2.CharacterAI;
 
 namespace ArsonistMod.Modules.Survivors
 {
@@ -18,6 +20,15 @@ namespace ArsonistMod.Modules.Survivors
         public override string survivorTokenPrefix => ARSONIST_PREFIX;
 
         public static int FirebugSkinIndex = 2;
+
+
+        //SkillDefs
+        public static SkillDef primarySkillDef;
+        public static SkillDef flamethrowerSkillDef;
+        public static SkillDef flareSkillDef;
+        public static SkillDef punchSkillDef;
+        public static SkillDef cleanseSkillDef;
+        public static SkillDef neoMasochismSkillDef;
          
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
@@ -139,6 +150,149 @@ namespace ArsonistMod.Modules.Survivors
             //example of how to create a hitbox
             Transform hitboxTransform = childLocator.FindChild("ZeroPointHitbox");
             Modules.Prefabs.SetupHitbox(model, hitboxTransform, "ZeroPoint");
+        }
+
+        public override void InitializeDoppelganger(string clone)
+        {
+            GameObject newMasterGameObject = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/" + clone + "MonsterMaster"), bodyName + "MonsterMaster", true);
+            CharacterMaster master = newMasterGameObject.GetComponent<CharacterMaster>();
+            master.bodyPrefab = bodyPrefab;
+
+            //Set AI Skill Drivers
+
+            AISkillDriver[] drivers = master.GetComponents<AISkillDriver>();
+            foreach (AISkillDriver driver in drivers) 
+            {
+                UnityEngine.Object.DestroyImmediate(driver);
+            }
+
+            //Fire as much as possible in range.
+            AISkillDriver flamethrower = master.gameObject.AddComponent<AISkillDriver>();
+            flamethrower.customName = "Arsonist Primary";
+            flamethrower.skillSlot = SkillSlot.Primary;
+            flamethrower.requireSkillReady = true;
+            flamethrower.requireEquipmentReady = false;
+            flamethrower.minDistance = 15f;
+            flamethrower.maxDistance = 40f;
+            flamethrower.selectionRequiresAimTarget = true;
+            flamethrower.selectionRequiresOnGround = false;
+            flamethrower.selectionRequiresAimTarget = true;
+            flamethrower.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            flamethrower.activationRequiresTargetLoS = true;
+            flamethrower.activationRequiresAimTargetLoS = true;
+            flamethrower.activationRequiresAimConfirmation = true;
+            flamethrower.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            flamethrower.buttonPressType = AISkillDriver.ButtonPressType.Hold;
+            flamethrower.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            flamethrower.resetCurrentEnemyOnNextDriverSelection = false;
+
+            //Always fire when at a distance away from the player.
+            AISkillDriver flare = master.gameObject.AddComponent<AISkillDriver>();
+            flare.customName = "Arsonist Secondary";
+            flare.skillSlot = SkillSlot.Secondary;
+            flare.requireSkillReady = true;
+            flare.requireEquipmentReady = false;
+            flare.minDistance = 30f;
+            flare.maxDistance = 100f;
+            flare.selectionRequiresAimTarget = true;
+            flare.selectionRequiresOnGround = false;
+            flare.selectionRequiresAimTarget = true;
+            flare.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            flare.activationRequiresTargetLoS = true;
+            flare.activationRequiresAimTargetLoS = true;
+            flare.activationRequiresAimConfirmation = true;
+            flare.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            flare.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            flare.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            flare.resetCurrentEnemyOnNextDriverSelection = true;
+            flare.noRepeat = true;
+
+            AISkillDriver cleanse = master.gameObject.AddComponent<AISkillDriver>();
+            cleanse.customName = "Arsonist Cleanse";
+            cleanse.skillSlot = SkillSlot.Utility;
+            cleanse.requireSkillReady = true;
+            cleanse.requireEquipmentReady = false;
+            cleanse.minDistance = 0f;
+            cleanse.maxDistance = 75f;
+            cleanse.selectionRequiresAimTarget = true;
+            cleanse.selectionRequiresOnGround = false;
+            cleanse.selectionRequiresAimTarget = true;
+            cleanse.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            cleanse.activationRequiresTargetLoS = true;
+            cleanse.activationRequiresAimTargetLoS = true;
+            cleanse.activationRequiresAimConfirmation = true;
+            cleanse.movementType = AISkillDriver.MovementType.StrafeMovetarget;
+            cleanse.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            cleanse.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            cleanse.resetCurrentEnemyOnNextDriverSelection = false;
+            cleanse.resetCurrentEnemyOnNextDriverSelection = true;
+            cleanse.noRepeat = true;
+
+            AISkillDriver maso = master.gameObject.AddComponent<AISkillDriver>();
+            maso.customName = "Arsonist Masochism";
+            maso.skillSlot = SkillSlot.Special;
+            maso.requireSkillReady = true;
+            maso.requireEquipmentReady = false;
+            maso.minDistance = 10f;
+            maso.maxDistance = 15f;
+            maso.minTargetHealthFraction = 50f;
+            maso.maxTargetHealthFraction = float.PositiveInfinity;
+            maso.selectionRequiresAimTarget = true;
+            maso.selectionRequiresOnGround = false;
+            maso.selectionRequiresAimTarget = true;
+            maso.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            maso.activationRequiresTargetLoS = true;
+            maso.activationRequiresAimTargetLoS = true;
+            maso.activationRequiresAimConfirmation = true;
+            maso.movementType = AISkillDriver.MovementType.StrafeMovetarget;
+            maso.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            maso.resetCurrentEnemyOnNextDriverSelection = false;
+            maso.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            maso.noRepeat = true;
+
+            //Setup AI
+            AISkillDriver flee = master.gameObject.AddComponent<AISkillDriver>();
+            flee.customName = "Arsonist Flee if too close";
+            flee.skillSlot = SkillSlot.None;
+            flee.requireSkillReady = false;
+            flee.requireEquipmentReady = false;
+            flee.minDistance = 5f;
+            flee.shouldSprint = true;
+            flee.maxDistance = 20f;
+            flee.minDistance = 0f;
+            flee.selectionRequiresAimTarget = false;
+            flee.selectionRequiresOnGround = false;
+            flee.selectionRequiresAimTarget = false;
+            flee.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            flee.moveInputScale = 1f;
+            flee.activationRequiresTargetLoS = true;
+            flee.activationRequiresAimTargetLoS = true;
+            flee.activationRequiresAimConfirmation = true;
+            flee.movementType = AISkillDriver.MovementType.FleeMoveTarget;
+            flee.buttonPressType = AISkillDriver.ButtonPressType.Abstain;
+            flee.resetCurrentEnemyOnNextDriverSelection = true;
+
+            AISkillDriver FIND = master.gameObject.AddComponent<AISkillDriver>();
+            FIND.customName = "Arsonist Flee if too close";
+            FIND.skillSlot = SkillSlot.None;
+            FIND.requireSkillReady = false;
+            FIND.requireEquipmentReady = false;
+            FIND.minDistance = 0f;
+            FIND.maxDistance = float.PositiveInfinity;
+            FIND.shouldSprint = true;
+            FIND.selectionRequiresAimTarget = false;
+            FIND.selectionRequiresOnGround = false;
+            FIND.selectionRequiresAimTarget = false;
+            FIND.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            FIND.moveInputScale = 1f;
+            FIND.activationRequiresTargetLoS = false;
+            FIND.activationRequiresAimTargetLoS = false;
+            FIND.activationRequiresAimConfirmation = false;
+            FIND.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            FIND.buttonPressType = AISkillDriver.ButtonPressType.Abstain;
+            FIND.resetCurrentEnemyOnNextDriverSelection = false;
+
+            Modules.Content.AddMasterPrefab(newMasterGameObject);
         }
 
         public override void InitializeSkills()
@@ -277,7 +431,7 @@ namespace ArsonistMod.Modules.Survivors
 
             #region Primary
 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "PRIMARY_FIRESPRAY_NAME",
                 skillNameToken = prefix + "PRIMARY_FIRESPRAY_NAME",
@@ -303,7 +457,7 @@ namespace ArsonistMod.Modules.Survivors
             });
 
 
-            SkillDef flamethrower = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            flamethrowerSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "PRIMARY_FLAMETHROWER_NAME",
                 skillNameToken = prefix + "PRIMARY_FLAMETHROWER_NAME",
@@ -331,7 +485,7 @@ namespace ArsonistMod.Modules.Survivors
             Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]
             {
                 primarySkillDef,
-                flamethrower
+                flamethrowerSkillDef
             });
 
             Skills.AddUnlockablesToFamily(this.bodyPrefab.GetComponent<SkillLocator>().primary.skillFamily, new UnlockableDef[] 
@@ -342,7 +496,7 @@ namespace ArsonistMod.Modules.Survivors
             #endregion
 
             #region Secondary
-            SkillDef flareSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            flareSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "SECONDARY_FLAREGUN_NAME",
                 skillNameToken = prefix + "SECONDARY_FLAREGUN_NAME",
@@ -367,7 +521,7 @@ namespace ArsonistMod.Modules.Survivors
                 keywordTokens = new string[] {prefix + "KEYWORD_FLAREHEAT" }
             });
 
-            SkillDef punchSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            punchSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "SECONDARY_PUNCH_NAME",
                 skillNameToken = prefix + "SECONDARY_PUNCH_NAME",
@@ -400,7 +554,7 @@ namespace ArsonistMod.Modules.Survivors
             #endregion
 
             #region Utility
-            SkillDef cleanseSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            cleanseSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "UTILITY_CLEANSE_NAME",
                 skillNameToken = prefix + "UTILITY_CLEANSE_NAME",
@@ -454,7 +608,7 @@ namespace ArsonistMod.Modules.Survivors
                 keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "KEYWORD_MASOCHISMHEAT" }
             });
 
-            SkillDef neoMasochismSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            neoMasochismSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "SPECIAL_MASOCHISM_NAME",
                 skillNameToken = prefix + "SPECIAL_MASOCHISM_NAME",

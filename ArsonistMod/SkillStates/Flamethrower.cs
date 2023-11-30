@@ -125,8 +125,15 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            controller.flamethrower.Stop();
-            controller.weakFlamethrower.Stop();
+            if (controller.flamethrower) 
+            {
+                controller.flamethrower.Stop();
+            }
+
+            if (controller.weakFlamethrower) 
+            {
+                controller.weakFlamethrower.Stop();
+            }
         }
 
         public override void FixedUpdate()

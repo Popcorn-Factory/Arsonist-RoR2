@@ -119,8 +119,15 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.procCoefficient = 1f;
             blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.position = charbody.transform.position;
-            blastAttack.attacker = arsonistBody.gameObject;
-            blastAttack.crit = arsonistBody.RollCrit();
+            if (arsonistBody)
+            {
+                blastAttack.attacker = null;
+            }
+            else 
+            {
+                blastAttack.attacker = arsonistBody.gameObject;
+                blastAttack.crit = arsonistBody.RollCrit();
+            }
             
             blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
