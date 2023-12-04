@@ -88,11 +88,12 @@ namespace ArsonistMod.SkillStates
         {
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altDamageCoefficient : damageCoefficient;
+            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized) : aimRay.origin + 1.1f * (aimRay.direction.normalized);
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.lemurianFireBall, //prefab
-                    aimRay.origin, //position
+                    origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
                     damageStat * coeff, //damage
@@ -109,11 +110,12 @@ namespace ArsonistMod.SkillStates
         {
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altStrongDamageCoefficient : strongdamageCoefficient;
+            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized): aimRay.origin + 1.1f * (aimRay.direction.normalized);
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.artificerFirebolt, //prefab
-                    aimRay.origin, //position
+                    origin, //position
                     Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
                     gameObject, //owner
                     damageStat * coeff, //damage
@@ -155,8 +157,15 @@ namespace ArsonistMod.SkillStates
             }
         }
 
-
-
+        //Fireball collides with player, let's move it down underneath the player if they're looking down. 
+        private bool CheckLookingDown()
+        {
+            if (Vector3.Dot(base.GetAimRay().direction, Vector3.down) > 0.8f)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {

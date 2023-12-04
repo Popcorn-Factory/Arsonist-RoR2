@@ -83,8 +83,8 @@ namespace ArsonistMod.Modules
         internal static float flareSalvoRadius = 10f;
 
         //zeropointpunch
-        internal static float zeropointpounchDamageCoefficient = 4f;
-        internal static float zeropointBlastRadius = 5f;
+        internal static float zeropointpounchDamageCoefficient = 2f;
+        internal static float zeropointBlastRadius = 3f;
         internal static float zeropointHeatReductionMultiplier = 0.5f;
         //cleanse
         internal static float cleanseDuration = 4f;

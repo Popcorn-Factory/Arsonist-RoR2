@@ -14,9 +14,14 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.1.0
-    - Added a voiceline that plays by chance (chance is configurable) on Signal Flare. (Only applicable to Arsonist and Yuppie skins, not Firebug.)
-    - Added "Better AI". Should make Umbras actually a challenge, and goobos actually do something.
+- 2.1.1
+    - Fixing the Zero Point Blast from not applying the cooldown correctly on Overheat.
+    - Base ZPB Cooldown decreased from 11 seconds -> 9 seconds
+        - Similarly the ZPB cooldown in non-overheat is still 60% of the base cooldown (6.6s -> 5.4s)
+    - ZPB Damage coefficient 400% -> 200% 
+    - ZPB Blast Radius on contact 5 units -> 3 units
+    - Attempted to mitigate Arsonist from bonking against his own fireball. (This may still happen, but should happen less. Particulary an issue when aiming down, but should no longer be an issue.)
+    - Fixing Cooldowns from being set incorrectly when overheating and a move isn't used but still applies the longer cooldown.
 - 2.0.0
     - New Content:
         - Two new skins!

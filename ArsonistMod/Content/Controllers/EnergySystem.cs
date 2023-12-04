@@ -516,8 +516,15 @@ namespace ArsonistMod.Content.Controllers
             //Energy used
             if (ifOverheatMaxed)
             {
-                hasOverheatedSecondary = true;
-                hasOverheatedUtility = true;
+
+                if (characterBody.skillLocator.secondary.stock != 0) 
+                {
+                    hasOverheatedSecondary = true;
+                }
+                if (characterBody.skillLocator.utility.stock != 0) 
+                {
+                    hasOverheatedUtility = true;
+                }
                 hasOverheatedSpecial = true;
 
                 float coolingRate = 1.0f;
