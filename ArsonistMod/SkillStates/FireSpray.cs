@@ -88,7 +88,7 @@ namespace ArsonistMod.SkillStates
         {
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altDamageCoefficient : damageCoefficient;
-            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized) : aimRay.origin + 1.1f * (aimRay.direction.normalized);
+            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized) : aimRay.origin + 1.3f * (aimRay.direction.normalized);
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
@@ -110,7 +110,7 @@ namespace ArsonistMod.SkillStates
         {
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altStrongDamageCoefficient : strongdamageCoefficient;
-            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized): aimRay.origin + 1.1f * (aimRay.direction.normalized);
+            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized): aimRay.origin + 1.3f * (aimRay.direction.normalized);
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
