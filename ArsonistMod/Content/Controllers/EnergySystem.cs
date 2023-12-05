@@ -63,7 +63,6 @@ namespace ArsonistMod.Content.Controllers
         public float costflatOverheat;
         public float overheatDecayTimer;
         public bool SetActiveTrue;
-        public bool ifOverheatRegenAllowed;
         public bool ifOverheatMaxed;
         public bool hasOverheatedSecondary;
         public bool hasOverheatedUtility;
@@ -113,6 +112,11 @@ namespace ArsonistMod.Content.Controllers
         //Overheated?
         public bool hasOverheatedThisStage = false;
 
+        //Prevent Cooling for x seconds 
+        public float regenPreventionDuration = 0f;
+        public float regenPreventionStopwatch = 0f;
+        public bool ifOverheatRegenAllowed;
+        
         public void Awake()
         {
             characterBody = gameObject.GetComponent<CharacterBody>();
@@ -571,22 +575,30 @@ namespace ArsonistMod.Content.Controllers
                 {
                     LowerHeat(regenOverheat * Time.fixedDeltaTime);
                 }
-                else 
+                else
                 {
                     //Cooling rate is determined by level of heat ratio and plugged into a parabola which ranges from lower bound to 
                     //lowerbound + 1 at maximum if uncapped.
                     float ratio = (float)currentOverheat / (float)maxOverheat;
                     float coolingRate = Mathf.Pow(ratio, 4f) + Modules.Config.baseGaugeLowerBoundRecharge.Value;
-                    if (coolingRate >= Modules.Config.baseGaugeUpperBoundRecharge.Value) 
+                    if (coolingRate >= Modules.Config.baseGaugeUpperBoundRecharge.Value)
                     {
                         coolingRate = Modules.Config.baseGaugeUpperBoundRecharge.Value;
                     }
-                    if (coolingRate <= Modules.Config.baseGaugeLowerBoundRecharge.Value) 
+                    if (coolingRate <= Modules.Config.baseGaugeLowerBoundRecharge.Value)
                     {
                         coolingRate = Modules.Config.baseGaugeLowerBoundRecharge.Value;
                     }
 
                     LowerHeat(regenOverheat * coolingRate * Time.fixedDeltaTime);
+                }
+            }
+            else 
+            {
+                regenPreventionStopwatch += Time.fixedDeltaTime;
+                if (regenPreventionStopwatch > regenPreventionDuration) 
+                {
+                    ifOverheatRegenAllowed = true;
                 }
             }
 

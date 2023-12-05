@@ -88,7 +88,7 @@ namespace ArsonistMod.SkillStates
         {
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altDamageCoefficient : damageCoefficient;
-            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized) : aimRay.origin + 1.3f * (aimRay.direction.normalized);
+            Vector3 origin = GetDisplacedOrigin(aimRay);
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
@@ -110,7 +110,7 @@ namespace ArsonistMod.SkillStates
         {
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altStrongDamageCoefficient : strongdamageCoefficient;
-            Vector3 origin = CheckLookingDown() ? aimRay.origin + 1.5f * (aimRay.direction.normalized): aimRay.origin + 1.3f * (aimRay.direction.normalized);
+            Vector3 origin = GetDisplacedOrigin(aimRay);
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
@@ -127,6 +127,13 @@ namespace ArsonistMod.SkillStates
 
             }
 
+        }
+
+        public Vector3 GetDisplacedOrigin(Ray aimRay) 
+        {
+            float displacement = 2.5f;
+            float closerDisplacement = 1.25f;
+            return CheckLookingDown() ? aimRay.origin + displacement * (aimRay.direction.normalized) : aimRay.origin + closerDisplacement * (aimRay.direction.normalized);
         }
 
         public override void OnExit()
@@ -160,12 +167,13 @@ namespace ArsonistMod.SkillStates
         //Fireball collides with player, let's move it down underneath the player if they're looking down. 
         private bool CheckLookingDown()
         {
-            if (Vector3.Dot(base.GetAimRay().direction, Vector3.down) > 0.8f)
+            if (Vector3.Dot(base.GetAimRay().direction, Vector3.down) > 0.6f)
             {
                 return true;
             }
             return false;
         }
+
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {

@@ -57,7 +57,7 @@ namespace ArsonistMod.Modules
         //Flamethrowerz
         internal static float flamethrowerStrongDamageCoefficient = 0.9f;
         internal static float flamethrowerWeakDamageCoefficient = 0.60f;
-        internal static float flamethrowerEnergyCost = 6f;
+        internal static float flamethrowerEnergyCost = 20f;
         internal static float flamethrowerFireChance = 30f; // number generated higher than this number guarantees fire damage. between 1-100
         internal static float flamethrowerRange = 35f;
         internal static float flamethrowerProcCoefficient = 0.5f;

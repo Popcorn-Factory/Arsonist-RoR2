@@ -65,6 +65,11 @@ namespace ArsonistMod.SkillStates
             if (energyCost < 0f) energyCost = 0f;
 
             duration = baseDuration / base.attackSpeedStat;
+            if (duration < 0.1f) 
+            {
+                duration = 0.1f;
+            }
+
             tickRate = (int)(baseTickRate * base.attackSpeedStat);
             interval = duration / (float)tickRate;
 
@@ -120,6 +125,13 @@ namespace ArsonistMod.SkillStates
                     }
                 }
             }
+
+            if (energySystem && base.isAuthority) 
+            {
+                energySystem.ifOverheatRegenAllowed = false;
+                energySystem.regenPreventionDuration = 0.2f;
+                energySystem.regenPreventionStopwatch = 0f;
+            }
         }
 
         public override void OnExit()
@@ -149,7 +161,6 @@ namespace ArsonistMod.SkillStates
                 if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
                 {
                     //Increment energy and Damage stuff
-                    energySystem.AddHeat(energyCost / (float)tickRate);
                     coeff = isBlue ? altStrongCoefficient : strongCoefficient;
                 }
                 else if (energySystem.currentOverheat >= energySystem.maxOverheat && isAuthority)
@@ -168,8 +179,21 @@ namespace ArsonistMod.SkillStates
                 stopwatch = 0f;
             }
 
+            if (base.fixedAge <= this.duration && base.isAuthority) 
+            {
+                // Increment heat slowly in here.
+                if (energySystem)
+                {
+                    energySystem.AddHeat(energyCost * Time.fixedDeltaTime);
+                    energySystem.ifOverheatRegenAllowed = false;
+                    energySystem.regenPreventionDuration = 0.1f;
+                    energySystem.regenPreventionStopwatch = 0f;
+                }
+            }
+
             if (base.fixedAge >= this.duration && base.isAuthority) 
             {
+
                 if (base.inputBank.skill1.down) 
                 {
                     this.outer.SetState(new Flamethrower { });

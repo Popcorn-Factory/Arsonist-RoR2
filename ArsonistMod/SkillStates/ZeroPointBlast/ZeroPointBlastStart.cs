@@ -59,7 +59,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         private Ray aimRay;
         public static float baseduration = 0.8f;
         public static float duration;
-        public static float initialSpeedCoefficient = 6f;
+        public static float initialSpeedCoefficient = 7f;
         public float SpeedCoefficient;
         public static float finalSpeedCoefficient = 4f;
         private float extraDuration;

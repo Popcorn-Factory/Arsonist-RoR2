@@ -42,7 +42,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.1.0";
+        public const string MODVERSION = "2.1.1";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -244,7 +244,6 @@ namespace ArsonistMod
                                     damageInfo.dotIndex == DotController.DotIndex.StrongerBurn;
 
                     bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
-
                     //Debug.Log($"{DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType)} {DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistWeakStickyDamageType)} {DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistChildExplosionDamageType)}");
 
 
@@ -285,7 +284,7 @@ namespace ArsonistMod
                     //Receive damage, check if damage is not fire.
                     if (self.body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                     {
-                        if (damageInfo.damage > self.fullHealth * Modules.Config.passiveHealthPercentageTriggerIgnite.Value && (damageInfo.damageType != tempDamageType)) 
+                        if (damageInfo.damage > self.fullHealth * Modules.Config.passiveHealthPercentageTriggerIgnite.Value && (damageInfo.damageType != tempDamageType) && !self.body.HasBuff(DLC1Content.Buffs.BearVoidReady)) 
                         {
                             if (!dotCheck)
                             {
