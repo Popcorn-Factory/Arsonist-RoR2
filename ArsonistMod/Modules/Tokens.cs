@@ -49,11 +49,11 @@ namespace ArsonistMod.Modules
             //LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
 
             LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_NAME", "Normal Gauge");
-            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", $"Heat gauge increase per level as well as with stock-based items. " +
+            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", $"Heat gauge increase per level, as well as with stocks on skills." +
                 $"Cooling rate also increases at higher level of heat, starting at {Modules.Config.baseGaugeLowerBoundRecharge.Value}x at 0%, up to a maximum cooling rate of {Modules.Config.baseGaugeUpperBoundRecharge.Value}x at 100% heat.");
 
             LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_NAME", "Supercritical Gauge");
-            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", $"Heat gauge does not increase, instead supercritical gauge increases per level as well as with stock-based items. " +
+            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", $"Heat gauge does not increase, instead supercritical gauge increases per level, as well as with stocks on skills. " +
                 $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge. " +
                 $"{Modules.StaticValues.lowerDamageMultiplier}x damage while heat is in the white portion of the gauge.");
 
@@ -117,6 +117,13 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"<style=cKeywordName>Overheat: Masochism</style>If Arsonist exits Masochism due to too much heat buildup, " +
                 $"EX Overheat is applied, reducing your Move Speed and Damage to {Modules.StaticValues.masochismMoveSpeedPenalty * 100f}%. " +
                 $"Cancelling, or otherwise letting the move run it's course applies Overheat, reducing your Attack speed to {Modules.StaticValues.overheatAttackSpeedDebuff * 100f}%");
+
+            #endregion
+
+            #region Miscellaneous
+            LanguageAPI.Add(prefix + "OVERHEAT_TEXT", "OVERHEAT!");
+            LanguageAPI.Add(prefix + "OVERHEAT_EX_TEXT", "OVERHEAT:EX!");
+            LanguageAPI.Add(prefix + "COOLING_TEXT", "COOLING...!");
             #endregion
 
             #region Achievements

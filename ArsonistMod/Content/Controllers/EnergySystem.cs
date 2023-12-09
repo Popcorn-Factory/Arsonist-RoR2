@@ -116,6 +116,9 @@ namespace ArsonistMod.Content.Controllers
         public float regenPreventionDuration = 0f;
         public float regenPreventionStopwatch = 0f;
         public bool ifOverheatRegenAllowed;
+
+        public float updateSegment = 0.5f;
+        public float segmentTimer = 0f;
         
         public void Awake()
         {
@@ -142,9 +145,16 @@ namespace ArsonistMod.Content.Controllers
             }
             else
             {
-                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
-                    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                //blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                //    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                //    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid)
+                //    + ((characterBody.level - 1) * StaticValues.levelBlueEnergy));
+
+                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment
+                * (1 + (StaticValues.backupBlueGain * ((float)characterBody.skillLocator.secondary.maxStock - 1f))
+                + (StaticValues.hardlightBlueGain * ((float)characterBody.skillLocator.utility.maxStock - 1f))
+                + (StaticValues.lysateBlueGain * (characterBody.skillLocator.special.maxStock >= 0 ? 0f : (float)characterBody.skillLocator.special.maxStock - 1f))
+                + ((characterBody.level - 1) * StaticValues.levelBlueEnergy));
 
                 if (blueRatio > StaticValues.maxBlueWhiteSegment)
                 {
@@ -289,10 +299,17 @@ namespace ArsonistMod.Content.Controllers
             else
             {
                 baseHeatGauge = false;
-                
-                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
-                    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+
+                //blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                //    + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                //    + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+
+                blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment
+                * (1 + (StaticValues.backupBlueGain * ((float)characterBody.skillLocator.secondary.maxStock - 1f))
+                + (StaticValues.hardlightBlueGain * ((float)characterBody.skillLocator.utility.maxStock - 1f))
+                + (StaticValues.lysateBlueGain * (characterBody.skillLocator.special.maxStock >= 0 ? 0f : (float)characterBody.skillLocator.special.maxStock - 1f))
+                + ((characterBody.level - 1) * StaticValues.levelBlueEnergy));
+
                 if (blueRatio > StaticValues.maxBlueWhiteSegment)
                 {
                     blueRatio = StaticValues.maxBlueWhiteSegment;
@@ -460,10 +477,15 @@ namespace ArsonistMod.Content.Controllers
                     if (characterBody.master) 
                     {
                         //max heat increases
+                        //maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
+                        //    + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                        //    + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)
+                        //    + StaticValues.lysateEnergyGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+
                         maxOverheat = StaticValues.baseEnergy + ((characterBody.level - 1) * StaticValues.levelEnergy)
-                            + (StaticValues.backupEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                            + (StaticValues.hardlightEnergyGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine)
-                            + StaticValues.lysateEnergyGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                            + (StaticValues.backupEnergyGain * ((float)characterBody.skillLocator.secondary.maxStock - 1f))
+                            + (StaticValues.hardlightEnergyGain * ((float)characterBody.skillLocator.utility.maxStock - 1f))
+                            + (StaticValues.lysateEnergyGain * (characterBody.skillLocator.special.maxStock >= 0 ? 0f : (float)characterBody.skillLocator.special.maxStock - 1f));
 
                     }
                     //regen increases based off current overheat value
@@ -488,9 +510,18 @@ namespace ArsonistMod.Content.Controllers
                     //calcing blue and red ratios for alt
                     if (characterBody.master) 
                     {
-                        blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment * (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
-                        + (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
-                        + StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid));
+                        //blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment 
+                        //* (1 + (StaticValues.backupBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                        //+ (StaticValues.hardlightBlueGain * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine))
+                        //+ StaticValues.lysateBlueGain * characterBody.master.inventory.GetItemCount(DLC1Content.Items.EquipmentMagazineVoid)
+                        //+ ((characterBody.level - 1) * StaticValues.levelBlueEnergy));
+
+
+                        blueRatio = StaticValues.SegmentedValuesOnGaugeAlt.y / StaticValues.maxBlueWhiteSegment
+                        * (1 + (StaticValues.backupBlueGain * ((float)characterBody.skillLocator.secondary.maxStock - 1f))
+                        + (StaticValues.hardlightBlueGain * ((float)characterBody.skillLocator.utility.maxStock - 1f))
+                        + (StaticValues.lysateBlueGain * (characterBody.skillLocator.special.maxStock >= 0 ? 0f : (float)characterBody.skillLocator.special.maxStock - 1f))
+                        + ((characterBody.level - 1) * StaticValues.levelBlueEnergy));
                     }
 
                     if (blueRatio > StaticValues.maxBlueWhiteSegment)
@@ -623,17 +654,18 @@ namespace ArsonistMod.Content.Controllers
             {
                 if (isAcceleratedCooling)
                 {
-                    energyNumber.SetText($"COOLING...!");
+                    
+                    energyNumber.SetText(Language.GetString($"{ArsonistPlugin.DEVELOPER_PREFIX}_ARSONIST_BODY_COOLING_TEXT"));
                 }
                 else 
                 {
                     if (characterBody.HasBuff(Modules.Buffs.masochismDeactivatedDebuff))
                     {
-                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT:EX!" : $"{(int)currentOverheat} / {maxOverheat}");
+                        energyNumber.SetText(ifOverheatMaxed ? Language.GetString($"{ArsonistPlugin.DEVELOPER_PREFIX}_ARSONIST_BODY_OVERHEAT_EX_TEXT") : $"{(int)currentOverheat} / {maxOverheat}");
                     }
                     else 
                     {
-                        energyNumber.SetText(ifOverheatMaxed ? $"OVERHEAT!" : $"{(int)currentOverheat} / {maxOverheat}");
+                        energyNumber.SetText(ifOverheatMaxed ? Language.GetString($"{ArsonistPlugin.DEVELOPER_PREFIX}_ARSONIST_BODY_OVERHEAT_TEXT") : $"{(int)currentOverheat} / {maxOverheat}");
                     }
                 }
             }
@@ -732,6 +764,15 @@ namespace ArsonistMod.Content.Controllers
             if (textVibration && Modules.Config.overheatTextShouldVibrate.Value) 
             {
                 HandleTextVibration();
+            }
+
+            if (characterBody.hasEffectiveAuthority && !baseAIPresent) 
+            {
+                segmentTimer += Time.fixedDeltaTime;
+                if (segmentTimer >= updateSegment) 
+                {
+                    SegmentMake();
+                }
             }
 
             //checking which m1 is equipped for different heat passive
@@ -906,44 +947,6 @@ namespace ArsonistMod.Content.Controllers
                     break;
             }
 
-            //if (state != GlowState.STOP)
-            //{
-            //    glowStopwatch += Time.deltaTime;
-            //    float lerpFraction;
-            //    switch (state)
-            //    {
-            //        // Lerp to target color
-            //        case GlowState.FLASH:
-
-            //            lerpFraction = glowStopwatch / flashConst;
-            //            currentColor = Color.Lerp(originalColor, targetColor, lerpFraction);
-
-            //            if (glowStopwatch > flashConst)
-            //            {
-            //                state = GlowState.DECAY;
-            //                glowStopwatch = 0f;
-            //            }
-            //            break;
-
-            //        //Lerp back to original color;
-            //        case GlowState.DECAY:
-            //            //Linearlly lerp.
-            //            lerpFraction = glowStopwatch / decayConst;
-            //            currentColor = Color.Lerp(targetColor, originalColor, lerpFraction);
-
-            //            if (glowStopwatch > decayConst)
-            //            {
-            //                state = GlowState.STOP;
-            //                glowStopwatch = 0f;
-            //            }
-            //            break;
-            //        case GlowState.STOP:
-            //            //State does nothing.
-            //            break;
-            //    }
-            //}
-
-            //energyMeterGlowBackground.color = currentColor;
         }
 
         public void AddHeat(float Energy) 

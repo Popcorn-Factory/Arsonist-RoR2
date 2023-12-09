@@ -76,7 +76,7 @@ namespace ArsonistMod.SkillStates
 
                 new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
             }
-            else if (energySystem.currentOverheat == energySystem.maxOverheat && isAuthority)
+            else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
             {
                 FireBall();
 

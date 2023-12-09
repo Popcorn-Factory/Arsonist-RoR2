@@ -115,7 +115,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
                 damageCoefficient = Modules.StaticValues.zeropointpounchDamageCoefficient;
                 energySystem.hasOverheatedSecondary = false;
             }
-            else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
+            else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
             {
                 //halve damage
                 energySystem.hasOverheatedSecondary = false;

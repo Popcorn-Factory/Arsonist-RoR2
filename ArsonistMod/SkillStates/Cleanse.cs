@@ -87,7 +87,7 @@ namespace ArsonistMod.SkillStates
 
                 characterBody.ApplyBuff(Modules.Buffs.cleanseSpeedBoost.buffIndex, 1, duration * 2.5f);
             }
-            else if (energySystem.currentOverheat == energySystem.maxOverheat && base.isAuthority)
+            else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
             {
                 //cleanse, no blast attack
                 //making sure the cooldown is still the longer version

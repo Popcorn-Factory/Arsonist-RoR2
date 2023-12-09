@@ -14,19 +14,16 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.1.1
-    - Fixing the Zero Point Blast from not applying the cooldown correctly on Overheat.
-    - Base ZPB Cooldown decreased from 11 seconds -> 9 seconds
-        - Similarly the ZPB cooldown in non-overheat is still 60% of the base cooldown (6.6s -> 5.4s)
-    - ZPB Damage coefficient 400% -> 200% 
-    - ZPB Blast Radius on contact 5 units -> 3 units
-    - ZPB Starting speed 600% -> 700% of current speed.
-    - Attempted to mitigate Arsonist from bonking against his own fireball. (This may still happen, but should happen less. Particulary an issue when aiming down, but should no longer be too much of an issue. May happen on higher attack speeds.)
-    - Fixing Cooldowns from being set incorrectly when overheating and a move isn't used but still applies the longer cooldown.
-    - Fixed an issue where pyromania would activate even though a player had Safer Spaces equipped. Safer Spaces should be used first before Pyromania passive is triggered.
-    - Dragon's Breath now should consume heat at a constant rate, as it is no longer tied to tick rate or attack speed.
-        - As such, now the rate is 20 units of heat a second. (Or so at least that's what I think it's around, I dunno it's goddamn 2am in the morning and I spent so long trying to find a solution GOD PLEASE I JUST NEED SOME SLEEP AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.)
-        - Activating Dragon's Breath disables heat regeneration for 0.2 seconds.
+- 2.1.2
+    - Added tokens for Arsonist specific text:
+        - Overheating Text
+        - Cooling Text
+        - Overheating EX Text
+    - Dragon's Fury changes
+        - Increasing flame chance back from 70% to 90% chance to flame at close range.
+        - Energy Cost is now 15 units instead of 20 units per second.
+    - Attempting to scale heat gauge with actual stocks instead of specific items.
+    - Fixed Cleanse and possibly other issues from propping up not activating the intended effect.
 
 - 2.0.0
     - New Content:
@@ -210,6 +207,16 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.1.2
+    - Added tokens for Arsonist specific text:
+        - Overheating Text
+        - Cooling Text
+        - Overheating EX Text
+    - Dragon's Fury changes
+        - Increasing flame chance back from 70% to 90% chance to flame at close range.
+        - Energy Cost is now 15 units instead of 20 units per second.
+    - Attempting to scale heat gauge with actual stocks instead of specific items.
+    - Fixed Cleanse and possibly other issues from propping up not activating the intended effect.
 - 2.1.1
     - Fixing the Zero Point Blast from not applying the cooldown correctly on Overheat.
     - Base ZPB Cooldown decreased from 11 seconds -> 9 seconds
