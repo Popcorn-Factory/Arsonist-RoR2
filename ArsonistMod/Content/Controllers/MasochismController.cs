@@ -37,6 +37,7 @@ namespace ArsonistMod.Content.Controllers
         //Temp: Masochism range Indicator.
         public GameObject masochismRangeIndicator;
         public ParticleSystem masochismEffect;
+        public ParticleSystem heatHazeEffect;
         public Transform pulseEffect;
 
         //Actual Masochism Attacks
@@ -74,6 +75,7 @@ namespace ArsonistMod.Content.Controllers
             masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.masoSphereIndicator);
             masochismEffect = masochismRangeIndicator.GetComponent<ParticleSystem>();
             pulseEffect = masochismRangeIndicator.transform.GetChild(0);
+            heatHazeEffect = masochismRangeIndicator.transform.GetChild(1).GetComponent<ParticleSystem>();
 
             masochismRangeIndicator.SetActive(false);
             new ToggleMasochismEffectNetworkRequest(characterBody.netId, false).Send(NetworkDestination.Clients);
@@ -204,6 +206,22 @@ namespace ArsonistMod.Content.Controllers
                 else
                 {
                     DisableMasochism();
+                }
+
+                //Check if HeatHaze was disabled/enabled
+                if (heatHazeEffect) 
+                {
+                    if (Modules.Config.enableAggressiveHeatHaze.Value != heatHazeEffect.isPlaying) 
+                    {
+                        if (Modules.Config.enableAggressiveHeatHaze.Value)
+                        {
+                            heatHazeEffect.Play();
+                        }
+                        else 
+                        {
+                            heatHazeEffect.Stop();
+                        }
+                    }
                 }
             }
 

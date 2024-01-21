@@ -38,6 +38,10 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<int> flareVoicelineChance;
 
+        public static ConfigEntry<bool> enableAggressiveHeatHaze;
+
+        public static ConfigEntry<bool> enableNonAggressiveHeatHaze;
+
         /*
          
         //passive onfire buff
@@ -118,6 +122,20 @@ namespace ArsonistMod.Modules
                 true,
                 new ConfigDescription("Controls whether the Overheat Gauge Text will vibrate slightly when overheat state is reached.", null, Array.Empty<object>())
             );
+            enableAggressiveHeatHaze = ArsonistPlugin.instance.Config.Bind<bool>
+                (
+                    new ConfigDefinition("00 - General", "Aggressive Heat Haze Effect Enabled"),
+                    true,
+                    new ConfigDescription("Controls whether the heat haze effect should show in Arsonist's moves. (Moves Affected: Masochism)")
+                );
+
+            enableNonAggressiveHeatHaze = ArsonistPlugin.instance.Config.Bind<bool>
+                (
+                    new ConfigDefinition("00 - General", "Non-Aggressive Heat Haze Effect Enabled"),
+                    true,
+                    new ConfigDescription("Controls whether the heat haze effect should show in Arsonist's moves. (Moves Affected: Dragon's Fury)")
+                );
+
             masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("01 - Masochism", "Health Multiplier"),
@@ -408,6 +426,9 @@ namespace ArsonistMod.Modules
 
             ModSettingsManager.AddOption(new CheckBoxOption(cleanseRingFireEffectEnabled));
             ModSettingsManager.AddOption(new CheckBoxOption(ToggleMasochismFOVWarp));
+
+            ModSettingsManager.AddOption(new CheckBoxOption(enableAggressiveHeatHaze));
+            ModSettingsManager.AddOption(new CheckBoxOption(enableNonAggressiveHeatHaze));
         }
 
         // this helper automatically makes config entries for disabling survivors

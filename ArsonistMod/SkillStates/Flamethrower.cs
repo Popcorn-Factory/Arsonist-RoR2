@@ -111,6 +111,22 @@ namespace ArsonistMod.SkillStates
             else 
             {
                 controller.flamethrower.Play();
+                //Heat Haze control
+                if (controller.flamethrowerHeatHaze)
+                {
+                    if (Modules.Config.enableNonAggressiveHeatHaze.Value != controller.flamethrowerHeatHaze.isPlaying)
+                    {
+                        if (Modules.Config.enableNonAggressiveHeatHaze.Value)
+                        {
+                            controller.flamethrowerHeatHaze.Play();
+                        }
+                        else
+                        {
+                            controller.flamethrowerHeatHaze.Stop();
+                        }
+                    }
+                }
+
             }
 
             if (controller) 

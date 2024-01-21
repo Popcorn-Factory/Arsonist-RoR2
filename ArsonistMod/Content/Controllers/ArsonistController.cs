@@ -29,6 +29,7 @@ namespace ArsonistMod.Content.Controllers
         public ParticleSystem fireBeam;
         public ParticleSystem fireBeamForward;
         public ParticleSystem flamethrower;
+        public ParticleSystem flamethrowerHeatHaze;
         public ParticleSystem weakFlamethrower;
         public ParticleSystem ringFire;
         public ParticleSystem trailFire;
@@ -74,6 +75,7 @@ namespace ArsonistMod.Content.Controllers
                 weakFlamethrowerTransform = childLocator.FindChild("FlamethrowerWeak");
                 weakFlamethrower = childLocator.FindChild("FlamethrowerWeak").GetComponent<ParticleSystem>();
                 flamethrower = childLocator.FindChild("Flamethrower").GetComponent<ParticleSystem>();
+                flamethrowerHeatHaze = childLocator.FindChild("Flamethrower").GetChild(1).GetComponent<ParticleSystem>();
                 ringFire = childLocator.FindChild("RingFlame").GetComponent<ParticleSystem>();
                 trailFire = childLocator.FindChild("TrailFlame").GetComponent<ParticleSystem>();
                 sparkParticle = childLocator.FindChild("SparkEffect").GetComponent<ParticleSystem>();
@@ -161,23 +163,23 @@ namespace ArsonistMod.Content.Controllers
                 //We can execute states now.
 
                 //Check for input down.
-                if (Modules.Config.emoteSitKey.Value.IsPressed())
+                if (UnityEngine.Input.GetKeyDown(Modules.Config.emoteSitKey.Value.MainKey))
                 {
                     //Trigger the emote sit key
                     bodyStateMachine.SetNextState(new EmoteSit());
                 }
-                else if (Modules.Config.emoteStrutKey.Value.IsPressed())
+                else if (UnityEngine.Input.GetKeyDown(Modules.Config.emoteStrutKey.Value.MainKey))
                 {
                     //Trigger the emote strut key
                     bodyStateMachine.SetNextStateToMain();
                     weaponStateMachine.SetNextState(new EmoteStrut());
                 }
-                else if (Modules.Config.emoteLobbyKey.Value.IsPressed())
+                else if (UnityEngine.Input.GetKeyDown(Modules.Config.emoteLobbyKey.Value.MainKey))
                 {
                     //Trigger the emote lobby
                     bodyStateMachine.SetNextState(new EmoteLobby());
                 }
-                else if (Modules.Config.dieKey.Value.IsPressed() && Modules.Config.shouldEnableDieKey.Value)
+                else if (UnityEngine.Input.GetKeyDown(Modules.Config.dieKey.Value.MainKey) && Modules.Config.shouldEnableDieKey.Value)
                 {
                     charBody.healthComponent.Suicide();
                 }
