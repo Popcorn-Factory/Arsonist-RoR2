@@ -42,7 +42,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.1.2";
+        public const string MODVERSION = "2.1.3";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -365,7 +365,7 @@ namespace ArsonistMod
                     ArsonistController arsonistController = self.body.GetComponent<ArsonistController>();
                     if (arsonistController)
                     {
-                        this.overlayFunction(Modules.Assets.arsonistOverheatingMaterial, (bool)arsonistController, self);
+                        this.overlayFunction(arsonistController.overheatingMaterial, (bool)arsonistController, self);
                     }
                 }
             }

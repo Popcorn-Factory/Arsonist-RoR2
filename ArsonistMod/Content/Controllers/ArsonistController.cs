@@ -51,11 +51,14 @@ namespace ArsonistMod.Content.Controllers
         //Camera rig
         public CameraRigController cameraRigController;
 
-        // Use this for initialization
+        //Instance Material
+        public Material overheatingMaterial;
 
+        // Use this for initialization
         void Awake() 
         {
             Hooks();
+            overheatingMaterial = new Material(Modules.Assets.arsonistOverheatingMaterial);
         }
 
         void Start()
@@ -255,7 +258,7 @@ namespace ArsonistMod.Content.Controllers
         public void OnDestroy() 
         {
             Unhook();
-
+            Destroy(overheatingMaterial);
             new PlaySoundNetworkRequest(charBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
         }
     }
