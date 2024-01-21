@@ -10,20 +10,13 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 - Dragon's Fury's fire proc chance scales with your distance to the enemy, close the gap to deal more damage.
 
 Network Compatible! (Unless otherwise found not to be)
-For any issues or bug reports, contact me on the RoR2 Modding discord (This preferrably, ping me.), or to me directly, also on discord: ethanol10
+For any issues or bug reports, contact me on the RoR2 Modding discord (This preferrably, ping me), or to me directly, also on discord: ethanol10
 
 ## Latest Update
 
-- 2.1.2
-    - Added tokens for Arsonist specific text:
-        - Overheating Text
-        - Cooling Text
-        - Overheating EX Text
-    - Dragon's Fury changes
-        - Increasing flame chance back from 70% to 90% chance to flame at close range.
-        - Energy Cost is now 15 units instead of 20 units per second.
-    - Attempting to scale heat gauge with actual stocks instead of specific items.
-    - Fixed Cleanse and possibly other issues from propping up not activating the intended effect.
+- 2.1.3
+    - Added Config option to turn off the Heat Haze effects on Dragon's Fury/Masochism.
+    - Attempted to fix the bright orange material on spawn in multiplayer instances.
 
 - 2.0.0
     - New Content:
