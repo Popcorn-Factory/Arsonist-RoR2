@@ -365,7 +365,7 @@ namespace ArsonistMod
                     ArsonistController arsonistController = self.body.GetComponent<ArsonistController>();
                     if (arsonistController)
                     {
-                        this.overlayFunction(arsonistController.overheatingMaterial, (bool)arsonistController, self);
+                        this.overlayFunction(arsonistController.overheatingMaterial, (bool)arsonistController && self.body.hasEffectiveAuthority, self);
                     }
                 }
             }
