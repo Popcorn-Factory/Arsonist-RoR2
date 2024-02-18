@@ -114,8 +114,22 @@ namespace ArsonistMod
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
+            
+            //Item voice lines
             On.RoR2.Inventory.GiveItem_ItemIndex_int += Inventory_GiveItem_ItemIndex_int;
-            On.RoR2.Inventory.SetEquipmentIndexForSlot += Inventory_SetEquipmentIndexForSlot; ;
+            On.RoR2.Inventory.SetEquipmentIndexForSlot += Inventory_SetEquipmentIndexForSlot;
+
+            //Mithrix Voice lines
+            On.EntityStates.Missions.BrotherEncounter.Phase1.OnEnter += BrotherEncounter_Phase1_OnEnter;
+            On.EntityStates.Missions.BrotherEncounter.BossDeath.OnEnter += BrotherEncounter_BossDeath_OnEnter;
+
+            //Voidling Voice lines
+            On.EntityStates.VoidRaidCrab.DeathState.OnEnter += VoidRaidCrab_DeathState_OnEnter;
+            //On.RoR2.ScriptedCombatEncounter.BeginEncounter += ScriptedCombatEncounter_BeginEncounter;
+
+            //Teleporter lines
+            On.RoR2.TeleporterInteraction.IdleState.OnInteractionBegin += IdleState_OnInteractionBegin;
+
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
@@ -397,33 +411,36 @@ namespace ArsonistMod
             orig(self, itemIndex, count);
             if (NetworkServer.active) 
             {
-                CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
-                if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                if (self) 
                 {
-                    string nameToken = RoR2.ItemCatalog.GetItemDef(itemIndex).nameToken;
-                    switch (nameToken)
+                    if (self.GetComponent<CharacterMaster>()) 
                     {
-                        case "ITEM_IGNITEONKILL_NAME":
-                            break;
-                        case "ITEM_EXPLODEONDEATH_NAME":
-                            break;
-                        case "ITEM_STRENGTHENBURN_NAME":
-                            break;
-                        case "ITEM_ICERING_NAME":
-                            break;
-                        case "ITEM_FIRERING_NAME":
-                            break;
-                        case "ITEM_EXPLODEONDEATHVOID_NAME":
-                            break;
+                        CharacterBody body = self.GetComponent<CharacterMaster>().GetBody();
+                        if (body)
+                        {
+                            if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                            {
+                                string nameToken = RoR2.ItemCatalog.GetItemDef(itemIndex).nameToken;
+                                switch (nameToken)
+                                {
+                                    case "ITEM_IGNITEONKILL_NAME":
+                                        break;
+                                    case "ITEM_EXPLODEONDEATH_NAME":
+                                        break;
+                                    case "ITEM_STRENGTHENBURN_NAME":
+                                        break;
+                                    case "ITEM_ICERING_NAME":
+                                        break;
+                                    case "ITEM_FIRERING_NAME":
+                                        break;
+                                    case "ITEM_EXPLODEONDEATHVOID_NAME":
+                                        break;
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
-
-        private void Inventory_GiveEquipmentString(On.RoR2.Inventory.orig_GiveEquipmentString orig, Inventory self, string equipmentString)
-        {
-            orig(self, equipmentString);
-
         }
 
         private void Inventory_SetEquipmentIndexForSlot(On.RoR2.Inventory.orig_SetEquipmentIndexForSlot orig, Inventory self, EquipmentIndex newEquipmentIndex, uint slot)
@@ -431,14 +448,144 @@ namespace ArsonistMod
             orig(self, newEquipmentIndex, slot);
             if (NetworkServer.active)
             {
-                CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
-                if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                if (self) 
                 {
-                    string nameToken = EquipmentCatalog.GetEquipmentDef(newEquipmentIndex).nameToken;
-
-                    if (nameToken == "EQUIPMENT_BURNNEARBY_NAME") 
+                    if (self.GetComponent<CharacterMaster>()) 
                     {
-                        //Do things.
+                        CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
+                        if (body)
+                        {
+                            if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                            {
+                                string nameToken = EquipmentCatalog.GetEquipmentDef(newEquipmentIndex).nameToken;
+
+                                if (nameToken == "EQUIPMENT_BURNNEARBY_NAME")
+                                {
+                                    //Do things.
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BrotherEncounter_BossDeath_OnEnter(On.EntityStates.Missions.BrotherEncounter.BossDeath.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.BossDeath self)
+        {
+            orig(self);
+            //Get All network users
+            foreach (NetworkUser user in NetworkUser.instancesList) 
+            {
+                if (user.master) 
+                {
+                    if (user.master.GetBody()) 
+                    {
+                        string bodytoken = user.master.GetBody().baseNameToken;
+                        
+                        if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                        {
+                            //play voiceline.
+                            //Chat.AddMessage("You are dead, not big souprice");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BrotherEncounter_Phase1_OnEnter(On.EntityStates.Missions.BrotherEncounter.Phase1.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.Phase1 self)
+        {
+            orig(self);
+            //Get All network users
+            foreach (NetworkUser user in NetworkUser.instancesList)
+            {
+                if (user.master) 
+                {
+                    if (user.master.GetBody()) 
+                    {
+                        string bodytoken = user.master.GetBody().baseNameToken;
+                        if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                        {
+                            //play voiceline.
+                            //Chat.AddMessage("You are alive, not big souprice");
+                        }
+                    }
+                }
+            }
+        }
+
+
+        private void VoidRaidCrab_DeathState_OnEnter(On.EntityStates.VoidRaidCrab.DeathState.orig_OnEnter orig, EntityStates.VoidRaidCrab.DeathState self)
+        {
+            orig(self);
+            //Get All network users
+            if (NetworkServer.active) 
+            {
+                foreach (NetworkUser user in NetworkUser.instancesList)
+                {
+                    if (user.master)
+                    {
+                        if (user.master.GetBody())
+                        {
+                            string bodytoken = user.master.GetBody().baseNameToken;
+                            if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                            {
+                                //play voiceline.
+                                Chat.AddMessage("You are dead, not big souprice");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ScriptedCombatEncounter_BeginEncounter(On.RoR2.ScriptedCombatEncounter.orig_BeginEncounter orig, ScriptedCombatEncounter self)
+        {
+            orig(self);
+
+            foreach (RoR2.ScriptedCombatEncounter.SpawnInfo info in self.spawns) 
+            {
+                Chat.AddMessage(info.spawnCard.prefab.GetComponent<CharacterBody>().baseNameToken);
+            }
+            //Get All network users
+            if (NetworkServer.active)
+            {
+                foreach (NetworkUser user in NetworkUser.instancesList)
+                {
+                    if (user.master)
+                    {
+                        if (user.master.GetBody())
+                        {
+                            string bodytoken = user.master.GetBody().baseNameToken;
+                            if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                            {
+                                //play voiceline.
+                                Chat.AddMessage("You are alive, not big souprice");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void IdleState_OnInteractionBegin(On.RoR2.TeleporterInteraction.IdleState.orig_OnInteractionBegin orig, EntityStates.BaseState self, Interactor activator)
+        {
+            orig(self, activator);
+            //Get All network users
+            if (NetworkServer.active)
+            {
+                foreach (NetworkUser user in NetworkUser.instancesList)
+                {
+                    if (user.master)
+                    {
+                        if (user.master.GetBody())
+                        {
+                            string bodytoken = user.master.GetBody().baseNameToken;
+                            if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                            {
+                                //play voiceline.
+                                Chat.AddMessage("You are activated, not big souprice");
+                            }
+                        }
                     }
                 }
             }
