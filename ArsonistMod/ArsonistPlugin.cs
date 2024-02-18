@@ -17,6 +17,7 @@ using ArsonistMod.SkillStates.Arsonist.Secondary;
 using System;
 using R2API.Networking.Interfaces;
 using EntityStates.GravekeeperBoss;
+using UnityEngine.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -113,15 +114,12 @@ namespace ArsonistMod
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
+            On.RoR2.Inventory.GiveItem_ItemIndex_int += Inventory_GiveItem_ItemIndex_int;
+            On.RoR2.Inventory.SetEquipmentIndexForSlot += Inventory_SetEquipmentIndexForSlot; ;
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
-        }
-
-        private void AudioManager_onAwakeGlobal(AudioManager obj)
-        {
-            akGameObject = obj.akGameObj;
         }
 
         private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
@@ -363,6 +361,7 @@ namespace ArsonistMod
             orig(self, damageInfo);
         }
 
+
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
         {
             orig(self);
@@ -392,6 +391,59 @@ namespace ArsonistMod
                 }
             }
         }
+
+        private void Inventory_GiveItem_ItemIndex_int(On.RoR2.Inventory.orig_GiveItem_ItemIndex_int orig, Inventory self, ItemIndex itemIndex, int count)
+        {
+            orig(self, itemIndex, count);
+            if (NetworkServer.active) 
+            {
+                CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
+                if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                {
+                    string nameToken = RoR2.ItemCatalog.GetItemDef(itemIndex).nameToken;
+                    switch (nameToken)
+                    {
+                        case "ITEM_IGNITEONKILL_NAME":
+                            break;
+                        case "ITEM_EXPLODEONDEATH_NAME":
+                            break;
+                        case "ITEM_STRENGTHENBURN_NAME":
+                            break;
+                        case "ITEM_ICERING_NAME":
+                            break;
+                        case "ITEM_FIRERING_NAME":
+                            break;
+                        case "ITEM_EXPLODEONDEATHVOID_NAME":
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void Inventory_GiveEquipmentString(On.RoR2.Inventory.orig_GiveEquipmentString orig, Inventory self, string equipmentString)
+        {
+            orig(self, equipmentString);
+
+        }
+
+        private void Inventory_SetEquipmentIndexForSlot(On.RoR2.Inventory.orig_SetEquipmentIndexForSlot orig, Inventory self, EquipmentIndex newEquipmentIndex, uint slot)
+        {
+            orig(self, newEquipmentIndex, slot);
+            if (NetworkServer.active)
+            {
+                CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
+                if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                {
+                    string nameToken = EquipmentCatalog.GetEquipmentDef(newEquipmentIndex).nameToken;
+
+                    if (nameToken == "EQUIPMENT_BURNNEARBY_NAME") 
+                    {
+                        //Do things.
+                    }
+                }
+            }
+        }
+
 
         private void overlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
         {
