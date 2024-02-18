@@ -42,6 +42,8 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<bool> enableNonAggressiveHeatHaze;
 
+        public static ConfigEntry<float> arsonistVoicelineVolume;
+
         /*
          
         //passive onfire buff
@@ -135,6 +137,8 @@ namespace ArsonistMod.Modules
                     true,
                     new ConfigDescription("Controls whether the heat haze effect should show in Arsonist's moves. (Moves Affected: Dragon's Fury)")
                 );
+
+
 
             masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
             (
@@ -239,6 +243,13 @@ namespace ArsonistMod.Modules
                 new ConfigDescription("By default, Arsonist can laugh/grunt when Masochism or ZPB is used. When off, no voice will be played.", null, Array.Empty<object>())
             );
 
+            arsonistVoicelineVolume = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("03 - Voice", "Arsonist Voice Volume"),
+                100f,
+                new ConfigDescription("Determines the volume for Arsonist voice lines. Currently does not affect lines with explosions embedded in them. WARNING: The SFX slider also affects this as well!")
+            );
+
             baseGaugeLowerBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("04 - Gauge", "Base Gauge Lower Bound Cooling"),
@@ -282,6 +293,7 @@ namespace ArsonistMod.Modules
                 true,
                 new ConfigDescription("Determines whether the ring of fire should play when cleanses is activated.", null, Array.Empty<object>())
             );
+
 
             //enableOldLoadout = ArsonistPlugin.instance.Config.Bind<bool>
             //(
@@ -352,6 +364,7 @@ namespace ArsonistMod.Modules
                     )
                 );
 
+
             ModSettingsManager.AddOption(new KeyBindOption(
                 emoteSitKey));
             ModSettingsManager.AddOption(new KeyBindOption(
@@ -362,6 +375,17 @@ namespace ArsonistMod.Modules
                 dieKey));
 
             ModSettingsManager.AddOption(new CheckBoxOption(shouldHaveVoice));
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    arsonistVoicelineVolume,
+                    new StepSliderConfig
+                    {
+                        min = 0f,
+                        max = 100f,
+                        increment = 0.5f,
+                    }
+                    )
+                );
             ModSettingsManager.AddOption(new CheckBoxOption(shouldEnableDieKey));
 
             ModSettingsManager.AddOption(new CheckBoxOption(overheatTextShouldVibrate));
@@ -438,6 +462,19 @@ namespace ArsonistMod.Modules
                                                           "Enable " + characterName,
                                                           enabledDefault,
                                                           description);
+        }
+
+        public static void OnChangeHooks() 
+        {
+            arsonistVoicelineVolume.SettingChanged += ArsonistVoicelineVolume_Changed;
+        }
+
+        private static void ArsonistVoicelineVolume_Changed(object sender, EventArgs e)
+        {
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_ArsonistVoice", arsonistVoicelineVolume.Value);
+            }
         }
     }
 }

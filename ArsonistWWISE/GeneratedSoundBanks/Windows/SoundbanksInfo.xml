@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="2464927190">
+		<SoundBank Id="1110381487" Language="SFX" Hash="250304596">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -463,11 +463,12 @@
 				</Event>
 			</IncludedEvents>
 			<GameParameters>
+				<GameParameter Id="1868460931" Name="Volume_ArsonistVoice" ObjectPath="\Game Parameters\Default Work Unit\Volume_ArsonistVoice"/>
 				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
 				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3701367528">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1258906980">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

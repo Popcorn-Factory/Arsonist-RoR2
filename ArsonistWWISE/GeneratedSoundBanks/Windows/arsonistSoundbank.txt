@@ -47,6 +47,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	4168901551	Arsonist_Flamethrower_End			\Default Work Unit\Arsonist_Flamethrower_End	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	1868460931	Volume_ArsonistVoice			\Default Work Unit\Volume_ArsonistVoice	
 	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
 	3695994288	Volume_Master			\Default Work Unit\Volume_Master	
 

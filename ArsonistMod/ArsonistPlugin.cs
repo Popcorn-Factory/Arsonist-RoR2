@@ -16,6 +16,7 @@ using R2API;
 using ArsonistMod.SkillStates.Arsonist.Secondary;
 using System;
 using R2API.Networking.Interfaces;
+using EntityStates.GravekeeperBoss;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -50,6 +51,7 @@ namespace ArsonistMod
         public static bool starstormAvailable = false;
         public static bool infernoAvailable = false;
         public static ArsonistPlugin instance;
+        public static AkGameObj akGameObject;
 
         private void Awake()
         {
@@ -57,6 +59,7 @@ namespace ArsonistMod
 
             Log.Init(Logger);
             Modules.Config.ReadConfig();
+            Modules.Config.OnChangeHooks();
             Modules.Assets.Initialize(); // load assets and read config
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
@@ -89,6 +92,7 @@ namespace ArsonistMod
             Hook();
         }
 
+
         private void NetworkRequestSetup() 
         {
             NetworkingAPI.RegisterMessageType<BurnNetworkRequest>();
@@ -113,6 +117,11 @@ namespace ArsonistMod
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private void AudioManager_onAwakeGlobal(AudioManager obj)
+        {
+            akGameObject = obj.akGameObj;
         }
 
         private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)

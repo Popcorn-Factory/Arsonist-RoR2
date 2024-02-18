@@ -2169,6 +2169,32 @@
 											<ValueList>
 												<Value>16</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{C427E7E1-CDAE-4622-B564-20B212B27EB5}" ShortID="668068900">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{183C581D-A39F-486D-9195-2CED3B1F3807}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -2282,6 +2308,32 @@
 											<ValueList>
 												<Value>12</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{D7406003-CEA9-4C0C-BB45-9663955AFBEE}" ShortID="225686921">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{2142F865-33A3-4C97-9517-9E1A30D1CF73}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -2817,6 +2869,32 @@
 											<ValueList>
 												<Value>3</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{22A360A4-5CFA-4B1C-A2FF-F7859EDA702A}" ShortID="868338573">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{B549136D-F43A-425A-BE6E-38C35FBAD931}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
