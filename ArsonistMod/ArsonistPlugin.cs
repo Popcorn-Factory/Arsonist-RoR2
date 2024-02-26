@@ -116,19 +116,19 @@ namespace ArsonistMod
             On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
             
             //Item voice lines
-            On.RoR2.Inventory.GiveItem_ItemIndex_int += Inventory_GiveItem_ItemIndex_int;
-            On.RoR2.Inventory.SetEquipmentIndexForSlot += Inventory_SetEquipmentIndexForSlot;
+            //On.RoR2.Inventory.GiveItem_ItemIndex_int += Inventory_GiveItem_ItemIndex_int;
+            //On.RoR2.Inventory.SetEquipmentIndexForSlot += Inventory_SetEquipmentIndexForSlot;
 
-            //Mithrix Voice lines
-            On.EntityStates.Missions.BrotherEncounter.Phase1.OnEnter += BrotherEncounter_Phase1_OnEnter;
-            On.EntityStates.Missions.BrotherEncounter.BossDeath.OnEnter += BrotherEncounter_BossDeath_OnEnter;
+            ////Mithrix Voice lines
+            //On.EntityStates.Missions.BrotherEncounter.Phase1.OnEnter += BrotherEncounter_Phase1_OnEnter;
+            //On.EntityStates.Missions.BrotherEncounter.BossDeath.OnEnter += BrotherEncounter_BossDeath_OnEnter;
 
-            //Voidling Voice lines
-            On.EntityStates.VoidRaidCrab.DeathState.OnEnter += VoidRaidCrab_DeathState_OnEnter;
-            //On.RoR2.ScriptedCombatEncounter.BeginEncounter += ScriptedCombatEncounter_BeginEncounter;
+            ////Voidling Voice lines
+            //On.EntityStates.VoidRaidCrab.DeathState.OnEnter += VoidRaidCrab_DeathState_OnEnter;
+            ////On.RoR2.ScriptedCombatEncounter.BeginEncounter += ScriptedCombatEncounter_BeginEncounter;
 
             //Teleporter lines
-            On.RoR2.TeleporterInteraction.IdleState.OnInteractionBegin += IdleState_OnInteractionBegin;
+            //On.RoR2.TeleporterInteraction.IdleState.OnInteractionBegin += IdleState_OnInteractionBegin;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -530,7 +530,7 @@ namespace ArsonistMod
                             if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                             {
                                 //play voiceline.
-                                Chat.AddMessage("You are dead, not big souprice");
+                                //Chat.AddMessage("You are dead, not big souprice");
                             }
                         }
                     }
@@ -542,10 +542,10 @@ namespace ArsonistMod
         {
             orig(self);
 
-            foreach (RoR2.ScriptedCombatEncounter.SpawnInfo info in self.spawns) 
-            {
-                Chat.AddMessage(info.spawnCard.prefab.GetComponent<CharacterBody>().baseNameToken);
-            }
+            //foreach (RoR2.ScriptedCombatEncounter.SpawnInfo info in self.spawns) 
+            //{
+            //    Chat.AddMessage(info.spawnCard.prefab.GetComponent<CharacterBody>().baseNameToken);
+            //}
             //Get All network users
             if (NetworkServer.active)
             {
@@ -559,7 +559,7 @@ namespace ArsonistMod
                             if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                             {
                                 //play voiceline.
-                                Chat.AddMessage("You are alive, not big souprice");
+                                //Chat.AddMessage("You are alive, not big souprice");
                             }
                         }
                     }
@@ -583,7 +583,7 @@ namespace ArsonistMod
                             if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                             {
                                 //play voiceline.
-                                Chat.AddMessage("You are activated, not big souprice");
+                                //Chat.AddMessage("You are activated, not big souprice");
                             }
                         }
                     }
