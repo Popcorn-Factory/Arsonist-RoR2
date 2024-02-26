@@ -604,7 +604,7 @@ namespace ArsonistMod.Content.Controllers
                 //Regen needs to change so that more heat = more cooling rate for base gauge
                 if (passive.isBlueGauge())
                 {
-                    LowerHeat(regenOverheat * Time.fixedDeltaTime);
+                    LowerHeat(regenOverheat * Time.fixedDeltaTime, true);
                 }
                 else
                 {
@@ -621,7 +621,7 @@ namespace ArsonistMod.Content.Controllers
                         coolingRate = Modules.Config.baseGaugeLowerBoundRecharge.Value;
                     }
 
-                    LowerHeat(regenOverheat * coolingRate * Time.fixedDeltaTime);
+                    LowerHeat(regenOverheat * coolingRate * Time.fixedDeltaTime, true);
                 }
             }
             else 
@@ -700,23 +700,29 @@ namespace ArsonistMod.Content.Controllers
                 float h = (Modules.Config.timeBeforeHeatGaugeDecays.Value / characterBody.attackSpeed);
                 float alphaCalc = (((h - o) / 4.0f) / h);
 
-                arsonistController.overheatingMaterial.SetColor("_Color", new Vector4(1f, 0.262f, 0f, alphaCalc));
-                arsonistController.overheatingMaterial.SetFloat("_VertexTimeMultiplier", (((h - o) / 4.0f) / h) * 25f);
+                if (arsonistController) 
+                {
+                    arsonistController.overheatingMaterial.SetColor("_Color", new Vector4(1f, 0.262f, 0f, alphaCalc));
+                    arsonistController.overheatingMaterial.SetFloat("_VertexTimeMultiplier", (((h - o) / 4.0f) / h) * 25f);
+                }
             }
             else 
             {
                 float alphaCalc = Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) / 4f;
                 //Default material
 
-                if (baseHeatGauge)
+                if (arsonistController) 
                 {
-                    arsonistController.overheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc));
+                    if (baseHeatGauge)
+                    {
+                        arsonistController.overheatingMaterial.SetColor("_Color", new Vector4(1f, 0.4f, 0f, alphaCalc));
+                    }
+                    else
+                    {
+                        arsonistController.overheatingMaterial.SetColor("_Color", new Vector4(0f, 0.537f, 1f, alphaCalc));
+                    }
+                    arsonistController.overheatingMaterial.SetFloat("_VertexTimeMultiplier", Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) * 25f);
                 }
-                else
-                {
-                    arsonistController.overheatingMaterial.SetColor("_Color", new Vector4(0f, 0.537f, 1f, alphaCalc));
-                }
-                arsonistController.overheatingMaterial.SetFloat("_VertexTimeMultiplier", Mathf.Clamp(Mathf.Pow(currentOverheat / maxOverheat, 8), 0, 1) * 25f);
             }
         }
 
@@ -725,12 +731,18 @@ namespace ArsonistMod.Content.Controllers
             if (ifOverheatMaxed)
             {
                 anim.SetBool("Overheated", true);
-                arsonistController.steamDownParticle.Play();
+                if (arsonistController)
+                {
+                    arsonistController.steamDownParticle.Play();
+                }
             }
-            else 
+            else
             {
                 anim.SetBool("Overheated", false);
-                arsonistController.steamDownParticle.Stop();
+                if (arsonistController) 
+                {
+                    arsonistController.steamDownParticle.Stop();
+                }
             }
         }
 
@@ -768,7 +780,7 @@ namespace ArsonistMod.Content.Controllers
 
             if (characterBody.hasEffectiveAuthority && !baseAIPresent) 
             {
-                segmentTimer += Time.fixedDeltaTime;
+                segmentTimer += Time.deltaTime;
                 if (segmentTimer >= updateSegment) 
                 {
                     SegmentMake();
@@ -949,18 +961,30 @@ namespace ArsonistMod.Content.Controllers
 
         }
 
-        public void AddHeat(float Energy) 
+        public void AddHeat(float Energy, bool isNatural) 
         {
             currentOverheat += Energy;
+
+            float flatOverheat = costflatOverheat;           
 
             //Add to masochism monitoring
             if (masoCon) 
             {
-                masoCon.heatChanged += Energy;
+                masoCon.heatChanged += Energy + flatOverheat;
             }
         }
 
-        public void LowerHeat(float Energy)
+        public void AddHeat(float Energy) 
+        {
+            AddHeat(Energy, false);
+        }
+
+        public void LowerHeat(float Energy) 
+        {
+            LowerHeat(Energy, false);
+        }
+
+        public void LowerHeat(float Energy, bool isNatural)
         {
             float realHeatGained = Energy;
             currentOverheat -= Energy;
@@ -970,10 +994,15 @@ namespace ArsonistMod.Content.Controllers
                 currentOverheat = lowerBound;
             }
 
+            float flatOverheat = costflatOverheat;
+            if (isNatural) 
+            {
+                flatOverheat = costflatOverheat * Time.fixedDeltaTime;
+            }
             //Add to masochism monitoring
             if (masoCon)
             {
-                masoCon.heatChanged += realHeatGained;
+                masoCon.heatChanged += realHeatGained + flatOverheat;
             }
         }
 

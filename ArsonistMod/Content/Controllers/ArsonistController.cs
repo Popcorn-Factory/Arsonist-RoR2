@@ -64,8 +64,8 @@ namespace ArsonistMod.Content.Controllers
 
         void Start()
         {
-            ChildLocator childLocator = GetComponentInChildren<ChildLocator>();
-            if(childLocator != null)
+            ChildLocator childLocator = GetComponent<ModelLocator>().modelTransform.GetComponent<ChildLocator>();
+            if(childLocator)
             {
                 steamParticle = childLocator.FindChild("SteamGroup").GetComponent<ParticleSystem>();
                 steamDownParticle = childLocator.FindChild("SteamFireDown").GetComponent<ParticleSystem>();

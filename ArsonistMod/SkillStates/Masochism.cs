@@ -30,11 +30,11 @@ namespace ArsonistMod.SkillStates
             buffGiven = false;
 
             //energy
-            energyflatCost = Energy - energySystem.costflatOverheat;
-            if (energyflatCost < 0f) energyflatCost = 0f;
+            energyflatCost = Energy;
+            if (energyflatCost < 0f) energyflatCost = 1f;
 
             energyCost = energySystem.costmultiplierOverheat * energyflatCost;
-            if (energyCost < 0f) energyCost = 0f;
+            if (energyCost < 0f) energyCost = 1f;
 
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {

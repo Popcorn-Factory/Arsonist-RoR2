@@ -58,11 +58,11 @@ namespace ArsonistMod.SkillStates
 
             //Calculate how much damage/stats whatever using the energy system 
             //energy
-            energyFlatCost = Energy - energySystem.costflatOverheat;
-            if (energyFlatCost < 0f) energyFlatCost = 0f;
+            energyFlatCost = Energy;
+            if (energyFlatCost < 0f) energyFlatCost = 1f;
 
             energyCost = energySystem.costmultiplierOverheat * energyFlatCost;
-            if (energyCost < 0f) energyCost = 0f;
+            if (energyCost < 0f) energyCost = 1f;
 
             duration = baseDuration / base.attackSpeedStat;
             if (duration < 0.1f) 
