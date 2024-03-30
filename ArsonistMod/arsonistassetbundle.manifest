@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3848815611
+CRC: 2606172519
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2e86f1bb8ae6abfaff88af8a3ecd6f0c
+    Hash: ca0ac5d47e14d09b4d2da3a51bcefe0d
   TypeTreeHash:
     serializedVersion: 2
     Hash: ca77abd7fdd8d73b201f2a9f3ac92bb2
@@ -86,6 +86,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/texPrimaryIcon.png
 - Assets/ArsonistAssets/Mesh/meshPyroRobe.mesh
 - Assets/ArsonistAssets/VFX/Textures/texHenrySwing2.png
+- Assets/ArsonistAssets/Icons/masochismIconActivated.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleToRest.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyIdle.anim
 - Assets/ArsonistAssets/VFX/flareAttached.prefab
@@ -283,6 +284,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matEmbers.mat
 - Assets/ArsonistAssets/Textures/NeoArsonistCloth_normal.png
 - Assets/ArsonistAssets/Animation/clips/AimYaw.anim
+- Assets/ArsonistAssets/Icons/masochismIconDeactivated.png
 - Assets/ArsonistAssets/VFX/flareCollision.prefab
 - Assets/ArsonistAssets/HenryBombGhost.prefab
 - Assets/ArsonistAssets/Textures/ArsonistCloth_normal.png
