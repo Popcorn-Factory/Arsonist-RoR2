@@ -317,6 +317,7 @@ namespace ArsonistMod.Modules.Survivors
             skillLoc.passiveSkill.skillNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_NAME";
             skillLoc.passiveSkill.skillDescriptionToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_DESCRIPTION";
             skillLoc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
+            skillLoc.passiveSkill.keywordToken = prefix + "KEYWORD_PYROMANIAPASSIVE";
 
             passive.normalGaugePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
@@ -339,7 +340,8 @@ namespace ArsonistMod.Modules.Survivors
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1
+                stockToConsume = 1,
+                keywordTokens = new string[] { prefix + "KEYWORD_BASEGAUGEPASSIVE" }
             });
 
             passive.blueGaugePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -363,7 +365,8 @@ namespace ArsonistMod.Modules.Survivors
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1
+                stockToConsume = 1,
+                keywordTokens = new string[] { prefix + "KEYWORD_SUPERCRITICALPASSIVE" }
             });
 
             Modules.Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, new SkillDef[]{
@@ -453,7 +456,7 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] {prefix + "KEYWORD_BASEGAUGE" , prefix + "KEYWORD_FIRESPRAYHEAT" }
+                keywordTokens = new string[] {prefix + "KEYWORD_BASEGAUGE" , prefix + "KEYWORD_PRIMARYHEAT" }
             });
 
 
@@ -479,7 +482,7 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { }
+                keywordTokens = new string[] { prefix + "KEYWORD_PRIMARYHEAT" }
             });
 
             Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]
@@ -518,7 +521,7 @@ namespace ArsonistMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] {prefix + "KEYWORD_FLAREHEAT" }
+                keywordTokens = new string[] {prefix + "KEYWORD_FLAREHEAT", prefix + "KEYWORD_FLARENOTE" }
             });
 
             punchSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo

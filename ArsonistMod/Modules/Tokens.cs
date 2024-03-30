@@ -10,7 +10,7 @@ namespace ArsonistMod.Modules
             #region Arsonist
             string prefix = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_";
 
-            string desc = "The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory." 
+            string desc = "The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing his Overheat meter allows him to deal high amounts of damage to groups of enemies. Balance is crucial to victory."
                 + Environment.NewLine + Environment.NewLine
                 + "< ! > Your attacks will be weaker when you're overheating. If you're in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration."
                 + Environment.NewLine + Environment.NewLine
@@ -45,17 +45,14 @@ namespace ArsonistMod.Modules
 
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "Pyromania");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Arsonist will convert 50% of total damage received as fire damage over time (Does not affect Fall Damage unless Frailty is active). Arsonist also has resistance to fire damage from all sources.");
+            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Resist fire damage from all sources. Convert one attack dealing greater than <style=cIsDamage>30%</style> of total health into <style=cIsDamage>50%</style> fire damage over time.");
             //LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "<style=cIsUtility>Heat Gauge</style>. Being <style=cIsDamage>ignited</style> increases <style=cIsUtility>movement speed and damage</style>. " + "<style=cStack>Ifrit's Distinction applies these effects permanently</style>." + "<style=cIsUtility>Take half damage from ignition sources</style>. ");
 
             LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_NAME", "Normal Gauge");
-            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", $"Heat gauge increase per level, as well as with stocks on skills." +
-                $"Cooling rate also increases at higher level of heat, starting at {Modules.Config.baseGaugeLowerBoundRecharge.Value}x at 0%, up to a maximum cooling rate of {Modules.Config.baseGaugeUpperBoundRecharge.Value}x at 100% heat.");
+            LanguageAPI.Add(prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION", "Deal <style=cIsDamage>100%</style> damage in white portion. Base Gauge is resistant to Overheating.");
 
             LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_NAME", "Supercritical Gauge");
-            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", $"Heat gauge does not increase, instead supercritical gauge increases per level, as well as with stocks on skills. " +
-                $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge. " +
-                $"{Modules.StaticValues.lowerDamageMultiplier}x damage while heat is in the white portion of the gauge.");
+            LanguageAPI.Add(prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION", $"Deal <style=cIsDamage>{Modules.StaticValues.lowerDamageMultiplier * 100}%</style> damage in white portion, deal <style=cIsDamage>{Modules.StaticValues.blueDamageMultiplier * 100}%</style> damage in blue portion. Maximum heat is fixed.");
 
             #endregion
 
@@ -65,13 +62,12 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_NAME", "Overdrive");
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + Helpers.criticalPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.altFiresprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_NAME", "Dragon's Breath");
-            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_DESCRIPTION", $"Fire a constant beam of fire that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage and has an increased chance to burn enemies the closer you are to your target.");
+            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_DESCRIPTION", $"Fire a beam of fire that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage. Has increased chance to ignite the closer you are to the target.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_NAME", "Signal Flare");
-            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", Helpers.heatPrefix + $"Fire a long range signal flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style> over 5 seconds, then exploding for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}% damage</style>" +
-                $", launching {Modules.Config.flareSalvoAmount.Value} flare(s) that deal <style=cIsDamage>{100f * StaticValues.flareStrongChildDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_FLAREGUN_DESCRIPTION", $"Fire a flare that deals <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}%</style> damage over 5 seconds, then explodes for <style=cIsDamage>{100f * StaticValues.flareStrongDamageCoefficient}%</style> damage, launching {Modules.Config.flareSalvoAmount.Value} flares that deal <style=cIsDamage>{100f * StaticValues.flareStrongChildDamageCoefficient}%</style> damage each. ");
             LanguageAPI.Add(prefix + "SECONDARY_PUNCH_NAME", "Zero Point Blast");
             LanguageAPI.Add(prefix + "SECONDARY_PUNCH_DESCRIPTION", Helpers.startPrefix + $"Propel yourself forwards, blasting enemies behind you for <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style>. Colliding shortly after launching into the first enemy and deals <style=cIsDamage>{100f * StaticValues.zeropointpounchDamageCoefficient}% damage</style> in a blast around you. ");
             #endregion
@@ -86,9 +82,9 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHIST_DESCRIPTION", Helpers.startPrefix + $"Damage from being <style=cIsDamage>Ignited</style> turns into <style=cIsHealing>healing</style> for {StaticValues.masochismBuffDuration} seconds. Increases attack speed <style=cIsDamage>{100*StaticValues.igniteAttackSpeedMultiplier}%</style>.");
 
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_NAME", "Masochism");
-            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION", $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, " +
-                $"activating damages you periodically in exchange for {Modules.Helpers.Healing("Lifesteal")} from damage to others. " +
-                $"After a short time, Arsonist will <style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION",
+                $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, periodically damage yourself in exchange for area of effect burning {Modules.Helpers.Healing("Lifesteal")}. " +
+                $"After a maximum of {Modules.Config.masochismMaximumStack.Value} seconds, <style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");
             #endregion
 
             #region Keywords
@@ -102,6 +98,8 @@ namespace ArsonistMod.Modules
                 $"Gain {Modules.StaticValues.blueDamageMultiplier}x damage while heat is in the blue portion of the gauge. ");
             LanguageAPI.Add(prefix + "KEYWORD_FIRESPRAYHEAT", $"<style=cKeywordName>Heat</style>" +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.firesprayEnergyCost} heat</style>. Reduced damage and speed in overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_PRIMARYHEAT", $"<style=cKeywordName>Heat</style>" +
+                $"Primary fire raises heat, all other skills lower heat. At maximum heat, Arsonist Overheats, reducing attack speed and damage temporarily.");
             LanguageAPI.Add(prefix + "KEYWORD_FLAREHEAT", $"<style=cKeywordName>Heat</style>" + 
                 $"Reduces Heat by <style=cIsDamage>{Modules.StaticValues.flareHeatReductionMultiplier}x</style> of current heat accumulated. Half damage in overheat.");
             LanguageAPI.Add(prefix + "KEYWORD_ZEROPOINTHEAT", $"<style=cKeywordName>Heat</style>" +
@@ -110,8 +108,14 @@ namespace ArsonistMod.Modules
                 $"Cools <style=cIsUtility>half of TOTAL heat</style>. Accelerates cooling in overheat, however, no ignite.");
             LanguageAPI.Add(prefix + "KEYWORD_MASOCHISMHEAT", $"<style=cKeywordName>Heat</style>" +
                 $"Costs <style=cIsDamage>{Modules.StaticValues.masochismEnergyCost} heat</style>. Half healing in overheat.");
+            LanguageAPI.Add(prefix + "KEYWORD_FLARENOTE", "The flare won't split unless it hits a target, is stepped on or an enemy is hit by the blast.");
 
-            LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION", $"<style=cKeywordName>Anticipation</style>{Modules.Helpers.ImportantDesc("Anticipation Stacks")} are granted from heating and cooling down. A stack grants 1 second of Masochism uptime. (Up to a maximum of {Modules.Config.masochismMaximumStack.Value} second(s).)");
+            LanguageAPI.Add(prefix + "KEYWORD_PYROMANIAPASSIVE", "Pyromania does not affect fall damage unless Frailty is active.");
+            LanguageAPI.Add(prefix + "KEYWORD_BASEGAUGEPASSIVE", "Stock-based items increase maximum heat. Increasing attack speed increases heat dissipation.");
+            LanguageAPI.Add(prefix + "KEYWORD_SUPERCRITICALPASSIVE", "Stock-based items increase blue portion. Increasing attack speed increases heat dissipation.");
+
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION", $"<style=cKeywordName>Anticipation</style>" +
+                $"For every 100 heat lost and/or gained, Arsonist gains 1 stack of Anticipation; After gaining {Modules.Config.masochismMinimumRequiredToActivate.Value} stacks, he may activate Masochism; Additional stacks increase damage and duration; All stacks are exhausted at the end.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_LIFESTEAL", $"<style=cKeywordName>Lifesteal</style>Arsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismActiveMultipliedActive.Value}%") } of his damage dealt while Masochism is active.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE", $"<style=cKeywordName>Detonate</style>Arsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
             LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"<style=cKeywordName>Overheat: Masochism</style>If Arsonist exits Masochism due to too much heat buildup, " +
