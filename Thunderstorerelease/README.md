@@ -12,13 +12,14 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 Network Compatible! (Unless otherwise found not to be)
 For any issues or bug reports, contact me on the RoR2 Modding discord (This preferrably, ping me), or to me directly, also on discord: ethanol10
 
-## Latest Update
+## Latest Major and Minor Update
+Check the Changelog tab in thunderstore to see previous changes:
 
-- 2.1.4
-    - Purity stacking was reducing the energy cost of abilities to 0, changed to only affect heat changed in masochism controller.
-        - More purity = More heat changed without showing the heat changed in the gauge.
-    - Null checks on effects before executing any changes.
-    - Preparations for other things (not a big update don't get hyped.)
+- 2.1.5
+    - Changed some descriptions on some moves to be more succinct
+    - Added UI element to show how many Anticipations stocks are shown 
+        - Up to 10, doesn't show more than 10 but if the config is changed it will still calculate in the background
+            - The buff counter at the bottom still counts the stacks.
 
 - 2.0.0
     - New Content:
@@ -196,171 +197,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     </a>
 </div>
 
-</details>
-
-# Old Changelog
-<details>
-<summary>Click to expand previous patch notes:</summary>
-
-- 2.1.3
-    - Added Config option to turn off the Heat Haze effects on Dragon's Fury/Masochism.
-    - Attempted to fix the bright orange material on spawn in multiplayer instances.
-- 2.1.2
-    - Added tokens for Arsonist specific text:
-        - Overheating Text
-        - Cooling Text
-        - Overheating EX Text
-    - Dragon's Fury changes
-        - Increasing flame chance back from 70% to 90% chance to flame at close range.
-        - Energy Cost is now 15 units instead of 20 units per second.
-    - Attempting to scale heat gauge with actual stocks instead of specific items.
-    - Fixed Cleanse and possibly other issues from propping up not activating the intended effect.
-- 2.1.1
-    - Fixing the Zero Point Blast from not applying the cooldown correctly on Overheat.
-    - Base ZPB Cooldown decreased from 11 seconds -> 9 seconds
-        - Similarly the ZPB cooldown in non-overheat is still 60% of the base cooldown (6.6s -> 5.4s)
-    - ZPB Damage coefficient 400% -> 200% 
-    - ZPB Blast Radius on contact 5 units -> 3 units
-    - ZPB Starting speed 600% -> 700% of current speed.
-    - Attempted to mitigate Arsonist from bonking against his own fireball. (This may still happen, but should happen less. Particulary an issue when aiming down, but should no longer be too much of an issue. May happen on higher attack speeds.)
-    - Fixing Cooldowns from being set incorrectly when overheating and a move isn't used but still applies the longer cooldown.
-    - Fixed an issue where pyromania would activate even though a player had Safer Spaces equipped. Safer Spaces should be used first before Pyromania passive is triggered.
-    - Dragon's Breath now should consume heat at a constant rate, as it is no longer tied to tick rate or attack speed.
-        - As such, now the rate is 20 units of heat a second. (Or so at least that's what I think it's around, I dunno it's goddamn 2am in the morning and I spent so long trying to find a solution GOD PLEASE I JUST NEED SOME SLEEP AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.)
-        - Activating Dragon's Breath disables heat regeneration for 0.2 seconds.
-- 2.1.0
-    - Added a voiceline that plays by chance (chance is configurable) on Signal Flare. (Only applicable to Arsonist and Yuppie skins, not Firebug.)
-    - Added "Better AI". Should make Umbras actually a challenge, and goobos actually do something.
-- 2.0.4
-    - Supercritical Gauge was not setting damage correctly for clients, this should be fixed now.
-- 2.0.3
-    - Tweaking Supercritical Gauge:
-        - 3x -> 2.5x damage buff in blue portion of the gauge
-        - 0.9x -> 0.7x damage debuff in white portion of the gauge
-        - Reduced the maximum amount of blue that can be built up from stock items from 90% -> 75% of available heat.
-        - Modified the description to indicate the downside.
-        - Starting segments for white and blue portions have been changed
-            - White: 60% -> 65% of gauge
-            - Blue: 30% -> 25% of gauge
-    - Tweaking Dragon's Fury:
-        - Normal damage coefficient 70% -> 90%
-        - Overheating in Dragon's Fury damage coefficient 65% -> 60%
-        - Range 25 -> 35 units
-        - Overheated Range 16.5 -> 23.1 units
-        - Heat Cost 5 -> 6
-            - Heat build up is now independant of tick. So this needed to be increased.
-        - Reduced Fire Chance, 90% -> 70% chance per tick to inflict ignite when right up in their face. (If hitting all ticks in a given attack, 0.001% -> 0.00729% chance of not burning.
-            - Needless to say, it's pretty a damn low chance that you'll not burn the enemy *at least once* after blasting them in the face with this attack.)
-        - Increased Flamethrower radius 1 -> 1.25, should be easier to hit enemies with the flamethrower.
-        - Turned on smart collision for bullet attacks. Should hit enemies better.
-        - Scaling for distance to burn targets has been buffed (TLDR; burning an enemy has a higher chance at a further distance.)
-            - Furthest distance (at 50 units away from target) 0% -> 13% chance to burn
-            - Closest distance for max burn chance changed from 0 units to 10 units.
-- 2.0.2
-    - Flamethrower unlock was bugged, Should be fixed now.
-        - Was me being stupid. Sorry about that. Feel free to unlock it using Cheat Unlocks.
-    - MORE NULL REFERENCE ERROR FIXES
-        - Fixed NRE returned from hitting Dragon's Fury on an object with a character body but with no master.
-- 2.0.1
-    - Fixing some NullReferenceExceptions...
-- 2.0.0
-    - New Content:
-        - Two new skins!
-            - Mastery - Yuppie
-            - Grandmastery - Firebug
-        - New Primary! Read below for more info!
-        - Achievements for each new item
-    - Stat Changes
-        - Increased Base damage stat from 8 -> 12
-    - Core Skill Changes
-        - Passive
-            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more of your total health (Does not apply to Fall Damage unless you are playing with Frailty enabled).
-            - Arsonist has resistance to fire damage from all sources
-        - Gauge Changes are moved to a passive skill slot
-            - All Gauges:
-                - Overheat now debuffs attack speed. (50% attack speed debuff)
-            - Gauge -> Base Gauge:
-                - Cooling rate is affected by the amount of heat in the gauge
-                - Config to modify this rate has been added.
-            - Gauge -> Supercritical Gauge:
-                - Damage done within the gauge before the blue section has a slight damage penalty, dealing 0.9x damage.
-                - Damage done within the blue gauge does 3x damage.
-        - Primary
-            - NEW PRIMARY: Dragon's Breath
-                - Fire a constant beam of fire that increases ignite chance the closer you are to an enemy.
-                - Attack Speed increases rate of tick.
-            - Overheat -> Fireball:
-                - Changed name to reflect the skill instead of the gauge type.
-                - Changed projectile VFX effect on both normal and overheat projectiles.
-                - Changed the SFX to be more impactful.
-        - Secondary
-            - Flare: Changes
-                - Flare now chains another explosion to enemies hit within the first Flare's explosion.
-                - After the DoT effect, the afflicted enemies explode sending a number of salvos upwards.
-                - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
-                - Due to the destructive nature of this upgrade, the cooldown has been increased.
-                - Changed the SFX to contain a sizzling and a proper explosion.
-                - Should inflict ignite on the final explosion. This is affected by ignition tank.
-                - Upgraded VFX 
-            - Zero Point Blast
-                - Increased the volume of the SFX played on start.
-                - Slightly changed the VFX.
-        - Utility
-            - Cleanse:
-                - Does not self burn anymore.
-                - Added speed boost on activation
-                - Should now apply Ignite correctly. Should be affected by Ignition tank.
-                - Added fire effect that emits off Arsonist for the duration of the move.
-                - Added VFX for Cleanse Blast when not overheated.
-        - Special
-            - Masochism
-                - Builds up Anticipation stacks while not activated.
-                - Now activates a state which radiates heat around Arsonist, dealing ignite damage to enemies in a small radius around you.
-                - Increases heat and deals self damage over time during the duration of the move
-                - Minimum Heat is raised for the duration of the move.
-                - Activatable when required stack amount is reached (Modifiable in Config).
-                - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
-                - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
-        - Other:
-            - Added an animation for the run cycle, rather than a sped up version of the walk cycle.
-            - Added the Lobby animation as an emote. Default key to activate is num 3. You can change the activation in the options.
-    - Bug Fixes
-        - Fixing Goobo from adding another UI element to the player's screen.
-        - Added checks to prevent position count from setting count to a negative value.
-        - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
-        - Added some mitigations on UI to prevent hooks from breaking
-        - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended or when the player has died.
-- 1.0.4 -> Small Updates
-    - Added Icon to RiskOfOptions
-    - Removed references to PhotoMode in code since someone decided to change the bloody mod GUID. UI disables when all UI is disabled.
-    - Heat bar UI scales with resolution now
-- 1.0.3 -> Bug Fix
-    - Added value to `cachedName` property to enable Eclipse progress.
-- 1.0.2 -> Forgot to do one last update:
-    - Swapped animation for Left and Right strafe
-- 1.0.1 -> Changes:
-    - New feature:
-        - Added a suicide button (Default off, turn on and press 9 in game.)
-    - Slight visual/audio changes
-        - Heat gauge text now vibrates on overheat.
-        - Overheat overlay color changed dependant on Primary selected.
-        - Doubled Attenuation range (100 -> 200) on all sounds.
-        - Added some Footstep VFX (Still needs work and some sound too) 
-    - Bug fixes
-        - Changed Flinch animation to Additive instead of Override.
-        - Changing Priority on moves so Primary is overrided if Secondary is pressed.
-        - Fixing issue where flare tries to apply damage to the already dead body of an enemy causing an NRE.
-        - Fixing NRE on Flare shot due to some boilerplate code that adds an effect component when it didn't need one.
-    - Balance Changes
-        - Health Growth from 15 -> 40 per level
-        - Masochism health percentage reduced from 0.05% -> 0.03% of max health per tick.  
-        - Masochism buff duration reduced from 8 -> 6.5 seconds
-        - Changed Overheat's (Default M1) damage coefficient from 300% -> 350% for non-overheated projectiles.
-        - Changed Overdrive's (Alt M1) damage coefficient from 300% -> 200% for non-overheated projectiles.
-        - Changed Overdrive's (Alt M1) damage coefficient from 150% -> 80% for overheated projectiles.
-        - Changed Overdrive's (Alt M1) base heat cost to fire a projectile from 8 -> 12
-- 1.0.0 - Initial Release
- 
 </details>
 
 ## Known Issues

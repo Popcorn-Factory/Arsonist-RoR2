@@ -14,11 +14,11 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.1.4
-    - Purity stacking was reducing the energy cost of abilities to 0, changed to only affect heat changed in masochism controller.
-        - More purity = More heat changed without showing the heat changed in the gauge.
-    - Null checks on effects before executing any changes.
-    - Preparations for other things (not a big update don't get hyped.)
+- 2.1.5
+    - Changed some descriptions on some moves to be more succinct
+    - Added UI element to show how many Anticipations stocks are shown 
+        - Up to 10, doesn't show more than 10 but if the config is changed it will still calculate in the background
+            - The buff counter at the bottom still counts the stacks.
 
 - 2.0.0
     - New Content:
@@ -202,6 +202,11 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.1.4
+    - Purity stacking was reducing the energy cost of abilities to 0, changed to only affect heat changed in masochism controller.
+        - More purity = More heat changed without showing the heat changed in the gauge.
+    - Null checks on effects before executing any changes.
+    - Preparations for other things (not a big update don't get hyped.)
 - 2.1.3
     - Added Config option to turn off the Heat Haze effects on Dragon's Fury/Masochism.
     - Attempted to fix the bright orange material on spawn in multiplayer instances.

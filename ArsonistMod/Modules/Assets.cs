@@ -10,6 +10,7 @@ using System;
 using UnityEngine.AddressableAssets;
 using RoR2.Projectile;
 using UnityEngine.UI;
+using ArsonistMod.Content.Controllers;
 
 namespace ArsonistMod.Modules
 {
@@ -54,6 +55,10 @@ namespace ArsonistMod.Modules
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
+
+        //Image icons
+        internal static Sprite activatedStackSprite;
+        internal static Sprite deactivatedStackSprite;
 
         // the assetbundle to load assets from
         internal static AssetBundle mainAssetBundle;
@@ -181,6 +186,7 @@ namespace ArsonistMod.Modules
             //Return the rotation back to normal.
             bottomSection.GetComponent<RectTransform>().localEulerAngles = new Vector3(0f, 0f, 0f);
             bottomSection.GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            fireballCrosshair.AddComponent<ArsonistCrosshairStockController>();
 
             CrosshairController fireballCrosshairController = fireballCrosshair.GetComponent<CrosshairController>();
             fireballCrosshairController.spriteSpreadPositions[0].zeroPosition = new Vector3(15f, 0f, 0f);
@@ -217,6 +223,8 @@ namespace ArsonistMod.Modules
             leftSectionImage.GetComponent<RectTransform>().localEulerAngles = Vector3.zero;
             leftSectionImage.GetComponent<RectTransform>().localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
+            flamethrowerCrosshair.AddComponent<ArsonistCrosshairStockController>();
+
             CrosshairController flamethowerCrosshairController = flamethrowerCrosshair.GetComponent<CrosshairController>();
 
             CrosshairController.SpritePosition[] flamethrowerSpritePosition = new CrosshairController.SpritePosition[2];
@@ -239,6 +247,10 @@ namespace ArsonistMod.Modules
 
             //Masochism Sphere
             masoSphereIndicator = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Masosphere");
+
+            //Masochism stack sprite
+            activatedStackSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("masochismIconActivated");
+            deactivatedStackSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("masochismIconDeactivated");
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab)
