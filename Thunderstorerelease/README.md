@@ -20,6 +20,7 @@ Check the Changelog tab in thunderstore to see previous changes:
     - Added UI element to show how many Anticipations stocks are shown 
         - Up to 10, doesn't show more than 10 but if the config is changed it will still calculate in the background
             - The buff counter at the bottom still counts the stacks.
+    - Fixing images on Readme, broken cause I was stupid and used Discord as a CDN lmao
 
 - 2.0.0
     - New Content:
@@ -106,23 +107,23 @@ Check the Changelog tab in thunderstore to see previous changes:
 </details>
 
 ## Screenshots
-<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146436804682207242/image.png?width=1280&height=720">
-<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146442780139344033/image.png?width=1280&height=720">
-<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146439985797538034/image.png?width=1280&height=720">
-<img src="https://cdn.discordapp.com/attachments/399901440023330816/1146442040800976948/image.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshot1.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshot2.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/sceenshot3.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshot4.png?width=1280&height=720">
 
 <details>
 <summary>v1.0 Screenshots</summary>
-<img src="https://media.discordapp.net/attachments/928130606662049892/1086175951932641340/image.png?width=1280&height=720">
-<img src="https://media.discordapp.net/attachments/928130606662049892/1086175952809246760/image.png?width=1280&height=720">
-<img src="https://media.discordapp.net/attachments/928130606662049892/1086175953551630357/image.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshotold3.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshotold1.png?width=1280&height=720">
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshotold2.png?width=1280&height=720">
 </details>
 
 ## Support me on Ko-fi! 
 There's no need for payment for mods, but a coffee would be nice once in awhile!
 
 <a href="https://ko-fi.com/popcornfactory" target="_blank">
-  <img width="400" src="https://cdn.discordapp.com/attachments/928130606662049892/952521134526590996/unknown.png"/>
+  <img width="400" src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/kofiImg.png"/>
 </a>
 
 ## Mod Interoperability List:
@@ -162,37 +163,37 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 </div>
 <div>
     <a href="https://thunderstore.io/package/TeaL/DekuMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043614036168784/TeaL-DekuMod-3.1.1.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/TeaL-DekuMod-4.1.2.png.128x128_q95.png"><br>
         <p>DekuMod (TeaL)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/Ethanol10/Ganondorf_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613428011079/Ethanol10-Ganondorf_Mod-2.1.5.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/Ethanol10-Ganondorf_Mod-3.1.5.png.128x128_q95.png"><br>
         <p>Ganondorf Mod (Ethanol 10)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/BokChoyWithSoy/Phoenix_Wright_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960054458790850570/BokChoyWithSoy-Phoenix_Wright_Mod-1.6.2.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/BokChoyWithSoy-Phoenix_Wright_Mod-1.8.0.png.128x128_q95.png"><br>
         <p>Phoenix Wright Mod (BokChoyWithSoy)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/PopcornFactory/Wisp_WarframeSurvivorMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613692239942/PopcornFactory-Wisp_WarframeSurvivorMod-1.0.2.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Wisp_WarframeSurvivorMod-3.0.6.png.128x128_q95.png"><br>
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/PopcornFactory/Rimuru_Tempest_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086161045283950602/PopcornFactory-Rimuru_Tempest_Mod-0.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Rimuru_Tempest_Mod-1.0.4.png.128x128_q95.png"><br>
         <p>Rimuru Tempest Mod (Popcorn Factory Team)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/BokChoyWithSoy/Bok_Choy_Items/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086162390783111198/BokChoyWithSoy-Bok_Choy_Items-1.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/BokChoyWithSoy-Bok_Choy_Items-1.0.3.png.128x128_q95.png"><br>
         <p>Bok Choy Items (BokChoyWithSoy)</p>
     </a>
 </div>

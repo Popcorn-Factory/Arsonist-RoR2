@@ -6,6 +6,7 @@
     - Added UI element to show how many Anticipations stocks are shown 
         - Up to 10, doesn't show more than 10 but if the config is changed it will still calculate in the background
             - The buff counter at the bottom still counts the stacks.
+    - Fixing images on Readme, broken cause I was stupid and used Discord as a CDN lmao
 - 2.1.4
     - Purity stacking was reducing the energy cost of abilities to 0, changed to only affect heat changed in masochism controller.
         - More purity = More heat changed without showing the heat changed in the gauge.
