@@ -155,7 +155,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     </a>
 </div>
 <div>
-    <a href="https://thunderstore.io/package/PopcornFactory/ShigarakiMod/">
+    <a href="https://thunderstore.io/package/TeaL/ShigarakiMod/">
         <img src="https://user-images.githubusercontent.com/93917577/168004591-39480a52-c7fe-4962-997f-cd9460bb4d4a.png"><br>
         <p>ShigarakiMod (TeaL)</p>
     </a>
