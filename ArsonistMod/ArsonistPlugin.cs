@@ -18,6 +18,7 @@ using System;
 using R2API.Networking.Interfaces;
 using EntityStates.GravekeeperBoss;
 using UnityEngine.Networking;
+using static RoR2.DotController;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -44,9 +45,8 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.1.4";
+        public const string MODVERSION = "2.1.6";
 
-        // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
 
         public static bool starstormAvailable = false;
@@ -114,6 +114,7 @@ namespace ArsonistMod
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
+            On.RoR2.DotController.InflictDot_refInflictDotInfo += DotController_InflictDot_refInflictDotInfo; ;
             
             //Item voice lines
             //On.RoR2.Inventory.GiveItem_ItemIndex_int += Inventory_GiveItem_ItemIndex_int;
@@ -134,6 +135,32 @@ namespace ArsonistMod
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private void DotController_InflictDot_refInflictDotInfo(On.RoR2.DotController.orig_InflictDot_refInflictDotInfo orig, ref InflictDotInfo inflictDotInfo)
+        {
+            if (inflictDotInfo.victimObject)
+            {
+                CharacterBody body = inflictDotInfo.victimObject.GetComponent<CharacterBody>();
+
+                if (body)
+                {
+                    if (body.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+                    {
+                        //If any of these are true, heal arsonist.
+                        bool dotCheck = inflictDotInfo.dotIndex == DotController.DotIndex.Burn ||
+                                        inflictDotInfo.dotIndex == DotController.DotIndex.Helfire ||
+                                        inflictDotInfo.dotIndex == DotController.DotIndex.StrongerBurn;
+
+                        if (dotCheck)
+                        {
+                            inflictDotInfo.totalDamage *= StaticValues.igniteDamageReduction;
+                        }
+                    }
+                }
+            }
+
+            orig(ref inflictDotInfo);
         }
 
         private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
@@ -323,13 +350,6 @@ namespace ArsonistMod
                                 DotController.InflictDot(ref info);
                             }
 
-                            if (damageInfo.damage > 0f)
-                            {
-                                if (dotCheck || damageTypeCheck)
-                                {
-                                    damageInfo.damage *= StaticValues.igniteDamageReduction;
-                                }
-                            }
                         }
                     }
                     #endregion

@@ -1,6 +1,11 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.1.6
+    - Fixed some applications of burn damage was not applying the proper attacker and therefore not granting money on kill.
+        - e.g: Flare DoT was not granting money.
+    - Fixed the Passive from not reducing fire damage. Reduces the total damage of the DoT proc to the config value provided (50%)
+    - Fixed the Fireball projectile from despawning early, should last 10s at least.
 - 2.1.5
     - Changed some descriptions on some moves to be more succinct
     - Added UI element to show how many Anticipations stocks are shown 

@@ -106,7 +106,7 @@ namespace ArsonistMod.Modules.Networking
                 damageInfo.force = Vector3.zero;
                 damageInfo.damageColorIndex = DamageColorIndex.WeakPoint;
                 damageInfo.crit = crit ? attackercharBody.RollCrit() : false;
-                damageInfo.attacker = null;
+                damageInfo.attacker = attackercharBody ? attackercharBody.gameObject : null;
                 damageInfo.inflictor = null;
                 damageInfo.damageType = DamageType.Generic;
                 damageInfo.procCoefficient = 0.2f;

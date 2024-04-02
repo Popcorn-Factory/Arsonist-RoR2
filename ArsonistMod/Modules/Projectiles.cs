@@ -382,6 +382,7 @@ namespace ArsonistMod.Modules
         }
         private static void CreateArtificerFireBolt()
         {
+            float projLifetime = 10f;
             artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt");
 
             StrongFiresprayOnHit artificerFireboltexplosion = artificerFirebolt.GetComponent<StrongFiresprayOnHit>();
@@ -402,13 +403,20 @@ namespace ArsonistMod.Modules
             }
             projectileDamage.procCoefficient = 1f;
 
+            ProjectileSimple projectileSimple = artificerFirebolt.GetComponent<ProjectileSimple>();
+            if (projectileSimple) 
+            {
+                projectileSimple.lifetime = projLifetime;
+            }
+
             InitializeStrongFireSprayOnHit(artificerFireboltexplosion);
 
             artificerFireboltexplosion.blastDamageCoefficient = 1f;
             artificerFireboltexplosion.blastProcCoefficient = 1f;
             artificerFireboltexplosion.blastRadius = StaticValues.firesprayBlastRadius;
             artificerFireboltexplosion.destroyOnEnemy = true;
-            artificerFireboltexplosion.lifetime = 8f;
+            artificerFireboltexplosion.lifetime = projLifetime;
+            artificerFireboltexplosion.lifetimeRandomOffset = 0f;
 			
             artificerFireboltexplosion.impactEffect = Assets.arsonistFiresprayExplosion;
 
@@ -479,10 +487,10 @@ namespace ArsonistMod.Modules
             //projImpact.impactEffect = explosionEffect;
 
             //Debug.Log(projImpact.impactEffect);
-            UnityEngine.Object.Destroy(projImpact);
+            UnityEngine.Object.Destroy(artificerFirebolt.GetComponent<ProjectileImpactExplosion>());
 
             //Component[] components = artificerFirebolt.GetComponents<Component>();
-            //foreach (Component component in components) 
+            //foreach (Component component in components)
             //{
             //    Debug.Log(component.GetType().ToString());
             //}
@@ -526,7 +534,7 @@ namespace ArsonistMod.Modules
             projectileImpactExplosion.falloffModel = RoR2.BlastAttack.FalloffModel.None;
             projectileImpactExplosion.fireChildren = false;
             projectileImpactExplosion.impactEffect = null;
-            projectileImpactExplosion.lifetime = 0f;
+            projectileImpactExplosion.lifetime = 10f;
             projectileImpactExplosion.lifetimeAfterImpact = 0f;
             projectileImpactExplosion.lifetimeRandomOffset = 0f;
             projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;

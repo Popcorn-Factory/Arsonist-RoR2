@@ -119,7 +119,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.procCoefficient = 1f;
             blastAttack.teamIndex = TeamIndex.Player;
             blastAttack.position = charbody.transform.position;
-            if (arsonistBody)
+            if (!arsonistBody)
             {
                 blastAttack.attacker = null;
             }
