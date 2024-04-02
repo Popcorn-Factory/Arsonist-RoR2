@@ -202,6 +202,17 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 2.1.6
+    - Fixed some applications of burn damage was not applying the proper attacker and therefore not granting money on kill.
+        - e.g: Flare DoT was not granting money.
+    - Fixed the Passive from not reducing fire damage. Reduces the total damage of the DoT proc to the config value provided (50%)
+    - Fixed the Fireball projectile from despawning early, should last 10s at least.
+- 2.1.5
+    - Changed some descriptions on some moves to be more succinct
+    - Added UI element to show how many Anticipations stocks are shown 
+        - Up to 10, doesn't show more than 10 but if the config is changed it will still calculate in the background
+            - The buff counter at the bottom still counts the stacks.
+    - Fixing images on Readme, broken cause I was stupid and used Discord as a CDN lmao
 - 2.1.4
     - Purity stacking was reducing the energy cost of abilities to 0, changed to only affect heat changed in masochism controller.
         - More purity = More heat changed without showing the heat changed in the gauge.
