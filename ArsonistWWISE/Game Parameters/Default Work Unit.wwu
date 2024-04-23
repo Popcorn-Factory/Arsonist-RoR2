@@ -5,7 +5,11 @@
 			<ChildrenList>
 				<GameParameter Name="Volume_Master" ID="{D4FA0102-F3FC-435E-9670-5A3AC3A2307A}"/>
 				<GameParameter Name="Volume_SFX" ID="{E05026BD-1F96-4F74-8B5C-81C24D73B9F2}"/>
-				<GameParameter Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}"/>
+				<GameParameter Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

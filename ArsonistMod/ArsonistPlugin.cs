@@ -135,6 +135,12 @@ namespace ArsonistMod
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+
+
+            //Late setup
+
+            Debug.Log("BRUH: " + Modules.Config.arsonistVoicelineVolume.Value);
+            AkSoundEngine.SetRTPCValue("Volume_ArsonistVoice", Modules.Config.arsonistVoicelineVolume.Value);
         }
 
         private void DotController_InflictDot_refInflictDotInfo(On.RoR2.DotController.orig_InflictDot_refInflictDotInfo orig, ref InflictDotInfo inflictDotInfo)

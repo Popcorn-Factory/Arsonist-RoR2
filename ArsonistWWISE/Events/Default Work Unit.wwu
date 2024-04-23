@@ -193,6 +193,9 @@
 				<Event Name="Arsonist_ZPB_Laugh" ID="{0FB53136-6106-40FD-90BB-B8A1B7A204E2}">
 					<ChildrenList>
 						<Action Name="" ID="{918AD6F6-0CDD-45DC-AFD4-E7594676B2B2}" ShortID="935095471">
+							<PropertyList>
+								<Property Name="Probability" Type="Real64" Value="40"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="5_2_ZPB_Arsonist_Voice" ID="{C073325B-42F1-447D-9180-26DBF70F3569}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
@@ -504,6 +507,9 @@
 				<Event Name="Arsonist_ZPB_Laugh_Firebug" ID="{D27E7229-51E1-4DC1-B989-BB1D6F35A13E}">
 					<ChildrenList>
 						<Action Name="" ID="{D9C1B41E-DF16-41AA-AAC3-49EE520C4534}" ShortID="145011178">
+							<PropertyList>
+								<Property Name="Probability" Type="Real64" Value="46"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="5_3_ZPB_Firebug_Voice" ID="{399DCA00-F926-49C4-81B0-B42026C0BC15}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
