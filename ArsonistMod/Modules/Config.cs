@@ -247,7 +247,7 @@ namespace ArsonistMod.Modules
             (
                 new ConfigDefinition("03 - Voice", "Arsonist Voice Volume"),
                 100f,
-                new ConfigDescription("Determines the volume for Arsonist voice lines. Currently does not affect lines with explosions embedded in them. WARNING: The SFX slider also affects this as well!")
+                new ConfigDescription("Determines the volume for Arsonist voice lines.")
             );
 
             baseGaugeLowerBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>

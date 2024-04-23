@@ -6,7 +6,7 @@
 				<SoundBank Name="arsonistSoundbank" ID="{0CFD95F7-E88B-461D-848F-A3F7725091B1}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Arsonist_Idle_Stop" ID="{CFD4EDA1-88C9-404F-9D52-55AAF96B6042}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_ZPB_Contact_Laugh" ID="{0FB53136-6106-40FD-90BB-B8A1B7A204E2}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Arsonist_ZPB_Laugh" ID="{0FB53136-6106-40FD-90BB-B8A1B7A204E2}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Neomasochism_Pulse" ID="{EE92D7B6-DEAB-4155-B6EC-CE124005E788}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Flamethrower_Active" ID="{FE35ED5C-E89E-4169-8022-44C75388FAA4}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Explosion" ID="{83CAADAF-EA15-4179-AC4B-DA101BA659EF}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
@@ -19,11 +19,11 @@
 						<ObjectRef Name="Arsonist_Primary_Fire_Overheated" ID="{4866F7B3-C89F-44D9-AC3D-CA8CCE5F4BE6}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Primary_Fire_Explosion" ID="{408C3012-CFFE-457E-B2F9-85A581F69460}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Primary_Fire_Travel_Stop" ID="{EDA3720D-32DC-468A-8CD4-7B3AC36A1EB3}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_Neomasochism_Start_No_Laugh" ID="{D66E2781-7AAB-46AC-87ED-C9473CF0A090}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Arsonist_Neomasochism_Start" ID="{D66E2781-7AAB-46AC-87ED-C9473CF0A090}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Punch_Contact" ID="{4D59928E-8BDC-46E4-A90E-BA495A931A9E}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Projectile_Impact" ID="{BEDD9363-1D3E-4700-886B-11425C467EDB}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_ZPB_Start" ID="{F8804700-689A-473F-A764-5D531DDF06FD}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_Neomasochism_Start_Laugh" ID="{1C952D4F-04DD-4769-A3E7-54231B414C83}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Arsonist_Neomasochism_Laugh" ID="{1C952D4F-04DD-4769-A3E7-54231B414C83}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Flamethrower_End" ID="{1F266569-BB3B-47AC-9ECE-1897A1F5F840}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Projectile_Travel_Stop" ID="{1CA00CA6-15E8-47FF-B7F1-452F48BC9B4C}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Masochism" ID="{558167AF-C0C1-48AF-91A1-3FE91ADF5F13}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
@@ -40,13 +40,11 @@
 						<ObjectRef Name="Arsonist_Stop_All_Sounds" ID="{687876AC-E4E3-4C9B-A11B-F06D4F09C978}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Neomasochism_End_Laugh" ID="{004A2F8F-44A0-4CB0-A325-DB2FCD8B87DB}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Damage_Tick" ID="{72D09444-47D8-4CC1-9FAB-1885B21B8D2D}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_ZPB_Start_Laugh_Firebug" ID="{CA0FB5F9-C710-4D78-90A6-4222AC4872E9}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Idle_Taunt" ID="{1B2366BF-615D-4D9A-A03C-DEAD25DAE589}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_ZPB_Contact_Laugh_Firebug" ID="{D27E7229-51E1-4DC1-B989-BB1D6F35A13E}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Arsonist_ZPB_Laugh_Firebug" ID="{D27E7229-51E1-4DC1-B989-BB1D6F35A13E}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Overheat_Finish" ID="{32460C1F-EDE2-4DC5-8D9F-65CCD6834362}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Projectile_Burning" ID="{E3570DFD-8B65-4DCA-8A47-C56A2D85CEAB}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_ZPB_Start_Laugh" ID="{C5527BBB-65BA-4E34-AC78-271D4DE39FD6}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="Arsonist_Neomasochism_Start_Laugh_Firebug" ID="{7AD7B87C-5401-4EB5-946B-2D636E0200E8}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Arsonist_Neomasochism_Laugh_Firebug" ID="{7AD7B87C-5401-4EB5-946B-2D636E0200E8}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Projectile_Overheat" ID="{FAB4777F-DD42-4EE4-B299-90D7847473B3}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Menu_Match_Strike" ID="{1B50A649-6C68-4F7C-8A78-DBC3576D4EBC}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Arsonist_Secondary_Flare_Punch_Explosion" ID="{0134F9B6-5A0E-4F92-B602-47E913AB28A5}" WorkUnitID="{5968CD89-C023-4F27-ADF9-F1E2F939DB11}" Origin="Manual" Filter="7"/>

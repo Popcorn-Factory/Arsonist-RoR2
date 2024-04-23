@@ -1,6 +1,10 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.1.7
+    - Separated voice lines from SFX
+        - The voice volume slider in the settings can now affect Zero Point Blast, Masochism and Idle lines.
+    - Voice lines can be controlled by the volume slider, and is now separate to the SFX slider provided in the settings.
 - 2.1.6
     - Fixed some applications of burn damage was not applying the proper attacker and therefore not granting money on kill.
         - e.g: Flare DoT was not granting money.

@@ -14,11 +14,10 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.1.6
-    - Fixed some applications of burn damage was not applying the proper attacker and therefore not granting money on kill.
-        - e.g: Flare DoT was not granting money.
-    - Fixed the Passive from not reducing fire damage. Reduces the total damage of the DoT proc to the config value provided (50%)
-    - Fixed the Fireball projectile from despawning early, should last 10s at least.
+- 2.1.7
+    - Separated voice lines from SFX
+        - The voice volume slider in the settings can now affect Zero Point Blast, Masochism and Idle lines.
+    - Voice lines can be controlled by the volume slider, and is now separate to the SFX slider provided in the settings.
 
 - 2.0.0
     - New Content:

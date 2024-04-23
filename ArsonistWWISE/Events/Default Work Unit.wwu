@@ -30,7 +30,7 @@
 						<Action Name="" ID="{968CA12E-42C2-4D68-BD39-1EB3E36E5765}" ShortID="660906222">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_0_Masochism" ID="{D8310B48-C5D9-4876-8E2A-34E00746ED10}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 6_0_Masochism" ID="{D8310B48-C5D9-4876-8E2A-34E00746ED10}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -170,26 +170,6 @@
 				</Event>
 				<Event Name="Arsonist_ZPB_Start" ID="{F8804700-689A-473F-A764-5D531DDF06FD}">
 					<ChildrenList>
-						<Action Name="" ID="{D62B61D1-ABFC-4B23-87F8-3A294EB8180D}" ShortID="921152784">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_1_ZPB_Contact" ID="{036EC803-F7C0-441A-A8A1-DCF1D8568391}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{4E949017-D93B-4D8C-BAF8-D4C917524AFD}" ShortID="973599354">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_3_ZPB_Contact_Laugh" ID="{30AD7D16-F4D1-445D-ADB5-0025F942DB7C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{596C9B3D-88E4-4F2D-9699-83303B8EBF50}" ShortID="479953549">
 							<ReferenceList>
 								<Reference Name="Target">
@@ -201,26 +181,6 @@
 				</Event>
 				<Event Name="Arsonist_ZPB_Contact" ID="{9611296A-6658-4AF3-B6B8-6E4878D5D93B}">
 					<ChildrenList>
-						<Action Name="" ID="{D559DC88-2B32-42E8-B21B-FB1B57590EE2}" ShortID="382996275">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_2_ZPB_Fire_Laugh" ID="{1C0F2F77-AE3C-431B-82E8-BC1F5F14BE20}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{66398363-6E4E-4CD9-8A06-B27D6704F18D}" ShortID="40334598">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_0_ZPB_Start_Whiff" ID="{80355690-4BC3-4BFB-A22A-36CB42F64752}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{C0FF0C99-E555-48A3-A852-662BEC69DC1A}" ShortID="328060862">
 							<ReferenceList>
 								<Reference Name="Target">
@@ -230,43 +190,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_ZPB_Start_Laugh" ID="{C5527BBB-65BA-4E34-AC78-271D4DE39FD6}">
+				<Event Name="Arsonist_ZPB_Laugh" ID="{0FB53136-6106-40FD-90BB-B8A1B7A204E2}">
 					<ChildrenList>
-						<Action Name="" ID="{DE732193-58D0-43F4-8CB3-8D4B2F0E961D}" ShortID="445181653">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_2_ZPB_Fire_Laugh" ID="{1C0F2F77-AE3C-431B-82E8-BC1F5F14BE20}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Arsonist_ZPB_Contact_Laugh" ID="{0FB53136-6106-40FD-90BB-B8A1B7A204E2}">
-					<ChildrenList>
-						<Action Name="" ID="{1451CDF9-73D9-4D62-8C00-E46F2E28A410}" ShortID="465645194">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_0_ZPB_Start_Whiff" ID="{80355690-4BC3-4BFB-A22A-36CB42F64752}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{EFDA26FD-E58D-4764-8931-1A10B38DEF74}" ShortID="800072215">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_2_ZPB_Fire_Laugh" ID="{1C0F2F77-AE3C-431B-82E8-BC1F5F14BE20}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{918AD6F6-0CDD-45DC-AFD4-E7594676B2B2}" ShortID="935095471">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_3_ZPB_Contact_Laugh" ID="{30AD7D16-F4D1-445D-ADB5-0025F942DB7C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="5_2_ZPB_Arsonist_Voice" ID="{C073325B-42F1-447D-9180-26DBF70F3569}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -277,13 +206,13 @@
 						<Action Name="" ID="{D642B8E9-F604-479A-8774-A4AD76618687}" ShortID="651640608">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_1_Masochism_No_Laugh" ID="{650DEF79-DC46-40E9-B537-FD94517C4BE3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 6_1_Masochism_No_Laugh" ID="{650DEF79-DC46-40E9-B537-FD94517C4BE3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_Neomasochism_Start_No_Laugh" ID="{D66E2781-7AAB-46AC-87ED-C9473CF0A090}">
+				<Event Name="Arsonist_Neomasochism_Start" ID="{D66E2781-7AAB-46AC-87ED-C9473CF0A090}">
 					<ChildrenList>
 						<Action Name="" ID="{FA98B758-0990-411D-8174-AEEE0F3AA9D8}" ShortID="884557436">
 							<ReferenceList>
@@ -316,12 +245,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_Neomasochism_Start_Laugh" ID="{1C952D4F-04DD-4769-A3E7-54231B414C83}">
+				<Event Name="Arsonist_Neomasochism_Laugh" ID="{1C952D4F-04DD-4769-A3E7-54231B414C83}">
 					<ChildrenList>
 						<Action Name="" ID="{99C418BD-79D4-4805-A568-4FBDF96BD1BB}" ShortID="406990841">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_8_Masochism_Laugh_Start" ID="{594C76AC-521B-42E6-A1A1-8786A1E99BDD}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="6_0_Masochism_Voice" ID="{FDF5F701-E909-4BE4-AD83-410A0FD91F5A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -572,54 +501,23 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_ZPB_Start_Laugh_Firebug" ID="{CA0FB5F9-C710-4D78-90A6-4222AC4872E9}">
+				<Event Name="Arsonist_ZPB_Laugh_Firebug" ID="{D27E7229-51E1-4DC1-B989-BB1D6F35A13E}">
 					<ChildrenList>
-						<Action Name="" ID="{FF3A7F56-0090-4634-8713-15FBDFED17DF}" ShortID="380982588">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Arsonist_ZPB_Contact_Laugh_Firebug" ID="{D27E7229-51E1-4DC1-B989-BB1D6F35A13E}">
-					<ChildrenList>
-						<Action Name="" ID="{CB31DBD8-3AE2-4C6E-85FF-703DCD149DFD}" ShortID="575728103">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_0_ZPB_Start_Whiff" ID="{80355690-4BC3-4BFB-A22A-36CB42F64752}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{1DDC7718-6770-417D-8585-69AFF8D70D3E}" ShortID="426872668">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{D9C1B41E-DF16-41AA-AAC3-49EE520C4534}" ShortID="145011178">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="5_3_ZPB_Firebug_Voice" ID="{399DCA00-F926-49C4-81B0-B42026C0BC15}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Arsonist_Neomasochism_Start_Laugh_Firebug" ID="{7AD7B87C-5401-4EB5-946B-2D636E0200E8}">
+				<Event Name="Arsonist_Neomasochism_Laugh_Firebug" ID="{7AD7B87C-5401-4EB5-946B-2D636E0200E8}">
 					<ChildrenList>
-						<Action Name="" ID="{7A8E53E5-9B32-4686-AF25-9A09DD69B03D}" ShortID="94093897">
+						<Action Name="" ID="{2D68B4E9-3252-45D0-8BB9-C6287BFA8396}" ShortID="667973539">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_9_Masochism_Laugh_Start_Firebug" ID="{F7B739B5-2A53-47A2-B084-4E09CFE66DE0}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="6_1_Masochism_Firebug_Voice" ID="{9DA4D498-4192-4F0B-89EC-DA0069FDC198}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -727,7 +625,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_9_Masochism_Laugh_Start_Firebug" ID="{F7B739B5-2A53-47A2-B084-4E09CFE66DE0}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 6_9_Masochism_Laugh_Start_Firebug" ID="{F7B739B5-2A53-47A2-B084-4E09CFE66DE0}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -737,7 +635,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_8_Masochism_Laugh_Start" ID="{594C76AC-521B-42E6-A1A1-8786A1E99BDD}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 6_8_Masochism_Laugh_Start" ID="{594C76AC-521B-42E6-A1A1-8786A1E99BDD}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -747,7 +645,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="6_0_Masochism" ID="{D8310B48-C5D9-4876-8E2A-34E00746ED10}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 6_0_Masochism" ID="{D8310B48-C5D9-4876-8E2A-34E00746ED10}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -757,7 +655,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 5_5_ZPB_Contact_Laugh_Firebug" ID="{D288E6F0-F5AE-46A8-944B-365052A2F12D}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -767,7 +665,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_4_ZPB_Fire_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 5_4_ZPB_Fire_Laugh_Firebug" ID="{2890A44F-5486-41FF-B477-CBB727989BB6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -777,7 +675,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_2_ZPB_Fire_Laugh" ID="{1C0F2F77-AE3C-431B-82E8-BC1F5F14BE20}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 5_2_ZPB_Fire_Laugh" ID="{1C0F2F77-AE3C-431B-82E8-BC1F5F14BE20}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -787,7 +685,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="5_3_ZPB_Contact_Laugh" ID="{30AD7D16-F4D1-445D-ADB5-0025F942DB7C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="UNUSED 5_3_ZPB_Contact_Laugh" ID="{30AD7D16-F4D1-445D-ADB5-0025F942DB7C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

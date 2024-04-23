@@ -2,6 +2,7 @@
 using ArsonistMod.Modules.Networking;
 using EntityStates;
 using HG;
+using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
 using System;
@@ -38,25 +39,17 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             muzzlePos = childLoc.FindChild(muzzleString);
             if (base.isAuthority)
             {
-                if (!Modules.Config.shouldHaveVoice.Value)
+                if (base.isAuthority)
                 {
+                    //Play Sound by default:
                     new PlaySoundNetworkRequest(characterBody.netId, 1486446844).Send(R2API.Networking.NetworkDestination.Clients);
-                }
-                else
-                {
-                    uint soundStr;
-                    //Firebug SFX check
-                    if (base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex)
+                    //Soundbank has percentage chance set!
+                    if (Modules.Config.shouldHaveVoice.Value && !characterBody.HasBuff(Modules.Buffs.masochismBuff))
                     {
-                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)1486446844 : 896468461; //Nonlaugh : laugh
+                        uint soundInt;
+                        soundInt = base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex ? 2370694900 : 2004274107;
+                        new PlaySoundNetworkRequest(characterBody.netId, soundInt).Send(NetworkDestination.Clients);
                     }
-                    else
-                    {
-                        //Determine if they have a buff and play a non-laughing version if so.
-                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)1486446844 : 3858611310; //Nonlaugh : laugh
-                    }
-
-                    new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(R2API.Networking.NetworkDestination.Clients);
                 }
             }
             animator = base.GetModelAnimator();

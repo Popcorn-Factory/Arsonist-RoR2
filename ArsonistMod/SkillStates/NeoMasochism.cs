@@ -70,7 +70,7 @@ namespace ArsonistMod.SkillStates
                 {
                     maso.masoRecentlyActivated = true;
                 }
-            }
+            } 
 
             if (maso && maso.masochismActive && base.isAuthority) 
             {
@@ -81,25 +81,17 @@ namespace ArsonistMod.SkillStates
 
             if (base.isAuthority) 
             {
-                if (!Modules.Config.shouldHaveVoice.Value)
-                {
-                    new PlaySoundNetworkRequest(characterBody.netId, 955478894).Send(R2API.Networking.NetworkDestination.Clients);
-                }
-                else
-                {
-                    uint soundStr;
-                    if (base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex)
-                    {
-                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1845947419; //Nonlaugh : laugh
-                    }
-                    else
-                    {
-                        //Determine if they have a buff and play a non-laughing version if so.
-                        soundStr = characterBody.HasBuff(Modules.Buffs.masochismBuff) ? (uint)955478894 : (uint)1305067912; //Nonlaugh : laugh
-                    }
+                //Always Play the base sound:
+                new PlaySoundNetworkRequest(characterBody.netId, 974780206).Send(R2API.Networking.NetworkDestination.Clients);
 
+                //Optionally play the voice on top if they have the buff and it's active. Soundbank has percentage chance set!
+                if (Modules.Config.shouldHaveVoice.Value && !characterBody.HasBuff(Modules.Buffs.masochismBuff)) 
+                {
+                    uint soundInt;
 
-                    new PlaySoundNetworkRequest(characterBody.netId, soundStr).Send(NetworkDestination.Clients);
+                    soundInt = base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex ? 1951821374 : 2881057417;
+
+                    new PlaySoundNetworkRequest(characterBody.netId, soundInt).Send(NetworkDestination.Clients);
                 }
             }
         }
