@@ -112,6 +112,11 @@ namespace ArsonistMod.Content.Controllers
 
             charBody._defaultCrosshairPrefab = flamethrowerSelected ? Modules.Assets.flamethrowerCrosshair : Modules.Assets.fireballCrosshair;
 
+            //Updating only when arsonist spawns in.
+            if (AkSoundEngine.IsInitialized()) 
+            {
+                AkSoundEngine.SetRTPCValue("Volume_ArsonistVoice", Modules.Config.arsonistVoicelineVolume.Value);
+            }
         }
 
         public void StopAllParticleEffects() 
