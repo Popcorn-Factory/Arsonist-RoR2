@@ -2,6 +2,7 @@
 ## Changelog
 
 - 2.1.7
+    - Added Unique voice line for Firebug skin when firing flare.
     - Separated voice lines from SFX
         - The voice volume slider in the settings can now affect Zero Point Blast, Masochism and Idle lines.
     - Voice lines can be controlled by the volume slider, and is now separate to the SFX slider provided in the settings.
