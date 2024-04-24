@@ -83,10 +83,12 @@ namespace ArsonistMod.SkillStates
             if (isAuthority && Modules.Config.shouldHaveVoice.Value) 
             {
                 float randomNum = UnityEngine.Random.Range(1, 101);
-                if (Modules.Config.flareVoicelineChance.Value >= randomNum && Modules.Config.flareVoicelineChance.Value != 0 && base.characterBody.skinIndex != Modules.Survivors.Arsonist.FirebugSkinIndex) 
+                if (Modules.Config.flareVoicelineChance.Value >= randomNum && Modules.Config.flareVoicelineChance.Value != 0) 
                 {
                     // Calculate chance, send network request for flare noise.
-                    new PlaySoundNetworkRequest(base.characterBody.netId, 2767633755).Send(R2API.Networking.NetworkDestination.Clients);
+                    uint soundInt = base.characterBody.skinIndex == Modules.Survivors.Arsonist.FirebugSkinIndex ? 2058064724 : 2767633755;
+
+                    new PlaySoundNetworkRequest(base.characterBody.netId, soundInt).Send(R2API.Networking.NetworkDestination.Clients);
                 }
             }
 

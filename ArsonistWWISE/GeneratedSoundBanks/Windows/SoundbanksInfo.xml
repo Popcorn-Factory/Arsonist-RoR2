@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="644130797">
+		<SoundBank Id="1110381487" Language="SFX" Hash="3424478711">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -141,15 +141,15 @@
 					<IncludedMemoryFiles>
 						<File Id="34150984" Language="SFX">
 							<ShortName>Arsonist_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_Masochism_2.0_Only_Voices_CDBE579E.wem</Path>
+							<Path>SFX\Arsonist_Masochism_2.0_Only_Voices_F0A10679.wem</Path>
 						</File>
 						<File Id="306125133" Language="SFX">
 							<ShortName>Arsonist_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_Masochism_2.0_Only_Voices_018BE931.wem</Path>
+							<Path>SFX\Arsonist_Masochism_2.0_Only_Voices_940AF20B.wem</Path>
 						</File>
 						<File Id="426348490" Language="SFX">
 							<ShortName>Arsonist_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_Masochism_2.0_Only_Voices_D8233E47.wem</Path>
+							<Path>SFX\Arsonist_Masochism_2.0_Only_Voices_F5A3213A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -157,15 +157,15 @@
 					<IncludedMemoryFiles>
 						<File Id="270484830" Language="SFX">
 							<ShortName>Firebug_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_61B89F19.wem</Path>
+							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_20C7D86C.wem</Path>
 						</File>
 						<File Id="661134480" Language="SFX">
 							<ShortName>Firebug_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_647BC360.wem</Path>
+							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_A0AC690E.wem</Path>
 						</File>
 						<File Id="694297409" Language="SFX">
 							<ShortName>Firebug_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_68313648.wem</Path>
+							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_78A88207.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -343,6 +343,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2058064724" Name="Arsonist_Secondary_Flare_Voiceline_Firebug" ObjectPath="\Events\Default Work Unit\Arsonist_Secondary_Flare_Voiceline_Firebug">
+					<IncludedMemoryFiles>
+						<File Id="98736392" Language="SFX">
+							<ShortName>Firebug_Flare_Bang_1.wav</ShortName>
+							<Path>SFX\Firebug_Flare_Bang_1_EED8A1EB.wem</Path>
+						</File>
+						<File Id="151939271" Language="SFX">
+							<ShortName>Firebug_Flare_Bang_2.wav</ShortName>
+							<Path>SFX\Firebug_Flare_Bang_2_BDDC4DFE.wem</Path>
+						</File>
+						<File Id="1004312520" Language="SFX">
+							<ShortName>Firebug_Flare_Bang_3.wav</ShortName>
+							<Path>SFX\Firebug_Flare_Bang_3_8BFA6657.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2176930590" Name="Arsonist_Stop_All_Sounds" ObjectPath="\Events\Default Work Unit\Arsonist_Stop_All_Sounds"/>
 				<Event Id="1135082308" Name="Arsonist_Stop_ZPB_Fluff" ObjectPath="\Events\Default Work Unit\Arsonist_Stop_ZPB_Fluff"/>
 				<Event Id="1486446844" Name="Arsonist_ZPB_Contact" ObjectPath="\Events\Default Work Unit\Arsonist_ZPB_Contact">
@@ -361,27 +377,27 @@
 					<IncludedMemoryFiles>
 						<File Id="136757640" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_1CC68598.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_E7FE8AD4.wem</Path>
 						</File>
 						<File Id="156089775" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_AF91B6E6.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_9B43290A.wem</Path>
 						</File>
 						<File Id="717296662" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_0AF72EFD.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_ACF5EE8E.wem</Path>
 						</File>
 						<File Id="736062800" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_2581F526.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_0F58C7B6.wem</Path>
 						</File>
 						<File Id="803518876" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_6761C517.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_B7B3FB03.wem</Path>
 						</File>
 						<File Id="874633502" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_B69948FB.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_9FFB94BF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -389,27 +405,27 @@
 					<IncludedMemoryFiles>
 						<File Id="65815467" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_BB019989.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_1D206E5F.wem</Path>
 						</File>
 						<File Id="83830840" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_62D760DE.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_14B78821.wem</Path>
 						</File>
 						<File Id="403933387" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_E77EAFA3.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_FCD192A5.wem</Path>
 						</File>
 						<File Id="666210265" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_96CDC6D6.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_6FFA18E8.wem</Path>
 						</File>
 						<File Id="732661998" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_9F82F465.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_AE5B006C.wem</Path>
 						</File>
 						<File Id="789530469" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_DDFAEB60.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_CB3A42CE.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -432,7 +448,7 @@
 				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1258906980">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1402327947">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

@@ -708,6 +708,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Secondary_Flare_Voiceline_Firebug" ID="{4928014B-A999-4DEE-9720-13A3A620CAF5}">
+					<ChildrenList>
+						<Action Name="" ID="{0B0636A5-E09D-49FD-96D9-C6DFBC41BD74}" ShortID="1070394750">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="4_9_Secondary_Flare_Voiceline_Firebug" ID="{EA9C52F9-7E81-4D0C-A45F-145EBC021D63}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
