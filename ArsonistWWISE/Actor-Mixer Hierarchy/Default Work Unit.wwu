@@ -2585,7 +2585,7 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Voice Mixer" ID="{98AAFF16-FC56-4572-992D-8D146D5674E8}" ShortID="576461004">
+						<RandomSequenceContainer Name="Voice Master" ID="{98AAFF16-FC56-4572-992D-8D146D5674E8}" ShortID="576461004">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -2630,22 +2630,19 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="6_1_Masochism_Firebug_Voice" ID="{9DA4D498-4192-4F0B-89EC-DA0069FDC198}" ShortID="159135513">
+								<RandomSequenceContainer Name="Arsonist" ID="{92B95433-BBEC-48CC-82FB-BDFD2646C238}" ShortID="947829311">
 									<PropertyList>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>15</Value>
-											</ValueList>
 											<RTPCList>
-												<RTPC Name="" ID="{3E23042C-E26E-4AA6-A4C1-122D6C7B12FB}" ShortID="881245484">
+												<RTPC Name="" ID="{30B9AB05-F919-433C-8412-04245E8EE2CC}" ShortID="1000628992">
 													<ReferenceList>
 														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
+															<ObjectRef Name="Volume_ArsonistVoice_Arsonist" ID="{918A1AEB-6CFB-4F73-89CC-DF2ADDEC8BA3}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
 														</Reference>
 													</ReferenceList>
-													<Curve Name="" ID="{8331EEEE-003D-4FFC-BDAF-5817D26B64AE}">
+													<Curve Name="" ID="{14B12B32-7FC3-4EB5-AE23-3CF0F82044BC}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>
@@ -2678,1169 +2675,20 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Firebug_Masochism_2_0_Only_Voices" ID="{B25691B9-05AA-4D15-A6C2-B618F5CD7250}" ShortID="354160118">
+										<RandomSequenceContainer Name="4_8_Secondary_Flare_Voiceline" ID="{A1317CB4-7D5E-45D9-92F3-2CB2FBEB5AB8}" ShortID="641729039">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{E434CD80-DFA8-4241-B421-0445A35FDD45}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.41615763546798"/>
-														<Property Name="TrimEnd" Type="Real64" Value="3.62651653764955"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Masochism_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="694297409"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{E434CD80-DFA8-4241-B421-0445A35FDD45}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_Masochism_2_0_Only_Voices_01" ID="{9A23A227-2039-45AF-A032-C8A908A052CE}" ShortID="790393306">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{A101CFC1-6115-4D5B-B201-4225CE05EF56}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="6.30181562280085"/>
-														<Property Name="TrimEnd" Type="Real64" Value="9.27437016185787"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Masochism_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="270484830"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{A101CFC1-6115-4D5B-B201-4225CE05EF56}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_Masochism_2_0_Only_Voices_02" ID="{FF0DBE2E-2B5E-40FE-8ECB-2F49EC6F085E}" ShortID="726906674">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{65357D1D-0F19-4C91-8564-CF65028D8E8B}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="12.1280225193526"/>
-														<Property Name="TrimEnd" Type="Real64" Value="15.1005770584096"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Masochism_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="661134480"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{65357D1D-0F19-4C91-8564-CF65028D8E8B}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="6_0_Masochism_Voice" ID="{FDF5F701-E909-4BE4-AD83-410A0FD91F5A}" ShortID="324448131">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>15</Value>
-											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{4FBABA78-F681-46E0-9E27-0D65DBF3879C}" ShortID="716734049">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{582D7259-02AE-4B03-B669-7804F5AC4AA3}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Arsonist_Masochism_2_0_Only_Voices" ID="{895E0E18-F98E-4E42-AEB4-3898DC7615A0}" ShortID="183679270">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{E64EE9A5-A7E5-4516-987F-F62962306FF3}">
-													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="4.79134314190791"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_Masochism_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="426348490"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{E64EE9A5-A7E5-4516-987F-F62962306FF3}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_Masochism_2_0_Only_Voices_01" ID="{1AF60A98-4A48-4384-9960-3EC47E3523E0}" ShortID="465728843">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{C8783809-7D46-4FCD-90B9-3C28796464F0}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="6.2036313865991"/>
-														<Property Name="TrimEnd" Type="Real64" Value="9.83158722625262"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_Masochism_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="34150984"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{C8783809-7D46-4FCD-90B9-3C28796464F0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_Masochism_2_0_Only_Voices_02" ID="{84423135-B1E7-41C0-BCEE-29E871ED7706}" ShortID="429709598">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{174C1D50-D444-492C-991E-D0D502A6BBB6}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="12.1628008008801"/>
-														<Property Name="TrimEnd" Type="Real64" Value="16.465570449903"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_Masochism_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="306125133"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{174C1D50-D444-492C-991E-D0D502A6BBB6}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="5_3_ZPB_Firebug_Voice" ID="{399DCA00-F926-49C4-81B0-B42026C0BC15}" ShortID="254743117">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>12</Value>
-											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{24D5ABAA-06B3-4AE5-B01B-1BBCA07D332C}" ShortID="1047187694">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{856E7070-6EC3-48F7-941C-3D40C30CAF3D}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Firebug_ZPB_2_0_Just_Voices" ID="{6B1E1F36-63C9-449F-AA2B-34F26A0133A4}" ShortID="469177086">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{82432FB4-0BC8-4BD1-AA30-D41DC3BAF3BB}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="2.60815047021945"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="789530469"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{82432FB4-0BC8-4BD1-AA30-D41DC3BAF3BB}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_2_0_Just_Voices_01" ID="{F0AFE42B-40B0-486F-A7D6-175B0725F65B}" ShortID="1013230701">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{D0D6B435-B918-4F66-8DC8-63CBF87AC720}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="5.89269717920737"/>
-														<Property Name="TrimEnd" Type="Real64" Value="8.19786174394534"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="666210265"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{D0D6B435-B918-4F66-8DC8-63CBF87AC720}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_2_0_Just_Voices_02" ID="{1FAFF467-783F-438F-886C-457C0E04348A}" ShortID="356485423">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{CB48F4CD-3467-4DB6-943A-DC58CE3184F6}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="10.7468383973003"/>
-														<Property Name="TrimEnd" Type="Real64" Value="12.8069019995068"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="65815467"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{CB48F4CD-3467-4DB6-943A-DC58CE3184F6}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_2_0_Just_Voices_03" ID="{D26205E5-CCB7-4E9D-BBD0-D6E2478FEF6A}" ShortID="503542710">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{9754C438-1DEF-484B-8C03-0C1A81AFB743}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="16.4996236137074"/>
-														<Property Name="TrimEnd" Type="Real64" Value="18.7551388003558"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="83830840"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{9754C438-1DEF-484B-8C03-0C1A81AFB743}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_2_0_Just_Voices_04" ID="{F6B88706-5068-4E83-8B39-88C6076CCC0D}" ShortID="400704466">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{01A4748C-3605-4FF5-A16B-163BACDABAFF}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="21.1781818181818"/>
-														<Property Name="TrimEnd" Type="Real64" Value="24.829592476489"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="403933387"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{01A4748C-3605-4FF5-A16B-163BACDABAFF}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_ZPB_2_0_Just_Voices_05" ID="{0E07EF3A-0FBF-4BD1-B9FD-4F3B3CDE965F}" ShortID="914538712">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{65B7A357-2DCE-4108-8B5C-A6DA654CAA96}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="26.9161128526646"/>
-														<Property Name="TrimEnd" Type="Real64" Value="29.9415673981191"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="732661998"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{65B7A357-2DCE-4108-8B5C-A6DA654CAA96}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="5_2_ZPB_Arsonist_Voice" ID="{C073325B-42F1-447D-9180-26DBF70F3569}" ShortID="229397476">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>5</Value>
-											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{433C49ED-5872-4804-8677-850C2561401B}" ShortID="258045675">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{A6F3F4D0-851E-4D86-A2A7-CB3B824E54B7}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Arsonist_ZPB_2_0_Only_Voices" ID="{A6E2BFE3-DAF4-4B06-8F52-40FE7CF9A0BD}" ShortID="891773366">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{434F46AB-DDBF-4F95-99BA-5A5E3E8FA6B5}">
-													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="3.71135308041713"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="803518876"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{434F46AB-DDBF-4F95-99BA-5A5E3E8FA6B5}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_ZPB_2_0_Only_Voices_01" ID="{AFB4FE81-89BC-43C1-B4E8-ADC5E43C449F}" ShortID="2508526">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{37A1FF24-598E-4401-BA0A-AB95FA6D84F3}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="5.60698418246844"/>
-														<Property Name="TrimEnd" Type="Real64" Value="10.4791145800013"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="136757640"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{37A1FF24-598E-4401-BA0A-AB95FA6D84F3}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_ZPB_2_0_Only_Voices_02" ID="{39E99F5D-DD07-4222-89A3-460B14832255}" ShortID="793534276">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{658195FB-422D-4429-A4B9-5FA5E9482B9A}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="11.7311384069737"/>
-														<Property Name="TrimEnd" Type="Real64" Value="15.8409256379972"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="874633502"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{658195FB-422D-4429-A4B9-5FA5E9482B9A}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_ZPB_2_0_Only_Voices_03" ID="{65944A2A-DB2C-471D-B98B-E69ECEBE19BF}" ShortID="863327183">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{B73CA31C-4B08-45F4-9CEA-92FFB5198BFE}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="17.6756155659127"/>
-														<Property Name="TrimEnd" Type="Real64" Value="21.4803048977334"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="156089775"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{B73CA31C-4B08-45F4-9CEA-92FFB5198BFE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_ZPB_2_0_Only_Voices_04" ID="{F410B701-58B6-459A-BC69-BD00B621ED93}" ShortID="754290478">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{F6B1FEA7-6735-4059-A757-4198FBC8531C}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="23.6540240087958"/>
-														<Property Name="TrimEnd" Type="Real64" Value="27.553158831912"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="717296662"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{F6B1FEA7-6735-4059-A757-4198FBC8531C}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_ZPB_2_0_Only_Voices_05" ID="{186955FD-EF6C-45EA-9D33-C68636A78B63}" ShortID="1030980233">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{D2A0CBA2-DB4A-415E-9B3B-BAF07EA0116F}">
-													<PropertyList>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="29.5930857904985"/>
-														<Property Name="TrimEnd" Type="Real64" Value="34.211220831405"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="736062800"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{D2A0CBA2-DB4A-415E-9B3B-BAF07EA0116F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="4_8_Secondary_Flare_Voiceline" ID="{A1317CB4-7D5E-45D9-92F3-2CB2FBEB5AB8}" ShortID="641729039">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>3</Value>
-											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{22A360A4-5CFA-4B1C-A2FF-F7859EDA702A}" ShortID="868338573">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{B549136D-F43A-425A-BE6E-38C35FBAD931}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="ArsonistFireballFunnybutFiltered_5" ID="{89CC0D25-80DF-4BCC-9250-873873BB5879}" ShortID="204004066">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="ArsonistFireballFunnybutFiltered_5" ID="{6045805F-38BA-4378-8A39-51D8CF5871D9}">
-													<Language>SFX</Language>
-													<AudioFile>ArsonistFireballFunnybutFiltered_5.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="535838333"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="ArsonistFireballFunnybutFiltered_5" ID="{6045805F-38BA-4378-8A39-51D8CF5871D9}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="ArsonistFireballFunnybutFiltered_2" ID="{4510653B-E5D9-4C60-9965-779D2A842B3C}" ShortID="814352255">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="ArsonistFireballFunnybutFiltered_2" ID="{F19294AA-2858-4A66-89E8-58982DEB98C2}">
-													<Language>SFX</Language>
-													<AudioFile>ArsonistFireballFunnybutFiltered_2.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="986803567"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="ArsonistFireballFunnybutFiltered_2" ID="{F19294AA-2858-4A66-89E8-58982DEB98C2}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="10_0_Idle_Arsonist" ID="{2EDD3C54-CC20-4F02-9A8A-2BA707A73A36}" ShortID="158168114">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>16</Value>
-											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{C427E7E1-CDAE-4622-B564-20B212B27EB5}" ShortID="668068900">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{183C581D-A39F-486D-9195-2CED3B1F3807}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Arsonist_Idle_1" ID="{A9397CAE-5360-4351-9374-DB41AED04344}" ShortID="647403567">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_Idle_1" ID="{520FDBF7-20D8-4040-AA5B-282B67F15F9F}">
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_Idle_1.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="646534066"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_Idle_1" ID="{520FDBF7-20D8-4040-AA5B-282B67F15F9F}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_Idle_2" ID="{6F412EFD-6448-4056-AC98-47C357527E0A}" ShortID="732352670">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_Idle_2" ID="{59AF964C-2AF5-4BA5-9284-9E1958A18989}">
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_Idle_2.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1027889982"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_Idle_2" ID="{59AF964C-2AF5-4BA5-9284-9E1958A18989}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Arsonist_Idle_3" ID="{0A56F1D6-AEA3-4D92-83DB-27C8D7DAFF12}" ShortID="927118081">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Arsonist_Idle_3" ID="{F38619D7-4ED3-4C55-A46F-720DDD91D9BE}">
-													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Arsonist_Idle_3.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="829433386"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Arsonist_Idle_3" ID="{F38619D7-4ED3-4C55-A46F-720DDD91D9BE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="10_1_Idle_Arsonist_Firebug" ID="{C72E67DA-74D3-4400-9662-B0EA53FAFF94}" ShortID="900032571">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>12</Value>
-											</ValueList>
-											<RTPCList>
-												<RTPC Name="" ID="{D7406003-CEA9-4C0C-BB45-9663955AFBEE}" ShortID="225686921">
-													<ReferenceList>
-														<Reference Name="ControlInput">
-															<ObjectRef Name="Volume_ArsonistVoice" ID="{678EA635-9417-48AD-8C14-FEF45AD52629}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
-														</Reference>
-													</ReferenceList>
-													<Curve Name="" ID="{2142F865-33A3-4C97-9517-9E1A30D1CF73}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="3"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>0</XPos>
-																<YPos>-200</YPos>
-																<Flags>5</Flags>
-															</Point>
-															<Point>
-																<XPos>100</XPos>
-																<YPos>0</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</RTPC>
-											</RTPCList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Idle_Moth_3" ID="{4ABD7B3E-ED8A-4BD3-B58D-DB85CAB08A63}" ShortID="928056174">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Idle_Moth_3" ID="{D4F32F50-7B9C-4C24-B5DB-7400CAC0CE68}">
-													<Language>SFX</Language>
-													<AudioFile>Idle_Moth_3.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="702088368"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Idle_Moth_3" ID="{D4F32F50-7B9C-4C24-B5DB-7400CAC0CE68}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Idle_Moth_1" ID="{6ECC5C76-B826-443A-96A7-85310C6E434F}" ShortID="140802783">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Idle_Moth_1" ID="{CC070570-FF00-42B6-9856-89BCAB0E9431}">
-													<Language>SFX</Language>
-													<AudioFile>Idle_Moth_1.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1015006091"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Idle_Moth_1" ID="{CC070570-FF00-42B6-9856-89BCAB0E9431}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Idle_Moth_2" ID="{18360F9E-7987-478D-860A-EAAA91806E6E}" ShortID="637011746">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Idle_Moth_2" ID="{17174533-8E6C-4AD2-A9D7-09CD914C2428}">
-													<Language>SFX</Language>
-													<AudioFile>Idle_Moth_2.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="366655931"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Idle_Moth_2" ID="{17174533-8E6C-4AD2-A9D7-09CD914C2428}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="4_9_Secondary_Flare_Voiceline_Firebug" ID="{EA9C52F9-7E81-4D0C-A45F-145EBC021D63}" ShortID="1019269241">
-									<PropertyList>
-										<Property Name="Pitch" Type="int32">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{7D39FF22-F073-40D3-8D96-E58732381D30}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="50"/>
-															<Property Name="Min" Type="Real64" Value="-50"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Firebug_Flare_Bang_1" ID="{C000E2A9-CEEC-434E-9087-3257E8D894AD}" ShortID="386970422">
-											<PropertyList>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>7</Value>
+														<Value>3</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
 												</Reference>
@@ -3849,32 +2697,89 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Firebug_Flare_Bang_1" ID="{7FDCD337-D00A-4266-A2BC-8208D198DA2D}">
+												<Sound Name="ArsonistFireballFunnybutFiltered_5" ID="{89CC0D25-80DF-4BCC-9250-873873BB5879}" ShortID="204004066">
 													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0.827431162941368"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.827431162941368"/>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Flare_Bang_1.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="98736392"/>
-													</MediaIDList>
-												</AudioFileSource>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="ArsonistFireballFunnybutFiltered_5" ID="{6045805F-38BA-4378-8A39-51D8CF5871D9}">
+															<Language>SFX</Language>
+															<AudioFile>ArsonistFireballFunnybutFiltered_5.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="535838333"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="ArsonistFireballFunnybutFiltered_5" ID="{6045805F-38BA-4378-8A39-51D8CF5871D9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="ArsonistFireballFunnybutFiltered_2" ID="{4510653B-E5D9-4C60-9965-779D2A842B3C}" ShortID="814352255">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="ArsonistFireballFunnybutFiltered_2" ID="{F19294AA-2858-4A66-89E8-58982DEB98C2}">
+															<Language>SFX</Language>
+															<AudioFile>ArsonistFireballFunnybutFiltered_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="986803567"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="ArsonistFireballFunnybutFiltered_2" ID="{F19294AA-2858-4A66-89E8-58982DEB98C2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Flare_Bang_1" ID="{7FDCD337-D00A-4266-A2BC-8208D198DA2D}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_Flare_Bang_2" ID="{8280AB6D-73B7-48E2-B12B-A020982ABD0D}" ShortID="619854928">
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="5_2_ZPB_Arsonist_Voice" ID="{C073325B-42F1-447D-9180-26DBF70F3569}" ShortID="229397476">
 											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>6</Value>
+														<Value>5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
 												</Reference>
@@ -3883,39 +2788,1072 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Firebug_Flare_Bang_2" ID="{157895AD-9173-463A-9708-3E083F9B7C63}">
+												<Sound Name="Arsonist_ZPB_2_0_Only_Voices" ID="{A6E2BFE3-DAF4-4B06-8F52-40FE7CF9A0BD}" ShortID="891773366">
 													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0.496241901522514"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.496241901522514"/>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Flare_Bang_2.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="151939271"/>
-													</MediaIDList>
-												</AudioFileSource>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{434F46AB-DDBF-4F95-99BA-5A5E3E8FA6B5}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.0902156308674884"/>
+																<Property Name="TrimEnd" Type="Real64" Value="3.71135308041713"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="803518876"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{434F46AB-DDBF-4F95-99BA-5A5E3E8FA6B5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_ZPB_2_0_Only_Voices_01" ID="{AFB4FE81-89BC-43C1-B4E8-ADC5E43C449F}" ShortID="2508526">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{37A1FF24-598E-4401-BA0A-AB95FA6D84F3}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="5.93590327472145"/>
+																<Property Name="TrimEnd" Type="Real64" Value="10.4791145800013"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="136757640"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{37A1FF24-598E-4401-BA0A-AB95FA6D84F3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_ZPB_2_0_Only_Voices_02" ID="{39E99F5D-DD07-4222-89A3-460B14832255}" ShortID="793534276">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{658195FB-422D-4429-A4B9-5FA5E9482B9A}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="11.8666990844605"/>
+																<Property Name="TrimEnd" Type="Real64" Value="15.8409256379972"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="874633502"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{658195FB-422D-4429-A4B9-5FA5E9482B9A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_ZPB_2_0_Only_Voices_03" ID="{65944A2A-DB2C-471D-B98B-E69ECEBE19BF}" ShortID="863327183">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{B73CA31C-4B08-45F4-9CEA-92FFB5198BFE}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="17.7772860740278"/>
+																<Property Name="TrimEnd" Type="Real64" Value="21.4803048977334"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="156089775"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{B73CA31C-4B08-45F4-9CEA-92FFB5198BFE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_ZPB_2_0_Only_Voices_04" ID="{F410B701-58B6-459A-BC69-BD00B621ED93}" ShortID="754290478">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{F6B1FEA7-6735-4059-A757-4198FBC8531C}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="23.8404199403402"/>
+																<Property Name="TrimEnd" Type="Real64" Value="27.553158831912"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="717296662"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{F6B1FEA7-6735-4059-A757-4198FBC8531C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_ZPB_2_0_Only_Voices_05" ID="{186955FD-EF6C-45EA-9D33-C68636A78B63}" ShortID="1030980233">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>7</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{D2A0CBA2-DB4A-415E-9B3B-BAF07EA0116F}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="29.8167609083518"/>
+																<Property Name="TrimEnd" Type="Real64" Value="34.211220831405"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_ZPB_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="736062800"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_ZPB_2_0_Only_Voices" ID="{D2A0CBA2-DB4A-415E-9B3B-BAF07EA0116F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Flare_Bang_2" ID="{157895AD-9173-463A-9708-3E083F9B7C63}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Firebug_Flare_Bang_3" ID="{C739D2C7-9785-41CF-AD03-A8A65D8B2424}" ShortID="558053676">
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="10_0_Idle_Arsonist" ID="{2EDD3C54-CC20-4F02-9A8A-2BA707A73A36}" ShortID="158168114">
 											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>16</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Arsonist_Idle_1" ID="{A9397CAE-5360-4351-9374-DB41AED04344}" ShortID="647403567">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_Idle_1" ID="{520FDBF7-20D8-4040-AA5B-282B67F15F9F}">
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_Idle_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="646534066"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_Idle_1" ID="{520FDBF7-20D8-4040-AA5B-282B67F15F9F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_Idle_2" ID="{6F412EFD-6448-4056-AC98-47C357527E0A}" ShortID="732352670">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>7</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_Idle_2" ID="{59AF964C-2AF5-4BA5-9284-9E1958A18989}">
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_Idle_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1027889982"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_Idle_2" ID="{59AF964C-2AF5-4BA5-9284-9E1958A18989}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_Idle_3" ID="{0A56F1D6-AEA3-4D92-83DB-27C8D7DAFF12}" ShortID="927118081">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>7</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_Idle_3" ID="{F38619D7-4ED3-4C55-A46F-720DDD91D9BE}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="0"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_Idle_3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="829433386"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_Idle_3" ID="{F38619D7-4ED3-4C55-A46F-720DDD91D9BE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="6_0_Masochism_Voice" ID="{FDF5F701-E909-4BE4-AD83-410A0FD91F5A}" ShortID="324448131">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>15</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Arsonist_Masochism_2_0_Only_Voices" ID="{895E0E18-F98E-4E42-AEB4-3898DC7615A0}" ShortID="183679270">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{E64EE9A5-A7E5-4516-987F-F62962306FF3}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="0"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="4.79134314190791"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_Masochism_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="426348490"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{E64EE9A5-A7E5-4516-987F-F62962306FF3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_Masochism_2_0_Only_Voices_01" ID="{1AF60A98-4A48-4384-9960-3EC47E3523E0}" ShortID="465728843">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>7</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{C8783809-7D46-4FCD-90B9-3C28796464F0}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="6.2036313865991"/>
+																<Property Name="TrimEnd" Type="Real64" Value="9.83158722625262"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_Masochism_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="34150984"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{C8783809-7D46-4FCD-90B9-3C28796464F0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Arsonist_Masochism_2_0_Only_Voices_02" ID="{84423135-B1E7-41C0-BCEE-29E871ED7706}" ShortID="429709598">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{174C1D50-D444-492C-991E-D0D502A6BBB6}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="12.1628008008801"/>
+																<Property Name="TrimEnd" Type="Real64" Value="16.465570449903"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Arsonist_Masochism_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="306125133"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Arsonist_Masochism_2_0_Only_Voices" ID="{174C1D50-D444-492C-991E-D0D502A6BBB6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Firebug" ID="{A2409E76-766D-461A-80D0-FBA44760040E}" ShortID="546954924">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{EA89C383-C08D-484B-BE8B-D1DF0DE96E89}" ShortID="934379274">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Volume_ArsonistVoice_Firebug" ID="{BE853E7E-FF80-4FF9-AAEE-C54CD827A18B}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{4C12492B-EC99-4940-8C44-FF1D2BB861A7}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="5_3_ZPB_Firebug_Voice" ID="{399DCA00-F926-49C4-81B0-B42026C0BC15}" ShortID="254743117">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Firebug_ZPB_2_0_Just_Voices" ID="{6B1E1F36-63C9-449F-AA2B-34F26A0133A4}" ShortID="469177086">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{82432FB4-0BC8-4BD1-AA30-D41DC3BAF3BB}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.211543444857623"/>
+																<Property Name="TrimEnd" Type="Real64" Value="1.12734635621609"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="789530469"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{82432FB4-0BC8-4BD1-AA30-D41DC3BAF3BB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_ZPB_2_0_Just_Voices_01" ID="{F0AFE42B-40B0-486F-A7D6-175B0725F65B}" ShortID="1013230701">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{D0D6B435-B918-4F66-8DC8-63CBF87AC720}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="5.9608124882739"/>
+																<Property Name="TrimEnd" Type="Real64" Value="8.19786174394534"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="666210265"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{D0D6B435-B918-4F66-8DC8-63CBF87AC720}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_ZPB_2_0_Just_Voices_02" ID="{1FAFF467-783F-438F-886C-457C0E04348A}" ShortID="356485423">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{CB48F4CD-3467-4DB6-943A-DC58CE3184F6}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="10.9662391701098"/>
+																<Property Name="TrimEnd" Type="Real64" Value="12.8069019995068"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="65815467"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{CB48F4CD-3467-4DB6-943A-DC58CE3184F6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_ZPB_2_0_Just_Voices_03" ID="{D26205E5-CCB7-4E9D-BBD0-D6E2478FEF6A}" ShortID="503542710">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{9754C438-1DEF-484B-8C03-0C1A81AFB743}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="16.6853926384343"/>
+																<Property Name="TrimEnd" Type="Real64" Value="18.7551388003558"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="83830840"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{9754C438-1DEF-484B-8C03-0C1A81AFB743}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_ZPB_2_0_Just_Voices_04" ID="{F6B88706-5068-4E83-8B39-88C6076CCC0D}" ShortID="400704466">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{01A4748C-3605-4FF5-A16B-163BACDABAFF}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="21.6524060683607"/>
+																<Property Name="TrimEnd" Type="Real64" Value="24.829592476489"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="403933387"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{01A4748C-3605-4FF5-A16B-163BACDABAFF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_ZPB_2_0_Just_Voices_05" ID="{0E07EF3A-0FBF-4BD1-B9FD-4F3B3CDE965F}" ShortID="914538712">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{65B7A357-2DCE-4108-8B5C-A6DA654CAA96}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="27.2479565215389"/>
+																<Property Name="TrimEnd" Type="Real64" Value="29.9415673981191"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_ZPB_2.0_Just_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="732661998"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_ZPB_2_0_Just_Voices" ID="{65B7A357-2DCE-4108-8B5C-A6DA654CAA96}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="10_1_Idle_Arsonist_Firebug" ID="{C72E67DA-74D3-4400-9662-B0EA53FAFF94}" ShortID="900032571">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Idle_Moth_3" ID="{4ABD7B3E-ED8A-4BD3-B58D-DB85CAB08A63}" ShortID="928056174">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle_Moth_3" ID="{D4F32F50-7B9C-4C24-B5DB-7400CAC0CE68}">
+															<Language>SFX</Language>
+															<AudioFile>Idle_Moth_3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="702088368"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle_Moth_3" ID="{D4F32F50-7B9C-4C24-B5DB-7400CAC0CE68}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle_Moth_1" ID="{6ECC5C76-B826-443A-96A7-85310C6E434F}" ShortID="140802783">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle_Moth_1" ID="{CC070570-FF00-42B6-9856-89BCAB0E9431}">
+															<Language>SFX</Language>
+															<AudioFile>Idle_Moth_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1015006091"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle_Moth_1" ID="{CC070570-FF00-42B6-9856-89BCAB0E9431}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle_Moth_2" ID="{18360F9E-7987-478D-860A-EAAA91806E6E}" ShortID="637011746">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle_Moth_2" ID="{17174533-8E6C-4AD2-A9D7-09CD914C2428}">
+															<Language>SFX</Language>
+															<AudioFile>Idle_Moth_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="366655931"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle_Moth_2" ID="{17174533-8E6C-4AD2-A9D7-09CD914C2428}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="6_1_Masochism_Firebug_Voice" ID="{9DA4D498-4192-4F0B-89EC-DA0069FDC198}" ShortID="159135513">
+											<PropertyList>
+												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>15</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Firebug_Masochism_2_0_Only_Voices" ID="{B25691B9-05AA-4D15-A6C2-B618F5CD7250}" ShortID="354160118">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>7</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{E434CD80-DFA8-4241-B421-0445A35FDD45}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.75116691738401"/>
+																<Property Name="TrimEnd" Type="Real64" Value="3.62651653764955"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_Masochism_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="694297409"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{E434CD80-DFA8-4241-B421-0445A35FDD45}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_Masochism_2_0_Only_Voices_01" ID="{9A23A227-2039-45AF-A032-C8A908A052CE}" ShortID="790393306">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{A101CFC1-6115-4D5B-B201-4225CE05EF56}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="6.48017456449294"/>
+																<Property Name="TrimEnd" Type="Real64" Value="9.27437016185787"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_Masochism_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="270484830"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{A101CFC1-6115-4D5B-B201-4225CE05EF56}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_Masochism_2_0_Only_Voices_02" ID="{FF0DBE2E-2B5E-40FE-8ECB-2F49EC6F085E}" ShortID="726906674">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>6</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{65357D1D-0F19-4C91-8564-CF65028D8E8B}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="12.2261199372833"/>
+																<Property Name="TrimEnd" Type="Real64" Value="15.1005770584096"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_Masochism_2.0_Only_Voices.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="661134480"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_Masochism_2_0_Only_Voices" ID="{65357D1D-0F19-4C91-8564-CF65028D8E8B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="4_9_Secondary_Flare_Voiceline_Firebug" ID="{EA9C52F9-7E81-4D0C-A45F-145EBC021D63}" ShortID="1019269241">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="2"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
-															<Modifier Name="" ID="{501C905F-F2A7-46F5-8097-5206050E4E7E}"/>
+															<Modifier Name="" ID="{7D39FF22-F073-40D3-8D96-E58732381D30}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="50"/>
+																	<Property Name="Min" Type="Real64" Value="-50"/>
+																</PropertyList>
+															</Modifier>
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>8</Value>
-													</ValueList>
-												</Property>
 											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Attenuation" ID="{6ED30E0B-A5AE-4A9F-B324-55EE44F1D909}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
 												</Reference>
@@ -3924,23 +3862,114 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Firebug_Flare_Bang_3" ID="{42D7CF4F-063D-4E23-BBAF-8AD9B171D113}">
+												<Sound Name="Firebug_Flare_Bang_1" ID="{C000E2A9-CEEC-434E-9087-3257E8D894AD}" ShortID="386970422">
 													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="0.984044784580499"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.984044784580499"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>13</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Firebug_Flare_Bang_3.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1004312520"/>
-													</MediaIDList>
-												</AudioFileSource>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_Flare_Bang_1" ID="{7FDCD337-D00A-4266-A2BC-8208D198DA2D}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.913621909081094"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_Flare_Bang_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="98736392"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_Flare_Bang_1" ID="{7FDCD337-D00A-4266-A2BC-8208D198DA2D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_Flare_Bang_2" ID="{8280AB6D-73B7-48E2-B12B-A020982ABD0D}" ShortID="619854928">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>13</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_Flare_Bang_2" ID="{157895AD-9173-463A-9708-3E083F9B7C63}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.51496801101393"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_Flare_Bang_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="151939271"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_Flare_Bang_2" ID="{157895AD-9173-463A-9708-3E083F9B7C63}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Firebug_Flare_Bang_3" ID="{C739D2C7-9785-41CF-AD03-A8A65D8B2424}" ShortID="558053676">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{501C905F-F2A7-46F5-8097-5206050E4E7E}"/>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>14</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Firebug_Flare_Bang_3" ID="{42D7CF4F-063D-4E23-BBAF-8AD9B171D113}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.984044784580499"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>Firebug_Flare_Bang_3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1004312520"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Firebug_Flare_Bang_3" ID="{42D7CF4F-063D-4E23-BBAF-8AD9B171D113}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Firebug_Flare_Bang_3" ID="{42D7CF4F-063D-4E23-BBAF-8AD9B171D113}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										</RandomSequenceContainer>
 									</ChildrenList>
 								</RandomSequenceContainer>
 							</ChildrenList>

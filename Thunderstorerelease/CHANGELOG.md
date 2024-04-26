@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.1.8
+    - Raised base volume on Firebug and Arsonist voice lines to a baseline volume.
+    - Added sliders for both voice types that can be controlled by the individual sliders or through the master voice volume slider.
 - 2.1.7
     - Added Unique voice line for Firebug skin when firing flare.
     - Separated voice lines from SFX

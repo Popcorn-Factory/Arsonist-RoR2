@@ -116,6 +116,8 @@ namespace ArsonistMod.Content.Controllers
             if (AkSoundEngine.IsInitialized()) 
             {
                 AkSoundEngine.SetRTPCValue("Volume_ArsonistVoice", Modules.Config.arsonistVoicelineVolume.Value);
+                AkSoundEngine.SetRTPCValue("Volume_ArsonistVoice_Arsonist", Modules.Config.arsonistVoicelineVolumeArsonist.Value);
+                AkSoundEngine.SetRTPCValue("Volume_ArsonistVoice_Firebug", Modules.Config.arsonistVoicelineVolumeFirebug.Value);
             }
         }
 

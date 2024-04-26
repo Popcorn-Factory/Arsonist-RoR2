@@ -1,8 +1,8 @@
 {
   "name": "Arsonist_Mod",
-  "version_number": "2.1.7",
+  "version_number": "2.1.8",
   "website_url": "https://github.com/Popcorn-Factory/Arsonist-RoR2",
-  "description": "The Manic Incendiary - 2.0.0 -> Firebug Update! 2.1.7 -> Fixing Sounds",
+  "description": "The Manic Incendiary - 2.0.0 -> Firebug Update! 2.1.8 -> Sounds tweaks",
   "dependencies": [
     "bbepis-BepInExPack-5.4.1905",
     "RiskofThunder-HookGenPatcher-1.2.3",

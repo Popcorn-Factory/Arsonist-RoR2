@@ -15,11 +15,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 2.1.7
-    - Added Unique voice line for Firebug skin when firing flare.
-    - Separated voice lines from SFX
-        - The voice volume slider in the settings can now affect Zero Point Blast, Masochism and Idle lines.
-    - Voice lines can be controlled by the volume slider, and is now separate to the SFX slider provided in the settings.
+- 2.1.8
+    - Raised base volume on Firebug and Arsonist voice lines to a baseline volume.
+    - Added sliders for both voice types that can be controlled by the individual sliders or through the master voice volume slider.
 
 - 2.0.0
     - New Content:
