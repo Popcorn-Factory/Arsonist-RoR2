@@ -15,9 +15,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 2.1.8
-    - Raised base volume on Firebug and Arsonist voice lines to a baseline volume.
-    - Added sliders for both voice types that can be controlled by the individual sliders or through the master voice volume slider.
+- 2.1.9
+    - Lowered Base animation speed on the sprint cycle.
+    - Modified the Overview description.
 
 - 2.0.0
     - New Content:

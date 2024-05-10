@@ -14,14 +14,14 @@ namespace ArsonistMod.Modules
                 + Environment.NewLine + Environment.NewLine
                 + "< ! > Your attacks will be weaker when you're overheating. If you're in a tight spot, Cleanse can immediately end the overheating period in exchange for extending its cooldown duration."
                 + Environment.NewLine + Environment.NewLine
-                + "< ! > Supercritical Gauge grants more damage in exchange for stricter gauge management."
-                + Environment.NewLine + Environment.NewLine
-                + "< ! > Zero-Point Blast's distance scales according to movement speed, try use the ability in tandem with Cleanse as a backup escape plan."
-                + Environment.NewLine + Environment.NewLine
+                //+ "< ! > Supercritical Gauge grants more damage in exchange for stricter gauge management."
+                //+ Environment.NewLine + Environment.NewLine
+                //+ "< ! > Zero-Point Blast's distance scales according to movement speed, try use the ability in tandem with Cleanse as a backup escape plan."
+                //+ Environment.NewLine + Environment.NewLine
                 + "< ! > Masochism's Anticipation stacks still build during the ability's duration, meaning you can activate it early and exit with the max duration."
                 + Environment.NewLine + Environment.NewLine
-                + "< ! > Dragon's Breath chance to ignite scales according to the distance to the target, nearing 100% when you're right up in their face. Use this to your advantage if you need to take a target down quickly."
-                + Environment.NewLine + Environment.NewLine
+                //+ "< ! > Dragon's Breath chance to ignite scales according to the distance to the target, nearing 100% when you're right up in their face. Use this to your advantage if you need to take a target down quickly."
+                //+ Environment.NewLine + Environment.NewLine
                 + "< ! > Cleanse can remove the fire debuff from your passive. Use it to get out of a pinch.";
 
 
