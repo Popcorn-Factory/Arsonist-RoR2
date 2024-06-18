@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.1.10
+    - Added SFX slider independent of the inbuilt SFX slider in Voice/Volume config.
+    - As suggested before, please use RiskOfOptions to dynamically change this value during runtime!
 - 2.1.9
     - Lowered Base animation speed on the sprint cycle.
     - Modified the Overview description.

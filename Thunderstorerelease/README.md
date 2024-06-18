@@ -15,9 +15,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 2.1.9
-    - Lowered Base animation speed on the sprint cycle.
-    - Modified the Overview description.
+- 2.1.10
+    - Added SFX slider independent of the inbuilt SFX slider in Voice/Volume config.
+    - As suggested before, please use RiskOfOptions to dynamically change this value during runtime!
 
 - 2.0.0
     - New Content:
