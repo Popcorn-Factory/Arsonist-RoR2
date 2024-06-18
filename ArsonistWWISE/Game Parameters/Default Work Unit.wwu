@@ -12,6 +12,11 @@
 				</GameParameter>
 				<GameParameter Name="Volume_ArsonistVoice_Arsonist" ID="{918A1AEB-6CFB-4F73-89CC-DF2ADDEC8BA3}"/>
 				<GameParameter Name="Volume_ArsonistVoice_Firebug" ID="{BE853E7E-FF80-4FF9-AAEE-C54CD827A18B}"/>
+				<GameParameter Name="Volume_ArsonistSFX" ID="{7C4FA0D8-E8D8-41E5-9183-321E73D71584}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

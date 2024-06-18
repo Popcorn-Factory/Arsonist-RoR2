@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\coding\Arsonist-RoR2\ArsonistWWISE\</ProjectRoot>
-		<SourceFilesRoot>C:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\coding\Arsonist-RoR2\ArsonistWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\coding\Arsonist-RoR2\ArsonistWWISE\</ProjectRoot>
+		<SourceFilesRoot>F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\coding\Arsonist-RoR2\ArsonistWWISE\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\coding\Arsonist-RoR2\ArsonistWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\coding\Arsonist-RoR2\ArsonistWWISE\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Language="SFX" Hash="712653943">
+		<SoundBank Id="1110381487" Language="SFX" Hash="640835847">
 			<ObjectPath>\SoundBanks\Default Work Unit\arsonistSoundbank</ObjectPath>
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
@@ -157,15 +157,15 @@
 					<IncludedMemoryFiles>
 						<File Id="270484830" Language="SFX">
 							<ShortName>Firebug_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_BC8067AD.wem</Path>
+							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_08099428.wem</Path>
 						</File>
 						<File Id="661134480" Language="SFX">
 							<ShortName>Firebug_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_7E6F5B90.wem</Path>
+							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_3EA1FADF.wem</Path>
 						</File>
 						<File Id="694297409" Language="SFX">
 							<ShortName>Firebug_Masochism_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_8D8F92A7.wem</Path>
+							<Path>SFX\Firebug_Masochism_2.0_Only_Voices_A4EA9193.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -347,11 +347,11 @@
 					<IncludedMemoryFiles>
 						<File Id="98736392" Language="SFX">
 							<ShortName>Firebug_Flare_Bang_1.wav</ShortName>
-							<Path>SFX\Firebug_Flare_Bang_1_0992F623.wem</Path>
+							<Path>SFX\Firebug_Flare_Bang_1_3B0024C5.wem</Path>
 						</File>
 						<File Id="151939271" Language="SFX">
 							<ShortName>Firebug_Flare_Bang_2.wav</ShortName>
-							<Path>SFX\Firebug_Flare_Bang_2_61FEBE6F.wem</Path>
+							<Path>SFX\Firebug_Flare_Bang_2_A467A2D6.wem</Path>
 						</File>
 						<File Id="1004312520" Language="SFX">
 							<ShortName>Firebug_Flare_Bang_3.wav</ShortName>
@@ -381,15 +381,15 @@
 						</File>
 						<File Id="156089775" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_3BBC607F.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_F8A14396.wem</Path>
 						</File>
 						<File Id="717296662" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_62E46F40.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_12A66857.wem</Path>
 						</File>
 						<File Id="736062800" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_7558ED30.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_128B2303.wem</Path>
 						</File>
 						<File Id="803518876" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
@@ -397,7 +397,7 @@
 						</File>
 						<File Id="874633502" Language="SFX">
 							<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
-							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_3B7F9D15.wem</Path>
+							<Path>SFX\Arsonist_ZPB_2.0_Only_Voices_F1B29216.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -405,7 +405,7 @@
 					<IncludedMemoryFiles>
 						<File Id="65815467" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_5FD8A908.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_0CAD1ECC.wem</Path>
 						</File>
 						<File Id="83830840" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
@@ -413,19 +413,19 @@
 						</File>
 						<File Id="403933387" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_6D40468C.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_BD236F9B.wem</Path>
 						</File>
 						<File Id="666210265" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_432B0F12.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_1B11EF75.wem</Path>
 						</File>
 						<File Id="732661998" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_A6865775.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_8F336CF9.wem</Path>
 						</File>
 						<File Id="789530469" Language="SFX">
 							<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
-							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_B1E7DF4B.wem</Path>
+							<Path>SFX\Firebug_ZPB_2.0_Just_Voices_C1C5279E.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -444,13 +444,14 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="988679239" Name="Volume_ArsonistVoice_Arsonist" ObjectPath="\Game Parameters\Default Work Unit\Volume_ArsonistVoice_Arsonist"/>
+				<GameParameter Id="1264562516" Name="Volume_ArsonistSFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_ArsonistSFX"/>
 				<GameParameter Id="1868460931" Name="Volume_ArsonistVoice" ObjectPath="\Game Parameters\Default Work Unit\Volume_ArsonistVoice"/>
 				<GameParameter Id="2549699868" Name="Volume_ArsonistVoice_Firebug" ObjectPath="\Game Parameters\Default Work Unit\Volume_ArsonistVoice_Firebug"/>
 				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
 				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3193475079">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1897807902">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

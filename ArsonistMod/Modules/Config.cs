@@ -42,6 +42,7 @@ namespace ArsonistMod.Modules
 
         public static ConfigEntry<bool> enableNonAggressiveHeatHaze;
 
+        public static ConfigEntry<float> arsonistSFXVolume;
         public static ConfigEntry<float> arsonistVoicelineVolume;
         public static ConfigEntry<float> arsonistVoicelineVolumeArsonist;
         public static ConfigEntry<float> arsonistVoicelineVolumeFirebug;
@@ -240,30 +241,37 @@ namespace ArsonistMod.Modules
 
             shouldHaveVoice = ArsonistPlugin.instance.Config.Bind<bool>
             (
-                new ConfigDefinition("03 - Voice", "Arsonist can laugh/grunt/snicker."),
+                new ConfigDefinition("03 - Voice/Volume", "Arsonist can laugh/grunt/snicker."),
                 true,
                 new ConfigDescription("By default, Arsonist can laugh/grunt when Masochism or ZPB is used. When off, no voice will be played.", null, Array.Empty<object>())
             );
 
             arsonistVoicelineVolume = ArsonistPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("03 - Voice", "Master Voice Volume"),
+                new ConfigDefinition("03 - Voice/Volume", "Master Voice Volume"),
                 100f,
                 new ConfigDescription("Determines the volume for All voice lines, both Arsonist and Firebug.")
             );
 
             arsonistVoicelineVolumeArsonist = ArsonistPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("03 - Voice", "Arsonist Voice Volume"),
+                new ConfigDefinition("03 - Voice/Volume", "Arsonist Voice Volume"),
                 100f,
                 new ConfigDescription("Determines the volume for Arsonist's voice lines. (Does not affect Firebug, affected by Master Voice Volume)")
             );
 
             arsonistVoicelineVolumeFirebug = ArsonistPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("03 - Voice", "Firebug Voice Volume"),
+                new ConfigDefinition("03 - Voice/Volume", "Firebug Voice Volume"),
                 100f,
                 new ConfigDescription("Determines the volume for Firebug's voice lines. (Does not affect Arsonist, affected by Master Voice Volume)")
+            );
+
+            arsonistSFXVolume = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("03 - Voice/Volume", "SFX Volume"),
+                100f,
+                new ConfigDescription("Determines the volume for all of Arsonist's effects, such as explosions and such. (Affected by the ROR2 Master and SFX Volume)")
             );
 
             baseGaugeLowerBoundRecharge = ArsonistPlugin.instance.Config.Bind<float>
@@ -424,6 +432,19 @@ namespace ArsonistMod.Modules
                     }
                     )
                 );
+
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    arsonistSFXVolume,
+                    new StepSliderConfig
+                    {
+                        min = 0f,
+                        max = 100f,
+                        increment = 0.5f,
+                    }
+                    )
+                );
+
             ModSettingsManager.AddOption(new CheckBoxOption(shouldEnableDieKey));
 
             ModSettingsManager.AddOption(new CheckBoxOption(overheatTextShouldVibrate));
@@ -505,8 +526,17 @@ namespace ArsonistMod.Modules
         public static void OnChangeHooks() 
         {
             arsonistVoicelineVolume.SettingChanged += ArsonistVoicelineVolume_Changed;
-            arsonistVoicelineVolumeArsonist.SettingChanged += ArsonistVoicelineVolumeArsonist_SettingChanged; ;
-            arsonistVoicelineVolumeFirebug.SettingChanged += ArsonistVoicelineVolumeFirebug_SettingChanged; ;
+            arsonistVoicelineVolumeArsonist.SettingChanged += ArsonistVoicelineVolumeArsonist_SettingChanged;
+            arsonistVoicelineVolumeFirebug.SettingChanged += ArsonistVoicelineVolumeFirebug_SettingChanged;
+            arsonistSFXVolume.SettingChanged += ArsonistSFXVolume_SettingChanged;
+        }
+
+        private static void ArsonistSFXVolume_SettingChanged(object sender, EventArgs e)
+        {
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_ArsonistSFX", arsonistSFXVolume.Value);
+            }
         }
 
         private static void ArsonistVoicelineVolumeFirebug_SettingChanged(object sender, EventArgs e)
