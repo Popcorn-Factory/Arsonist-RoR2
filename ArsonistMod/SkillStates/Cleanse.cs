@@ -76,7 +76,7 @@ namespace ArsonistMod.SkillStates
                     base.SmallHop(characterBody.characterMotor, 3f);
                 }
 
-                EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                EffectManager.SpawnEffect(Modules.AssetsArsonist.explosionPrefab, new EffectData
                 {
                     origin = characterBody.transform.position,
                     scale = StaticValues.cleanseBlastRadius,

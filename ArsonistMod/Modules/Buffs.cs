@@ -24,10 +24,10 @@ namespace ArsonistMod.Modules
 
         internal static void RegisterBuffs()
         {
-            Sprite masochismSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("masochismBuff");
-            Sprite blueGaugeSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("blueGaugeBuff");
-            Sprite flareDebuffSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("flareDebuff");
-            Sprite ZPBBuffSprite = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("ZPBBuff");
+            Sprite masochismSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("masochismBuff");
+            Sprite blueGaugeSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("blueGaugeBuff");
+            Sprite flareDebuffSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("flareDebuff");
+            Sprite ZPBBuffSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("ZPBBuff");
 
             cleanseSpeedBoost = AddNewBuff("Arsonist Cleanse Speed Boost", flareDebuffSprite, Color.blue, false, false);
             masochismDeactivatedNonDebuff = AddNewBuff("Arsonist Overheat Debuff Protection", masochismSprite, Color.gray, false, false);

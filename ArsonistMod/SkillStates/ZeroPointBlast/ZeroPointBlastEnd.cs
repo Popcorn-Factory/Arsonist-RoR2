@@ -86,7 +86,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
 
             blastAttack.Fire();
 
-            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+            EffectManager.SpawnEffect(Modules.AssetsArsonist.elderlemurianexplosionEffect, new EffectData
             {
                 origin = characterBody.corePosition,
                 scale = 3f

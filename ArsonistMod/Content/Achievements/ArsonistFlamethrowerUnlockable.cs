@@ -8,7 +8,8 @@ using static ArsonistMod.Modules.Unlockables;
 namespace ArsonistMod.Modules.Achievements
 {
     [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_ACHIEVEMENT",
-    ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_REWARD_ID", null, null)]
+        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_REWARD_ID", 
+        null, 0)]
     internal class ArsonistFlamethrowerUnlockable : ModdedUnlockable
     {
         public CharacterBody body;
@@ -23,7 +24,7 @@ namespace ArsonistMod.Modules.Achievements
 
         public override string AchievementDescToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_DESC";
 
-        public override Sprite Sprite => Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistFlamethrower");
+        public override Sprite Sprite => Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistFlamethrower");
         public override Func<string> GetHowToUnlock { get; } = (() => Language.GetStringFormatted("UNLOCK_VIA_ACHIEVEMENT_FORMAT", new object[]
                             {
                                 Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_ACHIEVEMENT_NAME"),

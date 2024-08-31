@@ -25,7 +25,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             charbody = gameObject.GetComponent<CharacterBody>();
 
             //effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), charbody.corePosition + randVec, Quaternion.LookRotation(charbody.characterDirection.forward));
-            effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(Vector3.forward));
+            effectObj = UnityEngine.Object.Instantiate<GameObject>(Modules.AssetsArsonist.arsonistFlareAttached, charbody.corePosition, Quaternion.LookRotation(Vector3.forward));
 
 
             //EffectManager.SpawnEffect(effectObj, new EffectData
@@ -65,7 +65,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                         else
                         {
                             FireExplosion();
-                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                            EffectManager.SpawnEffect(Modules.AssetsArsonist.elderlemurianexplosionEffect, new EffectData
                             {
                                 origin = charbody.transform.position,
                                 scale = StaticValues.flareBlastRadius,
@@ -90,7 +90,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                     }
                     else
                     {
-                        EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
+                        EffectManager.SpawnEffect(Modules.AssetsArsonist.elderlemurianexplosionEffect, new EffectData
                         {
                             origin = charbody.transform.position,
                             scale = StaticValues.flareBlastRadius,

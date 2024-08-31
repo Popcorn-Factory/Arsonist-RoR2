@@ -59,7 +59,7 @@ namespace ArsonistMod.Content.Controllers
         void Awake() 
         {
             Hooks();
-            overheatingMaterial = new Material(Modules.Assets.arsonistOverheatingMaterial);
+            overheatingMaterial = new Material(Modules.AssetsArsonist.arsonistOverheatingMaterial);
         }
 
         void Start()
@@ -110,7 +110,7 @@ namespace ArsonistMod.Content.Controllers
                 flamethrowerSelected = true;
             }
 
-            charBody._defaultCrosshairPrefab = flamethrowerSelected ? Modules.Assets.flamethrowerCrosshair : Modules.Assets.fireballCrosshair;
+            charBody._defaultCrosshairPrefab = flamethrowerSelected ? Modules.AssetsArsonist.flamethrowerCrosshair : Modules.AssetsArsonist.fireballCrosshair;
 
             //Updating only when arsonist spawns in.
             if (AkSoundEngine.IsInitialized()) 
@@ -139,15 +139,15 @@ namespace ArsonistMod.Content.Controllers
 
         public void Hooks() 
         {
-            On.RoR2.CameraRigController.Update += CameraRigController_Update;
+            On.RoR2.CameraRigController.LateUpdate += CameraRigController_LateUpdate;
         }
 
         public void Unhook() 
         {
-            On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+            On.RoR2.CameraRigController.LateUpdate -= CameraRigController_LateUpdate;
         }
 
-        void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, CameraRigController self)
+        void CameraRigController_LateUpdate(On.RoR2.CameraRigController.orig_LateUpdate orig, CameraRigController self)
         {
             orig(self);
             if (!cameraRigController) 

@@ -45,7 +45,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.1.10";
+        public const string MODVERSION = "2.2.0";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -61,7 +61,7 @@ namespace ArsonistMod
             Log.Init(Logger);
             Modules.Config.ReadConfig();
             Modules.Config.OnChangeHooks();
-            Modules.Assets.Initialize(); // load assets and read config
+            Modules.AssetsArsonist.Initialize(); // load assets and read config
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
@@ -183,7 +183,7 @@ namespace ArsonistMod
             {
                 if (item.bodyPrefab.name == "ArsonistBody")
                 {
-                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("HumanoidArsonist"));
+                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>("HumanoidArsonist"));
                 }
             }
         }

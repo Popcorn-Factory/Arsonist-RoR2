@@ -24,7 +24,7 @@ namespace ArsonistMod.Modules
             if (tempMat)
                 return tempMat;
 
-            tempMat = Assets.mainAssetBundle.LoadAsset<Material>(materialName);
+            tempMat = AssetsArsonist.mainAssetBundle.LoadAsset<Material>(materialName);
 
             if (!tempMat)
             {

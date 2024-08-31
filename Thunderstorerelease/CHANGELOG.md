@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.2.0
+    - Updated to support SotS.
+    - Fixed an issue where Masochism loop plays constantly when running while changing stage.
 - 2.1.10
     - Added SFX slider independent of the inbuilt SFX slider in Voice/Volume config.
     - As suggested before, please use RiskOfOptions to dynamically change this value during runtime!

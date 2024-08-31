@@ -10,12 +10,14 @@ namespace ArsonistMod.Modules
         internal static DamageAPI.ModdedDamageType arsonistStickyDamageType;
         internal static DamageAPI.ModdedDamageType arsonistWeakStickyDamageType;
         internal static DamageAPI.ModdedDamageType arsonistChildExplosionDamageType;
+        internal static DamageAPI.ModdedDamageType arsonistScepterMasochismPing;
 
         internal static void SetupModdedDamage()
         {
             arsonistStickyDamageType = DamageAPI.ReserveDamageType();
             arsonistWeakStickyDamageType = DamageAPI.ReserveDamageType();
             arsonistChildExplosionDamageType = DamageAPI.ReserveDamageType();
+            arsonistScepterMasochismPing = DamageAPI.ReserveDamageType();
         }
     }
 }

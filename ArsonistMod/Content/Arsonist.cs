@@ -36,10 +36,10 @@ namespace ArsonistMod.Modules.Survivors
             bodyNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME",
             subtitleNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("ArsonistIcon"),
+            characterPortrait = AssetsArsonist.mainAssetBundle.LoadAsset<Texture>("ArsonistIcon"),
             bodyColor = Color.red,
 
-            crosshair = Modules.Assets.fireballCrosshair,
+            crosshair = Modules.AssetsArsonist.fireballCrosshair,
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,
@@ -128,8 +128,8 @@ namespace ArsonistMod.Modules.Survivors
             ParticleSystemRenderer particleSystemRenderer = fireBlastEffectTransform.GetChild(0).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>();
             ParticleSystemRenderer particleSystemRenderer2 = fireBlastFowardTransform.GetChild(0).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>();
 
-            particleSystemRenderer.material = Assets.emissionRingMatLesser;
-            particleSystemRenderer2.material = Assets.emissionRingMatLesser;
+            particleSystemRenderer.material = AssetsArsonist.emissionRingMatLesser;
+            particleSystemRenderer2.material = AssetsArsonist.emissionRingMatLesser;
         }
 
         public override void InitializeUnlockables()
@@ -316,7 +316,7 @@ namespace ArsonistMod.Modules.Survivors
             skillLoc.passiveSkill.enabled = true;
             skillLoc.passiveSkill.skillNameToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_NAME";
             skillLoc.passiveSkill.skillDescriptionToken = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_PASSIVE_DESCRIPTION";
-            skillLoc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
+            skillLoc.passiveSkill.icon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texPassiveIcon");
             skillLoc.passiveSkill.keywordToken = prefix + "KEYWORD_PYROMANIAPASSIVE";
 
             passive.normalGaugePassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -324,7 +324,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "PASSIVE_NORMAL_GAUGE_NAME",
                 skillNameToken = prefix + "PASSIVE_NORMAL_GAUGE_NAME",
                 skillDescriptionToken = prefix + "PASSIVE_NORMAL_GAUGE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistNormalGauge"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistNormalGauge"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -349,7 +349,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "PASSIVE_BLUE_GAUGE_NAME",
                 skillNameToken = prefix + "PASSIVE_BLUE_GAUGE_NAME",
                 skillDescriptionToken = prefix + "PASSIVE_BLUE_GAUGE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistBlueGauge"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistBlueGauge"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -439,7 +439,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "PRIMARY_FIRESPRAY_NAME",
                 skillNameToken = prefix + "PRIMARY_FIRESPRAY_NAME",
                 skillDescriptionToken = prefix + "PRIMARY_FIRESPRAY_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSpray)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -465,7 +465,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "PRIMARY_FLAMETHROWER_NAME",
                 skillNameToken = prefix + "PRIMARY_FLAMETHROWER_NAME",
                 skillDescriptionToken = prefix + "PRIMARY_FLAMETHROWER_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistFlamethrower"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistFlamethrower"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Flamethrower)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -504,7 +504,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "SECONDARY_FLAREGUN_NAME",
                 skillNameToken = prefix + "SECONDARY_FLAREGUN_NAME",
                 skillDescriptionToken = prefix + "SECONDARY_FLAREGUN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Flare)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -529,7 +529,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "SECONDARY_PUNCH_NAME",
                 skillNameToken = prefix + "SECONDARY_PUNCH_NAME",
                 skillDescriptionToken = prefix + "SECONDARY_PUNCH_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistZPBIcon"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistZPBIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.ZeroPointBlast.ZeroPointBlastStart)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -562,7 +562,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "UTILITY_CLEANSE_NAME",
                 skillNameToken = prefix + "UTILITY_CLEANSE_NAME",
                 skillDescriptionToken = prefix + "UTILITY_CLEANSE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Cleanse)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -591,7 +591,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "SPECIAL_MASOCHIST_NAME",
                 skillNameToken = prefix + "SPECIAL_MASOCHIST_NAME",
                 skillDescriptionToken = prefix + "SPECIAL_MASOCHIST_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Masochism)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -616,7 +616,7 @@ namespace ArsonistMod.Modules.Survivors
                 skillName = prefix + "SPECIAL_MASOCHISM_NAME",
                 skillNameToken = prefix + "SPECIAL_MASOCHISM_NAME",
                 skillDescriptionToken = prefix + "SPECIAL_MASOCHISM_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.NeoMasochism)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -674,7 +674,7 @@ namespace ArsonistMod.Modules.Survivors
                 matArsonistCloth
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(ARSONIST_PREFIX + "DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+                AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
                 arsonistRendererInfos,
                 model);
 
@@ -723,7 +723,7 @@ namespace ArsonistMod.Modules.Survivors
             });
             //creating a new skindef as we did before
             SkinDef masterySkin = Modules.Skins.CreateSkinDef(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_MASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery"),
+                AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery"),
                 suitArsonistRendererInfos,
                 model,
                 masterySkinUnlockableDef);
@@ -784,7 +784,7 @@ namespace ArsonistMod.Modules.Survivors
             });
             //creating a new skindef as we did before
             SkinDef grandmasterySkin = Modules.Skins.CreateSkinDef(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_GRANDMASTERY_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("arsonistGrandmastery"),
+                AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistGrandmastery"),
                 neoArsonistRendererInfos,
                 model,
                 firebugSkinUnlockableDef);
@@ -841,17 +841,6 @@ namespace ArsonistMod.Modules.Survivors
             {
                 newRendererInfos[i].defaultMaterial = materials[i];
             }
-
-            //newRendererInfos[0].defaultMaterial = materials[0];
-            //newRendererInfos[1].defaultMaterial = materials[1];
-            //newRendererInfos[2].defaultMaterial = materials[2];
-            //newRendererInfos[3].defaultMaterial = materials[3];
-            //newRendererInfos[4].defaultMaterial = materials[4];
-            //newRendererInfos[5].defaultMaterial = materials[5];
-            //newRendererInfos[6].defaultMaterial = materials[6];
-            //newRendererInfos[7].defaultMaterial = materials[7];
-            //newRendererInfos[8].defaultMaterial = materials[8];
-
 
             return newRendererInfos;
         }

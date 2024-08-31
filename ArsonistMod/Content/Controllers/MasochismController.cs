@@ -1,6 +1,7 @@
 ﻿using ArsonistMod.Modules;
 using ArsonistMod.Modules.Networking;
 using MonoMod.RuntimeDetour;
+using R2API;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
@@ -59,6 +60,8 @@ namespace ArsonistMod.Content.Controllers
         public float targetFOV;
         public float baseFOV;
 
+        public bool scepterUpgrade;
+
         public void Awake()
         {
 
@@ -72,7 +75,7 @@ namespace ArsonistMod.Content.Controllers
             healthComponent = characterBody.healthComponent;
             skillLoc = characterBody.skillLocator;
 
-            masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(Modules.Assets.masoSphereIndicator);
+            masochismRangeIndicator = UnityEngine.Object.Instantiate<GameObject>(Modules.AssetsArsonist.masoSphereIndicator);
             masochismEffect = masochismRangeIndicator.GetComponent<ParticleSystem>();
             pulseEffect = masochismRangeIndicator.transform.GetChild(0);
             heatHazeEffect = masochismRangeIndicator.transform.GetChild(1).GetComponent<ParticleSystem>();
@@ -280,7 +283,15 @@ namespace ArsonistMod.Content.Controllers
 
         public void RunMasochismLoop()
         {
-            
+            if (scepterUpgrade && !damageOverTimeSphere.HasModdedDamageType(Modules.Damage.arsonistScepterMasochismPing)) 
+            {
+                damageOverTimeSphere.AddModdedDamageType(Modules.Damage.arsonistScepterMasochismPing);
+            }
+
+            if (!scepterUpgrade && damageOverTimeSphere.HasModdedDamageType(Modules.Damage.arsonistScepterMasochismPing))
+            {
+                damageOverTimeSphere.RemoveModdedDamageType(Modules.Damage.arsonistScepterMasochismPing);
+            }
 
             //Apply buff
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 1, -1f);
@@ -473,6 +484,7 @@ namespace ArsonistMod.Content.Controllers
         {
             Unhook();
             Destroy(masochismRangeIndicator);
+            AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
         }
     }

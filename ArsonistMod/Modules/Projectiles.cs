@@ -54,7 +54,7 @@ namespace ArsonistMod.Modules
 
         private static void CreateFlareChildPrefab()
         {
-            flareChildPrefab = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareCollision");
+            flareChildPrefab = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>("flareCollision");
             flareChildPrefab.AddComponent<NetworkIdentity>();
 
             ProjectileController projectileController = flareChildPrefab.AddComponent<ProjectileController>();
@@ -71,8 +71,8 @@ namespace ArsonistMod.Modules
             projectileDamage.damageType = DamageType.Generic;
 
             ProjectileImpactExplosion projectileExplosion = flareChildPrefab.AddComponent<ProjectileImpactExplosion>();
-            projectileExplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
-            projectileExplosion.impactEffect = Assets.elderlemurianexplosionEffect;
+            projectileExplosion.explosionEffect = AssetsArsonist.elderlemurianexplosionEffect;
+            projectileExplosion.impactEffect = AssetsArsonist.elderlemurianexplosionEffect;
             projectileExplosion.blastRadius = Modules.StaticValues.flareBlastRadius;
             projectileExplosion.blastDamageCoefficient = 1f;
             projectileExplosion.falloffModel = BlastAttack.FalloffModel.None;
@@ -143,8 +143,8 @@ namespace ArsonistMod.Modules
             strongFlareexplosion.blastRadius = StaticValues.flareBlastUntouched;
             strongFlareexplosion.destroyOnEnemy = true;
             strongFlareexplosion.lifetime = 5f;
-            strongFlareexplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
-            strongFlareexplosion.impactEffect = Assets.elderlemurianexplosionEffect;
+            strongFlareexplosion.explosionEffect = AssetsArsonist.elderlemurianexplosionEffect;
+            strongFlareexplosion.impactEffect = AssetsArsonist.elderlemurianexplosionEffect;
             strongFlareexplosion.timerAfterImpact = true;
             strongFlareexplosion.lifetimeAfterImpact = 3f;
 
@@ -236,8 +236,8 @@ namespace ArsonistMod.Modules
             weakFlareexplosion.blastRadius = StaticValues.flareBlastRadius;
             weakFlareexplosion.destroyOnEnemy = true;
             weakFlareexplosion.lifetime = 5f;
-            weakFlareexplosion.explosionEffect = Assets.elderlemurianexplosionEffect;
-            weakFlareexplosion.impactEffect = Assets.elderlemurianexplosionEffect;
+            weakFlareexplosion.explosionEffect = AssetsArsonist.elderlemurianexplosionEffect;
+            weakFlareexplosion.impactEffect = AssetsArsonist.elderlemurianexplosionEffect;
             weakFlareexplosion.timerAfterImpact = true;
             weakFlareexplosion.lifetimeAfterImpact = 3f;
 
@@ -323,7 +323,7 @@ namespace ArsonistMod.Modules
             zeropointBombexplosion.blastRadius = StaticValues.zeropointBlastRadius;
             zeropointBombexplosion.destroyOnEnemy = true;
             zeropointBombexplosion.lifetime = 20f;
-            zeropointBombexplosion.impactEffect = Assets.bombExplosionEffect;
+            zeropointBombexplosion.impactEffect = AssetsArsonist.bombExplosionEffect;
             zeropointBombexplosion.timerAfterImpact = true;
             zeropointBombexplosion.lifetimeAfterImpact = 3f;
 
@@ -336,7 +336,7 @@ namespace ArsonistMod.Modules
             zeropointBombController.procCoefficient = 1f;
             
             
-            zeropointBombController.ghostPrefab = Assets.arsonistFlare;
+            zeropointBombController.ghostPrefab = AssetsArsonist.arsonistFlare;
             zeropointBombController.startSound = "";
 
             zeropointBomb.AddComponent<ZeroPointOnWorldHit>();
@@ -345,7 +345,7 @@ namespace ArsonistMod.Modules
 
         private static void CreateLemurianFireBall()
         {
-            lemurianFireBall = PrefabAPI.InstantiateClone(Modules.Assets.lemfireBall, "lemurianFireBall", true);
+            lemurianFireBall = PrefabAPI.InstantiateClone(Modules.AssetsArsonist.lemfireBall, "lemurianFireBall", true);
             Rigidbody lemurianFireballRigidbody = lemurianFireBall.GetComponent<Rigidbody>();
             if (!lemurianFireballRigidbody)
             {
@@ -377,7 +377,7 @@ namespace ArsonistMod.Modules
             lemurianFireBallController.rigidbody.mass = 1f;
             lemurianFireBallController.procCoefficient = 1f;
 
-            lemurianFireBallController.ghostPrefab = Modules.Assets.fireballWeakGhost;
+            lemurianFireBallController.ghostPrefab = Modules.AssetsArsonist.fireballWeakGhost;
             lemurianFireBallController.startSound = "";
         }
         private static void CreateArtificerFireBolt()
@@ -418,7 +418,7 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.lifetime = projLifetime;
             artificerFireboltexplosion.lifetimeRandomOffset = 0f;
 			
-            artificerFireboltexplosion.impactEffect = Assets.arsonistFiresprayExplosion;
+            artificerFireboltexplosion.impactEffect = AssetsArsonist.arsonistFiresprayExplosion;
 
 
             //Setup impact effect
@@ -458,7 +458,7 @@ namespace ArsonistMod.Modules
 
 
 
-            artificerFireboltController.ghostPrefab = Modules.Assets.fireballStrongGhost;
+            artificerFireboltController.ghostPrefab = Modules.AssetsArsonist.fireballStrongGhost;
             artificerFireboltController.startSound = "";
 
             SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
@@ -546,13 +546,13 @@ namespace ArsonistMod.Modules
         private static GameObject CreateGhostPrefab(string ghostName, bool hopoo)
         {
 
-            if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(ghostName) != null)
+            if (Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>(ghostName) != null)
             {
-                GameObject ghostPrefab = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(ghostName);
+                GameObject ghostPrefab = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>(ghostName);
                 if (!ghostPrefab.GetComponent<NetworkIdentity>()) ghostPrefab.AddComponent<NetworkIdentity>();
                 if (!ghostPrefab.GetComponent<ProjectileGhostController>()) ghostPrefab.AddComponent<ProjectileGhostController>();
 
-                if (hopoo) Modules.Assets.ConvertAllRenderersToHopooShader(ghostPrefab);
+                if (hopoo) Modules.AssetsArsonist.ConvertAllRenderersToHopooShader(ghostPrefab);
 
                 return ghostPrefab;
             }

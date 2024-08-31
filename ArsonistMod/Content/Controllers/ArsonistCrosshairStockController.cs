@@ -91,7 +91,7 @@ namespace ArsonistMod.Content.Controllers
                 GameObject stockObject = UnityEngine.Object.Instantiate(stockPrefab, crosshairStockContainer.transform, false);
                 
                 Image imageComponent = stockObject.AddComponent<Image>();
-                imageComponent.sprite = Modules.Assets.deactivatedStackSprite;
+                imageComponent.sprite = Modules.AssetsArsonist.deactivatedStackSprite;
 
                 RectTransform rectTransform = stockObject.GetComponent<RectTransform>();
                 rectTransform.localPosition = stockPositionsFlamethrower[i];
@@ -113,7 +113,7 @@ namespace ArsonistMod.Content.Controllers
                 GameObject stockObject = UnityEngine.Object.Instantiate(stockPrefab, crosshairStockContainer.transform, false);
                 
                 Image imageComponent = stockObject.AddComponent<Image>();
-                imageComponent.sprite = Modules.Assets.deactivatedStackSprite;
+                imageComponent.sprite = Modules.AssetsArsonist.deactivatedStackSprite;
 
                 RectTransform rectTransform = stockObject.GetComponent<RectTransform>();
                 rectTransform.localPosition = stockPositionsFireball[i];
@@ -130,7 +130,7 @@ namespace ArsonistMod.Content.Controllers
         {
             for (int i = 0; i < stockObjects.Count; i++) 
             {
-                stockObjects[i].sprite = activateable ? Modules.Assets.activatedStackSprite : Modules.Assets.deactivatedStackSprite;
+                stockObjects[i].sprite = activateable ? Modules.AssetsArsonist.activatedStackSprite : Modules.AssetsArsonist.deactivatedStackSprite;
                 stockObjects[i].color = activateable ? Color.white : opacityColor;
             }
         }

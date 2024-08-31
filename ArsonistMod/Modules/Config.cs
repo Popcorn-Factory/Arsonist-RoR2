@@ -330,7 +330,7 @@ namespace ArsonistMod.Modules
         public static void SetupRiskOfOptions() 
         {
             //Mod Icon 
-            Sprite icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("rooIcon");
+            Sprite icon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("rooIcon");
             ModSettingsManager.SetModIcon(icon);
             ModSettingsManager.SetModDescription("The Manic Incendiary");
 

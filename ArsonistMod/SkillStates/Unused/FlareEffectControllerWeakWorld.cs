@@ -24,7 +24,7 @@ namespace ArsonistMod.SkillStates.Unused
 
 
             Vector3 randVec = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), Random.Range(-2, 2));
-            effectObj = Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), worldPos, Quaternion.LookRotation(worldPos));
+            effectObj = Instantiate(Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>("flareAttached"), worldPos, Quaternion.LookRotation(worldPos));
 
         }
 
@@ -44,7 +44,7 @@ namespace ArsonistMod.SkillStates.Unused
                     FireExplosion(StaticValues.flareBlastRadius);
                     AkSoundEngine.PostEvent(3061346618, gameObj);
 
-                    EffectManager.SpawnEffect(Modules.Assets.explosionPrefab, new EffectData
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.explosionPrefab, new EffectData
                     {
                         origin = worldPos,
                         scale = StaticValues.flareBlastRadius,

@@ -127,7 +127,7 @@ namespace ArsonistMod.Content.Controllers
             //lets hook it up!
             On.RoR2.CharacterMaster.OnInventoryChanged += CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp += CharacterBody_OnLevelUp;
-            On.RoR2.CameraRigController.Update += CameraRigController_Update;
+            On.RoR2.CameraRigController.LateUpdate += CameraRigController_LateUpdate;
 
             enabledUI = false;
             isAcceleratedCooling = false;
@@ -204,7 +204,7 @@ namespace ArsonistMod.Content.Controllers
             originalRedLength = redArray;
         }
 
-        private void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, RoR2.CameraRigController self) 
+        private void CameraRigController_LateUpdate(On.RoR2.CameraRigController.orig_LateUpdate orig, RoR2.CameraRigController self) 
         {
             orig(self);
             //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
@@ -361,8 +361,8 @@ namespace ArsonistMod.Content.Controllers
         private void SetupCustomUI() 
         {
             //UI objects 
-            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
-            EnergyNumberContainer = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>("arsonistOverheatGauge"));
+            EnergyNumberContainer = UnityEngine.Object.Instantiate(Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>("arsonistCustomUI"));
             //Get the line renderers for all the objects in the overheat gauge
             //Since we can't use Line renderers for the screen space overlay, we have to assign camera.main
             CustomUIObjectCanvas = CustomUIObject.GetComponent<Canvas>();
@@ -763,7 +763,7 @@ namespace ArsonistMod.Content.Controllers
         public void Update()
         {
             //Update material for overheating tex
-            if (Modules.Assets.arsonistOverheatingMaterial && characterBody.hasEffectiveAuthority) 
+            if (Modules.AssetsArsonist.arsonistOverheatingMaterial && characterBody.hasEffectiveAuthority) 
             {
                 SetOverheatMaterialParameters();
             }
@@ -1029,7 +1029,7 @@ namespace ArsonistMod.Content.Controllers
             Destroy(EnergyNumberContainer);
             On.RoR2.CharacterMaster.OnInventoryChanged -= CharacterMaster_OnInventoryChanged;
             On.RoR2.CharacterBody.OnLevelUp -= CharacterBody_OnLevelUp;
-            On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+            On.RoR2.CameraRigController.LateUpdate -= CameraRigController_LateUpdate;
 
             new PlaySoundNetworkRequest(characterBody.netId, (uint)2176930590).Send(NetworkDestination.Clients);
             AkSoundEngine.StopPlayingID(tickingSound);
