@@ -358,7 +358,18 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff) 
         {
-            if (characterBody.hasEffectiveAuthority && Modules.Config.ToggleMasochismFOVWarp.Value) 
+            //Disable early in case the other systems return null and break this shit.
+            masochismActive = false;
+            stopwatch = 0f;
+            damageOverTimeStopwatch = 0f;
+            energySystem.lowerBound = 0f;
+            energySystem.ifOverheatRegenAllowed = true;
+
+            masoStacks = 0;
+            heatChanged = 0f;
+            forceReset = true;
+
+            if (characterBody.hasEffectiveAuthority && Modules.Config.ToggleMasochismFOVWarp.Value)
             {
                 cameraTargetParams.RemoveParamsOverride(handle);
             }
@@ -376,10 +387,6 @@ namespace ArsonistMod.Content.Controllers
 
             finalBlastAttack.Fire();
 
-            masoStacks = 0;
-            heatChanged = 0f;
-            forceReset = true;
-
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
             if (applyDebuff)
@@ -393,13 +400,6 @@ namespace ArsonistMod.Content.Controllers
 
 
             characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
-
-            masochismActive = false;
-            stopwatch = 0f;
-            damageOverTimeStopwatch = 0f;
-            energySystem.lowerBound = 0f;
-            energySystem.ifOverheatRegenAllowed = true;
-
         }
 
         public void DetermineMasoActivateable() 
