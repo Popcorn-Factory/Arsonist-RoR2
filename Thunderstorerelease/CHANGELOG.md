@@ -1,6 +1,8 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.2.1
+    - Fixed a case where Masochism couldn't end properly because buffs were erroring before the masochism flag could be set to off.
 - 2.2.0
     - Updated to support SotS.
     - Fixed an issue where Masochism loop plays constantly when running while changing stage.
