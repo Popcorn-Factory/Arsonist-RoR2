@@ -369,13 +369,15 @@ namespace ArsonistMod.Content.Controllers
             heatChanged = 0f;
             forceReset = true;
 
+            // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
+            energySystem.AddHeat(energySystem.maxOverheat * 2f);
+            AkSoundEngine.StopPlayingID(masochismActiveLoop);
+            new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
+
             if (characterBody.hasEffectiveAuthority && Modules.Config.ToggleMasochismFOVWarp.Value)
             {
                 cameraTargetParams.RemoveParamsOverride(handle);
             }
-
-            AkSoundEngine.StopPlayingID(masochismActiveLoop);
-            new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
 
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             finalBlastAttack.position = gameObject.transform.position;
@@ -387,19 +389,24 @@ namespace ArsonistMod.Content.Controllers
 
             finalBlastAttack.Fire();
 
-            // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
-            energySystem.AddHeat(energySystem.maxOverheat * 2f);
-            if (applyDebuff)
+            try
             {
-                characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
-            }
-            else 
-            {
-                characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedNonDebuff.buffIndex, 1, -1);
-            }
+                if (applyDebuff)
+                {
+                    characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
+                }
+                else
+                {
+                    characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedNonDebuff.buffIndex, 1, -1);
+                }
 
 
-            characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
+                characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
+            }
+            catch (Exception ex) 
+            {
+                Debug.Log(ex);
+            }
         }
 
         public void DetermineMasoActivateable() 
