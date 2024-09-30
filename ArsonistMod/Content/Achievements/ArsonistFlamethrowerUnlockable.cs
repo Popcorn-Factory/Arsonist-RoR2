@@ -9,7 +9,7 @@ namespace ArsonistMod.Modules.Achievements
 {
     [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_ACHIEVEMENT",
         ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_FLAMETHROWERUNLOCKABLE_REWARD_ID", 
-        null, 0)]
+        null, 5)]
     internal class ArsonistFlamethrowerUnlockable : ModdedUnlockable
     {
         public CharacterBody body;

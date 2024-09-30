@@ -7,7 +7,7 @@ namespace ArsonistMod.Modules.Achievements
 {
     [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT",
         ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_REWARD_ID", 
-        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT", 0)]
+        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT", 20)]
     internal class ArsonistEclipse5Achievement : ModdedUnlockable
     {
         public override string AchievementIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_ID";

@@ -6,7 +6,7 @@ using static ArsonistMod.Modules.Unlockables;
 namespace ArsonistMod.Modules.Achievements
 {
     [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT",
-        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_REWARD_ID", null, 0)]
+        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_REWARD_ID", null, 10)]
     internal class ArsonistUnlockable : ModdedUnlockable
     {
 
