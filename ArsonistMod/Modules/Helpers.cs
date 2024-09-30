@@ -39,5 +39,20 @@ namespace ArsonistMod.Modules
         }
 
         public static Func<T[], T[]> AppendDel<T>(List<T> list) => (r) => Append(ref r, list);
+
+        /// <summary>
+        /// gets langauge token from achievement's registered identifier
+        /// </summary>
+        public static string GetAchievementNameToken(string identifier)
+        {
+            return $"ACHIEVEMENT_{identifier.ToUpperInvariant()}_NAME";
+        }
+        /// <summary>
+        /// gets langauge token from achievement's registered identifier
+        /// </summary>
+        public static string GetAchievementDescriptionToken(string identifier)
+        {
+            return $"ACHIEVEMENT_{identifier.ToUpperInvariant()}_DESCRIPTION";
+        }
     }
 }

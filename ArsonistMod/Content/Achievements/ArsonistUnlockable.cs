@@ -1,39 +1,20 @@
 ﻿using RoR2;
+using RoR2.Achievements;
 using System;
 using UnityEngine;
 using static ArsonistMod.Modules.Unlockables;
 
 namespace ArsonistMod.Modules.Achievements
 {
-    [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT",
-        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_REWARD_ID", null, 10)]
-    internal class ArsonistUnlockable : ModdedUnlockable
+    [RegisterAchievement(identifier, unlockableidentifier, null, 10)]
+    internal class ArsonistUnlockable : BaseAchievement
     {
 
         public CharacterBody body;
-        public override string AchievementIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_ID";
+        public const string identifier = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT";
+        public const string unlockableidentifier = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_ID";
 
-        public override string UnlockableIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_REWARD_ID";
 
-        public override string AchievementNameToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_UNLOCKABLE_NAME";
-
-        public override string UnlockableNameToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_UNLOCKABLE_NAME";
-
-        public override string AchievementDescToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_DESC";
-
-        public override Sprite Sprite => Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("ArsonistIconUnlock");
-        public override Func<string> GetHowToUnlock { get; } = (() => Language.GetStringFormatted("UNLOCK_VIA_ACHIEVEMENT_FORMAT", new object[]
-                            {
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_NAME"),
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_DESC")
-                            }));
-        public override Func<string> GetUnlocked { get; } = (() => Language.GetStringFormatted("UNLOCKED_FORMAT", new object[]
-                            {
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_NAME"),
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT_DESC")
-                            }));
-
-        public override string PrerequisiteUnlockableIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_UNLOCKABLE_REWARD_ID";
         public override BodyIndex LookUpRequiredBodyIndex()
         {
             return BodyCatalog.FindBodyIndex(Modules.Survivors.Arsonist.instance.fullBodyName);

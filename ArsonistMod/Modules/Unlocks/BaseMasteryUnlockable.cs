@@ -1,8 +1,9 @@
 ﻿using RoR2;
+using RoR2.Achievements;
 
 namespace ArsonistMod.Modules
 {
-    public abstract class BaseMasteryUnlockable : GenericModdedUnlockable
+    public abstract class BaseMasteryUnlockable : BaseAchievement
     {
         public abstract string RequiredCharacterBody { get; }
         public abstract float RequiredDifficultyCoefficient { get; }
@@ -17,27 +18,34 @@ namespace ArsonistMod.Modules
             Run.onClientGameOverGlobal -= OnClientGameOverGlobal;
             base.OnBodyRequirementBroken();
         }
-        private void OnClientGameOverGlobal(Run run, RunReport runReport)
-        {
-            if ((bool)runReport.gameEnding && runReport.gameEnding.isWin)
-            {
-                DifficultyIndex difficultyIndex = runReport.ruleBook.FindDifficulty();
-                DifficultyDef runDifficulty = DifficultyCatalog.GetDifficultyDef(runReport.ruleBook.FindDifficulty());
-                //checking run difficulty
-                if ((runDifficulty.countsAsHardMode && runDifficulty.scalingValue >= RequiredDifficultyCoefficient) ||
-                    //checking for eclipse
-                    (difficultyIndex >= DifficultyIndex.Eclipse1 && difficultyIndex <= DifficultyIndex.Eclipse8) ||
-                    //checking for modded difficulty Inferno
-                    (runDifficulty.nameToken == "INFERNO_NAME"))
-                {
-                    Grant();
-                }
-            }
-        }
-
         public override BodyIndex LookUpRequiredBodyIndex()
         {
             return BodyCatalog.FindBodyIndex(RequiredCharacterBody);
+        }
+
+        private void OnClientGameOverGlobal(Run run, RunReport runReport)
+        {
+            if (!runReport.gameEnding)
+            {
+                return;
+            }
+            if (runReport.gameEnding.isWin)
+            {
+                DifficultyIndex difficultyIndex = runReport.ruleBook.FindDifficulty();
+                DifficultyDef difficultyDef = DifficultyCatalog.GetDifficultyDef(difficultyIndex);
+                if (difficultyDef != null)
+                {
+
+                    bool isDifficulty = difficultyDef.countsAsHardMode && difficultyDef.scalingValue >= RequiredDifficultyCoefficient;
+                    bool isInferno = difficultyDef.nameToken == "INFERNO_NAME";
+                    bool isEclipse = difficultyIndex >= DifficultyIndex.Eclipse1 && difficultyIndex <= DifficultyIndex.Eclipse8;
+
+                    if (isDifficulty || isInferno || isEclipse)
+                    {
+                        base.Grant();
+                    }
+                }
+            }
         }
     }
 }

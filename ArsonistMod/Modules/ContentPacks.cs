@@ -57,10 +57,25 @@ namespace ArsonistMod.Modules
             contentPack.effectDefs.Add(effectDefs.ToArray());
 
             contentPack.networkSoundEventDefs.Add(networkSoundEventDefs.ToArray());
-
-            contentPack.unlockableDefs.Add(Modules.Unlockables.unlockableDefs.ToArray());
             args.ReportProgress(1f);
             yield break;
+        }
+
+        internal static void AddUnlockableDef(UnlockableDef unlockableDef)
+        {
+            unlockableDefs.Add(unlockableDef);
+        }
+        internal static UnlockableDef CreateAndAddUnlockbleDef(string identifier, string nameToken, Sprite achievementIcon)
+        {
+            UnlockableDef unlockableDef = ScriptableObject.CreateInstance<UnlockableDef>();
+            unlockableDef.cachedName = identifier;
+            unlockableDef.nameToken = nameToken;
+            unlockableDef.achievementIcon = achievementIcon;
+            unlockableDef.sortScore = 200;
+
+            AddUnlockableDef(unlockableDef);
+
+            return unlockableDef;
         }
 
         public System.Collections.IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)

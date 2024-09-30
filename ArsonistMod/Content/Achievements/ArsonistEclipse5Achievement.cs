@@ -1,38 +1,14 @@
-﻿using RoR2;
-using System;
-using UnityEngine;
-using static ArsonistMod.Modules.Unlockables;
+﻿using RoR2.Achievements;
+using RoR2;
 
 namespace ArsonistMod.Modules.Achievements
 {
-    [RegisterAchievement(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT",
-        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_REWARD_ID", 
-        ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ARSONISTUNLOCKABLE_ACHIEVEMENT", 20)]
-    internal class ArsonistEclipse5Achievement : ModdedUnlockable
+    [RegisterAchievement(identifier, unlockableidentifier, prerequisiteAchievementIdentifier, 20)]
+    internal class ArsonistEclipse5Achievement : BaseAchievement
     {
-        public override string AchievementIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_ID";
-
-        public override string UnlockableIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_REWARD_ID";
-
-        public override string AchievementNameToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_UNLOCKABLE_NAME";
-
-        public override string UnlockableNameToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_UNLOCKABLE_NAME";
-
-        public override string AchievementDescToken { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_DESC";
-
-        public override Sprite Sprite => Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistGrandmastery");
-        public override Func<string> GetHowToUnlock { get; } = (() => Language.GetStringFormatted("UNLOCK_VIA_ACHIEVEMENT_FORMAT", new object[]
-                            {
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_NAME"),
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_DESC")
-                            }));
-        public override Func<string> GetUnlocked { get; } = (() => Language.GetStringFormatted("UNLOCKED_FORMAT", new object[]
-                            {
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_NAME"),
-                                Language.GetString(ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT_DESC")
-                            }));
-
-        public override string PrerequisiteUnlockableIdentifier { get; } = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_UNLOCKABLE_REWARD_ID";
+        public const string identifier = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_ACHIEVEMENT";
+        public const string unlockableidentifier = ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_ECLIPSE5UNLOCKABLE_REWARD_ID";
+        public const string prerequisiteAchievementIdentifier = ArsonistUnlockable.identifier;
         public override BodyIndex LookUpRequiredBodyIndex()
         {
             return BodyCatalog.FindBodyIndex(Modules.Survivors.Arsonist.instance.fullBodyName);

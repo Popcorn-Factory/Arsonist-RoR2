@@ -100,7 +100,7 @@ namespace ArsonistMod.Modules.Survivors
                 }
         };
 
-        public override UnlockableDef characterUnlockableDef => arsonistUnlockable;
+        public override UnlockableDef characterUnlockableDef => Modules.Unlockables.characterUnlockableDef;
 
         public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
 
@@ -108,12 +108,6 @@ namespace ArsonistMod.Modules.Survivors
 
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
         public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
-
-        private static UnlockableDef pigSkinUnlockableDef;
-        private static UnlockableDef masterySkinUnlockableDef;
-        private static UnlockableDef firebugSkinUnlockableDef;
-        private static UnlockableDef flamethrowerUnlockableDef;
-        private static UnlockableDef arsonistUnlockable; 
 
         public override void InitializeCharacter()
         {
@@ -134,12 +128,7 @@ namespace ArsonistMod.Modules.Survivors
 
         public override void InitializeUnlockables()
         {
-            //uncomment this when you have a mastery skin. when you do, make sure you have an icon too
-            masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>(true);
-            firebugSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse5Achievement>(true);
-            arsonistUnlockable = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistUnlockable>(true);
-            //pigSkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistEclipse8Achievement>(true);
-            flamethrowerUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.ArsonistFlamethrowerUnlockable>(true);
+
         }
 
         public override void InitializeHitboxes()
@@ -494,7 +483,7 @@ namespace ArsonistMod.Modules.Survivors
             Skills.AddUnlockablesToFamily(this.bodyPrefab.GetComponent<SkillLocator>().primary.skillFamily, new UnlockableDef[] 
             { 
                 null, 
-                flamethrowerUnlockableDef 
+                Modules.Unlockables.flamethrowerUnlockableDef 
             });
             #endregion
 
@@ -726,7 +715,7 @@ namespace ArsonistMod.Modules.Survivors
                 AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistMastery"),
                 suitArsonistRendererInfos,
                 model,
-                masterySkinUnlockableDef);
+                Modules.Unlockables.masteryUnlockableDef);
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
@@ -787,7 +776,7 @@ namespace ArsonistMod.Modules.Survivors
                 AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistGrandmastery"),
                 neoArsonistRendererInfos,
                 model,
-                firebugSkinUnlockableDef);
+                Modules.Unlockables.eclipse5UnlockableDef);
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved

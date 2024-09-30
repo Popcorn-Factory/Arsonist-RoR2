@@ -45,7 +45,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.2.1";
+        public const string MODVERSION = "2.2.2";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -62,6 +62,7 @@ namespace ArsonistMod
             Modules.Config.ReadConfig();
             Modules.Config.OnChangeHooks();
             Modules.AssetsArsonist.Initialize(); // load assets and read config
+            Modules.Unlockables.Initialize();
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
