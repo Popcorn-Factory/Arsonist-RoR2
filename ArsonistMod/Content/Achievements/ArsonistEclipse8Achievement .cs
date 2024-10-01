@@ -20,8 +20,8 @@ namespace ArsonistMod.Modules.Achievements
 
         public bool InfernoCheckFunc(RunReport runReport) 
         {
-            DifficultyIndex infernoIndex = Inferno.Main.InfernoDiffIndex;
-            return infernoIndex == runReport.ruleBook.FindDifficulty();
+            DifficultyDef difficultyDef = DifficultyCatalog.GetDifficultyDef(runReport.ruleBook.FindDifficulty());
+            return difficultyDef.nameToken == "SS2_DIFFICULTY_TYPHOON_NAME"; //CHANGE TO HIFU's one.
         }
 
         public void ClearCheck(Run run, RunReport runReport)
@@ -38,10 +38,8 @@ namespace ArsonistMod.Modules.Achievements
                 bool eclipseDifficultyCheck = (difficultyDef.nameToken == "ECLIPSE_8_NAME");
 
                 bool infernoCheck = false;
-                if (ArsonistPlugin.infernoAvailable) 
-                {
-                    infernoCheck = InfernoCheckFunc(runReport);
-                }
+
+                infernoCheck = InfernoCheckFunc(runReport);
 
                 bool difficultyCheck = eclipseDifficultyCheck || infernoCheck;
 

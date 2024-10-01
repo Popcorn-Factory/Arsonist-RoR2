@@ -1,5 +1,6 @@
 ﻿using RoR2.Achievements;
 using RoR2;
+using UnityEngine;
 
 namespace ArsonistMod.Modules.Achievements
 {
@@ -16,8 +17,8 @@ namespace ArsonistMod.Modules.Achievements
 
         public bool TyphoonCheckFunc(RunReport runReport) 
         {
-            DifficultyIndex typhoonIndex = Moonstorm.Starstorm2.Typhoon.TyphoonIndex;
-            return typhoonIndex == runReport.ruleBook.FindDifficulty();
+            DifficultyDef difficultyDef = DifficultyCatalog.GetDifficultyDef(runReport.ruleBook.FindDifficulty());
+            return difficultyDef.nameToken == "SS2_DIFFICULTY_TYPHOON_NAME";
         }
 
         public void ClearCheck(Run run, RunReport runReport)
@@ -36,11 +37,7 @@ namespace ArsonistMod.Modules.Achievements
                     || (difficultyDef.nameToken == "ECLIPSE_7_NAME")
                     || (difficultyDef.nameToken == "ECLIPSE_8_NAME");
 
-                bool typhoonCheck = false;
-                if (ArsonistPlugin.starstormAvailable) 
-                {
-                    typhoonCheck = TyphoonCheckFunc(runReport);
-                }
+                bool typhoonCheck = TyphoonCheckFunc(runReport);
 
                 bool difficultyCheck = eclipseDifficultyCheck || typhoonCheck;
 
@@ -57,14 +54,12 @@ namespace ArsonistMod.Modules.Achievements
         public override void OnInstall()
         {
             base.OnInstall();
-
             Run.onClientGameOverGlobal += this.ClearCheck;
         }
 
         public override void OnUninstall()
         {
             base.OnUninstall();
-
             Run.onClientGameOverGlobal -= this.ClearCheck;
         }
     }

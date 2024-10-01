@@ -36,8 +36,7 @@ namespace ArsonistMod
 
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInDependency("com.TeamMoonstorm.Starstorm2", BepInDependency.DependencyFlags.SoftDependency)]
-    [BepInDependency("HIFU.Inferno", BepInDependency.DependencyFlags.SoftDependency)]
+    
     [BepInDependency("com.DestroyedClone.AncientScepter", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
@@ -49,9 +48,7 @@ namespace ArsonistMod
         public const string MODVERSION = "2.2.2";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
-
-        public static bool starstormAvailable = false;
-        public static bool infernoAvailable = false;
+        
         public static bool scepterAvailable = false;
         public static ArsonistPlugin instance;
         public static AkGameObj akGameObject;
@@ -68,14 +65,6 @@ namespace ArsonistMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
-            }
-            if (Chainloader.PluginInfos.ContainsKey("com.TeamMoonstorm.Starstorm2")) 
-            {
-                starstormAvailable = true;
-            }
-            if (Chainloader.PluginInfos.ContainsKey("HIFU.Inferno"))
-            {
-                infernoAvailable = true;
             }
             if (Chainloader.PluginInfos.ContainsKey("com.DestroyedClone.AncientScepter"))
             {
