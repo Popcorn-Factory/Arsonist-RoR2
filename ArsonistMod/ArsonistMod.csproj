@@ -62,6 +62,9 @@
     <Reference Include="Starstorm2">
       <HintPath>..\libs\Starstorm2.dll</HintPath>
     </Reference>
+    <Reference Include="AncientScepter">
+      <HintPath>..\libs\AncientScepter.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

@@ -63,6 +63,12 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "ALT_PRIMARY_FIRESPRAY_DESCRIPTION", Helpers.heatPrefix + Helpers.criticalPrefix + $"Fire a ball of fire that deals <style=cIsDamage>{100f * StaticValues.altFiresprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_NAME", "Dragon's Breath");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_DESCRIPTION", $"Fire a beam of fire that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage. Has increased chance to ignite the closer you are to the target.");
+
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_NAME", "Firestorm");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION", Helpers.heatPrefix + $"Fire a beam of intense heat that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
+            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME", "Wyvernfire");
+            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage. Has increased chance to ignite the closer you are to the target. On finish, <style=cIsDamage>100% chance</style> to ignite an enemy");
+
             #endregion
 
             #region Secondary

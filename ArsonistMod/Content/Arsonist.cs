@@ -8,6 +8,8 @@ using UnityEngine;
 using ArsonistMod.Content.Controllers;
 using R2API;
 using RoR2.CharacterAI;
+using AncientScepter;
+using System.Runtime.CompilerServices;
 
 namespace ArsonistMod.Modules.Survivors
 {
@@ -29,6 +31,10 @@ namespace ArsonistMod.Modules.Survivors
         public static SkillDef punchSkillDef;
         public static SkillDef cleanseSkillDef;
         public static SkillDef neoMasochismSkillDef;
+
+        //Scepter stuff
+        public static SkillDef flamethrowerScepterSkillDef;
+        public static SkillDef primaryScepterSkillDef;
          
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
@@ -474,6 +480,56 @@ namespace ArsonistMod.Modules.Survivors
                 keywordTokens = new string[] { prefix + "KEYWORD_PRIMARYHEAT" }
             });
 
+            primaryScepterSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PRIMARY_FIRESPRAY_SCEPTER_NAME",
+                skillNameToken = prefix + "PRIMARY_FIRESPRAY_SCEPTER_NAME",
+                skillDescriptionToken = prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION",
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FireSprayScepter)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = true,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { prefix + "KEYWORD_BASEGAUGE", prefix + "KEYWORD_PRIMARYHEAT" }
+            });
+
+            flamethrowerScepterSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME",
+                skillNameToken = prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME",
+                skillDescriptionToken = prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION",
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("arsonistFlamethrower"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.FlamethrowerScepter)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = true,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { prefix + "KEYWORD_PRIMARYHEAT" }
+            });
+
             Skills.AddPrimarySkills(this.bodyPrefab, new SkillDef[]
             {
                 primarySkillDef,
@@ -485,6 +541,11 @@ namespace ArsonistMod.Modules.Survivors
                 null, 
                 Modules.Unlockables.flamethrowerUnlockableDef 
             });
+
+            if (ArsonistPlugin.scepterAvailable)
+            {
+                RegisterArsonistScepterSkills();
+            }
             #endregion
 
             #region Secondary
@@ -632,6 +693,13 @@ namespace ArsonistMod.Modules.Survivors
             //Modules.Skills.AddSpecialSkills(bodyPrefab, masochistSkillDef);
             Modules.Skills.AddSpecialSkills(bodyPrefab, neoMasochismSkillDef);
             #endregion
+        }
+
+        [MethodImplAttribute(MethodImplOptions.NoInlining)]
+        public void RegisterArsonistScepterSkills()
+        {
+            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(primaryScepterSkillDef, "ArsonistBody", primarySkillDef);
+            AncientScepter.AncientScepterItem.instance.RegisterScepterSkill(flamethrowerScepterSkillDef, "ArsonistBody", flamethrowerSkillDef);
         }
 
         public override void InitializeSkins()

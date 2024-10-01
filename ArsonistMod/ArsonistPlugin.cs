@@ -38,6 +38,7 @@ namespace ArsonistMod
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.TeamMoonstorm.Starstorm2", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("HIFU.Inferno", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.DestroyedClone.AncientScepter", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
 
@@ -51,6 +52,7 @@ namespace ArsonistMod
 
         public static bool starstormAvailable = false;
         public static bool infernoAvailable = false;
+        public static bool scepterAvailable = false;
         public static ArsonistPlugin instance;
         public static AkGameObj akGameObject;
 
@@ -74,6 +76,10 @@ namespace ArsonistMod
             if (Chainloader.PluginInfos.ContainsKey("HIFU.Inferno"))
             {
                 infernoAvailable = true;
+            }
+            if (Chainloader.PluginInfos.ContainsKey("com.DestroyedClone.AncientScepter"))
+            {
+                scepterAvailable = true;
             }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
