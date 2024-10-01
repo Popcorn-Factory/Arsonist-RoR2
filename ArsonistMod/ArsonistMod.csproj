@@ -50,17 +50,11 @@
     <Reference Include="CustomEmotesAPI">
       <HintPath>..\libs\CustomEmotesAPI.dll</HintPath>
     </Reference>
-    <Reference Include="Inferno">
-      <HintPath>..\libs\Inferno.dll</HintPath>
-    </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
     </Reference>
     <Reference Include="RiskOfOptions">
       <HintPath>..\libs\RiskOfOptions.dll</HintPath>
-    </Reference>
-    <Reference Include="Starstorm2">
-      <HintPath>..\libs\Starstorm2.dll</HintPath>
     </Reference>
   </ItemGroup>
 

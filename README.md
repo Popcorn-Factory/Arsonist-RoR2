@@ -14,8 +14,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 
 ## Latest Update
 
-- 2.2.1
-    - Fixed a case where Masochism couldn't end properly because buffs were erroring before the masochism flag could be set to off.
+- 2.2.2
+    - Fixed an issue where Eclipse 5 / Typhoon difficulty didn't trigger a change due to wrong checks.
+    - Removed Soft dependencies on SS2 and HIFU's Inferno as it is not required for the unlocks to still work. (You can still unlock firebug with SS2 typhoon.)
 
 - 2.0.0
     - New Content:

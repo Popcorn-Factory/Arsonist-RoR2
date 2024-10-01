@@ -24,7 +24,7 @@ namespace ArsonistMod.Modules.Achievements
         {
             if (self) 
             {
-                if (self.isChampion && 
+                if ( (self.isChampion || self.isBoss) && 
                     (self.HasBuff(RoR2Content.Buffs.OnFire) || self.HasBuff(RoR2.DLC1Content.Buffs.StrongerBurn))
                     )
                 {
