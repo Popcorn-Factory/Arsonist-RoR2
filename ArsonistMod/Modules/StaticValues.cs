@@ -65,6 +65,12 @@ namespace ArsonistMod.Modules
         internal static float flamethowerRadius = 1.25f;
         internal static int flamethrowerBaseTickRate = 2; //per half sec
 
+        //Flamethrower Scepter: Has the same stats except damage.
+        internal static float flamethrowerScepterStrongDamageCoefficient = 1.1f;
+        internal static float flamethrowerScepterWeakDamageCoefficient = 0.70f;
+        internal static float altFlamethrowerScepterStrongDamageCoefficient = 1.2f;
+        internal static float altFlamethrowerScepterWeakDamageCoefficient = 0.8f;
+
         //Alt-flamethrower
         internal static float altFlamethrowerStrongDamageCoefficient = 1f;
         internal static float altFlamethrowerWeakDamageCoefficient = 0.6f;
