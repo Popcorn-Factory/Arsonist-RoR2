@@ -1,13 +1,10 @@
 ﻿using ArsonistMod.Modules;
 using ArsonistMod.Modules.Networking;
-using MonoMod.RuntimeDetour;
 using R2API;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using RoR2;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace ArsonistMod.Content.Controllers
@@ -324,20 +321,6 @@ namespace ArsonistMod.Content.Controllers
             if (selfDamageStopwatch >= Modules.StaticValues.masochismBasePulseSelfDamageTimer) 
             {
                 new TakeDamageNetworkRequest(characterBody.master.netId, characterBody.master.netId, healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage, false, true, false).Send(NetworkDestination.Clients);
-                //healthComponent.TakeDamage(new DamageInfo
-                //{
-                //    damage = healthComponent.fullHealth * Modules.StaticValues.masochismSelfDamage,
-                //    crit = false,
-                //    inflictor = null,
-                //    attacker = this.gameObject,
-                //    position = gameObject.transform.position,
-                //    force = Vector3.zero,
-                //    rejected = false,
-                //    procChainMask = new ProcChainMask(),
-                //    damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT,
-                //    damageColorIndex = DamageColorIndex.Bleed,
-                //    canRejectForce = false
-                //});
                 selfDamageStopwatch = 0f;
             }
 
@@ -365,6 +348,8 @@ namespace ArsonistMod.Content.Controllers
             energySystem.lowerBound = 0f;
             energySystem.ifOverheatRegenAllowed = true;
 
+            int masoStacksAccumulated = masoStacks;
+
             masoStacks = 0;
             heatChanged = 0f;
             forceReset = true;
@@ -382,12 +367,13 @@ namespace ArsonistMod.Content.Controllers
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             finalBlastAttack.position = gameObject.transform.position;
             finalBlastAttack.crit = characterBody.RollCrit();
-            finalBlastAttack.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismFinalBlastCoefficient * Modules.StaticValues.masochismDamageMultiplierPerStack * masoStacks;
+            finalBlastAttack.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismFinalBlastCoefficient * Modules.StaticValues.masochismDamageMultiplierPerStack * masoStacksAccumulated;
             float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
             finalBlastAttack.radius = Modules.StaticValues.masochismPulseRadius * radMultiplier;
             finalBlastAttack.damageType = DamageType.IgniteOnHit;
 
             finalBlastAttack.Fire();
+            //Debug.Log($"Applied damage on blast: {finalBlastAttack.baseDamage} masoStack: {masoStacksAccumulated} radMultiplier: {finalBlastAttack.radius}");
 
             try
             {
