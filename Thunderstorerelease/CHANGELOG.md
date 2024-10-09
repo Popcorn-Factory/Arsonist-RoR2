@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 2.2.3
+    - Fixed an issue regarding Masochism where the final blast would not apply any damage whatsoever due to a previous fix that reordered how the damage was applied.
+        - Will add a VFX effect for the explosion down the line, not for this update.
 - 2.2.2
     - Fixed an issue where Eclipse 5 / Typhoon difficulty didn't trigger a change due to wrong checks.
     - Removed Soft dependencies on SS2 and HIFU's Inferno as it is not required for the unlocks to still work. (You can still unlock firebug with SS2 typhoon.)

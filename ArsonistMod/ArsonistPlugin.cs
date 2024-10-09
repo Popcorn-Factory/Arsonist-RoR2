@@ -45,7 +45,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.2.2";
+        public const string MODVERSION = "2.2.3";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
         
