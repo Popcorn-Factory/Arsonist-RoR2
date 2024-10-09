@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3720987063
+CRC: 4157227598
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cd1acce8118f5c455971ac3a8a4b9fd5
+    Hash: 11748a106010a1452ed1f13a51a42bd8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5885fd5ef7df9dd3d044fea200a9488a
@@ -112,6 +112,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistCanister.mesh
 - Assets/ArsonistAssets/VFX/flareShotOld.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch3.anim
+- Assets/ArsonistAssets/VFX/ScepterFlamethrowerBeam.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch2.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkB.anim
 - Assets/ArsonistAssets/Animation/clips/IdleAdditive.anim
@@ -120,6 +121,7 @@ Assets:
 - Assets/ArsonistAssets/Textures/FlareStar.png
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png
 - Assets/ArsonistAssets/VFX/Textures/texSlash.png
+- Assets/ArsonistAssets/Animation/ScepterFlamethrower.controller
 - Assets/ArsonistAssets/Textures/FlareRing.png
 - Assets/ArsonistAssets/VFX/Textures/texPunchImpact.png
 - Assets/ArsonistAssets/Materials/Henry/matDante.mat
@@ -158,6 +160,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/masochismIconDeactivated.png
 - Assets/ArsonistAssets/Textures/ArsonistSkinSuit_diffuse.png
 - Assets/ArsonistAssets/Textures/NeoArsonistMetal_diffuse.png
+- Assets/ArsonistAssets/VFX/Materials/scepterOuterMaterial.mat
 - Assets/ArsonistAssets/mdlArsonistOld.prefab
 - Assets/ArsonistAssets/Animation/clips/Jump.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Flinch1.anim
@@ -173,6 +176,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPWhiff.anim
 - Assets/ArsonistAssets/VFX/Materials/ringMat.mat
 - Assets/ArsonistAssets/VFX/Mesh/meshPunchShockwave.mesh
+- Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlameStart.anim
 - Assets/ArsonistAssets/VFX/arsonistCustomUI.prefab
 - Assets/ArsonistAssets/VFX/flareCollision.prefab
 - Assets/ArsonistAssets/VFX/Textures/flareMainColor.png
@@ -189,6 +193,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/FlameLight.prefab
 - Assets/ArsonistAssets/VFX/FlamethrowerLight.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
+- Assets/ArsonistAssets/Icons/arsonistRooIcon.png
 - Assets/ArsonistAssets/Mesh/meshArsonist.mesh
 - Assets/ArsonistAssets/VFX/FireballStrongProjectile.prefab
 - Assets/ArsonistAssets/Materials/Masochism2.mat
@@ -200,6 +205,7 @@ Assets:
 - Assets/ArsonistAssets/Mesh/NeoArsonistBoots.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Descend.anim
 - Assets/ArsonistAssets/Textures/ArsonistMetalSkinSuit_emission.png
+- Assets/ArsonistAssets/Materials/masoScepter2.mat
 - Assets/ArsonistAssets/Materials/FireMaterial.mat
 - Assets/ArsonistAssets/Animation/clips/WalkL.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Emote2.anim
@@ -234,10 +240,11 @@ Assets:
 - Assets/ArsonistAssets/Animation/animArsonistMenu.controller
 - Assets/ArsonistAssets/VFX/flareCollisionOld.prefab
 - Assets/ArsonistAssets/VFX/HenryFistSwingEffect.prefab
-- Assets/ArsonistAssets/Materials/matNeoArsonistCloth.mat
+- Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlamethrowerHold.anim
 - Assets/ArsonistAssets/Animation/clips/Idle.anim
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
 - Assets/ArsonistAssets/VFX/Materials/matPunchEffect.mat
+- Assets/ArsonistAssets/Materials/matNeoArsonistCloth.mat
 - Assets/ArsonistAssets/Icons/masochismIconActivated.png
 - Assets/ArsonistAssets/Animation/maskImpact.mask
 - Assets/ArsonistAssets/Textures/ArsonistCloth_mask.png
@@ -266,6 +273,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/texPassiveIcon.png
 - Assets/ArsonistAssets/Mesh/SuitPyroRobe.mesh
 - Assets/ArsonistAssets/Materials/Henry/matHenryAlt.mat
+- Assets/ArsonistAssets/Materials/flamethrowerScepterMaterial.mat
 - Assets/ArsonistAssets/OldArsonistDisplay.prefab
 - Assets/ArsonistAssets/Mesh/meshArsonistArmor.mesh
 - Assets/ArsonistAssets/Textures/ArsonistMetalSkinSuit_diffuse.png
@@ -289,10 +297,11 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/MenuIdle.anim
 - Assets/ArsonistAssets/Mesh/meshArsonistWeapon.mesh
 - Assets/ArsonistAssets/Icons/texSecondaryIcon.png
-- Assets/ArsonistAssets/Textures/flameTex.png
+- Assets/ArsonistAssets/Materials/masoScepter.mat
 - Assets/ArsonistAssets/Animation/maskAimYaw.mask
 - Assets/ArsonistAssets/Mesh/SuitArsonistCanister.mesh
 - Assets/ArsonistAssets/Mesh/meshArsonistHead.mesh
+- Assets/ArsonistAssets/Textures/flameTex.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M1.anim
 - Assets/ArsonistAssets/Materials/OverheatingMaterial.mat
@@ -312,6 +321,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matArsonistOld.mat
 - Assets/ArsonistAssets/VFX/Materials/matAnimeShapes.mat
 - Assets/ArsonistAssets/Animation/clips/SprintL.anim
+- Assets/ArsonistAssets/Materials/flamethrowerScepterBall.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Shader NodetreeAction.003.anim
 - Assets/ArsonistAssets/Materials/Gauge.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkR.anim
@@ -340,9 +350,10 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Pitch.anim
 - Assets/ArsonistAssets/Mesh/meshCylinder.mesh
 - Assets/ArsonistAssets/Mesh/SuitArsonist.mesh
-- Assets/ArsonistAssets/VFX/SparkEffect.prefab
+- Assets/ArsonistAssets/VFX/Masosphere 1.prefab
 - Assets/ArsonistAssets/VFX/Textures/texRipple.png
 - Assets/ArsonistAssets/Mesh/torus2.mesh
+- Assets/ArsonistAssets/VFX/SparkEffect.prefab
 - Assets/ArsonistAssets/Materials/FlareRing 1.mat
 - Assets/ArsonistAssets/Materials/Star2.mat
 - Assets/ArsonistAssets/VFX/Flamethrower.prefab
@@ -358,5 +369,6 @@ Assets:
 - Assets/ArsonistAssets/VFX/ImpactHenrySlash.prefab
 - Assets/ArsonistAssets/Animation/HumanoidArsonist.asset
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
+- Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlameEnd.anim
 - Assets/ArsonistAssets/Materials/HeatHaze.mat
 Dependencies: []

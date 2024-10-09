@@ -39,6 +39,11 @@ namespace ArsonistMod.Content.Controllers
         public Transform flamethrowerTransform;
         public Transform weakFlamethrowerTransform;
 
+        public Transform flamethrowerScepterTransform;
+        public ParticleSystem flamethrowerBeamPS;
+        public Animator flamethrowerScepterBeamAnimator;
+        public ParticleSystem flamethrowerScepterHeatHaze;
+
         public bool ringFireActive;
 
         public bool playingFlamethrower;
@@ -81,6 +86,10 @@ namespace ArsonistMod.Content.Controllers
                 sparkParticle = childLocator.FindChild("SparkEffect").GetComponent<ParticleSystem>();
                 fingerFireParticle = childLocator.FindChild("FireThumbParticle").GetComponent<ParticleSystem>();
                 cleanseBlast = childLocator.FindChild("CleanseBlast").GetComponent<ParticleSystem>();
+                flamethrowerScepterTransform = childLocator.FindChild("ScepterFlamethrower");
+                flamethrowerBeamPS = flamethrowerScepterTransform.GetComponent<ParticleSystem>();
+                flamethrowerScepterBeamAnimator = flamethrowerScepterTransform.GetComponent<Animator>();
+                flamethrowerScepterHeatHaze = flamethrowerScepterTransform.Find("HeatHaze").GetComponent<ParticleSystem>();
             }
             
             charBody = gameObject.GetComponent<CharacterBody>();
@@ -105,7 +114,7 @@ namespace ArsonistMod.Content.Controllers
             anim = hurtBoxGroup.gameObject.GetComponent<Animator>();
 
             //check the current primary equipped.
-            if (charBody.skillLocator.primary.skillNameToken == "POPCORN_ARSONIST_BODY_PRIMARY_FLAMETHROWER_NAME") 
+            if (charBody.skillLocator.primary.skillNameToken == "POPCORN_ARSONIST_BODY_PRIMARY_FLAMETHROWER_NAME" || charBody.skillLocator.primary.skillNameToken == "POPCORN_ARSONIST_BODY_PRIMARY_FLAMETHROWER_SCEPTER_NAME") 
             {
                 flamethrowerSelected = true;
             }
@@ -236,9 +245,13 @@ namespace ArsonistMod.Content.Controllers
             //Check the Aim ray of the characterbody and aim the flamethrower in that direction.
             if (flamethrowerSelected && flamethrowerTransform)
             {
-                Ray ray = charBody.inputBank.GetAimRay();
-                flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
-                weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+                if (charBody.inputBank.skill1.down) 
+                {
+                    Ray ray = charBody.inputBank.GetAimRay();
+                    flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+                    weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+                    flamethrowerScepterTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+                }
 
                 if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority)
                 {
@@ -262,6 +275,50 @@ namespace ArsonistMod.Content.Controllers
                 ringFireActive = false;
                 trailFire.Stop();
                 ringFire.Stop();
+            }
+        }
+
+        public void DeactivateScepterFlamethrower() 
+        {
+            //Stop playing the flamethrower stuff on the animator.
+            if (flamethrowerScepterBeamAnimator)
+            {
+                flamethrowerScepterBeamAnimator.SetBool("active", false);
+            }
+
+            if (flamethrowerBeamPS)
+            {
+                flamethrowerBeamPS.Stop();
+            }
+
+            if (flamethrowerScepterHeatHaze) 
+            {
+                flamethrowerScepterHeatHaze.Stop();
+            }
+        }
+
+        public void ActivateScepterFlamethrowerBeam() 
+        {
+            if (flamethrowerScepterBeamAnimator) 
+            {
+                flamethrowerScepterBeamAnimator.SetBool("active", true);
+            }
+
+            if (flamethrowerBeamPS) 
+            {
+                flamethrowerBeamPS.Play();
+            }
+
+            if (Modules.Config.enableNonAggressiveHeatHaze.Value != flamethrowerScepterHeatHaze.isPlaying && flamethrowerScepterHeatHaze)
+            {
+                if (Modules.Config.enableNonAggressiveHeatHaze.Value)
+                {
+                    flamethrowerScepterHeatHaze.Play();
+                }
+                else
+                {
+                    flamethrowerScepterHeatHaze.Stop();
+                }
             }
         }
 

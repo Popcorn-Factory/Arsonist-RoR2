@@ -108,30 +108,15 @@ namespace ArsonistMod.SkillStates
                 hitCallback = flamethrowerFlameChanceHitCallback
             };
 
-            
-            //if (energySystem.ifOverheatMaxed)
-            //{
-            //    controller.weakFlamethrower.Play();
-            //}
-            //else 
-            //{
-            //    controller.flamethrower.Play();
-            //    //Heat Haze control
-            //    if (controller.flamethrowerHeatHaze)
-            //    {
-            //        if (Modules.Config.enableNonAggressiveHeatHaze.Value != controller.flamethrowerHeatHaze.isPlaying)
-            //        {
-            //            if (Modules.Config.enableNonAggressiveHeatHaze.Value)
-            //            {
-            //                controller.flamethrowerHeatHaze.Play();
-            //            }
-            //            else
-            //            {
-            //                controller.flamethrowerHeatHaze.Stop();
-            //            }
-            //        }
-            //    }
-            //}
+
+            if (energySystem.ifOverheatMaxed)
+            {
+                controller.weakFlamethrower.Play();
+            }
+            else
+            {
+                controller.ActivateScepterFlamethrowerBeam();
+            }
 
             // Playing the sound.
             if (controller) 
@@ -158,15 +143,13 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            //if (controller.flamethrower) 
-            //{
-            //    controller.flamethrower.Stop();
-            //}
 
-            //if (controller.weakFlamethrower) 
-            //{
-            //    controller.weakFlamethrower.Stop();
-            //}
+            controller.DeactivateScepterFlamethrower();
+
+            if (controller.weakFlamethrower)
+            {
+                controller.weakFlamethrower.Stop();
+            }
         }
 
         public override void FixedUpdate()
@@ -217,11 +200,11 @@ namespace ArsonistMod.SkillStates
 
                 if (base.inputBank.skill1.down) 
                 {
-                    this.outer.SetState(new Flamethrower { });
+                    this.outer.SetState(new FlamethrowerScepter { });
                     return;
                 }
-                //controller.flamethrower.Stop();
-                //controller.weakFlamethrower.Stop();
+                controller.DeactivateScepterFlamethrower();
+                controller.weakFlamethrower.Stop();
                 this.outer.SetNextStateToMain();
                 return;
             }

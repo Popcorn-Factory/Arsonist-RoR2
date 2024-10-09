@@ -38,16 +38,16 @@ Material:
     - _DepthDistance: 100
     - _FrenelMultiplier: 0.8
     - _LightingMultiplier: 1.13
-    - _LowerLerpOpacity: 1
+    - _LowerLerpOpacity: 0
     - _MaxSmoothstep: 1
     - _MinSmoothstep: 0
     - _Opacity: 0.166
-    - _PosterizeSteps: 6
+    - _PosterizeSteps: 6.1
     - _Power: 1.35
     - _StepThreshold: 0.2
     - _TimeMultiplier: 0.8
-    - _UpperLerpOpacity: 1
-    - _Vertexoffset: 0.08
+    - _UpperLerpOpacity: 0
+    - _Vertexoffset: 0.071
     - _node_2837: 0.273
     - _node_507: 0
     - _node_924: 0
