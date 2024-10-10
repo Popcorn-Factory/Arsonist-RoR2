@@ -39,6 +39,7 @@ namespace ArsonistMod.Content.Controllers
         public Transform flamethrowerTransform;
         public Transform weakFlamethrowerTransform;
 
+        public Transform flamethrowerScepterContainer;
         public Transform flamethrowerScepterTransform;
         public ParticleSystem flamethrowerBeamPS;
         public Animator flamethrowerScepterBeamAnimator;
@@ -86,6 +87,7 @@ namespace ArsonistMod.Content.Controllers
                 sparkParticle = childLocator.FindChild("SparkEffect").GetComponent<ParticleSystem>();
                 fingerFireParticle = childLocator.FindChild("FireThumbParticle").GetComponent<ParticleSystem>();
                 cleanseBlast = childLocator.FindChild("CleanseBlast").GetComponent<ParticleSystem>();
+                flamethrowerScepterContainer = childLocator.FindChild("ScepterFlamethrowerContainer");
                 flamethrowerScepterTransform = childLocator.FindChild("ScepterFlamethrower");
                 flamethrowerBeamPS = flamethrowerScepterTransform.GetComponent<ParticleSystem>();
                 flamethrowerScepterBeamAnimator = flamethrowerScepterTransform.GetComponent<Animator>();
@@ -250,7 +252,7 @@ namespace ArsonistMod.Content.Controllers
                     Ray ray = charBody.inputBank.GetAimRay();
                     flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                     weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
-                    flamethrowerScepterTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+                    flamethrowerScepterContainer.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                 }
 
                 if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority)

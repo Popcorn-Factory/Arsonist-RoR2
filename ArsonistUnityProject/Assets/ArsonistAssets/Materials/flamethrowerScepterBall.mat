@@ -13,7 +13,7 @@ Material:
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -36,13 +36,13 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _DepthDistance: 100
-    - _FrenelMultiplier: 0.3
+    - _FrenelMultiplier: 0.53
     - _LightingMultiplier: 1.13
     - _LowerLerpOpacity: 1
     - _MaxSmoothstep: 1
     - _MinSmoothstep: 0
     - _Opacity: 0.166
-    - _PosterizeSteps: 3.2
+    - _PosterizeSteps: 10.1
     - _Power: 1.35
     - _StepThreshold: 0.2
     - _TimeMultiplier: 0.8
@@ -53,6 +53,6 @@ Material:
     - _node_924: 0
     m_Colors:
     - _FresnelColor: {r: 1, g: 0.6153419, b: 0, a: 1}
-    - _TextureColor: {r: 1, g: 0.50518715, b: 0, a: 1}
+    - _TextureColor: {r: 1, g: 0.6922987, b: 0, a: 1}
     - _fresnelcolor: {r: 0, g: 0.14357376, b: 1, a: 1}
   m_BuildTextureStacks: []
