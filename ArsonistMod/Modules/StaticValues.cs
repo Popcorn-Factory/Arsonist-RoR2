@@ -55,6 +55,13 @@ namespace ArsonistMod.Modules
         internal static float altFiresprayWeakDamageCoefficient = 0.9f;
         internal static float altFiresprayEnergyCost = 12f;
 
+        // Firespray Scepter: Has the same stats except damage.
+        internal static float firesprayScepterStrongDamageCoefficient = 3f;
+        internal static float firesprayScepterWeakDamageCoefficient = 1.5f;
+        internal static float altFiresprayScepterStrongDamageCoefficient = 2f;
+        internal static float altFiresprayScepterWeakDamageCoefficient = 1.2f;
+        internal static float firesprayScepterRange = 256f;
+
         //Flamethrowerz
         internal static float flamethrowerStrongDamageCoefficient = 0.9f;
         internal static float flamethrowerWeakDamageCoefficient = 0.60f;

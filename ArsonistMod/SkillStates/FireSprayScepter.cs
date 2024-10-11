@@ -21,10 +21,11 @@ namespace ArsonistMod.SkillStates
         private string muzzleString = "GunMuzzle";
         private Transform muzzlePos;
         private Animator animator;
-        private float damageCoefficient = Modules.StaticValues.firesprayWeakDamageCoefficient;
-        private float altDamageCoefficient = Modules.StaticValues.altFiresprayWeakDamageCoefficient;
-        private float strongdamageCoefficient = Modules.StaticValues.firesprayStrongDamageCoefficient;
-        private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayStrongDamageCoefficient;
+        private float damageCoefficient = Modules.StaticValues.firesprayScepterWeakDamageCoefficient;
+        private float altDamageCoefficient = Modules.StaticValues.altFiresprayScepterWeakDamageCoefficient;
+        private float strongdamageCoefficient = Modules.StaticValues.firesprayScepterStrongDamageCoefficient;
+        private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayScepterStrongDamageCoefficient;
+        private float range = Modules.StaticValues.firesprayScepterRange;
         public static float spreadBloomValue = 10f;
         private float force = 400f;
         private float strongforce = 1000f;
@@ -91,17 +92,47 @@ namespace ArsonistMod.SkillStates
             Vector3 origin = GetDisplacedOrigin(aimRay);
             if (isAuthority)
             {
-                ProjectileManager.instance.FireProjectile(
-                    Modules.Projectiles.lemurianFireBall, //prefab
-                    origin, //position
-                    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
-                    gameObject, //owner
-                    damageStat * coeff, //damage
-                    force, //force
-                    Util.CheckRoll(critStat, characterBody.master), //crit
-                    DamageColorIndex.Default, //damage color
-                    null, //target
-                    speedOverride); //speed }
+                new BulletAttack
+                {
+                    bulletCount = 1,
+                    aimVector = aimRay.direction,
+                    origin = aimRay.origin,
+                    damage = damageStat * coeff,
+                    damageColorIndex = DamageColorIndex.Default,
+                    damageType = DamageType.Generic,
+                    falloffModel = BulletAttack.FalloffModel.None,
+                    maxDistance = range,
+                    force = force,
+                    hitMask = LayerIndex.CommonMasks.bullet,
+                    minSpread = 0f,
+                    maxSpread = 0f,
+                    isCrit = base.RollCrit(),
+                    owner = base.gameObject,
+                    smartCollision = true,
+                    procChainMask = default(ProcChainMask),
+                    procCoefficient = 1f,
+                    radius = 0.75f,
+                    sniper = false,
+                    stopperMask = LayerIndex.world.mask,
+                    weapon = null,
+                    spreadPitchScale = 0f,
+                    spreadYawScale = 0f,
+                    hitCallback = BulletAttack.defaultHitCallback,
+                    queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                    hitEffectPrefab = null,
+                    tracerEffectPrefab = null, // Change this later
+                }.Fire();
+                //ProjectileManager.instance.FireProjectile(
+                //    Modules.Projectiles.lemurianFireBall, //prefab
+                //    origin, //position
+                //    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
+                //    gameObject, //owner
+                //    damageStat * coeff, //damage
+                //    force, //force
+                //    Util.CheckRoll(critStat, characterBody.master), //crit
+                //    DamageColorIndex.Default, //damage color
+                //    null, //target
+                //    speedOverride); //speed }
 
             }
 
@@ -113,17 +144,47 @@ namespace ArsonistMod.SkillStates
             Vector3 origin = GetDisplacedOrigin(aimRay);
             if (isAuthority)
             {
-                ProjectileManager.instance.FireProjectile(
-                    Modules.Projectiles.artificerFirebolt, //prefab
-                    origin, //position
-                    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
-                    gameObject, //owner
-                    damageStat * coeff, //damage
-                    strongforce, //force
-                    Util.CheckRoll(critStat, characterBody.master), //crit
-                    DamageColorIndex.Default, //damage color
-                    null, //target
-                    strongspeedOverride); //speed }
+                new BulletAttack
+                {
+                    bulletCount = 1,
+                    aimVector = aimRay.direction,
+                    origin = aimRay.origin,
+                    damage = damageStat * coeff,
+                    damageColorIndex = DamageColorIndex.Default,
+                    damageType = DamageType.Generic,
+                    falloffModel = BulletAttack.FalloffModel.None,
+                    maxDistance = range,
+                    force = force,
+                    hitMask = LayerIndex.CommonMasks.bullet,
+                    minSpread = 0f,
+                    maxSpread = 0f,
+                    isCrit = base.RollCrit(),
+                    owner = base.gameObject,
+                    smartCollision = true,
+                    procChainMask = default(ProcChainMask),
+                    procCoefficient = 1f,
+                    radius = 1f,
+                    sniper = false,
+                    stopperMask = LayerIndex.world.mask,
+                    weapon = null,
+                    spreadPitchScale = 0f,
+                    spreadYawScale = 0f,
+                    hitCallback = BulletAttack.defaultHitCallback,
+                    queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                    hitEffectPrefab = null,
+                    tracerEffectPrefab = null, // Change this later
+                }.Fire();
+                //ProjectileManager.instance.FireProjectile(
+                //    Modules.Projectiles.artificerFirebolt, //prefab
+                //    origin, //position
+                //    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
+                //    gameObject, //owner
+                //    damageStat * coeff, //damage
+                //    strongforce, //force
+                //    Util.CheckRoll(critStat, characterBody.master), //crit
+                //    DamageColorIndex.Default, //damage color
+                //    null, //target
+                //    strongspeedOverride); //speed }
 
             }
 
@@ -155,7 +216,7 @@ namespace ArsonistMod.SkillStates
 
             if (fixedAge >= duration && isAuthority && IsKeyDownAuthority())
             {
-                outer.SetNextState(new FireSpray());
+                outer.SetNextState(new FireSprayScepter());
             }
             else if (fixedAge >= duration && isAuthority)
             {
