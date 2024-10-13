@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 18a2d5b3436117c4cb15a5d51088bc78, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 3
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -36,15 +36,16 @@ Material:
     m_Floats:
     - _Cutoff: 0.5
     - _DepthDistance: 100
-    - _FrenelMultiplier: 0.92
+    - _FrenelMultiplier: 0.32
+    - _Glow: 4.48
     - _LightingMultiplier: 1.13
-    - _LowerLerpOpacity: 1
+    - _LowerLerpOpacity: 0
     - _MaxSmoothstep: 1
     - _MinSmoothstep: 0
     - _Opacity: 0.166
-    - _PosterizeSteps: 11.5
+    - _PosterizeSteps: 5.2
     - _Power: 1.35
-    - _StepThreshold: 0.2
+    - _StepThreshold: 0.49
     - _TimeMultiplier: 0.8
     - _UpperLerpOpacity: 1
     - _Vertexoffset: 0.001

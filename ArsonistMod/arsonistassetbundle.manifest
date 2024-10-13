@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3493929634
+CRC: 1790235190
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 82c3239efd80cd35d2c9b7dfccdd358a
+    Hash: b05d93c254102dd798c3d3597404f52f
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5885fd5ef7df9dd3d044fea200a9488a
@@ -261,6 +261,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/RoundSoftParticle.tif
 - Assets/ArsonistAssets/HenryBombGhost.prefab
 - Assets/ArsonistAssets/Materials/Henry/matBoxingGlove.mat
+- Assets/ArsonistAssets/Textures/Voronoi.png.Voronoi.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyIdle.anim
 - Assets/ArsonistAssets/Mesh/meshArsonistChestplate.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
