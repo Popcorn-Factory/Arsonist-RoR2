@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1790235190
+CRC: 1219285366
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b05d93c254102dd798c3d3597404f52f
+    Hash: a8a14640365992951231272c68ac94da
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5885fd5ef7df9dd3d044fea200a9488a
+    Hash: df700b9e094b6d98d211f7fa167fd2eb
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,11 +44,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 120
@@ -120,6 +120,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Mesh/meshBoxingGlove.mesh
 - Assets/ArsonistAssets/Animation/clips/WalkR.anim
 - Assets/ArsonistAssets/Textures/FlareStar.png
+- Assets/ArsonistAssets/VFX/ScepterFireballWeak.prefab
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png
 - Assets/ArsonistAssets/VFX/Textures/texSlash.png
 - Assets/ArsonistAssets/Animation/ScepterFlamethrower.controller
@@ -155,6 +156,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texSwingEffect.png
 - Assets/ArsonistAssets/Textures/NeoArsonistCloth_normal.png
 - Assets/ArsonistAssets/Animation/clips/Slash1.anim
+- Assets/ArsonistAssets/Animation/ScepterFireball/Fireball.anim
 - Assets/ArsonistAssets/Shaders/FresnelFlameWobble.shader
 - Assets/ArsonistAssets/VFX/Beam.prefab
 - Assets/ArsonistAssets/Animation/maskUpperBody.mask
@@ -336,6 +338,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matHitSparkPunch.mat
 - Assets/ArsonistAssets/Textures/NeoArsonistMetal_emission.png
 - Assets/ArsonistAssets/VFX/SparksEffect.prefab
+- Assets/ArsonistAssets/Animation/SceoterFireball.controller
 - Assets/ArsonistAssets/Mesh/NeoPyroRobe.mesh
 - Assets/ArsonistAssets/Materials/Steam.mat
 - Assets/ArsonistAssets/Animation/maskGesture.mask
@@ -359,6 +362,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/SparkEffect.prefab
 - Assets/ArsonistAssets/Materials/FlareRing 1.mat
 - Assets/ArsonistAssets/Materials/Star2.mat
+- Assets/ArsonistAssets/VFX/ScepterFireball.prefab
 - Assets/ArsonistAssets/VFX/Flamethrower.prefab
 - Assets/ArsonistAssets/Icons/blueGaugeBuff.png
 - Assets/ArsonistAssets/Icons/FireballReticle.png

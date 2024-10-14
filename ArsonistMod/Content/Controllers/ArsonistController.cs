@@ -247,12 +247,14 @@ namespace ArsonistMod.Content.Controllers
             //Check the Aim ray of the characterbody and aim the flamethrower in that direction.
             if (flamethrowerSelected && flamethrowerTransform)
             {
+
+                Ray ray = charBody.inputBank.GetAimRay();
+                flamethrowerScepterContainer.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+
                 if (charBody.inputBank.skill1.down) 
                 {
-                    Ray ray = charBody.inputBank.GetAimRay();
                     flamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                     weakFlamethrowerTransform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
-                    flamethrowerScepterContainer.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
                 }
 
                 if (!charBody.inputBank.skill1.down && playingFlamethrower && charBody.hasEffectiveAuthority)

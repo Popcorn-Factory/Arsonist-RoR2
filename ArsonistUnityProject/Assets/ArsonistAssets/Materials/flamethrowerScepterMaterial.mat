@@ -46,7 +46,7 @@ Material:
     - _PosterizeSteps: 5.2
     - _Power: 1.35
     - _StepThreshold: 0.49
-    - _TimeMultiplier: 0.8
+    - _TimeMultiplier: 0.4
     - _UpperLerpOpacity: 1
     - _Vertexoffset: 0.001
     - _node_2837: 0.273

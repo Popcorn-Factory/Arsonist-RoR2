@@ -46,6 +46,9 @@ namespace ArsonistMod.Modules
         internal static GameObject fireballStrongGhost;
         internal static GameObject fireballWeakGhost;
 
+        internal static GameObject fireballScepterTracer;
+        internal static GameObject fireballScepterWeakTracer;
+
         //Crosshair
         internal static GameObject fireballCrosshair;
         internal static GameObject flamethrowerCrosshair;
@@ -251,9 +254,12 @@ namespace ArsonistMod.Modules
             //Masochism stack sprite
             activatedStackSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("masochismIconActivated");
             deactivatedStackSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("masochismIconDeactivated");
+
+            fireballScepterTracer = LoadEffect("ScepterFireball", "", false, true, 1f);
+            fireballScepterWeakTracer = LoadEffect("ScepterFireballWeak", "", false, true, 1f);
         }
 
-        private static GameObject CreateOGTracer(string ogTracerPrefab)
+        private static GameObject CreateOGTracer(string ogTracerPrefab, float speed = 100f, float length = 100f)
         {            
             GameObject gameobject = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>(ogTracerPrefab);
 
@@ -262,8 +268,8 @@ namespace ArsonistMod.Modules
             if (!gameobject.GetComponent<NetworkIdentity>()) gameobject.AddComponent<NetworkIdentity>();
 
             if(!gameobject.GetComponent<Tracer>()) gameobject.AddComponent<Tracer>(); 
-            gameobject.GetComponent<Tracer>().speed = 100f;
-            gameobject.GetComponent<Tracer>().length = 100f;
+            gameobject.GetComponent<Tracer>().speed = speed;
+            gameobject.GetComponent<Tracer>().length = length;
 
             AddNewEffectDef(gameobject);
 
@@ -366,7 +372,7 @@ namespace ArsonistMod.Modules
             return LoadEffect(resourceName, "", parentToTransform, true);
         }
 
-        private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform, bool addEffectComponent)
+        private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform, bool addEffectComponent, float duration = 12f)
         {
             GameObject newEffect = mainAssetBundle.LoadAsset<GameObject>(resourceName);
 
@@ -376,7 +382,7 @@ namespace ArsonistMod.Modules
                 return null;
             }
 
-            newEffect.AddComponent<DestroyOnTimer>().duration = 12;
+            newEffect.AddComponent<DestroyOnTimer>().duration = duration;
             newEffect.AddComponent<NetworkIdentity>();
             newEffect.AddComponent<VFXAttributes>().vfxPriority = VFXAttributes.VFXPriority.Always;
             if (addEffectComponent) 

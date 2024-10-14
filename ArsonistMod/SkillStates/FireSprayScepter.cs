@@ -134,6 +134,12 @@ namespace ArsonistMod.SkillStates
                 //    null, //target
                 //    speedOverride); //speed }
 
+                EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterWeakTracer, new EffectData
+                {
+                    origin = muzzlePos.position,
+                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                    scale = 1f
+                }, true);
             }
 
         }
@@ -186,6 +192,12 @@ namespace ArsonistMod.SkillStates
                 //    null, //target
                 //    strongspeedOverride); //speed }
 
+                EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
+                {
+                    origin = muzzlePos.position,
+                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                    scale = 1f
+                }, true);
             }
 
         }
