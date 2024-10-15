@@ -41,6 +41,7 @@
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -2588,7 +2589,169 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
+										<Sound Name="9_3_Flamethrower_Scepter_Start" ID="{8A2393AD-A006-413F-B9C6-48A7FAFFFB84}" ShortID="875769512">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="1_ Start" ID="{3E25FFEC-6106-448F-94B1-670865A4A2CD}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.199906001077911"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.70195530489176"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>1. Start.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="940311688"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="1_ Start" ID="{3E25FFEC-6106-448F-94B1-670865A4A2CD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_4_Primary_Scepter" ID="{488C2173-5635-4C2A-B029-F5EF582371D3}" ShortID="362290927">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="1_Base Short Beam" ID="{F824CAEE-62A6-4090-B703-46C83027CC71}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.187897691827823"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.0105053025577"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>1.Base Short Beam.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1030677976"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="1_Base Short Beam" ID="{F824CAEE-62A6-4090-B703-46C83027CC71}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_5_Primary_Scepter_Overheated" ID="{F75B9CC4-498C-4909-91CD-935ED4CA2CF6}" ShortID="463268713">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_ Overheat Beam" ID="{30E96229-8008-4A8A-83D7-EB20885A6435}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.103748923150046"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.35502381447484"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2. Overheat Beam.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="626743768"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_ Overheat Beam" ID="{30E96229-8008-4A8A-83D7-EB20885A6435}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_4_Flamethrower_Scepter_End" ID="{276CCCC3-1493-4CE1-865C-8B334639EF8E}" ShortID="1027554974">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="3_ End" ID="{D0D5DBB2-5790-4B56-BD54-B9A68DD1357B}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="3.53382221260307"/>
+														<Property Name="TrimEnd" Type="Real64" Value="5.0234443496675"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>3. End.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="109192780"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="3_ End" ID="{D0D5DBB2-5790-4B56-BD54-B9A68DD1357B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_5_Flamethrower_Scepter_Active" ID="{690375C0-0883-4B37-81E2-247AD86AE245}" ShortID="745753363">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Duration Retry" ID="{5E2AA215-CEFB-44ED-9685-579C570F4B74}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.273278989756822"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.118816952068185"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.438503486235418"/>
+														<Property Name="TrimEnd" Type="Real64" Value="9.01166172319309"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Duration Retry.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="479112659"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Duration Retry" ID="{5E2AA215-CEFB-44ED-9685-579C570F4B74}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{17778E5D-5C7D-4EA2-A2F3-78F31B3E414B}"/>
+									</PositioningInfo>
 									<ObjectLists>
 										<ObjectList Name="RTPC">
 											<Reference>
@@ -2614,8 +2777,13 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
+																				<XPos>50</XPos>
+																				<YPos>0.1126</YPos>
+																				<Flags>0</Flags>
+																			</Point>
+																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>8.24361</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -3331,8 +3499,13 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
+																				<XPos>51.04423</XPos>
+																				<YPos>0.1141</YPos>
+																				<Flags>0</Flags>
+																			</Point>
+																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>11.13726</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -4036,8 +4209,13 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
+																				<XPos>49.93857</XPos>
+																				<YPos>0.0183</YPos>
+																				<Flags>0</Flags>
+																			</Point>
+																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>11.55096</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -4077,8 +4255,13 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
+																		<XPos>50.55283</XPos>
+																		<YPos>-0.20547</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
 																		<XPos>100</XPos>
-																		<YPos>0</YPos>
+																		<YPos>11.13726</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>

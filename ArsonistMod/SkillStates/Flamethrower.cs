@@ -153,6 +153,9 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            new PlaySoundNetworkRequest(characterBody.netId, 4168901551).Send(R2API.Networking.NetworkDestination.Clients);
+
             if (controller.flamethrower) 
             {
                 controller.flamethrower.Stop();

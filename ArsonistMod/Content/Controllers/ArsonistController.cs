@@ -261,7 +261,6 @@ namespace ArsonistMod.Content.Controllers
                 {
                     playingFlamethrower = false;
                     AkSoundEngine.StopPlayingID(flamethrowerPlayingID);
-                    new PlaySoundNetworkRequest(charBody.netId, 4168901551).Send(R2API.Networking.NetworkDestination.Clients);
                 }
             }
 

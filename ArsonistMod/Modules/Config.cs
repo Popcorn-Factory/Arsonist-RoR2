@@ -249,28 +249,28 @@ namespace ArsonistMod.Modules
             arsonistVoicelineVolume = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "Master Voice Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for All voice lines, both Arsonist and Firebug.")
             );
 
             arsonistVoicelineVolumeArsonist = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "Arsonist Voice Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for Arsonist's voice lines. (Does not affect Firebug, affected by Master Voice Volume)")
             );
 
             arsonistVoicelineVolumeFirebug = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "Firebug Voice Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for Firebug's voice lines. (Does not affect Arsonist, affected by Master Voice Volume)")
             );
 
             arsonistSFXVolume = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "SFX Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for all of Arsonist's effects, such as explosions and such. (Affected by the ROR2 Master and SFX Volume)")
             );
 

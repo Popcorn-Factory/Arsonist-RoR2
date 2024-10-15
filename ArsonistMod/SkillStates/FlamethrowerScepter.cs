@@ -126,8 +126,8 @@ namespace ArsonistMod.SkillStates
                     controller.playingFlamethrower = true;
                     if (base.isAuthority) 
                     {
-                        new PlaySoundNetworkRequest(characterBody.netId, 934132236).Send(R2API.Networking.NetworkDestination.Clients);
-                        controller.flamethrowerPlayingID = AkSoundEngine.PostEvent(587096102, characterBody.gameObject);
+                        new PlaySoundNetworkRequest(characterBody.netId, 979568843).Send(R2API.Networking.NetworkDestination.Clients);
+                        controller.flamethrowerPlayingID = AkSoundEngine.PostEvent(3247972543, characterBody.gameObject);
                     }
                 }
             }
@@ -143,6 +143,8 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            new PlaySoundNetworkRequest(characterBody.netId, 2143616816).Send(R2API.Networking.NetworkDestination.Clients);
 
             controller.DeactivateScepterFlamethrower();
 

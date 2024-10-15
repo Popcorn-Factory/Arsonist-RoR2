@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1219285366
+CRC: 908078285
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a8a14640365992951231272c68ac94da
+    Hash: 466f6f0cea08e618f77354a86843b8d9
   TypeTreeHash:
     serializedVersion: 2
     Hash: df700b9e094b6d98d211f7fa167fd2eb
@@ -97,11 +97,12 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/IgnitionFlameParticle.mat
 - Assets/ArsonistAssets/Animation/clips/Slash2.anim
 - Assets/ArsonistAssets/Mesh/Cylinder.mesh
-- Assets/ArsonistAssets/WeakFlare.prefab
+- Assets/ArsonistAssets/Materials/fireballScepter.mat
 - Assets/ArsonistAssets/VFX/Textures/TXT_FIRE_01.png
 - Assets/ArsonistAssets/Textures/NeoArsonistCloth_diffuse.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyStart.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Jump.anim
+- Assets/ArsonistAssets/WeakFlare.prefab
 - Assets/ArsonistAssets/Animation/clips/SprintR.anim
 - Assets/ArsonistAssets/Icons/texUtilityIcon.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPHold.anim
@@ -236,6 +237,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/CleanseBurst.prefab
 - Assets/ArsonistAssets/Shaders/masochismWaveShader.shader
 - Assets/ArsonistAssets/VFX/flareAttached.prefab
+- Assets/ArsonistAssets/VFX/OnHitScepterFireball.prefab
 - Assets/ArsonistAssets/Mesh/SuitArsonistGloves.mesh
 - Assets/ArsonistAssets/Icons/texAlt1PrimaryIcon.png
 - Assets/ArsonistAssets/VFX/Fire.prefab
@@ -268,9 +270,10 @@ Assets:
 - Assets/ArsonistAssets/Mesh/meshArsonistChestplate.mesh
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
 - Assets/ArsonistAssets/Mesh/NeoArsonistHead.mesh
-- Assets/ArsonistAssets/Mesh/Torus.mesh
+- Assets/ArsonistAssets/Animation/OnHitFireballScepter.controller
 - Assets/ArsonistAssets/VFX/BombExplosionEffect.prefab
 - Assets/ArsonistAssets/VFX/Mesh/meshSwing.asset
+- Assets/ArsonistAssets/Mesh/Torus.mesh
 - Assets/ArsonistAssets/Animation/clips/RestIdleIn.anim
 - Assets/ArsonistAssets/VFX/ringFlame.prefab
 - Assets/ArsonistAssets/Icons/texPrimaryIcon.png
@@ -331,6 +334,7 @@ Assets:
 - Assets/ArsonistAssets/Materials/Gauge.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkR.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Idle.anim
+- Assets/ArsonistAssets/Animation/ScepterFireball/OnHit.anim
 - Assets/ArsonistAssets/Icons/ArsonistIconUnlock.png
 - Assets/ArsonistAssets/Materials/SolGate.mat
 - Assets/ArsonistAssets/VFX/Textures/texEmbers.png

@@ -75,13 +75,13 @@ namespace ArsonistMod.SkillStates
                 FireBolt();
                 energySystem.AddHeat(energyCost);
 
-                new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(base.characterBody.netId, 4235059291).Send(R2API.Networking.NetworkDestination.Clients);
             }
             else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
             {
                 FireBall();
 
-                new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(base.characterBody.netId, 553582860).Send(R2API.Networking.NetworkDestination.Clients);
             }
             base.characterBody.AddSpreadBloom(spreadBloomValue);
         }    
@@ -117,9 +117,9 @@ namespace ArsonistMod.SkillStates
                     weapon = null,
                     spreadPitchScale = 0f,
                     spreadYawScale = 0f,
-                    hitCallback = BulletAttack.defaultHitCallback,
+                    hitCallback = laserHitCallback,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = null,
+                    hitEffectPrefab = Modules.AssetsArsonist.fireballScepterOnHit,
                     tracerEffectPrefab = null, // Change this later
                 }.Fire();
                 //ProjectileManager.instance.FireProjectile(
@@ -134,6 +134,8 @@ namespace ArsonistMod.SkillStates
                 //    null, //target
                 //    speedOverride); //speed }
 
+                //TO DO: Rotate to proper ROT.
+
                 EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterWeakTracer, new EffectData
                 {
                     origin = muzzlePos.position,
@@ -143,6 +145,13 @@ namespace ArsonistMod.SkillStates
             }
 
         }
+
+        private bool laserHitCallback(BulletAttack bulletAttack, ref BulletAttack.BulletHit hitInfo)
+        {
+            return BulletAttack.defaultHitCallback(bulletAttack, ref hitInfo);
+        }
+
+
         public void FireBolt()
         {
             Ray aimRay = GetAimRay();
@@ -175,9 +184,9 @@ namespace ArsonistMod.SkillStates
                     weapon = null,
                     spreadPitchScale = 0f,
                     spreadYawScale = 0f,
-                    hitCallback = BulletAttack.defaultHitCallback,
+                    hitCallback = laserHitCallback,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = null,
+                    hitEffectPrefab = Modules.AssetsArsonist.fireballScepterOnHit,
                     tracerEffectPrefab = null, // Change this later
                 }.Fire();
                 //ProjectileManager.instance.FireProjectile(
