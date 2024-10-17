@@ -258,7 +258,7 @@ namespace ArsonistMod.Modules
 
             fireballScepterTracer = LoadEffect("ScepterFireball", "", false, true, 1f);
             fireballScepterWeakTracer = LoadEffect("ScepterFireballWeak", "", false, true, 1f);
-            fireballScepterOnHit = LoadEffect("OnHitScepterFireball", "", false, true, 1f);
+            fireballScepterOnHit = LoadEffect("OnHitScepterFireball", "Arsonist_Primary_Scepter_OnHit", false, true, 1f);
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab, float speed = 100f, float length = 100f)

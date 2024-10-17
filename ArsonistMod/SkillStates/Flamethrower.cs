@@ -2,6 +2,7 @@
 using ArsonistMod.Modules.Networking;
 using EntityStates;
 using R2API.Networking.Interfaces;
+using RiskOfOptions.Components.Options;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -46,10 +47,12 @@ namespace ArsonistMod.SkillStates
         public float Energy = Modules.StaticValues.flamethrowerEnergyCost;
         private float energyCost;
 
+        private bool playEnd;
+
         public override void OnEnter()
         {
             base.OnEnter();
-
+            playEnd = false;
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
             controller = characterBody.gameObject.GetComponent<ArsonistController>();
@@ -154,7 +157,10 @@ namespace ArsonistMod.SkillStates
         {
             base.OnExit();
 
-            new PlaySoundNetworkRequest(characterBody.netId, 4168901551).Send(R2API.Networking.NetworkDestination.Clients);
+            if (playEnd) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 4168901551).Send(R2API.Networking.NetworkDestination.Clients);
+            }
 
             if (controller.flamethrower) 
             {
@@ -215,9 +221,11 @@ namespace ArsonistMod.SkillStates
 
                 if (base.inputBank.skill1.down) 
                 {
-                    this.outer.SetState(new Flamethrower { });
+                    this.outer.SetNextState(new Flamethrower { });
+
                     return;
                 }
+                playEnd = true;
                 controller.flamethrower.Stop();
                 controller.weakFlamethrower.Stop();
                 this.outer.SetNextStateToMain();

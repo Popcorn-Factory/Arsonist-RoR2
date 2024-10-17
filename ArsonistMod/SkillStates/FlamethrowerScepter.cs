@@ -50,10 +50,12 @@ namespace ArsonistMod.SkillStates
         public float Energy = Modules.StaticValues.flamethrowerEnergyCost;
         private float energyCost;
 
+        private bool playEnd;
+
         public override void OnEnter()
         {
             base.OnEnter();
-
+            playEnd = false;
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
             controller = characterBody.gameObject.GetComponent<ArsonistController>();
@@ -144,7 +146,10 @@ namespace ArsonistMod.SkillStates
         {
             base.OnExit();
 
-            new PlaySoundNetworkRequest(characterBody.netId, 2143616816).Send(R2API.Networking.NetworkDestination.Clients);
+            if (playEnd)
+            { 
+                new PlaySoundNetworkRequest(characterBody.netId, 2143616816).Send(R2API.Networking.NetworkDestination.Clients); 
+            }
 
             controller.DeactivateScepterFlamethrower();
 
@@ -205,6 +210,7 @@ namespace ArsonistMod.SkillStates
                     this.outer.SetState(new FlamethrowerScepter { });
                     return;
                 }
+                playEnd = true;
                 controller.DeactivateScepterFlamethrower();
                 controller.weakFlamethrower.Stop();
                 this.outer.SetNextStateToMain();
@@ -247,6 +253,12 @@ namespace ArsonistMod.SkillStates
 
                         if (hitInfo.hitHurtBox.healthComponent.body.master) 
                         {
+                            //Attach a sound to the enemy
+                            if (!hitInfo.hitHurtBox.healthComponent.body.gameObject.GetComponent<ScepterBurningSoundController>()) 
+                            {
+                                hitInfo.hitHurtBox.healthComponent.body.gameObject.AddComponent<ScepterBurningSoundController>();
+                            }
+
                             new FlamethrowerDotNetworkRequest(
                             characterBody.master.netId,
                             hitInfo.hitHurtBox.healthComponent.body.master.netId,

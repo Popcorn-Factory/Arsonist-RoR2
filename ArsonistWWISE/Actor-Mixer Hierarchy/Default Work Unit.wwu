@@ -2748,6 +2748,70 @@
 												<ActiveSource Name="Duration Retry" ID="{5E2AA215-CEFB-44ED-9685-579C570F4B74}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="3_6_Primary_Scepter_OnHit" ID="{9E203FF3-4B4D-47C5-9C73-C3759266ED48}" ShortID="249013111">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="3_ Base On-hit" ID="{C70E746D-F2FA-4575-B090-5D0B450BC92B}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0303478548526643"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0303478548526643"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.00343792256964"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>3. Base On-hit.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="322193800"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="3_ Base On-hit" ID="{C70E746D-F2FA-4575-B090-5D0B450BC92B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_6_Flamethrower_Scepter_OnHit" ID="{154A8747-BFFF-4570-B4BF-8E3C295C45CA}" ShortID="879768586">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="4_ Alt On-hit" ID="{1EF2475C-1CC5-454D-8249-3B6149F854A5}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.231673583806611"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>4. Alt On-hit.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="612701469"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="4_ Alt On-hit" ID="{1EF2475C-1CC5-454D-8249-3B6149F854A5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 									<PositioningInfo>
 										<Panner Name="" ID="{17778E5D-5C7D-4EA2-A2F3-78F31B3E414B}"/>

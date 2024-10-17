@@ -774,6 +774,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Primary_Scepter_OnHit" ID="{6F80AD59-DA49-4D52-9DF6-A63897153DF2}">
+					<ChildrenList>
+						<Action Name="" ID="{AD1F8EF5-2B50-42DA-AF21-CBD8B2B80E2D}" ShortID="900114244">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_6_Primary_Scepter_OnHit" ID="{9E203FF3-4B4D-47C5-9C73-C3759266ED48}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_Burning" ID="{4BAE915A-1119-42F3-8090-A83D25FE4944}">
+					<ChildrenList>
+						<Action Name="" ID="{D588B417-1299-4574-8D71-66F205E5D8A9}" ShortID="460719985">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_6_Flamethrower_Scepter_OnHit" ID="{154A8747-BFFF-4570-B4BF-8E3C295C45CA}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

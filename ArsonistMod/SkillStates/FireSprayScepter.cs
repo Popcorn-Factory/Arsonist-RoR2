@@ -119,7 +119,7 @@ namespace ArsonistMod.SkillStates
                     spreadYawScale = 0f,
                     hitCallback = laserHitCallback,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = Modules.AssetsArsonist.fireballScepterOnHit,
+                    hitEffectPrefab = null,
                     tracerEffectPrefab = null, // Change this later
                 }.Fire();
                 //ProjectileManager.instance.FireProjectile(
@@ -148,6 +148,21 @@ namespace ArsonistMod.SkillStates
 
         private bool laserHitCallback(BulletAttack bulletAttack, ref BulletAttack.BulletHit hitInfo)
         {
+            if (hitInfo.hitHurtBox) 
+            {
+                if (hitInfo.hitHurtBox.healthComponent)
+                {
+                    if (hitInfo.hitHurtBox.healthComponent.body.teamComponent.teamIndex != TeamIndex.Player)
+                    {
+                        EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterOnHit, new EffectData
+                        {
+                            origin = hitInfo.point,
+                            rotation = Quaternion.LookRotation(hitInfo.surfaceNormal, Vector3.up),
+                            scale = 1f
+                        }, true);
+                    }
+                }
+            }
             return BulletAttack.defaultHitCallback(bulletAttack, ref hitInfo);
         }
 
@@ -186,7 +201,7 @@ namespace ArsonistMod.SkillStates
                     spreadYawScale = 0f,
                     hitCallback = laserHitCallback,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = Modules.AssetsArsonist.fireballScepterOnHit,
+                    hitEffectPrefab = null,
                     tracerEffectPrefab = null, // Change this later
                 }.Fire();
                 //ProjectileManager.instance.FireProjectile(

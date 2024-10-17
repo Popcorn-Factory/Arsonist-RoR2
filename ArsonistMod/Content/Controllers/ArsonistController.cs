@@ -261,6 +261,8 @@ namespace ArsonistMod.Content.Controllers
                 {
                     playingFlamethrower = false;
                     AkSoundEngine.StopPlayingID(flamethrowerPlayingID);
+
+
                 }
             }
 
