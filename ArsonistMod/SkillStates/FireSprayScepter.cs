@@ -193,7 +193,7 @@ namespace ArsonistMod.SkillStates
                     smartCollision = true,
                     procChainMask = default(ProcChainMask),
                     procCoefficient = 1f,
-                    radius = 1f,
+                    radius = 0.5f,
                     sniper = false,
                     stopperMask = LayerIndex.world.mask,
                     weapon = null,
@@ -216,12 +216,27 @@ namespace ArsonistMod.SkillStates
                 //    null, //target
                 //    strongspeedOverride); //speed }
 
-                EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
+                RaycastHit hit;
+                Physics.Raycast(aimRay, out hit, Mathf.Infinity, ~(1 << LayerIndex.world.mask), QueryTriggerInteraction.Ignore);
+
+                if (hit.collider)
                 {
-                    origin = muzzlePos.position,
-                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
-                    scale = 1f
-                }, true);
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
+                    {
+                        origin = muzzlePos.position,
+                        rotation = Quaternion.LookRotation(hit.point - muzzlePos.position, Vector3.up),
+                        scale = 1f
+                    }, true);
+                }
+                else 
+                {
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
+                    {
+                        origin = muzzlePos.position,
+                        rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                        scale = 1f
+                    }, true);
+                }
             }
 
         }
