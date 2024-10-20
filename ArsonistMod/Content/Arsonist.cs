@@ -31,6 +31,7 @@ namespace ArsonistMod.Modules.Survivors
         public static SkillDef punchSkillDef;
         public static SkillDef cleanseSkillDef;
         public static SkillDef neoMasochismSkillDef;
+        public static SkillDef masochismSurgeSkillDef;
 
         //Scepter stuff
         public static SkillDef flamethrowerScepterSkillDef;
@@ -690,8 +691,40 @@ namespace ArsonistMod.Modules.Survivors
                     prefix + "KEYWORD_OVERHEAT_MASO"}
             });
 
+            masochismSurgeSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "SPECIAL_MASOCHISM_SURGE_NAME",
+                skillNameToken = prefix + "SPECIAL_MASOCHISM_SURGE_NAME",
+                skillDescriptionToken = prefix + "SPECIAL_MASOCHISM_SURGE_DESCRIPTION",
+                skillIcon = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.MasochismSurge)),
+                activationStateMachineName = "Weapon",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = true,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Pain,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 0,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] {
+                    prefix + "KEYWORD_MASO_ANTICIPATION",
+                    prefix + "KEYWORD_MASO_DOUBLE_TAP",
+                    prefix + "KEYWORD_MASO_LIFESTEAL",
+                    prefix + "KEYWORD_MASO_DETONATE",
+                    prefix + "KEYWORD_OVERHEAT_MASO"}
+            });
+
+
             //Modules.Skills.AddSpecialSkills(bodyPrefab, masochistSkillDef);
             Modules.Skills.AddSpecialSkills(bodyPrefab, neoMasochismSkillDef);
+            Modules.Skills.AddSpecialSkills(bodyPrefab, masochismSurgeSkillDef);
             #endregion
         }
 

@@ -59,6 +59,8 @@ namespace ArsonistMod.Content.Controllers
 
         public bool scepterUpgrade;
 
+        public bool shouldBeActive;
+
         public void Awake()
         {
 
@@ -117,6 +119,9 @@ namespace ArsonistMod.Content.Controllers
             };
 
             arsonistCon = gameObject.GetComponent<ArsonistController>();
+
+            // Check if the player has selected Masochism, or something else.
+            // If not, disable the controller fixed update loop.
         }
 
         public void Hook()

@@ -91,6 +91,11 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_DESCRIPTION",
                 $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, periodically damage yourself in exchange for area of effect burning {Modules.Helpers.Healing("Lifesteal")}. " +
                 $"After a maximum of {Modules.Config.masochismMaximumStack.Value} seconds, <style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");
+
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_SURGE_NAME", "Masochism: Surge");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_SURGE_DESCRIPTION", $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, you move faster, " +
+                $"and are granted {Modules.Helpers.ImportantDesc("Double Tap")} and {Modules.Helpers.Healing("Lifesteal")}. After a maximum of {Modules.Config.masochismMaximumStack.Value} seconds, " +
+                $"<style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");
             #endregion
 
             #region Keywords
@@ -124,6 +129,7 @@ namespace ArsonistMod.Modules
                 $"For every 100 heat lost and/or gained, Arsonist gains 1 stack of Anticipation; After gaining {Modules.Config.masochismMinimumRequiredToActivate.Value} stacks, he may activate Masochism; Additional stacks increase damage and duration; All stacks are exhausted at the end.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_LIFESTEAL", $"<style=cKeywordName>Lifesteal</style>Arsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismActiveMultipliedActive.Value}%") } of his damage dealt while Masochism is active.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE", $"<style=cKeywordName>Detonate</style>Arsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_DOUBLE_TAP", $"<style=cKeywordName>Double Tap</style>Shoot two projectiles for the heat cost of one.");
             LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"<style=cKeywordName>Overheat: Masochism</style>If Arsonist exits Masochism due to too much heat buildup, " +
                 $"EX Overheat is applied, reducing your Move Speed and Damage to {Modules.StaticValues.masochismMoveSpeedPenalty * 100f}%. " +
                 $"Cancelling, or otherwise letting the move run it's course applies Overheat, reducing your Attack speed to {Modules.StaticValues.overheatAttackSpeedDebuff * 100f}%");
