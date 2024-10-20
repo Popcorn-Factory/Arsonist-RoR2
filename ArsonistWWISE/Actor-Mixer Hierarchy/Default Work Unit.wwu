@@ -2624,6 +2624,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="3_4_Primary_Scepter" ID="{488C2173-5635-4C2A-B029-F5EF582371D3}" ShortID="362290927">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
@@ -2651,6 +2658,13 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="3_5_Primary_Scepter_Overheated" ID="{F75B9CC4-498C-4909-91CD-935ED4CA2CF6}" ShortID="463268713">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
@@ -2752,7 +2766,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>3</Value>
+														<Value>8</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2786,6 +2800,11 @@
 										<Sound Name="9_6_Flamethrower_Scepter_OnHit" ID="{154A8747-BFFF-4570-B4BF-8E3C295C45CA}" ShortID="879768586">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">

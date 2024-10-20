@@ -121,6 +121,7 @@ namespace ArsonistMod.Content.Controllers
                 flamethrowerSelected = true;
             }
 
+            //Change _defaultCrosshairPrefab when new skill is loaded?
             charBody._defaultCrosshairPrefab = flamethrowerSelected ? Modules.AssetsArsonist.flamethrowerCrosshair : Modules.AssetsArsonist.fireballCrosshair;
 
             //Updating only when arsonist spawns in.

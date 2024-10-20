@@ -47,8 +47,10 @@ namespace ArsonistMod.Modules
         internal static GameObject fireballWeakGhost;
 
         internal static GameObject fireballScepterTracer;
+        internal static GameObject fireballScepterChargedTracer;
         internal static GameObject fireballScepterWeakTracer;
         internal static GameObject fireballScepterOnHit;
+        internal static GameObject fireballScepterStrongOnHit;
 
         //Crosshair
         internal static GameObject fireballCrosshair;
@@ -257,8 +259,10 @@ namespace ArsonistMod.Modules
             deactivatedStackSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("masochismIconDeactivated");
 
             fireballScepterTracer = LoadEffect("ScepterFireball", "", false, true, 1f);
+            fireballScepterChargedTracer = LoadEffect("ScepterFireballStrong", "", false, true, 1f);
             fireballScepterWeakTracer = LoadEffect("ScepterFireballWeak", "", false, true, 1f);
-            fireballScepterOnHit = LoadEffect("OnHitScepterFireball", "Arsonist_Primary_Scepter_OnHit", false, true, 1f);
+            fireballScepterOnHit = LoadEffect("OnHitScepterFireball", "Arsonist_Primary_Scepter_OnHit", false, true, 0.5f);
+            fireballScepterStrongOnHit = LoadEffect("OnHitScepterFireballStrong", "Arsonist_Primary_Scepter_OnHit", false, true, 0.5f);
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab, float speed = 100f, float length = 100f)

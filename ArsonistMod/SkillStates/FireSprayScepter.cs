@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 using ArsonistMod.Content.Controllers;
 using ArsonistMod.Modules.Networking;
 using R2API.Networking.Interfaces;
+using System;
 
 namespace ArsonistMod.SkillStates
 {
@@ -38,6 +39,8 @@ namespace ArsonistMod.SkillStates
         public float Energy = Modules.StaticValues.firesprayEnergyCost;
         private float energyCost;
         private float energyflatCost;
+
+        private bool isCharged = false;
 
 
         public override void OnEnter()
@@ -154,7 +157,8 @@ namespace ArsonistMod.SkillStates
                 {
                     if (hitInfo.hitHurtBox.healthComponent.body.teamComponent.teamIndex != TeamIndex.Player)
                     {
-                        EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterOnHit, new EffectData
+                        
+                        EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterStrongOnHit, new EffectData
                         {
                             origin = hitInfo.point,
                             rotation = Quaternion.LookRotation(hitInfo.surfaceNormal, Vector3.up),
@@ -166,6 +170,100 @@ namespace ArsonistMod.SkillStates
             return BulletAttack.defaultHitCallback(bulletAttack, ref hitInfo);
         }
 
+        private void FireBeam(bool isCharged, bool isOverheated) 
+        {
+            // Function should determine what type of bolt to fire based on charge state.
+            //Only has two charged states.
+
+            if (isOverheated) 
+            {
+                FireBall();
+            }
+
+            if (isCharged)
+            {
+                FireChargedBolt();
+            }
+            else 
+            {
+                FireBolt();
+            }
+        }
+
+        public void FireChargedBolt() 
+        {
+            Ray aimRay = GetAimRay();
+            float coeff = isBlue ? altStrongDamageCoefficient : strongdamageCoefficient;
+            Vector3 origin = GetDisplacedOrigin(aimRay);
+            if (isAuthority)
+            {
+                new BulletAttack
+                {
+                    bulletCount = 1,
+                    aimVector = aimRay.direction,
+                    origin = aimRay.origin,
+                    damage = damageStat * coeff,
+                    damageColorIndex = DamageColorIndex.Default,
+                    damageType = DamageType.Generic,
+                    falloffModel = BulletAttack.FalloffModel.None,
+                    maxDistance = range,
+                    force = force,
+                    hitMask = LayerIndex.CommonMasks.bullet,
+                    minSpread = 0f,
+                    maxSpread = 0f,
+                    isCrit = base.RollCrit(),
+                    owner = base.gameObject,
+                    smartCollision = true,
+                    procChainMask = default(ProcChainMask),
+                    procCoefficient = 1f,
+                    radius = 0.5f,
+                    sniper = false,
+                    stopperMask = LayerIndex.world.mask,
+                    weapon = null,
+                    spreadPitchScale = 0f,
+                    spreadYawScale = 0f,
+                    hitCallback = laserHitCallback,
+                    queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                    hitEffectPrefab = null,
+                    tracerEffectPrefab = null, // Change this later
+                }.Fire();
+                //ProjectileManager.instance.FireProjectile(
+                //    Modules.Projectiles.artificerFirebolt, //prefab
+                //    origin, //position
+                //    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
+                //    gameObject, //owner
+                //    damageStat * coeff, //damage
+                //    strongforce, //force
+                //    Util.CheckRoll(critStat, characterBody.master), //crit
+                //    DamageColorIndex.Default, //damage color
+                //    null, //target
+                //    strongspeedOverride); //speed }
+
+                RaycastHit hit;
+                Physics.Raycast(aimRay, out hit, Mathf.Infinity, ~(1 << LayerIndex.world.mask), QueryTriggerInteraction.Ignore);
+
+                float distFromPoint = hit.distance;
+
+                if (hit.collider && hit.distance > 10f)
+                {
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterChargedTracer, new EffectData
+                    {
+                        origin = muzzlePos.position,
+                        rotation = Quaternion.LookRotation(hit.point - muzzlePos.position, Vector3.up),
+                        scale = 1f
+                    }, true);
+                }
+                else
+                {
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
+                    {
+                        origin = muzzlePos.position,
+                        rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                        scale = 1f
+                    }, true);
+                }
+            }
+        }
 
         public void FireBolt()
         {
@@ -219,9 +317,11 @@ namespace ArsonistMod.SkillStates
                 RaycastHit hit;
                 Physics.Raycast(aimRay, out hit, Mathf.Infinity, ~(1 << LayerIndex.world.mask), QueryTriggerInteraction.Ignore);
 
-                if (hit.collider)
+                float distFromPoint = hit.distance;
+
+                if (hit.collider && hit.distance > 10f)
                 {
-                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterChargedTracer, new EffectData
                     {
                         origin = muzzlePos.position,
                         rotation = Quaternion.LookRotation(hit.point - muzzlePos.position, Vector3.up),

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 908078285
+CRC: 2905493314
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 466f6f0cea08e618f77354a86843b8d9
+    Hash: 0458eb98072c88878608fc61f06eb532
   TypeTreeHash:
     serializedVersion: 2
     Hash: df700b9e094b6d98d211f7fa167fd2eb
@@ -107,6 +107,7 @@ Assets:
 - Assets/ArsonistAssets/Icons/texUtilityIcon.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPHold.anim
 - Assets/ArsonistAssets/Shaders/Flaming.shader
+- Assets/ArsonistAssets/VFX/Materials/scepterOuterMaterialBlue.mat
 - Assets/ArsonistAssets/Animation/clips/ShootGun.anim
 - Assets/ArsonistAssets/VFX/arsonistOverheatGauge.prefab
 - Assets/ArsonistAssets/VFX/Materials/matDust.mat
@@ -131,15 +132,15 @@ Assets:
 - Assets/ArsonistAssets/VFX/HenrySwordSwingEffect.prefab
 - Assets/ArsonistAssets/VFX/Textures/texDust.png
 - Assets/ArsonistAssets/VFX/Materials/matSwingEffect.mat
-- Assets/ArsonistAssets/Shaders/scepterFlamethrower.shader
+- Assets/ArsonistAssets/Shaders/scepterFlamethrowerTransparency.shader
 - Assets/ArsonistAssets/Textures/noise3blur.png
 - Assets/ArsonistAssets/VFX/Textures/white square.png
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpact.mat
 - Assets/ArsonistAssets/VFX/Materials/SparkParticle.mat
-- Assets/ArsonistAssets/HumanoidArsonist.prefab
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Emote1_Hold.anim
 - Assets/ArsonistAssets/VFX/Materials/matFire.mat
 - Assets/ArsonistAssets/VFX/Light.prefab
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Emote1_Hold.anim
+- Assets/ArsonistAssets/HumanoidArsonist.prefab
 - Assets/ArsonistAssets/VFX/Textures/texFire.tga
 - Assets/ArsonistAssets/Icons/texMainSkin.png
 - Assets/ArsonistAssets/VFX/Materials/matTrail.mat
@@ -179,6 +180,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Materials/matFistSwing.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPWhiff.anim
 - Assets/ArsonistAssets/VFX/Materials/ringMat.mat
+- Assets/ArsonistAssets/Shaders/scepterFlamethrower 1.shader
 - Assets/ArsonistAssets/VFX/Mesh/meshPunchShockwave.mesh
 - Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlameStart.anim
 - Assets/ArsonistAssets/VFX/arsonistCustomUI.prefab
@@ -186,6 +188,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/flareMainColor.png
 - Assets/ArsonistAssets/HenryBazookaRocketGhost.prefab
 - Assets/ArsonistAssets/Icons/flareDebuff.png
+- Assets/ArsonistAssets/Materials/fireballScepterStrong.mat
 - Assets/ArsonistAssets/Materials/matArsonistCloth.mat
 - Assets/ArsonistAssets/Textures/Arsonist_diffuse.png
 - Assets/ArsonistAssets/Icons/arsonistGrandmastery.png
@@ -250,10 +253,11 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/Idle.anim
 - Assets/ArsonistAssets/Animation/clips/WalkB.anim
 - Assets/ArsonistAssets/VFX/Materials/matPunchEffect.mat
-- Assets/ArsonistAssets/Materials/matNeoArsonistCloth.mat
+- Assets/ArsonistAssets/Materials/flamethrowerScepterBallStrong.mat
 - Assets/ArsonistAssets/Icons/masochismIconActivated.png
 - Assets/ArsonistAssets/Animation/maskImpact.mask
 - Assets/ArsonistAssets/Textures/ArsonistCloth_mask.png
+- Assets/ArsonistAssets/Materials/matNeoArsonistCloth.mat
 - Assets/ArsonistAssets/VFX/Materials/Spark2Particle.mat
 - Assets/ArsonistAssets/Icons/texAlt1SecondaryIcon.png
 - Assets/ArsonistAssets/Animation/animArsonist.controller
@@ -265,9 +269,10 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/RoundSoftParticle.tif
 - Assets/ArsonistAssets/HenryBombGhost.prefab
 - Assets/ArsonistAssets/Materials/Henry/matBoxingGlove.mat
-- Assets/ArsonistAssets/Textures/Voronoi.png.Voronoi.png
+- Assets/ArsonistAssets/VFX/OnHitScepterFireballStrong.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_LobbyIdle.anim
 - Assets/ArsonistAssets/Mesh/meshArsonistChestplate.mesh
+- Assets/ArsonistAssets/Textures/Voronoi.png.Voronoi.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_ZPPStart.anim
 - Assets/ArsonistAssets/Mesh/NeoArsonistHead.mesh
 - Assets/ArsonistAssets/Animation/OnHitFireballScepter.controller
@@ -289,6 +294,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/flareMainEmission.png
 - Assets/ArsonistAssets/Mesh/NeoArsonistCanister.mesh
 - Assets/ArsonistAssets/Animation/clips/Roll.anim
+- Assets/ArsonistAssets/VFX/ScepterFireballStrong.prefab
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
 - Assets/ArsonistAssets/Icons/ZPBBuff.png
 - Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
@@ -382,4 +388,5 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
 - Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlameEnd.anim
 - Assets/ArsonistAssets/Materials/HeatHaze.mat
+- Assets/ArsonistAssets/Materials/fireballScepterStrongTransparent.mat
 Dependencies: []

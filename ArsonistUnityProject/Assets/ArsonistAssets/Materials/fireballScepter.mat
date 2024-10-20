@@ -37,7 +37,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthDistance: 100
     - _FrenelMultiplier: 1.21
-    - _Glow: 4.48
+    - _Glow: 2.02
     - _LightingMultiplier: 1.13
     - _LowerLerpOpacity: 0
     - _MaxSmoothstep: 1

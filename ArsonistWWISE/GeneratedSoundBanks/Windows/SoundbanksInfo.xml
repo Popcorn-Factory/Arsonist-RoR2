@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Type="User" Language="SFX" Hash="{4C7F7AAB-3607-620A-2AEC-0A654136CE0A}">
+		<SoundBank Id="1110381487" Type="User" Language="SFX" Hash="{2B7D2B1C-4C84-CC58-7B60-682D29473E04}">
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
 			<Media>
@@ -75,7 +75,7 @@
 				</File>
 				<File Id="322193800" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>3. Base On-hit.wav</ShortName>
-					<CachePath>SFX/3. Base On-hit_18CE2A31.wem</CachePath>
+					<CachePath>SFX/3. Base On-hit_EF5887D7.wem</CachePath>
 				</File>
 				<File Id="326243976" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Secondary Fire 1\2. Flare Explosion.wav</ShortName>
@@ -155,7 +155,7 @@
 				</File>
 				<File Id="612701469" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>4. Alt On-hit.wav</ShortName>
-					<CachePath>SFX/4. Alt On-hit_A10CA092.wem</CachePath>
+					<CachePath>SFX/4. Alt On-hit_6062652F.wem</CachePath>
 				</File>
 				<File Id="626743768" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>2. Overheat Beam.wav</ShortName>
@@ -741,5 +741,5 @@
 			</AcousticTextures>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{85F90DE8-E778-9E53-A4D6-5DAC54106420}</FileHash>
+	<FileHash>{178CCBBA-7289-BCF5-CA75-B1682A288E01}</FileHash>
 </SoundBanksInfo>

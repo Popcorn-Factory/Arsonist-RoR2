@@ -1,6 +1,17 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.0
+    - Added Scepter support!
+        - Scepter changes how Primary functions:
+            - Fireball becomes <NEW MOVE>
+                - When charged: Fire a bolt that deals <Damage>%
+                - When uncharged: Fire a bolt that deals <Damage>%
+            - Flamethrower becomes <new move>
+                - Fire a constant beam of pain
+    - Added one new special!
+        - Added Masochism <alternate>
+            - Description here
 - 2.2.3
     - Fixed an issue regarding Masochism where the final blast would not apply any damage whatsoever due to a previous fix that reordered how the damage was applied.
         - Will add a VFX effect for the explosion down the line, not for this update.
