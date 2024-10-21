@@ -41,7 +41,11 @@ namespace ArsonistMod.SkillStates
         private float energyflatCost;
 
         private bool isCharged = false;
+        private float baseTimeCharge = 0.75f;
+        private float chargeStopwatch = 0f;
 
+        private float skillStopwatch = 0f;
+        private bool finishUp = false;
 
         public override void OnEnter()
         {
@@ -54,7 +58,7 @@ namespace ArsonistMod.SkillStates
             Ray aimRay = GetAimRay();
             duration = baseDuration / attackSpeedStat;
 
-            characterBody.SetAimTimer(duration);
+            characterBody.SetAimTimer(duration + 1f);
             //this.muzzleString = "LHand";
 
             animator = GetModelAnimator();
@@ -65,28 +69,6 @@ namespace ArsonistMod.SkillStates
             //Get MuzzlePos
             ChildLocator childLoc = GetModelChildLocator();
             muzzlePos = childLoc.FindChild(muzzleString);
-
-            //energy
-            energyflatCost = Energy;
-            if (energyflatCost < 0f) energyflatCost = 1f;
-
-            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
-            if (energyCost < 0f) energyCost = 1f;
-
-            if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
-            {
-                FireBolt();
-                energySystem.AddHeat(energyCost);
-
-                new PlaySoundNetworkRequest(base.characterBody.netId, 4235059291).Send(R2API.Networking.NetworkDestination.Clients);
-            }
-            else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
-            {
-                FireBall();
-
-                new PlaySoundNetworkRequest(base.characterBody.netId, 553582860).Send(R2API.Networking.NetworkDestination.Clients);
-            }
-            base.characterBody.AddSpreadBloom(spreadBloomValue);
         }    
         public void FireBall()
         {
@@ -114,7 +96,7 @@ namespace ArsonistMod.SkillStates
                     smartCollision = true,
                     procChainMask = default(ProcChainMask),
                     procCoefficient = 1f,
-                    radius = 0.75f,
+                    radius = 0.5f,
                     sniper = false,
                     stopperMask = LayerIndex.world.mask,
                     weapon = null,
@@ -138,13 +120,30 @@ namespace ArsonistMod.SkillStates
                 //    speedOverride); //speed }
 
                 //TO DO: Rotate to proper ROT.
+                RaycastHit hit;
+                Physics.Raycast(aimRay, out hit, Mathf.Infinity, ~(1 << LayerIndex.world.mask), QueryTriggerInteraction.Ignore);
 
-                EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterWeakTracer, new EffectData
+                float distFromPoint = hit.distance;
+
+                if (hit.collider && hit.distance > 10f)
                 {
-                    origin = muzzlePos.position,
-                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
-                    scale = 1f
-                }, true);
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterWeakTracer, new EffectData
+                    {
+                        origin = muzzlePos.position,
+                        rotation = Quaternion.LookRotation(hit.point - muzzlePos.position, Vector3.up),
+                        scale = 1f
+                    }, true);
+                }
+                else
+                {
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterWeakTracer, new EffectData
+                    {
+                        origin = muzzlePos.position,
+                        rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                        scale = 1f
+                    }, true);
+                }
+
             }
 
         }
@@ -158,7 +157,7 @@ namespace ArsonistMod.SkillStates
                     if (hitInfo.hitHurtBox.healthComponent.body.teamComponent.teamIndex != TeamIndex.Player)
                     {
                         
-                        EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterStrongOnHit, new EffectData
+                        EffectManager.SpawnEffect(isCharged ? Modules.AssetsArsonist.fireballScepterStrongOnHit : Modules.AssetsArsonist.fireballScepterOnHit, new EffectData
                         {
                             origin = hitInfo.point,
                             rotation = Quaternion.LookRotation(hitInfo.surfaceNormal, Vector3.up),
@@ -174,6 +173,25 @@ namespace ArsonistMod.SkillStates
         {
             // Function should determine what type of bolt to fire based on charge state.
             //Only has two charged states.
+
+            //energy
+            energyflatCost = Energy;
+            if (energyflatCost < 0f) energyflatCost = 1f;
+
+            energyCost = energySystem.costmultiplierOverheat * energyflatCost;
+            if (energyCost < 0f) energyCost = 1f;
+
+            if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
+            {
+                energySystem.AddHeat(energyCost);
+
+                new PlaySoundNetworkRequest(base.characterBody.netId, 4235059291).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+            else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
+            {
+                new PlaySoundNetworkRequest(base.characterBody.netId, 553582860).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+            base.characterBody.AddSpreadBloom(spreadBloomValue);
 
             if (isOverheated) 
             {
@@ -227,17 +245,6 @@ namespace ArsonistMod.SkillStates
                     hitEffectPrefab = null,
                     tracerEffectPrefab = null, // Change this later
                 }.Fire();
-                //ProjectileManager.instance.FireProjectile(
-                //    Modules.Projectiles.artificerFirebolt, //prefab
-                //    origin, //position
-                //    Util.QuaternionSafeLookRotation(aimRay.direction), //rotation
-                //    gameObject, //owner
-                //    damageStat * coeff, //damage
-                //    strongforce, //force
-                //    Util.CheckRoll(critStat, characterBody.master), //crit
-                //    DamageColorIndex.Default, //damage color
-                //    null, //target
-                //    strongspeedOverride); //speed }
 
                 RaycastHit hit;
                 Physics.Raycast(aimRay, out hit, Mathf.Infinity, ~(1 << LayerIndex.world.mask), QueryTriggerInteraction.Ignore);
@@ -321,7 +328,7 @@ namespace ArsonistMod.SkillStates
 
                 if (hit.collider && hit.distance > 10f)
                 {
-                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterChargedTracer, new EffectData
+                    EffectManager.SpawnEffect(Modules.AssetsArsonist.fireballScepterTracer, new EffectData
                     {
                         origin = muzzlePos.position,
                         rotation = Quaternion.LookRotation(hit.point - muzzlePos.position, Vector3.up),
@@ -365,14 +372,33 @@ namespace ArsonistMod.SkillStates
         {
             base.FixedUpdate();
 
-            if (fixedAge >= duration && isAuthority && IsKeyDownAuthority())
+            //Check if player is holding down the button
+            // Fire bolt if not held for 0.75 seconds / attackspeed
+            // Fire charged bolt if held for 0.75 seconds / attackspeed
+
+            if (base.isAuthority && IsKeyDownAuthority() && !finishUp)
             {
-                outer.SetNextState(new FireSprayScepter());
+                chargeStopwatch += Time.fixedDeltaTime;
+                if (chargeStopwatch >= baseTimeCharge / attackSpeedStat)
+                {
+                    isCharged = true;
+                }
             }
-            else if (fixedAge >= duration && isAuthority)
+
+            if (base.isAuthority && !IsKeyDownAuthority() && !finishUp) 
             {
-                outer.SetNextStateToMain();
-                return;
+                FireBeam(isCharged, energySystem.currentOverheat >= energySystem.maxOverheat);
+                finishUp = true;
+            }
+
+            if (finishUp && base.isAuthority) 
+            {
+                skillStopwatch += Time.fixedDeltaTime;
+
+                if (skillStopwatch >= duration)
+                {
+                   outer.SetNextStateToMain();
+                }
             }
         }
 
