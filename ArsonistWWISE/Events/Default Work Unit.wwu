@@ -796,6 +796,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Charge" ID="{95FEEC81-C7FD-4353-99F5-D6B95ECE65D8}">
+					<ChildrenList>
+						<Action Name="" ID="{B89B35D3-428C-4C34-95E4-B2EAB2F5E700}" ShortID="761520511">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_9_Scepter_Charge_Up" ID="{4E804B23-CACC-40FE-8A2D-7768E2DA2A25}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Charge_Complete" ID="{54D1A78D-9070-44AA-9590-40E48E650675}">
+					<ChildrenList>
+						<Action Name="" ID="{30CE6738-9381-490E-885D-71C48BC24682}" ShortID="990019935">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_8_Scepter_Charge_Complete" ID="{0A8A7110-ABD1-4599-87A6-92AE4A646EA6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Full_Charge_Fire" ID="{2F97BA78-CEF2-409C-B59D-1998F7025691}">
+					<ChildrenList>
+						<Action Name="" ID="{F477DF6D-742B-46A5-B991-4CE5EC36EB25}" ShortID="758724588">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_7_Scepter_FullCharge" ID="{31E6367D-2A77-4969-AD77-B304255E2997}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

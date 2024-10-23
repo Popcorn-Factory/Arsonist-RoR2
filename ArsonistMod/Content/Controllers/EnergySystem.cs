@@ -47,6 +47,10 @@ namespace ArsonistMod.Content.Controllers
         public bool enabledUI;
 
         public bool isAcceleratedCooling;
+
+        //ScepterFireballGauge
+        public GameObject FireballGauge;
+
         
 
         //OLD

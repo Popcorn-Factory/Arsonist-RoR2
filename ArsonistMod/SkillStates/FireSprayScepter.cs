@@ -47,6 +47,8 @@ namespace ArsonistMod.SkillStates
         private float skillStopwatch = 0f;
         private bool finishUp = false;
 
+        private uint chargeSound;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -69,6 +71,10 @@ namespace ArsonistMod.SkillStates
             //Get MuzzlePos
             ChildLocator childLoc = GetModelChildLocator();
             muzzlePos = childLoc.FindChild(muzzleString);
+            
+            //Play Charge sound with variable time stretch.
+            AkSoundEngine.SetRTPCValue("PlaybackSpeed_Arsonist_Charge", attackSpeedStat);
+            chargeSound = AkSoundEngine.PostEvent(2746588547, this.gameObject);
         }    
         public void FireBall()
         {
@@ -173,6 +179,7 @@ namespace ArsonistMod.SkillStates
         {
             // Function should determine what type of bolt to fire based on charge state.
             //Only has two charged states.
+            AkSoundEngine.StopPlayingID(chargeSound);
 
             //energy
             energyflatCost = Energy;
@@ -185,7 +192,14 @@ namespace ArsonistMod.SkillStates
             {
                 energySystem.AddHeat(energyCost);
 
-                new PlaySoundNetworkRequest(base.characterBody.netId, 4235059291).Send(R2API.Networking.NetworkDestination.Clients);
+                if (isCharged)
+                {
+                    new PlaySoundNetworkRequest(base.characterBody.netId, 1324654014).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                else 
+                {
+                    new PlaySoundNetworkRequest(base.characterBody.netId, 4235059291).Send(R2API.Networking.NetworkDestination.Clients);
+                }
             }
             else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
             {
@@ -376,12 +390,14 @@ namespace ArsonistMod.SkillStates
             // Fire bolt if not held for 0.75 seconds / attackspeed
             // Fire charged bolt if held for 0.75 seconds / attackspeed
 
-            if (base.isAuthority && IsKeyDownAuthority() && !finishUp)
+            if (base.isAuthority && IsKeyDownAuthority() && !finishUp && !isCharged)
             {
                 chargeStopwatch += Time.fixedDeltaTime;
                 if (chargeStopwatch >= baseTimeCharge / attackSpeedStat)
                 {
                     isCharged = true;
+                    AkSoundEngine.PostEvent(1852205059, this.gameObject);
+                    AkSoundEngine.StopPlayingID(chargeSound);
                 }
             }
 

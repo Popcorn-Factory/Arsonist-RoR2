@@ -17,6 +17,13 @@
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="PlaybackSpeed_Arsonist_Charge" ID="{8166B8A5-B93F-4302-BA79-33DC40FD5643}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="14"/>
+						<Property Name="Max" Type="Real64" Value="50"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

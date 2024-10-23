@@ -11,6 +11,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	979568843	Arsonist_Flamethrower_Scepter_Start			\Default Work Unit\Arsonist_Flamethrower_Scepter_Start	
 	1135082308	Arsonist_Stop_ZPB_Fluff			\Default Work Unit\Arsonist_Stop_ZPB_Fluff	
 	1155150252	Arsonist_Idle_Stop			\Default Work Unit\Arsonist_Idle_Stop	
+	1324654014	Arsonist_Primary_Scepter_Full_Charge_Fire			\Default Work Unit\Arsonist_Primary_Scepter_Full_Charge_Fire	
 	1362851720	Arsonist_Idle_Taunt			\Default Work Unit\Arsonist_Idle_Taunt	
 	1397846719	Arsonist_Primary_Scepter_OnHit			\Default Work Unit\Arsonist_Primary_Scepter_OnHit	
 	1419365914	Arsonist_Neomasochism_Duration_No_Pulse			\Default Work Unit\Arsonist_Neomasochism_Duration_No_Pulse	
@@ -20,6 +21,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1597575822	Arsonist_Secondary_Flare_Punch_Contact			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Contact	
 	1608533803	Arsonist_Secondary_Flare_Projectile_Overheat			\Default Work Unit\Arsonist_Secondary_Flare_Projectile_Overheat	
 	1840962711	Arsonist_Masochism			\Default Work Unit\Arsonist_Masochism	
+	1852205059	Arsonist_Primary_Scepter_Charge_Complete			\Default Work Unit\Arsonist_Primary_Scepter_Charge_Complete	
 	1864761202	Arsonist_Flamethrower_Scepter_Burning			\Default Work Unit\Arsonist_Flamethrower_Scepter_Burning	
 	1924783034	Arsonist_Cleanse			\Default Work Unit\Arsonist_Cleanse	
 	1951821374	Arsonist_Neomasochism_Laugh_Firebug			\Default Work Unit\Arsonist_Neomasochism_Laugh_Firebug	
@@ -32,6 +34,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2517450375	Arsonist_Secondary_Flare_Punch_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Punch_Explosion	
 	2615494976	Arsonist_Primary_Fire_Travel_Stop			\Default Work Unit\Arsonist_Primary_Fire_Travel_Stop	
 	2698275145	Arsonist_Secondary_Flare_Projectile_Impact			\Default Work Unit\Arsonist_Secondary_Flare_Projectile_Impact	
+	2746588547	Arsonist_Primary_Scepter_Charge			\Default Work Unit\Arsonist_Primary_Scepter_Charge	
 	2767633755	Arsonist_Secondary_Flare_Voiceline			\Default Work Unit\Arsonist_Secondary_Flare_Voiceline	
 	2881057417	Arsonist_Neomasochism_Laugh			\Default Work Unit\Arsonist_Neomasochism_Laugh	
 	3061346618	Arsonist_Secondary_Flare_Explosion			\Default Work Unit\Arsonist_Secondary_Flare_Explosion	
@@ -56,14 +59,19 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	988679239	Volume_ArsonistVoice_Arsonist			\Default Work Unit\Volume_ArsonistVoice_Arsonist	
 	1264562516	Volume_ArsonistSFX			\Default Work Unit\Volume_ArsonistSFX	
 	1868460931	Volume_ArsonistVoice			\Default Work Unit\Volume_ArsonistVoice	
+	1907826238	PlaybackSpeed_Arsonist_Charge			\Default Work Unit\PlaybackSpeed_Arsonist_Charge	
 	2549699868	Volume_ArsonistVoice_Firebug			\Default Work Unit\Volume_ArsonistVoice_Firebug	
 	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
 	3695994288	Volume_Master			\Default Work Unit\Volume_Master	
+
+Effect plug-ins	ID	Name	Type				Notes
+	381842791	Time Stretch (Custom)	Wwise Time Stretch			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	5203180	4_2_Secondary Flare Projectile Overheat	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2. Overheat_705A8E62.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\4_2_Secondary Flare Projectile Overheat		15214
 	20639472	1_2_Overheat_Finish	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Overheat\3. Overheat Finish_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\1_2_Overheat_Finish		70085
 	34150984	Arsonist_Masochism_2_0_Only_Voices_01	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Arsonist_Masochism_2.0_Only_Voices_3E17CE0A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Arsonist\6_0_Masochism_Voice\Arsonist_Masochism_2_0_Only_Voices_01		54705
+	51318196	3_8_Scepter_Charge_Complete	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Charge Complete_6422C21F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\3_8_Scepter_Charge_Complete		11948
 	65815467	Firebug_ZPB_2_0_Just_Voices_02	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Firebug_ZPB_2.0_Just_Voices_8177C2E3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\5_3_ZPB_Firebug_Voice\Firebug_ZPB_2_0_Just_Voices_02		27592
 	83830840	Firebug_ZPB_2_0_Just_Voices_03	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Firebug_ZPB_2.0_Just_Voices_A33CC7C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\5_3_ZPB_Firebug_Voice\Firebug_ZPB_2_0_Just_Voices_03		31287
 	98736392	Firebug_Flare_Bang_1	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Firebug_Flare_Bang_1_C76A9CDA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\4_9_Secondary_Flare_Voiceline_Firebug\Firebug_Flare_Bang_1		27024
@@ -71,6 +79,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	109192780	9_4_Flamethrower_Scepter_End	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\3. End_4D74AE4E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\9_4_Flamethrower_Scepter_End		23138
 	136757640	Arsonist_ZPB_2_0_Only_Voices_01	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Arsonist_ZPB_2.0_Only_Voices_91357632.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Arsonist\5_2_ZPB_Arsonist_Voice\Arsonist_ZPB_2_0_Only_Voices_01		64709
 	151939271	Firebug_Flare_Bang_2	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Firebug_Flare_Bang_2_6FB4B515.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\4_9_Secondary_Flare_Voiceline_Firebug\Firebug_Flare_Bang_2		15274
+	155282618	3_9_Scepter_Charge_Up	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Chargeup start 0.75 sec_8C64949E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\3_9_Scepter_Charge_Up		25283
 	156089775	Arsonist_ZPB_2_0_Only_Voices_03	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Arsonist_ZPB_2.0_Only_Voices_51C521AD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Arsonist\5_2_ZPB_Arsonist_Voice\Arsonist_ZPB_2_0_Only_Voices_03		54698
 	214059166	6_5_Masochism_Laugh_Active	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1.75._Middle-duration_only_8D2F0B89.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\6_5_Masochism_Laugh_Active		258170
 	270484830	Firebug_Masochism_2_0_Only_Voices_01	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Firebug_Masochism_2.0_Only_Voices_01230107.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\6_1_Masochism_Firebug_Voice\Firebug_Masochism_2_0_Only_Voices_01		41656
@@ -123,6 +132,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	940311688	9_3_Flamethrower_Scepter_Start	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\1. Start_EBFDF357.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\9_3_Flamethrower_Scepter_Start		39114
 	965841612	UNUSED 6_1_Masochism_No_Laugh	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\4._Masochism_with_no_Laugh_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\UNUSED 6_1_Masochism_No_Laugh		102066
 	978651393	3_1_Primary_Fire_Overheated	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\2._Overheat_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\3_1_Primary_Fire_Overheated		36819
+	983539864	3_7_Scepter_FullCharge	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\BaseM1 Ancient Fullcharge_2C92E2EF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Arsonist SFX Mixer\3_7_Scepter_FullCharge		50693
 	986803567	ArsonistFireballFunnybutFiltered_2	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\ArsonistFireballFunnybutFiltered_2_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Arsonist\4_8_Secondary_Flare_Voiceline\ArsonistFireballFunnybutFiltered_2		38827
 	1004312520	Firebug_Flare_Bang_3	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Firebug_Flare_Bang_3_A36C4EBF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\4_9_Secondary_Flare_Voiceline_Firebug\Firebug_Flare_Bang_3		17294
 	1015006091	Idle_Moth_1	F:\coding\Arsonist-RoR2\ArsonistWWISE\.cache\Windows\SFX\Idle_Moth_1_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\Voice Master\Firebug\10_1_Idle_Arsonist_Firebug\Idle_Moth_1		111950
