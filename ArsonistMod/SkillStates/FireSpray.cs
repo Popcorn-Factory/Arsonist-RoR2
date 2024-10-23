@@ -38,6 +38,12 @@ namespace ArsonistMod.SkillStates
         private float energyCost;
         private float energyflatCost;
 
+        private float surgeTimer;
+        private float surgeWait = 0.15f;
+        private bool surgeFired;
+        private bool fireSurgeShot;
+        private bool surgeFiredOverheated;
+
 
         public override void OnEnter()
         {
@@ -69,20 +75,27 @@ namespace ArsonistMod.SkillStates
             energyCost = energySystem.costmultiplierOverheat * energyflatCost;
             if (energyCost < 0f) energyCost = 1f;
 
+            fireSurgeShot = characterBody.HasBuff(Modules.Buffs.masochismSurgeActiveBuff);
+
             if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
             {
                 FireBolt();
                 energySystem.AddHeat(energyCost);
-
+                surgeFiredOverheated = false;
                 new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
             }
             else if (energySystem.currentOverheat >= energySystem.maxOverheat && base.isAuthority)
             {
                 FireBall();
-
+                surgeFiredOverheated = true;
                 new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
             }
             base.characterBody.AddSpreadBloom(spreadBloomValue);
+
+            if (duration < surgeWait) 
+            {
+                surgeWait = duration;
+            }
         }    
         public void FireBall()
         {
@@ -152,6 +165,26 @@ namespace ArsonistMod.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            if (fireSurgeShot) 
+            {
+                surgeTimer += Time.fixedDeltaTime;
+            }
+
+            if (surgeTimer > surgeWait && !surgeFired && base.isAuthority && fireSurgeShot) 
+            {
+                surgeFired = true;
+                if (surgeFiredOverheated)
+                {
+                    FireBall();
+                    new PlaySoundNetworkRequest(base.characterBody.netId, 2300744954).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                else 
+                {
+                    FireBolt();
+                    new PlaySoundNetworkRequest(base.characterBody.netId, 470984906).Send(R2API.Networking.NetworkDestination.Clients);
+                }
+            }
 
             if (fixedAge >= duration && isAuthority && IsKeyDownAuthority())
             {

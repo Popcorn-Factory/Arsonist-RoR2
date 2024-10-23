@@ -73,10 +73,10 @@ namespace ArsonistMod.Modules
         internal static int flamethrowerBaseTickRate = 2; //per half sec
 
         //Flamethrower Scepter: Has the same stats except damage.
-        internal static float flamethrowerScepterStrongDamageCoefficient = 1.1f;
-        internal static float flamethrowerScepterWeakDamageCoefficient = 0.70f;
-        internal static float altFlamethrowerScepterStrongDamageCoefficient = 1.2f;
-        internal static float altFlamethrowerScepterWeakDamageCoefficient = 0.8f;
+        internal static float flamethrowerScepterStrongDamageCoefficient = 1.4f;
+        internal static float flamethrowerScepterWeakDamageCoefficient = 0.90f;
+        internal static float altFlamethrowerScepterStrongDamageCoefficient = 1.5f;
+        internal static float altFlamethrowerScepterWeakDamageCoefficient = 0.95f;
 
         //Alt-flamethrower
         internal static float altFlamethrowerStrongDamageCoefficient = 1f;
@@ -128,5 +128,13 @@ namespace ArsonistMod.Modules
 
         internal static float masochismMoveSpeedPenalty = 0.7f;
         internal static float masochismDamagePenalty = 0.7f;
+
+        // masochism : surge
+        internal static float masochismSurgeSelfDamage = 0.04f;
+        internal static float masochismSurgeMoveSpeedMultiplier = 1.5f;
+        internal static float masochismSurgeBlastRadius = 12f;
+        internal static float masochismSurgeFinalBlastCoefficient = 1.5f;
+        internal static float masochismSurgeMultiplierPerStack = 1.2f;
+        internal static float masochismSurgeMaxMultipliedRange = 3f;
     }
 }

@@ -112,6 +112,7 @@ namespace ArsonistMod.Content.Controllers
 
         //Masochism monitoring
         public MasochismController masoCon;
+        public MasochismSurgeController masoSurgeController;
 
         //Overheated?
         public bool hasOverheatedThisStage = false;
@@ -359,6 +360,11 @@ namespace ArsonistMod.Content.Controllers
                 //Add the component.
                 masoCon = gameObject.AddComponent<MasochismController>();
                 //This should be destroyed with the body I guess.
+            }
+
+            if (characterBody.skillLocator.special.skillName == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_SURGE_NAME") 
+            {
+                masoSurgeController = gameObject.AddComponent<MasochismSurgeController>();
             }
         }
 
@@ -976,6 +982,11 @@ namespace ArsonistMod.Content.Controllers
             {
                 masoCon.heatChanged += Energy + flatOverheat;
             }
+
+            if (masoSurgeController) 
+            {
+                masoSurgeController.heatChanged += Energy + flatOverheat;
+            }
         }
 
         public void AddHeat(float Energy) 
@@ -1007,6 +1018,11 @@ namespace ArsonistMod.Content.Controllers
             if (masoCon)
             {
                 masoCon.heatChanged += realHeatGained + flatOverheat;
+            }
+
+            if (masoSurgeController)
+            {
+                masoSurgeController.heatChanged += realHeatGained + flatOverheat;
             }
         }
 
