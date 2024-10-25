@@ -30,6 +30,9 @@ namespace ArsonistMod.Content.Controllers
         public BlastAttack finalBlastAttack;
         public float stopwatch;
 
+        //Sound loop
+        public uint masochismActiveLoop;
+
         public void Start() 
         {
             skillLocator = GetComponent<SkillLocator>();
@@ -85,6 +88,9 @@ namespace ArsonistMod.Content.Controllers
             selfDamageStopwatch += Time.fixedDeltaTime;
             stopwatch += Time.fixedDeltaTime;
 
+            //Apply appropriate buff
+            characterBody.ApplyBuff(Modules.Buffs.masochismSurgeActiveBuff.buffIndex, 1, -1f);
+
             // Self inflict damage 
             if (selfDamageStopwatch >= Modules.StaticValues.masochismBasePulseSelfDamageTimer)
             {
@@ -123,7 +129,8 @@ namespace ArsonistMod.Content.Controllers
 
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
-            //new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
+            AkSoundEngine.StopPlayingID(masochismActiveLoop);
+            new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
 
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             finalBlastAttack.position = gameObject.transform.position;
@@ -150,13 +157,25 @@ namespace ArsonistMod.Content.Controllers
                 }
 
 
-                characterBody.ApplyBuff(Modules.Buffs.masochismActiveBuff.buffIndex, 0, -1f);
+                characterBody.ApplyBuff(Modules.Buffs.masochismSurgeActiveBuff.buffIndex, 0, -1f);
             }
             catch (Exception ex)
             {
                 Debug.Log(ex);
             }
         }
+
+        public void ActivateMaso()
+        {
+            // Heat raised must be raised by 15%.
+            masochismActive = true;
+            energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
+            energySystem.ifOverheatRegenAllowed = false;
+
+
+            masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
+        }
+
 
         public void DisableMasochism()
         {

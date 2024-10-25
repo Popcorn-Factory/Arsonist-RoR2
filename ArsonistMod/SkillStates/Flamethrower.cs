@@ -49,6 +49,7 @@ namespace ArsonistMod.SkillStates
 
         private bool playEnd;
 
+        private bool isSurged;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -58,6 +59,7 @@ namespace ArsonistMod.SkillStates
             controller = characterBody.gameObject.GetComponent<ArsonistController>();
             isBlue = passive.isBlueGauge();
             characterBody.isSprinting = false;
+            isSurged = characterBody.HasBuff(Modules.Buffs.masochismSurgeActiveBuff);
 
             //Calculate how much damage/stats whatever using the energy system 
             //energy
@@ -74,6 +76,10 @@ namespace ArsonistMod.SkillStates
             }
 
             tickRate = (int)(baseTickRate * base.attackSpeedStat);
+            if (isSurged) 
+            {
+                tickRate = (int)(tickRate * Modules.StaticValues.masochismSurgeFlamethrowerTickRateMultiplier);
+            }
             interval = duration / (float)tickRate;
 
             characterBody.SetAimTimer(duration * 2f);

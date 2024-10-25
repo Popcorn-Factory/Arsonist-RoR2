@@ -66,11 +66,8 @@ namespace ArsonistMod.SkillStates
 
             if (maso)
             {
-                if (maso)
-                {
-                    maso.masoRecentlyActivated = true;
-                }
-            } 
+                maso.masoRecentlyActivated = true;
+            }
 
             if (maso && maso.masochismActive && base.isAuthority) 
             {

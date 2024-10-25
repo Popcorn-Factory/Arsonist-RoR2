@@ -49,6 +49,12 @@ namespace ArsonistMod.SkillStates
 
         private uint chargeSound;
 
+        private float surgeTimer;
+        private float surgeWait = 0.15f;
+        private bool surgeFired;
+        private bool fireSurgeShot;
+        private bool surgeFiredOverheated;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -75,6 +81,13 @@ namespace ArsonistMod.SkillStates
             //Play Charge sound with variable time stretch.
             AkSoundEngine.SetRTPCValue("PlaybackSpeed_Arsonist_Charge", attackSpeedStat);
             chargeSound = AkSoundEngine.PostEvent(2746588547, this.gameObject);
+
+            fireSurgeShot = characterBody.HasBuff(Modules.Buffs.masochismSurgeActiveBuff);
+
+            if (duration < surgeWait)
+            {
+                surgeWait = duration;
+            }
         }    
         public void FireBall()
         {
@@ -209,15 +222,18 @@ namespace ArsonistMod.SkillStates
 
             if (isOverheated) 
             {
+                surgeFiredOverheated = true;
                 FireBall();
             }
 
             if (isCharged)
             {
+                surgeFiredOverheated = false;
                 FireChargedBolt();
             }
             else 
             {
+                surgeFiredOverheated = false;
                 FireBolt();
             }
         }
@@ -410,6 +426,35 @@ namespace ArsonistMod.SkillStates
             if (finishUp && base.isAuthority) 
             {
                 skillStopwatch += Time.fixedDeltaTime;
+
+                if (fireSurgeShot)
+                {
+                    surgeTimer += Time.fixedDeltaTime;
+                }
+
+                if (surgeTimer > surgeWait && !surgeFired && base.isAuthority && fireSurgeShot)
+                {
+                    surgeFired = true;
+                    if (surgeFiredOverheated)
+                    {
+                        FireBall();
+                        new PlaySoundNetworkRequest(base.characterBody.netId, 553582860).Send(R2API.Networking.NetworkDestination.Clients);
+                    }
+                    else
+                    {
+                        if (isCharged)
+                        {
+                            new PlaySoundNetworkRequest(base.characterBody.netId, 1324654014).Send(R2API.Networking.NetworkDestination.Clients);
+                            FireChargedBolt();
+                        }
+                        else 
+                        {
+
+                            new PlaySoundNetworkRequest(base.characterBody.netId, 4235059291).Send(R2API.Networking.NetworkDestination.Clients);
+                            FireBolt();
+                        }
+                    }
+                }
 
                 if (skillStopwatch >= duration)
                 {

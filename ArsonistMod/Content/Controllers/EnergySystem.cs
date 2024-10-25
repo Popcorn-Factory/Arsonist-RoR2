@@ -362,7 +362,7 @@ namespace ArsonistMod.Content.Controllers
                 //This should be destroyed with the body I guess.
             }
 
-            if (characterBody.skillLocator.special.skillName == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_SURGE_NAME") 
+            if (characterBody.skillLocator.special.skillNameToken == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_SURGE_NAME") 
             {
                 masoSurgeController = gameObject.AddComponent<MasochismSurgeController>();
             }

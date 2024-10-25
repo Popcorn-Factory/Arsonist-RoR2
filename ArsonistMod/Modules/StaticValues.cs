@@ -133,8 +133,9 @@ namespace ArsonistMod.Modules
         internal static float masochismSurgeSelfDamage = 0.04f;
         internal static float masochismSurgeMoveSpeedMultiplier = 1.5f;
         internal static float masochismSurgeBlastRadius = 12f;
-        internal static float masochismSurgeFinalBlastCoefficient = 1.5f;
-        internal static float masochismSurgeMultiplierPerStack = 1.2f;
+        internal static float masochismSurgeFinalBlastCoefficient = 0.7f;
+        internal static float masochismSurgeMultiplierPerStack = 1.05f;
         internal static float masochismSurgeMaxMultipliedRange = 3f;
+        internal static float masochismSurgeFlamethrowerTickRateMultiplier = 1.5f;
     }
 }
