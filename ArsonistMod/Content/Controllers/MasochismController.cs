@@ -359,6 +359,8 @@ namespace ArsonistMod.Content.Controllers
             heatChanged = 0f;
             forceReset = true;
 
+
+
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
@@ -376,6 +378,14 @@ namespace ArsonistMod.Content.Controllers
             float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
             finalBlastAttack.radius = Modules.StaticValues.masochismPulseRadius * radMultiplier;
             finalBlastAttack.damageType = DamageType.IgniteOnHit;
+
+            EffectManager.SpawnEffect(Modules.AssetsArsonist.masoExplosion,
+            new EffectData
+            {
+                origin = gameObject.transform.position,
+                rotation = Quaternion.identity,
+                scale = Modules.StaticValues.masochismPulseRadius * radMultiplier
+            }, true);
 
             finalBlastAttack.Fire();
             //Debug.Log($"Applied damage on blast: {finalBlastAttack.baseDamage} masoStack: {masoStacksAccumulated} radMultiplier: {finalBlastAttack.radius}");

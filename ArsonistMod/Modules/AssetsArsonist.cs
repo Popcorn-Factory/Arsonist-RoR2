@@ -58,6 +58,8 @@ namespace ArsonistMod.Modules
 
         //MasoSphere
         internal static GameObject masoSphereIndicator;
+        internal static GameObject masoExplosion;
+        internal static GameObject masoExplosionBlue;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -263,6 +265,13 @@ namespace ArsonistMod.Modules
             fireballScepterWeakTracer = LoadEffect("ScepterFireballWeak", "", false, true, 1f);
             fireballScepterOnHit = LoadEffect("OnHitScepterFireball", "Arsonist_Primary_Scepter_OnHit", false, true, 0.5f);
             fireballScepterStrongOnHit = LoadEffect("OnHitScepterFireballStrong", "Arsonist_Primary_Scepter_OnHit", false, true, 0.5f);
+
+            masoExplosion = LoadEffect("MasochismExplosion", "", false, true, 1.5f);
+            EffectComponent masoExplosionEffectComponent = masoExplosion.GetComponent<EffectComponent>();
+            masoExplosionEffectComponent.applyScale = true;
+            masoExplosionBlue = LoadEffect("MasochismExplosionBlue", "", false, true, 1.5f);
+            EffectComponent masoExplosionBlueEffectComponent = masoExplosionBlue.GetComponent<EffectComponent>();
+            masoExplosionBlueEffectComponent.applyScale = true;
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab, float speed = 100f, float length = 100f)

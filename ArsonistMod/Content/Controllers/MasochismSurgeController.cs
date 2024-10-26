@@ -142,13 +142,20 @@ namespace ArsonistMod.Content.Controllers
 
             finalBlastAttack.Fire();
             //Debug.Log($"Applied damage on blast: {finalBlastAttack.baseDamage} masoStack: {masoStacksAccumulated} radMultiplier: {finalBlastAttack.radius}");
-
+            
+            EffectManager.SpawnEffect(Modules.AssetsArsonist.masoExplosionBlue,
+                new EffectData
+                {
+                    origin = gameObject.transform.position,
+                    rotation = Quaternion.identity,
+                    scale = Modules.StaticValues.masochismPulseRadius * radMultiplier
+                }, true);
 
             //Apply the debuff
             try
             {
                 if (applyDebuff)
-                {
+                {   
                     characterBody.ApplyBuff(Modules.Buffs.masochismDeactivatedDebuff.buffIndex, 1, -1);
                 }
                 else

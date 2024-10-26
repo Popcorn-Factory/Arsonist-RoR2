@@ -48,6 +48,7 @@ Material:
     - _TimeMultiplier: 0.5
     - _UpperLerpOpacity: 1
     - _Vertexoffset: 0.01
+    - _glow: 1
     - _node_2837: 0.273
     - _node_507: 0
     - _node_924: 0

@@ -6,6 +6,7 @@ ShaderImporter:
   - _TextureInput: {fileID: 2800000, guid: 770769568ac7b4b46bab4e7b5fe0259f, type: 3}
   - _OneMinusTexture: {fileID: 2800000, guid: f2aee5fafb274e649b1070cbbe01b7bb, type: 3}
   nonModifiableTextures: []
+  preprocessorOverride: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
