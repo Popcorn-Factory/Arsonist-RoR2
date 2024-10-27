@@ -123,7 +123,20 @@ namespace ArsonistMod.Content.Controllers
 
             int masoStacksAccumulated = masoStacks;
 
-            masoStacks = 0;
+            //Do not reset stacks, instead delete stacks that have been used depending on time spent in maso surge.
+            int stocksToRemove = (int)stopwatch;
+
+            if (stocksToRemove > Modules.Config.masochismMaximumStack.Value) 
+            {
+                stocksToRemove = Modules.Config.masochismMaximumStack.Value;
+            }
+
+            masoStacks -= stocksToRemove;
+            if (masoStacks < 0) 
+            {
+                masoStacks = 0;
+            }
+
             heatChanged = 0f;
             forceReset = true;
 
@@ -179,6 +192,7 @@ namespace ArsonistMod.Content.Controllers
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
 
+            masoStacks--;
 
             masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
         }
