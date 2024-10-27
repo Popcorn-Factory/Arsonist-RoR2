@@ -124,6 +124,9 @@ namespace ArsonistMod.Content.Controllers
 
         public float updateSegment = 0.5f;
         public float segmentTimer = 0f;
+
+        //maso specific
+        public bool disableHeatGainMaso = false;
         
         public void Awake()
         {
@@ -983,7 +986,7 @@ namespace ArsonistMod.Content.Controllers
                 masoCon.heatChanged += Energy + flatOverheat;
             }
 
-            if (masoSurgeController) 
+            if (masoSurgeController && !disableHeatGainMaso) 
             {
                 masoSurgeController.heatChanged += Energy + flatOverheat;
             }
@@ -1020,7 +1023,7 @@ namespace ArsonistMod.Content.Controllers
                 masoCon.heatChanged += realHeatGained + flatOverheat;
             }
 
-            if (masoSurgeController)
+            if (masoSurgeController && !disableHeatGainMaso)
             {
                 masoSurgeController.heatChanged += realHeatGained + flatOverheat;
             }

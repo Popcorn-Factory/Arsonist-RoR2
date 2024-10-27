@@ -33,6 +33,8 @@ namespace ArsonistMod.Content.Controllers
         //Sound loop
         public uint masochismActiveLoop;
 
+        public int masoStackOnUse;
+
         public void Start() 
         {
             skillLocator = GetComponent<SkillLocator>();
@@ -101,7 +103,7 @@ namespace ArsonistMod.Content.Controllers
             // Accumulate heat over time
             energySystem.AddHeat(energySystem.maxOverheat * Modules.StaticValues.masochismEnergyIncreaseOverTimePercentage * Time.fixedDeltaTime);
 
-            if (stopwatch >= (float)masoStacks)
+            if (stopwatch >= (float)masoStackOnUse)
             {
                 TriggerMasochismAndEXOverheat(false);
             }
@@ -114,6 +116,9 @@ namespace ArsonistMod.Content.Controllers
 
         public void TriggerMasochismAndEXOverheat(bool applyDebuff)
         {
+            //Do not reset stacks, instead delete stacks that have been used depending on time spent in maso surge.
+            int stocksToRemove = (int)stopwatch;
+         
             //Disable early in case the other systems return null and break this shit.
             masochismActive = false;
             stopwatch = 0f;
@@ -121,15 +126,26 @@ namespace ArsonistMod.Content.Controllers
             energySystem.lowerBound = 0f;
             energySystem.ifOverheatRegenAllowed = true;
 
-            int masoStacksAccumulated = masoStacks;
+            // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
+            energySystem.AddHeat(energySystem.maxOverheat * 2f);
+            // Prevent overheat from adding heat gain to gauge before this happens.
+            energySystem.disableHeatGainMaso = false;
 
-            //Do not reset stacks, instead delete stacks that have been used depending on time spent in maso surge.
-            int stocksToRemove = (int)stopwatch;
+            int masoStacksAccumulated = masoStackOnUse;
+
+
 
             if (stocksToRemove > Modules.Config.masochismMaximumStack.Value) 
             {
                 stocksToRemove = Modules.Config.masochismMaximumStack.Value;
             }
+
+            if (stocksToRemove <= 0) 
+            {
+                stocksToRemove = 1;
+            }
+
+            //Debug.Log($"Masostacks: {masoStacks} StocksToRemove: {stocksToRemove} masoStackOnUse: {masoStackOnUse}");
 
             masoStacks -= stocksToRemove;
             if (masoStacks < 0) 
@@ -138,10 +154,7 @@ namespace ArsonistMod.Content.Controllers
             }
 
             heatChanged = 0f;
-            forceReset = true;
 
-            // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
-            energySystem.AddHeat(energySystem.maxOverheat * 2f);
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
             new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
 
@@ -161,7 +174,7 @@ namespace ArsonistMod.Content.Controllers
                 {
                     origin = gameObject.transform.position,
                     rotation = Quaternion.identity,
-                    scale = Modules.StaticValues.masochismPulseRadius * radMultiplier
+                    scale = Modules.StaticValues.masochismSurgeBlastRadius * radMultiplier
                 }, true);
 
             //Apply the debuff
@@ -191,6 +204,9 @@ namespace ArsonistMod.Content.Controllers
             masochismActive = true;
             energySystem.lowerBound = energySystem.maxOverheat * Modules.StaticValues.masochismActiveLowerBoundHeat;
             energySystem.ifOverheatRegenAllowed = false;
+            energySystem.disableHeatGainMaso = true;
+
+            masoStackOnUse = masoStacks;
 
             masoStacks--;
 
@@ -271,6 +287,13 @@ namespace ArsonistMod.Content.Controllers
         public void DetermineMasoActivateable()
         {
             if (masoStacks >= Modules.Config.masochismMinimumRequiredToActivate.Value)
+            {
+                if (skillLocator.special.stock < 1)
+                {
+                    skillLocator.special.AddOneStock();
+                }
+            }
+            else if (masochismActive) 
             {
                 if (skillLocator.special.stock < 1)
                 {

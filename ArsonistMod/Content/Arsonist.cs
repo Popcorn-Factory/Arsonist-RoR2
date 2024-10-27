@@ -716,7 +716,7 @@ namespace ArsonistMod.Modules.Survivors
                 keywordTokens = new string[] {
                     prefix + "KEYWORD_MASO_ANTICIPATION",
                     prefix + "KEYWORD_MASO_DOUBLE_TAP",
-                    prefix + "KEYWORD_MASO_LIFESTEAL",
+                    prefix + "KEYWORD_MASO_SURGE_LIFESTEAL",
                     prefix + "KEYWORD_MASO_DETONATE",
                     prefix + "KEYWORD_OVERHEAT_MASO"}
             });

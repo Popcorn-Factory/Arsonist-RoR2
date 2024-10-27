@@ -26,6 +26,7 @@ namespace ArsonistMod.SkillStates
         private float altDamageCoefficient = Modules.StaticValues.altFiresprayScepterWeakDamageCoefficient;
         private float strongdamageCoefficient = Modules.StaticValues.firesprayScepterStrongDamageCoefficient;
         private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayScepterStrongDamageCoefficient;
+        private float chargedMultiplier = 1.5f;
         private float range = Modules.StaticValues.firesprayScepterRange;
         public static float spreadBloomValue = 10f;
         private float force = 400f;
@@ -257,7 +258,7 @@ namespace ArsonistMod.SkillStates
                     bulletCount = 1,
                     aimVector = aimRay.direction,
                     origin = aimRay.origin,
-                    damage = damageStat * coeff,
+                    damage = damageStat * coeff * chargedMultiplier,
                     damageColorIndex = DamageColorIndex.Default,
                     damageType = DamageType.Generic,
                     falloffModel = BulletAttack.FalloffModel.None,
