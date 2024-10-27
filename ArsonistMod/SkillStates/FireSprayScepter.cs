@@ -70,9 +70,6 @@ namespace ArsonistMod.SkillStates
             //this.muzzleString = "LHand";
 
             animator = GetModelAnimator();
-            this.animator.SetBool("attacking", true);
-            GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
-            PlayCrossfade("Gesture, Override", "FireSpray", "Attack.playbackRate", duration, 0.1f);
 
             //Get MuzzlePos
             ChildLocator childLoc = GetModelChildLocator();
@@ -88,7 +85,15 @@ namespace ArsonistMod.SkillStates
             {
                 surgeWait = duration;
             }
-        }    
+        }
+
+        public void PlayAttackAnimation() 
+        {
+            this.animator.SetBool("attacking", true);
+            GetModelAnimator().SetFloat("Attack.playbackRate", attackSpeedStat);
+            PlayCrossfade("Gesture, Override", "FireSpray", "Attack.playbackRate", duration, 0.1f);
+        }
+
         public void FireBall()
         {
             Ray aimRay = GetAimRay();
@@ -193,6 +198,8 @@ namespace ArsonistMod.SkillStates
             // Function should determine what type of bolt to fire based on charge state.
             //Only has two charged states.
             AkSoundEngine.StopPlayingID(chargeSound);
+
+            PlayAttackAnimation();
 
             //energy
             energyflatCost = Energy;

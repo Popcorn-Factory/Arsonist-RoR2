@@ -39,6 +39,13 @@ namespace ArsonistMod.SkillStates
 
             if (energySystem)
             {
+                //Disallow execution if the user has overheat maxed out.
+                if (energySystem.ifOverheatMaxed)
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
+
                 energySystem.SetCurrentHeatToLowerBound();
             }
 
