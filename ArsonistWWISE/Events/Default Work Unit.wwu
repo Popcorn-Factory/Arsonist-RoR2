@@ -829,6 +829,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Masochism_Denied" ID="{03AEDE55-170D-490A-BE1D-EAD77C76252B}">
+					<ChildrenList>
+						<Action Name="" ID="{0F7657E4-169A-4C13-9DA1-71EDA95634EA}" ShortID="209627606">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_11_Masochism_Deny" ID="{F5AD85B8-5BEA-47FF-BA5D-C9A037C27497}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_End_Blast" ID="{1C921316-58A3-46F9-B528-87FB0C68096A}">
+					<ChildrenList>
+						<Action Name="" ID="{98C52EBA-4E82-4962-8E9E-3F562C458AC4}" ShortID="388323920">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_7_Flamethrower_Scepter_Blast_Final" ID="{404D3891-78DD-4F49-AD26-3EFC53818032}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

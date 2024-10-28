@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Type="User" Language="SFX" Hash="{36B157B7-863A-368B-222C-1F0526D739B9}">
+		<SoundBank Id="1110381487" Type="User" Language="SFX" Hash="{858336E3-9191-05E3-5C8A-35CCE3216144}">
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
 			<Media>
@@ -27,7 +27,7 @@
 				</File>
 				<File Id="51318196" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Charge Complete.wav</ShortName>
-					<CachePath>SFX/Charge Complete_6422C21F.wem</CachePath>
+					<CachePath>SFX/Charge Complete_55B9F286.wem</CachePath>
 				</File>
 				<File Id="65815467" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
@@ -59,7 +59,7 @@
 				</File>
 				<File Id="155282618" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Chargeup start 0.75 sec.wav</ShortName>
-					<CachePath>SFX/Chargeup start 0.75 sec_8C64949E.wem</CachePath>
+					<CachePath>SFX/Chargeup start 0.75 sec_926294DB.wem</CachePath>
 				</File>
 				<File Id="156089775" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
@@ -148,6 +148,10 @@
 				<File Id="569545744" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
 					<CachePath>SFX/1. ZPB without laughs (start + travel _ contact)_75E0F03F.wem</CachePath>
+				</File>
+				<File Id="571899431" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>4. Beam Burst End.wav</ShortName>
+					<CachePath>SFX/4. Beam Burst End_BD257502.wem</CachePath>
 				</File>
 				<File Id="576447885" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>3.99_ZPB_contact.wav</ShortName>
@@ -271,11 +275,15 @@
 				</File>
 				<File Id="983539864" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BaseM1 Ancient Fullcharge.wav</ShortName>
-					<CachePath>SFX/BaseM1 Ancient Fullcharge_2C92E2EF.wem</CachePath>
+					<CachePath>SFX/BaseM1 Ancient Fullcharge_BBA3778E.wem</CachePath>
 				</File>
 				<File Id="986803567" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ArsonistFireballFunnybutFiltered_2.wav</ShortName>
 					<CachePath>SFX/ArsonistFireballFunnybutFiltered_2_8E324C96.wem</CachePath>
+				</File>
+				<File Id="988725582" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Masochism or Spite Denied.wav</ShortName>
+					<CachePath>SFX/Masochism or Spite Denied_5F7B1FDD.wem</CachePath>
 				</File>
 				<File Id="1004312520" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebug_Flare_Bang_3.wav</ShortName>
@@ -350,6 +358,11 @@
 						<MediaRef Id="109192780"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1685265643" Name="Arsonist_Flamethrower_Scepter_End_Blast">
+					<MediaRefs>
+						<MediaRef Id="571899431"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="979568843" Name="Arsonist_Flamethrower_Scepter_Start">
 					<MediaRefs>
 						<MediaRef Id="940311688"/>
@@ -378,6 +391,11 @@
 				<Event Id="1840962711" Name="Arsonist_Masochism">
 					<MediaRefs>
 						<MediaRef Id="965841612"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3575931215" Name="Arsonist_Masochism_Denied">
+					<MediaRefs>
+						<MediaRef Id="988725582"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3831238989" Name="Arsonist_Masochism_Laugh">
@@ -780,5 +798,5 @@
 			</AcousticTextures>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6D877A9F-A36F-8724-FCE5-E69DD81DECAD}</FileHash>
+	<FileHash>{DA5C9BCF-C0FD-EA72-E4D9-36D26A77B4F6}</FileHash>
 </SoundBanksInfo>

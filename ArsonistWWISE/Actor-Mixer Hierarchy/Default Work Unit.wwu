@@ -3076,6 +3076,80 @@
 												<ActiveSource Name="Chargeup start 0_75 sec" ID="{25DAF76E-D76D-422F-AAE5-BE24A3ACD839}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="9_7_Flamethrower_Scepter_Blast_Final" ID="{404D3891-78DD-4F49-AD26-3EFC53818032}" ShortID="374721285">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="4_ Beam Burst End" ID="{C035BCF6-C460-457E-A17A-E62F6D61ECDB}">
+													<PropertyList>
+														<Property Name="LoopEnd" Type="Real64" Value="2.98801059991744"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0413538856939284"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.99585927471571"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>4. Beam Burst End.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="571899431"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="4_ Beam Burst End" ID="{C035BCF6-C460-457E-A17A-E62F6D61ECDB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="6_11_Masochism_Deny" ID="{F5AD85B8-5BEA-47FF-BA5D-C9A037C27497}" ShortID="427517837">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Masochism or Spite Denied" ID="{AB73A652-DAEC-4122-A6A2-3B9B582EBBB6}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0520097714896433"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0361178968678078"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.906559211381976"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Masochism or Spite Denied.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="988725582"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Masochism or Spite Denied" ID="{AB73A652-DAEC-4122-A6A2-3B9B582EBBB6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 									<PositioningInfo>
 										<Panner Name="" ID="{17778E5D-5C7D-4EA2-A2F3-78F31B3E414B}"/>

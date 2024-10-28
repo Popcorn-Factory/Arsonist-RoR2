@@ -37,13 +37,13 @@ namespace ArsonistMod.SkillStates
             energySystem = gameObject.GetComponent<EnergySystem>();
             duration = baseDuration;
 
-            if (energySystem) 
+            if (energySystem && base.isAuthority)
             {
-
                 //Disallow execution if the user has overheat maxed out.
-                if (energySystem.ifOverheatMaxed) 
+                if (energySystem.ifOverheatMaxed)
                 {
-                    this.outer.SetNextStateToMain(); 
+                    new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Masochism_Denied").Send(NetworkDestination.Clients);
+                    this.outer.SetNextStateToMain();
                     return;
                 }
 
