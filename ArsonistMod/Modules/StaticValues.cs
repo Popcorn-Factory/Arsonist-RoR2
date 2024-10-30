@@ -77,6 +77,7 @@ namespace ArsonistMod.Modules
         internal static float flamethrowerScepterWeakDamageCoefficient = 0.90f;
         internal static float altFlamethrowerScepterStrongDamageCoefficient = 1.5f;
         internal static float altFlamethrowerScepterWeakDamageCoefficient = 0.95f;
+        internal static float flamethrowerScepterBlastDamageCoefficient = 1.5f;
 
         //Alt-flamethrower
         internal static float altFlamethrowerStrongDamageCoefficient = 1f;
@@ -115,7 +116,7 @@ namespace ArsonistMod.Modules
         internal static float masochismBasePulseTimer = 1.2f;
         internal static float masochismActiveLowerBoundHeat = 0.15f;
         internal static float masochismBasePulseSelfDamageTimer = 0.6f;
-        internal static float masochismSelfDamage = 0.04f;
+        internal static float masochismSelfDamage = 0.06f;
         internal static float masochismEnergyIncreaseOverTimePercentage = 0.08f;
         internal static float masochismPulseRadius = 10f;
         internal static float masochismPulseCoefficient = 0.4f;
@@ -130,7 +131,7 @@ namespace ArsonistMod.Modules
         internal static float masochismDamagePenalty = 0.7f;
 
         // masochism : surge
-        internal static float masochismSurgeSelfDamage = 0.04f;
+        internal static float masochismSurgeSelfDamage = 0.06f;
         internal static float masochismSurgeMoveSpeedMultiplier = 1.5f;
         internal static float masochismSurgeBlastRadius = 12f;
         internal static float masochismSurgeFinalBlastCoefficient = 0.7f;

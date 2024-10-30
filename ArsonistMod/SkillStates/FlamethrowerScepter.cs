@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 using static RoR2.BulletAttack;
 
 namespace ArsonistMod.SkillStates
@@ -52,6 +53,8 @@ namespace ArsonistMod.SkillStates
 
         private bool playEnd;
         private bool isSurged;
+        private float timeElapsed;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -133,7 +136,7 @@ namespace ArsonistMod.SkillStates
                     controller.playingFlamethrower = true;
                     if (base.isAuthority) 
                     {
-                        new PlaySoundNetworkRequest(characterBody.netId, 979568843).Send(R2API.Networking.NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_Start").Send(R2API.Networking.NetworkDestination.Clients);
                         controller.flamethrowerPlayingID = AkSoundEngine.PostEvent(3247972543, characterBody.gameObject);
                     }
                 }
@@ -151,9 +154,39 @@ namespace ArsonistMod.SkillStates
         {
             base.OnExit();
 
-            if (playEnd)
-            { 
-                new PlaySoundNetworkRequest(characterBody.netId, 2143616816).Send(R2API.Networking.NetworkDestination.Clients); 
+            if (playEnd && isAuthority)
+            {
+                if (timeElapsed >= 3f)
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End_Blast").Send(R2API.Networking.NetworkDestination.Clients);
+
+                    // Fire blast, enlarge as a sphere and then stretch and disappear.
+                    float coeff = Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient;
+                    float range = 100f;
+                    if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
+                    {
+                        //Increment energy and Damage stuff
+                        coeff = isBlue ? altStrongCoefficient : strongCoefficient;
+                    }
+                    else if (energySystem.currentOverheat >= energySystem.maxOverheat && isAuthority)
+                    {
+                        //Set damage stuff
+                        coeff = isBlue ? altWeakCoefficient : weakCoefficient;
+                        range = flamethrowerRange * 0.66f;
+                    }
+                    Ray aimRay = base.GetAimRay();
+                    bulletAttack.radius = 3f;
+                    bulletAttack.aimVector = aimRay.direction;
+                    bulletAttack.origin = aimRay.origin;
+                    bulletAttack.damage = coeff * this.damageStat;
+                    bulletAttack.maxDistance = range;
+                    bulletAttack.Fire();
+
+                }
+                else 
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End").Send(R2API.Networking.NetworkDestination.Clients);
+                }
             }
 
             controller.DeactivateScepterFlamethrower();
@@ -169,6 +202,7 @@ namespace ArsonistMod.SkillStates
             base.FixedUpdate();
             //Fire bullets in volleys over the duration of the move.
             stopwatch += Time.fixedDeltaTime;
+            timeElapsed += Time.fixedDeltaTime;
 
             if (stopwatch >= interval && base.isAuthority) 
             {
@@ -212,7 +246,7 @@ namespace ArsonistMod.SkillStates
 
                 if (base.inputBank.skill1.down) 
                 {
-                    this.outer.SetState(new FlamethrowerScepter { });
+                    this.outer.SetState(new FlamethrowerScepter { timeElapsed = timeElapsed });
                     return;
                 }
                 playEnd = true;
@@ -282,6 +316,18 @@ namespace ArsonistMod.SkillStates
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.PrioritySkill;
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(timeElapsed);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            timeElapsed = reader.ReadSingle();
         }
     }
 }
