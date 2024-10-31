@@ -52,6 +52,8 @@ namespace ArsonistMod.Modules
         internal static GameObject fireballScepterOnHit;
         internal static GameObject fireballScepterStrongOnHit;
 
+        internal static GameObject flamethrowerScepterBlast;
+
         //Crosshair
         internal static GameObject fireballCrosshair;
         internal static GameObject flamethrowerCrosshair;
@@ -272,6 +274,8 @@ namespace ArsonistMod.Modules
             masoExplosionBlue = LoadEffect("MasochismExplosionBlue", "", false, true, 1.5f);
             EffectComponent masoExplosionBlueEffectComponent = masoExplosionBlue.GetComponent<EffectComponent>();
             masoExplosionBlueEffectComponent.applyScale = true;
+            
+            flamethrowerScepterBlast = LoadEffect("FlamethrowerScepterBlast", "Arsonist_Flamethrower_Scepter_End_Blast", false, true, 1f);
         }
 
         private static GameObject CreateOGTracer(string ogTracerPrefab, float speed = 100f, float length = 100f)

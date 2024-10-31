@@ -54,6 +54,7 @@ namespace ArsonistMod.SkillStates
         private bool playEnd;
         private bool isSurged;
         private float timeElapsed;
+        private bool firedEnd;
 
         public override void OnEnter()
         {
@@ -154,41 +155,6 @@ namespace ArsonistMod.SkillStates
         {
             base.OnExit();
 
-            if (playEnd && isAuthority)
-            {
-                if (timeElapsed >= 3f)
-                {
-                    new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End_Blast").Send(R2API.Networking.NetworkDestination.Clients);
-
-                    // Fire blast, enlarge as a sphere and then stretch and disappear.
-                    float coeff = Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient;
-                    float range = 100f;
-                    if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
-                    {
-                        //Increment energy and Damage stuff
-                        coeff = isBlue ? altStrongCoefficient : strongCoefficient;
-                    }
-                    else if (energySystem.currentOverheat >= energySystem.maxOverheat && isAuthority)
-                    {
-                        //Set damage stuff
-                        coeff = isBlue ? altWeakCoefficient : weakCoefficient;
-                        range = flamethrowerRange * 0.66f;
-                    }
-                    Ray aimRay = base.GetAimRay();
-                    bulletAttack.radius = 3f;
-                    bulletAttack.aimVector = aimRay.direction;
-                    bulletAttack.origin = aimRay.origin;
-                    bulletAttack.damage = coeff * this.damageStat;
-                    bulletAttack.maxDistance = range;
-                    bulletAttack.Fire();
-
-                }
-                else 
-                {
-                    new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End").Send(R2API.Networking.NetworkDestination.Clients);
-                }
-            }
-
             controller.DeactivateScepterFlamethrower();
 
             if (controller.weakFlamethrower)
@@ -249,9 +215,63 @@ namespace ArsonistMod.SkillStates
                     this.outer.SetState(new FlamethrowerScepter { timeElapsed = timeElapsed });
                     return;
                 }
+
                 playEnd = true;
                 controller.DeactivateScepterFlamethrower();
                 controller.weakFlamethrower.Stop();
+
+                if (!firedEnd)
+                {
+                    firedEnd = true;
+                    if (playEnd && isAuthority)
+                    {
+                        if (timeElapsed >= 2f)
+                        {
+                            //play sound effect on VFX
+                            //new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End_Blast").Send(R2API.Networking.NetworkDestination.Clients);
+
+                            ChildLocator childLoc = GetModelChildLocator();
+                            Transform muzzlePos = childLoc.FindChild(muzzleString);
+
+                            EffectManager.SpawnEffect(Modules.AssetsArsonist.flamethrowerScepterBlast, new EffectData
+                            {
+                                origin = muzzlePos.position,
+                                scale = 1f,
+                                rotation = Util.QuaternionSafeLookRotation(base.GetAimRay().direction),
+
+                            }, true);
+
+                            // Fire blast, enlarge as a sphere and then stretch and disappear.
+                            float coeff = Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient;
+                            float range = 100f;
+                            if (energySystem.currentOverheat < energySystem.maxOverheat && isAuthority)
+                            {
+                                //Increment energy and Damage stuff
+                                coeff = isBlue ? altStrongCoefficient : strongCoefficient;
+                            }
+                            else if (energySystem.currentOverheat >= energySystem.maxOverheat && isAuthority)
+                            {
+                                //Set damage stuff
+                                coeff = isBlue ? altWeakCoefficient : weakCoefficient;
+                                range = flamethrowerRange * 0.66f;
+                            }
+                            Ray aimRay = base.GetAimRay();
+                            bulletAttack.radius = 3f;
+                            bulletAttack.aimVector = aimRay.direction;
+                            bulletAttack.origin = aimRay.origin;
+                            bulletAttack.damage = coeff * this.damageStat;
+                            bulletAttack.maxDistance = range;
+                            bulletAttack.Fire();
+
+                        }
+                        else
+                        {
+                            new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End").Send(R2API.Networking.NetworkDestination.Clients);
+                        }
+                    }
+                }
+
+
                 this.outer.SetNextStateToMain();
                 return;
             }

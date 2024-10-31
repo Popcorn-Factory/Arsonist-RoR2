@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 78668666
+CRC: 767164379
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2b93f24ac542e9a0da994419ca324b62
+    Hash: f077ecd1f3c6c1fea418522d171c06bd
   TypeTreeHash:
     serializedVersion: 2
     Hash: df700b9e094b6d98d211f7fa167fd2eb
@@ -122,6 +122,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Mesh/meshBoxingGlove.mesh
 - Assets/ArsonistAssets/Animation/clips/WalkR.anim
 - Assets/ArsonistAssets/Textures/FlareStar.png
+- Assets/ArsonistAssets/Animation/FlamethrowerScepterBlastAnimator.controller
 - Assets/ArsonistAssets/VFX/ScepterFireballWeak.prefab
 - Assets/ArsonistAssets/VFX/Textures/texSmoke.png
 - Assets/ArsonistAssets/VFX/Textures/texSlash.png
@@ -200,9 +201,10 @@ Assets:
 - Assets/ArsonistAssets/Materials/Henry/matBazooka.mat
 - Assets/ArsonistAssets/Animation/MasochismController.controller
 - Assets/ArsonistAssets/mdlArsonist.prefab
-- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Ascend.anim
+- Assets/ArsonistAssets/VFX/FlamethrowerScepterBlast.prefab
 - Assets/ArsonistAssets/VFX/FlameLight.prefab
 - Assets/ArsonistAssets/VFX/FlamethrowerLight.prefab
+- Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Ascend.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
 - Assets/ArsonistAssets/Shaders/masochismWaveShaderv2 1.shader
 - Assets/ArsonistAssets/Animation/MasochismExplosion/ExplosionMasochism.anim
@@ -328,6 +330,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M1.anim
 - Assets/ArsonistAssets/Materials/OverheatingMaterial.mat
 - Assets/ArsonistAssets/VFX/Materials/OutlineSurge.mat
+- Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlamethrowerBlastEnd.anim
 - Assets/ArsonistAssets/VFX/FireballWeakProjectile.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleIn.anim
 - Assets/ArsonistAssets/Materials/GaugeMaterial.mat
@@ -338,14 +341,15 @@ Assets:
 - Assets/ArsonistAssets/Materials/FireGlowMaterial.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleRest.anim
 - Assets/ArsonistAssets/Materials/Henry/matVergil.mat
-- Assets/ArsonistAssets/Icons/FlamethrowerReticle.png
+- Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlamethrowerBlast.anim
 - Assets/ArsonistAssets/VFX/HenryDustEffect.prefab
 - Assets/ArsonistAssets/VFX/MasochismExplosion.prefab
-- Assets/ArsonistAssets/Materials/Henry/matArsonistOld.mat
+- Assets/ArsonistAssets/Icons/FlamethrowerReticle.png
 - Assets/ArsonistAssets/VFX/Materials/emissionRingMat.mat
 - Assets/ArsonistAssets/Materials/flamethrowerScepterBall.mat
 - Assets/ArsonistAssets/VFX/Materials/matAnimeShapes.mat
 - Assets/ArsonistAssets/Animation/clips/SprintL.anim
+- Assets/ArsonistAssets/Materials/Henry/matArsonistOld.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Shader NodetreeAction.003.anim
 - Assets/ArsonistAssets/Materials/Gauge.mat
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkR.anim
