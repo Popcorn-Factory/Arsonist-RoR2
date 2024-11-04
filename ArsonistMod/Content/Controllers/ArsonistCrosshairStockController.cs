@@ -50,7 +50,7 @@ namespace ArsonistMod.Content.Controllers
         public ArsonistController arsonistController;
         public CharacterBody charBody;
         public MasochismController masochismController;
-        public MasochismSurgeController masochismSurgeController;
+        public SpiteController masochismSurgeController;
 
         public bool activateable;
         public bool isFlamethrower;
@@ -65,7 +65,7 @@ namespace ArsonistMod.Content.Controllers
             charBody = gameObject.GetComponent<HudElement>().targetCharacterBody;
             arsonistController = charBody.gameObject.GetComponent<ArsonistController>();
             masochismController = charBody.gameObject.GetComponent<MasochismController>();
-            masochismSurgeController = charBody.gameObject.GetComponent<MasochismSurgeController>();
+            masochismSurgeController = charBody.gameObject.GetComponent<SpiteController>();
 
             GameObject stockContainer = new GameObject("Stock Container");
             crosshairStockContainer = UnityEngine.Object.Instantiate(stockContainer, gameObject.transform, false);

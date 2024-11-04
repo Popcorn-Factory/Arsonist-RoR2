@@ -207,6 +207,53 @@ namespace ArsonistMod.SkillStates
                 }
             }
 
+            if (base.isAuthority && !base.inputBank.skill1.down) 
+            {
+                playEnd = true;
+                controller.DeactivateScepterFlamethrower();
+                controller.weakFlamethrower.Stop();
+
+                if (!firedEnd)
+                {
+                    firedEnd = true;
+                    if (playEnd && isAuthority)
+                    {
+                        if (timeElapsed >= 2f)
+                        {
+                            //play sound effect on VFX
+                            //new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End_Blast").Send(R2API.Networking.NetworkDestination.Clients);
+
+                            ChildLocator childLoc = GetModelChildLocator();
+                            Transform muzzlePos = childLoc.FindChild(muzzleString);
+
+                            EffectManager.SpawnEffect(Modules.AssetsArsonist.flamethrowerScepterBlast, new EffectData
+                            {
+                                origin = muzzlePos.position,
+                                scale = 1f,
+                                rotation = Util.QuaternionSafeLookRotation(base.GetAimRay().direction),
+
+                            }, true);
+
+                            // Fire blast, enlarge as a sphere and then stretch and disappear.
+                            float coeff = Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient;
+                            float range = 100f;
+                            Ray aimRay = base.GetAimRay();
+                            bulletAttack.radius = 3f;
+                            bulletAttack.aimVector = aimRay.direction;
+                            bulletAttack.origin = aimRay.origin;
+                            bulletAttack.damage = coeff * this.damageStat;
+                            bulletAttack.maxDistance = range;
+                            bulletAttack.Fire();
+
+                        }
+                        else
+                        {
+                            new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Flamethrower_Scepter_End").Send(R2API.Networking.NetworkDestination.Clients);
+                        }
+                    }
+                }
+            }
+
             if (base.fixedAge >= this.duration && base.isAuthority) 
             {
 

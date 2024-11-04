@@ -26,7 +26,7 @@ namespace ArsonistMod.SkillStates
         private float altDamageCoefficient = Modules.StaticValues.altFiresprayScepterWeakDamageCoefficient;
         private float strongdamageCoefficient = Modules.StaticValues.firesprayScepterStrongDamageCoefficient;
         private float altStrongDamageCoefficient = Modules.StaticValues.altFiresprayScepterStrongDamageCoefficient;
-        private float chargedMultiplier = 1.5f;
+        private float chargedMultiplier = Modules.StaticValues.firesprayScepterChargedMultiplier;
         private float range = Modules.StaticValues.firesprayScepterRange;
         public static float spreadBloomValue = 10f;
         private float force = 400f;
@@ -51,7 +51,7 @@ namespace ArsonistMod.SkillStates
         private uint chargeSound;
 
         private float surgeTimer;
-        private float surgeWait = 0.15f;
+        private float surgeWait = Modules.StaticValues.firesprayScepterWaitTimer;
         private bool surgeFired;
         private bool fireSurgeShot;
         private bool surgeFiredOverheated;

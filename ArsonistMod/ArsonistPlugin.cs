@@ -404,6 +404,7 @@ namespace ArsonistMod
                     if (arsonistController)
                     {
                         this.overlayFunction(arsonistController.overheatingMaterial, (bool)arsonistController && self.body.hasEffectiveAuthority, self);
+                        this.overlayFunction(arsonistController.outlineMaterial, (bool)arsonistController && self.body.hasEffectiveAuthority, self);
                     }
                 }
             }

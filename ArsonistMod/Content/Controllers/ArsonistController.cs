@@ -60,12 +60,15 @@ namespace ArsonistMod.Content.Controllers
 
         //Instance Material
         public Material overheatingMaterial;
+        public Material outlineMaterial;
 
         // Use this for initialization
         void Awake() 
         {
             Hooks();
             overheatingMaterial = new Material(Modules.AssetsArsonist.arsonistOverheatingMaterial);
+            outlineMaterial = new Material(Modules.AssetsArsonist.arsonistOutlineMaterial);
+            outlineMaterial.renderQueue = 2000;
         }
 
         void Start()

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 767164379
+CRC: 244840374
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f077ecd1f3c6c1fea418522d171c06bd
+    Hash: 4ab8195eddbdb915a933007f966ab5ab
   TypeTreeHash:
     serializedVersion: 2
     Hash: df700b9e094b6d98d211f7fa167fd2eb
@@ -164,6 +164,7 @@ Assets:
 - Assets/ArsonistAssets/Shaders/FresnelFlameWobble.shader
 - Assets/ArsonistAssets/Materials/MasochismExplosionStaticBlue.mat
 - Assets/ArsonistAssets/VFX/Beam.prefab
+- Assets/ArsonistAssets/Icons/scepterFlamethrowerIcon.png
 - Assets/ArsonistAssets/Animation/maskUpperBody.mask
 - Assets/ArsonistAssets/Icons/masochismIconDeactivated.png
 - Assets/ArsonistAssets/Textures/ArsonistSkinSuit_diffuse.png
@@ -207,6 +208,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Ascend.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M2.anim
 - Assets/ArsonistAssets/Shaders/masochismWaveShaderv2 1.shader
+- Assets/ArsonistAssets/Icons/spiteIcon.png
 - Assets/ArsonistAssets/Animation/MasochismExplosion/ExplosionMasochism.anim
 - Assets/ArsonistAssets/Icons/arsonistRooIcon.png
 - Assets/ArsonistAssets/Mesh/meshArsonist.mesh
@@ -306,9 +308,10 @@ Assets:
 - Assets/ArsonistAssets/Animation/clips/Roll.anim
 - Assets/ArsonistAssets/VFX/ScepterFireballStrong.prefab
 - Assets/ArsonistAssets/VFX/Materials/matPunchImpactShadow.mat
-- Assets/ArsonistAssets/Icons/ZPBBuff.png
+- Assets/ArsonistAssets/Icons/scepterFireballIcon.png
 - Assets/ArsonistAssets/Animation/maskOverheatCanister.mask
 - Assets/ArsonistAssets/Textures/ArsonistMetal_emission.png
+- Assets/ArsonistAssets/Icons/ZPBBuff.png
 - Assets/ArsonistAssets/VFX/Textures/texFistSwing.png
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Sprint.anim
 - Assets/ArsonistAssets/Textures/firenoise.png
@@ -329,7 +332,7 @@ Assets:
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_WalkF.anim
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_M1.anim
 - Assets/ArsonistAssets/Materials/OverheatingMaterial.mat
-- Assets/ArsonistAssets/VFX/Materials/OutlineSurge.mat
+- Assets/ArsonistAssets/Materials/OutlineSurge.mat
 - Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlamethrowerBlastEnd.anim
 - Assets/ArsonistAssets/VFX/FireballWeakProjectile.prefab
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_IdleIn.anim
@@ -400,7 +403,7 @@ Assets:
 - Assets/ArsonistAssets/VFX/Textures/texPunchImpactShadow.png
 - Assets/ArsonistAssets/Mesh/meshPyroRobe.mesh
 - Assets/ArsonistAssets/VFX/ImpactHenrySlash.prefab
-- Assets/ArsonistAssets/VFX/Materials/FresnelSurge.mat
+- Assets/ArsonistAssets/Materials/FresnelSurge.mat
 - Assets/ArsonistAssets/Animation/HumanoidArsonist.asset
 - Assets/ArsonistAssets/Animation/ArsonistClips/Armature_Yaw.anim
 - Assets/ArsonistAssets/Animation/ScepterFlamethrower/ScepterFlameEnd.anim

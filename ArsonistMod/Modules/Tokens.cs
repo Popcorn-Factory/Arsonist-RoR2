@@ -65,9 +65,14 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_DESCRIPTION", $"Fire a beam of fire that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage. Has increased chance to ignite the closer you are to the target.");
 
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_NAME", "Firestorm");
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION", Helpers.heatPrefix + $"Fire a beam of intense heat that deals <style=cIsDamage>{100f * StaticValues.firesprayStrongDamageCoefficient}% damage and ignites</style> enemies on hit. ");
-            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME", "Wyvernfire");
-            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage. Has increased chance to ignite the closer you are to the target. On finish, <style=cIsDamage>100% chance</style> to ignite an enemy");
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION", Helpers.heatPrefix + $"Fire a beam of intense heat that deals " +
+                $"<style=cIsDamage>{100f * StaticValues.firesprayScepterStrongDamageCoefficient}% damage and ignites</style> enemies on hit." +
+                $"If held held for short time, fire a destructive beam that deals <style=cIsDamage>{100f * StaticValues.firesprayScepterChargedMultiplier * StaticValues.firesprayScepterStrongDamageCoefficient}</style> when released.");
+            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME", "Dante's Rebuke");
+            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerScepterStrongDamageCoefficient}%</style> damage." +
+                $"Has increased chance to ignite the closer you are to the target. " +
+                $"On finish, <style=cIsDamage>100% chance</style> to ignite an enemy." +
+                $"If held for 2 seconds or more, Fire a final beam on release for <style=cIsDamage>{100f * Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient}%</style> damage.");
 
             #endregion
 
@@ -92,7 +97,7 @@ namespace ArsonistMod.Modules
                 $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, periodically damage yourself in exchange for area of effect burning {Modules.Helpers.Healing("Lifesteal")}. " +
                 $"After a maximum of {Modules.Config.masochismMaximumStack.Value} seconds, <style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");
 
-            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_SURGE_NAME", "Masochism: Surge");
+            LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_SURGE_NAME", "Spite");
             LanguageAPI.Add(prefix + "SPECIAL_MASOCHISM_SURGE_DESCRIPTION", $"Upon reaching the {Modules.Helpers.ImportantDesc("Anticipation")} threshold, you move faster, " +
                 $"and are granted {Modules.Helpers.ImportantDesc("Double Tap")} and {Modules.Helpers.Healing("Lifesteal")}. After a maximum of {Modules.Config.masochismMaximumStack.Value} seconds, " +
                 $"<style=cIsDamage>Detonate</style>, then {Modules.Helpers.Downside("Overheat")}.");

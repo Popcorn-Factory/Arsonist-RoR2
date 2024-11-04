@@ -112,7 +112,7 @@ namespace ArsonistMod.Content.Controllers
 
         //Masochism monitoring
         public MasochismController masoCon;
-        public MasochismSurgeController masoSurgeController;
+        public SpiteController masoSurgeController;
 
         //Overheated?
         public bool hasOverheatedThisStage = false;
@@ -367,7 +367,7 @@ namespace ArsonistMod.Content.Controllers
 
             if (characterBody.skillLocator.special.skillNameToken == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_SURGE_NAME") 
             {
-                masoSurgeController = gameObject.AddComponent<MasochismSurgeController>();
+                masoSurgeController = gameObject.AddComponent<SpiteController>();
             }
         }
 

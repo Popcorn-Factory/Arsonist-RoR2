@@ -40,6 +40,7 @@ namespace ArsonistMod.Modules
         internal static GameObject arsonistFlareAttached;
         internal static GameObject displayFire;
         internal static Material arsonistOverheatingMaterial;
+        internal static Material arsonistOutlineMaterial;
         internal static Material emissionRingMat;
         internal static Material emissionRingMatLesser;
 
@@ -173,6 +174,7 @@ namespace ArsonistMod.Modules
             fireballWeakGhost.AddComponent<ProjectileGhostController>();
 
             arsonistOverheatingMaterial = AssetsArsonist.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
+            arsonistOutlineMaterial = AssetsArsonist.mainAssetBundle.LoadAsset<Material>("OutlineSurge");
 
             emissionRingMat = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             emissionRingMatLesser = new Material(emissionRingMat);

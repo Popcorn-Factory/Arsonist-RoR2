@@ -61,6 +61,8 @@ namespace ArsonistMod.Modules
         internal static float altFiresprayScepterStrongDamageCoefficient = 2f;
         internal static float altFiresprayScepterWeakDamageCoefficient = 1.2f;
         internal static float firesprayScepterRange = 256f;
+        internal static float firesprayScepterWaitTimer = 0.15f;
+        internal static float firesprayScepterChargedMultiplier = 1.5f;
 
         //Flamethrowerz
         internal static float flamethrowerStrongDamageCoefficient = 0.9f;
@@ -116,7 +118,7 @@ namespace ArsonistMod.Modules
         internal static float masochismBasePulseTimer = 1.2f;
         internal static float masochismActiveLowerBoundHeat = 0.15f;
         internal static float masochismBasePulseSelfDamageTimer = 0.6f;
-        internal static float masochismSelfDamage = 0.08f;
+        internal static float masochismSelfDamage = 0.05f;
         internal static float masochismEnergyIncreaseOverTimePercentage = 0.08f;
         internal static float masochismPulseRadius = 10f;
         internal static float masochismPulseCoefficient = 0.4f;
@@ -131,12 +133,16 @@ namespace ArsonistMod.Modules
         internal static float masochismDamagePenalty = 0.7f;
 
         // masochism : surge
-        internal static float masochismSurgeSelfDamage = 0.08f;
+        internal static float masochismSurgeSelfDamage = 0.04f;
         internal static float masochismSurgeMoveSpeedMultiplier = 1.5f;
         internal static float masochismSurgeBlastRadius = 12f;
         internal static float masochismSurgeFinalBlastCoefficient = 0.7f;
         internal static float masochismSurgeMultiplierPerStack = 1.05f;
         internal static float masochismSurgeMaxMultipliedRange = 3f;
         internal static float masochismSurgeFlamethrowerTickRateMultiplier = 1.5f;
+    
+        //Outline colour:
+        internal static Color firstOutlineColour = new Color(0f, 250f/255f, 1f, 0f); // normally 0f transparency
+        internal static Color secondOutlineColour = new Color(0f, 98f / 255f, 154f/255f, 0f); // normally 0.5f transparency
     }
 }
