@@ -92,6 +92,7 @@ namespace ArsonistMod.Content.Controllers
         {
             selfDamageStopwatch += Time.fixedDeltaTime;
             stopwatch += Time.fixedDeltaTime;
+            damageOverTimeStopwatch += Time.fixedDeltaTime;
 
             //Apply appropriate buff
             characterBody.ApplyBuff(Modules.Buffs.masochismSurgeActiveBuff.buffIndex, 1, -1f);
@@ -103,6 +104,16 @@ namespace ArsonistMod.Content.Controllers
             {
                 new TakeDamageNetworkRequest(characterBody.master.netId, characterBody.master.netId, healthComponent.fullHealth * Modules.StaticValues.masochismSurgeSelfDamage, false, true, false).Send(NetworkDestination.Clients);
                 selfDamageStopwatch = 0f;
+            }
+
+
+            // What is my purpose?
+            // You pulse damage over time.
+            // Oh my god.
+            if (damageOverTimeStopwatch >= Modules.StaticValues.spiteBasePulseTimer)
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Spite_Pulse").Send(NetworkDestination.Clients);
+                damageOverTimeStopwatch = 0f;
             }
 
             // Accumulate heat over time
@@ -181,7 +192,7 @@ namespace ArsonistMod.Content.Controllers
             heatChanged = 0f;
 
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
-            new PlaySoundNetworkRequest(characterBody.netId, 3765159379).Send(NetworkDestination.Clients);
+            new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Spite_End").Send(NetworkDestination.Clients);
 
             //Trigger massive explosion around Arsonist Scales according to stacks maintained.
             finalBlastAttack.position = gameObject.transform.position;
@@ -235,7 +246,8 @@ namespace ArsonistMod.Content.Controllers
 
             masoStacks--;
 
-            masochismActiveLoop = AkSoundEngine.PostEvent(1419365914, characterBody.gameObject);
+            // Play Sound: Arsonist_Spite_Duration
+            masochismActiveLoop = AkSoundEngine.PostEvent(4157809569, characterBody.gameObject);
         }
 
 

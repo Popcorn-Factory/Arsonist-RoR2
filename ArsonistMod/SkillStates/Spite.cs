@@ -82,7 +82,7 @@ namespace ArsonistMod.SkillStates
             if (base.isAuthority)
             {
                 //Always Play the base sound:
-                new PlaySoundNetworkRequest(characterBody.netId, 974780206).Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(characterBody.netId, "Arsonist_Spite_Start").Send(R2API.Networking.NetworkDestination.Clients);
 
                 //Optionally play the voice on top if they have the buff and it's active. Soundbank has percentage chance set!
                 if (Modules.Config.shouldHaveVoice.Value && !characterBody.HasBuff(Modules.Buffs.masochismBuff))

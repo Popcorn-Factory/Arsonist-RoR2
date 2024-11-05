@@ -69,6 +69,9 @@ namespace ArsonistMod.Content.Controllers
             overheatingMaterial = new Material(Modules.AssetsArsonist.arsonistOverheatingMaterial);
             outlineMaterial = new Material(Modules.AssetsArsonist.arsonistOutlineMaterial);
             outlineMaterial.renderQueue = 2000;
+            //reset colour.
+            outlineMaterial.SetColor("_FirstOutlineColor", Modules.StaticValues.firstOutlineColour);
+            outlineMaterial.SetColor("_SecondOutlineColor", Modules.StaticValues.secondOutlineColour);
         }
 
         void Start()

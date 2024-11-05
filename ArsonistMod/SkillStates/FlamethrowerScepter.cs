@@ -307,6 +307,7 @@ namespace ArsonistMod.SkillStates
                             bulletAttack.aimVector = aimRay.direction;
                             bulletAttack.origin = aimRay.origin;
                             bulletAttack.damage = coeff * this.damageStat;
+                            bulletAttack.damageType = DamageType.IgniteOnHit;
                             bulletAttack.maxDistance = range;
                             bulletAttack.Fire();
 

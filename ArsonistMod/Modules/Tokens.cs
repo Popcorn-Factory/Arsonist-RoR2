@@ -69,10 +69,9 @@ namespace ArsonistMod.Modules
                 $"<style=cIsDamage>{100f * StaticValues.firesprayScepterStrongDamageCoefficient}% damage and ignites</style> enemies on hit." +
                 $"If held held for short time, fire a destructive beam that deals <style=cIsDamage>{100f * StaticValues.firesprayScepterChargedMultiplier * StaticValues.firesprayScepterStrongDamageCoefficient}</style> when released.");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME", "Dante's Rebuke");
-            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerScepterStrongDamageCoefficient}%</style> damage." +
+            LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerScepterStrongDamageCoefficient}% damage.</style> " +
                 $"Has increased chance to ignite the closer you are to the target. " +
-                $"On finish, <style=cIsDamage>100% chance</style> to ignite an enemy." +
-                $"If held for 2 seconds or more, Fire a final beam on release for <style=cIsDamage>{100f * Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient}%</style> damage.");
+                $"If held for 2 seconds or more, Fire a final beam on release for <style=cIsDamage>{100f * Modules.StaticValues.flamethrowerScepterBlastDamageCoefficient}% damage.</style> ");
 
             #endregion
 

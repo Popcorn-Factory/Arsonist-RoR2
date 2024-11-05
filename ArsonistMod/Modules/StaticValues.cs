@@ -140,7 +140,8 @@ namespace ArsonistMod.Modules
         internal static float masochismSurgeMultiplierPerStack = 1.05f;
         internal static float masochismSurgeMaxMultipliedRange = 3f;
         internal static float masochismSurgeFlamethrowerTickRateMultiplier = 1.5f;
-    
+        internal static float spiteBasePulseTimer = 1.4f;
+
         //Outline colour:
         internal static Color firstOutlineColour = new Color(0f, 250f/255f, 1f, 0f); // normally 0f transparency
         internal static Color secondOutlineColour = new Color(0f, 98f / 255f, 154f/255f, 0f); // normally 0.5f transparency
