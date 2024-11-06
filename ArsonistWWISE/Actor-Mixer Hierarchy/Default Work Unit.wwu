@@ -3150,47 +3150,6 @@
 												<ActiveSource Name="Masochism or Spite Denied" ID="{AB73A652-DAEC-4122-A6A2-3B9B582EBBB6}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="10_0_Spite_Start" ID="{0F843AB2-EE78-4033-A7AC-129CAA31AB19}" ShortID="299066404">
-											<PropertyList>
-												<Property Name="3DSpatialization" Type="int16" Value="2"/>
-												<Property Name="Color" Type="int16" Value="26"/>
-												<Property Name="OverrideColor" Type="bool" Value="True"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>20</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Default Attenuation" ID="{569F746A-80D8-459A-8208-7A56DF87538F}" WorkUnitID="{71DCE8D9-41EE-49FA-B0FB-EAAD982755FE}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="1_ Final Spite--Start" ID="{5C6A0349-198A-4058-A7D5-312467C86ECF}">
-													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.388933703157073"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.157774992790134"/>
-														<Property Name="TrimEnd" Type="Real64" Value="3.76091552581132"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>1. Final Spite--Start.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="602033455"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="1_ Final Spite--Start" ID="{5C6A0349-198A-4058-A7D5-312467C86ECF}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="10_1_Spite_Duration" ID="{27BAD8B0-C6C8-4159-93E8-EF5B70BDD370}" ShortID="134701622">
 											<PropertyList>
 												<Property Name="Color" Type="int16" Value="26"/>
@@ -3212,6 +3171,11 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="2_ Final Spite--Duration" ID="{11584B77-3612-4FC6-AD19-C916A5FB83E1}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="7.60014003625016"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.534384846298839"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>2. Final Spite--Duration.wav</AudioFile>
 													<MediaIDList>
@@ -3223,13 +3187,13 @@
 												<ActiveSource Name="2_ Final Spite--Duration" ID="{11584B77-3612-4FC6-AD19-C916A5FB83E1}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="10_2_Spite_Pulse" ID="{651543A9-29FF-4F7F-AFF6-7DEF019C6BAE}" ShortID="158527914">
+										<Sound Name="10_2_Spite_End" ID="{8078CB23-F69F-41DE-95C4-592D6E61EB8A}" ShortID="878691887">
 											<PropertyList>
 												<Property Name="Color" Type="int16" Value="26"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>16</Value>
+														<Value>10</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3242,30 +3206,30 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="3_ Spite Pulse" ID="{12CDBC4E-C476-43C3-813B-E4324C9FF02F}">
+												<AudioFileSource Name="End" ID="{6189280A-B4E8-4967-BF36-C503D326625A}">
 													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.613427345852822"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimEnd" Type="Real64" Value="2.61828745181083"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.157880839907229"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.51035735491203"/>
 													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>3. Spite Pulse.wav</AudioFile>
+													<AudioFile>End.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="95468513"/>
+														<MediaID ID="761886591"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="3_ Spite Pulse" ID="{12CDBC4E-C476-43C3-813B-E4324C9FF02F}" Platform="Linked"/>
+												<ActiveSource Name="End" ID="{6189280A-B4E8-4967-BF36-C503D326625A}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="10_3_Spite_End" ID="{FA412F7C-76EE-4576-88C0-B526EC2EA66F}" ShortID="905389723">
+										<Sound Name="10_3_Spite_Pulse" ID="{8FB8FEE5-8D01-42DB-9082-03137A35EA4C}" ShortID="793918885">
 											<PropertyList>
 												<Property Name="Color" Type="int16" Value="26"/>
 												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>20</Value>
+														<Value>8</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3278,22 +3242,56 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="4_ Spite End" ID="{14606577-E09E-4695-866F-6E756940D91B}">
+												<AudioFileSource Name="Pulse" ID="{A92F8DAC-19FE-4517-9B9C-E240275A30E4}">
 													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.928036541299812"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-														<Property Name="TrimBegin" Type="Real64" Value="0.313164594183475"/>
-														<Property Name="TrimEnd" Type="Real64" Value="4.3919424794024"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.973187350196635"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.59516626719102"/>
 													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>4. Spite End.wav</AudioFile>
+													<AudioFile>Pulse.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="187503520"/>
+														<MediaID ID="432439768"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="4_ Spite End" ID="{14606577-E09E-4695-866F-6E756940D91B}" Platform="Linked"/>
+												<ActiveSource Name="Pulse" ID="{A92F8DAC-19FE-4517-9B9C-E240275A30E4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="10_0_Spite_Start" ID="{57E59A0A-C852-471D-9441-E98781E08ADD}" ShortID="183004900">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="26"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>13</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Start" ID="{F03028CC-6C75-47F0-BC08-286216BC0F5F}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.46358969585553"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Start.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="489911725"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Start" ID="{F03028CC-6C75-47F0-BC08-286216BC0F5F}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>

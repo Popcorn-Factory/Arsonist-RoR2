@@ -856,7 +856,7 @@
 						<Action Name="" ID="{9A4A71B1-8355-4A9B-86C5-DB96B1C40CB2}" ShortID="838781406">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="10_0_Spite_Start" ID="{0F843AB2-EE78-4033-A7AC-129CAA31AB19}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="10_0_Spite_Start" ID="{57E59A0A-C852-471D-9441-E98781E08ADD}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -878,7 +878,7 @@
 						<Action Name="" ID="{B0C62FB3-8C05-427B-A7FC-FBCF3AE03756}" ShortID="77494398">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="10_2_Spite_Pulse" ID="{651543A9-29FF-4F7F-AFF6-7DEF019C6BAE}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="10_3_Spite_Pulse" ID="{8FB8FEE5-8D01-42DB-9082-03137A35EA4C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -889,7 +889,7 @@
 						<Action Name="" ID="{A1586CAE-F489-4983-ADDD-CBF3E33FF62A}" ShortID="981043589">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="10_3_Spite_End" ID="{FA412F7C-76EE-4576-88C0-B526EC2EA66F}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+									<ObjectRef Name="10_2_Spite_End" ID="{8078CB23-F69F-41DE-95C4-592D6E61EB8A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

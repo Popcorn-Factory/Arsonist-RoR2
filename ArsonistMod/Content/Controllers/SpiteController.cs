@@ -108,7 +108,7 @@ namespace ArsonistMod.Content.Controllers
 
 
             // What is my purpose?
-            // You pulse damage over time.
+            // You pulse an SFX over time.
             // Oh my god.
             if (damageOverTimeStopwatch >= Modules.StaticValues.spiteBasePulseTimer)
             {
