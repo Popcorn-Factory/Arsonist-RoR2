@@ -323,7 +323,7 @@ namespace ArsonistMod.Modules
 
             masochismSurgeHealOnHitPercentage = ArsonistPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("08 - Masochism: Surge", "Heal multiplication from damage during activation."),
+                new ConfigDefinition("08 - Spite", "Heal multiplication from damage during activation."),
                 0.05f,
                 new ConfigDescription("Determines how much should be healed from damage dealt during Masochism: Surge Active state.",
                     null,

@@ -37,7 +37,7 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
 
             #region Skins
-            LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Default");
+            LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Arsonist");
             LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Yuppie");
             LanguageAPI.Add(prefix + "GRANDMASTERY_SKIN_NAME", "Firebug");
             LanguageAPI.Add(prefix + "SURVIVAL_SKIN_NAME", "Anarchist");
@@ -65,9 +65,9 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_DESCRIPTION", $"Fire a beam of fire that deals <style=cIsDamage>{100f * StaticValues.flamethrowerStrongDamageCoefficient}%</style> damage. Has increased chance to ignite the closer you are to the target.");
 
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_NAME", "Firestorm");
-            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION", Helpers.heatPrefix + $"Fire a beam of intense heat that deals " +
+            LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION", Helpers.heatPrefix + $"Fire a piercing beam of intense heat that deals " +
                 $"<style=cIsDamage>{100f * StaticValues.firesprayScepterStrongDamageCoefficient}% damage and ignites</style> enemies on hit." +
-                $"If held held for short time, fire a destructive beam that deals <style=cIsDamage>{100f * StaticValues.firesprayScepterChargedMultiplier * StaticValues.firesprayScepterStrongDamageCoefficient}</style> when released.");
+                $"If held held for short time, fire a destructive beam that deals <style=cIsDamage>{100f * StaticValues.firesprayScepterChargedMultiplier * StaticValues.firesprayScepterStrongDamageCoefficient}% damage/style> when released.");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME", "Dante's Rebuke");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerScepterStrongDamageCoefficient}% damage.</style> " +
                 $"Has increased chance to ignite the closer you are to the target. " +
@@ -131,9 +131,12 @@ namespace ArsonistMod.Modules
 
             LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION", $"<style=cKeywordName>Anticipation</style>" +
                 $"For every 100 heat lost and/or gained, Arsonist gains 1 stack of Anticipation; After gaining {Modules.Config.masochismMinimumRequiredToActivate.Value} stacks, he may activate Masochism; Additional stacks increase damage and duration; All stacks are exhausted at the end.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_ANTICIPATION_SPITE", $"<style=cKeywordName>Anticipation</style>" +
+                $"For every 100 heat lost and/or gained, Arsonist gains 1 stack of Anticipation; After gaining {Modules.Config.masochismMinimumRequiredToActivate.Value} stacks, he may activate Spite. Additional stacks increase damage and duration. The amount of stacks removed at the end correlates with how long you stay in the state.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_LIFESTEAL", $"<style=cKeywordName>Lifesteal</style>Arsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismActiveMultipliedActive.Value}%") } of his damage dealt while Masochism is active.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_SURGE_LIFESTEAL", $"<style=cKeywordName>Lifesteal</style>Arsonist heals {Modules.Helpers.Healing( $"{100f * Modules.Config.masochismSurgeHealOnHitPercentage.Value}%") } of his damage dealt while Masochism is active.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE", $"<style=cKeywordName>Detonate</style>Arsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
+            LanguageAPI.Add(prefix + "KEYWORD_MASO_DETONATE_SPITE", $"<style=cKeywordName>Detonate</style>Arsonist explodes, dealing <style=cIsDamage>{100f * Modules.StaticValues.masochismSurgeFinalBlastCoefficient}% damage</style> times the amount of Anticipation Stacks accumulated.");
             LanguageAPI.Add(prefix + "KEYWORD_MASO_DOUBLE_TAP", $"<style=cKeywordName>Double Tap</style>Shoot two projectiles for the heat cost of one.");
             LanguageAPI.Add(prefix + "KEYWORD_OVERHEAT_MASO", $"<style=cKeywordName>Overheat: Masochism</style>If Arsonist exits Masochism due to too much heat buildup, " +
                 $"EX Overheat is applied, reducing your Move Speed and Damage to {Modules.StaticValues.masochismMoveSpeedPenalty * 100f}%. " +

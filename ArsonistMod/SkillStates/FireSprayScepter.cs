@@ -272,7 +272,7 @@ namespace ArsonistMod.SkillStates
                     smartCollision = true,
                     procChainMask = default(ProcChainMask),
                     procCoefficient = 1f,
-                    radius = 0.5f,
+                    radius = 1f,
                     sniper = false,
                     stopperMask = LayerIndex.noCollision.mask,
                     weapon = null,

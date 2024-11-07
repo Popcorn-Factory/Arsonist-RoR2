@@ -110,7 +110,7 @@ namespace ArsonistMod.Content.Controllers
                 radius = Modules.StaticValues.masochismPulseRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = characterBody.damage * Modules.StaticValues.masochismPulseCoefficient,
-                baseForce = 0f,
+                baseForce = 1000f,
                 bonusForce = Vector3.up,
                 damageType = DamageType.IgniteOnHit,
                 damageColorIndex = DamageColorIndex.Default,

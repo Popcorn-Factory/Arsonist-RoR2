@@ -685,7 +685,7 @@ namespace ArsonistMod.Modules.Survivors
                 requiredStock = 1,
                 stockToConsume = 1,
                 keywordTokens = new string[] {
-                    prefix + "KEYWORD_MASO_ANTICIPATION", 
+                    prefix + "KEYWORD_MASO_ANTICIPATION_SPITE", 
                     prefix + "KEYWORD_MASO_LIFESTEAL", 
                     prefix + "KEYWORD_MASO_DETONATE", 
                     prefix + "KEYWORD_OVERHEAT_MASO"}
