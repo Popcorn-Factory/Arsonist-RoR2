@@ -466,7 +466,7 @@ namespace ArsonistMod.Modules
             if (collider) 
             {
                 collider.radius = 1.0f;
-            }
+            } 
 
             //ProjectileImpactExplosion projImpact = artificerFirebolt.GetComponent<ProjectileImpactExplosion>();
             //GameObject explosionEffect = UnityEngine.Object.Instantiate(projImpact.impactEffect);

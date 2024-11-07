@@ -59,6 +59,8 @@ namespace ArsonistMod.Content.Controllers
 
         public bool scepterUpgrade;
 
+        public bool shouldBeActive;
+
         public void Awake()
         {
 
@@ -108,7 +110,7 @@ namespace ArsonistMod.Content.Controllers
                 radius = Modules.StaticValues.masochismPulseRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = characterBody.damage * Modules.StaticValues.masochismPulseCoefficient,
-                baseForce = 0f,
+                baseForce = 1000f,
                 bonusForce = Vector3.up,
                 damageType = DamageType.IgniteOnHit,
                 damageColorIndex = DamageColorIndex.Default,
@@ -117,6 +119,9 @@ namespace ArsonistMod.Content.Controllers
             };
 
             arsonistCon = gameObject.GetComponent<ArsonistController>();
+
+            // Check if the player has selected Masochism, or something else.
+            // If not, disable the controller fixed update loop.
         }
 
         public void Hook()
@@ -354,6 +359,8 @@ namespace ArsonistMod.Content.Controllers
             heatChanged = 0f;
             forceReset = true;
 
+
+
             // Trigger EX OVERHEAT (hamper movement speed, decrease damage output) for short period of time
             energySystem.AddHeat(energySystem.maxOverheat * 2f);
             AkSoundEngine.StopPlayingID(masochismActiveLoop);
@@ -371,6 +378,14 @@ namespace ArsonistMod.Content.Controllers
             float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
             finalBlastAttack.radius = Modules.StaticValues.masochismPulseRadius * radMultiplier;
             finalBlastAttack.damageType = DamageType.IgniteOnHit;
+
+            EffectManager.SpawnEffect(Modules.AssetsArsonist.masoExplosion,
+            new EffectData
+            {
+                origin = gameObject.transform.position,
+                rotation = Quaternion.identity,
+                scale = Modules.StaticValues.masochismPulseRadius * radMultiplier
+            }, true);
 
             finalBlastAttack.Fire();
             //Debug.Log($"Applied damage on blast: {finalBlastAttack.baseDamage} masoStack: {masoStacksAccumulated} radMultiplier: {finalBlastAttack.radius}");

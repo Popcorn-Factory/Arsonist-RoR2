@@ -50,6 +50,7 @@ namespace ArsonistMod.Content.Controllers
         public ArsonistController arsonistController;
         public CharacterBody charBody;
         public MasochismController masochismController;
+        public SpiteController masochismSurgeController;
 
         public bool activateable;
         public bool isFlamethrower;
@@ -64,6 +65,7 @@ namespace ArsonistMod.Content.Controllers
             charBody = gameObject.GetComponent<HudElement>().targetCharacterBody;
             arsonistController = charBody.gameObject.GetComponent<ArsonistController>();
             masochismController = charBody.gameObject.GetComponent<MasochismController>();
+            masochismSurgeController = charBody.gameObject.GetComponent<SpiteController>();
 
             GameObject stockContainer = new GameObject("Stock Container");
             crosshairStockContainer = UnityEngine.Object.Instantiate(stockContainer, gameObject.transform, false);
@@ -165,6 +167,41 @@ namespace ArsonistMod.Content.Controllers
                 else 
                 {
                     if(activateable) 
+                    {
+                        //Change Stock
+                        SetAllImageType(false);
+                        activateable = false;
+                    }
+                }
+            }
+            if (masochismSurgeController) 
+            {
+                //Hide/show appropriate stock objects
+                for (int i = 0; i < stockObjects.Count; i++)
+                {
+                    if (i <= masochismSurgeController.masoStacks - 1)
+                    {
+                        stockObjects[i].gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        stockObjects[i].gameObject.SetActive(false);
+                    }
+                }
+
+                //Change everything to Activateable sprites
+                if (masochismSurgeController.masoStacks >= Modules.Config.masochismMinimumRequiredToActivate.Value)
+                {
+                    if (!activateable)
+                    {
+                        //Change Stock
+                        SetAllImageType(true);
+                        activateable = true;
+                    }
+                }
+                else
+                {
+                    if (activateable)
                     {
                         //Change Stock
                         SetAllImageType(false);

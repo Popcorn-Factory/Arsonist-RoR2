@@ -2,6 +2,7 @@
 using ArsonistMod.Modules.Networking;
 using EntityStates;
 using R2API.Networking.Interfaces;
+using RiskOfOptions.Components.Options;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -46,15 +47,19 @@ namespace ArsonistMod.SkillStates
         public float Energy = Modules.StaticValues.flamethrowerEnergyCost;
         private float energyCost;
 
+        private bool playEnd;
+
+        private bool isSurged;
         public override void OnEnter()
         {
             base.OnEnter();
-
+            playEnd = false;
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passive = characterBody.gameObject.GetComponent<ArsonistPassive>();
             controller = characterBody.gameObject.GetComponent<ArsonistController>();
             isBlue = passive.isBlueGauge();
             characterBody.isSprinting = false;
+            isSurged = characterBody.HasBuff(Modules.Buffs.masochismSurgeActiveBuff);
 
             //Calculate how much damage/stats whatever using the energy system 
             //energy
@@ -71,6 +76,10 @@ namespace ArsonistMod.SkillStates
             }
 
             tickRate = (int)(baseTickRate * base.attackSpeedStat);
+            if (isSurged) 
+            {
+                tickRate = (int)(tickRate * Modules.StaticValues.masochismSurgeFlamethrowerTickRateMultiplier);
+            }
             interval = duration / (float)tickRate;
 
             characterBody.SetAimTimer(duration * 2f);
@@ -153,6 +162,12 @@ namespace ArsonistMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            if (playEnd) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 4168901551).Send(R2API.Networking.NetworkDestination.Clients);
+            }
+
             if (controller.flamethrower) 
             {
                 controller.flamethrower.Stop();
@@ -212,9 +227,11 @@ namespace ArsonistMod.SkillStates
 
                 if (base.inputBank.skill1.down) 
                 {
-                    this.outer.SetState(new Flamethrower { });
+                    this.outer.SetNextState(new Flamethrower { });
+
                     return;
                 }
+                playEnd = true;
                 controller.flamethrower.Stop();
                 controller.weakFlamethrower.Stop();
                 this.outer.SetNextStateToMain();

@@ -12,8 +12,10 @@ namespace ArsonistMod.Modules
         public static ConfigEntry<float> masochismHeatChangedThreshold;
         public static ConfigEntry<int> masochismMinimumRequiredToActivate;
         public static ConfigEntry<int> masochismMaximumStack;
-        public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
+        //public static ConfigEntry<float> masochismHealthMultiplierOnPowered;
         public static ConfigEntry<float> masochismActiveMultipliedActive;
+
+        public static ConfigEntry<float> masochismSurgeHealOnHitPercentage;
 
         public static ConfigEntry<float> timeBeforeHeatGaugeDecays;
         public static ConfigEntry<bool> shouldHaveVoice;
@@ -143,15 +145,15 @@ namespace ArsonistMod.Modules
 
 
 
-            masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
-            (
-                new ConfigDefinition("01 - Masochism", "Health Multiplier"),
-                1f,
-                new ConfigDescription("Determines how much the damage should be multiplied by before converting to health for Fire damage received.",
-                    null,
-                    Array.Empty<object>()
-                )
-            );
+            //masochismHealthMultiplierOnPowered = ArsonistPlugin.instance.Config.Bind<float>
+            //(
+            //    new ConfigDefinition("01 - Masochism", "Health Multiplier"),
+            //    1f,
+            //    new ConfigDescription("Determines how much the damage should be multiplied by before converting to health for Fire damage received.",
+            //        null,
+            //        Array.Empty<object>()
+            //    )
+            //);
 
             masochismHeatChangedThreshold = ArsonistPlugin.instance.Config.Bind<float>
             (
@@ -192,6 +194,7 @@ namespace ArsonistMod.Modules
                     Array.Empty<object>()
                 )
             );
+
 
             ToggleMasochismFOVWarp = ArsonistPlugin.instance.Config.Bind<bool>
             (
@@ -249,28 +252,28 @@ namespace ArsonistMod.Modules
             arsonistVoicelineVolume = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "Master Voice Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for All voice lines, both Arsonist and Firebug.")
             );
 
             arsonistVoicelineVolumeArsonist = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "Arsonist Voice Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for Arsonist's voice lines. (Does not affect Firebug, affected by Master Voice Volume)")
             );
 
             arsonistVoicelineVolumeFirebug = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "Firebug Voice Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for Firebug's voice lines. (Does not affect Arsonist, affected by Master Voice Volume)")
             );
 
             arsonistSFXVolume = ArsonistPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Voice/Volume", "SFX Volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume for all of Arsonist's effects, such as explosions and such. (Affected by the ROR2 Master and SFX Volume)")
             );
 
@@ -316,6 +319,16 @@ namespace ArsonistMod.Modules
                 new ConfigDefinition("07 - Cleanse", "Ring Fire effect enabled"),
                 true,
                 new ConfigDescription("Determines whether the ring of fire should play when cleanses is activated.", null, Array.Empty<object>())
+            );
+
+            masochismSurgeHealOnHitPercentage = ArsonistPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("08 - Spite", "Heal multiplication from damage during activation."),
+                0.05f,
+                new ConfigDescription("Determines how much should be healed from damage dealt during Masochism: Surge Active state.",
+                    null,
+                    Array.Empty<object>()
+                )
             );
 
 
@@ -512,6 +525,16 @@ namespace ArsonistMod.Modules
 
             ModSettingsManager.AddOption(new CheckBoxOption(enableAggressiveHeatHaze));
             ModSettingsManager.AddOption(new CheckBoxOption(enableNonAggressiveHeatHaze));
+
+            ModSettingsManager.AddOption(new StepSliderOption(
+                masochismSurgeHealOnHitPercentage,
+                new StepSliderConfig
+                {
+                    min = 0.01f,
+                    max = 1f,
+                    increment = 0.01f
+                }
+                ));
         }
 
         // this helper automatically makes config entries for disabling survivors

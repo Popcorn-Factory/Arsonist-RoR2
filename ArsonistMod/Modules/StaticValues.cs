@@ -45,15 +45,24 @@ namespace ArsonistMod.Modules
 
         //firespray
         internal static float firesprayWeakDamageCoefficient = 1.2f;
-        internal static float firesprayStrongDamageCoefficient = 2.5f;
+        internal static float firesprayStrongDamageCoefficient = 2.25f;
         internal static float firesprayEnergyCost = 10f;
         internal static float firesprayBlastRadius = 5f;
         internal static float firesprayweakBlastRadius = 2.5f;
 
         //Alt-firespray
-        internal static float altFiresprayStrongDamageCoefficient = 1.5f;
+        internal static float altFiresprayStrongDamageCoefficient = 1.6f;
         internal static float altFiresprayWeakDamageCoefficient = 0.9f;
         internal static float altFiresprayEnergyCost = 12f;
+
+        // Firespray Scepter: Has the same stats except damage.
+        internal static float firesprayScepterStrongDamageCoefficient = 3f;
+        internal static float firesprayScepterWeakDamageCoefficient = 1.5f;
+        internal static float altFiresprayScepterStrongDamageCoefficient = 2f;
+        internal static float altFiresprayScepterWeakDamageCoefficient = 1.2f;
+        internal static float firesprayScepterRange = 256f;
+        internal static float firesprayScepterWaitTimer = 0.15f;
+        internal static float firesprayScepterChargedMultiplier = 1.5f;
 
         //Flamethrowerz
         internal static float flamethrowerStrongDamageCoefficient = 0.9f;
@@ -64,6 +73,13 @@ namespace ArsonistMod.Modules
         internal static float flamethrowerProcCoefficient = 0.5f;
         internal static float flamethowerRadius = 1.25f;
         internal static int flamethrowerBaseTickRate = 2; //per half sec
+
+        //Flamethrower Scepter: Has the same stats except damage.
+        internal static float flamethrowerScepterStrongDamageCoefficient = 1.4f;
+        internal static float flamethrowerScepterWeakDamageCoefficient = 0.90f;
+        internal static float altFlamethrowerScepterStrongDamageCoefficient = 1.5f;
+        internal static float altFlamethrowerScepterWeakDamageCoefficient = 0.95f;
+        internal static float flamethrowerScepterBlastDamageCoefficient = 1.5f;
 
         //Alt-flamethrower
         internal static float altFlamethrowerStrongDamageCoefficient = 1f;
@@ -102,7 +118,7 @@ namespace ArsonistMod.Modules
         internal static float masochismBasePulseTimer = 1.2f;
         internal static float masochismActiveLowerBoundHeat = 0.15f;
         internal static float masochismBasePulseSelfDamageTimer = 0.6f;
-        internal static float masochismSelfDamage = 0.04f;
+        internal static float masochismSelfDamage = 0.05f;
         internal static float masochismEnergyIncreaseOverTimePercentage = 0.08f;
         internal static float masochismPulseRadius = 10f;
         internal static float masochismPulseCoefficient = 0.4f;
@@ -115,5 +131,19 @@ namespace ArsonistMod.Modules
 
         internal static float masochismMoveSpeedPenalty = 0.7f;
         internal static float masochismDamagePenalty = 0.7f;
+
+        // masochism : surge
+        internal static float masochismSurgeSelfDamage = 0.04f;
+        internal static float masochismSurgeMoveSpeedMultiplier = 1.5f;
+        internal static float masochismSurgeBlastRadius = 12f;
+        internal static float masochismSurgeFinalBlastCoefficient = 0.7f;
+        internal static float masochismSurgeMultiplierPerStack = 1.05f;
+        internal static float masochismSurgeMaxMultipliedRange = 3f;
+        internal static float masochismSurgeFlamethrowerTickRateMultiplier = 1.5f;
+        internal static float spiteBasePulseTimer = 1.4f;
+
+        //Outline colour:
+        internal static Color firstOutlineColour = new Color(0f, 250f/255f, 1f, 0f); // normally 0f transparency
+        internal static Color secondOutlineColour = new Color(0f, 98f / 255f, 154f/255f, 0f); // normally 0.5f transparency
     }
 }

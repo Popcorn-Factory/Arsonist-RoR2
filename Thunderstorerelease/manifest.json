@@ -1,8 +1,8 @@
 {
   "name": "Arsonist_Mod",
-  "version_number": "2.2.3",
+  "version_number": "3.0.0",
   "website_url": "https://github.com/Popcorn-Factory/Arsonist-RoR2",
-  "description": "The Manic Incendiary - 2.0.0 -> Firebug Update! 2.2.3 -> Fixed Masochism final blast from doing 0 damage.",
+  "description": "The Manic Incendiary - 3.0.0 Ancient Scepter update + special!",
   "dependencies": [
     "bbepis-BepInExPack-5.4.1905",
     "RiskofThunder-HookGenPatcher-1.2.3",

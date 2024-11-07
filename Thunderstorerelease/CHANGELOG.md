@@ -1,6 +1,29 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.0
+    - Added Scepter support!
+        - Scepter changes how Primary functions:
+            - Fireball becomes **Firestorm**
+                - Fire a piercing beam of intense heat that deals 300% damage and ignites enemies on hit.
+                - If held held for short time, fire a destructive beam that deals 450% damage when released.
+            - Dragon's Breath becomes **Dante's Rebuke**
+                - Fire an intense beam that deals 140% damage per tick.
+                - Has increased chance to ignite the closer you are to the target.
+                - If held for 2 seconds or more, Fire a final beam on release for 150% damage. 
+    - Added one new special!
+        - Spite
+            - At 5 stacks of Anticipation, activating Spite grants Double-Tap, which fires two volleys for the heat cost of one!
+                - For Alternate-primary, this is simply an attack speed buff with no extra heat cost penalty.
+            - Arsonist heals for 5% of his damage while in this state
+            - Arsonist Gains movespeed while under the influence of Spite.
+            - Arsonist *does not* gain an aura that constantly damages enemies while in this state.
+            - Anticipation stacks are not fully exhausted, but rather only the amount used when in this state is consumed at a rate of 1 stack to 1 second. However there is a minimum cost of 1 to activate, and 1 to deactivate.
+            - Arsonist explodes at the end of this state for 70% damage at base, multiplied by the amount of stacks used, up to a default maximum of 10 stacks.
+    - Miscellaneous changes:
+        - Added force on detonation for Masochism and Spite.
+        - Added VFX for Masochism on detonation. 
+
 - 2.2.3
     - Fixed an issue regarding Masochism where the final blast would not apply any damage whatsoever due to a previous fix that reordered how the damage was applied.
         - Will add a VFX effect for the explosion down the line, not for this update.

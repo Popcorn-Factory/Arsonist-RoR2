@@ -40,11 +40,20 @@ namespace ArsonistMod.Modules
         internal static GameObject arsonistFlareAttached;
         internal static GameObject displayFire;
         internal static Material arsonistOverheatingMaterial;
+        internal static Material arsonistOutlineMaterial;
         internal static Material emissionRingMat;
         internal static Material emissionRingMatLesser;
 
         internal static GameObject fireballStrongGhost;
         internal static GameObject fireballWeakGhost;
+
+        internal static GameObject fireballScepterTracer;
+        internal static GameObject fireballScepterChargedTracer;
+        internal static GameObject fireballScepterWeakTracer;
+        internal static GameObject fireballScepterOnHit;
+        internal static GameObject fireballScepterStrongOnHit;
+
+        internal static GameObject flamethrowerScepterBlast;
 
         //Crosshair
         internal static GameObject fireballCrosshair;
@@ -52,6 +61,8 @@ namespace ArsonistMod.Modules
 
         //MasoSphere
         internal static GameObject masoSphereIndicator;
+        internal static GameObject masoExplosion;
+        internal static GameObject masoExplosionBlue;
 
         //buffs
         public static Sprite blazingBuffIcon = Addressables.LoadAssetAsync<BuffDef>("RoR2/Base/Common/bdOnFire.asset").WaitForCompletion().iconSprite;
@@ -163,6 +174,7 @@ namespace ArsonistMod.Modules
             fireballWeakGhost.AddComponent<ProjectileGhostController>();
 
             arsonistOverheatingMaterial = AssetsArsonist.mainAssetBundle.LoadAsset<Material>("OverheatingMaterial");
+            arsonistOutlineMaterial = AssetsArsonist.mainAssetBundle.LoadAsset<Material>("OutlineSurge");
 
             emissionRingMat = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             emissionRingMatLesser = new Material(emissionRingMat);
@@ -251,9 +263,24 @@ namespace ArsonistMod.Modules
             //Masochism stack sprite
             activatedStackSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("masochismIconActivated");
             deactivatedStackSprite = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<Sprite>("masochismIconDeactivated");
+
+            fireballScepterTracer = LoadEffect("ScepterFireball", "", false, true, 1f);
+            fireballScepterChargedTracer = LoadEffect("ScepterFireballStrong", "", false, true, 1f);
+            fireballScepterWeakTracer = LoadEffect("ScepterFireballWeak", "", false, true, 1f);
+            fireballScepterOnHit = LoadEffect("OnHitScepterFireball", "Arsonist_Primary_Scepter_OnHit", false, true, 0.5f);
+            fireballScepterStrongOnHit = LoadEffect("OnHitScepterFireballStrong", "Arsonist_Primary_Scepter_OnHit", false, true, 0.5f);
+
+            masoExplosion = LoadEffect("MasochismExplosion", "", false, true, 1.5f);
+            EffectComponent masoExplosionEffectComponent = masoExplosion.GetComponent<EffectComponent>();
+            masoExplosionEffectComponent.applyScale = true;
+            masoExplosionBlue = LoadEffect("MasochismExplosionBlue", "", false, true, 1.5f);
+            EffectComponent masoExplosionBlueEffectComponent = masoExplosionBlue.GetComponent<EffectComponent>();
+            masoExplosionBlueEffectComponent.applyScale = true;
+            
+            flamethrowerScepterBlast = LoadEffect("FlamethrowerScepterBlast", "Arsonist_Flamethrower_Scepter_End_Blast", false, true, 1f);
         }
 
-        private static GameObject CreateOGTracer(string ogTracerPrefab)
+        private static GameObject CreateOGTracer(string ogTracerPrefab, float speed = 100f, float length = 100f)
         {            
             GameObject gameobject = Modules.AssetsArsonist.mainAssetBundle.LoadAsset<GameObject>(ogTracerPrefab);
 
@@ -262,8 +289,8 @@ namespace ArsonistMod.Modules
             if (!gameobject.GetComponent<NetworkIdentity>()) gameobject.AddComponent<NetworkIdentity>();
 
             if(!gameobject.GetComponent<Tracer>()) gameobject.AddComponent<Tracer>(); 
-            gameobject.GetComponent<Tracer>().speed = 100f;
-            gameobject.GetComponent<Tracer>().length = 100f;
+            gameobject.GetComponent<Tracer>().speed = speed;
+            gameobject.GetComponent<Tracer>().length = length;
 
             AddNewEffectDef(gameobject);
 
@@ -366,7 +393,7 @@ namespace ArsonistMod.Modules
             return LoadEffect(resourceName, "", parentToTransform, true);
         }
 
-        private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform, bool addEffectComponent)
+        private static GameObject LoadEffect(string resourceName, string soundName, bool parentToTransform, bool addEffectComponent, float duration = 12f)
         {
             GameObject newEffect = mainAssetBundle.LoadAsset<GameObject>(resourceName);
 
@@ -376,7 +403,7 @@ namespace ArsonistMod.Modules
                 return null;
             }
 
-            newEffect.AddComponent<DestroyOnTimer>().duration = 12;
+            newEffect.AddComponent<DestroyOnTimer>().duration = duration;
             newEffect.AddComponent<NetworkIdentity>();
             newEffect.AddComponent<VFXAttributes>().vfxPriority = VFXAttributes.VFXPriority.Always;
             if (addEffectComponent) 

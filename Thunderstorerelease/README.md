@@ -12,80 +12,34 @@ The Arsonist is a close-ranged tank who uses fire as a means to an end. Managing
 Network Compatible! (Unless otherwise found not to be)
 For any issues or bug reports, contact me on the RoR2 Modding discord (This preferrably, ping me), or to me directly, also on discord: ethanol10
 
+## Poster (by DragonRoIlZ)
+<img src="https://github.com/Popcorn-Factory/PopcornFactoryModMediaFiles/blob/main/Arsonist/arsonistancientsceptreposter.png?raw=true" width="600">
+
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 2.2.3
-    - Fixed an issue regarding Masochism where the final blast would not apply any damage whatsoever due to a previous fix that reordered how the damage was applied.
-        - Will add a VFX effect for the explosion down the line, not for this update.
-    
-- 2.0.0
-    - New Content:
-        - Two new skins!
-            - Mastery - Yuppie
-            - Grandmastery - Firebug
-        - New Primary! Read below for more info!
-        - Achievements for each new item
-    - Stat Changes
-        - Increased Base damage stat from 8 -> 12
-    - Core Skill Changes
-        - Passive
-            - Arsonist now converts 50% of total damage received as fire damage over time, if a single attack does 30% or more of your total health (Does not apply to Fall Damage unless you are playing with Frailty enabled).
-            - Arsonist has resistance to fire damage from all sources
-        - Gauge Changes are moved to a passive skill slot
-            - All Gauges:
-                - Overheat now debuffs attack speed. (50% attack speed debuff)
-            - Gauge -> Base Gauge:
-                - Cooling rate is affected by the amount of heat in the gauge
-                - Config to modify this rate has been added.
-            - Gauge -> Supercritical Gauge:
-                - Damage done within the gauge before the blue section has a slight damage penalty, dealing 0.9x damage.
-                - Damage done within the blue gauge does 3x damage.
-        - Primary
-            - NEW PRIMARY: Dragon's Breath
-                - Fire a constant beam of fire that increases ignite chance the closer you are to an enemy.
-                - Attack Speed increases rate of tick.
-            - Overheat -> Fireball:
-                - Changed name to reflect the skill instead of the gauge type.
-                - Changed projectile VFX effect on both normal and overheat projectiles.
-                - Changed the SFX to be more impactful.
-        - Secondary
-            - Flare: Changes
-                - Flare now chains another explosion to enemies hit within the first Flare's explosion.
-                - After the DoT effect, the afflicted enemies explode sending a number of salvos upwards.
-                - Flare reduces heat by 15% of total current heat instead of adding heat when fired.
-                - Due to the destructive nature of this upgrade, the cooldown has been increased.
-                - Changed the SFX to contain a sizzling and a proper explosion.
-                - Should inflict ignite on the final explosion. This is affected by ignition tank.
-                - Upgraded VFX 
-            - Zero Point Blast
-                - Increased the volume of the SFX played on start.
-                - Slightly changed the VFX.
-        - Utility
-            - Cleanse:
-                - Does not self burn anymore.
-                - Added speed boost on activation
-                - Should now apply Ignite correctly. Should be affected by Ignition tank.
-                - Added fire effect that emits off Arsonist for the duration of the move.
-                - Added VFX for Cleanse Blast when not overheated.
-        - Special
-            - Masochism
-                - Builds up Anticipation stacks while not activated.
-                - Now activates a state which radiates heat around Arsonist, dealing ignite damage to enemies in a small radius around you.
-                - Increases heat and deals self damage over time during the duration of the move
-                - Minimum Heat is raised for the duration of the move.
-                - Activatable when required stack amount is reached (Modifiable in Config).
-                - Active state ends when maximum heat is reached, or a set period of time is reached (maximum length is the amount of stacks of masochism anticipation).
-                - Overheat attack speed debuff is not applied once the overheat state is reached from Masochism.
-        - Other:
-            - Added an animation for the run cycle, rather than a sped up version of the walk cycle.
-            - Added the Lobby animation as an emote. Default key to activate is num 3. You can change the activation in the options.
-    - Bug Fixes
-        - Fixing Goobo from adding another UI element to the player's screen.
-        - Added checks to prevent position count from setting count to a negative value.
-        - Changed Zero Point Blast's cancellation priority for Masochism to cancel easier.
-        - Added some mitigations on UI to prevent hooks from breaking
-        - Added some checks to prevent sounds and VFX from constantly playing even after the game has ended or when the player has died.
+- 3.0.0
+    - Added Scepter support!
+        - Scepter changes how Primary functions:
+            - Fireball becomes **Firestorm**
+                - Fire a piercing beam of intense heat that deals 300% damage and ignites enemies on hit.
+                - If held held for short time, fire a destructive beam that deals 450% damage when released.
+            - Dragon's Breath becomes **Dante's Rebuke**
+                - Fire an intense beam that deals 140% damage per tick.
+                - Has increased chance to ignite the closer you are to the target.
+                - If held for 2 seconds or more, Fire a final beam on release for 150% damage. 
+    - Added one new special!
+        - Spite
+            - At 5 stacks of Anticipation, activating Spite grants Double-Tap, which fires two volleys for the heat cost of one!
+                - For Alternate-primary, this is simply an attack speed buff with no extra heat cost penalty.
+            - Arsonist heals for 5% of his damage while in this state
+            - Arsonist Gains movespeed while under the influence of Spite.
+            - Arsonist *does not* gain an aura that constantly damages enemies while in this state.
+            - Anticipation stacks are not fully exhausted, but rather only the amount used when in this state is consumed at a rate of 1 stack to 1 second. However there is a minimum cost of 1 to activate, and 1 to deactivate.
+            - Arsonist explodes at the end of this state for 70% damage at base, multiplied by the amount of stacks used, up to a default maximum of 10 stacks.
+    - Miscellaneous changes:
+        - Added force on detonation for Masochism and Spite.
+        - Added VFX for Masochism on detonation. 
     
 ## Trailer
 <div>
@@ -104,10 +58,18 @@ Check the Changelog tab in thunderstore to see previous changes:
 </details>
 
 ## Screenshots
+
+<img src="https://github.com/Popcorn-Factory/PopcornFactoryModMediaFiles/blob/main/Arsonist/v3s1.png?raw=true&width=1280">
+<img src="https://github.com/Popcorn-Factory/PopcornFactoryModMediaFiles/blob/main/Arsonist/v3s2.png?raw=true&width=1280">
+<img src="https://github.com/Popcorn-Factory/PopcornFactoryModMediaFiles/blob/main/Arsonist/v3s3.png?raw=true&width=1280">
+
+<details>
+<summary>v2.0 Screenshots</summary>
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshot1.png?width=1280&height=720">
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshot2.png?width=1280&height=720">
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/sceenshot3.png?width=1280&height=720">
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/screenshot4.png?width=1280&height=720">
+</details>
 
 <details>
 <summary>v1.0 Screenshots</summary>
@@ -127,6 +89,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
 - Starstorm2 (Allows unlocking certain unlocks)
+- Ancient Scepter
 
 ## Skills
 <img src="https://github.com/Popcorn-Factory/Arsonist-RoR2/blob/master/Thunderstorerelease/arsonistsheet2.png?raw=true">

@@ -47,6 +47,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="AncientScepter">
+      <HintPath>..\libs\AncientScepter.dll</HintPath>
+    </Reference>
     <Reference Include="CustomEmotesAPI">
       <HintPath>..\libs\CustomEmotesAPI.dll</HintPath>
     </Reference>

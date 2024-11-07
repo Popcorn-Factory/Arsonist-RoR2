@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1110381487" Type="User" Language="SFX" Hash="{1AB3AFE9-8A75-A73C-30B7-99890376D294}">
+		<SoundBank Id="1110381487" Type="User" Language="SFX" Hash="{B798E9BF-75E8-7131-9C99-2243F10798E3}">
 			<ShortName>arsonistSoundbank</ShortName>
 			<Path>arsonistSoundbank.bnk</Path>
 			<Media>
@@ -24,6 +24,10 @@
 				<File Id="34150984" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Arsonist_Masochism_2.0_Only_Voices.wav</ShortName>
 					<CachePath>SFX/Arsonist_Masochism_2.0_Only_Voices_3E17CE0A.wem</CachePath>
+				</File>
+				<File Id="51318196" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Charge Complete.wav</ShortName>
+					<CachePath>SFX/Charge Complete_55B9F286.wem</CachePath>
 				</File>
 				<File Id="65815467" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebug_ZPB_2.0_Just_Voices.wav</ShortName>
@@ -41,6 +45,10 @@
 					<ShortName>6. Flare Burning on Target.wav</ShortName>
 					<CachePath>SFX/6. Flare Burning on Target_B7091D91.wem</CachePath>
 				</File>
+				<File Id="109192780" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>3. End.wav</ShortName>
+					<CachePath>SFX/3. End_4D74AE4E.wem</CachePath>
+				</File>
 				<File Id="136757640" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
 					<CachePath>SFX/Arsonist_ZPB_2.0_Only_Voices_91357632.wem</CachePath>
@@ -48,6 +56,10 @@
 				<File Id="151939271" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebug_Flare_Bang_2.wav</ShortName>
 					<CachePath>SFX/Firebug_Flare_Bang_2_6FB4B515.wem</CachePath>
+				</File>
+				<File Id="155282618" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Chargeup start 0.75 sec.wav</ShortName>
+					<CachePath>SFX/Chargeup start 0.75 sec_926294DB.wem</CachePath>
 				</File>
 				<File Id="156089775" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Arsonist_ZPB_2.0_Only_Voices.wav</ShortName>
@@ -68,6 +80,10 @@
 				<File Id="316779847" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ZPB_startup_whiff.wav</ShortName>
 					<CachePath>SFX/ZPB_startup_whiff_8E324C96.wem</CachePath>
+				</File>
+				<File Id="322193800" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>3. Base On-hit.wav</ShortName>
+					<CachePath>SFX/3. Base On-hit_EF5887D7.wem</CachePath>
 				</File>
 				<File Id="326243976" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Secondary Fire 1\2. Flare Explosion.wav</ShortName>
@@ -101,6 +117,10 @@
 					<ShortName>Arsonist_Masochism_2.0_Only_Voices.wav</ShortName>
 					<CachePath>SFX/Arsonist_Masochism_2.0_Only_Voices_974514E9.wem</CachePath>
 				</File>
+				<File Id="432439768" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pulse.wav</ShortName>
+					<CachePath>SFX/Pulse_CF975696.wem</CachePath>
+				</File>
 				<File Id="463410225" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>3. Travel.wav</ShortName>
 					<CachePath>SFX/3. Travel_72E71C39.wem</CachePath>
@@ -109,9 +129,21 @@
 					<ShortName>Special - Masochism\1. Masochism Laugh 1.wav</ShortName>
 					<CachePath>SFX/Special - Masochism/1. Masochism Laugh 1_8E324C96.wem</CachePath>
 				</File>
+				<File Id="479112659" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Duration Retry.wav</ShortName>
+					<CachePath>SFX/Duration Retry_9E65E0C5.wem</CachePath>
+				</File>
 				<File Id="481400103" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>4. Tick of Damage.wav</ShortName>
 					<CachePath>SFX/4. Tick of Damage_75763009.wem</CachePath>
+				</File>
+				<File Id="489911725" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Start.wav</ShortName>
+					<CachePath>SFX/Start_E64B3E11.wem</CachePath>
+				</File>
+				<File Id="508666325" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>2. Final Spite--Duration.wav</ShortName>
+					<CachePath>SFX/2. Final Spite--Duration_144F24AE.wem</CachePath>
 				</File>
 				<File Id="509496315" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Flamethrower_primary_neoarsonist_start.wav</ShortName>
@@ -129,6 +161,10 @@
 					<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
 					<CachePath>SFX/1. ZPB without laughs (start + travel _ contact)_75E0F03F.wem</CachePath>
 				</File>
+				<File Id="571899431" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>4. Beam Burst End.wav</ShortName>
+					<CachePath>SFX/4. Beam Burst End_4E91F022.wem</CachePath>
+				</File>
 				<File Id="576447885" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>3.99_ZPB_contact.wav</ShortName>
 					<CachePath>SFX/3.99_ZPB_contact_8E324C96.wem</CachePath>
@@ -140,6 +176,14 @@
 				<File Id="605701829" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>1. ZPB without laughs (start + travel _ contact).wav</ShortName>
 					<CachePath>SFX/1. ZPB without laughs (start + travel _ contact)_A4F4DEDA.wem</CachePath>
+				</File>
+				<File Id="612701469" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>4. Alt On-hit.wav</ShortName>
+					<CachePath>SFX/4. Alt On-hit_6062652F.wem</CachePath>
+				</File>
+				<File Id="626743768" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>2. Overheat Beam.wav</ShortName>
+					<CachePath>SFX/2. Overheat Beam_72FBD635.wem</CachePath>
 				</File>
 				<File Id="646534066" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Arsonist_Idle_1.wav</ShortName>
@@ -189,6 +233,10 @@
 					<ShortName>Overheat\1. Overheat Start.wav</ShortName>
 					<CachePath>SFX/Overheat/1. Overheat Start_8E324C96.wem</CachePath>
 				</File>
+				<File Id="761886591" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>End.wav</ShortName>
+					<CachePath>SFX/End_3305FEF3.wem</CachePath>
+				</File>
 				<File Id="767924108" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>1. Flare Punch.wav</ShortName>
 					<CachePath>SFX/1. Flare Punch_8E324C96.wem</CachePath>
@@ -229,6 +277,10 @@
 					<ShortName>1. Normal.wav</ShortName>
 					<CachePath>SFX/1. Normal_2C9D21CD.wem</CachePath>
 				</File>
+				<File Id="940311688" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>1. Start.wav</ShortName>
+					<CachePath>SFX/1. Start_EBFDF357.wem</CachePath>
+				</File>
 				<File Id="965841612" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>4._Masochism_with_no_Laugh.wav</ShortName>
 					<CachePath>SFX/4._Masochism_with_no_Laugh_8E324C96.wem</CachePath>
@@ -237,9 +289,17 @@
 					<ShortName>2._Overheat.wav</ShortName>
 					<CachePath>SFX/2._Overheat_8E324C96.wem</CachePath>
 				</File>
+				<File Id="983539864" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BaseM1 Ancient Fullcharge.wav</ShortName>
+					<CachePath>SFX/BaseM1 Ancient Fullcharge_BBA3778E.wem</CachePath>
+				</File>
 				<File Id="986803567" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ArsonistFireballFunnybutFiltered_2.wav</ShortName>
 					<CachePath>SFX/ArsonistFireballFunnybutFiltered_2_8E324C96.wem</CachePath>
+				</File>
+				<File Id="988725582" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Masochism or Spite Denied.wav</ShortName>
+					<CachePath>SFX/Masochism or Spite Denied_6422CE98.wem</CachePath>
 				</File>
 				<File Id="1004312520" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Firebug_Flare_Bang_3.wav</ShortName>
@@ -256,6 +316,10 @@
 				<File Id="1029976508" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>flarestrikesetup.wav</ShortName>
 					<CachePath>SFX/flarestrikesetup_8E324C96.wem</CachePath>
+				</File>
+				<File Id="1030677976" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>1.Base Short Beam.wav</ShortName>
+					<CachePath>SFX/1.Base Short Beam_DF06F700.wem</CachePath>
 				</File>
 				<File Id="1035535129" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cleanse - Shift\4. Cleanse.wav</ShortName>
@@ -274,6 +338,11 @@
 					<CachePath>SFX/Explosion_from_projectile_contact (1)_8E324C96.wem</CachePath>
 				</File>
 			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="381842791" Name="Time Stretch (Custom)" LibName="Wwise Time Stretch" LibId="8519683"/>
+				</Custom>
+			</Plugins>
 			<Events>
 				<Event Id="1924783034" Name="Arsonist_Cleanse">
 					<MediaRefs>
@@ -288,6 +357,31 @@
 				<Event Id="4168901551" Name="Arsonist_Flamethrower_End">
 					<MediaRefs>
 						<MediaRef Id="892859622"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3247972543" Name="Arsonist_Flamethrower_Scepter_Active">
+					<MediaRefs>
+						<MediaRef Id="479112659"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1864761202" Name="Arsonist_Flamethrower_Scepter_Burning">
+					<MediaRefs>
+						<MediaRef Id="612701469"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2143616816" Name="Arsonist_Flamethrower_Scepter_End">
+					<MediaRefs>
+						<MediaRef Id="109192780"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1685265643" Name="Arsonist_Flamethrower_Scepter_End_Blast">
+					<MediaRefs>
+						<MediaRef Id="571899431"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="979568843" Name="Arsonist_Flamethrower_Scepter_Start">
+					<MediaRefs>
+						<MediaRef Id="940311688"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="934132236" Name="Arsonist_Flamethrower_Start">
@@ -313,6 +407,11 @@
 				<Event Id="1840962711" Name="Arsonist_Masochism">
 					<MediaRefs>
 						<MediaRef Id="965841612"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3575931215" Name="Arsonist_Masochism_Denied">
+					<MediaRefs>
+						<MediaRef Id="988725582"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3831238989" Name="Arsonist_Masochism_Laugh">
@@ -402,6 +501,41 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="2615494976" Name="Arsonist_Primary_Fire_Travel_Stop"/>
+				<Event Id="2746588547" Name="Arsonist_Primary_Scepter_Charge">
+					<MediaRefs>
+						<MediaRef Id="155282618"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="381842791"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="1852205059" Name="Arsonist_Primary_Scepter_Charge_Complete">
+					<MediaRefs>
+						<MediaRef Id="51318196"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4235059291" Name="Arsonist_Primary_Scepter_Fire">
+					<MediaRefs>
+						<MediaRef Id="1030677976"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1324654014" Name="Arsonist_Primary_Scepter_Full_Charge_Fire">
+					<MediaRefs>
+						<MediaRef Id="983539864"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1397846719" Name="Arsonist_Primary_Scepter_OnHit">
+					<MediaRefs>
+						<MediaRef Id="322193800"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="553582860" Name="Arsonist_Primary_Scepter_Overheated">
+					<MediaRefs>
+						<MediaRef Id="626743768"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="87692310" Name="Arsonist_Secondary_Flare_Damage_Tick">
 					<MediaRefs>
 						<MediaRef Id="481400103"/>
@@ -471,6 +605,26 @@
 						<MediaRef Id="1004312520"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4157809569" Name="Arsonist_Spite_Duration">
+					<MediaRefs>
+						<MediaRef Id="508666325"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="672450684" Name="Arsonist_Spite_End">
+					<MediaRefs>
+						<MediaRef Id="761886591"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3775196080" Name="Arsonist_Spite_Pulse">
+					<MediaRefs>
+						<MediaRef Id="432439768"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2590470431" Name="Arsonist_Spite_Start">
+					<MediaRefs>
+						<MediaRef Id="489911725"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2176930590" Name="Arsonist_Stop_All_Sounds"/>
 				<Event Id="1135082308" Name="Arsonist_Stop_ZPB_Fluff"/>
 				<Event Id="1486446844" Name="Arsonist_ZPB_Contact">
@@ -510,12 +664,13 @@
 				<GameParameter Id="988679239" Name="Volume_ArsonistVoice_Arsonist"/>
 				<GameParameter Id="1264562516" Name="Volume_ArsonistSFX"/>
 				<GameParameter Id="1868460931" Name="Volume_ArsonistVoice"/>
+				<GameParameter Id="1907826238" Name="PlaybackSpeed_Arsonist_Charge"/>
 				<GameParameter Id="2549699868" Name="Volume_ArsonistVoice_Firebug"/>
 				<GameParameter Id="3673881719" Name="Volume_SFX"/>
 				<GameParameter Id="3695994288" Name="Volume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2D52FA1E-F849-49FC-C5A7-CCC366C3E00B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6495F413-1362-7028-7222-27AD004FC576}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -537,6 +692,7 @@
 				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
 				<GameParameter Id="1524500807" Name="Playback_Rate"/>
 				<GameParameter Id="1868460931" Name="Volume_ArsonistVoice"/>
+				<GameParameter Id="1907826238" Name="PlaybackSpeed_Arsonist_Charge"/>
 				<GameParameter Id="2549699868" Name="Volume_ArsonistVoice_Firebug"/>
 				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
 				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
@@ -678,5 +834,5 @@
 			</AcousticTextures>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{275ED6E5-2E74-3DBC-96D2-8F295C0AEB6B}</FileHash>
+	<FileHash>{AD132C10-802F-8740-5DEC-126187DC4346}</FileHash>
 </SoundBanksInfo>

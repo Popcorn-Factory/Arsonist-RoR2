@@ -41,6 +41,7 @@
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -228,6 +229,8 @@
 										<Sound Name="2_0_Cleanse" ID="{63FF53F8-8102-4036-924F-521443EEF8A4}" ShortID="119323871">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="4"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -262,6 +265,8 @@
 										<Sound Name="1_0_Overheat_Start" ID="{A0710A11-EB37-4535-BFAE-32AB33DA04C4}" ShortID="371056758">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="15"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -296,6 +301,8 @@
 										<Sound Name="8_0_Secondary Flare Punch" ID="{D8DA827A-0CB7-40EA-AB33-CF0655E88108}" ShortID="618357540">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="19"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -564,6 +571,8 @@
 										<Sound Name="3_2_Primary_Fire_OnHit" ID="{E0710632-CFB0-4452-9A9F-85DCB2F1118A}" ShortID="24399979">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
@@ -612,6 +621,8 @@
 										<Sound Name="8_1_Secondary Flare Explosion" ID="{FA9BEA6A-CE34-4FED-853D-2B3443939FA3}" ShortID="633698445">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="19"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -659,7 +670,9 @@
 										<Sound Name="1_1_Overheat_Duration" ID="{F058DA0F-42B5-4921-80B2-D8A81F43A5DB}" ShortID="520575699">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="15"/>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
@@ -713,6 +726,8 @@
 										<Sound Name="4_1_Secondary Flare Explosion" ID="{566AA5D3-3279-4A32-B5EE-A9DA40A9BAC1}" ShortID="708610345">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -855,6 +870,8 @@
 										<Sound Name="1_2_Overheat_Finish" ID="{490014E8-B801-410A-9661-46E7AAC8C10C}" ShortID="713498411">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="15"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -889,6 +906,8 @@
 										<Sound Name="7_0_Menu_Match_Strike" ID="{6A050046-6A02-4E6B-8AA2-62D31A51D6A7}" ShortID="500058221">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="13"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
@@ -931,6 +950,8 @@
 										<Sound Name="8_2_Secondary Flare Punch Contact" ID="{B5224152-5BFE-4F8E-B9B8-69BA75402201}" ShortID="809991607">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="19"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -979,7 +1000,9 @@
 										<Sound Name="9_1_Flamethrower_Active" ID="{30E7718A-AE29-4CBE-86F5-4C39A3E772B7}" ShortID="844087774">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="25"/>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1019,7 +1042,9 @@
 										<Sound Name="6_5_Masochism_Laugh_Active" ID="{3B457B8C-34B1-425F-86B8-CD9DD01946AC}" ShortID="110344820">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="23"/>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1058,6 +1083,8 @@
 										<Sound Name="3_0_Primary_Fire" ID="{DBD91922-CA7D-4677-BE1F-12C7193FC553}" ShortID="959632261">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1097,6 +1124,8 @@
 										<Sound Name="4_6_Secondary_Flare_Projectile_Explosion_New" ID="{E494CACE-BFD4-4DF8-9636-573245F29066}" ShortID="1045646157">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -1149,6 +1178,8 @@
 										<Sound Name="9_2_Flamethrower_End" ID="{D5BE5141-839C-4259-877F-7572FC2A842D}" ShortID="543262714">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1188,6 +1219,8 @@
 										<Sound Name="6_6_Masochism_Laugh_End" ID="{ED399DFC-6A21-4680-A23F-2032D44BC5C4}" ShortID="390381045">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1444,6 +1477,8 @@
 										<Sound Name="3_3_Primary_Fire_Travel" ID="{34A86635-2FAE-4D29-BFC5-19E80A158D21}" ShortID="150447019">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1483,6 +1518,8 @@
 										<Sound Name="4_0_ Secondary Flare Projectile" ID="{145774E4-8769-441A-9477-A734848B6675}" ShortID="333502364">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1522,6 +1559,8 @@
 										<Sound Name="4_2_Secondary Flare Projectile Overheat" ID="{9E36B1B4-07D1-4C56-AD93-9F8B93569090}" ShortID="91999024">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1773,6 +1812,8 @@
 										<Sound Name="9_0_Flamethrower_Start" ID="{6D36585C-0534-4F4E-9DDB-398248114E63}" ShortID="3094191">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1812,6 +1853,8 @@
 										<Sound Name="6_3_Masochism_No_Laugh_Start" ID="{FA642C01-B08B-4B03-8640-A213B874A8C4}" ShortID="577808463">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -1866,6 +1909,8 @@
 										<Sound Name="4_3_Secondary_Flare_Projectile_Trail" ID="{F2BBD03F-1BFA-4BCD-8418-1F43EEC19D11}" ShortID="491618218">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -1916,6 +1961,8 @@
 										</Sound>
 										<Sound Name="4_4_Secondary_Flare_Projectile_Impact" ID="{92E10E51-A3D6-4754-A834-E8BBF10B7477}" ShortID="416624205">
 											<PropertyList>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -1968,7 +2015,9 @@
 										<Sound Name="4_5_Secondary_Flare_Projectile_Burning" ID="{7A913407-F355-49EA-A453-AE974ED92880}" ShortID="663700730">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -2160,7 +2209,9 @@
 										<Sound Name="6_9_Masochism_Duration_No_Pulse" ID="{219D9540-04F8-44E8-BCE2-7370B3415EDF}" ShortID="1067396146">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="23"/>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
@@ -2200,6 +2251,8 @@
 										<Sound Name="3_1_Primary_Fire_Overheated" ID="{B9803702-DFA6-4E1C-9DC1-4566162C9E4E}" ShortID="67248705">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>7</Value>
@@ -2233,6 +2286,8 @@
 										<Sound Name="4_7_Secondary_Flare_Projectile_Damage_Sound" ID="{8C6D91FF-0967-4F1D-8141-E976B0B99963}" ShortID="28750482">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="10"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -2284,6 +2339,8 @@
 										<Sound Name="6_10_Masochism_Pulse" ID="{AEB30574-EAD0-4FF1-9422-A3B822FE30C3}" ShortID="660167808">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="2"/>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>7</Value>
@@ -2588,7 +2645,659 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
+										<Sound Name="9_3_Flamethrower_Scepter_Start" ID="{8A2393AD-A006-413F-B9C6-48A7FAFFFB84}" ShortID="875769512">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="1_ Start" ID="{3E25FFEC-6106-448F-94B1-670865A4A2CD}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.199906001077911"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.70195530489176"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>1. Start.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="940311688"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="1_ Start" ID="{3E25FFEC-6106-448F-94B1-670865A4A2CD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_4_Primary_Scepter" ID="{488C2173-5635-4C2A-B029-F5EF582371D3}" ShortID="362290927">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="1_Base Short Beam" ID="{F824CAEE-62A6-4090-B703-46C83027CC71}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.187897691827823"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.0105053025577"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>1.Base Short Beam.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1030677976"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="1_Base Short Beam" ID="{F824CAEE-62A6-4090-B703-46C83027CC71}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_5_Primary_Scepter_Overheated" ID="{F75B9CC4-498C-4909-91CD-935ED4CA2CF6}" ShortID="463268713">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_ Overheat Beam" ID="{30E96229-8008-4A8A-83D7-EB20885A6435}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.103748923150046"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.35502381447484"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2. Overheat Beam.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="626743768"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_ Overheat Beam" ID="{30E96229-8008-4A8A-83D7-EB20885A6435}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_4_Flamethrower_Scepter_End" ID="{276CCCC3-1493-4CE1-865C-8B334639EF8E}" ShortID="1027554974">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="3_ End" ID="{D0D5DBB2-5790-4B56-BD54-B9A68DD1357B}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="3.53382221260307"/>
+														<Property Name="TrimEnd" Type="Real64" Value="5.0234443496675"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>3. End.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="109192780"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="3_ End" ID="{D0D5DBB2-5790-4B56-BD54-B9A68DD1357B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_5_Flamethrower_Scepter_Active" ID="{690375C0-0883-4B37-81E2-247AD86AE245}" ShortID="745753363">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Duration Retry" ID="{5E2AA215-CEFB-44ED-9685-579C570F4B74}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.273278989756822"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.118816952068185"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.438503486235418"/>
+														<Property Name="TrimEnd" Type="Real64" Value="9.01166172319309"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Duration Retry.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="479112659"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Duration Retry" ID="{5E2AA215-CEFB-44ED-9685-579C570F4B74}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_6_Primary_Scepter_OnHit" ID="{9E203FF3-4B4D-47C5-9C73-C3759266ED48}" ShortID="249013111">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="3_ Base On-hit" ID="{C70E746D-F2FA-4575-B090-5D0B450BC92B}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0303478548526643"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0303478548526643"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.00343792256964"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>3. Base On-hit.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="322193800"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="3_ Base On-hit" ID="{C70E746D-F2FA-4575-B090-5D0B450BC92B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_6_Flamethrower_Scepter_OnHit" ID="{154A8747-BFFF-4570-B4BF-8E3C295C45CA}" ShortID="879768586">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="4_ Alt On-hit" ID="{1EF2475C-1CC5-454D-8249-3B6149F854A5}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.231673583806611"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>4. Alt On-hit.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="612701469"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="4_ Alt On-hit" ID="{1EF2475C-1CC5-454D-8249-3B6149F854A5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_7_Scepter_FullCharge" ID="{31E6367D-2A77-4969-AD77-B304255E2997}" ShortID="352153661">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BaseM1 Ancient Fullcharge" ID="{0E5B511D-AE84-4018-880F-09AE80075864}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.238886202860197"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.1929753422566"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BaseM1 Ancient Fullcharge.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="983539864"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BaseM1 Ancient Fullcharge" ID="{0E5B511D-AE84-4018-880F-09AE80075864}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_8_Scepter_Charge_Complete" ID="{0A8A7110-ABD1-4599-87A6-92AE4A646EA6}" ShortID="661848395">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>18</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Charge Complete" ID="{4FC7B202-7820-4213-81F5-50CC4625FE6E}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.72168130040503"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.29954924197443"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Charge Complete.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="51318196"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Charge Complete" ID="{4FC7B202-7820-4213-81F5-50CC4625FE6E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="3_9_Scepter_Charge_Up" ID="{4E804B23-CACC-40FE-8A2D-7768E2DA2A25}" ShortID="21247003">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="1"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Chargeup start 0_75 sec" ID="{25DAF76E-D76D-422F-AAE5-BE24A3ACD839}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0299372600245418"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.798780528836639"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Chargeup start 0.75 sec.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="155282618"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Effects">
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{BAAD3093-146F-43AE-B4D7-950C7C0818CC}" ShortID="745347327">
+																<ReferenceList>
+																	<Reference Name="Effect">
+																		<Custom>
+																			<Effect Name="Time Stretch (Custom)" ID="{25804C7E-E314-4CDD-91F3-7988D04E961E}" ShortID="381842791" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+																				<PropertyList>
+																					<Property Name="QualityEnable" Type="int16" Value="1"/>
+																					<Property Name="WindowSize" Type="int32" Value="3072"/>
+																				</PropertyList>
+																				<ObjectLists>
+																					<ObjectList Name="RTPC">
+																						<Reference>
+																							<Local>
+																								<RTPC Name="" ID="{7521005D-C8E2-45CF-8905-A8BF9AAF9C96}" ShortID="991941757">
+																									<PropertyList>
+																										<Property Name="PropertyName" Type="string" Value="TimeStretch"/>
+																									</PropertyList>
+																									<ReferenceList>
+																										<Reference Name="ControlInput">
+																											<ObjectRef Name="PlaybackSpeed_Arsonist_Charge" ID="{8166B8A5-B93F-4302-BA79-33DC40FD5643}" WorkUnitID="{7A785F44-1EE7-4692-96AE-344853F17125}"/>
+																										</Reference>
+																										<Reference Name="Curve">
+																											<Custom>
+																												<Curve Name="" ID="{A57EF76D-21BB-4D5F-984E-B8964D183F41}">
+																													<PropertyList>
+																														<Property Name="Flags" Type="int32" Value="1"/>
+																													</PropertyList>
+																													<PointList>
+																														<Point>
+																															<XPos>0</XPos>
+																															<YPos>700.41948</YPos>
+																															<Flags>5</Flags>
+																														</Point>
+																														<Point>
+																															<XPos>1</XPos>
+																															<YPos>100</YPos>
+																															<Flags>0</Flags>
+																															<SegmentShape>Log1</SegmentShape>
+																														</Point>
+																														<Point>
+																															<XPos>50</XPos>
+																															<YPos>25</YPos>
+																															<Flags>37</Flags>
+																														</Point>
+																													</PointList>
+																												</Curve>
+																											</Custom>
+																										</Reference>
+																									</ReferenceList>
+																								</RTPC>
+																							</Local>
+																						</Reference>
+																					</ObjectList>
+																				</ObjectLists>
+																			</Effect>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+											<ActiveSourceList>
+												<ActiveSource Name="Chargeup start 0_75 sec" ID="{25DAF76E-D76D-422F-AAE5-BE24A3ACD839}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="9_7_Flamethrower_Scepter_Blast_Final" ID="{404D3891-78DD-4F49-AD26-3EFC53818032}" ShortID="374721285">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="25"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="4_ Beam Burst End" ID="{C035BCF6-C460-457E-A17A-E62F6D61ECDB}">
+													<PropertyList>
+														<Property Name="LoopEnd" Type="Real64" Value="2.98801059991744"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0413538856939284"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.99585927471571"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>4. Beam Burst End.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="571899431"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="4_ Beam Burst End" ID="{C035BCF6-C460-457E-A17A-E62F6D61ECDB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="6_11_Masochism_Deny" ID="{F5AD85B8-5BEA-47FF-BA5D-C9A037C27497}" ShortID="427517837">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="23"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Masochism or Spite Denied" ID="{AB73A652-DAEC-4122-A6A2-3B9B582EBBB6}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0520097714896433"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0361178968678078"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.906559211381976"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Masochism or Spite Denied.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="988725582"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Masochism or Spite Denied" ID="{AB73A652-DAEC-4122-A6A2-3B9B582EBBB6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="10_1_Spite_Duration" ID="{27BAD8B0-C6C8-4159-93E8-EF5B70BDD370}" ShortID="134701622">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="26"/>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="2_ Final Spite--Duration" ID="{11584B77-3612-4FC6-AD19-C916A5FB83E1}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="7.60014003625016"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.534384846298839"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>2. Final Spite--Duration.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="508666325"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="2_ Final Spite--Duration" ID="{11584B77-3612-4FC6-AD19-C916A5FB83E1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="10_2_Spite_End" ID="{8078CB23-F69F-41DE-95C4-592D6E61EB8A}" ShortID="878691887">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="26"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="End" ID="{6189280A-B4E8-4967-BF36-C503D326625A}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.157880839907229"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.51035735491203"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>End.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="761886591"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="End" ID="{6189280A-B4E8-4967-BF36-C503D326625A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="10_3_Spite_Pulse" ID="{8FB8FEE5-8D01-42DB-9082-03137A35EA4C}" ShortID="793918885">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="26"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Pulse" ID="{A92F8DAC-19FE-4517-9B9C-E240275A30E4}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.973187350196635"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.59516626719102"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Pulse.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="432439768"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Pulse" ID="{A92F8DAC-19FE-4517-9B9C-E240275A30E4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="10_0_Spite_Start" ID="{57E59A0A-C852-471D-9441-E98781E08ADD}" ShortID="183004900">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="26"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>13</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{6B65B982-69FD-4940-8556-4454B4268037}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{CF0A8941-3038-498F-B9EE-05A9A4AD3645}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Start" ID="{F03028CC-6C75-47F0-BC08-286216BC0F5F}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="4.46358969585553"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Start.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="489911725"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Start" ID="{F03028CC-6C75-47F0-BC08-286216BC0F5F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{17778E5D-5C7D-4EA2-A2F3-78F31B3E414B}"/>
+									</PositioningInfo>
 									<ObjectLists>
 										<ObjectList Name="RTPC">
 											<Reference>
@@ -2614,8 +3323,13 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
+																				<XPos>50</XPos>
+																				<YPos>0.1126</YPos>
+																				<Flags>0</Flags>
+																			</Point>
+																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>8.24361</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -3331,8 +4045,13 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
+																				<XPos>51.04423</XPos>
+																				<YPos>0.1141</YPos>
+																				<Flags>0</Flags>
+																			</Point>
+																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>11.13726</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -4036,8 +4755,13 @@
 																				<Flags>5</Flags>
 																			</Point>
 																			<Point>
+																				<XPos>49.93857</XPos>
+																				<YPos>0.0183</YPos>
+																				<Flags>0</Flags>
+																			</Point>
+																			<Point>
 																				<XPos>100</XPos>
-																				<YPos>0</YPos>
+																				<YPos>11.55096</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
@@ -4077,8 +4801,13 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
+																		<XPos>50.55283</XPos>
+																		<YPos>-0.20547</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
 																		<XPos>100</XPos>
-																		<YPos>0</YPos>
+																		<YPos>11.13726</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>

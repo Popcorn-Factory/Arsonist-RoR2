@@ -36,6 +36,8 @@ namespace ArsonistMod
 
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
+    
+    [BepInDependency("com.DestroyedClone.AncientScepter", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
 
@@ -43,9 +45,11 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "2.2.3";
+        public const string MODVERSION = "3.0.0";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
+        
+        public static bool scepterAvailable = false;
         public static ArsonistPlugin instance;
         public static AkGameObj akGameObject;
 
@@ -62,7 +66,10 @@ namespace ArsonistMod
             {
                 Modules.Config.SetupRiskOfOptions();
             }
-
+            if (Chainloader.PluginInfos.ContainsKey("com.DestroyedClone.AncientScepter"))
+            {
+                scepterAvailable = true;
+            }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
@@ -397,6 +404,7 @@ namespace ArsonistMod
                     if (arsonistController)
                     {
                         this.overlayFunction(arsonistController.overheatingMaterial, (bool)arsonistController && self.body.hasEffectiveAuthority, self);
+                        this.overlayFunction(arsonistController.outlineMaterial, (bool)arsonistController && self.body.hasEffectiveAuthority, self);
                     }
                 }
             }

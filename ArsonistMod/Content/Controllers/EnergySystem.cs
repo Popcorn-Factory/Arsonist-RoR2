@@ -47,6 +47,10 @@ namespace ArsonistMod.Content.Controllers
         public bool enabledUI;
 
         public bool isAcceleratedCooling;
+
+        //ScepterFireballGauge
+        public GameObject FireballGauge;
+
         
 
         //OLD
@@ -108,6 +112,7 @@ namespace ArsonistMod.Content.Controllers
 
         //Masochism monitoring
         public MasochismController masoCon;
+        public SpiteController masoSurgeController;
 
         //Overheated?
         public bool hasOverheatedThisStage = false;
@@ -119,6 +124,9 @@ namespace ArsonistMod.Content.Controllers
 
         public float updateSegment = 0.5f;
         public float segmentTimer = 0f;
+
+        //maso specific
+        public bool disableHeatGainMaso = false;
         
         public void Awake()
         {
@@ -355,6 +363,11 @@ namespace ArsonistMod.Content.Controllers
                 //Add the component.
                 masoCon = gameObject.AddComponent<MasochismController>();
                 //This should be destroyed with the body I guess.
+            }
+
+            if (characterBody.skillLocator.special.skillNameToken == "POPCORN_ARSONIST_BODY_SPECIAL_MASOCHISM_SURGE_NAME") 
+            {
+                masoSurgeController = gameObject.AddComponent<SpiteController>();
             }
         }
 
@@ -972,6 +985,11 @@ namespace ArsonistMod.Content.Controllers
             {
                 masoCon.heatChanged += Energy + flatOverheat;
             }
+
+            if (masoSurgeController && !disableHeatGainMaso) 
+            {
+                masoSurgeController.heatChanged += Energy + flatOverheat;
+            }
         }
 
         public void AddHeat(float Energy) 
@@ -1003,6 +1021,11 @@ namespace ArsonistMod.Content.Controllers
             if (masoCon)
             {
                 masoCon.heatChanged += realHeatGained + flatOverheat;
+            }
+
+            if (masoSurgeController && !disableHeatGainMaso)
+            {
+                masoSurgeController.heatChanged += realHeatGained + flatOverheat;
             }
         }
 

@@ -719,6 +719,182 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_Active" ID="{2D5EDE7D-848E-4188-96DD-7C08B9CAAD8D}">
+					<ChildrenList>
+						<Action Name="" ID="{33F1CE65-903C-4E5E-8EBA-A9D09C0E9DF8}" ShortID="1001297122">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_5_Flamethrower_Scepter_Active" ID="{690375C0-0883-4B37-81E2-247AD86AE245}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_Start" ID="{6BCD8F6D-E234-46EA-9389-3FCB969B7509}">
+					<ChildrenList>
+						<Action Name="" ID="{077D820D-4586-4767-A190-AE6E2A5B9C59}" ShortID="413126030">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_3_Flamethrower_Scepter_Start" ID="{8A2393AD-A006-413F-B9C6-48A7FAFFFB84}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_End" ID="{26D36CD9-0C21-4F0C-9B66-82C2A4A3199B}">
+					<ChildrenList>
+						<Action Name="" ID="{70EBFEC2-A10C-431E-BFE9-9F3C721B7CB9}" ShortID="546107664">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_4_Flamethrower_Scepter_End" ID="{276CCCC3-1493-4CE1-865C-8B334639EF8E}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Fire" ID="{096D774A-A3CA-492E-B9F5-8D26E7FE6E25}">
+					<ChildrenList>
+						<Action Name="" ID="{1177A56B-429D-4B0E-9AAC-18583F4B67B8}" ShortID="266560573">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_4_Primary_Scepter" ID="{488C2173-5635-4C2A-B029-F5EF582371D3}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Overheated" ID="{DE1E4D0D-8183-4830-8C5C-86A8B8857D3E}">
+					<ChildrenList>
+						<Action Name="" ID="{A647E0FA-6093-470F-89CB-765CBEF61B49}" ShortID="600288953">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_5_Primary_Scepter_Overheated" ID="{F75B9CC4-498C-4909-91CD-935ED4CA2CF6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_OnHit" ID="{6F80AD59-DA49-4D52-9DF6-A63897153DF2}">
+					<ChildrenList>
+						<Action Name="" ID="{AD1F8EF5-2B50-42DA-AF21-CBD8B2B80E2D}" ShortID="900114244">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_6_Primary_Scepter_OnHit" ID="{9E203FF3-4B4D-47C5-9C73-C3759266ED48}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_Burning" ID="{4BAE915A-1119-42F3-8090-A83D25FE4944}">
+					<ChildrenList>
+						<Action Name="" ID="{D588B417-1299-4574-8D71-66F205E5D8A9}" ShortID="460719985">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_6_Flamethrower_Scepter_OnHit" ID="{154A8747-BFFF-4570-B4BF-8E3C295C45CA}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Charge" ID="{95FEEC81-C7FD-4353-99F5-D6B95ECE65D8}">
+					<ChildrenList>
+						<Action Name="" ID="{B89B35D3-428C-4C34-95E4-B2EAB2F5E700}" ShortID="761520511">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_9_Scepter_Charge_Up" ID="{4E804B23-CACC-40FE-8A2D-7768E2DA2A25}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Charge_Complete" ID="{54D1A78D-9070-44AA-9590-40E48E650675}">
+					<ChildrenList>
+						<Action Name="" ID="{30CE6738-9381-490E-885D-71C48BC24682}" ShortID="990019935">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_8_Scepter_Charge_Complete" ID="{0A8A7110-ABD1-4599-87A6-92AE4A646EA6}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Primary_Scepter_Full_Charge_Fire" ID="{2F97BA78-CEF2-409C-B59D-1998F7025691}">
+					<ChildrenList>
+						<Action Name="" ID="{F477DF6D-742B-46A5-B991-4CE5EC36EB25}" ShortID="758724588">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="3_7_Scepter_FullCharge" ID="{31E6367D-2A77-4969-AD77-B304255E2997}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Masochism_Denied" ID="{03AEDE55-170D-490A-BE1D-EAD77C76252B}">
+					<ChildrenList>
+						<Action Name="" ID="{0F7657E4-169A-4C13-9DA1-71EDA95634EA}" ShortID="209627606">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="6_11_Masochism_Deny" ID="{F5AD85B8-5BEA-47FF-BA5D-C9A037C27497}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Flamethrower_Scepter_End_Blast" ID="{1C921316-58A3-46F9-B528-87FB0C68096A}">
+					<ChildrenList>
+						<Action Name="" ID="{98C52EBA-4E82-4962-8E9E-3F562C458AC4}" ShortID="388323920">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="9_7_Flamethrower_Scepter_Blast_Final" ID="{404D3891-78DD-4F49-AD26-3EFC53818032}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Spite_Start" ID="{402F9B81-CABF-4FE9-BD87-85692A5789C9}">
+					<ChildrenList>
+						<Action Name="" ID="{9A4A71B1-8355-4A9B-86C5-DB96B1C40CB2}" ShortID="838781406">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="10_0_Spite_Start" ID="{57E59A0A-C852-471D-9441-E98781E08ADD}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Spite_Duration" ID="{B7147C1B-9837-4176-807F-949433E3086C}">
+					<ChildrenList>
+						<Action Name="" ID="{94265411-ED6F-4060-8D38-8E308463CFBA}" ShortID="1047384406">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="10_1_Spite_Duration" ID="{27BAD8B0-C6C8-4159-93E8-EF5B70BDD370}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Spite_Pulse" ID="{1D39D26C-7863-4F3F-A649-80402C3D2F78}">
+					<ChildrenList>
+						<Action Name="" ID="{B0C62FB3-8C05-427B-A7FC-FBCF3AE03756}" ShortID="77494398">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="10_3_Spite_Pulse" ID="{8FB8FEE5-8D01-42DB-9082-03137A35EA4C}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Arsonist_Spite_End" ID="{EF220CBE-2B06-4002-9ED1-A0D0599EC78E}">
+					<ChildrenList>
+						<Action Name="" ID="{A1586CAE-F489-4983-ADDD-CBF3E33FF62A}" ShortID="981043589">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="10_2_Spite_End" ID="{8078CB23-F69F-41DE-95C4-592D6E61EB8A}" WorkUnitID="{02F6EB71-7D25-4684-96AB-CDAE6CE5B60A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
