@@ -186,92 +186,84 @@ namespace ArsonistMod
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
+            orig(self);
+            if (self.bodyIndex != BodyCatalog.FindBodyIndex("ArsonistBody")) return;
 
-            if (self.healthComponent)
+            //boosts when in blue zone- double damage?
+            if (self.HasBuff(Buffs.blueBuff))
             {
-                orig(self);
+                self.damage *= StaticValues.blueDamageMultiplier;
+            }
+            if (self.HasBuff(Buffs.lowerBuff))
+            {
+                self.damage *= StaticValues.lowerDamageMultiplier;
+            }
 
-                if (self)
+            if (self.HasBuff(Buffs.cleanseSpeedBoost))
+            {
+                self.moveSpeed += 5f;
+            }
+
+            #region Old Passive
+            //passive burn movespeed and damage
+            //if (self.HasBuff(RoR2Content.Buffs.AffixRed))
+            //{
+            //    self.damage *= StaticValues.igniteDamageMultiplier;
+            //    self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+
+            //    energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+
+            //}
+            //else if (self.HasBuff(RoR2Content.Buffs.OnFire))
+            //{
+            //    self.damage *= StaticValues.igniteDamageMultiplier;
+            //    self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
+            //    energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
+            //}
+            #endregion
+
+            if (self.HasBuff(Modules.Buffs.masochismBuff))
+            {
+                self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
+            }
+
+            if (self.HasBuff(Modules.Buffs.overheatDebuff))
+            {
+                if (!(self.HasBuff(Modules.Buffs.masochismDeactivatedDebuff) || self.HasBuff(Modules.Buffs.masochismDeactivatedNonDebuff)))
                 {
-                    
-                    if (self.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
-                    {
-                        EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
+                    self.attackSpeed *= StaticValues.overheatAttackSpeedDebuff;
+                }
+            }
 
-                        //boosts when in blue zone- double damage?
-                        if (self.HasBuff(Buffs.blueBuff))
-                        {
-                            self.damage *= StaticValues.blueDamageMultiplier;
-                        }
-                        if (self.HasBuff(Buffs.lowerBuff))
-                        {
-                            self.damage *= StaticValues.lowerDamageMultiplier;
-                        }
+            EnergySystem energySystem = self.gameObject.GetComponent<EnergySystem>();
+            if (self.skillLocator && energySystem)
+            {   
+                //cooldowns depending on being overheated or not
+                if (self.skillLocator.secondary.cooldownRemaining > 0 && energySystem.hasOverheatedSecondary)
+                {
+                    self.skillLocator.secondary.cooldownScale *= 1f;
+                }
+                else if (self.skillLocator.secondary.cooldownRemaining > 0 && !energySystem.hasOverheatedSecondary)
+                {
+                    self.skillLocator.secondary.cooldownScale *= StaticValues.secondaryCooldownMultiplier;
+                }
 
-                        if (self.HasBuff(Buffs.cleanseSpeedBoost)) 
-                        {
-                            self.moveSpeed += 5f;
-                        }
+                if (self.skillLocator.utility.cooldownRemaining > 0 && energySystem.hasOverheatedUtility)
+                {
+                    self.skillLocator.utility.cooldownScale *= 1f;
+                }
+                else if (self.skillLocator.utility.cooldownRemaining > 0 && !energySystem.hasOverheatedUtility)
+                {
+                    self.skillLocator.utility.cooldownScale *= StaticValues.utilityCooldownMultiplier;
+                }
 
-                        #region Old Passive
-                        //passive burn movespeed and damage
-                        //if (self.HasBuff(RoR2Content.Buffs.AffixRed))
-                        //{
-                        //    self.damage *= StaticValues.igniteDamageMultiplier;
-                        //    self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
-
-                        //    energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
-
-                        //}
-                        //else if (self.HasBuff(RoR2Content.Buffs.OnFire))
-                        //{
-                        //    self.damage *= StaticValues.igniteDamageMultiplier;
-                        //    self.moveSpeed *= StaticValues.igniteMovespeedMultiplier;
-                        //    energySystem.regenOverheat *= StaticValues.overheatRegenMultiplier;
-                        //}
-                        #endregion
-
-                        if (self.HasBuff(Modules.Buffs.masochismBuff)) 
-                        {
-                            self.attackSpeed *= StaticValues.igniteAttackSpeedMultiplier;
-                        }
-
-                        if (self.HasBuff(Modules.Buffs.overheatDebuff)) 
-                        {
-                            if (!(self.HasBuff(Modules.Buffs.masochismDeactivatedDebuff) || self.HasBuff(Modules.Buffs.masochismDeactivatedNonDebuff))) 
-                            {
-                                self.attackSpeed *= StaticValues.overheatAttackSpeedDebuff;
-                            }
-                        }
-
-                        //cooldowns depending on being overheated or not
-                        if (self.skillLocator.secondary.cooldownRemaining > 0 && energySystem.hasOverheatedSecondary)
-                        {
-                            self.skillLocator.secondary.cooldownScale *= 1f;
-                        }
-                        else if (self.skillLocator.secondary.cooldownRemaining > 0 && !energySystem.hasOverheatedSecondary)
-                        {
-                            self.skillLocator.secondary.cooldownScale *= StaticValues.secondaryCooldownMultiplier;
-                        }
-
-                        if (self.skillLocator.utility.cooldownRemaining > 0 && energySystem.hasOverheatedUtility)
-                        {
-                            self.skillLocator.utility.cooldownScale *= 1f;
-                        }
-                        else if (self.skillLocator.utility.cooldownRemaining > 0 && !energySystem.hasOverheatedUtility)
-                        {
-                            self.skillLocator.utility.cooldownScale *= StaticValues.utilityCooldownMultiplier;
-                        }
-
-                        if (self.skillLocator.special.cooldownRemaining > 0 && energySystem.hasOverheatedSpecial)
-                        {
-                            self.skillLocator.special.cooldownScale *= 1f;
-                        }
-                        else if (self.skillLocator.special.cooldownRemaining > 0 && !energySystem.hasOverheatedSpecial)
-                        {
-                            self.skillLocator.special.cooldownScale *= StaticValues.specialCooldownMultiplier;
-                        }
-                    }
+                if (self.skillLocator.special.cooldownRemaining > 0 && energySystem.hasOverheatedSpecial)
+                {
+                    self.skillLocator.special.cooldownScale *= 1f;
+                }
+                else if (self.skillLocator.special.cooldownRemaining > 0 && !energySystem.hasOverheatedSpecial)
+                {
+                    self.skillLocator.special.cooldownScale *= StaticValues.specialCooldownMultiplier;
                 }
             }
         }
