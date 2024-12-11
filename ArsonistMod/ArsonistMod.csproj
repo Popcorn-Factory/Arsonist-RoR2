@@ -30,7 +30,7 @@
 		
     	<PackageReference Include="BepInEx.Core" Version="5.4.21" />
 		<PackageReference Include="UnityEngine.Modules" Version="2021.3.33" />
-		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.3.1.275-r.0" />
+		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.3.5-r.2" />
         <PackageReference Include="R2API.Core" Version="5.1.1" />
         <PackageReference Include="R2API.Prefab" Version="1.0.4" />
         <PackageReference Include="R2API.Unlockable" Version="1.0.2" />
