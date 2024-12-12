@@ -68,7 +68,7 @@ namespace ArsonistMod.Modules
             projectileDamage.damage = 10f;
             projectileDamage.crit = false;
             projectileDamage.force = 1000f;
-            projectileDamage.damageType = DamageType.Generic;
+            projectileDamage.damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
 
             ProjectileImpactExplosion projectileExplosion = flareChildPrefab.AddComponent<ProjectileImpactExplosion>();
             projectileExplosion.explosionEffect = AssetsArsonist.elderlemurianexplosionEffect;
@@ -147,6 +147,7 @@ namespace ArsonistMod.Modules
             strongFlareexplosion.impactEffect = AssetsArsonist.elderlemurianexplosionEffect;
             strongFlareexplosion.timerAfterImpact = true;
             strongFlareexplosion.lifetimeAfterImpact = 3f;
+            strongFlareexplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
 
             NetworkSoundEventDef soundEvent = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             soundEvent.akId = 3061346618;
@@ -209,7 +210,7 @@ namespace ArsonistMod.Modules
             //weakFlare = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("flareShot");
 
 
-            //ProjectileDamage weakFlareDamage = weakFlare.GetComponent<ProjectileDamage>();
+            ProjectileDamage weakFlareDamage = weakFlare.GetComponent<ProjectileDamage>();
 
             //if (!weakFlareDamage)
             //{
@@ -217,7 +218,9 @@ namespace ArsonistMod.Modules
 
             //}
             //weakFlareDamage.damage = 1f;
-            //weakFlareDamage.damageType = DamageType.Generic;
+            weakFlareDamage.damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
+            DamageAPI.AddModdedDamageType(ref weakFlareDamage.damageType, Damage.arsonistWeakStickyDamageType);
+
             Rigidbody weakFlareRigidbody = weakFlare.GetComponent<Rigidbody>();
             if (!weakFlareRigidbody)
             {
@@ -240,6 +243,7 @@ namespace ArsonistMod.Modules
             weakFlareexplosion.impactEffect = AssetsArsonist.elderlemurianexplosionEffect;
             weakFlareexplosion.timerAfterImpact = true;
             weakFlareexplosion.lifetimeAfterImpact = 3f;
+            weakFlareexplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
 
             NetworkSoundEventDef soundEvent = ScriptableObject.CreateInstance<NetworkSoundEventDef>();
             soundEvent.akId = 3061346618;
@@ -290,9 +294,6 @@ namespace ArsonistMod.Modules
             {
                 collider.radius = 1.2f;
             }
-
-            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-            damageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
         }
 
         private static void CreateZeroPointBomb()
@@ -327,7 +328,7 @@ namespace ArsonistMod.Modules
             zeropointBombexplosion.timerAfterImpact = true;
             zeropointBombexplosion.lifetimeAfterImpact = 3f;
 
-            zeropointBombexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
+            zeropointBombexplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Secondary);
 
             ProjectileController zeropointBombController = zeropointBomb.GetComponent<ProjectileController>();
             zeropointBombController.rigidbody = zeropointBombRigidbody;
@@ -370,6 +371,7 @@ namespace ArsonistMod.Modules
             lemurianFireBallexplosion.timerAfterImpact = false;
             lemurianFireBallexplosion.lifetimeAfterImpact = 0f;
             lemurianFireBallexplosion.destroyOnWorld = true;
+            lemurianFireBallexplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Primary);
 
             ProjectileController lemurianFireBallController = lemurianFireBall.GetComponent<ProjectileController>();
             lemurianFireBallController.rigidbody = lemurianFireballRigidbody;
@@ -417,7 +419,7 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.destroyOnEnemy = true;
             artificerFireboltexplosion.lifetime = projLifetime;
             artificerFireboltexplosion.lifetimeRandomOffset = 0f;
-			
+
             artificerFireboltexplosion.impactEffect = AssetsArsonist.arsonistFiresprayExplosion;
 
 
@@ -445,7 +447,7 @@ namespace ArsonistMod.Modules
             artificerFireboltexplosion.onWorldCollisionBlastRadius = 5f;
             artificerFireboltexplosion.onEnemyCollisionBlastRadius = 7f;
 
-            artificerFireboltexplosion.GetComponent<ProjectileDamage>().damageType = DamageType.IgniteOnHit;
+            artificerFireboltexplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Primary);
 
             ProjectileController artificerFireboltController = artificerFirebolt.GetComponent<ProjectileController>();
             artificerFireboltController.rigidbody = artificerFireboltRigidbody;
@@ -517,7 +519,7 @@ namespace ArsonistMod.Modules
             projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
             projectileImpactExplosion.timerAfterImpact = false;
 
-            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Primary);
         }
 
         private static void InitializeStrongFireSprayOnHit(StrongFiresprayOnHit projectileImpactExplosion)
@@ -540,7 +542,7 @@ namespace ArsonistMod.Modules
             projectileImpactExplosion.offsetForLifetimeExpiredSound = 0f;
             projectileImpactExplosion.timerAfterImpact = false;
 
-            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = DamageType.Generic;
+            projectileImpactExplosion.GetComponent<ProjectileDamage>().damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Primary); 
         }
 
         private static GameObject CreateGhostPrefab(string ghostName, bool hopoo)

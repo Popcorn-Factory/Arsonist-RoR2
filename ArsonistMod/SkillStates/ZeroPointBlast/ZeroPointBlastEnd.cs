@@ -81,7 +81,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = pushForce;
             blastAttack.teamIndex = TeamComponent.GetObjectTeam(blastAttack.attacker);
-            blastAttack.damageType = DamageType.Stun1s;
+            blastAttack.damageType = new DamageTypeCombo(DamageType.Stun1s, DamageTypeExtended.Generic, DamageSource.Secondary);
             blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
 
             blastAttack.Fire();

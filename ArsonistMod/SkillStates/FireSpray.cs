@@ -102,6 +102,7 @@ namespace ArsonistMod.SkillStates
             Ray aimRay = GetAimRay();
             float coeff = isBlue ? altDamageCoefficient : damageCoefficient;
             Vector3 origin = GetDisplacedOrigin(aimRay);
+
             if (isAuthority)
             {
                 ProjectileManager.instance.FireProjectile(
@@ -114,7 +115,8 @@ namespace ArsonistMod.SkillStates
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Default, //damage color
                     null, //target
-                    speedOverride); //speed }
+                    speedOverride,
+                    new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Primary)); //speed }
 
             }
 
@@ -136,7 +138,8 @@ namespace ArsonistMod.SkillStates
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Default, //damage color
                     null, //target
-                    strongspeedOverride); //speed }
+                    strongspeedOverride,
+                    new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Primary)); //speed }
 
             }
 

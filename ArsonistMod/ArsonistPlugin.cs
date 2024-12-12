@@ -279,7 +279,7 @@ namespace ArsonistMod
                                     damageInfo.dotIndex == DotController.DotIndex.Helfire ||
                                     damageInfo.dotIndex == DotController.DotIndex.StrongerBurn;
 
-                    bool damageTypeCheck = damageInfo.damageType == DamageType.IgniteOnHit;
+                    bool damageTypeCheck = damageInfo.damageType.damageType == DamageType.IgniteOnHit;
                     //Debug.Log($"{DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistStickyDamageType)} {DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistWeakStickyDamageType)} {DamageAPI.HasModdedDamageType(damageInfo, Modules.Damage.arsonistChildExplosionDamageType)}");
 
 
@@ -298,7 +298,7 @@ namespace ArsonistMod
 
                     DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
                     DamageType frailtyDamageType = DamageType.FallDamage | DamageType.BypassOneShotProtection;
-                    if (self.body.HasBuff(Modules.Buffs.fallDamageReductionBuff) && (damageInfo.damageType == tempDamageType || damageInfo.damageType == frailtyDamageType )) 
+                    if (self.body.HasBuff(Modules.Buffs.fallDamageReductionBuff) && (damageInfo.damageType.damageType == tempDamageType || damageInfo.damageType.damageType == frailtyDamageType )) 
                     {
                         if (damageInfo.damage >= 20f) 
                         {
@@ -320,7 +320,7 @@ namespace ArsonistMod
                     //Receive damage, check if damage is not fire.
                     if (self.body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
                     {
-                        if (damageInfo.damage > self.fullHealth * Modules.Config.passiveHealthPercentageTriggerIgnite.Value && (damageInfo.damageType != tempDamageType) && !self.body.HasBuff(DLC1Content.Buffs.BearVoidReady)) 
+                        if (damageInfo.damage > self.fullHealth * Modules.Config.passiveHealthPercentageTriggerIgnite.Value && (damageInfo.damageType.damageType != tempDamageType) && !self.body.HasBuff(DLC1Content.Buffs.BearVoidReady)) 
                         {
                             if (!dotCheck)
                             {

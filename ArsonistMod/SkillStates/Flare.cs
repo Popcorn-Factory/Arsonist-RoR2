@@ -91,15 +91,6 @@ namespace ArsonistMod.SkillStates
                     new PlaySoundNetworkRequest(base.characterBody.netId, soundInt).Send(R2API.Networking.NetworkDestination.Clients);
                 }
             }
-
-            //This is so fucking stupid fuck fuck fucking goddamn it fuck
-            DamageAPI.ModdedDamageTypeHolderComponent damageTypeComponent = Projectiles.strongFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-            damageTypeComponent.Add(Damage.arsonistStickyDamageType);
-
-            DamageAPI.ModdedDamageTypeHolderComponent weakDamageTypeComponent = Projectiles.weakFlare.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
-            weakDamageTypeComponent.Add(Damage.arsonistWeakStickyDamageType);
-
-
         }
 
         //public void FireBullet()
@@ -142,6 +133,10 @@ namespace ArsonistMod.SkillStates
             {
                 base.characterBody.AddSpreadBloom(1f);
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
+                
+                DamageTypeCombo flareDamage = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
+
+                DamageAPI.AddModdedDamageType(ref flareDamage, Damage.arsonistStickyDamageType);
 
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.strongFlare, //prefab
@@ -153,7 +148,8 @@ namespace ArsonistMod.SkillStates
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Count, //damage color
                     null, //target
-                    speedOverride); //speed }
+                    speedOverride,
+                    flareDamage); //speed }
 
             }
         }
@@ -167,6 +163,10 @@ namespace ArsonistMod.SkillStates
                 base.characterBody.AddSpreadBloom(1f);
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
+                DamageTypeCombo flareDamage = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
+
+                DamageAPI.AddModdedDamageType(ref flareDamage, Damage.arsonistWeakStickyDamageType);
+
                 ProjectileManager.instance.FireProjectile(
                     Modules.Projectiles.weakFlare, //prefab
                     aimRay.origin, //position
@@ -177,7 +177,8 @@ namespace ArsonistMod.SkillStates
                     Util.CheckRoll(critStat, characterBody.master), //crit
                     DamageColorIndex.Count, //damage color
                     null, //target
-                    speedOverride); //speed }
+                    speedOverride,
+                    flareDamage); //speed }
 
             }
         }

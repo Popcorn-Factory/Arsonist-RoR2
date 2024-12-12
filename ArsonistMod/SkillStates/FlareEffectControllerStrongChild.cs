@@ -124,7 +124,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongChildDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
-            blastAttack.damageType = DamageType.IgniteOnHit;
+            blastAttack.damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Secondary);
             blastAttack.Fire();
 
             //Play Sound

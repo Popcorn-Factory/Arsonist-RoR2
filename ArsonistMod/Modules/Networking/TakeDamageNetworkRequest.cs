@@ -95,7 +95,9 @@ namespace ArsonistMod.Modules.Networking
             CharacterBody attackercharBody = attackercharMaster.GetBody();
             attackerbodyObj = attackercharBody.gameObject;
 
-
+            DamageTypeCombo genericDamage = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.NoneSpecified);
+            DamageTypeCombo igniteDamage = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.NoneSpecified);
+            DamageTypeCombo masoDamage = new DamageTypeCombo(DamageType.Generic | DamageType.AOE | DamageType.DoT, DamageTypeExtended.Generic, DamageSource.NoneSpecified);
 
             //deal health damage
             if (NetworkServer.active && charBody.healthComponent)
@@ -108,17 +110,17 @@ namespace ArsonistMod.Modules.Networking
                 damageInfo.crit = crit ? attackercharBody.RollCrit() : false;
                 damageInfo.attacker = attackercharBody ? attackercharBody.gameObject : null;
                 damageInfo.inflictor = null;
-                damageInfo.damageType = DamageType.Generic;
+                damageInfo.damageType = genericDamage;
                 damageInfo.procCoefficient = 0.2f;
                 damageInfo.procChainMask = default(ProcChainMask);
 
                 if (burn) 
                 {
-                    damageInfo.damageType = DamageType.IgniteOnHit;
+                    damageInfo.damageType = igniteDamage;
                 }
                 if (selfMasoDmg) 
                 {
-                    damageInfo.damageType = DamageType.Generic | DamageType.AOE | DamageType.DoT;
+                    damageInfo.damageType = masoDamage;
                 }
                 charBody.healthComponent.TakeDamage(damageInfo);
             }

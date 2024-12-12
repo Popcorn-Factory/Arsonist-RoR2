@@ -132,7 +132,7 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
             blastAttack.baseDamage = this.arsonistBody.damage * Modules.StaticValues.flareStrongDamageCoefficient;
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = 1f;
-            blastAttack.damageType = DamageType.IgniteOnHit;
+            blastAttack.damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Secondary);
             blastAttack.Fire();
 
             //Play Sound
@@ -173,6 +173,10 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
 
         public void FireProjectileSalvo(Vector3 direction, Vector3 origin)
         {
+            DamageTypeCombo damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary);
+
+            DamageAPI.AddModdedDamageType(ref damageType, Damage.arsonistChildExplosionDamageType);
+
             ProjectileManager.instance.FireProjectile(Modules.Projectiles.flareChildPrefab,
                 new Vector3(origin.x, origin.y + 2f, origin.z),
                 Util.QuaternionSafeLookRotation(direction),
@@ -182,7 +186,8 @@ namespace ArsonistMod.SkillStates.Arsonist.Secondary
                 arsonistBody.RollCrit(),
                 DamageColorIndex.Default,
                 null,
-                UnityEngine.Random.Range(15f, 25f));
+                UnityEngine.Random.Range(15f, 25f),
+                damageType);
         }
 
         private void OnDestroy()

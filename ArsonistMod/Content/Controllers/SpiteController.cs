@@ -36,6 +36,8 @@ namespace ArsonistMod.Content.Controllers
 
         public int masoStackOnUse;
 
+        public DamageTypeCombo AOEDamageType;
+
         public void Start() 
         {
             skillLocator = GetComponent<SkillLocator>();
@@ -46,6 +48,8 @@ namespace ArsonistMod.Content.Controllers
 
             Hook();
             ResetMaterial();
+
+            AOEDamageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Special);
 
             //Final blast
             finalBlastAttack = new BlastAttack
@@ -58,7 +62,7 @@ namespace ArsonistMod.Content.Controllers
                 baseDamage = characterBody.damage * Modules.StaticValues.masochismSurgeBlastRadius,
                 baseForce = 1000f,
                 bonusForce = Vector3.up,
-                damageType = DamageType.IgniteOnHit,
+                damageType = AOEDamageType,
                 damageColorIndex = DamageColorIndex.Default,
                 canRejectForce = false,
                 procCoefficient = 1f
@@ -200,7 +204,7 @@ namespace ArsonistMod.Content.Controllers
             finalBlastAttack.baseDamage = characterBody.baseDamage * Modules.StaticValues.masochismSurgeFinalBlastCoefficient * Modules.StaticValues.masochismSurgeMultiplierPerStack * masoStacksAccumulated;
             float radMultiplier = Mathf.Lerp(1f, Modules.StaticValues.masochismSurgeMaxMultipliedRange, stopwatch / (float)Modules.Config.masochismMaximumStack.Value);
             finalBlastAttack.radius = Modules.StaticValues.masochismSurgeBlastRadius * radMultiplier;
-            finalBlastAttack.damageType = DamageType.IgniteOnHit;
+            finalBlastAttack.damageType = AOEDamageType;
 
             finalBlastAttack.Fire();
             //Debug.Log($"Applied damage on blast: {finalBlastAttack.baseDamage} masoStack: {masoStacksAccumulated} radMultiplier: {finalBlastAttack.radius}");
@@ -278,7 +282,7 @@ namespace ArsonistMod.Content.Controllers
                         CharacterBody attackerCharacterBody = damageInfo.attacker.GetComponent<CharacterBody>();
                         if (attackerCharacterBody)
                         {
-                            bool damageTypeCheck = damageInfo.damageType == (DamageType.Generic | DamageType.AOE | DamageType.DoT);
+                            bool damageTypeCheck = damageInfo.damageType.damageType == (DamageType.Generic | DamageType.AOE | DamageType.DoT);
                             if (attackerCharacterBody.HasBuff(Modules.Buffs.masochismSurgeActiveBuff) && attackerCharacterBody.baseNameToken == ArsonistPlugin.DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME" && !damageTypeCheck)
                             {
                                 attackerCharacterBody.healthComponent.Heal(damageInfo.damage * Modules.Config.masochismSurgeHealOnHitPercentage.Value, new ProcChainMask(), true);

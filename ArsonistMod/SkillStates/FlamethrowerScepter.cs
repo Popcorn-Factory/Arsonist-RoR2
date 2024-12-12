@@ -95,7 +95,7 @@ namespace ArsonistMod.SkillStates
                 bulletCount = 1,
                 damage = strongCoefficient * this.damageStat,
                 damageColorIndex = DamageColorIndex.Default,
-                damageType = DamageType.Generic,
+                damageType = new DamageTypeCombo(DamageType.Generic, DamageTypeExtended.Generic, DamageSource.Secondary),
                 falloffModel = BulletAttack.FalloffModel.None,
                 maxDistance = flamethrowerRange,
                 force = 0f,
@@ -307,7 +307,7 @@ namespace ArsonistMod.SkillStates
                             bulletAttack.aimVector = aimRay.direction;
                             bulletAttack.origin = aimRay.origin;
                             bulletAttack.damage = coeff * this.damageStat;
-                            bulletAttack.damageType = DamageType.IgniteOnHit;
+                            bulletAttack.damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Secondary);
                             bulletAttack.maxDistance = range;
                             bulletAttack.Fire();
 

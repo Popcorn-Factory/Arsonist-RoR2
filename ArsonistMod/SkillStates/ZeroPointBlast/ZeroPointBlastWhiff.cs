@@ -20,7 +20,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         public Animator anim;
 
         public OverlapAttack detector;
-        protected DamageType damageType = DamageType.IgniteOnHit;
+        protected DamageTypeCombo damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Secondary);
 
         protected string hitboxName = "ZeroPoint";
 

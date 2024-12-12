@@ -29,7 +29,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
         private OverlapAttack detector;
         private OverlapAttack attack;
         protected float procCoefficient = 1f;
-        protected DamageType damageType = DamageType.IgniteOnHit;
+        protected DamageTypeCombo damageType = new DamageTypeCombo(DamageType.IgniteOnHit, DamageTypeExtended.Generic, DamageSource.Secondary);
         private float damageCoefficient;
         private Vector3 direction; //For detector
         protected float pushForce = 500f;
@@ -194,7 +194,7 @@ namespace ArsonistMod.SkillStates.ZeroPointBlast
             blastAttack.falloffModel = BlastAttack.FalloffModel.None;
             blastAttack.baseForce = pushForce;
             blastAttack.teamIndex = TeamComponent.GetObjectTeam(blastAttack.attacker);
-            blastAttack.damageType = DamageType.Stun1s;
+            blastAttack.damageType = new DamageTypeCombo(DamageType.Stun1s, DamageTypeExtended.Generic, DamageSource.Secondary);
             blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
 
             arsonistController = base.gameObject.GetComponent<ArsonistController>();
