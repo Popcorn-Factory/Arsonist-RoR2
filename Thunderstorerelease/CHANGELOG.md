@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.1
+    - Recompiled to support new method signatures
+    - Added proper Damage changes to get skill slot specific items to work.
 - 3.0.0
     - Added Scepter support!
         - Scepter changes how Primary functions:

@@ -18,6 +18,10 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
+- 3.0.1
+    - Recompiled to support new method signatures
+    - Added proper Damage changes to get skill slot specific items to work.
+
 - 3.0.0
     - Added Scepter support!
         - Scepter changes how Primary functions:

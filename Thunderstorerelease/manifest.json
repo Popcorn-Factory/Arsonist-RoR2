@@ -1,17 +1,17 @@
 {
   "name": "Arsonist_Mod",
-  "version_number": "3.0.0",
+  "version_number": "3.0.1",
   "website_url": "https://github.com/Popcorn-Factory/Arsonist-RoR2",
-  "description": "The Manic Incendiary - 3.0.0 Ancient Scepter update + special!",
+  "description": "The Manic Incendiary - 3.0.1 -> recompiled and fixed with proper damage skill slot.",
   "dependencies": [
     "bbepis-BepInExPack-5.4.1905",
     "RiskofThunder-HookGenPatcher-1.2.3",
-    "RiskofThunder-R2API_Core-5.0.0",
-    "RiskofThunder-R2API_Prefab-1.0.0",
-    "RiskofThunder-R2API_Language-1.0.0",
-    "RiskofThunder-R2API_Sound-1.0.0",
-    "RiskofThunder-R2API_Networking-1.0.0",
-    "RiskofThunder-R2API_Unlockable-1.0.0",
-    "RiskofThunder-R2API_DamageType-1.0.0"
+    "RiskofThunder-R2API_Core-5.1.3",
+    "RiskofThunder-R2API_Prefab-1.0.4",
+    "RiskofThunder-R2API_Language-1.0.1",
+    "RiskofThunder-R2API_Sound-1.0.3",
+    "RiskofThunder-R2API_Networking-1.0.3",
+    "RiskofThunder-R2API_Unlockable-1.0.2",
+    "RiskofThunder-R2API_DamageType-1.1.3"
   ]
 }
