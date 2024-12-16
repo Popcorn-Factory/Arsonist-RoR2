@@ -184,3 +184,4 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
   - bokchoywithsoy
 - Miscellaneous
   - Rob - Character template
+  - Moffein - Fixing up RecalculateStats hook
