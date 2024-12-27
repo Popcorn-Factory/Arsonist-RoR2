@@ -1,6 +1,8 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.2
+    - Fixed the damage types from being loaded to late.
 - 3.0.1
     - Recompiled to support new method signatures
     - Added proper Damage changes to get skill slot specific items to work.

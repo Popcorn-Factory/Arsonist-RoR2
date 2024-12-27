@@ -45,7 +45,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "3.0.1";
+        public const string MODVERSION = "3.0.2";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
         
@@ -53,11 +53,12 @@ namespace ArsonistMod
         public static ArsonistPlugin instance;
         public static AkGameObj akGameObject;
 
-        private void Awake()
+        public void Awake()
         {
             instance = this;
 
             Log.Init(Logger);
+            Modules.Damage.SetupModdedDamage(); //add modded damage types
             Modules.Config.ReadConfig();
             Modules.Config.OnChangeHooks();
             Modules.AssetsArsonist.Initialize(); // load assets and read config
@@ -75,7 +76,6 @@ namespace ArsonistMod
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-            Modules.Damage.SetupModdedDamage(); //add modded damage types
 
             // survivor initialization
             new Arsonist().Initialize();
