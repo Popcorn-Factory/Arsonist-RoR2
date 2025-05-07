@@ -1,6 +1,8 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.3
+    - Recompiled the mod for Seekers of the Storm Phase 3 update.
 - 3.0.2
     - Fixed the damage types from being loaded to late.
 - 3.0.1
