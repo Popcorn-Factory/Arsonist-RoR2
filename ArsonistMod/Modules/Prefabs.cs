@@ -19,12 +19,19 @@ namespace ArsonistMod.Modules {
             GameObject model = AssetsArsonist.LoadSurvivorModel(displayModelName);
 
             CharacterModel characterModel = model.GetComponent<CharacterModel>();
-            if (!characterModel) {
+            if (!characterModel)
+            {
                 characterModel = model.AddComponent<CharacterModel>();
             }
             characterModel.baseRendererInfos = prefab.GetComponentInChildren<CharacterModel>().baseRendererInfos;
 
-            //Modules.Assets.ConvertAllRenderersToHopooShader(model);
+            ModelSkinController modelSkinController = model.GetComponent<ModelSkinController>();
+            if (!modelSkinController)
+            {
+                modelSkinController = model.AddComponent<ModelSkinController>();
+            }
+
+            AssetsArsonist.ConvertAllRenderersToHopooShader(model);
 
             return model.gameObject;
         }

@@ -67,7 +67,7 @@ namespace ArsonistMod.Modules
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_NAME", "Firestorm");
             LanguageAPI.Add(prefix + "PRIMARY_FIRESPRAY_SCEPTER_DESCRIPTION", Helpers.heatPrefix + $"Fire a piercing beam of intense heat that deals " +
                 $"<style=cIsDamage>{100f * StaticValues.firesprayScepterStrongDamageCoefficient}% damage and ignites</style> enemies on hit." +
-                $"If held held for short time, fire a destructive beam that deals <style=cIsDamage>{100f * StaticValues.firesprayScepterChargedMultiplier * StaticValues.firesprayScepterStrongDamageCoefficient}% damage/style> when released.");
+                $"If held held for short time, fire a destructive beam that deals <style=cIsDamage>{100f * StaticValues.firesprayScepterChargedMultiplier * StaticValues.firesprayScepterStrongDamageCoefficient}% damage</style> when released.");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_NAME", "Dante's Rebuke");
             LanguageAPI.Add(prefix + "PRIMARY_FLAMETHROWER_SCEPTER_DESCRIPTION", $"Fire an intense beam that deals <style=cIsDamage>{100f * StaticValues.flamethrowerScepterStrongDamageCoefficient}% damage.</style> " +
                 $"Has increased chance to ignite the closer you are to the target. " +

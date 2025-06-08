@@ -740,7 +740,11 @@ namespace ArsonistMod.Modules.Survivors
             GameObject model = bodyPrefab.GetComponentInChildren<ModelLocator>().modelTransform.gameObject;
             CharacterModel characterModel = model.GetComponent<CharacterModel>();
 
-            ModelSkinController skinController = model.AddComponent<ModelSkinController>();
+            ModelSkinController skinController = model.gameObject.GetComponent<ModelSkinController>();
+            if (!skinController)
+            {
+                skinController = model.gameObject.AddComponent<ModelSkinController>();
+            }
             ChildLocator childLocator = model.GetComponent<ChildLocator>();
 
             CharacterModel.RendererInfo[] defaultRendererinfos = characterModel.baseRendererInfos;
@@ -770,7 +774,7 @@ namespace ArsonistMod.Modules.Survivors
 
             //these are your Mesh Replacements. The order here is based on your CustomRendererInfos from earlier
             //pass in meshes as they are named in your assetbundle
-            defaultSkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+            defaultSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
                 "meshArsonist",
                 "meshArsonistArmor",
                 "meshArsonistBoots",
@@ -782,15 +786,15 @@ namespace ArsonistMod.Modules.Survivors
                 "meshPyroRobe"
                 );
 
-            defaultSkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonist", false);
-            defaultSkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
-            defaultSkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
-            defaultSkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
-            defaultSkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
-            defaultSkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
-            defaultSkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.skinDefParams.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonist", false);
+            defaultSkin.skinDefParams.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.skinDefParams.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.skinDefParams.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.skinDefParams.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.skinDefParams.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
+            defaultSkin.skinDefParams.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistMetal", true);
             //defaultSkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt", false);
-            defaultSkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistCloth", true);
+            defaultSkin.skinDefParams.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistCloth", true);
 
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
             skins.Add(defaultSkin);
@@ -820,7 +824,7 @@ namespace ArsonistMod.Modules.Survivors
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
-            masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+            masterySkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
                 "SuitArsonist",
                 "SuitArsonist", //no armour mesh replacement. use same armour mesh
                 "SuitArsonistBoots",
@@ -833,15 +837,15 @@ namespace ArsonistMod.Modules.Survivors
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
-            masterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
-            masterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
-            masterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
-            masterySkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
-            masterySkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
-            masterySkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
-            masterySkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.skinDefParams.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+            masterySkin.skinDefParams.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+            masterySkin.skinDefParams.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.skinDefParams.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.skinDefParams.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.skinDefParams.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
+            masterySkin.skinDefParams.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonistMetal", true);
             //masterySkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
-            masterySkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
+            masterySkin.skinDefParams.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matSuitArsonist", true);
 
             //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
             //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
@@ -881,7 +885,7 @@ namespace ArsonistMod.Modules.Survivors
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
-            grandmasterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+            grandmasterySkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
                 "NeoArsonist",
                 "NeoArsonistArmor",//no gun mesh replacement. use same gun mesh
                 "NeoArsonistBoots",
@@ -894,15 +898,15 @@ namespace ArsonistMod.Modules.Survivors
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
-            grandmasterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            grandmasterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            grandmasterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            grandmasterySkin.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            grandmasterySkin.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            grandmasterySkin.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
-            grandmasterySkin.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[3].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[4].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[5].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
+            grandmasterySkin.skinDefParams.rendererInfos[6].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistMetal", true);
             //masterySkin.rendererInfos[7].defaultMaterial = Modules.Materials.CreateHopooMaterial("matArsonistAlt");
-            grandmasterySkin.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistCloth", true);
+            grandmasterySkin.skinDefParams.rendererInfos[8].defaultMaterial = Modules.Materials.CreateHopooMaterial("matNeoArsonistCloth", true);
 
             //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
             //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
@@ -919,6 +923,15 @@ namespace ArsonistMod.Modules.Survivors
             #endregion
 
             skinController.skins = skins.ToArray();
+
+            ModelSkinController displayPrefabMSC = displayPrefab.GetComponent<ModelSkinController>();
+            if (!displayPrefabMSC)
+            {
+                displayPrefabMSC = displayPrefab.AddComponent<ModelSkinController>();
+            }
+
+            displayPrefabMSC.skins = skins.ToArray();
+
         }
 
         private static CharacterModel.RendererInfo[] SkinRendererInfos(CharacterModel.RendererInfo[] defaultRenderers, Material[] materials)

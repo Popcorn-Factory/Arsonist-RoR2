@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.4
+    - Recompiled with latest dependencies
+    - Fixed Skin from not showing up in the display model.
 - 3.0.3
     - Recompiled the mod for Seekers of the Storm Phase 3 update.
 - 3.0.2

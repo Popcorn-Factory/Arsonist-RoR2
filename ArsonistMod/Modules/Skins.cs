@@ -13,14 +13,10 @@ namespace ArsonistMod.Modules
             SkinDefInfo skinDefInfo = new SkinDefInfo
             {
                 BaseSkins = Array.Empty<SkinDef>(),
-                GameObjectActivations = new SkinDef.GameObjectActivation[0],
                 Icon = skinIcon,
-                MeshReplacements = new SkinDef.MeshReplacement[0],
-                MinionSkinReplacements = new SkinDef.MinionSkinReplacement[0],
                 Name = skinName,
                 NameToken = skinName,
-                ProjectileGhostReplacements = new SkinDef.ProjectileGhostReplacement[0],
-                RendererInfos = defaultRendererInfos,
+                RendererInfos = new CharacterModel.RendererInfo[defaultRendererInfos.Length],
                 RootObject = root,
                 UnlockableDef = unlockableDef
             };
@@ -32,14 +28,18 @@ namespace ArsonistMod.Modules
             skinDef.icon = skinDefInfo.Icon;
             skinDef.unlockableDef = skinDefInfo.UnlockableDef;
             skinDef.rootObject = skinDefInfo.RootObject;
-            defaultRendererInfos.CopyTo(skinDefInfo.RendererInfos, 0);
-            skinDef.rendererInfos = skinDefInfo.RendererInfos;
-            skinDef.gameObjectActivations = skinDefInfo.GameObjectActivations;
-            skinDef.meshReplacements = skinDefInfo.MeshReplacements;
-            skinDef.projectileGhostReplacements = skinDefInfo.ProjectileGhostReplacements;
-            skinDef.minionSkinReplacements = skinDefInfo.MinionSkinReplacements;
             skinDef.nameToken = skinDefInfo.NameToken;
             skinDef.name = skinDefInfo.Name;
+
+            SkinDefParams skinDefParams = ScriptableObject.CreateInstance<RoR2.SkinDefParams>();
+            skinDefParams.projectileGhostReplacements = new SkinDefParams.ProjectileGhostReplacement[0];
+            skinDefParams.minionSkinReplacements = new SkinDefParams.MinionSkinReplacement[0];
+            skinDefParams.meshReplacements = new SkinDefParams.MeshReplacement[0];
+            skinDefParams.gameObjectActivations = new SkinDefParams.GameObjectActivation[0];
+            defaultRendererInfos.CopyTo(skinDefInfo.RendererInfos, 0);
+            skinDefParams.rendererInfos = skinDefInfo.RendererInfos;
+
+            skinDef.skinDefParams = skinDefParams;
 
             On.RoR2.SkinDef.Awake -= DoNothing;
 
@@ -58,10 +58,6 @@ namespace ArsonistMod.Modules
             internal UnlockableDef UnlockableDef;
             internal GameObject RootObject;
             internal CharacterModel.RendererInfo[] RendererInfos;
-            internal SkinDef.MeshReplacement[] MeshReplacements;
-            internal SkinDef.GameObjectActivation[] GameObjectActivations;
-            internal SkinDef.ProjectileGhostReplacement[] ProjectileGhostReplacements;
-            internal SkinDef.MinionSkinReplacement[] MinionSkinReplacements;
             internal string Name;
         }
 
@@ -96,10 +92,10 @@ namespace ArsonistMod.Modules
         /// <param name="defaultRendererInfos">your skindef's rendererinfos to access the renderers</param>
         /// <param name="meshes">name of the mesh assets in your project</param>
         /// <returns></returns>
-        internal static SkinDef.MeshReplacement[] getMeshReplacements(CharacterModel.RendererInfo[] defaultRendererInfos, params string[] meshes)
+        internal static SkinDefParams.MeshReplacement[] getMeshReplacements(CharacterModel.RendererInfo[] defaultRendererInfos, params string[] meshes)
         {
 
-            List<SkinDef.MeshReplacement> meshReplacements = new List<SkinDef.MeshReplacement>();
+            List<SkinDefParams.MeshReplacement> meshReplacements = new List<SkinDefParams.MeshReplacement>();
 
             for (int i = 0; i < defaultRendererInfos.Length; i++)
             {
@@ -107,7 +103,7 @@ namespace ArsonistMod.Modules
                     continue;
 
                 meshReplacements.Add(
-                new SkinDef.MeshReplacement
+                new SkinDefParams.MeshReplacement
                 {
                     renderer = defaultRendererInfos[i].renderer,
                     mesh = AssetsArsonist.mainAssetBundle.LoadAsset<Mesh>(meshes[i])

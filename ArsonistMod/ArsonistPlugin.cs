@@ -45,7 +45,7 @@ namespace ArsonistMod
     {
         public const string MODUID = "com.PopcornFactory.Arsonist";
         public const string MODNAME = "Arsonist";
-        public const string MODVERSION = "3.0.3";
+        public const string MODVERSION = "3.0.4";
 
         public const string DEVELOPER_PREFIX = "POPCORN";
         
@@ -575,31 +575,6 @@ namespace ArsonistMod
                 }
             }
         }
-
-        private void IdleState_OnInteractionBegin(On.RoR2.TeleporterInteraction.IdleState.orig_OnInteractionBegin orig, EntityStates.BaseState self, Interactor activator)
-        {
-            orig(self, activator);
-            //Get All network users
-            if (NetworkServer.active)
-            {
-                foreach (NetworkUser user in NetworkUser.instancesList)
-                {
-                    if (user.master)
-                    {
-                        if (user.master.GetBody())
-                        {
-                            string bodytoken = user.master.GetBody().baseNameToken;
-                            if (bodytoken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
-                            {
-                                //play voiceline.
-                                //Chat.AddMessage("You are activated, not big souprice");
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
         private void overlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
         {
