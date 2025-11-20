@@ -452,32 +452,32 @@ namespace ArsonistMod
             }
         }
 
-        private void Inventory_SetEquipmentIndexForSlot(On.RoR2.Inventory.orig_SetEquipmentIndexForSlot orig, Inventory self, EquipmentIndex newEquipmentIndex, uint slot)
-        {
-            orig(self, newEquipmentIndex, slot);
-            if (NetworkServer.active)
-            {
-                if (self) 
-                {
-                    if (self.GetComponent<CharacterMaster>()) 
-                    {
-                        CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
-                        if (body)
-                        {
-                            if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
-                            {
-                                string nameToken = EquipmentCatalog.GetEquipmentDef(newEquipmentIndex).nameToken;
+        //private void Inventory_SetEquipmentIndexForSlot(On.RoR2.Inventory.orig_SetEquipmentIndexForSlot orig, Inventory self, EquipmentIndex newEquipmentIndex, uint slot)
+        //{
+        //    orig(self, newEquipmentIndex, slot);
+        //    if (NetworkServer.active)
+        //    {
+        //        if (self) 
+        //        {
+        //            if (self.GetComponent<CharacterMaster>()) 
+        //            {
+        //                CharacterBody body = self.gameObject.GetComponent<CharacterMaster>().GetBody();
+        //                if (body)
+        //                {
+        //                    if (body.baseNameToken == DEVELOPER_PREFIX + "_ARSONIST_BODY_NAME")
+        //                    {
+        //                        string nameToken = EquipmentCatalog.GetEquipmentDef(newEquipmentIndex).nameToken;
 
-                                if (nameToken == "EQUIPMENT_BURNNEARBY_NAME")
-                                {
-                                    //Do things.
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //                        if (nameToken == "EQUIPMENT_BURNNEARBY_NAME")
+        //                        {
+        //                            //Do things.
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         private void BrotherEncounter_BossDeath_OnEnter(On.EntityStates.Missions.BrotherEncounter.BossDeath.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.BossDeath self)
         {
