@@ -18,9 +18,10 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 3.0.5
-    - Recompiled with latest dependencies
-    
+- 3.0.6
+    - README update, Added harmonchaos socials to credits.
+    - Functionally the same as 3.0.5, no changes have been made to the mod.
+
 - 3.0.0
     - Added Scepter support!
         - Scepter changes how Primary functions:
@@ -171,7 +172,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
  
 ## Credits
 - Concept, Icons, 2D Art, SFX, Voice talent:
-  - harmonchaos
+  - <a href="https://x.com/BenjaminTyke">harmonchaos</a>
   - <a href="https://twitter.com/DragonRoIlZ">DragonRollZ</a>
   - <a href="https://twitter.com/AnOddHermit">An Odd HermitVA</a> -> Arsonist VA
   - <a href="https://twitter.com/Alycoris">Alycoris</a> -> Firebug VA

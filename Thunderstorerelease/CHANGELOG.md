@@ -1,6 +1,8 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.6
+    - README update, Added harmonchaos socials to credits.
 - 3.0.5
     - Recompiled with latest dependencies
 - 3.0.4
