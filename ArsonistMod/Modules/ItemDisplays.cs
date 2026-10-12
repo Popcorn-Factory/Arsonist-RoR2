@@ -31,7 +31,7 @@ namespace ArsonistMod.Modules
 
                 for (int j = 0; j < rules.Length; j++)
                 {
-                    GameObject followerPrefab = rules[j].followerPrefab;
+                    GameObject followerPrefab = rules[j].followerPrefabAddress.LoadAssetAsync().WaitForCompletion();
                     if (followerPrefab)
                     {
                         string key = followerPrefab.name?.ToLowerInvariant();

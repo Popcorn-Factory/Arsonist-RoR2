@@ -18,9 +18,9 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 3.0.6
-    - README update, Added harmonchaos socials to credits.
-    - Functionally the same as 3.0.5, no changes have been made to the mod.
+- 3.0.7
+    - Updated for Hallowed Concepts
+    - Fixed spark particle on character select screen.
 
 - 3.0.0
     - Added Scepter support!

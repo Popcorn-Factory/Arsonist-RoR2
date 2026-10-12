@@ -1,6 +1,9 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.7
+    - Updated for Hallowed Concepts
+    - Fixed spark particle on character select screen.
 - 3.0.6
     - README update, Added harmonchaos socials to credits.
 - 3.0.5

@@ -192,6 +192,9 @@ namespace ArsonistMod.Modules
             //ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
             //ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             strongFlareController.ghostPrefab = ghostPrefab;
+            strongFlareController.ghostPrefabAddress = new UnityEngine.AddressableAssets.AssetReferenceT<GameObject>("");
+            strongFlareController.ghostAssetOrDirectReference.address = null;
+            strongFlareController.ghostAssetOrDirectReference.directRef = ghostPrefab;
 
             strongFlareController.startSound = "";
 
@@ -285,6 +288,9 @@ namespace ArsonistMod.Modules
             //ghostPrefab.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = Materials.CreateHopooMaterial("emissionSphereMat", false, 10);
             //ghostPrefab.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().material = Materials.CreateHopooMaterial("emissionRingMat", false, 10);
             weakFlareController.ghostPrefab = ghostPrefab;
+            weakFlareController.ghostPrefabAddress = new UnityEngine.AddressableAssets.AssetReferenceT<GameObject>("");
+            weakFlareController.ghostAssetOrDirectReference.address = null;
+            weakFlareController.ghostAssetOrDirectReference.directRef = ghostPrefab;
 
             weakFlareController.startSound = "";
 
@@ -338,6 +344,9 @@ namespace ArsonistMod.Modules
             
             
             zeropointBombController.ghostPrefab = AssetsArsonist.arsonistFlare;
+            zeropointBombController.ghostPrefabAddress = new UnityEngine.AddressableAssets.AssetReferenceT<GameObject>("");
+            zeropointBombController.ghostAssetOrDirectReference.address = null;
+            zeropointBombController.ghostAssetOrDirectReference.directRef = AssetsArsonist.arsonistFlare;
             zeropointBombController.startSound = "";
 
             zeropointBomb.AddComponent<ZeroPointOnWorldHit>();
@@ -380,12 +389,15 @@ namespace ArsonistMod.Modules
             lemurianFireBallController.procCoefficient = 1f;
 
             lemurianFireBallController.ghostPrefab = Modules.AssetsArsonist.fireballWeakGhost;
+            lemurianFireBallController.ghostPrefabAddress = new UnityEngine.AddressableAssets.AssetReferenceT<GameObject>("");
+            lemurianFireBallController.ghostAssetOrDirectReference.address = null;
+            lemurianFireBallController.ghostAssetOrDirectReference.directRef = Modules.AssetsArsonist.fireballWeakGhost;
             lemurianFireBallController.startSound = "";
         }
         private static void CreateArtificerFireBolt()
         {
             float projLifetime = 10f;
-            artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "artificerFireBolt");
+            artificerFirebolt = CloneProjectilePrefab("MageFirebolt", "ArsonistFireball");
 
             StrongFiresprayOnHit artificerFireboltexplosion = artificerFirebolt.GetComponent<StrongFiresprayOnHit>();
             if (!artificerFireboltexplosion)
@@ -459,8 +471,11 @@ namespace ArsonistMod.Modules
             artificerFireboltController.shouldPlaySounds = true;
 
 
-
-            artificerFireboltController.ghostPrefab = Modules.AssetsArsonist.fireballStrongGhost;
+            GameObject ghostPrefab = CreateGhostPrefab(Modules.AssetsArsonist.fireballStrongGhost);
+            artificerFireboltController.ghostPrefab = ghostPrefab;
+            artificerFireboltController.ghostPrefabAddress = new UnityEngine.AddressableAssets.AssetReferenceT<GameObject>("");
+            artificerFireboltController.ghostAssetOrDirectReference.address = null;
+            artificerFireboltController.ghostAssetOrDirectReference.directRef = ghostPrefab;
             artificerFireboltController.startSound = "";
 
             SphereCollider collider = artificerFirebolt.GetComponent<SphereCollider>();
@@ -561,6 +576,14 @@ namespace ArsonistMod.Modules
             return null;       
 
 
+        }
+
+        private static GameObject CreateGhostPrefab(GameObject obj) 
+        {
+            if (!obj.GetComponent<NetworkIdentity>()) obj.AddComponent<NetworkIdentity>();
+            if (!obj.GetComponent<ProjectileGhostController>()) obj.AddComponent<ProjectileGhostController>();
+
+            return obj;
         }
 
         private static GameObject CloneProjectilePrefab(string prefabName, string newPrefabName)
