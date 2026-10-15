@@ -1,6 +1,8 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.8
+    - Fixing issue when retrieving Item Displays
 - 3.0.7
     - Updated for Hallowed Concepts
     - Fixed spark particle on character select screen.
