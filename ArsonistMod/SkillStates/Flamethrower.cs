@@ -94,7 +94,6 @@ namespace ArsonistMod.SkillStates
                 maxDistance = flamethrowerRange,
                 force = 0f,
                 hitMask = LayerIndex.entityPrecise.mask,
-                hitEffectPrefab = EntityStates.Mage.Weapon.Flamethrower.impactEffectPrefab,
                 minSpread = 1f,
                 maxSpread = 4f,
                 isCrit = base.RollCrit(),

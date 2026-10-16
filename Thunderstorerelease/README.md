@@ -18,8 +18,8 @@ For any issues or bug reports, contact me on the RoR2 Modding discord (This pref
 ## Latest Major and Minor Update
 Check the Changelog tab in thunderstore to see previous changes:
 
-- 3.0.8
-    - Fixing issue when retrieving Item Displays
+- 3.0.9
+    - Fixing issue where using a Flamethrower on players would play the explosion SFX.
     
 - 3.0.0
     - Added Scepter support!

@@ -1,6 +1,8 @@
 # Arsonist, The Manic Incendiary
 ## Changelog
 
+- 3.0.9
+    - Fixing issue where using a Flamethrower on players would play the explosion SFX.
 - 3.0.8
     - Fixing issue when retrieving Item Displays
 - 3.0.7
